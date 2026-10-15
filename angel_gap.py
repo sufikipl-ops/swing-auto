@@ -122,7 +122,7 @@ def main():
             if not r.get('status'):
                 d['note'] = (d.get('note', '') + ' API: %s' % r.get('message'))[:120]
             results.append(d)
-            time.sleep(1.1)
+            time.sleep(1.6)
         cols = ['setup', 'symbol', 'status', 'prev_close', 'trigger', 'stop_low5', 'open', 'gap_pct', 'ltp', 'vwap',
                 'day_high', 'note']
         order = {'TRIGGERED': 0, 'WAIT': 1, 'RUNAWAY': 2}
