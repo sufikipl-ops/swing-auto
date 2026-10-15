@@ -25,7 +25,7 @@ li{margin:3px 0}ul{padding-left:18px;margin:4px 0}.foot{font-size:11px;color:var
 <div class="foot">Sirf technical jankari, advice nahi. Profit ki guarantee nahi. Trade se pehle khud verify karo.</div>
 <nav><button data-t="picks" class="on">Picks</button><button data-t="search">Search</button><button data-t="trades">Trades</button><button data-t="news">News</button></nav>
 <script>
-var D={},SC=[],GP={},NW={},TR=[],HL=[],ST={},MK={},tab='picks',cur=null;
+var D={},SC=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},tab='picks',cur=null;
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function csv(t){var o=[],r=[],f='',q=false,i,c;for(i=0;i<t.length;i++){c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
 else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;r.push(f);f='';if(r.length>1||r[0])o.push(r);r=[]}else f+=c}
@@ -42,18 +42,18 @@ function zoneTxt(s){if(s.v=='WEAK')return['Trend weak hai. Buy zone ignore karo,
 if(s.zone=='ABOVE_ZONE')return['Zone se upar (extended). Dip ka wait: '+f(s.zlo)+' - '+f(s.zhi)+'. Ya breakout: '+f(s.trig)+' ke upar close/volume ke saath','y'];
 return['EMA20 ke niche. Abhi buy zone nahi','r']}
 function load(){return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check.csv'),get('news_events.csv'),get('picks_review.csv'),get('news_events.txt')]).then(function(a){
-D=a[0]||{stocks:{},market:{}};ST=D.stocks;MK=D.market;SC=a[1]?csv(a[1]):[];(a[2]?csv(a[2]):[]).forEach(function(x){GP[x.symbol]=x});
+D=a[0]||{stocks:{},market:{}};ST=D.stocks;SK=D.skip||{};MK=D.market;SC=a[1]?csv(a[1]):[];(a[2]?csv(a[2]):[]).forEach(function(x){GP[x.symbol]=x});
 (a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=a[4]?csv(a[4]):[];HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
 var reg=MK.pct50<40?['Market kamzor','pr']:MK.pct50>60?['Market majboot','pg']:['Market mixed','py'];
 document.getElementById('mk').innerHTML='Data: '+esc(MK.date||'?')+' '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');render()})}
-  function links(sym){return '<a class="btn" target="_blank" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(sym+' share news')+'">Latest news</a>'+
+function links(sym){return '<a class="btn" target="_blank" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(sym+' share news')+'">Latest news</a>'+
 '<a class="btn" target="_blank" href="https://www.nseindia.com/get-quotes/equity?symbol='+encodeURIComponent(sym)+'">NSE</a>'+
 '<a class="btn" target="_blank" href="https://www.screener.in/company/'+encodeURIComponent(sym)+'/">Screener</a>'+
 '<a class="btn" target="_blank" href="https://in.tradingview.com/chart/?symbol=NSE:'+encodeURIComponent(sym)+'">Chart</a>'}
 function newsBlock(sym){var n=NW[sym],h='';if(n){h+='<h3>News / events</h3>';h+=n.flags&&n.flags!='none'?chip(n.flags,'py'):chip('Koi flag nahi');
 if(n.next_event)h+='<div>Aane wala: '+esc(n.next_event)+'</div>';if(n.last_announcement)h+='<div>Announcement: '+esc(n.last_announcement)+'</div>';
 if(n.headlines)h+='<div>'+esc(n.headlines)+'</div>'}else h+='<h3>News</h3><small>Is stock ka auto-news sirf picks me aata hai. Neeche "Latest news" dabao.</small>';return h}
-function detail(sym){var s=ST[sym];cur=sym;if(!s){document.getElementById('v').innerHTML='<div class="card">'+esc(sym)+' ka data nahi mila (naya listing / kam data / split ho sakta hai).</div>'+links(sym);return}
+function detail(sym){var s=ST[sym];cur=sym;if(!s){var k=SK[sym];document.getElementById('v').innerHTML='<div class="card"><div class="big">'+esc(sym)+'</div>'+(k?'<div class="y">Analysis nahi ban saka: '+esc(k[0])+'</div><small>Last close '+f(k[1])+'</small>':'<div>Ye symbol hamare data me nahi hai.</div>')+links(sym)+'</div><button class="btn" onclick="render()">&larr; Wapas</button>';return}
 var z=zoneTxt(s),p=plan(s),g=GP[sym],h='<div class="card"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>Close '+f(s.c)+' <span class="'+(s.chg>=0?'g':'r')+'">'+f(s.chg)+'%</span></small></div>'+
 chip(s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>';
 if(g)h+='<div>'+chip('9:20 status: '+g.status,g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr')+'</div>';
@@ -82,8 +82,8 @@ h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class=
 function render(){cur=null;var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():newsView();
 var rk=document.getElementById('rk'),cp=document.getElementById('cp'),q=document.getElementById('q');
 if(rk)rk.onchange=function(){sv('risk',rk.value);render()};if(cp)cp.onchange=function(){sv('cap',cp.value);render()};
-if(q){q.oninput=function(){var t=q.value.trim().toUpperCase(),a=Object.keys(ST).filter(function(k){return k.indexOf(t)==0}).slice(0,8);
-if(t.length<1)a=[];document.getElementById('sg').innerHTML=a.map(function(k){return '<div onclick="detail(\''+k+'\')">'+k+' <small>'+ST[k].v+' | '+f(ST[k].c)+'</small></div>'}).join('')};q.focus()}}
+if(q){q.oninput=function(){var t=q.value.trim().toUpperCase().replace(/\s+/g,''),a=Object.keys(ST).concat(Object.keys(SK)).filter(function(k){return k.indexOf(t)>=0}).sort(function(x,y){return(x.indexOf(t)==0?0:1)-(y.indexOf(t)==0?0:1)||x.length-y.length}).slice(0,12);
+if(t.length<1)a=[];document.getElementById('sg').innerHTML=a.length?a.map(function(k){return '<div onclick="detail(\''+k+'\')">'+k+' <small>'+(ST[k]?ST[k].v+' | '+f(ST[k].c):'data kam/band')+'</small></div>'}).join(''):(t.length?'<div>Nahi mila. NSE ka symbol likho (jaise HEROMOTOCO, naam nahi). Naye ya kam data wale stock yahan nahi aate.</div>':'')};q.focus()}}
 document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x==b)});render()}});
 load();
 </script></body></html>
