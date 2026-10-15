@@ -63,6 +63,8 @@ def adx14(hi, lo, cl):
     for x in dx[n:]:
         adx = (adx * (n - 1) + x) / n
     return adx
+
+
 data = collections.defaultdict(dict); alld = set()
 for f in glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv')):
     with open(f, newline='', encoding='utf-8', errors='ignore') as h:
