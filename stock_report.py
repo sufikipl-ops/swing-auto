@@ -63,7 +63,6 @@ def adx14(hi, lo, cl):
     for x in dx[n:]:
         adx = (adx * (n - 1) + x) / n
     return adx
-
 data = collections.defaultdict(dict); alld = set()
 for f in glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv')):
     with open(f, newline='', encoding='utf-8', errors='ignore') as h:
@@ -72,7 +71,7 @@ for f in glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv')):
             if len(r) < 15:
                 continue
             r = [c.strip() for c in r]
-            if r[1] != 'EQ':
+            if r[1] not in ('EQ', 'BE', 'BZ'):
                 continue
             try:
                 d = datetime.datetime.strptime(r[2], '%d-%b-%Y').date()
@@ -83,18 +82,27 @@ for f in glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv')):
 if not alld:
     print('no bhavcopy'); sys.exit(1)
 dates = sorted(alld)[-260:]; last = dates[-1]
-out = {}; up = dn = a20 = a50 = tot = 0
+out = {}; skip = {}; up = dn = a20 = a50 = tot = 0
+KEYS = ('cl', 'hi', 'lo', 'vol', 'to')
 for sym, byd in data.items():
-    ds = [d for d in dates if d in byd]
-    if len(ds) < 60 or ds[-1] != last:
+    ds = [d for d in dates if d in byd and all(byd[d][k] is not None for k in KEYS)]
+    if not ds:
+        continue
+    lastc = byd[ds[-1]]['cl']
+    if ds[-1] != last:
+        skip[sym] = ['Aakhri data %s ka hai, aaj ka nahi (suspended/band ya trade nahi hua)' % ds[-1].isoformat(), lastc]
+        continue
+    cut = 0
+    for i in range(1, len(ds)):
+        if abs(byd[ds[i]]['cl'] / byd[ds[i - 1]]['cl'] - 1) > 0.35:
+            cut = i
+    ds = ds[cut:]
+    if len(ds) < 60:
+        skip[sym] = ['Sirf %d din ka data (60 chahiye)%s' % (len(ds), ', bada jump/split ke baad' if cut else ' (naya listing?)'), lastc]
         continue
     b = [byd[d] for d in ds]
-    if any(x['cl'] is None or x['hi'] is None or x['lo'] is None or x['vol'] is None or x['to'] is None for x in b):
-        continue
     cl = [x['cl'] for x in b]; hi = [x['hi'] for x in b]; lo = [x['lo'] for x in b]
     vol = [x['vol'] for x in b]; to = [x['to'] / 100.0 for x in b]
-    if any(abs(cl[i] / cl[i - 1] - 1) > 0.35 for i in range(max(1, len(cl) - 120), len(cl))):
-        continue
     c = cl[-1]; chg = (c / cl[-2] - 1) * 100
     e20, e50 = ema(cl, 20), ema(cl, 50)
     e200 = ema(cl, 200)[-1] if len(cl) >= 150 else None
@@ -150,5 +158,5 @@ for sym, byd in data.items():
 mk = dict(date=last.isoformat(), n=tot, adv=up, dec=dn, pct20=round(100.0 * a20 / max(tot, 1), 1),
           pct50=round(100.0 * a50 / max(tot, 1), 1))
 with open(os.path.join(out_dir, 'stocks.json'), 'w') as h:
-    json.dump(dict(market=mk, stocks=out), h, separators=(',', ':'))
-print('stocks', len(out), '| date', last, '| market', mk)
+    json.dump(dict(market=mk, stocks=out, skip=skip), h, separators=(',', ':'))
+print('stocks', len(out), 'skipped', len(skip), '| date', last, '| market', mk)
