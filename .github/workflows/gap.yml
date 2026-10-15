@@ -1,0 +1,33 @@
+name: gap
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "50 3 * * 1-5"
+permissions:
+  contents: write
+jobs:
+  gap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run gap check
+        run: python angel_gap.py
+        env:
+          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+          ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+          ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+          ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
+      - name: Commit result
+        if: always()
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add out/gap_check.txt
+          git add out/gap_check.csv || true
+          git diff --cached --quiet || git commit -m "gap check $(date -u +%F)"
+          git pull --rebase || true
+          git push
