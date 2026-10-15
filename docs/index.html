@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1720"><meta name="mobile-web-app-capable" content="yes">
+<title>Swing Desk</title>
+<style>
+:root{--bg:#0f1720;--card:#18222e;--tx:#e8eef5;--mu:#8a9bb0;--g:#2fbf71;--r:#e5534b;--y:#e3b341;--b:#4c9aff;--bd:#263445}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,sans-serif;padding-bottom:70px}
+header{padding:12px 14px;border-bottom:1px solid var(--bd)}h1{font-size:18px;margin:0 0 4px}
+.mk{font-size:12px;color:var(--mu)}.pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;margin:2px 3px 2px 0;background:#223245}
+.g{color:var(--g)}.r{color:var(--r)}.y{color:var(--y)}.b{color:var(--b)}.mu{color:var(--mu)}
+.pg{background:#12301f;color:var(--g)}.pr{background:#3a1a19;color:var(--r)}.py{background:#3a3016;color:var(--y)}
+main{padding:10px 12px}.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin:0 0 10px}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center}.big{font-size:17px;font-weight:600}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0b1118;border-top:1px solid var(--bd)}
+nav button{flex:1;padding:14px 0;background:none;border:0;color:var(--mu);font-size:14px}nav button.on{color:var(--b);font-weight:600}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--bd);background:#0b1118;color:var(--tx);font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:14px}td{padding:5px 0;border-bottom:1px solid var(--bd)}td:last-child{text-align:right}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:#223245;color:var(--tx);text-decoration:none;font-size:13px;margin:4px 6px 0 0}
+.sug div{padding:10px;border-bottom:1px solid var(--bd)}small{color:var(--mu)}h3{margin:12px 0 6px;font-size:14px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+li{margin:3px 0}ul{padding-left:18px;margin:4px 0}.foot{font-size:11px;color:var(--mu);padding:8px 14px}
+</style></head><body>
+<header><h1>Swing Desk</h1><div class="mk" id="mk">loading...</div></header>
+<main id="v"></main>
+<div class="foot">Sirf technical jankari, advice nahi. Profit ki guarantee nahi. Trade se pehle khud verify karo.</div>
+<nav><button data-t="picks" class="on">Picks</button><button data-t="search">Search</button><button data-t="trades">Trades</button><button data-t="news">News</button></nav>
+<script>
+var D={},SC=[],GP={},NW={},TR=[],HL=[],ST={},MK={},tab='picks',cur=null;
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function csv(t){var o=[],r=[],f='',q=false,i,c;for(i=0;i<t.length;i++){c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;r.push(f);f='';if(r.length>1||r[0])o.push(r);r=[]}else f+=c}
+if(f||r.length){r.push(f);o.push(r)}if(!o.length)return[];var h=o[0];return o.slice(1).map(function(x){var d={};h.forEach(function(k,j){d[k]=x[j]});return d})}
+function get(u,j){return fetch(u+'?t='+Date.now()).then(function(r){if(!r.ok)throw 0;return j?r.json():r.text()}).catch(function(){return null})}
+function ls(k,d){try{var v=localStorage.getItem(k);return v==null?d:+v}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function f(x,n){return x==null||x===''||isNaN(x)?'-':(+x).toFixed(n==null?2:n)}
+function chip(t,c){return '<span class="pill '+(c||'')+'">'+esc(t)+'</span>'}
+function vc(v){return v=='STRONG'?'pg':v=='WEAK'?'pr':'py'}
+function plan(s,entry){var risk=ls('risk',700),cap=ls('cap',50000);entry=entry||s.c;var rs=entry-s.stop;if(rs<=0)return null;
+var q=Math.floor(risk/rs),mx=Math.floor(cap/entry);if(q>mx)q=mx;return{entry:entry,stop:s.stop,t1:entry+2*rs,q:q,val:q*entry,loss:q*rs,rs:rs}}
+function zoneTxt(s){if(s.v=='WEAK')return['Trend weak hai. Buy zone ignore karo, abhi avoid','r'];if(s.zone=='IN_ZONE')return['Buy zone me hai (EMA20 ke aaspaas)','g'];
+if(s.zone=='ABOVE_ZONE')return['Zone se upar (extended). Dip ka wait: '+f(s.zlo)+' - '+f(s.zhi)+'. Ya breakout: '+f(s.trig)+' ke upar close/volume ke saath','y'];
+return['EMA20 ke niche. Abhi buy zone nahi','r']}
+function load(){return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check.csv'),get('news_events.csv'),get('picks_review.csv'),get('news_events.txt')]).then(function(a){
+D=a[0]||{stocks:{},market:{}};ST=D.stocks;MK=D.market;SC=a[1]?csv(a[1]):[];(a[2]?csv(a[2]):[]).forEach(function(x){GP[x.symbol]=x});
+(a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=a[4]?csv(a[4]):[];HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
+var reg=MK.pct50<40?['Market kamzor','pr']:MK.pct50>60?['Market majboot','pg']:['Market mixed','py'];
+document.getElementById('mk').innerHTML='Data: '+esc(MK.date||'?')+' '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');render()})}
+  function links(sym){return '<a class="btn" target="_blank" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(sym+' share news')+'">Latest news</a>'+
+'<a class="btn" target="_blank" href="https://www.nseindia.com/get-quotes/equity?symbol='+encodeURIComponent(sym)+'">NSE</a>'+
+'<a class="btn" target="_blank" href="https://www.screener.in/company/'+encodeURIComponent(sym)+'/">Screener</a>'+
+'<a class="btn" target="_blank" href="https://in.tradingview.com/chart/?symbol=NSE:'+encodeURIComponent(sym)+'">Chart</a>'}
+function newsBlock(sym){var n=NW[sym],h='';if(n){h+='<h3>News / events</h3>';h+=n.flags&&n.flags!='none'?chip(n.flags,'py'):chip('Koi flag nahi');
+if(n.next_event)h+='<div>Aane wala: '+esc(n.next_event)+'</div>';if(n.last_announcement)h+='<div>Announcement: '+esc(n.last_announcement)+'</div>';
+if(n.headlines)h+='<div>'+esc(n.headlines)+'</div>'}else h+='<h3>News</h3><small>Is stock ka auto-news sirf picks me aata hai. Neeche "Latest news" dabao.</small>';return h}
+function detail(sym){var s=ST[sym];cur=sym;if(!s){document.getElementById('v').innerHTML='<div class="card">'+esc(sym)+' ka data nahi mila (naya listing / kam data / split ho sakta hai).</div>'+links(sym);return}
+var z=zoneTxt(s),p=plan(s),g=GP[sym],h='<div class="card"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>Close '+f(s.c)+' <span class="'+(s.chg>=0?'g':'r')+'">'+f(s.chg)+'%</span></small></div>'+
+chip(s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>';
+if(g)h+='<div>'+chip('9:20 status: '+g.status,g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr')+'</div>';
+h+='<div class="'+z[1]+'" style="margin:8px 0">'+esc(z[0])+'</div>';
+(s.warn||[]).forEach(function(w){h+=chip(w,'pr')});
+h+='<h3>Levels</h3><table>';
+[['EMA20 (pehla support)',s.e20],['EMA50',s.e50],['EMA200',s.e200],['Support: 5-din low',s.low5],['Support: 20-din low',s.low20],['Resistance: 20-din high',s.h20],['Resistance: 60-din high',s.h60],['52-hafte high',s.h52],['52-hafte low',s.l52]].forEach(function(r){
+if(r[1]!=null)h+='<tr><td>'+r[0]+'</td><td>'+f(r[1])+' <small>('+f((r[1]/s.c-1)*100,1)+'%)</small></td></tr>'});h+='</table>';
+h+='<h3>Indicators</h3><table><tr><td>RSI14</td><td>'+f(s.rsi,1)+'</td></tr><tr><td>ADX14 (trend dum)</td><td>'+f(s.adx,1)+'</td></tr><tr><td>MACD histogram</td><td>'+f(s.mh)+'</td></tr><tr><td>Volume vs 20d avg</td><td>'+f(s.vx)+'x</td></tr><tr><td>Delivery % (aaj / avg)</td><td>'+f(s.dl,0)+' / '+f(s.dla,0)+'</td></tr><tr><td>20d turnover</td><td>Rs '+f(s.t20,0)+' cr</td></tr></table>';
+if(p){h+='<h3>Trade plan (tumhare risk/capital se)</h3><table><tr><td>Entry (ref)</td><td>'+f(p.entry)+'</td></tr><tr><td>Stop-loss</td><td class="r">'+f(p.stop)+'</td></tr><tr><td>Target (2R)</td><td class="g">'+f(p.t1)+'</td></tr><tr><td>Qty</td><td>'+p.q+'</td></tr><tr><td>Position</td><td>Rs '+f(p.val,0)+'</td></tr><tr><td>Max loss</td><td>Rs '+f(p.loss,0)+'</td></tr></table>';
+if(s.h60<p.t1)h+='<small>Target se pehle 60-din high ('+f(s.h60)+') resistance hai, wahan ruk sakta hai.</small>';if(p.q<1)h+='<div class="r">Is stop ke saath risk limit me 1 share bhi nahi aata.</div>'}
+h+='<h3>Score kyun</h3><ul style="list-style:none;padding:0">';s.why.forEach(function(w){h+='<li class="'+(w[0]=='+'?'g':'mu')+'">'+(w[0]=='+'?'&#10003; ':'&#10007; ')+esc(w.slice(2))+'</li>'});h+='</ul>'+newsBlock(sym)+links(sym)+'</div>';
+h+='<button class="btn" onclick="render()">&larr; Wapas</button>';document.getElementById('v').innerHTML=h;window.scrollTo(0,0)}
+function picksView(){var h='<div class="card"><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></div>';
+if(!SC.length)h+='<div class="card">Aaj ke picks abhi nahi mile.</div>';
+SC.forEach(function(r){var s=ST[r.SYMBOL],g=GP[r.SYMBOL],n=NW[r.SYMBOL],trig=+r.DAY_HIGH*1.001,stop=+r.LOW5,rs=trig-stop,q=rs>0?Math.min(Math.floor(ls('risk',700)/rs),Math.floor(ls('cap',50000)/trig)):0;
+h+='<div class="card" onclick="detail(\''+esc(r.SYMBOL)+'\')"><div class="row"><div class="big">'+esc(r.SYMBOL)+' '+chip(r.SETUP,'')+'</div>'+(s?chip(s.v,vc(s.v)):'')+'</div>'+
+'<small>Close '+esc(r.CLOSE)+' | RSI '+esc(r.RSI14)+' | Vol '+esc(r.VOL_X)+'x</small><div>Trigger '+f(trig)+' | SL '+f(stop)+' | T '+f(trig+2*rs)+' | Qty '+q+'</div>'+
+(g?chip(g.status,g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr'):'')+(n&&n.flags!='none'?chip(n.flags,'py'):'')+(r.NOTE?chip(r.NOTE,'pr'):'')+'</div>'});return h}
+function searchView(){return '<input id="q" placeholder="Stock ka naam likho (e.g. RELIANCE)" autocapitalize="characters" autocomplete="off"><div id="sg" class="sug"></div>'}
+function tradesView(){if(!TR.length)return '<div class="card">Abhi koi trade logged nahi. Picks sheet me trade jodo.</div>';
+return TR.map(function(t){var c=t.status=='CLOSED'?(+t.R>0?'pg':'pr'):'py';return '<div class="card"><div class="row"><div class="big">'+esc(t.symbol)+'</div>'+chip(t.status,c)+'</div><small>'+esc(t.date)+' | Entry '+esc(t.entry)+' SL '+esc(t.sl)+' T '+esc(t.target)+' Qty '+esc(t.qty)+'</small>'+(t.status=='CLOSED'?'<div>Exit '+esc(t.exit)+' ('+esc(t.reason_exit)+') | R '+esc(t.R)+' | Rs '+esc(t.pnl)+'</div>':'')+'</div>'}).join('')+'<small>30-50 closed trades ke baad hi system ka faisla karo.</small>'}
+function newsView(){var h='',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
+fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+chip(n.flags,'py')+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div></div>'});
+h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class="card">'+esc(l.trim())+'</div>'}).join(''):'<div class="card">Headlines nahi mili.</div>');return h}
+function render(){cur=null;var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():newsView();
+var rk=document.getElementById('rk'),cp=document.getElementById('cp'),q=document.getElementById('q');
+if(rk)rk.onchange=function(){sv('risk',rk.value);render()};if(cp)cp.onchange=function(){sv('cap',cp.value);render()};
+if(q){q.oninput=function(){var t=q.value.trim().toUpperCase(),a=Object.keys(ST).filter(function(k){return k.indexOf(t)==0}).slice(0,8);
+if(t.length<1)a=[];document.getElementById('sg').innerHTML=a.map(function(k){return '<div onclick="detail(\''+k+'\')">'+k+' <small>'+ST[k].v+' | '+f(ST[k].c)+'</small></div>'}).join('')};q.focus()}}
+document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x==b)});render()}});
+load();
+</script></body></html>
