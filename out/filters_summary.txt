@@ -1,0 +1,160 @@
+FILTER TEST (generated 2026-10-15)
+Signals: 14393 from 2025-12-30 to 2026-09-22; H1 = up to 2026-06-22, H2 = after.
+Exit rules fixed: (entry, stop, RR, hold). Cost 0.25% round trip. Rows with n < 150 are marked (small).
+
+== exit ('TRIG', 'LOW5', 1.5, 10) | ALL ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   ALL         8650    39  -0.163  0.72   -0.100   -0.225   4282   4368
+NIFTY>EMA50            ALL         4289    38  -0.182  0.68   -0.053   -0.231   1196   3093
+NIFTY up-trend         ALL         3058    36  -0.224  0.63   -0.233   -0.223    226   2832
+BREADTH>50%            ALL         6443    39  -0.166  0.71   -0.072   -0.229   2592   3851
+BREADTH>60%            ALL         3573    37  -0.196  0.65   -0.094   -0.292   1738   1835
+ADX>25                 ALL         3105    39  -0.145  0.73   -0.053   -0.223   1419   1686
+ADX>30                 ALL         1756    39  -0.138  0.74   -0.058   -0.198    748   1008
+MACD_H>0               ALL         3066    42  -0.094  0.79   -0.061   -0.135   1704   1362
+DELIV>=1.0x            ALL         4365    37  -0.193  0.69   -0.112   -0.264   2030   2335
+TURN20>=20cr           ALL         5593    39  -0.167  0.71   -0.127   -0.207   2783   2810
+NIFTY+ADX25            ALL         1546    40  -0.147  0.72    0.051   -0.221    421   1125
+BREADTH50+ADX25+MACD   ALL         1010    43  -0.079  0.79   -0.038   -0.116    475    535
+BREADTH60+ADX25+DELIV  ALL          603    35  -0.221  0.63   -0.074   -0.322    246    357
+STRICT (all)           ALL          134    43  -0.115  0.73   -0.290   -0.020     47     87  (small)
+
+== exit ('TRIG', 'LOW5', 1.5, 10) | BREAKOUT ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   BREAKOUT    2300    45  -0.040  0.89   -0.011   -0.081   1345    955
+NIFTY>EMA50            BREAKOUT    1330    45  -0.039  0.89   -0.028   -0.047    579    751
+NIFTY up-trend         BREAKOUT     772    44  -0.086  0.77   -0.356   -0.053     85    687
+BREADTH>50%            BREAKOUT    1867    45  -0.036  0.89   -0.011   -0.065    989    878
+BREADTH>60%            BREAKOUT    1275    45  -0.026  0.92   -0.019   -0.038    785    490
+ADX>25                 BREAKOUT    1221    43  -0.052  0.85   -0.004   -0.106    645    576
+ADX>30                 BREAKOUT     805    44  -0.043  0.88    0.001   -0.086    391    414
+MACD_H>0               BREAKOUT    2192    45  -0.040  0.89   -0.007   -0.087   1295    897
+DELIV>=1.0x            BREAKOUT     632    47  -0.050  0.87   -0.019   -0.102    395    237
+TURN20>=20cr           BREAKOUT    1504    43  -0.067  0.81   -0.058   -0.079    879    625
+NIFTY+ADX25            BREAKOUT     712    46  -0.018  0.95    0.058   -0.067    280    432
+BREADTH50+ADX25+MACD   BREAKOUT     931    44  -0.063  0.82   -0.026   -0.099    457    474
+BREADTH60+ADX25+DELIV  BREAKOUT     183    44  -0.031  0.91   -0.017   -0.052    111     72
+STRICT (all)           BREAKOUT     103    45  -0.069  0.80   -0.193    0.016     42     61  (small)
+
+== exit ('TRIG', 'LOW5', 1.5, 10) | PULLBACK ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   PULLBACK    6350    36  -0.207  0.68   -0.140   -0.266   2937   3413
+NIFTY>EMA50            PULLBACK    2959    35  -0.246  0.63   -0.077   -0.290    617   2342
+NIFTY up-trend         PULLBACK    2286    34  -0.270  0.61   -0.160   -0.277    141   2145
+BREADTH>50%            PULLBACK    4576    36  -0.219  0.67   -0.110   -0.278   1603   2973
+BREADTH>60%            PULLBACK    2298    33  -0.290  0.58   -0.157   -0.384    953   1345
+ADX>25                 PULLBACK    1884    36  -0.206  0.68   -0.094   -0.283    774   1110
+ADX>30                 PULLBACK     951    35  -0.219  0.67   -0.124   -0.276    357    594
+MACD_H>0               PULLBACK     874    35  -0.230  0.66   -0.231   -0.229    409    465
+DELIV>=1.0x            PULLBACK    3733    36  -0.217  0.67   -0.134   -0.282   1635   2098
+TURN20>=20cr           PULLBACK    4089    37  -0.204  0.69   -0.159   -0.244   1904   2185
+NIFTY+ADX25            PULLBACK     834    34  -0.257  0.62    0.036   -0.317    141    693
+BREADTH50+ADX25+MACD   PULLBACK      79    32  -0.272  0.61   -0.339   -0.252     18     61  (small)
+BREADTH60+ADX25+DELIV  PULLBACK     420    31  -0.303  0.57   -0.121   -0.390    135    285
+STRICT (all)           PULLBACK      31    35  -0.265  0.63   -1.101   -0.104      5     26  (small)
+
+== exit ('TRIG', 3.0, 1.0, 10) | ALL ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   ALL         9501    46  -0.037  0.88   -0.026   -0.049   4786   4715
+NIFTY>EMA50            ALL         4772    45  -0.034  0.89   -0.047   -0.029   1400   3372
+NIFTY up-trend         ALL         3362    44  -0.050  0.84   -0.250   -0.033    266   3096
+BREADTH>50%            ALL         7140    47  -0.006  0.98    0.034   -0.034   2959   4181
+BREADTH>60%            ALL         4034    46  -0.015  0.95    0.007   -0.038   2026   2008
+ADX>25                 ALL         3592    45  -0.048  0.85   -0.042   -0.052   1683   1909
+ADX>30                 ALL         2092    46  -0.053  0.84   -0.086   -0.027    929   1163
+MACD_H>0               ALL         3901    47  -0.045  0.87   -0.054   -0.033   2197   1704
+DELIV>=1.0x            ALL         4469    46  -0.020  0.93   -0.006   -0.032   2097   2372
+TURN20>=20cr           ALL         6136    46  -0.046  0.86   -0.046   -0.046   3113   3023
+NIFTY+ADX25            ALL         1826    45  -0.038  0.88   -0.044   -0.035    520   1306
+BREADTH50+ADX25+MACD   ALL         1398    46  -0.038  0.88   -0.010   -0.063    654    744
+BREADTH60+ADX25+DELIV  ALL          633    46   0.014  1.05    0.052   -0.013    260    373
+STRICT (all)           ALL          156    48   0.002  1.01   -0.153    0.084     54    102
+
+== exit ('TRIG', 3.0, 1.0, 10) | BREAKOUT ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   BREAKOUT    3143    47  -0.054  0.85   -0.055   -0.053   1844   1299
+NIFTY>EMA50            BREAKOUT    1810    47  -0.041  0.88   -0.059   -0.028    783   1027
+NIFTY up-trend         BREAKOUT    1074    46  -0.068  0.81   -0.318   -0.035    125    949
+BREADTH>50%            BREAKOUT    2558    47  -0.024  0.92   -0.009   -0.042   1353   1205
+BREADTH>60%            BREAKOUT    1731    47  -0.016  0.95   -0.019   -0.010   1071    660
+ADX>25                 BREAKOUT    1705    45  -0.088  0.77   -0.104   -0.069    907    798
+ADX>30                 BREAKOUT    1138    46  -0.107  0.73   -0.157   -0.057    570    568
+MACD_H>0               BREAKOUT    3027    47  -0.056  0.84   -0.056   -0.056   1788   1239
+DELIV>=1.0x            BREAKOUT     729    48  -0.047  0.86   -0.017   -0.097    458    271
+TURN20>=20cr           BREAKOUT    2040    46  -0.070  0.80   -0.090   -0.041   1204    836
+NIFTY+ADX25            BREAKOUT     991    47  -0.047  0.86   -0.052   -0.044    379    612
+BREADTH50+ADX25+MACD   BREAKOUT    1319    46  -0.040  0.88   -0.013   -0.065    636    683
+BREADTH60+ADX25+DELIV  BREAKOUT     211    48   0.012  1.04   -0.011    0.046    124     87
+STRICT (all)           BREAKOUT     125    47  -0.022  0.92   -0.148    0.060     49     76  (small)
+
+== exit ('TRIG', 3.0, 1.0, 10) | PULLBACK ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   PULLBACK    6358    45  -0.029  0.90   -0.007   -0.048   2942   3416
+NIFTY>EMA50            PULLBACK    2962    44  -0.030  0.89   -0.032   -0.029    617   2345
+NIFTY up-trend         PULLBACK    2288    43  -0.042  0.86   -0.190   -0.032    141   2147
+BREADTH>50%            PULLBACK    4582    47   0.004  1.02    0.070   -0.031   1606   2976
+BREADTH>60%            PULLBACK    2303    45  -0.015  0.94    0.037   -0.052    955   1348
+ADX>25                 PULLBACK    1887    45  -0.011  0.96    0.030   -0.040    776   1111
+ADX>30                 PULLBACK     954    46   0.011  1.04    0.026    0.002    359    595
+MACD_H>0               PULLBACK     874    46  -0.004  0.98   -0.044    0.030    409    465
+DELIV>=1.0x            PULLBACK    3740    46  -0.014  0.95   -0.003   -0.023   1639   2101
+TURN20>=20cr           PULLBACK    4096    46  -0.033  0.89   -0.018   -0.047   1909   2187
+NIFTY+ADX25            PULLBACK     835    43  -0.027  0.90   -0.025   -0.028    141    694
+BREADTH50+ADX25+MACD   PULLBACK      79    41  -0.001  1.00    0.107   -0.033     18     61  (small)
+BREADTH60+ADX25+DELIV  PULLBACK     422    45   0.015  1.06    0.110   -0.030    136    286
+STRICT (all)           PULLBACK      31    52   0.097  1.66   -0.206    0.155      5     26  (small)
+
+== exit ('OPEN', 3.0, 1.5, 5) | ALL ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   ALL        13377    43  -0.049  0.78   -0.061   -0.038   6543   6834
+NIFTY>EMA50            ALL         6825    43  -0.047  0.78   -0.089   -0.031   1916   4909
+NIFTY up-trend         ALL         4898    42  -0.048  0.78   -0.165   -0.038    406   4492
+BREADTH>50%            ALL        10097    43  -0.038  0.82   -0.034   -0.041   3987   6110
+BREADTH>60%            ALL         5748    41  -0.043  0.79   -0.024   -0.061   2756   2992
+ADX>25                 ALL         5032    44  -0.057  0.75   -0.093   -0.027   2318   2714
+ADX>30                 ALL         2919    44  -0.077  0.70   -0.134   -0.034   1276   1643
+MACD_H>0               ALL         5233    43  -0.072  0.72   -0.093   -0.046   2885   2348
+DELIV>=1.0x            ALL         6414    44  -0.027  0.87   -0.032   -0.022   2913   3501
+TURN20>=20cr           ALL         8723    43  -0.058  0.75   -0.078   -0.038   4295   4428
+NIFTY+ADX25            ALL         2586    44  -0.048  0.79   -0.116   -0.022    710   1876
+BREADTH50+ADX25+MACD   ALL         1797    43  -0.069  0.73   -0.063   -0.073    832    965
+BREADTH60+ADX25+DELIV  ALL          944    44  -0.006  0.97   -0.018    0.001    371    573
+STRICT (all)           ALL          191    50  -0.020  0.90   -0.106    0.024     65    126
+
+== exit ('OPEN', 3.0, 1.5, 5) | BREAKOUT ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   BREAKOUT    3821    43  -0.093  0.68   -0.104   -0.078   2224   1597
+NIFTY>EMA50            BREAKOUT    2231    42  -0.095  0.66   -0.134   -0.064    976   1255
+NIFTY up-trend         BREAKOUT    1320    42  -0.092  0.67   -0.257   -0.068    168   1152
+BREADTH>50%            BREAKOUT    3100    42  -0.073  0.72   -0.070   -0.075   1622   1478
+BREADTH>60%            BREAKOUT    2100    43  -0.054  0.78   -0.054   -0.054   1292    808
+ADX>25                 BREAKOUT    2113    42  -0.119  0.62   -0.158   -0.075   1118    995
+ADX>30                 BREAKOUT    1412    41  -0.152  0.56   -0.219   -0.086    697    715
+MACD_H>0               BREAKOUT    3675    43  -0.094  0.68   -0.105   -0.078   2158   1517
+DELIV>=1.0x            BREAKOUT     837    44  -0.098  0.67   -0.080   -0.129    522    315
+TURN20>=20cr           BREAKOUT    2522    43  -0.108  0.63   -0.134   -0.073   1473   1049
+NIFTY+ADX25            BREAKOUT    1243    43  -0.101  0.65   -0.161   -0.063    486    757
+BREADTH50+ADX25+MACD   BREAKOUT    1629    43  -0.069  0.73   -0.063   -0.075    782    847
+BREADTH60+ADX25+DELIV  BREAKOUT     246    46  -0.028  0.89   -0.064    0.022    143    103
+STRICT (all)           BREAKOUT     149    50  -0.039  0.84   -0.106    0.001     56     93  (small)
+
+== exit ('OPEN', 3.0, 1.5, 5) | PULLBACK ==
+filter                 setup          n  win%    avgR    PF  avgR_H1  avgR_H2   n_H1   n_H2
+NONE                   PULLBACK    9556    44  -0.031  0.84   -0.038   -0.026   4319   5237
+NIFTY>EMA50            PULLBACK    4594    43  -0.025  0.87   -0.041   -0.020    940   3654
+NIFTY up-trend         PULLBACK    3578    42  -0.032  0.84   -0.100   -0.027    238   3340
+BREADTH>50%            PULLBACK    6997    43  -0.023  0.88   -0.009   -0.029   2365   4632
+BREADTH>60%            PULLBACK    3648    41  -0.037  0.81    0.003   -0.064   1464   2184
+ADX>25                 PULLBACK    2919    45  -0.013  0.93   -0.032    0.001   1200   1719
+ADX>30                 PULLBACK    1507    46  -0.008  0.95   -0.031    0.007    579    928
+MACD_H>0               PULLBACK    1558    43  -0.020  0.89   -0.058    0.012    727    831
+DELIV>=1.0x            PULLBACK    5577    44  -0.016  0.92   -0.021   -0.012   2391   3186
+TURN20>=20cr           PULLBACK    6201    44  -0.037  0.82   -0.049   -0.027   2822   3379
+NIFTY+ADX25            PULLBACK    1343    46   0.001  1.01   -0.018    0.005    224   1119
+BREADTH50+ADX25+MACD   PULLBACK     168    39  -0.063  0.67   -0.077   -0.057     50    118
+BREADTH60+ADX25+DELIV  PULLBACK     698    43   0.001  1.01    0.011   -0.003    228    470
+STRICT (all)           PULLBACK      42    50   0.045  1.56   -0.113    0.088      9     33  (small)
+
+Rows with n >= 150 and avgR > 0 in BOTH halves: 1 of 117
+  TRIG 3.0 1.0 10 | ADX>30 | PULLBACK | n=954 avgR=0.011 H1=0.026 H2=0.002
+Caution: 14 filters x 3 exits x 3 groups were tried; a few positive rows can be luck. Past results do not guarantee future results.
