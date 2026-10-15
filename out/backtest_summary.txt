@@ -1,0 +1,43 @@
+BACKTEST SUMMARY (generated 2026-10-15)
+Data: 2025-10-01 to 2026-10-14 (255 trading dates), symbols: 2984
+Rules: signal as in screen.py; entry = GTT above signal-day high (valid 4 days, skip if open >1.5% above trigger);
+stop = entry - 1.5 x ATR14; target = 2.0 x risk; max hold 5 days; same-day stop+target counts as stop;
+cost 0.25% round trip deducted. Each signal treated independently (no capital limit). R = profit / risk.
+
+== ALL SETUPS ==
+ALL signals                                   n=9774  win%=40  avgR=-0.12  totalR=-1171.3  profit_factor=0.74
+ADX >= 20                                     n=5980  win%=39  avgR=-0.13  totalR=-778.5  profit_factor=0.72
+ADX >= 25                                     n=3721  win%=39  avgR=-0.14  totalR=-532.4  profit_factor=0.71
+MACD_H > 0                                    n=4000  win%=40  avgR=-0.13  totalR=-537.2  profit_factor=0.74
+ADX>=20 and MACD_H>0                          n=2642  win%=39  avgR=-0.17  totalR=-443.0  profit_factor=0.69
+Nifty(NIFTYBEES) above 50EMA                  n=4781  win%=39  avgR=-0.10  totalR=-484.6  profit_factor=0.77
+Nifty below 50EMA                             n=4993  win%=40  avgR=-0.14  totalR=-686.8  profit_factor=0.72
+No LOW_DELIV/EXTENDED flag                    n=7523  win%=40  avgR=-0.11  totalR=-812.7  profit_factor=0.75
+Flagged LOW_DELIV or EXTENDED                 n=2251  win%=40  avgR=-0.16  totalR=-358.6  profit_factor=0.71
+No flags + ADX>=20 + MACD_H>0 + Nifty up      n=481  win%=34  avgR=-0.21  totalR=-100.8  profit_factor=0.59
+
+== BREAKOUT only ==
+ALL signals                                   n=3217  win%=40  avgR=-0.16  totalR=-503.1  profit_factor=0.71
+ADX >= 20                                     n=2410  win%=39  avgR=-0.17  totalR=-420.6  profit_factor=0.69
+ADX >= 25                                     n=1763  win%=39  avgR=-0.21  totalR=-365.0  profit_factor=0.65
+MACD_H > 0                                    n=3099  win%=39  avgR=-0.16  totalR=-491.5  profit_factor=0.71
+ADX>=20 and MACD_H>0                          n=2308  win%=39  avgR=-0.18  totalR=-408.0  profit_factor=0.69
+Nifty(NIFTYBEES) above 50EMA                  n=1818  win%=38  avgR=-0.16  totalR=-293.1  profit_factor=0.70
+Nifty below 50EMA                             n=1399  win%=41  avgR=-0.15  totalR=-209.9  profit_factor=0.73
+No LOW_DELIV/EXTENDED flag                    n=1056  win%=39  avgR=-0.15  totalR=-161.6  profit_factor=0.70
+Flagged LOW_DELIV or EXTENDED                 n=2161  win%=40  avgR=-0.16  totalR=-341.4  profit_factor=0.72
+No flags + ADX>=20 + MACD_H>0 + Nifty up      n=316  win%=33  avgR=-0.26  totalR=-83.5  profit_factor=0.54
+
+== PULLBACK only ==
+ALL signals                                   n=6557  win%=40  avgR=-0.10  totalR=-668.3  profit_factor=0.76
+ADX >= 20                                     n=3570  win%=39  avgR=-0.10  totalR=-357.9  profit_factor=0.76
+ADX >= 25                                     n=1958  win%=39  avgR=-0.09  totalR=-167.4  profit_factor=0.79
+MACD_H > 0                                    n=901  win%=43  avgR=-0.05  totalR=-45.8  profit_factor=0.88
+ADX>=20 and MACD_H>0                          n=334  win%=40  avgR=-0.10  totalR=-35.0  profit_factor=0.75
+Nifty(NIFTYBEES) above 50EMA                  n=2963  win%=40  avgR=-0.06  totalR=-191.4  profit_factor=0.84
+Nifty below 50EMA                             n=3594  win%=39  avgR=-0.13  totalR=-476.8  profit_factor=0.71
+No LOW_DELIV/EXTENDED flag                    n=6467  win%=40  avgR=-0.10  totalR=-651.1  profit_factor=0.77
+Flagged LOW_DELIV or EXTENDED                 n=90  win%=36  avgR=-0.19  totalR=-17.2  profit_factor=0.59
+No flags + ADX>=20 + MACD_H>0 + Nifty up      n=165  win%=37  avgR=-0.10  totalR=-17.3  profit_factor=0.74
+
+Caution: past results do not guarantee future results; small n means unreliable numbers.
