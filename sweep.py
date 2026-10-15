@@ -125,7 +125,9 @@ print('signals:', len(signals))
 if not signals:
     sys.exit(1)
 sdates = sorted(s['date'] for s in signals)
-mid = sdates[len(sdates) // 2]def simulate(s, entry_mode, stop_mode, rr, hold):
+mid = sdates[len(sdates) // 2]
+
+def simulate(s, entry_mode, stop_mode, rr, hold):
     op, hi, lo, cl, i, n, atr = s['op'], s['hi'], s['lo'], s['cl'], s['i'], s['n'], s['atr']
     if entry_mode == 'OPEN':
         j = i + 1
