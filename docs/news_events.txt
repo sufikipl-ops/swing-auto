@@ -1,29 +1,32 @@
-NEWS/EVENTS CHECK 2026-10-15 18:25 IST
-screen data date: 2026-10-14 | candidates: 44
+NEWS/EVENTS CHECK 2026-10-15 20:00 IST
+screen data date: 2026-10-15 | candidates: 31
 NSE event calendar FAIL: HTTP Error 403: Forbidden
-NSE announcements fetched for 44 of 44 symbols
+NSE announcements fetched for 31 of 31 symbols
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-WSTCSTPAPR   BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Price movement | 
-MRPL         BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Dividend | 
-ICICIGI      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-14 General Updates | 
-ADVANCE      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Price movement | 
-EIMCOELECO   BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Copy of Newspaper Publication | 
-TIPSMUSIC    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Investor Presentation | 
-HMAAGRO      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Outcome of Board Meeting | 
-GREENPLY     BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Action(s) taken or orders passed | 
-WELCORP      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 General Updates | 
-NYKAA        PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
+SOUTHBANK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Investor Presentation | 
+BHEL         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Copy of Newspaper Publication | BHEL shares fall 4% despite Q2 profit jumping 119% YoY. Should you buy, sell or hold? | Breakout stocks: Bonanza picks Jindal Saw, BHEL, Allied Blenders
+MRPL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Dividend | 
+ETERNAL      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 Analysts/Institutional Investor Meet/Con. Call Updates | 
+MEESHO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Resignation of Director/KMP/SMP | 
+PNB          PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Action(s) taken or orders passed | 
+RADICO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Analysts/Institutional Investor Meet/Con. Call Updates | 
+GESHIP       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 General Updates | 
+AEQUS        PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 General Updates | 
+REDINGTON    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Redington could gain as memory shortage reshapes ICT distribution; brokerage sees 20% upsi
+HERITGFOOD   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Investor Presentation | 
 PAISALO      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 Committee Meeting Updates | 
-CUB          PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Action(s) taken or orders passed | 
-LALPATHLAB   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 General Updates | 
-RBA          PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-AVALON       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Updates | 
-EDELWEISS    PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
 SEDEMAC      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 ESOP/ESOS/ESPS | 
-ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 General Updates | 
-ACE          PULLBACK   IN_NEWS                            |  |  | Ace investor Sunil Singhania adds 6 new stocks in Q2; likely exits two companies after 150
-Symbols with no flags: 25. Top market headlines:
+JGCHEM       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
+MOTISONS     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
+EDELWEISS    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-13 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Cemindia Projects’ Rs 1,400-crore QIP oversubscribed 2.3x; Edelweiss Life, Nuvama, Motilal
+STYLEBAAZA   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
+Symbols with no flags: 14. Top market headlines:
+  [ET Markets] What Akash Ambani said Jio tariff hikes ahead of record IPO launch
+  [ET Markets] Cemindia Projects’ Rs 1,400-crore QIP oversubscribed 2.3x; Edelweiss Life, Nuvama, Motilal MF among investors
+  [ET Markets] Indian Bank, UCO Bank lead Q2 profit growth as treasury income slumps
+  [ET Markets] Nilesh Shah on PSU privatisation: How Hindustan Zinc offers a lesson for IDBI Bank
+  [ET Markets] Tech Mahindra announces 1:1 bonus issue, Rs 15 interim dividend; check record date
   [ET Markets] Leela Palaces Hotels &amp; Resorts among 4 stocks hitting 52-week highs; rally up to 32% in a month
   [ET Markets] How Akash, Isha Ambani’s missed college assignment led to the creation of Rs 10 lakh crore Jio
   [ET Markets] Tech Mahindra Q2 Results: Net profit jumps 33% YoY to Rs 1,586 crore; co declares Rs 15/share dividend, 1:1 bo
@@ -34,9 +37,4 @@ Symbols with no flags: 25. Top market headlines:
   [ET Markets] Orient Electric Q2 profit jumps two-fold to Rs 27 crore, revenue rises 25% YoY
   [ET Markets] Volume Shocker: MFs add 1 crore+ shares to 5 stocks in September; shares tumble up to 43%
   [ET Markets] Jio IPO fever grips telecom stocks: Airtel, Vodafone Idea &amp; others rise up to 4%
-  [ET Markets] Nestle India Q2 Results: Standalone profit jumps 36% YoY to Rs 1,027 crore, revenue rises 20%
-  [ET Markets] Redington could gain as memory shortage reshapes ICT distribution; brokerage sees 20% upside
-  [ET Markets] Rs 82,500 crore rally in 3 days: Why TCS, HCL Tech, other IT stocks jumped up to 12% in 3 days and will the bo
-  [ET Markets] IDBI Bank shares fall 7% as investors book profit after Fairfax deal gets cabinet nod
-  [ET Markets] Ready for take-off? Analysts map the flight path for India's aerospace stocks
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
