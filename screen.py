@@ -40,6 +40,15 @@ if not alldates:
 dates = sorted(alldates)[-90:]
 last = dates[-1]
 
+# freshness check: data date must be the latest trading day (IST)
+ist_today = (datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)).date()
+expected = ist_today
+while expected.weekday() >= 5:
+    expected -= datetime.timedelta(days=1)
+ld = last.date() if isinstance(last, datetime.datetime) else last
+if ld < expected:
+    print('STALE DATA: latest', ld, 'expected', expected)
+    sys.exit(1)
 def ema(vals, span):
     a = 2.0 / (span + 1)
     e = vals[0]
