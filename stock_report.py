@@ -135,4 +135,20 @@ for sym, byd in data.items():
     if h52 and c >= 0.97 * h52: warn.append('52w high ke paas (resistance/breakout zone)')
     if atr / c > 0.06: warn.append('Bahut volatile (ATR>6%)')
     stop = low5 - 0.1 * atr
-    if c - stop >
+    if c - stop > 3 * atr: stop = c - 3 * atr
+    if stop >= c: stop = c - 1.5 * atr
+    zlo, zhi = e20[-1] * 0.985, e20[-1] * 1.03
+    zone = 'IN_ZONE' if zlo <= c <= zhi else ('ABOVE_ZONE' if c > zhi else 'BELOW_ZONE')
+    out[sym] = dict(c=round(c, 2), chg=round(chg, 2), e20=round(e20[-1], 2), e50=round(e50[-1], 2),
+                    e200=round(e200, 2) if e200 else None, rsi=round(r, 1) if r else None,
+                    adx=round(ax, 1) if ax else None, mh=round(mh, 2), atr=round(atr, 2),
+                    low5=round(low5, 2), low20=round(low20, 2), h20=round(prevhi, 2), h60=round(h60, 2),
+                    h52=round(h52, 2), l52=round(l52, 2), vx=round(vx, 2), t20=round(to20, 1),
+                    dl=round(b[-1]['dl'], 1) if b[-1]['dl'] is not None else None, dla=round(dla, 1) if dla else None,
+                    score=sc, mx=mx, v=verdict, why=why, warn=warn, stop=round(stop, 2),
+                    zlo=round(zlo, 2), zhi=round(zhi, 2), zone=zone, trig=round(prevhi * 1.001, 2))
+mk = dict(date=last.isoformat(), n=tot, adv=up, dec=dn, pct20=round(100.0 * a20 / max(tot, 1), 1),
+          pct50=round(100.0 * a50 / max(tot, 1), 1))
+with open(os.path.join(out_dir, 'stocks.json'), 'w') as h:
+    json.dump(dict(market=mk, stocks=out), h, separators=(',', ':'))
+print('stocks', len(out), '| date', last, '| market', mk)
