@@ -7,7 +7,7 @@ HDR = {"User-Agent": UA, "Referer": "https://www.nseindia.com/",
 os.makedirs("data", exist_ok=True)
 today = datetime.date.today()
 got = miss = fail = 0
-for back in range(0, 100):
+for back in range(0, int(os.environ.get("DAYS", "100"))):
     d = today - datetime.timedelta(days=back)
     if d.weekday() >= 5:
         continue
