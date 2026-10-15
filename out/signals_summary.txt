@@ -1,0 +1,62 @@
+SIGNAL DISCOVERY (generated 2026-10-15)
+Dates 2025-07-23 to 2026-09-22 (288 trading days). Slices T1/T2/T3 = thirds of time (ends 2025-12-11, 2026-05-07).
+Exit = (entry, stop ATR x, RR [99 = no target], hold days). Cost 0.25% round trip. avgPct = avg % per trade after cost. BASE = random stock every 5th day (market drift reference).
+
+== exit ('OPEN', 2.0, 99, 3) ==
+signal                       entry stop RR  hold      n  win%    avgR    PF    avg%      T1      T2      T3
+BASE (every 5th day)         OPEN  2.0  99  3     53574    42  -0.058  0.77   -0.30  -0.109  -0.039  -0.029
+MOM_TOP10                    OPEN  2.0  99  3     23372    44  -0.049  0.80   -0.42  -0.076  -0.047  -0.028
+NEW_100D_HIGH                OPEN  2.0  99  3      3388    40  -0.108  0.67   -0.70  -0.087  -0.147  -0.097
+RS_LEADER                    OPEN  2.0  99  3     40386    43  -0.067  0.74   -0.45  -0.118  -0.035  -0.057
+NR7_UPTREND                  OPEN  2.0  99  3     17541    42  -0.068  0.71   -0.44  -0.105  -0.073  -0.044
+DIP_IN_UPTREND               OPEN  2.0  99  3      5535    48  -0.001  0.99    0.04  -0.051  -0.020   0.029
+OVERSOLD_BOUNCE              OPEN  2.0  99  3        14    43   0.052  1.45    0.54   0.032   0.000   0.101
+THRUST_CANDLE                OPEN  2.0  99  3       760    42  -0.103  0.68   -0.67  -0.142  -0.059  -0.108
+COMBO_A mom+nearHigh+vol     OPEN  2.0  99  3      4466    43  -0.068  0.78   -0.52  -0.066  -0.095  -0.050
+COMBO_B thrust+mom           OPEN  2.0  99  3      1487    42  -0.067  0.77   -0.42  -0.114  -0.059  -0.040
+COMBO_C RS+nearHigh+nifty up OPEN  2.0  99  3     22876    41  -0.087  0.68   -0.57  -0.135  -0.073  -0.056
+
+== exit ('OPEN', 2.0, 99, 5) ==
+signal                       entry stop RR  hold      n  win%    avgR    PF    avg%      T1      T2      T3
+BASE (every 5th day)         OPEN  2.0  99  5     53574    42  -0.083  0.74   -0.43  -0.141  -0.101  -0.017
+MOM_TOP10                    OPEN  2.0  99  5     23372    44  -0.060  0.81   -0.51  -0.088  -0.083  -0.022
+NEW_100D_HIGH                OPEN  2.0  99  5      3388    41  -0.127  0.69   -0.74  -0.117  -0.202  -0.088
+RS_LEADER                    OPEN  2.0  99  5     40386    43  -0.072  0.78   -0.46  -0.140  -0.044  -0.051
+NR7_UPTREND                  OPEN  2.0  99  5     17541    42  -0.073  0.76   -0.45  -0.124  -0.092  -0.034
+DIP_IN_UPTREND               OPEN  2.0  99  5      5535    47   0.012  1.05    0.16  -0.043  -0.086   0.068
+OVERSOLD_BOUNCE              OPEN  2.0  99  5        14    43  -0.146  0.41   -0.82  -0.232   0.000   0.066
+THRUST_CANDLE                OPEN  2.0  99  5       760    43  -0.109  0.72   -0.66  -0.149  -0.096  -0.094
+COMBO_A mom+nearHigh+vol     OPEN  2.0  99  5      4466    44  -0.073  0.81   -0.52  -0.074  -0.111  -0.044
+COMBO_B thrust+mom           OPEN  2.0  99  5      1487    43  -0.070  0.80   -0.43  -0.125  -0.079  -0.025
+COMBO_C RS+nearHigh+nifty up OPEN  2.0  99  5     22876    43  -0.088  0.74   -0.57  -0.163  -0.071  -0.038
+
+== exit ('OPEN', 3.0, 99, 10) ==
+signal                       entry stop RR  hold      n  win%    avgR    PF    avg%      T1      T2      T3
+BASE (every 5th day)         OPEN  3.0  99  10    53574    42  -0.067  0.78   -0.42  -0.124  -0.086  -0.002
+MOM_TOP10                    OPEN  3.0  99  10    23372    44  -0.035  0.88   -0.41  -0.074  -0.079   0.026
+NEW_100D_HIGH                OPEN  3.0  99  10     3388    43  -0.089  0.77   -0.59  -0.101  -0.188  -0.023
+RS_LEADER                    OPEN  3.0  99  10    40386    45  -0.036  0.88   -0.26  -0.108  -0.057   0.009
+NR7_UPTREND                  OPEN  3.0  99  10    17541    43  -0.049  0.83   -0.38  -0.109  -0.101   0.011
+DIP_IN_UPTREND               OPEN  3.0  99  10     5535    47   0.027  1.13    0.50  -0.043  -0.111   0.102
+OVERSOLD_BOUNCE              OPEN  3.0  99  10       14    29  -0.150  0.46   -1.04  -0.392   0.000   0.454
+THRUST_CANDLE                OPEN  3.0  99  10      760    45  -0.055  0.84   -0.41  -0.167  -0.037  -0.000
+COMBO_A mom+nearHigh+vol     OPEN  3.0  99  10     4466    45  -0.044  0.88   -0.29  -0.067  -0.086   0.006
+COMBO_B thrust+mom           OPEN  3.0  99  10     1487    44  -0.022  0.93   -0.04  -0.125  -0.018   0.048
+COMBO_C RS+nearHigh+nifty up OPEN  3.0  99  10    22876    45  -0.042  0.86   -0.38  -0.117  -0.041   0.011
+
+== exit ('TRIG', 2.0, 2.0, 5) ==
+signal                       entry stop RR  hold      n  win%    avgR    PF    avg%      T1      T2      T3
+BASE (every 5th day)         TRIG  2.0  2.0 5     36607    40  -0.093  0.73   -0.52  -0.143  -0.083  -0.061
+MOM_TOP10                    TRIG  2.0  2.0 5     17227    42  -0.071  0.79   -0.61  -0.087  -0.091  -0.044
+NEW_100D_HIGH                TRIG  2.0  2.0 5      2760    42  -0.113  0.73   -0.60  -0.107  -0.141  -0.100
+RS_LEADER                    TRIG  2.0  2.0 5     29963    42  -0.073  0.79   -0.47  -0.122  -0.050  -0.061
+NR7_UPTREND                  TRIG  2.0  2.0 5     13911    41  -0.069  0.78   -0.46  -0.113  -0.089  -0.034
+DIP_IN_UPTREND               TRIG  2.0  2.0 5      3318    43  -0.042  0.85   -0.39  -0.048  -0.179   0.006
+OVERSOLD_BOUNCE              TRIG  2.0  2.0 5        13    31  -0.221  0.13   -1.41  -0.280   0.000  -0.090
+THRUST_CANDLE                TRIG  2.0  2.0 5       733    41  -0.099  0.75   -0.60  -0.118  -0.112  -0.080
+COMBO_A mom+nearHigh+vol     TRIG  2.0  2.0 5      3459    44  -0.063  0.84   -0.42  -0.047  -0.100  -0.046
+COMBO_B thrust+mom           TRIG  2.0  2.0 5      1415    41  -0.064  0.82   -0.36  -0.134  -0.040  -0.036
+COMBO_C RS+nearHigh+nifty up TRIG  2.0  2.0 5     16752    42  -0.085  0.76   -0.53  -0.139  -0.061  -0.055
+
+Rows with n >= 200 and avgR > 0 in ALL 3 slices: 0 of 40
+Caution: 11 signals x 4 exits tried; some positive rows can be luck. Past results do not guarantee future results.
