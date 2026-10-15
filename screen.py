@@ -183,6 +183,4 @@ head = ['SETUP', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'DAY_HIGH', 'DAY_LOW', 'H
 for name in ('screen_latest.csv', 'screen_%s.csv' % last.strftime('%Y%m%d')):
     with open(os.path.join(out_dir, name), 'w', newline='', encoding='utf-8') as h:
         w = csv.writer(h); w.writerow(head); w.writerow
-        w.writerows(rows) if False else None
-        w.writerows(rows)
-print('data date', last, '| days loaded', len(dates), '| candidates', len(rows))
+      print('data date', last, '| days loaded', len(dates), '| candidates', len(rows))
