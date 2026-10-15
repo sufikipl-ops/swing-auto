@@ -1,0 +1,64 @@
+SWEEP SUMMARY (generated 2026-10-15)
+Signals: 14393 from 2025-12-30 to 2026-09-22; first half = signals up to 2026-06-22, second half = after.
+Entry OPEN = next-day open (skip if >1.5% above signal close); TRIG = GTT above signal-day high, 4-day window.
+Stop = ATR14 multiple or LOW5; target = RR x risk; hold in days; same-bar stop+target counts as stop;
+cost 0.25% round trip. Min trades per row: 300. R = profit / risk.
+
+== ALL: top 12 combos by avgR (n >= 300) ==
+setup     entry stop  RR   hold       n  win%    avgR    PF  avgR_H1  avgR_H2
+ALL       TRIG  3.0   1.0  10      9501    46  -0.037  0.88   -0.026   -0.049
+ALL       TRIG  3.0   1.5  10      9501    44  -0.041  0.87   -0.037   -0.045
+ALL       TRIG  3.0   3.0  10      9501    44  -0.045  0.86   -0.049   -0.041
+ALL       TRIG  3.0   2.0  10      9501    44  -0.046  0.86   -0.047   -0.045
+ALL       OPEN  3.0   1.0  5      13377    44  -0.047  0.79   -0.054   -0.040
+ALL       OPEN  3.0   1.0  10     13377    45  -0.047  0.85   -0.050   -0.045
+ALL       OPEN  3.0   3.0  5      13377    43  -0.048  0.78   -0.062   -0.034
+ALL       TRIG  3.0   1.0  5       9501    43  -0.048  0.80   -0.051   -0.045
+ALL       OPEN  3.0   1.5  5      13377    43  -0.049  0.78   -0.061   -0.038
+ALL       OPEN  3.0   2.0  5      13377    43  -0.049  0.78   -0.062   -0.037
+ALL       OPEN  3.0   1.5  10     13377    44  -0.051  0.84   -0.057   -0.045
+ALL       OPEN  3.0   3.0  10     13377    43  -0.051  0.84   -0.066   -0.037
+Combos with avgR > 0 in BOTH halves: 0 of 96
+Combos with avgR > 0 overall: 0 of 96
+Earlier backtest rules (TRIG, 1.5 ATR, RR 2, hold 5):
+ALL       TRIG  1.5   2.0  5       9501    40  -0.113  0.76   -0.112   -0.115
+
+== BREAKOUT: top 12 combos by avgR (n >= 300) ==
+setup     entry stop  RR   hold       n  win%    avgR    PF  avgR_H1  avgR_H2
+BREAKOUT  TRIG  LOW5  1.0  10      2300    46  -0.040  0.88   -0.021   -0.067
+BREAKOUT  TRIG  LOW5  1.5  10      2300    45  -0.040  0.89   -0.011   -0.081
+BREAKOUT  TRIG  LOW5  1.0  5       2300    44  -0.051  0.81   -0.027   -0.086
+BREAKOUT  TRIG  LOW5  1.5  5       2300    44  -0.053  0.80   -0.029   -0.086
+BREAKOUT  TRIG  LOW5  2.0  5       2300    44  -0.053  0.80   -0.033   -0.082
+BREAKOUT  TRIG  LOW5  3.0  5       2300    44  -0.053  0.80   -0.033   -0.081
+BREAKOUT  TRIG  3.0   1.0  10      3143    47  -0.054  0.85   -0.055   -0.053
+BREAKOUT  TRIG  LOW5  3.0  10      2300    44  -0.055  0.85   -0.050   -0.062
+BREAKOUT  TRIG  LOW5  2.0  10      2300    44  -0.057  0.85   -0.050   -0.066
+BREAKOUT  OPEN  LOW5  1.5  10      3214    43  -0.061  0.84   -0.052   -0.074
+BREAKOUT  TRIG  3.0   1.5  10      3143    45  -0.062  0.83   -0.074   -0.044
+BREAKOUT  TRIG  3.0   3.0  10      3143    44  -0.066  0.83   -0.092   -0.029
+Combos with avgR > 0 in BOTH halves: 0 of 96
+Combos with avgR > 0 overall: 0 of 96
+Earlier backtest rules (TRIG, 1.5 ATR, RR 2, hold 5):
+BREAKOUT  TRIG  1.5   2.0  5       3143    40  -0.158  0.71   -0.144   -0.178
+
+== PULLBACK: top 12 combos by avgR (n >= 300) ==
+setup     entry stop  RR   hold       n  win%    avgR    PF  avgR_H1  avgR_H2
+PULLBACK  TRIG  3.0   1.0  10      6358    45  -0.029  0.90   -0.007   -0.048
+PULLBACK  OPEN  3.0   1.0  5       9556    44  -0.030  0.85   -0.033   -0.027
+PULLBACK  OPEN  3.0   1.5  5       9556    44  -0.031  0.84   -0.038   -0.026
+PULLBACK  OPEN  3.0   3.0  5       9556    44  -0.031  0.84   -0.039   -0.024
+PULLBACK  TRIG  3.0   1.5  10      6358    44  -0.031  0.90   -0.013   -0.046
+PULLBACK  OPEN  3.0   2.0  5       9556    44  -0.032  0.84   -0.039   -0.026
+PULLBACK  TRIG  3.0   2.0  10      6358    44  -0.033  0.89   -0.018   -0.046
+PULLBACK  OPEN  3.0   1.0  10      9556    45  -0.034  0.88   -0.030   -0.037
+PULLBACK  TRIG  3.0   1.0  5       6358    42  -0.035  0.83   -0.037   -0.033
+PULLBACK  TRIG  3.0   1.5  5       6358    42  -0.035  0.83   -0.041   -0.030
+PULLBACK  TRIG  3.0   3.0  10      6358    44  -0.035  0.88   -0.023   -0.046
+PULLBACK  TRIG  3.0   2.0  5       6358    42  -0.036  0.83   -0.043   -0.030
+Combos with avgR > 0 in BOTH halves: 0 of 96
+Combos with avgR > 0 overall: 0 of 96
+Earlier backtest rules (TRIG, 1.5 ATR, RR 2, hold 5):
+PULLBACK  TRIG  1.5   2.0  5       6358    40  -0.091  0.78   -0.092   -0.090
+
+Caution: many combos were tried, so the best rows can look good by luck. Trust only combos that are positive in BOTH halves with large n. Past results do not guarantee future results.
