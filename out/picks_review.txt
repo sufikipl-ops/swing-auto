@@ -1,0 +1,8 @@
+PICKS REVIEW (forward test) 2026-10-15
+picks read: 0
+date       symbol          entry       sl   target  qty status          exit_date      exit why            R      pnl
+
+Status counts: 
+No closed trades yet.
+Sample size: 0 closed. Below ~30 trades the numbers mean very little; aim for 30-50 before judging.
+Assumptions: daily bars only; if stop and target both fall in one day, stop counts first; entry at max(open, trigger); skip if open >1.5% above trigger; GTT alive 4 trading days; time-stop after 5 days; cost 0.25%. Not financial advice.
