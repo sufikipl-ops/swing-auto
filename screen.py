@@ -6,12 +6,87 @@ bhav_dir = sys.argv[1]
 out_dir = sys.argv[2]
 os.makedirs(out_dir, exist_ok=True)
 
+
 def num(x):
     x = str(x).strip()
     try:
         return float(x)
     except ValueError:
         return None
+
+
+def ema(vals, span):
+    a = 2.0 / (span + 1)
+    e = vals[0]
+    out = [e]
+    for v in vals[1:]:
+        e = a * v + (1 - a) * e
+        out.append(e)
+    return out
+
+
+def rsi14(cl):
+    au = ad = None
+    n = 0
+    rsi = None
+    for i in range(1, len(cl)):
+        d = cl[i] - cl[i - 1]
+        up, dn = max(d, 0.0), max(-d, 0.0)
+        if au is None:
+            au, ad = up, dn
+        else:
+            au = (1 - 1 / 14.0) * au + (1 / 14.0) * up
+            ad = (1 - 1 / 14.0) * ad + (1 / 14.0) * dn
+        n += 1
+        if n >= 14:
+            rsi = 100.0 if ad == 0 else 100 - 100 / (1 + au / ad)
+    return rsi
+
+
+def wilder(vals, n=14):
+    s = sum(vals[:n])
+    out = [s]
+    for v in vals[n:]:
+        s = s - s / n + v
+        out.append(s)
+    return out
+
+
+def adx14(hi, lo, cl):
+    n = 14
+    if len(cl) < 2 * n + 1:
+        return None, None, None
+    pdm, mdm, trl = [], [], []
+    for i in range(1, len(cl)):
+        up = hi[i] - hi[i - 1]
+        dn = lo[i - 1] - lo[i]
+        pdm.append(up if (up > dn and up > 0) else 0.0)
+        mdm.append(dn if (dn > up and dn > 0) else 0.0)
+        trl.append(max(hi[i] - lo[i], abs(hi[i] - cl[i - 1]), abs(lo[i] - cl[i - 1])))
+    st, sp, sm = wilder(trl, n), wilder(pdm, n), wilder(mdm, n)
+    dx = []
+    pdi = mdi = None
+    for a, b, c in zip(st, sp, sm):
+        if a == 0:
+            dx.append(0.0)
+            continue
+        pdi = 100.0 * b / a
+        mdi = 100.0 * c / a
+        s = pdi + mdi
+        dx.append(0.0 if s == 0 else 100.0 * abs(pdi - mdi) / s)
+    if len(dx) < n:
+        return None, None, None
+    adx = sum(dx[:n]) / n
+    for v in dx[n:]:
+        adx = (adx * (n - 1) + v) / n
+    return adx, pdi, mdi
+
+
+def macd_hist(cl):
+    m = [a - b for a, b in zip(ema(cl, 12), ema(cl, 26))]
+    s = ema(m, 9)
+    return m[-1], s[-1], m[-1] - s[-1]
+
 
 # ---- load: EQ series only, de-duplicate by date inside the file (holiday files repeat the previous day)
 data = collections.defaultdict(dict)      # symbol -> {date: row}
@@ -49,31 +124,6 @@ ld = last.date() if isinstance(last, datetime.datetime) else last
 if ld < expected:
     print('STALE DATA: latest', ld, 'expected', expected)
     sys.exit(1)
-def ema(vals, span):
-    a = 2.0 / (span + 1)
-    e = vals[0]
-    out = [e]
-    for v in vals[1:]:
-        e = a * v + (1 - a) * e
-        out.append(e)
-    return out
-
-def rsi14(cl):
-    au = ad = None
-    n = 0
-    rsi = None
-    for i in range(1, len(cl)):
-        d = cl[i] - cl[i - 1]
-        up, dn = max(d, 0.0), max(-d, 0.0)
-        if au is None:
-            au, ad = up, dn
-        else:
-            au = (1 - 1 / 14.0) * au + (1 / 14.0) * up
-            ad = (1 - 1 / 14.0) * ad + (1 / 14.0) * dn
-        n += 1
-        if n >= 14:
-            rsi = 100.0 if ad == 0 else 100 - 100 / (1 + au / ad)
-    return rsi
 
 rows = []
 for sym, byd in data.items():
@@ -93,6 +143,8 @@ for sym, byd in data.items():
     r = rsi14(cl)
     if r is None:
         continue
+    adx_v, pdi_v, mdi_v = adx14(hi, lo, cl)
+    macd_v, macd_sig, macd_h = macd_hist(cl)
     prevhi = max(hi[-21:-1])
     vx = vol[-1] / (sum(vol[-21:-1]) / 20.0)
     to20 = sum(to[-21:-1]) / 20.0
@@ -120,13 +172,17 @@ for sym, byd in data.items():
     rows.append([setup, sym, last.isoformat(), round(cl[-1], 2), round(chg, 2), hi[-1], lo[-1], round(prevhi, 2),
                  round(e20[-1], 1), round(e50[-1], 1), round(r, 1), round(vx, 2), round(to[-1], 1), round(to20, 1),
                  del_t if del_t is not None else '', round(del_a, 1) if del_a else '', round(atr, 1),
-                 min(lo[-5:]), max(hi[-60:]), ' '.join(note)])
+                 min(lo[-5:]), max(hi[-60:]), ' '.join(note),
+                 round(adx_v, 1) if adx_v is not None else '', round(macd_h, 2)])
 
 rows.sort(key=lambda x: (x[0] != 'BREAKOUT', -x[12]))
 rows = [x for x in rows if x[0] == 'BREAKOUT'][:25] + [x for x in rows if x[0] == 'PULLBACK'][:25]
 head = ['SETUP', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'DAY_HIGH', 'DAY_LOW', 'H20_PREV', 'EMA20', 'EMA50', 'RSI14',
-        'VOL_X', 'TURN_CR', 'TURN20_CR', 'DELIV_PCT', 'DELIV20_PCT', 'ATR14', 'LOW5', 'HIGH60', 'NOTE']
+        'VOL_X', 'TURN_CR', 'TURN20_CR', 'DELIV_PCT', 'DELIV20_PCT', 'ATR14', 'LOW5', 'HIGH60', 'NOTE',
+        'ADX14', 'MACD_H']
 for name in ('screen_latest.csv', 'screen_%s.csv' % last.strftime('%Y%m%d')):
     with open(os.path.join(out_dir, name), 'w', newline='', encoding='utf-8') as h:
-        w = csv.writer(h); w.writerow(head); w.writerows(rows)
+        w = csv.writer(h); w.writerow(head); w.writerow
+        w.writerows(rows) if False else None
+        w.writerows(rows)
 print('data date', last, '| days loaded', len(dates), '| candidates', len(rows))
