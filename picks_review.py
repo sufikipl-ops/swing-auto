@@ -5,7 +5,7 @@ import csv, glob, os, sys, io, datetime, collections, urllib.request
 
 bhav_dir, out_dir = sys.argv[1], sys.argv[2]
 os.makedirs(out_dir, exist_ok=True)
-SHEET = 'https://docs.google.com/spreadsheets/d/1KNw0jZTk29jwo2ohxdYl11CNxXAvOTcE4Y4lG1Vromw/gviz/tq?tqx=out:csv&sheet=Picks'
+SHEET = 'https://docs.google.com/spreadsheets/d/1KNw0jZTk29jwo2ohxdYl11CNxXAvOTcE4Y4lG1Vromw/gviz/tq?tqx=out:csv&gid=777001'
 COST_PCT = 0.25
 GAP_SKIP = 1.015
 TRIGGER_DAYS = 4          # GTT stays alive this many trading days (pick day + 3)
@@ -19,6 +19,19 @@ def num(x):
         return None
 
 
+def pdate(x):
+    x = str(x).strip()
+    n = num(x)
+    if n is not None and n > 40000:
+        return datetime.date(1899, 12, 30) + datetime.timedelta(days=int(n))
+    for f in ('%d-%b-%Y', '%d/%m/%Y', '%m/%d/%Y', '%Y-%m-%d'):
+        try:
+            return datetime.datetime.strptime(x, f).date()
+        except ValueError:
+            continue
+    return None
+
+
 def load_picks():
     if os.environ.get('PICKS_FILE'):
         raw = open(os.environ['PICKS_FILE'], encoding='utf-8').read()
@@ -28,11 +41,10 @@ def load_picks():
     for r in csv.reader(io.StringIO(raw)):
         if len(r) < 6:
             continue
-        serial, sym = num(r[0]), r[1].strip()
+        d, sym = pdate(r[0]), r[1].strip()
         entry, sl, tgt, qty = num(r[2]), num(r[3]), num(r[4]), num(r[5])
-        if serial is None or serial < 40000 or not sym or None in (entry, sl, tgt, qty):
+        if d is None or not sym or None in (entry, sl, tgt, qty):
             continue
-        d = datetime.date(1899, 12, 30) + datetime.timedelta(days=int(serial))
         picks.append(dict(date=d, symbol=sym, entry=entry, sl=sl, target=tgt, qty=int(qty),
                           reason=(r[6].strip() if len(r) > 6 else '')))
     return picks
