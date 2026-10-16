@@ -255,6 +255,8 @@ def main():
             rows = list(csv.DictReader(h))
         syms = [r['SYMBOL'] for r in rows]
         drows = [{'SETUP': 'DIP', 'SYMBOL': x} for x in dip_symbols() if x not in syms]
+        # locked stocks bhi: inki result/board meeting date bhi chahiye (app ka checklist)
+        drows += [{'SETUP': 'LOCKED', 'SYMBOL': x} for x in pin_symbols() if x not in syms and x not in [d['SYMBOL'] for d in drows]]
         allrows = rows + drows
         evsyms = syms + [r['SYMBOL'] for r in drows]
         lines.append('screen data date: %s | candidates: %d' % (rows[0]['DATE'] if rows else '-', len(syms)))
