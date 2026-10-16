@@ -1,39 +1,39 @@
-NEWS/EVENTS CHECK 2026-10-16 08:19 IST
+NEWS/EVENTS CHECK 2026-10-16 13:04 IST
 screen data date: 2026-10-15 | candidates: 31
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE announcements fetched for 31 of 31 symbols
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-HCLTECH      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Analysts/Institutional Investor Meet/Con. Call Updates | 
+PDF saar: 10 naye bane, 4 nahi bane, 0 pehle ke reuse (AI key: nahi)
+announcements.json: 20 symbols with announcements in last 3 days
+HCLTECH      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-16 Updates | 
 SOUTHBANK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Change in Management | 
-BHEL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Copy of Newspaper Publication | 
+BHEL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 General Updates | 
 MRPL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Dividend | 
 CHENNPETRO   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 MEESHO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Resignation of Director/KMP/SMP | 
 ATHERENERG   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Granting/withdrawal/surrender/cancellation/suspension of key licenses/ regulator | 
-PNB          PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-14 Action(s) taken or orders passed | Stocks in news: RIL, Wipro, Jio Financial, Tata Communications, YES Bank, PNB
-RADICO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Analysts/Institutional Investor Meet/Con. Call Updates | 
+PNB          PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Action(s) taken or orders passed | 
 GESHIP       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 General Updates | 
-REDINGTON    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Redington could gain as memory shortage reshapes ICT distribution; brokerage sees 20% upsi
-HERITGFOOD   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Investor Presentation | 
+REDINGTON    PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
+HERITGFOOD   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Press Release | 
 JGCHEM       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 MOTISONS     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-EDELWEISS    PULLBACK   IN_NEWS                            |  |  | Cemindia Projects’ Rs 1,400-crore QIP oversubscribed 2.3x; Edelweiss Life, Nuvama, Motilal
 STYLEBAAZA   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
-Symbols with no flags: 15. Top market headlines:
-  [ET Markets] Positive Breakout: These 8 stocks cross above their 200 DMAs
-  [ET Markets] Wipro’s Slow Growth to Test Investors’ Patience
-  [ET Markets] Alpha Alternatives Raises `6,000 crore
-  [ET Markets] Sensex Today | Nifty 50 | Stock Market Live Updates: GIFT Nifty signals a positive start; Asian shares trade h
-  [ET Markets] D-St set for a positive opening as GIFT Nifty signals firm start
-  [ET Markets] Stocks in news: RIL, Wipro, Jio Financial, Tata Communications, YES Bank, PNB
-  [ET Markets] HDFC Life posts 14% rise in Sept quarter profit
-  [ET Markets] IT stocks power Dalal Street rally as global AI trade loses steam
-  [ET Markets] SC ruling deals a heavy blow to Yes Bank's risk equity capital
-  [ET Markets] Sebi writes to IRDAI to include investors' insurance policy details in consolidated account statement
-  [ET Markets] IIFL Finance Q2 profit nearly doubles to Rs 805 crore; AUM rises 38%
-  [ET Markets] L&amp;T Finance Q2 net profit rises 33% to Rs 975 crore
-  [ET Markets] Sebi revises CAS rules, changes derivatives expiry settlement methodology
-  [ET Markets] India's current account deficit narrows to $5.2 billion in August as capital account surplus hits $50.6 billio
-  [ET Markets] Market Trading Guide: Adani Power among 2 stock recommendations for Friday
+Symbols with no flags: 17. Top market headlines:
+  [ET Markets] Indian Bank reports a Rs 1,388 crore gain from sale of NSE shares
+  [ET Markets] Jio IPO GMP at 20%: Grey market signals Rs 220 premium as brokerages say subscribe
+  [ET Markets] HFCL’s AI, data centre exposure drives Nuvama’s Buy call; target implies 56% upside
+  [ET Markets] Indonesia’s $1.5 trillion market faces a historic downgrade: Why global investors are worried
+  [ET Markets] PC Jeweller, Shanti Gold &amp; other jewellery stocks rally up to 10%. Here's why
+  [ET Markets] Persistent Systems shares slide 5% despite Q2 revenue growth. Buy, sell or hold?
+  [ET Markets] Bulls fight back as Sensex stages 700-point comeback. 4 factors driving the rally
+  [ET Markets] New CAS rules decoded: What Sebi’s revised framework means for stock market traders
+  [ET Markets] Karur Vysya Bank shares rally 6% after Q2 profit jumps 37% YoY
+  [ET Markets] HDFC Bank Q2 results preview: PAT, NII may rise up to 9% YoY; deposit growth in focus
+  [ET Markets] Beyond Titan and Kalyan: Analysts pick these jewellery stocks as potential market winners. Do you own any?
+  [ET Markets] Persistent Systems among 4 F&amp;O stocks with a sharp rise in futures open interest
+  [ET Markets] Wipro shares rise over 2% as Q2 revenue grows 9% YoY. What are Nomura, Goldman Sachs analysts saying?
+  [ET Markets] Jio IPO: Meta, Google sit on nearly ₹1 lakh crore paper profit &amp; neither is selling
+  [ET Markets] India's Yes Bank AT-1 ruling won't impact ratings despite earnings hit, S&amp;P says
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
