@@ -72,7 +72,7 @@ details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:14px;padd
 <script>
 /* ===== SYNC: Google Sheet (Apps Script web app) se Lock + risk/capital sab devices par same rehte hain. Sirf PIN_URL badalna hai ===== */
 var PIN_URL='https://script.google.com/macros/s/AKfycbwTutE4YKjhrqUNwYuZwgRqPSLvelaSeBwkibi2M6Kmexkfh27jVgYcceTr8yh73mQ7yQ/exec',PIN_KEY='sd-24e5af0f609d8c48f5c5';
-var AN={},ANTS='',D={},SC=[],SR=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},PK={},RK={},tab='picks',cur=null,lastY=0,PN=[],SHOWALL=false,TOPN=8;
+var TG=[],TGTS=0,TGQ='',AN={},ANTS='',D={},SC=[],SR=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},PK={},RK={},tab='picks',cur=null,lastY=0,PN=[],SHOWALL=false,TOPN=8;
 var FLG={RESULTS_SOON:'Result/board meeting paas hai',NEW_ANNOUNCEMENT:'Nayi announcement aayi hai',IN_NEWS:'Khabron me hai'};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function csv(t){var o=[],r=[],f='',q=false,i,c;for(i=0;i<t.length;i++){c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
@@ -238,14 +238,14 @@ return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check
 AN=(a[6]&&a[6].items)||{};ANTS=(a[6]&&a[6].updated)||'';D=a[0]||{stocks:{},market:{}};ST=D.stocks;SK=D.skip||{};MK=D.market;SC=a[1]?csv(a[1]):[];(a[2]?csv(a[2]):[]).forEach(function(x){GP[x.symbol]=x});
 (a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=mergePicks(a[4]?csv(a[4]):[],a[7]);HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
 var reg=MK.pct50<40?['Market kamzor','pr']:MK.pct50>60?['Market majboot','pg']:['Market mixed','py'];
-document.getElementById('mk').innerHTML='Data: '+esc(MK.date||'?')+' '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+staleChip(MK.date)+'<span id="lvchip"></span>'+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');render();syncAll()})}
+document.getElementById('mk').innerHTML='Data: '+esc(MK.date||'?')+' '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+staleChip(MK.date)+'<span id="lvchip"></span>'+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');render();syncAll();loadTG()})}
 function links(sym){return '<a class="btn" target="_blank" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(sym+' share news')+'">Latest news</a>'+
 '<a class="btn" target="_blank" href="https://www.nseindia.com/get-quotes/equity?symbol='+encodeURIComponent(sym)+'">NSE</a>'+
 '<a class="btn" target="_blank" href="https://www.screener.in/company/'+encodeURIComponent(sym)+'/">Screener</a>'+
 '<a class="btn" target="_blank" href="https://in.tradingview.com/chart/?symbol=NSE:'+encodeURIComponent(sym)+'">Chart</a>'}
 function newsBlock(sym){var n=NW[sym],h='';if(n){h+='<h3>News / events</h3>';h+=n.flags&&n.flags!='none'?flagChips(n.flags):chip('Koi flag nahi (sab theek)','pg');
 if(n.next_event)h+='<div>Aane wala event: '+esc(n.next_event)+'</div>';if(n.last_announcement)h+='<div>Announcement: '+esc(n.last_announcement)+'</div>';
-if(n.headlines)h+='<div>'+esc(n.headlines)+'</div>'}else h+='<h3>News</h3><small>Is stock ka auto-news sirf picks me aata hai. Neeche "Latest news" dabao.</small>';return h}
+if(n.headlines)h+='<div>'+esc(n.headlines)+'</div>'}else h+='<h3>News</h3><small>Is stock ka auto-news sirf picks me aata hai. Neeche "Latest news" dabao.</small>';return h+tgBlock(sym)}
 
 /* ---------- STOCK DETAIL (simple report) ---------- */
 function bar(sym,extra){document.getElementById('bar').innerHTML='<button class="back" onclick="back()">&larr; Wapas</button><div><div class="big">'+esc(sym)+'</div>'+(extra?'<small>'+esc(extra)+'</small>':'')+'</div>'+pinBtn(sym,'pinb');document.body.classList.add('det')}
@@ -369,7 +369,21 @@ return '<div class="card"><div class="row"><div class="big">Scorecard</div>'+chi
 (cl.length?'<div>Jeet '+w+' / '+cl.length+' ('+Math.round(100*w/cl.length)+'%) | Total R <span class="'+(R>=0?'g':'r')+'">'+(R>=0?'+':'')+f(R,2)+'</span> | P&amp;L Rs '+f(P,0)+'</div>':'<div>Abhi koi trade close nahi hua. 30 closed trades tak system par bharosa mat karo.</div>')+'</div>'}
 function tradesView(){if(!TR.length)return '<div class="card">Abhi koi trade logged nahi. Picks sheet me trade jodo.</div>';
 return tradeStats()+TR.map(function(t){var c=t.status=='CLOSED'?(+t.R>0?'pg':'pr'):'py',ns=t._new?newPickStatus(t):null;return '<div class="card"><div class="row"><div class="big">'+esc(t.symbol)+'</div>'+(ns?chip(ns[0],ns[1]):chip(t.status,c))+'</div><small>'+esc(t.date)+' | Entry '+esc(t.entry)+' SL '+esc(t.sl)+' T '+esc(t.target)+' Qty '+esc(t.qty)+'</small>'+(t.status=='CLOSED'?'<div>Exit '+esc(t.exit)+' ('+esc(t.reason_exit)+') | R '+esc(t.R)+' | Rs '+esc(t.pnl)+'</div>':'')+'</div>'}).join('')+'<small>30-50 closed trades ke baad hi system ka faisla karo.</small>'}
-function newsView(){var h='',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
+
+/* ---------- TELEGRAM NOTES (private channel se bot ko forward kiye messages) ---------- */
+var TGSTOP={THE:1,AND:1,FOR:1,NSE:1,BSE:1,FII:1,DII:1,IPO:1,EPS:1,PAT:1,QOQ:1,YOY:1,GDP:1,RBI:1,SEBI:1,ROE:1,ROCE:1,CMP:1,TGT:1,SL:1,BUY:1,SELL:1,NEW:1,ALL:1,NIFTY:1,SENSEX:1,FY:1,PE:1,PB:1,EBITDA:1,USD:1,INR:1};
+function tgSyms(t){var m=String(t||'').toUpperCase().match(/[A-Z0-9][A-Z0-9&\-]{1,19}/g)||[],o=[],seen={};m.forEach(function(w){if(TGSTOP[w]||seen[w])return;if(ST[w]||SK[w]){seen[w]=1;o.push(w)}});return o.slice(0,6)}
+function tgWhen(t){var d=new Date(t);if(isNaN(d))return '';var n=new Date(d.getTime()+19800000).toISOString();return n.slice(8,10)+'-'+n.slice(5,7)+' '+n.slice(11,16)}
+function tgCard(m,sh){var tx=String(m.text||''),long=tx.length>300,sy=sh?[]:tgSyms(tx);
+return '<div class="card"><div class="row"><small>'+esc(m.src||'')+'</small><small>'+esc(tgWhen(m.t))+'</small></div>'+
+(long?'<details><summary>'+esc(tx.slice(0,300))+'... <u>poora padho</u></summary><div style="white-space:pre-wrap">'+esc(tx)+'</div></details>':'<div style="white-space:pre-wrap">'+esc(tx)+'</div>')+
+(sy.length?'<div>'+sy.map(function(k){return '<button class="btn" onclick="detail(\''+esc(k)+'\')">'+esc(k)+'</button>'}).join(' ')+'</div>':'')+'</div>'}
+function tgBlock(sym){if(!TG.length)return '';var u=String(sym).toUpperCase(),a=TG.filter(function(m){return tgSyms(m.text).indexOf(u)>=0}).slice(0,5);
+return '<h3>Telegram notes</h3>'+(a.length?a.map(function(m){return tgCard(m,1)}).join(''):'<small>Is stock par abhi koi Telegram note nahi.</small>')}
+function tgList(){var q=TGQ.trim().toUpperCase(),a=TG.filter(function(m){return !q||String(m.text).toUpperCase().indexOf(q)>=0||String(m.src).toUpperCase().indexOf(q)>=0}).slice(0,40);
+return a.length?a.map(function(m){return tgCard(m)}).join(''):'<div class="card">'+(TG.length?'Is search par kuch nahi mila.':'Abhi koi Telegram note nahi aaya. Private channel ke message apne bot ko forward karo.')+'</div>'}
+function loadTG(){if(!pinsOn())return;api({action:'tg'}).then(function(d){if(Array.isArray(d.tg)){var ch=JSON.stringify(d.tg)!=JSON.stringify(TG);TG=d.tg;TGTS=Date.now();if(ch&&!cur){var l=document.getElementById('tgl');if(l)l.innerHTML=tgList()}}}).catch(function(){})}
+function newsView(){var h='<h3>Telegram notes</h3><input id="tgq" placeholder="Search: stock / shabd" value="'+esc(TGQ)+'" autocomplete="off"><div id="tgl">'+tgList()+'</div>',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
 fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+flagChips(n.flags)+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div>'+annBlock(k,false)+'</div>'});
 h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class="card">'+esc(l.trim())+'</div>'}).join(''):'<div class="card">Headlines nahi mili.</div>');return h}
 function render(restore){cur=null;document.body.classList.remove('det');var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():newsView();
@@ -377,6 +391,7 @@ var rk=document.getElementById('rk'),cp=document.getElementById('cp'),q=document
 if(rk)rk.onchange=function(){var x=Math.round(+rk.value);if(!(x>0)){rk.value=ls('risk',700);return}setSetting('risk',x);render()};if(cp)cp.onchange=function(){var x=Math.round(+cp.value);if(!(x>0)){cp.value=ls('cap',50000);return}setSetting('cap',x);render()};
 if(q){q.oninput=function(){var t=q.value.trim().toUpperCase().replace(/\s+/g,''),a=Object.keys(ST).concat(Object.keys(SK)).filter(function(k){return k.indexOf(t)>=0}).sort(function(x,y){return(x.indexOf(t)==0?0:1)-(y.indexOf(t)==0?0:1)||x.length-y.length}).slice(0,12);
 if(t.length<1)a=[];document.getElementById('sg').innerHTML=a.length?a.map(function(k){return '<div onclick="detail(\''+k+'\')">'+k+(isPin(k)?' <small class="y">(Locked)</small>':'')+' <small>'+(ST[k]?ST[k].v+' | '+f(ST[k].c):'data kam/band')+'</small></div>'}).join(''):(t.length?'<div>Nahi mila. NSE ka symbol likho (jaise HEROMOTOCO, naam nahi). Naye ya kam data wale stock yahan nahi aate.</div>':'')};q.focus()}
+var tq=document.getElementById('tgq');if(tq)tq.oninput=function(){TGQ=tq.value;document.getElementById('tgl').innerHTML=tgList()};if(tab=='news'&&Date.now()-TGTS>30000)loadTG();
 paintLive();window.scrollTo(0,restore===true?lastY:0)}
 window.addEventListener('popstate',function(){render(true)});
 document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x==b)});render()}});
