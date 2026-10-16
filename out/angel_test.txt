@@ -1,7 +1,7 @@
-ANGEL TEST 2026-10-15 11:44 UTC
+ANGEL TEST 2026-10-16 04:05 UTC
 secrets present: key=True client=True pin=True totp=True
 LOGIN OK
-RELIANCE: 100 candles, last = ['2026-10-15T15:15:00+05:30', 1228.0, 1228.0, 1208.7, 1215.0, 6169919]
-TCS: 100 candles, last = ['2026-10-15T15:15:00+05:30', 2350.0, 2350.0, 2350.0, 2350.0, 1830156]
-INFY: 100 candles, last = ['2026-10-15T15:15:00+05:30', 1114.0, 1114.0, 1109.4, 1110.0, 3281564]
-RESULT: ALL OK
+RELIANCE: 102 candles, last = ['2026-10-16T09:30:00+05:30', 1199.0, 1199.3, 1195.1, 1197.5, 415345]
+TCS FAIL: HTTP 403 Access denied because of exceeding access rate (code None)
+INFY FAIL: HTTP 403 Access denied because of exceeding access rate (code None)
+RESULT: 2 failed
