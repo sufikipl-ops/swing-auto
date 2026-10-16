@@ -76,6 +76,18 @@ def ann_records(lst, today, days=3, limit=4):
     return out
 
 
+def dip_symbols():
+    """Dip scan ke stocks (out/dip_latest.csv). Inki announcements bhi laate hain."""
+    try:
+        for p in ('out/dip_latest.csv', 'docs/dip_latest.csv'):
+            if os.path.exists(p):
+                with open(p, newline='', encoding='utf-8') as h:
+                    return [r['SYMBOL'].strip().upper() for r in csv.DictReader(h) if r.get('SYMBOL')]
+    except Exception:
+        pass
+    return []
+
+
 def pin_symbols():
     """Swing Desk me lock kiye stocks (page ke PIN_URL se). Fail ho to khali list."""
     try:
@@ -278,7 +290,10 @@ def main():
                   # 2. NSE corporate announcements per symbol
         ann = {}
         ann_ok = 0
-        extra = [s for s in pin_symbols() if s not in syms]
+        extra = []
+        for s_ in pin_symbols() + dip_symbols():
+            if s_ not in syms and s_ not in extra:
+                extra.append(s_)
         if extra:
             lines.append('locked stocks added for announcements: %s' % ','.join(extra))
         for s in syms + extra:
