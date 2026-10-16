@@ -12,20 +12,45 @@ header{padding:12px 14px;border-bottom:1px solid var(--bd)}h1{font-size:18px;mar
 .pg{background:#12301f;color:var(--g)}.pr{background:#3a1a19;color:var(--r)}.py{background:#3a3016;color:var(--y)}
 main{padding:10px 12px}.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin:0 0 10px}
 .row{display:flex;justify-content:space-between;gap:8px;align-items:center}.big{font-size:17px;font-weight:600}
-nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0b1118;border-top:1px solid var(--bd)}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0b1118;border-top:1px solid var(--bd);z-index:40}
 nav button{flex:1;padding:14px 0;background:none;border:0;color:var(--mu);font-size:14px}nav button.on{color:var(--b);font-weight:600}
 input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--bd);background:#0b1118;color:var(--tx);font-size:16px}
-table{width:100%;border-collapse:collapse;font-size:14px}td{padding:5px 0;border-bottom:1px solid var(--bd)}td:last-child{text-align:right}
 .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:#223245;color:var(--tx);text-decoration:none;font-size:13px;margin:4px 6px 0 0}
-.sug div{padding:10px;border-bottom:1px solid var(--bd)}small{color:var(--mu)}h3{margin:12px 0 6px;font-size:14px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+.sug div{padding:10px;border-bottom:1px solid var(--bd)}small{color:var(--mu)}h3{margin:14px 0 6px;font-size:14px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
 li{margin:3px 0}ul{padding-left:18px;margin:4px 0}.foot{font-size:11px;color:var(--mu);padding:8px 14px}
+/* sticky back bar (stock detail) */
+#bar{display:none;position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--bd);padding:calc(8px + env(safe-area-inset-top)) 12px 8px;align-items:center;gap:12px}
+body.det #bar{display:flex}body.det header{display:none}
+.back{background:#223245;color:var(--tx);border:0;border-radius:10px;padding:12px 16px;font-size:15px;font-weight:600;min-height:44px;flex:none}
+/* ranked pick cards */
+.hint{font-size:13px;color:var(--mu);margin:2px 2px 10px}
+.hd{display:flex;gap:10px;align-items:center}
+.rk{width:34px;height:34px;border-radius:50%;background:#223245;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:none}
+.rk.r1{background:#e3b341;color:#1a1400}.rk.r2{background:#c0c8d2;color:#10161d}.rk.r3{background:#c98a54;color:#1f1206}
+.card.t3{border-color:#e3b34188}
+.why{font-size:13px;margin-top:6px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 4px}
+.tiles div{background:#0f1923;border:1px solid var(--bd);border-radius:8px;padding:6px 2px;text-align:center}
+.tiles small{display:block;font-size:11px}.tiles b{font-size:14px}
+/* detail report */
+.vd{border-left:4px solid var(--bd)}.vd.g{border-left-color:var(--g)}.vd.y{border-left-color:var(--y)}.vd.r{border-left-color:var(--r)}
+.vd .vt{font-size:18px;font-weight:700;margin:6px 0 2px}
+.ck{margin:5px 0;font-size:14px}
+.ir{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd)}.ir:last-child{border-bottom:0}
+.ir .l{flex:1}.ir .l small{display:block}.ir .v{text-align:right;font-weight:600;white-space:nowrap}.ir .v small{display:block;font-weight:400}
+.lr{display:flex;justify-content:space-between;padding:6px 8px;border-radius:6px;font-size:14px}
+.lr.up{color:#f0a19c}.lr.dn{color:#8fdcae}.lr.now{background:#223245;color:var(--tx);font-weight:700;margin:3px 0}
+.lr.en{color:var(--b);font-weight:600}.lr.tg{color:var(--g);font-weight:600}.lr.sl{color:var(--r);font-weight:600}
+details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:14px;padding:6px 0}
 </style></head><body>
 <header><h1>Swing Desk</h1><div class="mk" id="mk">loading...</div></header>
+<div id="bar"></div>
 <main id="v"></main>
 <div class="foot">Sirf technical jankari, advice nahi. Profit ki guarantee nahi. Trade se pehle khud verify karo.</div>
 <nav><button data-t="picks" class="on">Picks</button><button data-t="search">Search</button><button data-t="trades">Trades</button><button data-t="news">News</button></nav>
 <script>
-var D={},SC=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},tab='picks',cur=null;
+var D={},SC=[],SR=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},PK={},RK={},tab='picks',cur=null,lastY=0;
+var FLG={RESULTS_SOON:'Result/board meeting paas hai',NEW_ANNOUNCEMENT:'Nayi announcement aayi hai',IN_NEWS:'Khabron me hai'};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function csv(t){var o=[],r=[],f='',q=false,i,c;for(i=0;i<t.length;i++){c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
 else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;r.push(f);f='';if(r.length>1||r[0])o.push(r);r=[]}else f+=c}
@@ -34,10 +59,49 @@ function get(u,j){return fetch(u+'?t='+Date.now()).then(function(r){if(!r.ok)thr
 function ls(k,d){try{var v=localStorage.getItem(k);return v==null?d:+v}catch(e){return d}}
 function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function f(x,n){return x==null||x===''||isNaN(x)?'-':(+x).toFixed(n==null?2:n)}
+function rs0(x){return 'Rs '+Math.round(x).toLocaleString('en-IN')}
 function chip(t,c){return '<span class="pill '+(c||'')+'">'+esc(t)+'</span>'}
 function vc(v){return v=='STRONG'?'pg':v=='WEAK'?'pr':'py'}
-function plan(s,entry){var risk=ls('risk',700),cap=ls('cap',50000);entry=entry||s.c;var rs=entry-s.stop;if(rs<=0)return null;
-var q=Math.floor(risk/rs),mx=Math.floor(cap/entry);if(q>mx)q=mx;return{entry:entry,stop:s.stop,t1:entry+2*rs,q:q,val:q*entry,loss:q*rs,rs:rs}}
+function flagChips(fl){if(!fl||fl=='none')return '';return fl.split(' ').map(function(k){return chip(FLG[k]||k,k=='RESULTS_SOON'?'pr':'py')}).join('')}
+function gapChip(g){return g?chip('9:20 gap: '+g.status,g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr'):''}
+
+/* ONE trade-plan formula used everywhere (list + detail): entry trigger, ATR-capped stop, 2R target, qty from risk/capital */
+function planFrom(entry,stop){var risk=ls('risk',700),cap=ls('cap',50000),rs=entry-stop;if(!(rs>0)||!(entry>0))return null;
+var q=Math.floor(risk/rs),mx=Math.floor(cap/entry);if(q>mx)q=mx;if(q<0)q=0;
+return{entry:entry,stop:stop,t1:entry+2*rs,q:q,val:q*entry,loss:q*rs,gain:q*2*rs,rs:rs,rp:rs/entry*100}}
+function pickPlan(r){var s=ST[r.SYMBOL];return planFrom(+r.DAY_HIGH*1.001,s?s.stop:+r.LOW5)}
+
+/* Ranking: technical score 0-100 (higher = better setup today). Reasons are collected in simple Hinglish. */
+function score(r){var s=ST[r.SYMBOL],fl=(NW[r.SYMBOL]||{}).flags||'',note=r.NOTE||'',bo=r.SETUP=='BREAKOUT',
+vx=+r.VOL_X,rsi=+r.RSI14,adx=+r.ADX14,mh=+r.MACD_H,chg=+r.CHG_PCT,atr=+r.ATR14,dl=+r.DELIV_PCT,dla=+r.DELIV20_PCT,t20=+r.TURN20_CR,
+p=pickPlan(r),sc=0,P=[],N=[],ratio=s?s.score/s.mx:0.3,tp=Math.round(ratio*35);
+sc+=tp;if(ratio>=.75)P.push([tp,'Trend majboot ('+s.score+'/'+s.mx+' checks pass)']);else if(ratio<.5)N.push([20,'Trend kamzor'+(s?' ('+s.score+'/'+s.mx+')':', data kam')]);
+if(bo){var vp=Math.round(Math.min(vx,3)/3*15);sc+=vp;if(vx>=2)P.push([vp,'Volume '+f(vx,1)+'x, breakout me bheed hai']);else if(vx<1.5)N.push([10,'Volume kam ('+f(vx,1)+'x), breakout kamzor']);
+if(rsi>=55&&rsi<=70){sc+=15;P.push([15,'RSI '+f(rsi,0)+' healthy'])}else if(rsi>70&&rsi<=75){sc+=8;N.push([4,'RSI thoda garam ('+f(rsi,0)+')'])}
+else if(rsi>75&&rsi<=80){N.push([10,'RSI garam ('+f(rsi,0)+')'])}else if(rsi>80){sc-=8;N.push([15,'RSI bahut garam ('+f(rsi,0)+')'])}else sc+=6;
+if(adx>=25){sc+=10;P.push([10,'Trend me dum (ADX '+f(adx,0)+')'])}else if(adx>=20)sc+=6;
+if(mh>0)sc+=5;if(dl>=dla&&dla>0){sc+=5;P.push([5,'Delivery achhi (asli kharidari)'])}}
+else{if(s&&s.zone=='IN_ZONE'){sc+=10;P.push([10,'Buy zone (EMA20 ke paas) me'])}
+if(rsi>=45&&rsi<=55){sc+=10;P.push([10,'RSI '+f(rsi,0)+', dip ke liye theek'])}else if((rsi>=40&&rsi<45)||(rsi>55&&rsi<=60))sc+=5;
+if(chg>-2){sc+=10;P.push([10,chg>=0?'Aaj hara band hua (+'+f(chg,1)+'%)':'Dip halki ('+f(chg,1)+'%)'])}else if(chg>-4)sc+=5;else if(chg>-6){sc-=3;N.push([8,'Aaj '+f(chg,1)+'% gira'])}else{sc-=12;N.push([20,'Aaj bahut gira ('+f(chg,1)+'%)'])}
+if(chg<-3&&vx>1.5){sc-=10;N.push([18,'Girawat par bhari volume, bechne ka dabav'])}else if(vx<=1&&chg>-4){sc+=5;P.push([5,'Dip par volume kam (healthy)'])}
+if(adx>=20)sc+=6;if(mh>0)sc+=3;if(dl>=dla&&dla>0)sc+=3}
+if(p&&atr>0){var k=p.rs/atr;if(k>=1&&k<=2.5){sc+=10;P.push([10,'SL realistic ('+f(k,1)+' ATR)'])}else if(k>2.5&&k<=3.2)sc+=5;
+else if(k<1){sc+=2;N.push([5,'SL bahut tight, jaldi hit ho sakta'])}else{sc-=5;N.push([10,'SL door ('+f(p.rp,0)+'% risk)'])}}
+if(!p||p.q<1){sc-=30;N.push([30,'Risk limit me 1 share bhi nahi aata'])}
+if(note.indexOf('EXTENDED')>=0){sc-=15;N.push([25,'Pehle hi bahut bhaga (extended)'])}
+if(note.indexOf('LOW_DELIV')>=0){sc-=15;N.push([25,'Delivery kam, hawai move ho sakta'])}
+if(t20&&t20<5){sc-=20;N.push([20,'Liquidity kam'])}
+if(s&&s.warn.indexOf('Bahut volatile (ATR>6%)')>=0){sc-=5;N.push([8,'Bahut volatile (ATR>6%)'])}
+if(fl.indexOf('RESULTS_SOON')>=0){sc-=25;N.push([30,'Result/board meeting paas, gap risk'])}
+if(fl.indexOf('NEW_ANNOUNCEMENT')>=0){sc-=3;N.push([6,'Nayi announcement, pehle padh lo'])}
+sc=Math.max(0,Math.min(100,Math.round(sc)));
+function srt(a,b){return b[0]-a[0]}P.sort(srt);N.sort(srt);
+return{sc:sc,vx:vx,P:P.map(function(x){return x[1]}),N:N.map(function(x){return x[1]}),g:sc>=65?['Achha','pg']:sc>=45?['Theek','py']:['Kamzor','pr']}}
+function rankAll(){RK={};PK={};SC.forEach(function(r){PK[r.SYMBOL]=r;RK[r.SYMBOL]=score(r)});
+SR=SC.slice().sort(function(a,b){return RK[b.SYMBOL].sc-RK[a.SYMBOL].sc||RK[b.SYMBOL].vx-RK[a.SYMBOL].vx});
+SR.forEach(function(r,i){RK[r.SYMBOL].n=i+1})}
+
 function zoneTxt(s){if(s.v=='WEAK')return['Trend weak hai. Buy zone ignore karo, abhi avoid','r'];if(s.zone=='IN_ZONE')return['Buy zone me hai (EMA20 ke aaspaas)','g'];
 if(s.zone=='ABOVE_ZONE')return['Zone se upar (extended). Dip ka wait: '+f(s.zlo)+' - '+f(s.zhi)+'. Ya breakout: '+f(s.trig)+' ke upar close/volume ke saath','y'];
 return['EMA20 ke niche. Abhi buy zone nahi','r']}
@@ -50,40 +114,91 @@ function links(sym){return '<a class="btn" target="_blank" href="https://www.goo
 '<a class="btn" target="_blank" href="https://www.nseindia.com/get-quotes/equity?symbol='+encodeURIComponent(sym)+'">NSE</a>'+
 '<a class="btn" target="_blank" href="https://www.screener.in/company/'+encodeURIComponent(sym)+'/">Screener</a>'+
 '<a class="btn" target="_blank" href="https://in.tradingview.com/chart/?symbol=NSE:'+encodeURIComponent(sym)+'">Chart</a>'}
-function newsBlock(sym){var n=NW[sym],h='';if(n){h+='<h3>News / events</h3>';h+=n.flags&&n.flags!='none'?chip(n.flags,'py'):chip('Koi flag nahi');
-if(n.next_event)h+='<div>Aane wala: '+esc(n.next_event)+'</div>';if(n.last_announcement)h+='<div>Announcement: '+esc(n.last_announcement)+'</div>';
+function newsBlock(sym){var n=NW[sym],h='';if(n){h+='<h3>News / events</h3>';h+=n.flags&&n.flags!='none'?flagChips(n.flags):chip('Koi flag nahi (sab theek)','pg');
+if(n.next_event)h+='<div>Aane wala event: '+esc(n.next_event)+'</div>';if(n.last_announcement)h+='<div>Announcement: '+esc(n.last_announcement)+'</div>';
 if(n.headlines)h+='<div>'+esc(n.headlines)+'</div>'}else h+='<h3>News</h3><small>Is stock ka auto-news sirf picks me aata hai. Neeche "Latest news" dabao.</small>';return h}
-function detail(sym){var s=ST[sym];cur=sym;if(!s){var k=SK[sym];document.getElementById('v').innerHTML='<div class="card"><div class="big">'+esc(sym)+'</div>'+(k?'<div class="y">Analysis nahi ban saka: '+esc(k[0])+'</div><small>Last close '+f(k[1])+'</small>':'<div>Ye symbol hamare data me nahi hai.</div>')+links(sym)+'</div><button class="btn" onclick="render()">&larr; Wapas</button>';return}
-var z=zoneTxt(s),p=plan(s),g=GP[sym],h='<div class="card"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>Close '+f(s.c)+' <span class="'+(s.chg>=0?'g':'r')+'">'+f(s.chg)+'%</span></small></div>'+
-chip(s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>';
-if(g)h+='<div>'+chip('9:20 status: '+g.status,g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr')+'</div>';
-h+='<div class="'+z[1]+'" style="margin:8px 0">'+esc(z[0])+'</div>';
-(s.warn||[]).forEach(function(w){h+=chip(w,'pr')});
-h+='<h3>Levels</h3><table>';
-[['EMA20 (pehla support)',s.e20],['EMA50',s.e50],['EMA200',s.e200],['Support: 5-din low',s.low5],['Support: 20-din low',s.low20],['Resistance: 20-din high',s.h20],['Resistance: 60-din high',s.h60],['52-hafte high',s.h52],['52-hafte low',s.l52]].forEach(function(r){
-if(r[1]!=null)h+='<tr><td>'+r[0]+'</td><td>'+f(r[1])+' <small>('+f((r[1]/s.c-1)*100,1)+'%)</small></td></tr>'});h+='</table>';
-h+='<h3>Indicators</h3><table><tr><td>RSI14</td><td>'+f(s.rsi,1)+'</td></tr><tr><td>ADX14 (trend dum)</td><td>'+f(s.adx,1)+'</td></tr><tr><td>MACD histogram</td><td>'+f(s.mh)+'</td></tr><tr><td>Volume vs 20d avg</td><td>'+f(s.vx)+'x</td></tr><tr><td>Delivery % (aaj / avg)</td><td>'+f(s.dl,0)+' / '+f(s.dla,0)+'</td></tr><tr><td>20d turnover</td><td>Rs '+f(s.t20,0)+' cr</td></tr></table>';
-if(p){h+='<h3>Trade plan (tumhare risk/capital se)</h3><table><tr><td>Entry (ref)</td><td>'+f(p.entry)+'</td></tr><tr><td>Stop-loss</td><td class="r">'+f(p.stop)+'</td></tr><tr><td>Target (2R)</td><td class="g">'+f(p.t1)+'</td></tr><tr><td>Qty</td><td>'+p.q+'</td></tr><tr><td>Position</td><td>Rs '+f(p.val,0)+'</td></tr><tr><td>Max loss</td><td>Rs '+f(p.loss,0)+'</td></tr></table>';
-if(s.h60<p.t1)h+='<small>Target se pehle 60-din high ('+f(s.h60)+') resistance hai, wahan ruk sakta hai.</small>';if(p.q<1)h+='<div class="r">Is stop ke saath risk limit me 1 share bhi nahi aata.</div>'}
-h+='<h3>Score kyun</h3><ul style="list-style:none;padding:0">';s.why.forEach(function(w){h+='<li class="'+(w[0]=='+'?'g':'mu')+'">'+(w[0]=='+'?'&#10003; ':'&#10007; ')+esc(w.slice(2))+'</li>'});h+='</ul>'+newsBlock(sym)+links(sym)+'</div>';
-h+='<button class="btn" onclick="render()">&larr; Wapas</button>';document.getElementById('v').innerHTML=h;window.scrollTo(0,0)}
-function picksView(){var h='<div class="card"><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></div>';
-if(!SC.length)h+='<div class="card">Aaj ke picks abhi nahi mile.</div>';
-SC.forEach(function(r){var s=ST[r.SYMBOL],g=GP[r.SYMBOL],n=NW[r.SYMBOL],trig=+r.DAY_HIGH*1.001,stop=+r.LOW5,rs=trig-stop,q=rs>0?Math.min(Math.floor(ls('risk',700)/rs),Math.floor(ls('cap',50000)/trig)):0;
-h+='<div class="card" onclick="detail(\''+esc(r.SYMBOL)+'\')"><div class="row"><div class="big">'+esc(r.SYMBOL)+' '+chip(r.SETUP,'')+'</div>'+(s?chip(s.v,vc(s.v)):'')+'</div>'+
-'<small>Close '+esc(r.CLOSE)+' | RSI '+esc(r.RSI14)+' | Vol '+esc(r.VOL_X)+'x</small><div>Trigger '+f(trig)+' | SL '+f(stop)+' | T '+f(trig+2*rs)+' | Qty '+q+'</div>'+
-(g?chip(g.status,g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr'):'')+(n&&n.flags!='none'?chip(n.flags,'py'):'')+(r.NOTE?chip(r.NOTE,'pr'):'')+'</div>'});return h}
+
+/* ---------- STOCK DETAIL (simple report) ---------- */
+function bar(sym,extra){document.getElementById('bar').innerHTML='<button class="back" onclick="back()">&larr; Wapas</button><div><div class="big">'+esc(sym)+'</div>'+(extra?'<small>'+esc(extra)+'</small>':'')+'</div>';document.body.classList.add('det')}
+function back(){if(history.state&&history.state.d){history.back()}else{render(true)}}
+function verdict(s,pk,rk,p,fl){
+if(s.v=='WEAK')return['Abhi avoid karo','Trend kamzor hai. Is stock me abhi trade mat lo.','r'];
+if(fl.indexOf('RESULTS_SOON')>=0)return['Result paas hai','Gap up/down ka bada risk hai. Naya trade mat lo.','r'];
+if(p&&p.q<1)return['Risk limit me fit nahi','SL door hai, tumhare risk me 1 share bhi nahi aata.','r'];
+if(pk&&(pk.NOTE||'').indexOf('EXTENDED')>=0||pk&&s.warn.indexOf('Overbought RSI>75')>=0)return['Savdhaan: pehle hi bhaga hua','Ab entry risky hai. Dip ka wait karo ('+f(s.zlo)+' - '+f(s.zhi)+') ya skip karo.','y'];
+if(rk&&rk.sc<45)return['Kamzor setup','Aaj ke ranking me neeche hai ('+(rk.N[0]||'score kam')+'). Upar wale picks behtar hain.','r'];
+if(pk&&pk.SETUP=='BREAKOUT'&&p)return['Breakout setup','Price '+f(p.entry)+' ke upar jaye tabhi entry. Open entry se 1.5% se zyada upar ho to skip (peecha mat karo).','g'];
+if(pk&&pk.SETUP=='PULLBACK'&&p)return['Pullback setup (buy zone me)','Aaj ke high '+f(p.entry)+' ke upar jaye tabhi entry. Pehle se mat khareedo.','g'];
+var z=zoneTxt(s);return[z[1]=='g'?'Buy zone me':z[1]=='y'?'Zone se upar':'Abhi buy zone nahi',z[0],z[1]]}
+function irow(l,hint,v,sub,c){return '<div class="ir"><div class="l">'+l+'<small>'+hint+'</small></div><div class="v">'+v+'<small class="'+(c||'')+'">'+sub+'</small></div></div>'}
+function indicators(s){var h='',r=s.rsi,a=s.adx,pr=s.atr/s.c*100;
+if(r!=null){var t=r<40?['Kamzor','r']:r<50?['Thanda (dip zone)','y']:r<=72?['Healthy','g']:r<=75?['Thoda garam','y']:['Bahut garam, girne ka chance','r'];h+=irow('RSI14','Taqat ka meter. 50-72 theek maana jata hai',f(r,1),t[0],t[1])}
+if(a!=null){var t2=a<20?['Trend nahi (sideways)','r']:a<30?['Trend me dum hai','g']:['Bahut strong trend','g'];h+=irow('ADX14','Trend kitna majboot hai. 20 se upar achha',f(a,1),t2[0],t2[1])}
+h+=irow('MACD','Momentum upar ja raha hai ya neeche',f(s.mh),s.mh>0?'Momentum upar':'Momentum neeche',s.mh>0?'g':'r');
+var t3=s.vx>=1.5?['Bheed zyada','g']:s.vx>=0.8?['Normal','y']:['Kam interest','y'];h+=irow('Volume','Aaj ka volume vs pichle 20 din ka average',f(s.vx)+'x',t3[0],t3[1]);
+if(s.dl!=null&&s.dla){var t4=s.dl>=s.dla?['Asli kharidari achhi','g']:s.dl>=0.6*s.dla?['Theek','y']:['Kam, hawai move ho sakta','r'];h+=irow('Delivery %','Kitna maal asli me liya gaya (aaj / average)',f(s.dl,0)+' / '+f(s.dla,0),t4[0],t4[1])}
+h+=irow('Liquidity','Roz ka average turnover. 5 cr se upar easy buy/sell','Rs '+f(s.t20,0)+' cr',s.t20>=5?'Easily buy/sell':'Kam liquidity',s.t20>=5?'g':'r');
+h+=irow('Roz ka utaar-chadhav','ATR: ek din me kitna hil sakta hai',f(pr,1)+'%',pr<3?'Shant':pr<6?'Normal':'Bahut volatile',pr<6?'g':'r');return h}
+function ladder(s,p){var L=[['52-hafte high',s.h52],['60-din high',s.h60],['20-din high',s.h20],['EMA20',s.e20],['EMA50',s.e50],['EMA200',s.e200],['20-din low',s.low20],['5-din low',s.low5],['52-hafte low',s.l52]].filter(function(x){return x[1]!=null}).map(function(x){return{n:x[0],v:x[1],k:x[1]>s.c?'up':'dn'}});
+L.push({n:'ABHI (close)',v:s.c,k:'now'});if(p){L.push({n:'Target (2R)',v:p.t1,k:'tg'});L.push({n:'Stop-loss',v:p.stop,k:'sl'});L.push({n:'Entry',v:p.entry,k:'en'})}
+L.sort(function(a,b){return b.v-a.v});
+return L.map(function(x){return '<div class="lr '+x.k+'"><span>'+x.n+'</span><span>'+f(x.v)+(x.k=='now'?'':' <small>('+(x.v>=s.c?'+':'')+f((x.v/s.c-1)*100,1)+'%)</small>')+'</span></div>'}).join('')}
+function detail(sym){if(cur==null)lastY=window.pageYOffset||0;cur=sym;rankAll();
+try{if(!(history.state&&history.state.d))history.pushState({d:sym},'')}catch(e){}
+var s=ST[sym],pk=PK[sym],rk=RK[sym],v=document.getElementById('v');
+bar(sym,rk?'Aaj ka rank #'+rk.n+' / '+SR.length+'  |  score '+rk.sc+'/100':'');
+if(!s){var k=SK[sym];v.innerHTML='<div class="card"><div class="big">'+esc(sym)+'</div>'+(k?'<div class="y">Analysis nahi ban saka: '+esc(k[0])+'</div><small>Last close '+f(k[1])+'</small>':'<div>Ye symbol hamare data me nahi hai.</div>')+links(sym)+'</div>';window.scrollTo(0,0);return}
+var fl=(NW[sym]||{}).flags||'',entry=pk?+pk.DAY_HIGH*1.001:s.c,p=planFrom(entry,s.stop),vd=verdict(s,pk,rk,p,fl),g=GP[sym],h='';
+/* 1. seedha jawab */
+h+='<div class="card vd '+vd[2]+'"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>Close '+f(s.c)+' <span class="'+(s.chg>=0?'g':'r')+'">'+f(s.chg)+'%</span>'+(pk?' | '+(pk.SETUP=='BREAKOUT'?'Breakout':'Pullback'):'')+'</small></div>'+chip('Trend '+s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>'+
+'<div class="vt '+vd[2]+'">'+esc(vd[0])+'</div><div>'+esc(vd[1])+'</div>'+(rk?'<div style="margin-top:6px">'+chip('Rank #'+rk.n+' ('+rk.g[0]+')',rk.g[1])+gapChip(g)+'</div>':gapChip(g))+'</div>';
+/* 2. trade plan */
+if(p){h+='<div class="card"><h3 style="margin-top:0">Trade plan</h3><div class="tiles"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>'+
+'<div class="ir"><div class="l">Paisa lagega</div><div class="v">'+rs0(p.val)+'</div></div><div class="ir"><div class="l">SL hit hua to nuksan</div><div class="v r">'+rs0(p.loss)+'</div></div><div class="ir"><div class="l">Target hit hua to fayda</div><div class="v g">'+rs0(p.gain)+'</div></div>'+
+'<small>Entry '+(pk?'= aaj ke high ke thoda upar (trigger)':'= abhi ka close (reference)')+'. Stop-loss = pichle 5 din ke low ke paas, ATR se limit. Target = risk ka 2 guna. Risk/capital Picks tab se badal sakte ho.</small>';
+if(s.h60<p.t1&&s.h60>p.entry)h+='<div class="y" style="margin-top:6px">Dhyan: target se pehle 60-din high ('+f(s.h60)+') rukawat hai, wahan ruk sakta hai.</div>';
+if(p.q<1)h+='<div class="r" style="margin-top:6px">Is stop ke saath risk limit me 1 share bhi nahi aata.</div>';h+='</div>'}
+/* 3. kyun achha / kahan savdhaan */
+var good=[],bad=[];s.why.forEach(function(w){if(w[0]=='+')good.push(w.slice(2));else bad.push(w.replace('- NAHI: ',''))});
+h+='<div class="card"><h3 style="margin-top:0">Kyun achha</h3>'+(good.length?good.map(function(w){return '<div class="ck g">&#10003; '+esc(w)+'</div>'}).join(''):'<div class="mu">Koi strong point nahi</div>')+
+'<h3>Kahan savdhaan</h3>'+(bad.length||s.warn.length||(rk&&rk.N.length)?bad.map(function(w){return '<div class="ck mu">&#10007; Nahi mila: '+esc(w)+'</div>'}).join('')+s.warn.map(function(w){return '<div class="ck r">&#9888; '+esc(w)+'</div>'}).join('')+((rk&&rk.N)||[]).map(function(w){return '<div class="ck y">&#9888; '+esc(w)+'</div>'}).join(''):'<div class="g">Koi bada red flag nahi</div>')+'</div>';
+/* 4. price ladder */
+h+='<div class="card"><h3 style="margin-top:0">Price levels (upar se neeche)</h3><small>Laal = upar rukawat (yahan price ruk sakta hai). Hara = neeche support (yahan se sambhal sakta hai).</small><div style="margin-top:6px">'+ladder(s,p)+'</div></div>';
+/* 5. numbers ka matlab */
+h+='<div class="card"><h3 style="margin-top:0">Numbers ka matlab</h3>'+indicators(s)+'</div>';
+/* 6. news + links */
+h+='<div class="card">'+newsBlock(sym).replace('<h3>','<h3 style="margin-top:0">')+links(sym)+'</div>';
+v.innerHTML=h;window.scrollTo(0,0)}
+
+/* ---------- PICKS (ranked best -> worst) ---------- */
+function picksView(){rankAll();var h='<div class="card"><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></div>';
+if(!SR.length)h+='<div class="card">Aaj ke picks abhi nahi mile.</div>';
+else h+='<div class="hint"><b>'+SR.length+' picks, best se worst.</b> Pehle 2-3 par dhyan do. Din me 1-2 trade se zyada mat lo. Kisi card par dabao: poori report khulegi.</div>';
+SR.forEach(function(r,i){var rk=RK[r.SYMBOL],p=pickPlan(r),n=NW[r.SYMBOL],s=ST[r.SYMBOL],fl=n&&n.flags!='none'?n.flags:'',no=i+1;
+h+='<div class="card'+(no<=3?' t3':'')+'" onclick="detail(\''+esc(r.SYMBOL)+'\')"><div class="row"><div class="hd"><div class="rk'+(no<=3?' r'+no:'')+'">'+no+'</div><div><div class="big">'+esc(r.SYMBOL)+'</div><small>'+(r.SETUP=='BREAKOUT'?'Breakout':'Pullback')+' | Close '+esc(r.CLOSE)+' | RSI '+f(r.RSI14,0)+' | Vol '+f(r.VOL_X,1)+'x</small></div></div>'+chip(rk.g[0]+' '+rk.sc,rk.g[1])+'</div>'+
+(rk.P.length?'<div class="why g">&#10003; '+rk.P.slice(0,2).map(esc).join(' &middot; ')+'</div>':'')+(rk.N.length?'<div class="why r">&#9888; '+rk.N.slice(0,2).map(esc).join(' &middot; ')+'</div>':'')+
+(p?'<div class="tiles"><div><small>Entry (upar)</small><b>'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>':'<small>Plan nahi ban saka</small>')+
+'<div>'+gapChip(GP[r.SYMBOL])+flagChips(fl)+(r.NOTE?chip(r.NOTE,'pr'):'')+'</div></div>'});
+h+='<details class="card"><summary>Rank kaise bana? (padhne ke liye dabao)</summary><div style="font-size:13px">Har pick ko 100 me se score milta hai. Jitna zyada, utna upar.<ul>'+
+'<li><b>Trend ki taqat (35 tak):</b> price EMA20/50/200 ke upar, EMA upar ja raha, ADX, MACD, RSI jaise 7-8 checks.</li>'+
+'<li><b>Breakout me:</b> volume zyada (bheed), RSI 55-70 healthy, ADX 25+, delivery achhi = plus.</li>'+
+'<li><b>Pullback me:</b> buy zone me, RSI 45-55, dip halki, dip par volume kam = plus. Aaj 4-6% se zyada gira ya girawat par bhari volume = minus.</li>'+
+'<li><b>Stop-loss:</b> 1 se 2.5 ATR door ho to achha. Bahut door ho to risk badhta hai, quantity chhoti hoti hai = minus.</li>'+
+'<li><b>Minus:</b> extended (pehle hi bhaga), delivery kam, RSI 75+, liquidity kam, result paas, nayi announcement, risk limit me 1 share bhi nahi.</li></ul>'+
+'Ye sirf technical score hai: sabse upar wala bhi jeetega, iski guarantee nahi. Trade se pehle news aur apna SL khud dekho.</div></details>';return h}
 function searchView(){return '<input id="q" placeholder="Stock ka naam likho (e.g. RELIANCE)" autocapitalize="characters" autocomplete="off"><div id="sg" class="sug"></div>'}
 function tradesView(){if(!TR.length)return '<div class="card">Abhi koi trade logged nahi. Picks sheet me trade jodo.</div>';
 return TR.map(function(t){var c=t.status=='CLOSED'?(+t.R>0?'pg':'pr'):'py';return '<div class="card"><div class="row"><div class="big">'+esc(t.symbol)+'</div>'+chip(t.status,c)+'</div><small>'+esc(t.date)+' | Entry '+esc(t.entry)+' SL '+esc(t.sl)+' T '+esc(t.target)+' Qty '+esc(t.qty)+'</small>'+(t.status=='CLOSED'?'<div>Exit '+esc(t.exit)+' ('+esc(t.reason_exit)+') | R '+esc(t.R)+' | Rs '+esc(t.pnl)+'</div>':'')+'</div>'}).join('')+'<small>30-50 closed trades ke baad hi system ka faisla karo.</small>'}
 function newsView(){var h='',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
-fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+chip(n.flags,'py')+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div></div>'});
+fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+flagChips(n.flags)+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div></div>'});
 h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class="card">'+esc(l.trim())+'</div>'}).join(''):'<div class="card">Headlines nahi mili.</div>');return h}
-function render(){cur=null;var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():newsView();
+function render(restore){cur=null;document.body.classList.remove('det');var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():newsView();
 var rk=document.getElementById('rk'),cp=document.getElementById('cp'),q=document.getElementById('q');
 if(rk)rk.onchange=function(){sv('risk',rk.value);render()};if(cp)cp.onchange=function(){sv('cap',cp.value);render()};
 if(q){q.oninput=function(){var t=q.value.trim().toUpperCase().replace(/\s+/g,''),a=Object.keys(ST).concat(Object.keys(SK)).filter(function(k){return k.indexOf(t)>=0}).sort(function(x,y){return(x.indexOf(t)==0?0:1)-(y.indexOf(t)==0?0:1)||x.length-y.length}).slice(0,12);
-if(t.length<1)a=[];document.getElementById('sg').innerHTML=a.length?a.map(function(k){return '<div onclick="detail(\''+k+'\')">'+k+' <small>'+(ST[k]?ST[k].v+' | '+f(ST[k].c):'data kam/band')+'</small></div>'}).join(''):(t.length?'<div>Nahi mila. NSE ka symbol likho (jaise HEROMOTOCO, naam nahi). Naye ya kam data wale stock yahan nahi aate.</div>':'')};q.focus()}}
+if(t.length<1)a=[];document.getElementById('sg').innerHTML=a.length?a.map(function(k){return '<div onclick="detail(\''+k+'\')">'+k+' <small>'+(ST[k]?ST[k].v+' | '+f(ST[k].c):'data kam/band')+'</small></div>'}).join(''):(t.length?'<div>Nahi mila. NSE ka symbol likho (jaise HEROMOTOCO, naam nahi). Naye ya kam data wale stock yahan nahi aate.</div>':'')};q.focus()}
+window.scrollTo(0,restore===true?lastY:0)}
+window.addEventListener('popstate',function(){render(true)});
 document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x==b)});render()}});
 load();
 </script></body></html>
