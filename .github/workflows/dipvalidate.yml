@@ -1,0 +1,40 @@
+name: dipvalidate
+# Out-of-sample (train 2022-24, test 2025+) check of Dip filters. Run manually: Actions > dipvalidate > Run workflow.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  dipvalidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download bhavcopy (about 4 years)
+        run: python fetch.py
+        env:
+          DAYS: "1500"
+      - name: Run study
+        run: python dip_validate.py data out
+      - name: Save result as download too (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dipvalidate-result
+          path: |
+            out/dip_validate_summary.txt
+            
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add out/dip_validate_summary.txt
+          git diff --cached --quiet && exit 0
+          git commit -m "dipvalidate $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
