@@ -212,7 +212,7 @@ var exp=d.toISOString().slice(0,10);return date<exp?chip('Data '+date+' ka hai, 
 function planFrom(entry,stop,atr,res){var risk=ls('risk',700),capi=ls('cap',50000),rs=entry-stop;if(!(rs>0)||!(entry>0))return null;
 if(atr>0&&rs>2*atr){stop=entry-2*atr;rs=2*atr}
 var q=Math.floor(risk/rs),mx=Math.floor(capi/entry);if(q>mx)q=mx;if(q<0)q=0;
-var t1=entry+2*rs;if(atr>0)t1=entry+Math.min(2*rs,2*atr);
+var t1=entry+2*rs;if(atr>0)t1=entry+Math.min(2*rs,1.5*atr);
 if(res>entry+0.5*(atr||0)&&res*0.995<t1)t1=res*0.995;
 return{entry:entry,stop:stop,t1:t1,q:q,val:q*entry,loss:q*rs,gain:q*(t1-entry),rs:rs,rp:rs/entry*100,rr:(t1-entry)/rs,ta:atr>0?(t1-entry)/atr:0}}
 function setupName(r){return r.SETUP=='PREBREAK'?'Breakout se pehle':r.SETUP=='BREAKOUT'?((r.NOTE||'').indexOf('LATE')>=0?'Breakout (LATE)':'Breakout'):'Pullback'}
@@ -245,7 +245,7 @@ else if(k<1){sc+=2;N.push([5,'SL bahut tight, jaldi hit ho sakta'])}else{sc-=5;N
 if(!p||p.q<1){sc-=30;N.push([30,'Risk limit me 1 share bhi nahi aata'])}
 if(note.indexOf('LATE')>=0){sc-=30;N.push([35,'Breakout ho chuka ('+f(+r.EXT_ATR,1)+' ATR upar), late hai: peecha mat karo'])}
 else if(bo&&+r.EXT_ATR>0.5){sc-=8;N.push([10,'Breakout level se '+f(+r.EXT_ATR,1)+' ATR upar, thoda late'])}
-if(p&&p.rr<1.2){sc-=6;N.push([8,'Target paas hai (R:R '+f(p.rr,1)+'), fayda chhota'])}
+if(p&&p.rr<0.6){sc-=6;N.push([8,'Target bahut paas hai (R:R '+f(p.rr,1)+'), fayda chhota'])}
 if(note.indexOf('EXTENDED')>=0){sc-=15;N.push([25,'Pehle hi bahut bhaga (extended)'])}
 if(note.indexOf('LOW_DELIV')>=0){sc-=15;N.push([25,'Delivery kam, hawai move ho sakta'])}
 if(t20&&t20<5){sc-=20;N.push([20,'Liquidity kam'])}
@@ -338,7 +338,7 @@ h+='<div data-lv="'+esc(sym)+'" data-full="1"></div>'+ignStrip(sym);
 /* 2. trade plan */
 if(p){h+='<div class="card"><h3 style="margin-top:0">Trade plan</h3><div class="tiles"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>'+
 '<div class="ir"><div class="l">Paisa lagega</div><div class="v">'+rs0(p.val)+'</div></div><div class="ir"><div class="l">SL hit hua to nuksan</div><div class="v r">'+rs0(p.loss)+'</div></div><div class="ir"><div class="l">Target hit hua to fayda</div><div class="v g">'+rs0(p.gain)+'</div></div>'+
-'<small>Entry '+(pk?(pk.SETUP=='PREBREAK'?'= 20-din high ke thoda upar (breakout trigger, abhi hua nahi)':'= aaj ke high ke thoda upar (trigger)'):'= abhi ka close (reference)')+'. Stop-loss = pichle 5 din ke low ke paas, max 2 ATR door. Target = realistic (max 2 ATR ya risk ka 2 guna, jo chhota ho, aur rukawat se pehle): '+f(p.ta,1)+' ATR, R:R 1:'+f(p.rr,1)+'. Risk/capital Picks tab se badal sakte ho.</small>';
+'<small>Entry '+(pk?(pk.SETUP=='PREBREAK'?'= 20-din high ke thoda upar (breakout trigger, abhi hua nahi)':'= aaj ke high ke thoda upar (trigger)'):'= abhi ka close (reference)')+'. Stop-loss = pichle 5 din ke low ke paas, max 2 ATR door. Target = realistic: max 1.5 ATR (ya risk ka 2 guna, jo chhota ho) aur rukawat se pehle = '+f(p.ta,1)+' ATR, R:R 1:'+f(p.rr,1)+'. Backtest: 1.5 ATR target 5 din me lagbhag 3 me se 1 trade me lagta hai; 2 ATR sirf 5 me se 1 me. Risk/capital Picks tab se badal sakte ho.</small>';
 if(s.h60<p.t1&&s.h60>p.entry)h+='<div class="y" style="margin-top:6px">Dhyan: target se pehle 60-din high ('+f(s.h60)+') rukawat hai, wahan ruk sakta hai.</div>';
 if(p.q<1)h+='<div class="r" style="margin-top:6px">Is stop ke saath risk limit me 1 share bhi nahi aata.</div>';h+='</div>'}
 h+=dipDetailCard(sym);h+=checkCard(sym,p);
