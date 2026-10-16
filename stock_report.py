@@ -144,6 +144,22 @@ for sym, byd in data.items():
     if c < e50[-1]: warn.append('EMA50 ke niche (weak)')
     if h52 and c >= 0.97 * h52: warn.append('52w high ke paas (resistance/breakout zone)')
     if atr / c > 0.06: warn.append('Bahut volatile (ATR>6%)')
+    # Traditional pivots (reel setup): daily from last bar (valid for next session) + weekly
+    def piv(H, L, C):
+        P = (H + L + C) / 3.0
+        return dict(p=P, r1=2 * P - L, s1=2 * P - H, r2=P + (H - L), s2=P - (H - L))
+    dp = piv(hi[-1], lo[-1], c)
+    wk = [d.isocalendar()[:2] for d in ds]
+    wlast = wk[-1] if last.weekday() == 4 else None
+    if wlast is None:
+        wlast = wk[-1]
+        idx = [i for i in range(len(ds)) if wk[i] != wlast]
+        pw = wk[idx[-1]] if idx else None
+    else:
+        pw = wlast
+    widx = [i for i in range(len(ds)) if wk[i] == pw] if pw else []
+    wp = piv(max(hi[i] for i in widx), min(lo[i] for i in widx), cl[widx[-1]]) if widx else None
+    e9 = ema(cl, 9)[-1]
     stop = low5 - 0.1 * atr
     if c - stop > 3 * atr: stop = c - 3 * atr
     if stop >= c: stop = c - 1.5 * atr
@@ -156,7 +172,9 @@ for sym, byd in data.items():
                     h52=round(h52, 2), l52=round(l52, 2), vx=round(vx, 2), t20=round(to20, 1),
                     dl=round(b[-1]['dl'], 1) if b[-1]['dl'] is not None else None, dla=round(dla, 1) if dla else None,
                     score=sc, mx=mx, v=verdict, why=why, warn=warn, stop=round(stop, 2),
-                    zlo=round(zlo, 2), zhi=round(zhi, 2), zone=zone, trig=round(prevhi * 1.001, 2))
+                    zlo=round(zlo, 2), zhi=round(zhi, 2), zone=zone, trig=round(prevhi * 1.001, 2),
+                    e9=round(e9, 2), pv=dict((k, round(v, 2)) for k, v in dp.items()),
+                    wpv=dict((k, round(v, 2)) for k, v in wp.items()) if wp else None)
 mk = dict(date=last.isoformat(), n=tot, adv=up, dec=dn, pct20=round(100.0 * a20 / max(tot, 1), 1),
           pct50=round(100.0 * a50 / max(tot, 1), 1))
 with open(os.path.join(out_dir, 'stocks.json'), 'w') as h:
