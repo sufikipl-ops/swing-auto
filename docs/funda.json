@@ -1015,13 +1015,13 @@
  "log": [
   "candidates: 40",
   "warmup fail: HTTP Error 403: Forbidden",
-  "status: {\"shp\": \"40/40\", \"pledge\": \"38/40\", \"de\": \"40/40\", \"cached\": 0}"
+  "status: {\"shp\": \"2/2\", \"pledge\": \"0/2\", \"de\": \"2/2\", \"cached\": 38}"
  ],
  "status": {
-  "cached": 0,
-  "de": "40/40",
-  "pledge": "38/40",
-  "shp": "40/40"
+  "cached": 38,
+  "de": "2/2",
+  "pledge": "0/2",
+  "shp": "2/2"
  },
  "updated": "2026-10-16 19:23 UTC"
 }
