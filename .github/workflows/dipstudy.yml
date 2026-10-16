@@ -1,0 +1,28 @@
+name: dipstudy
+# Long-history (about 4 years) study of dip-in-uptrend setups. Run manually: Actions > dipstudy > Run workflow.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  dipstudy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download bhavcopy (about 4 years)
+        run: python fetch.py
+        env:
+          DAYS: "1500"
+      - name: Run study
+        run: python dip_study.py data out
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add out/dip_summary.txt out/dip_results.csv
+          git diff --cached --quiet || git commit -m "dipstudy $(date -u +%F)"
+          git push
