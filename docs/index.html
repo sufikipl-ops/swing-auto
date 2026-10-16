@@ -376,15 +376,54 @@ function nmNorm(x){return String(x||'').toLowerCase().replace(/&/g,' and ').repl
 var NMGEN={india:1,indian:1,bharat:1,global:1,power:1,steel:1,energy:1,central:1,united:1,general:1,tata:1,national:1,state:1,bank:1,finance:1,capital:1,trading:1,industries:1,enterprises:1,infra:1,textiles:1,chemicals:1,pharma:1,tech:1,systems:1,limited:1};
 function setNames(n){if(!n||typeof n!='object')return;NM=n;NMN={};NMA=[];Object.keys(n).forEach(function(k){var f=nmNorm(n[k]);NMN[k]=f;
 var al=f.replace(/\b(limited|ltd|pvt|private|the)\b/g,' ').replace(/\s+/g,' ').trim(),w=al.split(' ');if(!al)return;
-if(w.length>=2?al.length>=7:(al.length>=5&&!NMGEN[al]))NMA.push([' '+al+' ',k])});TGC={}}
+if(w.length>=2?al.length>=7:(al.length>=5&&!NMGEN[al]))NMA.push([' '+al+' ',k]);
+var a3=al.replace(/\s+(india|industries|corporation|company|enterprises|international)$/,'').trim(),w3=a3.split(' ');if(a3!==al&&(w3.length>=2?a3.length>=7:(a3.length>=5&&!NMGEN[a3])))NMA.push([' '+a3+' ',k])});TGC={}}
 function tgSyms(t){t=String(t||'');if(TGC[t])return TGC[t];var m=t.toUpperCase().match(/[A-Z0-9][A-Z0-9&\-]{1,19}/g)||[],o=[],seen={};m.forEach(function(w){if(TGSTOP[w]||seen[w])return;if(ST[w]||SK[w]){seen[w]=1;o.push(w)}});
 if(NMA.length&&o.length<6){var tx=' '+nmNorm(t)+' ';NMA.forEach(function(x){if(o.length<6&&!seen[x[1]]&&tx.indexOf(x[0])>=0&&(ST[x[1]]||SK[x[1]])){seen[x[1]]=1;o.push(x[1])}})}
 return TGC[t]=o.slice(0,6)}
 function tgWhen(t){var d=new Date(t);if(isNaN(d))return '';var n=new Date(d.getTime()+19800000).toISOString();return n.slice(8,10)+'-'+n.slice(5,7)+' '+n.slice(11,16)}
+
+/* ---------- TELEGRAM NOTE ANALYSIS (rule-based, AI nahi) ---------- */
+function tgNum(x){return parseFloat(String(x).replace(/,/g,''))}
+function tgPct(line,kind){var re=new RegExp('([\\u2191\\u25B2\\u2B06+]|[\\u2193\\u25BC\\u2B07\\-\\u2212])?\\s*(\\d+(?:[.,]\\d+)?)\\s*%\\s*(?:'+kind+')','i'),m=line.match(re);if(!m)return null;
+var v=tgNum(m[2]),neg=/[\u2193\u25BC\u2B07\-\u2212]/.test(m[1]||'');if(!m[1]&&/\b(down|decline|fall|fell|drop|loss|lower)\b/i.test(line))neg=true;return neg?-v:v}
+function tgParse(t){var o={},lines=String(t||'').split(/\n/);lines.forEach(function(l){var k=/margin/i.test(l)?'mar':/ebitda/i.test(l)?'ebitda':/(net\s*profit|\bpat\b|profit after tax|\bprofit\b)/i.test(l)?'pat':/(revenue|\bsales\b|income from operations|total income)/i.test(l)?'rev':/\beps\b/i.test(l)?'eps':'';if(!k||o[k])return;
+if(k=='mar'){var a=l.match(/(\d+(?:\.\d+)?)\s*%\s*vs\.?\s*(\d+(?:\.\d+)?)\s*%\s*(?:yoy|y-o-y)/i),q=l.match(/\|\s*(\d+(?:\.\d+)?)\s*%\s*(?:qoq|q-o-q)/i);if(a||q){o.mar={cur:a?+a[1]:null,py:a?+a[2]:null,pq:q?+q[1]:null}}return}
+var y=tgPct(l,'yoy|y-o-y'),q2=tgPct(l,'qoq|q-o-q');if(y!=null||q2!=null)o[k]={y:y,q:q2}});return o}
+function tgScore(o){var sc=0,n=[];
+if(o.pat&&o.pat.y!=null){var y=o.pat.y;sc+=y>=25?2:y>=10?1:y<0?-2:0;if(y>=100)n.push('Profit 2 guna+ hua: PDF me dekho ye one-time/other income se to nahi.')}
+if(o.pat&&o.pat.q!=null&&o.pat.q<0){sc-=1;n.push('Pichhle quarter se profit gira.')}
+if(o.rev&&o.rev.y!=null)sc+=o.rev.y>=10?1:o.rev.y<0?-1:0;
+if(o.ebitda&&o.ebitda.y!=null)sc+=o.ebitda.y>=15?1:o.ebitda.y<0?-1:0;
+if(o.mar){if(o.mar.cur!=null&&o.mar.py!=null){var d=o.mar.cur-o.mar.py;sc+=d>0.5?1:d<-0.5?-1:0}
+if(o.mar.cur!=null&&o.mar.pq!=null&&o.mar.pq-o.mar.cur>1)n.push('Margin pichhle quarter ('+f(o.mar.pq,1)+'%) se neeche aaya ('+f(o.mar.cur,1)+'%): momentum ghata.')}
+return{sc:sc,notes:n}}
+function tgPlus(v,d){return v==null?'-':(v>=0?'+':'')+f(v,d||0)+'%'}
+function tgAnalysis(m,sym){var o=tgParse(m.text),isRes=!!(o.pat||o.rev||o.ebitda||/\bQ[1-4]\s*FY|results?\b/i.test(m.text||''));
+var s=ST[sym],h='<div class="card" style="margin-top:8px;border-style:dashed"><div class="row"><b>'+esc(sym)+(NM[sym]?' <small>'+esc(NM[sym])+'</small>':'')+'</b>'+pinBtn(sym)+'</div>';
+var st=pinStatus(sym);h+='<div>Chart abhi: <span class="'+(st[1]=='pg'?'g':st[1]=='pr'?'r':'y')+'">'+esc(st[0])+'</span></div>';
+var it=liveItem(sym);if(it){var gp=(it.o/livePc(sym,it)-1)*100;h+='<div><small>Aaj open '+f(it.o)+' ('+tgPlus(gp,1)+' gap) | abhi '+f(it.ltp)+'</small></div>'}
+var act='';
+var ok=s&&s.v!='WEAK'&&s.score/s.mx>=.75,zone=s?s.zone:'';
+if(isRes&&(o.pat||o.rev||o.ebitda)){var r=tgScore(o),lab=r.sc>=3?['Result mazboot','pg']:r.sc>=1?['Result achha','pg']:r.sc>=0?['Result mixed','py']:['Result kamzor','pr'];
+h+='<div style="margin:6px 0">'+chip(lab[0],lab[1])+'</div><div>';
+var ch=[];if(o.pat)ch.push('Profit '+tgPlus(o.pat.y)+' YoY'+(o.pat.q!=null?' / '+tgPlus(o.pat.q)+' QoQ':''));if(o.rev)ch.push('Revenue '+tgPlus(o.rev.y)+' YoY'+(o.rev.q!=null?' / '+tgPlus(o.rev.q)+' QoQ':''));if(o.ebitda)ch.push('EBITDA '+tgPlus(o.ebitda.y)+' YoY');if(o.mar&&o.mar.cur!=null)ch.push('Margin '+f(o.mar.cur,1)+'%'+(o.mar.py!=null?' (pichle saal '+f(o.mar.py,1)+'%)':''));
+h+=ch.map(function(x){return '<div>&bull; '+esc(x)+'</div>'}).join('')+'</div>';
+r.notes.forEach(function(n){h+='<div class="y"><small>'+esc(n)+'</small></div>'});
+if(r.sc>=1){if(!s)act='Is stock ka chart data app me nahi hai. Pehle chart khud dekho; result achha hai par entry bina setup ke mat lo.';
+else if(!ok)act='Result achha par trend kamzor hai: sirf watchlist me rakho (Lock), abhi trade nahi. Trend palte tab dekho.';
+else if(zone=='IN_ZONE')act='Result achha + trend majboot + buy zone me: ye sabse acchi combination hai. Lock karo, detail me trade plan dekho, 9:20 gap check ke baad hi entry (GTT trigger ke upar).';
+else if(zone=='ABOVE_ZONE')act='Result achha par stock zone se upar (pehle hi bhaga). Peecha mat karo: dip ka wait ('+f(s.zlo)+' - '+f(s.zhi)+') ya trigger '+f(s.trig)+' ke upar volume ke saath.';
+else act='Result achha par chart abhi buy zone me nahi. Lock karke wait karo.';
+act+=' Result ke din gap bada ho sakta hai: open trigger se 1.5% upar ho to skip.'}
+else if(r.sc>=0)act='Result mixed hai. Entry ka reason mat banao; concall/PDF dekho aur chart ka setup alag se parakho.';
+else act='Result kamzor: naya trade mat lo. Holding hai to SL strict rakho.'}
+else{act=s?(ok&&zone=='IN_ZONE'?'Chart theek (trend + buy zone). Ye note sirf confirmation maano, entry app ke trade plan se.':'Note ko trade ka reason mat banao. Pehle chart/setup check karo (upar status).'):'Is stock ka chart data app me nahi. Note sirf jankari hai.'}
+h+='<div style="margin-top:6px"><b>Trade me kaise use karein:</b> '+esc(act)+'</div><div style="margin-top:6px"><button class="btn" onclick="detail(\''+esc(sym)+'\')">Poori detail</button></div><small>Rule-based padhai hai (AI nahi), galat ho sakti hai. Source ka number PDF/NSE se verify karo.</small></div>';return h}
 function tgCard(m,sh){var tx=String(m.text||''),long=tx.length>300,sy=sh?[]:tgSyms(tx),nw=!sh&&m.rcv&&m.rcv>TGPREV;
 return '<div class="card"><div class="row"><small>'+(nw?chip('NAYA','pg')+' ':'')+esc(m.src||'')+'</small><small>'+esc(tgWhen(m.t))+'</small></div>'+
 (long?'<details><summary>'+esc(tx.slice(0,300))+'... <u>poora padho</u></summary><div style="white-space:pre-wrap">'+esc(tx)+'</div></details>':'<div style="white-space:pre-wrap">'+esc(tx)+'</div>')+
-(sy.length?'<div>'+sy.map(function(k){return '<button class="btn" onclick="detail(\''+esc(k)+'\')">'+esc(k)+'</button>'}).join(' ')+'</div>':'')+'</div>'}
+(sy.length?'<div>'+sy.map(function(k){return '<button class="btn" onclick="detail(\''+esc(k)+'\')">'+esc(k)+'</button>'}).join(' ')+'</div>':'')+sy.slice(0,2).map(function(k){return tgAnalysis(m,k)}).join('')+'</div>'}
 function tgBlock(sym){if(!TG.length)return '';var u=String(sym).toUpperCase(),a=TG.filter(function(m){return tgSyms(m.text).indexOf(u)>=0}).slice(0,5);
 return '<h3>Telegram notes</h3>'+(a.length?a.map(function(m){return tgCard(m,1)}).join(''):'<small>Is stock par abhi koi Telegram note nahi.</small>')}
 function tgList(){var q=TGQ.trim().toUpperCase(),a=TG.filter(function(m){return !q||String(m.text).toUpperCase().indexOf(q)>=0||String(m.src).toUpperCase().indexOf(q)>=0}).slice(0,40);
