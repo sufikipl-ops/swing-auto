@@ -75,8 +75,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 66.03,
    "prom_yr": 68.02,
-   "qv": 2,
+   "qv": 3,
    "rg": 18.6,
+   "roe": 13.32,
+   "roe_src": "annual",
    "sector": "Industrials"
   },
   "AEQUS": {
@@ -91,8 +93,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 59.09,
    "prom_yr": 59.08,
-   "qv": 2,
+   "qv": 3,
    "rg": 54.8,
+   "roe": -7.62,
+   "roe_src": "annual",
    "sector": "Industrials"
   },
   "AEROPLANE": {
@@ -112,17 +116,19 @@
    "de": 0.09,
    "de_src": "yahoo",
    "eg": 11.0,
-   "eps": 44.78,
+   "eps": 44.27,
    "industry": "Steel",
-   "pe": 48.07,
+   "pe": 48.63,
    "pledge": 0.0,
    "pledge_date": "2026-09-30",
    "prom": 28.18,
    "prom_date": "2026-09-30",
    "prom_prev": 28.25,
    "prom_yr": 28.3,
-   "qv": 2,
+   "qv": 3,
    "rg": 8.5,
+   "roe": 22.71,
+   "roe_src": "annual",
    "sector": "Basic Materials"
   },
   "APOLLO": {
@@ -139,8 +145,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 49.98,
    "prom_yr": 51.98,
-   "qv": 2,
+   "qv": 3,
    "rg": 88.1,
+   "roe": 8.6,
+   "roe_src": "annual",
    "sector": "Industrials"
   },
   "ATHERENERG": {
@@ -170,8 +178,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 51.88,
    "prom_yr": 51.82,
-   "qv": 2,
+   "qv": 3,
    "rg": 16.3,
+   "roe": 9.25,
+   "roe_src": "annual",
    "sector": "Healthcare"
   },
   "BEML": {
@@ -187,8 +197,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 54.03,
    "prom_yr": 54.03,
-   "qv": 2,
+   "qv": 3,
    "rg": 29.3,
+   "roe": 4.83,
+   "roe_src": "annual",
    "sector": "Industrials"
   },
   "BHEL": {
@@ -196,16 +208,16 @@
    "de": 0.22,
    "de_src": "yahoo",
    "eg": 118.5,
-   "eps": 8.27,
+   "eps": 6.99,
    "industry": "Specialty Industrial Machinery",
-   "pe": 52.55,
+   "pe": 62.17,
    "pledge": 0.0,
    "pledge_date": "2026-09-30",
    "prom": 58.17,
    "prom_date": "2026-09-30",
    "prom_prev": 58.17,
    "prom_yr": 63.17,
-   "qv": 2,
+   "qv": 3,
    "rg": 23.8,
    "roe": 11.25,
    "sector": "Industrials"
@@ -237,8 +249,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
    "prom_yr": 0.0,
-   "qv": 2,
+   "qv": 3,
    "rg": 16.3,
+   "roe": 8.98,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "CHENNPETRO": {
@@ -268,7 +282,7 @@
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
    "prom_yr": 0.0,
-   "qv": 2
+   "qv": 3
   },
   "EDELWEISS": {
    "at": "2026-10-16",
@@ -297,8 +311,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
    "prom_yr": 0.0,
-   "qv": 2,
+   "qv": 3,
    "rg": 182.0,
+   "roe": 1.18,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "FLUOROCHEM": {
@@ -341,8 +357,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 67.74,
    "prom_yr": 67.53,
-   "qv": 2,
+   "qv": 3,
    "rg": 9.6,
+   "roe": 23.27,
+   "roe_src": "annual",
    "sector": "Consumer Defensive"
   },
   "HBLENGINE": {
@@ -359,8 +377,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 59.11,
    "prom_yr": 59.11,
-   "qv": 2,
+   "qv": 3,
    "rg": 6.0,
+   "roe": 36.8,
+   "roe_src": "annual",
    "sector": "Industrials"
   },
   "HCLTECH": {
@@ -377,7 +397,7 @@
    "prom_date": "2026-06-30",
    "prom_prev": 60.86,
    "prom_yr": 60.81,
-   "qv": 2,
+   "qv": 3,
    "rg": 2.2,
    "roe": 24.65,
    "sector": "Technology"
@@ -409,8 +429,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 38.12,
    "prom_yr": 38.12,
-   "qv": 2,
+   "qv": 3,
    "rg": 15.1,
+   "roe": 15.97,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "IPCALAB": {
@@ -453,8 +475,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 74.14,
    "prom_yr": 74.15,
-   "qv": 2,
+   "qv": 3,
    "rg": 9.9,
+   "roe": 9.73,
+   "roe_src": "annual",
    "sector": "Communication Services"
   },
   "KRISHANA": {
@@ -484,7 +508,7 @@
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
    "prom_yr": 0.0,
-   "qv": 2
+   "qv": 3
   },
   "LGEINDIA": {
    "at": "2026-10-16",
@@ -500,8 +524,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 85.0,
    "prom_yr": 85.0,
-   "qv": 2,
+   "qv": 3,
    "rg": 15.5,
+   "roe": 21.98,
+   "roe_src": "annual",
    "sector": "Technology"
   },
   "LXCHEM": {
@@ -518,8 +544,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 69.34,
    "prom_yr": 69.35,
-   "qv": 2,
+   "qv": 3,
    "rg": 39.7,
+   "roe": 4.0,
+   "roe_src": "annual",
    "sector": "Basic Materials"
   },
   "MANINDS": {
@@ -536,8 +564,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 43.21,
    "prom_yr": 43.21,
-   "qv": 2,
+   "qv": 3,
    "rg": 41.9,
+   "roe": 8.17,
+   "roe_src": "annual",
    "sector": "Basic Materials"
   },
   "MANOMAY": {
@@ -554,8 +584,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 57.31,
    "prom_yr": 57.31,
-   "qv": 2,
+   "qv": 3,
    "rg": 20.5,
+   "roe": 11.49,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "MEESHO": {
@@ -585,8 +617,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 48.6,
    "prom_yr": 48.58,
-   "qv": 2,
+   "qv": 3,
    "rg": 16.6,
+   "roe": 9.42,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "MOTISONS": {
@@ -603,8 +637,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 57.12,
    "prom_yr": 66.0,
-   "qv": 2,
+   "qv": 3,
    "rg": 23.3,
+   "roe": 12.77,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "MRPL": {
@@ -620,8 +656,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 88.58,
    "prom_yr": 88.58,
-   "qv": 2,
+   "qv": 3,
    "rg": 120.4,
+   "roe": 13.56,
+   "roe_src": "annual",
    "sector": "Energy"
   },
   "OAL": {
@@ -638,8 +676,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 74.17,
    "prom_yr": 74.17,
-   "qv": 2,
+   "qv": 3,
    "rg": 15.2,
+   "roe": 0.5,
+   "roe_src": "annual",
    "sector": "Basic Materials"
   },
   "ORIENTHOT": {
@@ -656,7 +696,7 @@
    "prom_date": "2026-09-30",
    "prom_prev": 68.52,
    "prom_yr": 67.55,
-   "qv": 2,
+   "qv": 3,
    "rg": 2.6,
    "roe": 9.11,
    "sector": "Consumer Cyclical"
@@ -675,8 +715,10 @@
    "prom_date": "2026-10-01",
    "prom_prev": 46.5,
    "prom_yr": 41.75,
-   "qv": 2,
+   "qv": 3,
    "rg": 20.7,
+   "roe": 13.23,
+   "roe_src": "annual",
    "sector": "Financial Services"
   },
   "PASHUPATI": {
@@ -693,8 +735,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 65.99,
    "prom_yr": 65.99,
-   "qv": 2,
+   "qv": 3,
    "rg": 9.7,
+   "roe": 6.33,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "PATANJALI": {
@@ -711,8 +755,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 68.25,
    "prom_yr": 68.81,
-   "qv": 2,
+   "qv": 3,
    "rg": 27.4,
+   "roe": 13.86,
+   "roe_src": "annual",
    "sector": "Consumer Defensive"
   },
   "PAYTM": {
@@ -729,8 +775,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
    "prom_yr": 0.0,
-   "qv": 2,
+   "qv": 3,
    "rg": 27.7,
+   "roe": 3.45,
+   "roe_src": "annual",
    "sector": "Technology"
   },
   "PCJEWELLER": {
@@ -747,8 +795,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 38.49,
    "prom_yr": 41.1,
-   "qv": 2,
+   "qv": 3,
    "rg": 21.0,
+   "roe": 8.74,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "PNB": {
@@ -775,8 +825,10 @@
    "prom": 71.27,
    "prom_date": "2026-06-30",
    "prom_prev": 72.3,
-   "qv": 2,
+   "qv": 3,
    "rg": 23.9,
+   "roe": -0.5,
+   "roe_src": "annual",
    "sector": "Consumer Defensive"
   },
   "RADICO": {
@@ -784,17 +836,19 @@
    "de": 0.15,
    "de_src": "yahoo",
    "eg": 76.0,
-   "eps": 52.47,
+   "eps": 52.53,
    "industry": "Beverages - Wineries & Distilleries",
-   "pe": 85.26,
+   "pe": 85.16,
    "pledge": 0.0,
    "pledge_date": "2026-09-30",
    "prom": 40.17,
    "prom_date": "2026-09-30",
    "prom_prev": 40.19,
    "prom_yr": 40.21,
-   "qv": 2,
+   "qv": 3,
    "rg": 11.8,
+   "roe": 18.23,
+   "roe_src": "annual",
    "sector": "Consumer Defensive"
   },
   "RAYMONDREL": {
@@ -811,8 +865,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 50.71,
    "prom_yr": 48.87,
-   "qv": 2,
+   "qv": 3,
    "rg": 40.7,
+   "roe": 19.43,
+   "roe_src": "annual",
    "sector": "Real Estate"
   },
   "REDINGTON": {
@@ -870,8 +926,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 57.9,
    "prom_yr": 36.27,
-   "qv": 2,
+   "qv": 3,
    "rg": 14.4,
+   "roe": 6.96,
+   "roe_src": "annual",
    "sector": "Industrials"
   },
   "SHYAMMETL": {
@@ -888,8 +946,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 74.59,
    "prom_yr": 74.59,
-   "qv": 2,
+   "qv": 3,
    "rg": 23.5,
+   "roe": 9.29,
+   "roe_src": "annual",
    "sector": "Basic Materials"
   },
   "SKYGOLD": {
@@ -906,8 +966,10 @@
    "prom_date": "2026-09-30",
    "prom_prev": 51.74,
    "prom_yr": 51.74,
-   "qv": 2,
+   "qv": 3,
    "rg": 77.9,
+   "roe": 23.1,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "SONACOMS": {
@@ -924,8 +986,10 @@
    "prom_date": "2026-06-30",
    "prom_prev": 28.02,
    "prom_yr": 28.02,
-   "qv": 2,
+   "qv": 3,
    "rg": 52.4,
+   "roe": 10.7,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   },
   "SOUTHBANK": {
@@ -970,7 +1034,7 @@
    "prom_date": "2026-06-30",
    "prom_prev": 34.97,
    "prom_yr": 35.0,
-   "qv": 2,
+   "qv": 3,
    "rg": 15.6,
    "roe": 19.19,
    "sector": "Technology"
@@ -980,17 +1044,19 @@
    "de": 0.02,
    "de_src": "yahoo",
    "eg": -4.7,
-   "eps": 17.77,
+   "eps": 16.79,
    "industry": "Entertainment",
-   "pe": 42.03,
+   "pe": 44.48,
    "pledge": 0.0,
    "pledge_date": "2026-09-30",
    "prom": 64.32,
    "prom_date": "2026-09-30",
    "prom_prev": 64.15,
    "prom_yr": 64.15,
-   "qv": 2,
+   "qv": 3,
    "rg": 20.9,
+   "roe": 83.38,
+   "roe_src": "annual",
    "sector": "Communication Services"
   },
   "WELSPUNLIV": {
@@ -1007,21 +1073,23 @@
    "prom_date": "2026-06-30",
    "prom_prev": 66.24,
    "prom_yr": 66.24,
-   "qv": 2,
+   "qv": 3,
    "rg": 23.7,
+   "roe": 4.16,
+   "roe_src": "annual",
    "sector": "Consumer Cyclical"
   }
  },
  "log": [
   "candidates: 40",
   "warmup fail: HTTP Error 403: Forbidden",
-  "status: {\"shp\": \"2/2\", \"pledge\": \"0/2\", \"de\": \"2/2\", \"cached\": 38}"
+  "status: {\"shp\": \"40/40\", \"pledge\": \"38/40\", \"de\": \"40/40\", \"cached\": 0}"
  ],
  "status": {
-  "cached": 38,
-  "de": "2/2",
-  "pledge": "0/2",
-  "shp": "2/2"
+  "cached": 0,
+  "de": "40/40",
+  "pledge": "38/40",
+  "shp": "40/40"
  },
- "updated": "2026-10-16 19:23 UTC"
+ "updated": "2026-10-16 19:31 UTC"
 }
