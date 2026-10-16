@@ -209,13 +209,21 @@ useToday=dow>=1&&dow<=5&&hr>=20;if(!useToday){do{d=new Date(d.getTime()-86400000
 var exp=d.toISOString().slice(0,10);return date<exp?chip('Data '+date+' ka hai, '+exp+' tak purana (holiday na ho to screen run check karo)','pr'):''}
 
 /* ONE trade-plan formula used everywhere (list + detail): entry trigger, ATR-capped stop, 2R target, qty from risk/capital */
-function planFrom(entry,stop){var risk=ls('risk',700),cap=ls('cap',50000),rs=entry-stop;if(!(rs>0)||!(entry>0))return null;
-var q=Math.floor(risk/rs),mx=Math.floor(cap/entry);if(q>mx)q=mx;if(q<0)q=0;
-return{entry:entry,stop:stop,t1:entry+2*rs,q:q,val:q*entry,loss:q*rs,gain:q*2*rs,rs:rs,rp:rs/entry*100}}
-function pickPlan(r){var s=ST[r.SYMBOL];return planFrom(+r.DAY_HIGH*1.001,s?s.stop:+r.LOW5)}
+function planFrom(entry,stop,atr,res){var risk=ls('risk',700),capi=ls('cap',50000),rs=entry-stop;if(!(rs>0)||!(entry>0))return null;
+if(atr>0&&rs>2*atr){stop=entry-2*atr;rs=2*atr}
+var q=Math.floor(risk/rs),mx=Math.floor(capi/entry);if(q>mx)q=mx;if(q<0)q=0;
+var t1=entry+2*rs;if(atr>0)t1=entry+Math.min(2*rs,2*atr);
+if(res>entry+0.5*(atr||0)&&res*0.995<t1)t1=res*0.995;
+return{entry:entry,stop:stop,t1:t1,q:q,val:q*entry,loss:q*rs,gain:q*(t1-entry),rs:rs,rp:rs/entry*100,rr:(t1-entry)/rs,ta:atr>0?(t1-entry)/atr:0}}
+function setupName(r){return r.SETUP=='PREBREAK'?'Breakout se pehle':r.SETUP=='BREAKOUT'?((r.NOTE||'').indexOf('LATE')>=0?'Breakout (LATE)':'Breakout'):'Pullback'}
+/* entry trigger: PREBREAK = 20-din high ke upar (breakout se pehle), baaki = aaj ke high ke upar */
+function entryOf(r){return +r.ENTRY>0?+r.ENTRY:+r.DAY_HIGH*1.001}
+/* sabse paas ki rukawat (entry se upar): 20/60-din ya 52-hafte high */
+function resOf(s,e){var a=[s.h20,s.h60,s.h52].filter(function(x){return x>e});return a.length?Math.min.apply(null,a):0}
+function pickPlan(r){var s=ST[r.SYMBOL],e=entryOf(r);return planFrom(e,s?s.stop:+r.LOW5,+r.ATR14,s?resOf(s,e):0)}
 
 /* Ranking: technical score 0-100 (higher = better setup today). Reasons are collected in simple Hinglish. */
-function score(r){var s=ST[r.SYMBOL],fl=(NW[r.SYMBOL]||{}).flags||'',note=r.NOTE||'',bo=r.SETUP=='BREAKOUT',
+function score(r){var s=ST[r.SYMBOL],fl=(NW[r.SYMBOL]||{}).flags||'',note=r.NOTE||'',bo=r.SETUP=='BREAKOUT',pre=r.SETUP=='PREBREAK',
 vx=+r.VOL_X,rsi=+r.RSI14,adx=+r.ADX14,mh=+r.MACD_H,chg=+r.CHG_PCT,atr=+r.ATR14,dl=+r.DELIV_PCT,dla=+r.DELIV20_PCT,t20=+r.TURN20_CR,
 p=pickPlan(r),sc=0,P=[],N=[],ratio=s?s.score/s.mx:0.3,tp=Math.round(ratio*35);
 sc+=tp;if(ratio>=.75)P.push([tp,'Trend majboot ('+s.score+'/'+s.mx+' checks pass)']);else if(ratio<.5)N.push([20,'Trend kamzor'+(s?' ('+s.score+'/'+s.mx+')':', data kam')]);
@@ -224,6 +232,9 @@ if(rsi>=55&&rsi<=70){sc+=15;P.push([15,'RSI '+f(rsi,0)+' healthy'])}else if(rsi>
 else if(rsi>75&&rsi<=80){N.push([10,'RSI garam ('+f(rsi,0)+')'])}else if(rsi>80){sc-=8;N.push([15,'RSI bahut garam ('+f(rsi,0)+')'])}else sc+=6;
 if(adx>=25){sc+=10;P.push([10,'Trend me dum (ADX '+f(adx,0)+')'])}else if(adx>=20)sc+=6;
 if(mh>0)sc+=5;if(dl>=dla&&dla>0){sc+=5;P.push([5,'Delivery achhi (asli kharidari)'])}}
+else if(pre){var dp=(+r.R20-+r.CLOSE)/+r.CLOSE*100;sc+=12;P.push([12,'Breakout level '+f(+r.R20)+' se sirf '+f(dp,1)+'% neeche, move abhi shuru nahi hua']);
+if(rsi>=55&&rsi<=66){sc+=12;P.push([12,'RSI '+f(rsi,0)+' healthy'])}else sc+=5;sc+=8;P.push([8,'Range tight + volume shaant (breakout ki taiyari)']);
+if(adx>=20){sc+=8;P.push([8,'Trend me dum (ADX '+f(adx,0)+')'])}if(mh>0)sc+=4;if(dl>=dla&&dla>0){sc+=4;P.push([4,'Delivery achhi'])}}
 else{if(s&&s.zone=='IN_ZONE'){sc+=10;P.push([10,'Buy zone (EMA20 ke paas) me'])}
 if(rsi>=45&&rsi<=55){sc+=10;P.push([10,'RSI '+f(rsi,0)+', dip ke liye theek'])}else if((rsi>=40&&rsi<45)||(rsi>55&&rsi<=60))sc+=5;
 if(chg>-2){sc+=10;P.push([10,chg>=0?'Aaj hara band hua (+'+f(chg,1)+'%)':'Dip halki ('+f(chg,1)+'%)'])}else if(chg>-4)sc+=5;else if(chg>-6){sc-=3;N.push([8,'Aaj '+f(chg,1)+'% gira'])}else{sc-=12;N.push([20,'Aaj bahut gira ('+f(chg,1)+'%)'])}
@@ -232,6 +243,9 @@ if(adx>=20)sc+=6;if(mh>0)sc+=3;if(dl>=dla&&dla>0)sc+=3}
 if(p&&atr>0){var k=p.rs/atr;if(k>=1&&k<=2.5){sc+=10;P.push([10,'SL realistic ('+f(k,1)+' ATR)'])}else if(k>2.5&&k<=3.2)sc+=5;
 else if(k<1){sc+=2;N.push([5,'SL bahut tight, jaldi hit ho sakta'])}else{sc-=5;N.push([10,'SL door ('+f(p.rp,0)+'% risk)'])}}
 if(!p||p.q<1){sc-=30;N.push([30,'Risk limit me 1 share bhi nahi aata'])}
+if(note.indexOf('LATE')>=0){sc-=30;N.push([35,'Breakout ho chuka ('+f(+r.EXT_ATR,1)+' ATR upar), late hai: peecha mat karo'])}
+else if(bo&&+r.EXT_ATR>0.5){sc-=8;N.push([10,'Breakout level se '+f(+r.EXT_ATR,1)+' ATR upar, thoda late'])}
+if(p&&p.rr<1.2){sc-=6;N.push([8,'Target paas hai (R:R '+f(p.rr,1)+'), fayda chhota'])}
 if(note.indexOf('EXTENDED')>=0){sc-=15;N.push([25,'Pehle hi bahut bhaga (extended)'])}
 if(note.indexOf('LOW_DELIV')>=0){sc-=15;N.push([25,'Delivery kam, hawai move ho sakta'])}
 if(t20&&t20<5){sc-=20;N.push([20,'Liquidity kam'])}
@@ -249,12 +263,13 @@ SR.forEach(function(r,i){RK[r.SYMBOL].n=i+1})}
 function solid(r){var s=ST[r.SYMBOL];if(!s)return false;
 var ratio=s.score/s.mx,note=r.NOTE||'',fl=(NW[r.SYMBOL]||{}).flags||'',p=pickPlan(r),vx=+r.VOL_X,rsi=+r.RSI14,chg=+r.CHG_PCT;
 if(s.v=='WEAK'||ratio<.75)return false;
-if(note.indexOf('EXTENDED')>=0||note.indexOf('LOW_DELIV')>=0)return false;
+if(note.indexOf('EXTENDED')>=0||note.indexOf('LOW_DELIV')>=0||note.indexOf('LATE')>=0)return false;
 if(fl.indexOf('RESULTS_SOON')>=0)return false;
 if(!p||p.q<1)return false;
 if(+r.TURN20_CR<5)return false;
 var dl=+r.DELIV_PCT,dla=+r.DELIV20_PCT;if(dla>0&&dl<0.7*dla)return false;
-if(r.SETUP=='BREAKOUT')return vx>=1.5&&rsi<=75;
+if(r.SETUP=='PREBREAK')return rsi<=68;
+if(r.SETUP=='BREAKOUT')return vx>=1.5&&rsi<=75&&!(+r.EXT_ATR>0.5);
 return s.zone=='IN_ZONE'&&chg>-4&&!(chg<-3&&vx>1.5)}
 /* locked stock ka aaj ka haal (ek line) */
 function pinStatus(sym){var r=PK[sym],s=ST[sym];
@@ -287,8 +302,10 @@ function verdict(s,pk,rk,p,fl){
 if(s.v=='WEAK')return['Abhi avoid karo','Trend kamzor hai. Is stock me abhi trade mat lo.','r'];
 if(fl.indexOf('RESULTS_SOON')>=0)return['Result paas hai','Gap up/down ka bada risk hai. Naya trade mat lo.','r'];
 if(p&&p.q<1)return['Risk limit me fit nahi','SL door hai, tumhare risk me 1 share bhi nahi aata.','r'];
+if(pk&&(pk.NOTE||'').indexOf('LATE')>=0)return['Late breakout: peecha mat karo','Ye breakout level se '+f(+pk.EXT_ATR,1)+' ATR upar nikal chuka hai (move ho chuka). Retest ka wait karo ('+f(+pk.H20_PREV)+' ke paas wapas aaye) ya skip.','y'];
 if(pk&&(pk.NOTE||'').indexOf('EXTENDED')>=0||pk&&s.warn.indexOf('Overbought RSI>75')>=0)return['Savdhaan: pehle hi bhaga hua','Ab entry risky hai. Dip ka wait karo ('+f(s.zlo)+' - '+f(s.zhi)+') ya skip karo.','y'];
 if(rk&&rk.sc<45)return['Kamzor setup','Aaj ke ranking me neeche hai ('+(rk.N[0]||'score kam')+'). Upar wale picks behtar hain.','r'];
+if(pk&&pk.SETUP=='PREBREAK'&&p)return['Breakout se PEHLE (abhi entry nahi)','Price '+f(+pk.R20)+' ke upar nikle tabhi entry ('+f(p.entry)+' par buy-stop/GTT). Abhi '+f((p.entry/s.c-1)*100,1)+'% neeche hai. Tight range + kam volume = breakout ki taiyari. Pehle se mat khareedo.','g'];
 if(pk&&pk.SETUP=='BREAKOUT'&&p)return['Breakout setup','Price '+f(p.entry)+' ke upar jaye tabhi entry. Open entry se 1.5% se zyada upar ho to skip (peecha mat karo).','g'];
 if(pk&&pk.SETUP=='PULLBACK'&&p)return['Pullback setup (buy zone me)','Aaj ke high '+f(p.entry)+' ke upar jaye tabhi entry. Pehle se mat khareedo.','g'];
 var z=zoneTxt(s);return[z[1]=='g'?'Buy zone me':z[1]=='y'?'Zone se upar':'Abhi buy zone nahi',z[0],z[1]]}
@@ -305,7 +322,7 @@ h+=irow('Pivot + EMA9','Kal ke levels: P '+f(pv.p)+' | S1 '+f(pv.s1)+' | R1 '+f(
 h+=irow('Liquidity','Roz ka average turnover. 5 cr se upar easy buy/sell','Rs '+f(s.t20,0)+' cr',s.t20>=5?'Easily buy/sell':'Kam liquidity',s.t20>=5?'g':'r');
 h+=irow('Roz ka utaar-chadhav','ATR: ek din me kitna hil sakta hai',f(pr,1)+'%',pr<3?'Shant':pr<6?'Normal':'Bahut volatile',pr<6?'g':'r');return h}
 function ladder(s,p){var L=[['52-hafte high',s.h52],['60-din high',s.h60],['20-din high',s.h20],['EMA9',s.e9],['EMA20',s.e20],['EMA50',s.e50],['Pivot R2',s.pv&&s.pv.r2],['Pivot R1',s.pv&&s.pv.r1],['Pivot P',s.pv&&s.pv.p],['Pivot S1',s.pv&&s.pv.s1],['Pivot S2',s.pv&&s.pv.s2],['EMA200',s.e200],['20-din low',s.low20],['5-din low',s.low5],['52-hafte low',s.l52]].filter(function(x){return x[1]!=null}).map(function(x){return{n:x[0],v:x[1],k:x[1]>s.c?'up':'dn'}});
-L.push({n:'ABHI (close)',v:s.c,k:'now'});if(p){L.push({n:'Target (2R)',v:p.t1,k:'tg'});L.push({n:'Stop-loss',v:p.stop,k:'sl'});L.push({n:'Entry',v:p.entry,k:'en'})}
+L.push({n:'ABHI (close)',v:s.c,k:'now'});if(p){L.push({n:'Target',v:p.t1,k:'tg'});L.push({n:'Stop-loss',v:p.stop,k:'sl'});L.push({n:'Entry',v:p.entry,k:'en'})}
 L.sort(function(a,b){return b.v-a.v});
 return L.map(function(x){return '<div class="lr '+x.k+'"><span>'+x.n+'</span><span>'+f(x.v)+(x.k=='now'?'':' <small>('+(x.v>=s.c?'+':'')+f((x.v/s.c-1)*100,1)+'%)</small>')+'</span></div>'}).join('')}
 function detail(sym){if(cur==null)lastY=window.pageYOffset||0;else if(cur.charAt(0)=='@')LY=window.pageYOffset||0;cur=sym;rankAll();
@@ -313,15 +330,15 @@ try{if(!(history.state&&history.state.d))history.pushState({d:sym},'')}catch(e){
 var s=ST[sym],pk=PK[sym],rk=RK[sym],v=document.getElementById('v');
 bar(sym,rk?'Aaj ka rank #'+rk.n+' / '+SR.length+'  |  score '+rk.sc+'/100':'');
 if(!s){var k=SK[sym];v.innerHTML='<div class="card"><div class="big">'+esc(sym)+'</div>'+(k?'<div class="y">Analysis nahi ban saka: '+esc(k[0])+'</div><small>Last close '+f(k[1])+'</small>':'<div>Ye symbol hamare data me nahi hai.</div>')+links(sym)+'</div>';window.scrollTo(0,0);return}
-var fl=(NW[sym]||{}).flags||'',entry=pk?+pk.DAY_HIGH*1.001:s.c,p=planFrom(entry,s.stop),vd=verdict(s,pk,rk,p,fl),g=GP[sym],h='';
+var fl=(NW[sym]||{}).flags||'',entry=pk?entryOf(pk):s.c,p=planFrom(entry,s.stop,s.atr,resOf(s,entry)),vd=verdict(s,pk,rk,p,fl),g=GP[sym],h='';
 /* 1. seedha jawab */
-h+='<div class="card vd '+vd[2]+'"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+lvp(sym,s.c,s.chg)+(pk?' | '+(pk.SETUP=='BREAKOUT'?'Breakout':'Pullback'):'')+'</small></div>'+chip('Trend '+s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>'+
+h+='<div class="card vd '+vd[2]+'"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+lvp(sym,s.c,s.chg)+(pk?' | '+setupName(pk):'')+'</small></div>'+chip('Trend '+s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>'+
 '<div class="vt '+vd[2]+'">'+esc(vd[0])+'</div><div>'+esc(vd[1])+'</div>'+(rk?'<div style="margin-top:6px">'+chip('Rank #'+rk.n+' ('+rk.g[0]+')',rk.g[1])+gapChip(g)+'</div>':gapChip(g))+'</div>';
 h+='<div data-lv="'+esc(sym)+'" data-full="1"></div>'+ignStrip(sym);
 /* 2. trade plan */
 if(p){h+='<div class="card"><h3 style="margin-top:0">Trade plan</h3><div class="tiles"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>'+
 '<div class="ir"><div class="l">Paisa lagega</div><div class="v">'+rs0(p.val)+'</div></div><div class="ir"><div class="l">SL hit hua to nuksan</div><div class="v r">'+rs0(p.loss)+'</div></div><div class="ir"><div class="l">Target hit hua to fayda</div><div class="v g">'+rs0(p.gain)+'</div></div>'+
-'<small>Entry '+(pk?'= aaj ke high ke thoda upar (trigger)':'= abhi ka close (reference)')+'. Stop-loss = pichle 5 din ke low ke paas, ATR se limit. Target = risk ka 2 guna. Risk/capital Picks tab se badal sakte ho.</small>';
+'<small>Entry '+(pk?(pk.SETUP=='PREBREAK'?'= 20-din high ke thoda upar (breakout trigger, abhi hua nahi)':'= aaj ke high ke thoda upar (trigger)'):'= abhi ka close (reference)')+'. Stop-loss = pichle 5 din ke low ke paas, max 2 ATR door. Target = realistic (max 2 ATR ya risk ka 2 guna, jo chhota ho, aur rukawat se pehle): '+f(p.ta,1)+' ATR, R:R 1:'+f(p.rr,1)+'. Risk/capital Picks tab se badal sakte ho.</small>';
 if(s.h60<p.t1&&s.h60>p.entry)h+='<div class="y" style="margin-top:6px">Dhyan: target se pehle 60-din high ('+f(s.h60)+') rukawat hai, wahan ruk sakta hai.</div>';
 if(p.q<1)h+='<div class="r" style="margin-top:6px">Is stop ke saath risk limit me 1 share bhi nahi aata.</div>';h+='</div>'}
 h+=dipDetailCard(sym);h+=checkCard(sym,p);
@@ -343,14 +360,14 @@ v.innerHTML=h;paintLive();window.scrollTo(0,0)}
 /* ---------- PICKS: Locked (upar) + aaj ke solid picks (best se worst) ---------- */
 function tilesHtml(p,lbl){return p?'<div class="tiles"><div><small>'+lbl+'</small><b>'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>':'<small>Plan nahi ban saka</small>'}
 function pickCard(r,no,locked){var rk=RK[r.SYMBOL],p=pickPlan(r),n=NW[r.SYMBOL],fl=n&&n.flags!='none'?n.flags:'',st=locked?pinStatus(r.SYMBOL):null;
-return '<div class="card'+(locked?' pinned':(no<=3?' t3':''))+'" onclick="detail(\''+esc(r.SYMBOL)+'\')"><div class="row"><div class="hd">'+(locked?'':'<div class="rk'+(no<=3?' r'+no:'')+'">'+no+'</div>')+'<div><div class="big">'+esc(r.SYMBOL)+'</div><small>'+(r.SETUP=='BREAKOUT'?'Breakout':'Pullback')+' | '+lvp(r.SYMBOL,r.CLOSE,r.CHG_PCT)+' | RSI '+f(r.RSI14,0)+' | Vol '+f(r.VOL_X,1)+'x</small></div></div><div style="text-align:right">'+chip(rk.g[0]+' '+rk.sc,rk.g[1])+'<br>'+pinBtn(r.SYMBOL)+'</div></div>'+
+return '<div class="card'+(locked?' pinned':(no<=3?' t3':''))+'" onclick="detail(\''+esc(r.SYMBOL)+'\')"><div class="row"><div class="hd">'+(locked?'':'<div class="rk'+(no<=3?' r'+no:'')+'">'+no+'</div>')+'<div><div class="big">'+esc(r.SYMBOL)+'</div><small>'+setupName(r)+' | '+lvp(r.SYMBOL,r.CLOSE,r.CHG_PCT)+' | RSI '+f(r.RSI14,0)+' | Vol '+f(r.VOL_X,1)+'x</small></div></div><div style="text-align:right">'+chip(rk.g[0]+' '+rk.sc,rk.g[1])+'<br>'+pinBtn(r.SYMBOL)+'</div></div>'+
 (st?'<div>'+chip(st[0],st[1])+'</div>':'')+
 (rk.P.length?'<div class="why g">&#10003; '+rk.P.slice(0,2).map(esc).join(' &middot; ')+'</div>':'')+(rk.N.length?'<div class="why r">&#9888; '+rk.N.slice(0,2).map(esc).join(' &middot; ')+'</div>':'')+
 tilesHtml(p,'Entry (upar)')+'<div data-lv="'+esc(r.SYMBOL)+'"></div>'+ignStrip(r.SYMBOL)+rsChips(r.SYMBOL)+'<div>'+gapChip(GP[r.SYMBOL])+flagChips(fl)+(r.NOTE?chip(r.NOTE,'pr'):'')+'</div>'+annBlock(r.SYMBOL,false)+'</div>'}
 /* locked stock jo aaj ki screen me nahi hai: stocks.json ke data se dikhao */
 function pinOnlyCard(sym){var s=ST[sym],st=pinStatus(sym);
 if(!s){var k=SK[sym];return '<div class="card pinned" onclick="detail(\''+esc(sym)+'\')"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+(k?esc(k[0]):'Data nahi mila')+'</small></div><div>'+pinBtn(sym)+'</div></div><div>'+chip(st[0],st[1])+'</div></div>'}
-var p=planFrom(s.c,s.stop),n=NW[sym],fl=n&&n.flags!='none'?n.flags:'';
+var p=planFrom(s.c,s.stop,s.atr,resOf(s,s.c)),n=NW[sym],fl=n&&n.flags!='none'?n.flags:'';
 return '<div class="card pinned" onclick="detail(\''+esc(sym)+'\')"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+lvp(sym,s.c,s.chg)+' | Trend '+esc(s.v)+' '+s.score+'/'+s.mx+'</small></div><div style="text-align:right">'+pinBtn(sym)+'</div></div>'+
 '<div>'+chip(st[0],st[1])+'</div><div class="why mu">'+esc(zoneTxt(s)[0])+'</div>'+tilesHtml(p,'Entry (ref)')+'<div data-lv="'+esc(sym)+'"></div>'+ignStrip(sym)+'<div>'+gapChip(GP[sym])+flagChips(fl)+'</div>'+annBlock(sym,false)+'</div>'}
 

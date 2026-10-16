@@ -164,22 +164,34 @@ for sym, byd in data.items():
     elif (e20[-1] * 0.985 <= cl[-1] <= e20[-1] * 1.03 and e20[-1] > e50[-1] and cl[-1] > e50[-1]
           and 38 <= r <= 52 and e50[-1] > e50[-6]):
         setup = 'PULLBACK'
+    r20 = max(hi[-20:])
+    v20 = sum(vol[-21:-1]) / 20.0
+    if not setup and cl[-1] < r20 and cl[-1] > e50[-1] and e20[-1] > e50[-1] and e50[-1] > e50[-6] and 50 <= r <= 68 and chg < 4:
+        # BEFORE the breakout: just under the 20-day high, range squeezed, volume quiet
+        rng5 = sum(hi[k] - lo[k] for k in range(-5, 0)) / 5.0
+        v5 = sum(vol[-5:]) / 5.0
+        if 0 < (r20 - cl[-1]) <= 1.5 * atr and (r20 - cl[-1]) / cl[-1] <= 0.03 and rng5 < 0.8 * atr and v5 <= 1.1 * v20:
+            setup = 'PREBREAK'
     if not setup:
         continue
+    ext = (cl[-1] - prevhi) / atr if setup == 'BREAKOUT' else 0.0
+    entry = (r20 if setup == 'PREBREAK' else hi[-1]) * 1.001
     note = []
+    if setup == 'BREAKOUT' and ext > 1.0: note.append('LATE')     # already ran >1 ATR past the old high: do not chase
     if del_t is not None and del_a and del_t < 0.6 * del_a: note.append('LOW_DELIV')
     if r > 70 or chg > 8: note.append('EXTENDED')
     rows.append([setup, sym, last.isoformat(), round(cl[-1], 2), round(chg, 2), hi[-1], lo[-1], round(prevhi, 2),
                  round(e20[-1], 1), round(e50[-1], 1), round(r, 1), round(vx, 2), round(to[-1], 1), round(to20, 1),
                  del_t if del_t is not None else '', round(del_a, 1) if del_a else '', round(atr, 1),
                  min(lo[-5:]), max(hi[-60:]), ' '.join(note),
-                 round(adx_v, 1) if adx_v is not None else '', round(macd_h, 2)])
+                 round(adx_v, 1) if adx_v is not None else '', round(macd_h, 2), round(entry, 2), round(ext, 2), round(r20, 2)])
 
-rows.sort(key=lambda x: (x[0] != 'BREAKOUT', -x[12]))
-rows = [x for x in rows if x[0] == 'BREAKOUT'][:25] + [x for x in rows if x[0] == 'PULLBACK'][:25]
+rows.sort(key=lambda x: ('LATE' in x[19], -x[12]))                 # fresh setups first, late breakouts last
+rows = ([x for x in rows if x[0] == 'BREAKOUT'][:25] + [x for x in rows if x[0] == 'PREBREAK'][:25]
+        + [x for x in rows if x[0] == 'PULLBACK'][:25])
 head = ['SETUP', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'DAY_HIGH', 'DAY_LOW', 'H20_PREV', 'EMA20', 'EMA50', 'RSI14',
         'VOL_X', 'TURN_CR', 'TURN20_CR', 'DELIV_PCT', 'DELIV20_PCT', 'ATR14', 'LOW5', 'HIGH60', 'NOTE',
-        'ADX14', 'MACD_H']
+        'ADX14', 'MACD_H', 'ENTRY', 'EXT_ATR', 'R20']
 for name in ('screen_latest.csv', 'screen_%s.csv' % last.strftime('%Y%m%d')):
     with open(os.path.join(out_dir, name), 'w', newline='', encoding='utf-8') as h:
         w = csv.writer(h); w.writerow(head); w.writerows(rows)

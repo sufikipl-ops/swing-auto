@@ -37,7 +37,7 @@ def call(key, url, body, jwt=None):
 def decide(row, candles):
     """row: dict from screen csv; candles: list of [ts, o, h, l, c, v] for today. Returns dict."""
     prev_close = float(row['CLOSE'])
-    trig = round(float(row['DAY_HIGH']) * 1.001, 2)
+    trig = round(float(row.get('ENTRY') or 0) or float(row['DAY_HIGH']) * 1.001, 2)   # PREBREAK: 20-day high based
     low5 = float(row['LOW5'])
     out = dict(setup=row['SETUP'], symbol=row['SYMBOL'], prev_close=prev_close, trigger=trig, stop_low5=low5,
                open='', gap_pct='', ltp='', vwap='', day_high='', status='NO_DATA', note='')

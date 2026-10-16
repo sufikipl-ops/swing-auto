@@ -115,7 +115,7 @@ def evaluate(items, ctx, today_str):
         st = stocks.get(sym) or {}
         stop = st.get('stop') or low5
         if hi and stop:
-            entry = hi * 1.001
+            entry = num(r.get('ENTRY')) or hi * 1.001
             pc = it.get('pc') or num(r.get('CLOSE')) or it['ltp']
             o = it.get('o') or it['ltp']
             gap = (o / pc - 1) * 100 if pc else 0
