@@ -498,7 +498,8 @@ return{known:ck&&st.asm=='ok'&&st.gsm=='ok',bandOk:st.band=='ok',asm:it.asm,gsm:
 function rsChips(sym){var r=rsInfo(sym),o='';if(!r.known&&!r.asm&&!r.gsm)return '';if(r.asm||r.gsm||r.surv)o+=chip('ASM/GSM: trade mat lo','pr');if(r.series)o+=chip('Series '+r.series+' (sirf delivery)','pr');if(r.susp)o+=chip('Suspended','pr');
 var b=parseFloat(r.band);if(b&&b<=5)o+=chip('Circuit '+b+'% (tight)','py');return o?'<div>'+o+'</div>':''}
 var BADNEWS=/fraud|show[- ]cause|sebi (order|probe|notice)|penalt|default|insolven|nclt|auditor (resign|qualif)|resignation of (cfo|ceo|auditor|managing)|downgrad|rating (cut|withdraw)|forensic|search and seizure|enforcement directorate|\bcbi\b|suspension|delisting|invocation|warning letter|import alert|form 483|shutdown|fire at|lock-?out|strike|tax demand|raid/i;
-function badNews(sym){var L=AN[sym]||[],hit=null;L.forEach(function(a){if(!hit&&BADNEWS.test((a.cat||'')+' '+(a.text||'')))hit=a});return hit}
+var NEUTRALCAT=/granting\/withdrawal\/surrender\/cancellation\/suspension/i;
+function badNews(sym){var L=AN[sym]||[],hit=null;L.forEach(function(a){var c=NEUTRALCAT.test(a.cat||'')?'':(a.cat||'');if(!hit&&BADNEWS.test(c+' '+(a.text||'')))hit=a});return hit}
 function ckKey(sym,i){return 'ck_'+sym+'_'+istDay(0)+'_'+i}
 function ckSet(k,v){sv(k,v?1:0)}
 function ckRow(st,t,sub){var c=st=='ok'?'g':st=='bad'?'r':st=='warn'?'y':'mu',ic=st=='ok'?'&#10003;':st=='bad'?'&#10007;':st=='warn'?'&#9888;':'?';return '<div class="ck '+c+'">'+ic+' '+t+(sub?'<br><small>'+sub+'</small>':'')+'</div>'}
