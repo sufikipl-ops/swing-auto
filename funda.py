@@ -153,12 +153,21 @@ def debt_equity(sym, dbg):
     c = yahoo_crumb(dbg)
     if c:
         try:
-            u = ('https://query2.finance.yahoo.com/v10/finance/quoteSummary/%s?modules=financialData,assetProfile&crumb=%s'
+            u = ('https://query2.finance.yahoo.com/v10/finance/quoteSummary/%s?modules=financialData,assetProfile,defaultKeyStatistics,summaryDetail&crumb=%s'
                  % (urllib.parse.quote(y), urllib.parse.quote(c)))
             res = json.loads(get(u, ref='https://finance.yahoo.com/', tries=2))['quoteSummary']['result'][0]
             fd, ap = res.get('financialData') or {}, res.get('assetProfile') or {}
             de = (fd.get('debtToEquity') or {}).get('raw')
             out = {'sector': ap.get('sector') or '', 'industry': ap.get('industry') or ''}
+            # reel quality screen: PE, ROE, EPS, profit/sales growth (Yahoo: latest quarter YoY)
+            ks, sd = res.get('defaultKeyStatistics') or {}, res.get('summaryDetail') or {}
+            def rw(d, k, mul=1.0):
+                v = (d.get(k) or {}).get('raw') if isinstance(d.get(k), dict) else None
+                return round(v * mul, 2) if isinstance(v, (int, float)) else None
+            for k, v in (('pe', rw(sd, 'trailingPE')), ('roe', rw(fd, 'returnOnEquity', 100)), ('eps', rw(ks, 'trailingEps')),
+                         ('eg', rw(fd, 'earningsGrowth', 100)), ('rg', rw(fd, 'revenueGrowth', 100))):
+                if v is not None:
+                    out[k] = v
             if de is not None:
                 out.update(de=round(de / 100.0, 2), de_src='yahoo')      # Yahoo % me deta hai (45 = 0.45)
                 return out
@@ -203,10 +212,10 @@ def main():
             age = (today - datetime.date.fromisoformat(o['at'])).days if o else 99
         except Exception:
             age = 99
-        if o and age < MAX_AGE and not o.get('err'):
+        if o and age < MAX_AGE and not o.get('err') and o.get('qv') == 2:     # qv=2: reel quality fields bhi aa chuke hain
             items[sym] = o; cnt['cached'] += 1
             continue
-        it, err = {'at': today.isoformat()}, []
+        it, err = {'at': today.isoformat(), 'qv': 2}, []
         for name, fn in (('shp', shareholding), ('pledge', pledge), ('de', debt_equity)):
             cnt[name][1] += 1
             try:

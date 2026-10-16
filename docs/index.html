@@ -577,6 +577,14 @@ else r('na','Promoter holding: data nahi mila');
 if(/financial/i.test(it.sector||''))r('na','Debt/Equity: bank/NBFC me lagu nahi','Inka business hi udhaar par chalta hai.');
 else if(it.de!=null){var de=+it.de;r(de>1?'warn':'ok','Debt/Equity: '+f(de,2),de>2?'Bahut zyada karza.':de>1?'Karza thoda zyada hai.':'')}
 else r('na','Debt/Equity: data nahi mila');
+/* reel quality screen (info only): PE<30, ROE>25, EPS>0, profit growth>50, sales growth>50, D/E<0.5, promoter>50, close>EMA200 */
+var q=[],qf=[],st0=ST[sym];function qc(n,v,ok,txt){if(v==null||isNaN(v))return;q.push(n);if(!ok)qf.push(txt)}
+qc('PE',it.pe,it.pe>0&&it.pe<30,'PE '+f(+it.pe,1)+' (30 se kam chahiye)');qc('ROE',it.roe,it.roe>25,'ROE '+f(+it.roe,0)+'% (25% se upar chahiye)');qc('EPS',it.eps,it.eps>0,'EPS negative');
+qc('Profit growth',it.eg,it.eg>50,'Profit growth '+f(+it.eg,0)+'% (50% se upar chahiye)');qc('Sales growth',it.rg,it.rg>50,'Sales growth '+f(+it.rg,0)+'% (50% se upar chahiye)');
+qc('D/E',it.de,it.de<0.5,'D/E '+f(+it.de,2)+' (0.5 se kam chahiye)');qc('Promoter',it.prom,it.prom>50,'Promoter '+f(+it.prom,0)+'% (50% se upar chahiye)');
+if(st0&&st0.e200!=null){q.push('EMA200');if(!(st0.c>st0.e200))qf.push('Price EMA200 ke niche')}
+if(q.length)r(qf.length?'warn':'ok','Quality screen (reel wala): '+(q.length-qf.length)+'/'+q.length+' pass',(qf.length?'Fail: '+qf.join(', ')+'. ':'')+'Sirf info hai. Growth Yahoo ke latest quarter (saal-dar-saal) ka hai, Screener ke 3-saal wale se alag ho sakta hai. 3-5 din ke swing me fundamentals ka backtest nahi hai.');
+else r('na','Quality screen (reel wala): data nahi mila','funda workflow chalao (PE/ROE/growth data Yahoo se aata hai).');
 return o}
 function checkCard(sym,p){var s=ST[sym],rows=[],hard=0,unk=0,it=liveItem(sym);function add(st,t,sub){rows.push(ckRow(st,t,sub));if(st=='bad')hard++;if(st=='?')unk++}
 if(s){add(s.t20>=5?'ok':'bad','Liquidity: 20 din ka turnover Rs '+f(s.t20,1)+' cr',s.t20>=5?'':'Kam liquidity: slippage aur exit me dikkat.');
