@@ -1,0 +1,34 @@
+name: global
+# Global market snapshot (US/Asia/Europe, crude, gold, dollar, big global stocks + headlines). Writes docs/global.json.
+# Run manually: Actions > global > Run workflow.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 3 * * 1-5"     # 08:30 IST (US close, Asia open)
+    - cron: "30 10 * * 1-5"   # 16:00 IST (Europe open)
+    - cron: "30 16 * * 1-5"   # 22:00 IST (US open)
+permissions:
+  contents: write
+jobs:
+  global:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Global snapshot
+        run: python global_mkt.py
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add docs/global.json
+          git diff --cached --quiet && exit 0
+          git commit -m "global $(date -u +%F-%H%M)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
