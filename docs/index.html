@@ -2,6 +2,8 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f1720"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Swing Desk"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Swing Desk</title>
 <style>
 :root{--bg:#0f1720;--card:#18222e;--tx:#e8eef5;--mu:#8a9bb0;--g:#2fbf71;--r:#e5534b;--y:#e3b341;--b:#4c9aff;--bd:#263445}
@@ -56,7 +58,7 @@ body.det #bar{display:flex}body.det header{display:none}
 .lr.en{color:var(--b);font-weight:600}.lr.tg{color:var(--g);font-weight:600}.lr.sl{color:var(--r);font-weight:600}
 details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:14px;padding:6px 0}
 </style></head><body>
-<header><h1>Swing Desk</h1><div class="mk" id="mk">loading...</div></header>
+<header><div class="row"><h1>Swing Desk</h1><button id="inst" class="tg" style="display:none" onclick="installApp()">Install</button></div><div class="mk" id="mk">loading...</div></header>
 <div id="bar"></div>
 <main id="v"></main>
 <div class="foot">Sirf technical jankari, advice nahi. Profit ki guarantee nahi. Trade se pehle khud verify karo.</div>
@@ -328,6 +330,21 @@ if(t.length<1)a=[];document.getElementById('sg').innerHTML=a.length?a.map(functi
 paintLive();window.scrollTo(0,restore===true?lastY:0)}
 window.addEventListener('popstate',function(){render(true)});
 document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x==b)});render()}});
+/* ---------- INSTALL (Add to desktop / home screen): mobile + PC ---------- */
+var DEFP=null;
+function isStandalone(){try{return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true}catch(e){return false}}
+function showInst(){var b=document.getElementById('inst');if(b)b.style.display=isStandalone()?'none':'inline-block'}
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();DEFP=e;showInst()});
+window.addEventListener('appinstalled',function(){DEFP=null;var b=document.getElementById('inst');if(b)b.style.display='none';toast('Swing Desk install ho gaya. Ab Start menu / home screen se khol sakte ho.')});
+function installApp(){
+if(DEFP){DEFP.prompt();DEFP.userChoice.then(function(){DEFP=null;showInst()});return}
+var ua=navigator.userAgent||'',ios=/iPhone|iPad|iPod/.test(ua),and=/Android/.test(ua);
+var m=ios?'iPhone: Safari me neeche Share (ek dabba aur teer) dabao, phir "Add to Home Screen", phir Add.':
+and?'Android Chrome: upar teen dot (⋮) dabao, phir "Install app" ya "Add to Home screen".':
+'PC Chrome/Edge: address bar ke daayein taraf Install ka icon dabao, ya teen dot menu me "Install Swing Desk" / "Save and share, Install page as app" chuno.';
+var t=document.getElementById('toast');if(t){t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(function(){t.style.display='none'},12000)}}
+try{if('serviceWorker' in navigator&&(location.protocol=='https:'||location.hostname=='localhost'||location.hostname=='127.0.0.1'))navigator.serviceWorker.register('sw.js').catch(function(){})}catch(e){}
+showInst();
 document.addEventListener('visibilitychange',function(){if(!document.hidden)syncAll()});
 load();setTimeout(tick,30000);
 </script></body></html>
