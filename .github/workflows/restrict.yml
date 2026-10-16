@@ -1,0 +1,38 @@
+name: restrict
+# ASM / GSM / circuit (price band) check for screen + dip + locked stocks. Writes docs/restrict.json.
+# Run manually: Actions > restrict > Run workflow.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "10 3 * * 1-5"    # 08:40 IST (pre-market)
+    - cron: "40 13 * * 1-5"   # 19:10 IST (after screen + dip)
+permissions:
+  contents: write
+jobs:
+  restrict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check restrictions
+        run: python restrict.py
+      - name: Save log as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: restrict-json
+          path: docs/restrict.json
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add docs/restrict.json
+          git diff --cached --quiet && exit 0
+          git commit -m "restrict $(date -u +%F-%H%M)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
