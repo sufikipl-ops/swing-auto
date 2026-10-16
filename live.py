@@ -172,6 +172,24 @@ def end_reached(now_ist):
     return now_ist.hour * 60 + now_ist.minute >= int(h) * 60 + int(m)
 
 
+def test_alert(url, pkey):
+    """Market band ho tab bhi Telegram check: kal ke close pe 'flat open' maan ke asli rules chalao, ek TEST message bhejo."""
+    import watch_alerts
+    ctx = watch_alerts.load_ctx(PAGES_BASE)
+    items = {}
+    for r in ctx.get('screen_latest.csv', []) + ctx.get('dip_latest.csv', []):
+        c = watch_alerts.num(r.get('CLOSE'))
+        if r.get('SYMBOL') and c:
+            items[r['SYMBOL'].upper()] = {'ltp': c, 'o': c, 'h': c, 'l': c, 'pc': c}
+    alerts = watch_alerts.evaluate(items, ctx, ist_now().strftime('%Y-%m-%d'))
+    lines = ['%s: %s' % (a[1], a[2]) for a in alerts[:12]] or ['(abhi koi IGNORE condition nahi mili)']
+    text = 'TEST (market band, kal ke close pe) - IGNORE / DHYAN\n' + '\n'.join(lines)
+    print(text)
+    ok, why = notify(url, pkey, text)
+    print('notify %s %s (%d alerts, %d stocks checked)' % ('ok' if ok else 'FAIL', why, len(alerts), len(items)))
+    sys.exit(0 if ok else 1)
+
+
 def main():
     key = os.environ.get('ANGEL_API_KEY', '').strip()
     cid = os.environ.get('ANGEL_CLIENT_ID', '').strip()
@@ -180,6 +198,10 @@ def main():
     url, pkey = page_config()
     url = os.environ.get('PIN_URL', url)
     pkey = os.environ.get('PIN_KEY', pkey)
+    if os.environ.get('TEST_ALERT') == '1':
+        if not url.startswith(('https://', 'http://127.0.0.1')):
+            print('FAIL: docs/index.html me PIN_URL set nahi hai'); sys.exit(1)
+        test_alert(url, pkey)
     if not (key and cid and pin and tsec):
         print('FAIL: Angel secrets missing'); sys.exit(1)
     if not url.startswith(('https://', 'http://127.0.0.1')):

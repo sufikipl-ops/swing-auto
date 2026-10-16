@@ -1,14 +1,19 @@
 name: live
 # Market ke time (9:10 - 15:32 IST) har ~25 sec me live prices Google Sheet me bhejta hai. Repo me kuch commit nahi karta.
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      test_alert:
+        description: "Sirf ek TEST Telegram alert bhejo (market band ho tab bhi), live feed mat chalao"
+        type: boolean
+        default: false
   schedule:
     - cron: "40 3 * * 1-5"   # 9:10 AM IST se 3:05 PM tak
     - cron: "25 9 * * 1-5"   # 2:55 PM IST se 3:32 PM tak (GitHub job 6 ghante se zyada nahi chalta)
 permissions:
   contents: read
 concurrency:
-  group: live-feed
+  group: ${{ inputs.test_alert && 'live-test' || 'live-feed' }}
   cancel-in-progress: false
 jobs:
   live:
@@ -23,6 +28,7 @@ jobs:
         run: python live.py
         env:
           LIVE_END_IST: ${{ github.event.schedule == '40 3 * * 1-5' && '15:05' || '15:32' }}
+          TEST_ALERT: ${{ inputs.test_alert && '1' || '' }}
           ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
           ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
           ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
