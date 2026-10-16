@@ -1,40 +1,39 @@
-NEWS/EVENTS CHECK 2026-10-15 20:00 IST
+NEWS/EVENTS CHECK 2026-10-16 08:19 IST
 screen data date: 2026-10-15 | candidates: 31
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE announcements fetched for 31 of 31 symbols
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-SOUTHBANK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Investor Presentation | 
-BHEL         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Copy of Newspaper Publication | BHEL shares fall 4% despite Q2 profit jumping 119% YoY. Should you buy, sell or hold? | Breakout stocks: Bonanza picks Jindal Saw, BHEL, Allied Blenders
+HCLTECH      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Analysts/Institutional Investor Meet/Con. Call Updates | 
+SOUTHBANK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Change in Management | 
+BHEL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Copy of Newspaper Publication | 
 MRPL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Dividend | 
-ETERNAL      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 Analysts/Institutional Investor Meet/Con. Call Updates | 
+CHENNPETRO   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 MEESHO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Resignation of Director/KMP/SMP | 
-PNB          PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Action(s) taken or orders passed | 
+ATHERENERG   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Granting/withdrawal/surrender/cancellation/suspension of key licenses/ regulator | 
+PNB          PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-14 Action(s) taken or orders passed | Stocks in news: RIL, Wipro, Jio Financial, Tata Communications, YES Bank, PNB
 RADICO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Analysts/Institutional Investor Meet/Con. Call Updates | 
 GESHIP       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 General Updates | 
-AEQUS        PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 General Updates | 
 REDINGTON    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Redington could gain as memory shortage reshapes ICT distribution; brokerage sees 20% upsi
 HERITGFOOD   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Investor Presentation | 
-PAISALO      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 Committee Meeting Updates | 
-SEDEMAC      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-13 ESOP/ESOS/ESPS | 
 JGCHEM       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 MOTISONS     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-EDELWEISS    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-13 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Cemindia Projects’ Rs 1,400-crore QIP oversubscribed 2.3x; Edelweiss Life, Nuvama, Motilal
+EDELWEISS    PULLBACK   IN_NEWS                            |  |  | Cemindia Projects’ Rs 1,400-crore QIP oversubscribed 2.3x; Edelweiss Life, Nuvama, Motilal
 STYLEBAAZA   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
-Symbols with no flags: 14. Top market headlines:
-  [ET Markets] What Akash Ambani said Jio tariff hikes ahead of record IPO launch
-  [ET Markets] Cemindia Projects’ Rs 1,400-crore QIP oversubscribed 2.3x; Edelweiss Life, Nuvama, Motilal MF among investors
-  [ET Markets] Indian Bank, UCO Bank lead Q2 profit growth as treasury income slumps
-  [ET Markets] Nilesh Shah on PSU privatisation: How Hindustan Zinc offers a lesson for IDBI Bank
-  [ET Markets] Tech Mahindra announces 1:1 bonus issue, Rs 15 interim dividend; check record date
-  [ET Markets] Leela Palaces Hotels &amp; Resorts among 4 stocks hitting 52-week highs; rally up to 32% in a month
-  [ET Markets] How Akash, Isha Ambani’s missed college assignment led to the creation of Rs 10 lakh crore Jio
-  [ET Markets] Tech Mahindra Q2 Results: Net profit jumps 33% YoY to Rs 1,586 crore; co declares Rs 15/share dividend, 1:1 bo
-  [ET Markets] Wipro Q2 Results: Net profit declines marginally to Rs 3,201 crore, but revenue rises 9% YoY
-  [ET Markets] Ace investor Sunil Singhania adds 6 new stocks in Q2; likely exits two companies after 150% rally
-  [ET Markets] Tata Sons pays Rs 4,475 crore in annual dividends; hypothetical investment could generate Rs 82,000 crore for 
-  [ET Markets] Tata Communications Q2 results: Net profit jumps 86% YoY to Rs 341 crore; revenue rises 10%
-  [ET Markets] Orient Electric Q2 profit jumps two-fold to Rs 27 crore, revenue rises 25% YoY
-  [ET Markets] Volume Shocker: MFs add 1 crore+ shares to 5 stocks in September; shares tumble up to 43%
-  [ET Markets] Jio IPO fever grips telecom stocks: Airtel, Vodafone Idea &amp; others rise up to 4%
+Symbols with no flags: 15. Top market headlines:
+  [ET Markets] Positive Breakout: These 8 stocks cross above their 200 DMAs
+  [ET Markets] Wipro’s Slow Growth to Test Investors’ Patience
+  [ET Markets] Alpha Alternatives Raises `6,000 crore
+  [ET Markets] Sensex Today | Nifty 50 | Stock Market Live Updates: GIFT Nifty signals a positive start; Asian shares trade h
+  [ET Markets] D-St set for a positive opening as GIFT Nifty signals firm start
+  [ET Markets] Stocks in news: RIL, Wipro, Jio Financial, Tata Communications, YES Bank, PNB
+  [ET Markets] HDFC Life posts 14% rise in Sept quarter profit
+  [ET Markets] IT stocks power Dalal Street rally as global AI trade loses steam
+  [ET Markets] SC ruling deals a heavy blow to Yes Bank's risk equity capital
+  [ET Markets] Sebi writes to IRDAI to include investors' insurance policy details in consolidated account statement
+  [ET Markets] IIFL Finance Q2 profit nearly doubles to Rs 805 crore; AUM rises 38%
+  [ET Markets] L&amp;T Finance Q2 net profit rises 33% to Rs 975 crore
+  [ET Markets] Sebi revises CAS rules, changes derivatives expiry settlement methodology
+  [ET Markets] India's current account deficit narrows to $5.2 billion in August as capital account surplus hits $50.6 billio
+  [ET Markets] Market Trading Guide: Adani Power among 2 stock recommendations for Friday
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
