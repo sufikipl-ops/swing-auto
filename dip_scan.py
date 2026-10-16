@@ -58,6 +58,9 @@ dates = sorted(alld)[-140:]
 last = dates[-1]
 ist_today = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date()
 exp = ist_today
+ist_now = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)
+if ist_now.hour < 18 or (ist_now.hour == 18 and ist_now.minute < 15):
+    exp -= datetime.timedelta(days=1)      # NSE file for today comes only after ~6 PM: before that, yesterday's data is the latest
 while exp.weekday() >= 5:
     exp -= datetime.timedelta(days=1)
 if last < exp:
