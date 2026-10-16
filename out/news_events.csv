@@ -3,38 +3,39 @@ BREAKOUT,TECHM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-15 Record Date,"Market wrap: Te
 BREAKOUT,HBLENGINE,IN_NEWS,,,"HBL Engineering, Wipro, L&T Finance shares spurt amid spike in volumes; check full list | HBL Engineering (NSE:HBLENGINE), Wipro and L&T Finance Trading Volumes"
 BREAKOUT,PCJEWELLER,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-21 Financial Results,2026-10-14 Board Meeting,"PC Jeweller, Shanti Gold &amp; other jewellery stocks rally up to 10%. Here's why | Senco, PC Jeweller zoom up to 17%; why are gold-related stocks dazzling?"
 BREAKOUT,HCLTECH,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 Updates,"Zensar, HCL Technologies rebounded from 100-month EMA support, says analyst | HCL Technologies Share Price rises 2.18%; valuation view"
-BREAKOUT,INDHOTEL,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-21 Financial Results,2026-10-16 General,"Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | INDHOTEL Share Price Hits Fresh 52-Week High"
+BREAKOUT,INDHOTEL,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-21 Financial Results,2026-10-16 Action(s) initiated or orders passed,"Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | INDHOTEL Share Price Hits Fresh 52-Week High"
 BREAKOUT,APOLLO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-14 Board Meeting,"Apollo Micro Systems to host Q2FY27 earnings call on Oct 26 | Defence sector stocks today, October 16: Apollo Micro Systems jumps 3.46%, Unimech Aerospa"
 BREAKOUT,TIPSMUSIC,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-15 Press Release,"TIPS Music zooms 10% to hit 52-wk high after Q2 nos, ₹6.50/share dividend | Tips Music shares up 6% today after strong Q2 2026 results, dividend announcement; 27% up "
 BREAKOUT,SKYGOLD,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 Change in Management,"Jewellery stocks to buy: Titan, Sky Gold, Kalyan Jewellers - Where should you invest ahead | Jewellery Stocks Ahead of Q2: Titan, Kalyan and Sky Gold Compared"
 BREAKOUT,SHYAMMETL,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018",Shyam Metalics 52 Week High Streak: Peer Position Today
 BREAKOUT,OAL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 General,Oriental Aromatics OAL Volume Surge: NSE Clarification
-BREAKOUT,ORIENTHOT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-15 Press Release,"Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Oriental Hotels Share Price: price action and fundamentals"
+BREAKOUT,ORIENTHOT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-15 Press Release,"Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Oriental Hotels ORIENTHOT Q2 FY27 Results Newspaper Ad"
 BREAKOUT,JUSTDIAL,EVENT_7D,2026-10-19 Financial Results,,
-BREAKOUT,SGMART,IN_NEWS,,,SG Mart Ltd Surges 7.85% to Day's High of Rs 812 — Outperforms Sector by 7.39 Percentage P
+BREAKOUT,SGMART,none,,,
 BREAKOUT,MANOMAY,none,,,
-PULLBACK,ETERNAL,EVENT_7D IN_NEWS,2026-10-21 Financial Results,,Goldman Sachs Sells Eternal Shares Via A ₹169 Cr Block Deal | BofA buys INR 1.69 billion of Eternal stock from Goldman Sachs
+PULLBACK,ETERNAL,EVENT_7D IN_NEWS,2026-10-21 Financial Results,,Eternal stock: ICICI Securities raises target for Eternal stock from INR 360 to INR 425 | Goldman Sachs Sells Eternal Shares Via A ₹169 Cr Block Deal
 PULLBACK,BHEL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-14 General Updates,"BHEL Share Price Today, BHEL Stock Price Live NSE/BSE Updates"
 PULLBACK,PAYTM,NEW_ANNOUNCEMENT,,2026-10-14 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,MRPL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-14 Dividend,Financial impact of fire accident estimated at ₹118.76 crore: MRPL
 PULLBACK,ADANIPORTS,IN_NEWS,,,Adani Ports adds 18 MMT at Paradip: October 28 tests Adani Ports stock
-PULLBACK,MOTHERSON,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 General,Samvardhana Motherson dissolves Canadian subsidiary Yachiyo Canada
+PULLBACK,MOTHERSON,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 General Updates,Samvardhana Motherson dissolves Canadian subsidiary Yachiyo Canada
 PULLBACK,AUROPHARMA,none,,,
 PULLBACK,SONACOMS,none,,,
 PULLBACK,CARTRADE,none,,,
 PULLBACK,MOTISONS,NEW_ANNOUNCEMENT,,"2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018",
-PULLBACK,RADICO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 General,Radico Khaitan RADICO Special Demat Window Notice Oct 2026 | Radico Khaitan Elevates Sakshi Arora To Joint General Manager
+PULLBACK,RADICO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 General Updates,Radico Khaitan RADICO Special Demat Window Notice Oct 2026 | Radico Khaitan Elevates Sakshi Arora To Joint General Manager
 PULLBACK,WELSPUNLIV,none,,,
 PULLBACK,KTKBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 Board Meeting,Karnataka Bank unveils new range of banking products
 PULLBACK,PATANJALI,NEW_ANNOUNCEMENT,,2026-10-14 General Updates,
-PULLBACK,PAISALO,none,,2026-10-16 Analyst / Investor Meet,
-PULLBACK,AEQUS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 EGM,Aequs Promoter Pledges 10.05 Crore Shares for ₹200 Crore Facility | Aequs : Announces Long-Term Supply Agreements with Safran for Aerospace Applications
+PULLBACK,PAISALO,EVENT_7D,2026-10-22 Financial Results,2026-10-16 Analysts/Institutional Investor Meet/Con. Call Updates,
+PULLBACK,AEQUS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-16 Corrigendum,Aequs Promoter Pledges 10.05 Crore Shares for ₹200 Crore Facility | Aequs : Announces Long-Term Supply Agreements with Safran for Aerospace Applications
 PULLBACK,PWL,none,,,
 PULLBACK,APLAPOLLO,none,,,
 PULLBACK,RAYMONDREL,none,,,
 PULLBACK,BEML,IN_NEWS,,,"1:5 Stock Split + Rs 146 Dividends Today: BEML, IRCTC, HFCL, KPI Green Energy, Stocks Turn"
-PULLBACK,LGEINDIA,none,,,
+PULLBACK,LGEINDIA,IN_NEWS,,,"DB Securities raises target to KRW 265,000 for LG Electronics stock | LG Electronics Showcases Its AI Home at Urban October 2026"
 PULLBACK,MANINDS,none,,,
-PULLBACK,CUB,NEW_ANNOUNCEMENT,,2026-10-14 Action(s) taken or orders passed,
+PULLBACK,CUB,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-14 Action(s) taken or orders passed,City Union Bank’s GST Demand Cut To Rs 208.91 Cr After Fresh Assessment
 PULLBACK,LXCHEM,NEW_ANNOUNCEMENT,,2026-10-15 Updates,
 PULLBACK,GODREJAGRO,none,,,
+LOCKED,PASHUPATI,none,,,

@@ -1,47 +1,48 @@
-NEWS/EVENTS CHECK 2026-10-16 20:51 IST
+NEWS/EVENTS CHECK 2026-10-16 21:09 IST
 screen data date: 2026-10-16 | candidates: 39
 NSE event calendar FAIL: HTTP Error 403: Forbidden
-NSE event calendar (symbol-wise): OK for 38 symbols
+NSE event calendar (symbol-wise): OK for 39 symbols
 locked stocks added for announcements: PASHUPATI
 NSE announcements fetched for 40 of 40 symbols
-BSE scrip list: 5112 codes
-BSE announcements: 40 symbols checked, 42 naye (NSE me nahi the)
+BSE announcements: 40 symbols checked, 20 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 40 of 40 symbols, 96 headlines
-PDF saar: 21 naye bane, 2 nahi bane, 30 pehle ke reuse (AI key: nahi)
+Google News: 40 of 40 symbols, 102 headlines
+PDF saar: 8 naye bane, 4 nahi bane, 40 pehle ke reuse (AI key: nahi)
 announcements.json: 28 symbols with announcements in last 3 days
 TECHM        BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Record Date | Market wrap: Tech Mahindra, TCS, InterGlobe, BSE top gainers and losers on Nifty and Sense | Tech Mahindra shares gain 5% after Q2 results. Should you buy, sell or hold the stock?
 HBLENGINE    BREAKOUT   IN_NEWS                            |  |  | HBL Engineering, Wipro, L&T Finance shares spurt amid spike in volumes; check full list | HBL Engineering (NSE:HBLENGINE), Wipro and L&T Finance Trading Volumes
 PCJEWELLER   BREAKOUT   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-21 Financial Results | 2026-10-14 Board Meeting | PC Jeweller, Shanti Gold &amp; other jewellery stocks rally up to 10%. Here's why | Senco, PC Jeweller zoom up to 17%; why are gold-related stocks dazzling?
 HCLTECH      BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 Updates | Zensar, HCL Technologies rebounded from 100-month EMA support, says analyst | HCL Technologies Share Price rises 2.18%; valuation view
-INDHOTEL     BREAKOUT   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-21 Financial Results | 2026-10-16 General | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | INDHOTEL Share Price Hits Fresh 52-Week High
+INDHOTEL     BREAKOUT   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-21 Financial Results | 2026-10-16 Action(s) initiated or orders passed | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | INDHOTEL Share Price Hits Fresh 52-Week High
 APOLLO       BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-14 Board Meeting | Apollo Micro Systems to host Q2FY27 earnings call on Oct 26 | Defence sector stocks today, October 16: Apollo Micro Systems jumps 3.46%, Unimech Aerospa
 TIPSMUSIC    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Press Release | TIPS Music zooms 10% to hit 52-wk high after Q2 nos, ₹6.50/share dividend | Tips Music shares up 6% today after strong Q2 2026 results, dividend announcement; 27% up 
 SKYGOLD      BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 Change in Management | Jewellery stocks to buy: Titan, Sky Gold, Kalyan Jewellers - Where should you invest ahead | Jewellery Stocks Ahead of Q2: Titan, Kalyan and Sky Gold Compared
 SHYAMMETL    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Shyam Metalics 52 Week High Streak: Peer Position Today
 OAL          BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 General | Oriental Aromatics OAL Volume Surge: NSE Clarification
-ORIENTHOT    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Press Release | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Oriental Hotels Share Price: price action and fundamentals
+ORIENTHOT    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-15 Press Release | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Oriental Hotels ORIENTHOT Q2 FY27 Results Newspaper Ad
 JUSTDIAL     BREAKOUT   EVENT_7D                           | 2026-10-19 Financial Results |  | 
-SGMART       BREAKOUT   IN_NEWS                            |  |  | SG Mart Ltd Surges 7.85% to Day's High of Rs 812 — Outperforms Sector by 7.39 Percentage P
-ETERNAL      PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-21 Financial Results |  | Goldman Sachs Sells Eternal Shares Via A ₹169 Cr Block Deal | BofA buys INR 1.69 billion of Eternal stock from Goldman Sachs
+ETERNAL      PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-21 Financial Results |  | Eternal stock: ICICI Securities raises target for Eternal stock from INR 360 to INR 425 | Goldman Sachs Sells Eternal Shares Via A ₹169 Cr Block Deal
 BHEL         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-14 General Updates | BHEL Share Price Today, BHEL Stock Price Live NSE/BSE Updates
 PAYTM        PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Analysts/Institutional Investor Meet/Con. Call Updates | 
 MRPL         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-14 Dividend | Financial impact of fire accident estimated at ₹118.76 crore: MRPL
 ADANIPORTS   PULLBACK   IN_NEWS                            |  |  | Adani Ports adds 18 MMT at Paradip: October 28 tests Adani Ports stock
-MOTHERSON    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 General | Samvardhana Motherson dissolves Canadian subsidiary Yachiyo Canada
+MOTHERSON    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 General Updates | Samvardhana Motherson dissolves Canadian subsidiary Yachiyo Canada
 MOTISONS     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-RADICO       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 General | Radico Khaitan RADICO Special Demat Window Notice Oct 2026 | Radico Khaitan Elevates Sakshi Arora To Joint General Manager
+RADICO       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 General Updates | Radico Khaitan RADICO Special Demat Window Notice Oct 2026 | Radico Khaitan Elevates Sakshi Arora To Joint General Manager
 KTKBANK      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 Board Meeting | Karnataka Bank unveils new range of banking products
 PATANJALI    PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 General Updates | 
-AEQUS        PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 EGM | Aequs Promoter Pledges 10.05 Crore Shares for ₹200 Crore Facility | Aequs : Announces Long-Term Supply Agreements with Safran for Aerospace Applications
+PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results | 2026-10-16 Analysts/Institutional Investor Meet/Con. Call Updates | 
+AEQUS        PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-16 Corrigendum | Aequs Promoter Pledges 10.05 Crore Shares for ₹200 Crore Facility | Aequs : Announces Long-Term Supply Agreements with Safran for Aerospace Applications
 BEML         PULLBACK   IN_NEWS                            |  |  | 1:5 Stock Split + Rs 146 Dividends Today: BEML, IRCTC, HFCL, KPI Green Energy, Stocks Turn
-CUB          PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Action(s) taken or orders passed | 
+LGEINDIA     PULLBACK   IN_NEWS                            |  |  | DB Securities raises target to KRW 265,000 for LG Electronics stock | LG Electronics Showcases Its AI Home at Urban October 2026
+CUB          PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-14 Action(s) taken or orders passed | City Union Bank’s GST Demand Cut To Rs 208.91 Cr After Fresh Assessment
 LXCHEM       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 Symbols with no flags: 12. Top market headlines:
+  [ET Markets] Crompton Greaves Q2 Results: Profit surges 65% to Rs 124 crore
   [ET Markets] DLF Q2 profit rises to Rs 1,301 crore as luxury project sells out
   [ET Markets] Ujjivan SFB to raise Rs 409 crore from IFC, three insurers
   [ET Markets] Federal Bank Q2 profit jumps 45% to record Rs 1,386 crore
@@ -56,5 +57,4 @@ Symbols with no flags: 12. Top market headlines:
   [ET Markets] Mukesh Ambani taps massive Reliance workforce to boost Jio’s record IPO
   [ET Markets] 10 stocks held by 100+ MF schemes in September rally up to 205% in CY26; 6 turn multibaggers
   [ET Markets] From worst to best: How IT stocks staged a Rs 2.6 lakh crore revival this week
-  [ET Markets] Indian Bank reports a Rs 1,388 crore gain from sale of NSE shares
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
