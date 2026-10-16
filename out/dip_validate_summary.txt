@@ -1,0 +1,165 @@
+DIP VALIDATION (generated 2026-10-16)
+Data 2022-09-08 to 2026-10-16. Base = Dip Tier A (<= -8% in 3d) or Tier B (-5..-8% & breadth>=50%), uptrend. Entry next open, stop 2 ATR, hold N days, cost 0.25%.
+TRAIN = years <= 2024 (choose filters here). TEST = years > 2024 (judge here; filters never saw it).
+
+==== Tier A + B | hold 5 days ====
+                                         | TRAIN n win avgR PF     | TEST n win avgR PF     
+BASE (no filter)                         |   658  60%   0.158  1.87 |   264  54%   0.060  1.30
+-- single filters (n_train>=100, n_test>=40), sorted by TRAIN avgR --
+close_in_lower_quarter                   |   411  64%   0.215  2.35 |   163  55%   0.062  1.34
+ADX>=25                                  |   522  61%   0.191  2.13 |   210  57%   0.094  1.54
+RVOL<1.0                                 |   419  64%   0.173  2.00 |   185  56%   0.095  1.52
+delivery<20d_avg                         |   251  61%   0.168  1.97 |    97  54%   0.048  1.21
+close_below_BB_lower(20,2)               |   223  58%   0.167  1.88 |    93  60%   0.117  1.65
+MACD_hist<0                              |   658  60%   0.158  1.87 |   264  54%   0.060  1.30
+RSI35-45                                 |   658  60%   0.158  1.87 |   264  54%   0.060  1.30
+near_EMA50 (close<=1.05xEMA50)           |   650  60%   0.156  1.85 |   261  54%   0.061  1.30
+above_SMA200                             |   566  60%   0.155  1.87 |   221  49%   0.009  1.04
+red_candle (close<open)                  |   556  60%   0.154  1.80 |   238  54%   0.053  1.26
+fib_retr_38.2-61.8%                      |   541  61%   0.152  1.85 |   208  54%   0.062  1.30
+delivery>=20d_avg                        |   407  60%   0.152  1.80 |   167  54%   0.068  1.36
+last_day_down (close<prev close)         |   578  60%   0.150  1.79 |   237  54%   0.051  1.25
+RVOL>=1.5                                |   114  50%   0.086  1.38 |    44  52%  -0.026  0.90
+-- best PAIRS chosen on TRAIN (n_train>=100, n_test>=40): 80 candidates --
+close_below_BB_lower(20,2) + close_in_lo |   152  63%   0.256  2.53 |    53  62%   0.099  1.63
+RVOL<1.0 + close_in_lower_quarter        |   263  70%   0.246  2.81 |   116  57%   0.093  1.55
+ADX>=25 + close_in_lower_quarter         |   332  66%   0.239  2.58 |   126  58%   0.084  1.55
+close_below_BB_lower(20,2) + delivery>=2 |   152  61%   0.235  2.31 |    59  64%   0.145  1.91
+RVOL<1.0 + delivery<20d_avg              |   145  69%   0.229  2.74 |    63  59%   0.124  1.67
+close_in_lower_quarter + red_candle (clo |   394  65%   0.224  2.41 |   161  55%   0.063  1.34
+close_in_lower_quarter + delivery<20d_av |   117  65%   0.216  2.52 |    48  50%  -0.021  0.92
+MACD_hist<0 + close_in_lower_quarter     |   411  64%   0.215  2.35 |   163  55%   0.062  1.34
+RSI35-45 + close_in_lower_quarter        |   411  64%   0.215  2.35 |   163  55%   0.062  1.34
+close_in_lower_quarter + delivery>=20d_a |   294  64%   0.215  2.30 |   115  57%   0.097  1.64
+close_in_lower_quarter + fib_retr_38.2-6 |   343  65%   0.213  2.42 |   135  58%   0.083  1.48
+close_in_lower_quarter + last_day_down ( |   400  64%   0.212  2.31 |   157  55%   0.060  1.32
+Top-12 train pairs still profitable on TEST: 11/12. Average TEST avgR over ALL 80 pairs (luck level): 0.064; base TEST avgR 0.060
+-- SCORE = how many of these TRAIN-selected filters pass: close_in_lower_quarter, ADX>=25 --
+score                                    | TRAIN n win avgR PF     | TEST n win avgR PF     
+passes 0 of 2                            |    57  53%  -0.081  0.73 |    17  41%  -0.200  0.44
+passes 1 of 2                            |   269  55%   0.108  1.55 |   121  52%   0.073  1.31
+passes 2 of 2                            |   332  66%   0.239  2.58 |   126  58%   0.084  1.55
+passes >= 2 of 2                         |   332  66%   0.239  2.58 |   126  58%   0.084  1.55
+      per year (all years, passes >= 2): 2022:0.37(n14) 2023:0.27(n179) 2024:0.19(n139) 2025:-0.09(n49) 2026:0.19(n77)
+
+==== Tier A + B | hold 10 days ====
+                                         | TRAIN n win avgR PF     | TEST n win avgR PF     
+BASE (no filter)                         |   658  59%   0.220  1.81 |   264  49%   0.028  1.09
+-- single filters (n_train>=100, n_test>=40), sorted by TRAIN avgR --
+close_in_lower_quarter                   |   411  61%   0.263  2.05 |   163  50%   0.073  1.26
+ADX>=25                                  |   522  60%   0.255  2.00 |   210  50%   0.031  1.11
+close_below_BB_lower(20,2)               |   223  57%   0.255  1.94 |    93  51%   0.091  1.31
+RVOL<1.0                                 |   419  60%   0.228  1.87 |   185  50%   0.074  1.25
+above_SMA200                             |   566  57%   0.222  1.81 |   221  45%  -0.031  0.91
+delivery>=20d_avg                        |   407  58%   0.221  1.79 |   167  51%   0.080  1.27
+MACD_hist<0                              |   658  59%   0.220  1.81 |   264  49%   0.028  1.09
+RSI35-45                                 |   658  59%   0.220  1.81 |   264  49%   0.028  1.09
+delivery<20d_avg                         |   251  59%   0.218  1.86 |    97  45%  -0.061  0.83
+near_EMA50 (close<=1.05xEMA50)           |   650  58%   0.218  1.80 |   261  49%   0.031  1.10
+red_candle (close<open)                  |   556  59%   0.216  1.77 |   238  49%   0.027  1.09
+last_day_down (close<prev close)         |   578  58%   0.207  1.74 |   237  49%   0.027  1.09
+fib_retr_38.2-61.8%                      |   541  58%   0.195  1.72 |   208  47%   0.020  1.06
+RVOL>=1.5                                |   114  48%   0.149  1.45 |    44  48%   0.021  1.06
+-- best PAIRS chosen on TRAIN (n_train>=100, n_test>=40): 80 candidates --
+close_below_BB_lower(20,2) + delivery>=2 |   152  59%   0.352  2.37 |    59  53%   0.128  1.43
+close_below_BB_lower(20,2) + close_in_lo |   152  63%   0.318  2.30 |    53  51%   0.131  1.50
+ADX>=25 + close_in_lower_quarter         |   332  64%   0.297  2.22 |   126  52%   0.063  1.24
+close_in_lower_quarter + red_candle (clo |   394  62%   0.285  2.18 |   161  50%   0.064  1.23
+RVOL<1.0 + delivery<20d_avg              |   145  66%   0.276  2.27 |    63  51%   0.027  1.09
+RVOL<1.0 + close_in_lower_quarter        |   263  64%   0.275  2.15 |   116  52%   0.119  1.46
+close_in_lower_quarter + delivery>=20d_a |   294  61%   0.266  2.02 |   115  52%   0.136  1.54
+ADX>=25 + RVOL<1.0                       |   320  61%   0.264  2.05 |   145  51%   0.078  1.29
+MACD_hist<0 + close_in_lower_quarter     |   411  61%   0.263  2.05 |   163  50%   0.073  1.26
+RSI35-45 + close_in_lower_quarter        |   411  61%   0.263  2.05 |   163  50%   0.073  1.26
+close_in_lower_quarter + last_day_down ( |   400  62%   0.262  2.05 |   157  50%   0.062  1.22
+RVOL<1.0 + close_below_BB_lower(20,2)    |   135  57%   0.262  2.05 |    59  56%   0.180  1.78
+Top-12 train pairs still profitable on TEST: 12/12. Average TEST avgR over ALL 80 pairs (luck level): 0.036; base TEST avgR 0.028
+-- SCORE = how many of these TRAIN-selected filters pass: close_in_lower_quarter, ADX>=25, close_below_BB_lower(20,2) --
+score                                    | TRAIN n win avgR PF     | TEST n win avgR PF     
+passes 0 of 3                            |    37  59%  -0.074  0.83 |    13  38%  -0.158  0.65
+passes 1 of 3                            |   209  53%   0.150  1.54 |    78  44%  -0.074  0.81
+passes 2 of 3                            |   289  61%   0.282  2.11 |   131  53%   0.102  1.37
+passes 3 of 3                            |   123  63%   0.282  2.13 |    42  48%   0.046  1.18
+passes >= 2 of 3                         |   412  61%   0.282  2.12 |   173  52%   0.089  1.33
+      per year (all years, passes >= 2): 2022:0.30(n16) 2023:0.40(n210) 2024:0.15(n186) 2025:-0.24(n70) 2026:0.31(n103)
+passes >= 3 of 3                         |   123  63%   0.282  2.13 |    42  48%   0.046  1.18
+      per year (all years, passes >= 3): 2022:0.79(n5) 2023:0.44(n60) 2024:0.08(n58) 2025:-0.17(n17) 2026:0.19(n25)
+
+==== Tier A only | hold 5 days ====
+                                         | TRAIN n win avgR PF     | TEST n win avgR PF     
+BASE (no filter)                         |   309  63%   0.204  2.31 |   166  57%   0.093  1.50
+-- single filters (n_train>=100, n_test>=40), sorted by TRAIN avgR --
+ADX>=25                                  |   266  66%   0.250  2.85 |   145  57%   0.088  1.49
+close_in_lower_quarter                   |   208  65%   0.231  2.57 |    99  59%   0.083  1.51
+RVOL<1.0                                 |   184  67%   0.222  2.58 |   113  59%   0.168  2.12
+delivery<20d_avg                         |   127  65%   0.221  2.37 |    61  51%   0.011  1.04
+MACD_hist<0                              |   309  63%   0.204  2.31 |   166  57%   0.093  1.50
+RSI35-45                                 |   309  63%   0.204  2.31 |   166  57%   0.093  1.50
+last_day_down (close<prev close)         |   279  63%   0.202  2.24 |   149  56%   0.077  1.40
+red_candle (close<open)                  |   263  62%   0.201  2.23 |   147  56%   0.081  1.44
+near_EMA50 (close<=1.05xEMA50)           |   302  63%   0.200  2.28 |   163  56%   0.094  1.50
+delivery>=20d_avg                        |   182  61%   0.192  2.26 |   105  60%   0.141  1.93
+above_SMA200                             |   260  61%   0.189  2.17 |   141  52%   0.054  1.26
+fib_retr_38.2-61.8%                      |   258  62%   0.186  2.19 |   131  58%   0.094  1.51
+-- best PAIRS chosen on TRAIN (n_train>=100, n_test>=40): 63 candidates --
+ADX>=25 + delivery<20d_avg               |   106  68%   0.287  3.04 |    54  48%  -0.018  0.93
+ADX>=25 + close_in_lower_quarter         |   178  69%   0.283  3.29 |    83  59%   0.070  1.47
+ADX>=25 + RVOL<1.0                       |   155  71%   0.263  3.12 |    98  58%   0.152  2.06
+ADX>=25 + last_day_down (close<prev clos |   238  66%   0.253  2.79 |   131  56%   0.074  1.42
+ADX>=25 + MACD_hist<0                    |   266  66%   0.250  2.85 |   145  57%   0.088  1.49
+ADX>=25 + RSI35-45                       |   266  66%   0.250  2.85 |   145  57%   0.088  1.49
+ADX>=25 + red_candle (close<open)        |   224  66%   0.250  2.73 |   129  57%   0.079  1.46
+ADX>=25 + near_EMA50 (close<=1.05xEMA50) |   259  66%   0.247  2.83 |   142  56%   0.089  1.49
+RVOL<1.0 + close_in_lower_quarter        |   126  72%   0.246  2.93 |    70  61%   0.155  2.17
+ADX>=25 + above_SMA200                   |   224  65%   0.239  2.76 |   125  53%   0.061  1.31
+close_in_lower_quarter + red_candle (clo |   199  65%   0.239  2.64 |    97  59%   0.085  1.52
+MACD_hist<0 + close_in_lower_quarter     |   208  65%   0.231  2.57 |    99  59%   0.083  1.51
+Top-12 train pairs still profitable on TEST: 11/12. Average TEST avgR over ALL 63 pairs (luck level): 0.089; base TEST avgR 0.093
+-- SCORE = how many of these TRAIN-selected filters pass: ADX>=25, close_in_lower_quarter --
+score                                    | TRAIN n win avgR PF     | TEST n win avgR PF     
+passes 0 of 2                            |    13  46%  -0.089  0.67 |     5  60%   0.042  1.16
+passes 1 of 2                            |   118  55%   0.116  1.61 |    78  54%   0.121  1.54
+passes 2 of 2                            |   178  69%   0.283  3.29 |    83  59%   0.070  1.47
+passes >= 2 of 2                         |   178  69%   0.283  3.29 |    83  59%   0.070  1.47
+      per year (all years, passes >= 2): 2022:0.37(n14) 2023:0.30(n83) 2024:0.25(n81) 2025:-0.09(n30) 2026:0.16(n53)
+
+==== Tier A only | hold 10 days ====
+                                         | TRAIN n win avgR PF     | TEST n win avgR PF     
+BASE (no filter)                         |   309  63%   0.282  2.23 |   166  49%   0.020  1.07
+-- single filters (n_train>=100, n_test>=40), sorted by TRAIN avgR --
+RVOL<1.0                                 |   184  65%   0.340  2.70 |   113  50%   0.080  1.29
+ADX>=25                                  |   266  65%   0.329  2.56 |   145  48%  -0.012  0.96
+delivery<20d_avg                         |   127  65%   0.306  2.42 |    61  34%  -0.230  0.45
+near_EMA50 (close<=1.05xEMA50)           |   302  63%   0.282  2.22 |   163  50%   0.024  1.08
+MACD_hist<0                              |   309  63%   0.282  2.23 |   166  49%   0.020  1.07
+RSI35-45                                 |   309  63%   0.282  2.23 |   166  49%   0.020  1.07
+close_in_lower_quarter                   |   208  64%   0.281  2.28 |    99  52%   0.064  1.24
+red_candle (close<open)                  |   263  63%   0.269  2.15 |   147  50%   0.023  1.08
+last_day_down (close<prev close)         |   279  62%   0.266  2.10 |   149  49%   0.015  1.05
+delivery>=20d_avg                        |   182  62%   0.265  2.12 |   105  58%   0.165  1.69
+above_SMA200                             |   260  60%   0.265  2.08 |   141  46%  -0.016  0.95
+fib_retr_38.2-61.8%                      |   258  62%   0.254  2.08 |   131  47%   0.008  1.02
+-- best PAIRS chosen on TRAIN (n_train>=100, n_test>=40): 63 candidates --
+ADX>=25 + RVOL<1.0                       |   155  66%   0.385  3.11 |    98  48%   0.033  1.12
+ADX>=25 + delivery<20d_avg               |   106  65%   0.349  2.63 |    54  31%  -0.288  0.33
+RVOL<1.0 + near_EMA50 (close<=1.05xEMA50 |   179  65%   0.345  2.72 |   111  51%   0.096  1.36
+MACD_hist<0 + RVOL<1.0                   |   184  65%   0.340  2.70 |   113  50%   0.080  1.29
+RSI35-45 + RVOL<1.0                      |   184  65%   0.340  2.70 |   113  50%   0.080  1.29
+ADX>=25 + close_in_lower_quarter         |   178  67%   0.334  2.66 |    83  51%   0.033  1.12
+ADX>=25 + near_EMA50 (close<=1.05xEMA50) |   259  64%   0.331  2.55 |   142  49%  -0.008  0.97
+ADX>=25 + MACD_hist<0                    |   266  65%   0.329  2.56 |   145  48%  -0.012  0.96
+ADX>=25 + RSI35-45                       |   266  65%   0.329  2.56 |   145  48%  -0.012  0.96
+RVOL<1.0 + above_SMA200                  |   159  62%   0.327  2.55 |    92  47%   0.041  1.14
+RVOL<1.0 + red_candle (close<open)       |   155  65%   0.324  2.59 |   102  51%   0.088  1.34
+ADX>=25 + last_day_down (close<prev clos |   238  64%   0.322  2.45 |   131  48%   0.001  1.00
+Top-12 train pairs still profitable on TEST: 8/12. Average TEST avgR over ALL 63 pairs (luck level): 0.014; base TEST avgR 0.020
+-- SCORE = how many of these TRAIN-selected filters pass: RVOL<1.0, ADX>=25 --
+score                                    | TRAIN n win avgR PF     | TEST n win avgR PF     
+passes 0 of 2                            |    14  43%  -0.247  0.40 |     6  33%  -0.132  0.68
+passes 1 of 2                            |   140  62%   0.221  1.84 |    62  53%   0.014  1.04
+passes 2 of 2                            |   155  66%   0.385  3.11 |    98  48%   0.033  1.12
+passes >= 2 of 2                         |   155  66%   0.385  3.11 |    98  48%   0.033  1.12
+      per year (all years, passes >= 2): 2022:0.34(n8) 2023:0.56(n61) 2024:0.26(n86) 2025:-0.23(n43) 2026:0.24(n55)
+
+How to read: a filter/score is real only if TEST avgR stays clearly positive and above BASE TEST. Many tries => luck is possible.
+Past results do not guarantee future results. Not financial advice.
