@@ -1,26 +1,32 @@
-NEWS/EVENTS CHECK 2026-10-16 13:54 IST
+NEWS/EVENTS CHECK 2026-10-16 15:11 IST
 screen data date: 2026-10-15 | candidates: 31
 NSE event calendar FAIL: HTTP Error 403: Forbidden
-NSE announcements fetched for 31 of 31 symbols
+NSE event calendar (symbol-wise): OK for 31 symbols
+locked stocks added for announcements: PASHUPATI
+NSE announcements fetched for 32 of 32 symbols
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-PDF saar: 17 naye bane, 5 nahi bane, 10 pehle ke reuse (AI key: nahi)
+PDF saar: 0 naye bane, 5 nahi bane, 26 pehle ke reuse (AI key: nahi)
 announcements.json: 20 symbols with announcements in last 3 days
 HCLTECH      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-16 Updates | 
 SOUTHBANK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Change in Management | 
 BHEL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 General Updates | 
 MRPL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Dividend | 
-CHENNPETRO   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
+ETERNAL      PULLBACK   EVENT_7D                           | 2026-10-21 Financial Results |  | 
+CHENNPETRO   PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-22 Financial Results | 2026-10-15 Updates | 
 MEESHO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Resignation of Director/KMP/SMP | 
 ATHERENERG   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Granting/withdrawal/surrender/cancellation/suspension of key licenses/ regulator | 
-PNB          PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Action(s) taken or orders passed | 
+PNB          PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT      | 2026-10-16 Financial Results | 2026-10-14 Action(s) taken or orders passed | 
 GESHIP       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 General Updates | 
 REDINGTON    PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
 HERITGFOOD   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Press Release | 
+PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results |  | 
 JGCHEM       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 MOTISONS     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
 STYLEBAAZA   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
-Symbols with no flags: 17. Top market headlines:
+Symbols with no flags: 15. Top market headlines:
+  [ET Markets] ICICI Bank Q2 Results Preview: PAT, NII may rise up to 21% YoY; margins, deposit growth in focus
+  [ET Markets] Mukesh Ambani taps massive Reliance workforce to boost Jio’s record IPO
   [ET Markets] 10 stocks held by 100+ MF schemes in September rally up to 205% in CY26; 6 turn multibaggers
   [ET Markets] From worst to best: How IT stocks staged a Rs 2.6 lakh crore revival this week
   [ET Markets] Indian Bank reports a Rs 1,388 crore gain from sale of NSE shares
@@ -34,6 +40,4 @@ Symbols with no flags: 17. Top market headlines:
   [ET Markets] Karur Vysya Bank shares rally 6% after Q2 profit jumps 37% YoY
   [ET Markets] HDFC Bank Q2 results preview: PAT, NII may rise up to 9% YoY; deposit growth in focus
   [ET Markets] Beyond Titan and Kalyan: Analysts pick these jewellery stocks as potential market winners. Do you own any?
-  [ET Markets] Persistent Systems among 4 F&amp;O stocks with a sharp rise in futures open interest
-  [ET Markets] Wipro shares rise over 2% as Q2 revenue grows 9% YoY. What are Nomura, Goldman Sachs analysts saying?
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
