@@ -4,6 +4,11 @@
 import os, sys, re, csv, json, time, hmac, base64, struct, hashlib, datetime, traceback
 import urllib.request, urllib.error, urllib.parse
 
+try:
+    sys.stdout.reconfigure(line_buffering=True)   # GitHub log me lines turant dikhein
+except Exception:
+    pass
+
 BASE = os.environ.get('ANGEL_BASE', 'https://apiconnect.angelone.in')
 MASTER = os.environ.get('ANGEL_MASTER', 'https://margincalculator.angelbroking.com/OpenAPI_File/files/OpenAPIScripMaster.json')
 POLL = float(os.environ.get('LIVE_POLL', '25'))
@@ -13,7 +18,7 @@ MAX_SYMS = 100
 
 
 def ist_now():
-    return datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
+    return datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None) + datetime.timedelta(hours=5, minutes=30)
 
 
 def totp(secret):
