@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-16 15:11 IST
+NEWS/EVENTS CHECK 2026-10-16 18:39 IST
 screen data date: 2026-10-15 | candidates: 31
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 31 symbols
@@ -6,25 +6,34 @@ locked stocks added for announcements: PASHUPATI
 NSE announcements fetched for 32 of 32 symbols
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-PDF saar: 0 naye bane, 5 nahi bane, 26 pehle ke reuse (AI key: nahi)
-announcements.json: 20 symbols with announcements in last 3 days
+PDF saar: 6 naye bane, 5 nahi bane, 25 pehle ke reuse (AI key: nahi)
+announcements.json: 21 symbols with announcements in last 3 days
 HCLTECH      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-16 Updates | 
 SOUTHBANK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Change in Management | 
+SKYGOLD      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-16 Change in Management | 
 BHEL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 General Updates | 
 MRPL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Dividend | 
 ETERNAL      PULLBACK   EVENT_7D                           | 2026-10-21 Financial Results |  | 
 CHENNPETRO   PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-22 Financial Results | 2026-10-15 Updates | 
 MEESHO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Resignation of Director/KMP/SMP | 
 ATHERENERG   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Granting/withdrawal/surrender/cancellation/suspension of key licenses/ regulator | 
-PNB          PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT      | 2026-10-16 Financial Results | 2026-10-14 Action(s) taken or orders passed | 
+PNB          PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT      | 2026-10-16 Financial Results | 2026-10-16 Press Release | 
+RADICO       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-16 General Updates | 
 GESHIP       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 General Updates | 
 REDINGTON    PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-HERITGFOOD   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Press Release | 
+HERITGFOOD   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-16 Updates | 
 PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results |  | 
 JGCHEM       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 MOTISONS     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
 STYLEBAAZA   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
-Symbols with no flags: 15. Top market headlines:
+Symbols with no flags: 13. Top market headlines:
+  [ET Markets] Kotak Mahindra Bank among 5 stocks that hit 52-week highs &amp; rallied up to 15% in a month
+  [ET Markets] LTM Q2 Results: PAT remains flat at Rs 1,380 crore; revenue rises 14% YoY; co declares Rs 25 per share dividen
+  [ET Markets] Bajaj Housing Finance Q2 Results: PAT rises 18% YoY to Rs 757 crore, AUM grows 25%
+  [ET Markets] Urban Company Q2 Results: Loss widens to Rs 182 crore; revenue jumps 41% YoY
+  [ET Markets] Market wrap: Tech Mahindra, TCS, InterGlobe, BSE top gainers and losers on Nifty and Sensex on Friday
+  [ET Markets] Yes Bank Q2 preview: Will strong profit, NII growth offer relief for investors amid AT-1 bond saga?
+  [ET Markets] Laurus Labs shifts gears as CDMO emerges as key growth driver; Nuvama sees 24% upside
   [ET Markets] ICICI Bank Q2 Results Preview: PAT, NII may rise up to 21% YoY; margins, deposit growth in focus
   [ET Markets] Mukesh Ambani taps massive Reliance workforce to boost Jio’s record IPO
   [ET Markets] 10 stocks held by 100+ MF schemes in September rally up to 205% in CY26; 6 turn multibaggers
@@ -33,11 +42,4 @@ Symbols with no flags: 15. Top market headlines:
   [ET Markets] Jio IPO GMP at 20%: Grey market signals Rs 220 premium as brokerages say subscribe
   [ET Markets] HFCL’s AI, data centre exposure drives Nuvama’s Buy call; target implies 56% upside
   [ET Markets] Indonesia’s $1.5 trillion market faces a historic downgrade: Why global investors are worried
-  [ET Markets] PC Jeweller, Shanti Gold &amp; other jewellery stocks rally up to 10%. Here's why
-  [ET Markets] Persistent Systems shares slide 5% despite Q2 revenue growth. Buy, sell or hold?
-  [ET Markets] Bulls fight back as Sensex stages 700-point comeback. 4 factors driving the rally
-  [ET Markets] New CAS rules decoded: What Sebi’s revised framework means for stock market traders
-  [ET Markets] Karur Vysya Bank shares rally 6% after Q2 profit jumps 37% YoY
-  [ET Markets] HDFC Bank Q2 results preview: PAT, NII may rise up to 9% YoY; deposit growth in focus
-  [ET Markets] Beyond Titan and Kalyan: Analysts pick these jewellery stocks as potential market winners. Do you own any?
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
