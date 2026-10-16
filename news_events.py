@@ -257,6 +257,24 @@ def main():
                     events.setdefault(s, []).append(e)
         except Exception as ex:
             lines.append('NSE event calendar FAIL: %s' % str(ex)[:150])
+            # fallback: symbol-wise calendar (bulk endpoint 403 deta hai)
+            fails = got_ev = 0
+            for s_ in syms:
+                if fails >= 5 and got_ev == 0:
+                    lines.append('event calendar (symbol-wise) bhi FAIL: result dates is run me nahi mile')
+                    break
+                try:
+                    d_ = json.loads(get('https://www.nseindia.com/api/event-calendar?index=equities&symbol=%s' % s_))
+                    d_ = d_ if isinstance(d_, list) else d_.get('data', [])
+                    for e in d_:
+                        e.setdefault('symbol', s_)
+                        events.setdefault(s_, []).append(e)
+                    got_ev += 1
+                except Exception:
+                    fails += 1
+                time.sleep(0.4)
+            if got_ev:
+                lines.append('NSE event calendar (symbol-wise): OK for %d symbols' % got_ev)
                   # 2. NSE corporate announcements per symbol
         ann = {}
         ann_ok = 0
