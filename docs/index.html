@@ -105,7 +105,7 @@ details.set>summary{color:var(--mu);font-size:11.5px;padding:6px 2px}
 /* ===== SYNC: Google Sheet (Apps Script web app) se Lock + risk/capital sab devices par same rehte hain. Sirf PIN_URL badalna hai ===== */
 var PIN_URL='https://script.google.com/macros/s/AKfycbwTutE4YKjhrqUNwYuZwgRqPSLvelaSeBwkibi2M6Kmexkfh27jVgYcceTr8yh73mQ7yQ/exec',PIN_KEY='sd-24e5af0f609d8c48f5c5';
 var RS=null,FD=null,SN={},GL=null,MC=[],DP=[],DPM={},NM={},NMN={},NMA=[],TGC={},TG=[],TGTS=0,TGQ='',AN={},ANTS='',D={},SC=[],SR=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},PK={},RK={},tab='picks',cur=null,lastY=0,PN=[],SHOWALL=false,TOPN=8;
-var FLG={RESULTS_SOON:'Result/board meeting paas hai',NEW_ANNOUNCEMENT:'Nayi announcement aayi hai',IN_NEWS:'Khabron me hai'};
+var FLG={RESULTS_SOON:'Result/board meeting paas hai',EVENT_UNKNOWN:'Result date check nahi hui',NEW_ANNOUNCEMENT:'Nayi announcement aayi hai',IN_NEWS:'Khabron me hai'};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function csv(t){var o=[],r=[],f='',q=false,i,c;for(i=0;i<t.length;i++){c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
 else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;r.push(f);f='';if(r.length>1||r[0])o.push(r);r=[]}else f+=c}
@@ -561,7 +561,7 @@ return o}
 function checkCard(sym,p){var s=ST[sym],rows=[],hard=0,unk=0,it=liveItem(sym);function add(st,t,sub){rows.push(ckRow(st,t,sub));if(st=='bad')hard++;if(st=='?')unk++}
 if(s){add(s.t20>=5?'ok':'bad','Liquidity: 20 din ka turnover Rs '+f(s.t20,1)+' cr',s.t20>=5?'':'Kam liquidity: slippage aur exit me dikkat.');
 add(s.c>s.e50&&s.e20>s.e50?'ok':'warn','Trend: price EMA50 ke upar aur EMA20 > EMA50',s.c>s.e50&&s.e20>s.e50?'':'Trend kamzor. (Dip setup me EMA50 ke upar hona zaroori hai.)')}
-var n=NW[sym];if(!n)add('?','Result/board meeting ki date check nahi hui','Khud dekh lo; result paas ho to skip.');else if(String(n.flags||'').indexOf('RESULTS_SOON')>=0)add('bad','Result/board meeting paas: '+esc(n.next_event||''),'Result se pehle naya trade mat lo.');else add('ok','Agle 7 din me result/board meeting nahi mila');
+var n=NW[sym];if(!n||String(n.flags||'').indexOf('EVENT_UNKNOWN')>=0)add('?','Result/board meeting ki date check nahi hui',n?'NSE se is baar date nahi mili. Khud dekh lo; result paas ho to skip.':'Khud dekh lo; result paas ho to skip.');else if(String(n.flags||'').indexOf('RESULTS_SOON')>=0)add('bad','Result/board meeting paas: '+esc(n.next_event||''),'Result se pehle naya trade mat lo.');else add('ok','Agle 7 din me result/board meeting nahi mila');
 var bn=badNews(sym);if(bn)add('bad','Bure news ka shak: '+esc(bn.cat||'')+' ('+esc(bn.date||'')+')','Keyword check hai, galat bhi ho sakta hai. Announcement padho: '+esc((bn.text||'').slice(0,140)));
 else if((AN[sym]||[]).some(function(a){return a.level=='HIGH'}))add('warn','Bada announcement aaya hai (HIGH)','Pehle padho, phir trade karo (neeche Announcements).');else add('ok','Taza announcements me koi bura keyword nahi mila');
 var r=rsInfo(sym);if(!r.known&&!r.asm&&!r.gsm)add('?','ASM/GSM aur circuit check nahi hua','restrict workflow chalao ya broker app me dekho. Restrict.json: '+(RS?'is stock ke liye data nahi':'bani nahi'));

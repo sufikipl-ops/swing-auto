@@ -261,7 +261,7 @@ def main():
         evsyms = syms + [r['SYMBOL'] for r in drows]
         lines.append('screen data date: %s | candidates: %d' % (rows[0]['DATE'] if rows else '-', len(syms)))
         # 1. NSE event calendar (board meetings / results)
-        events = {}
+        events, ev_missing = {}, set()
         try:
             get('https://www.nseindia.com/', accept='text/html')
             time.sleep(1)
@@ -282,17 +282,25 @@ def main():
             for s_ in evsyms:
                 if fails >= 5 and got_ev == 0:
                     lines.append('event calendar (symbol-wise) bhi FAIL: result dates is run me nahi mile')
+                    ev_missing.update(x for x in evsyms if x not in events)
                     break
-                try:
-                    d_ = json.loads(get('https://www.nseindia.com/api/event-calendar?index=equities&symbol=%s' % s_))
-                    d_ = d_ if isinstance(d_, list) else d_.get('data', [])
-                    for e in d_:
-                        e.setdefault('symbol', s_)
-                        events.setdefault(s_, []).append(e)
-                    got_ev += 1
-                except Exception:
-                    fails += 1
+                for attempt in (0, 1):           # ek baar dobara try, phir "check nahi hua" (chupchaap pass nahi)
+                    try:
+                        d_ = json.loads(get('https://www.nseindia.com/api/event-calendar?index=equities&symbol=%s' % s_))
+                        d_ = d_ if isinstance(d_, list) else d_.get('data', [])
+                        for e in d_:
+                            e.setdefault('symbol', s_)
+                            events.setdefault(s_, []).append(e)
+                        got_ev += 1
+                        break
+                    except Exception:
+                        if attempt:
+                            fails += 1; ev_missing.add(s_)
+                        else:
+                            time.sleep(2)
                 time.sleep(0.4)
+            if ev_missing:
+                lines.append('event calendar check nahi hua: %s' % ','.join(sorted(ev_missing)))
             if got_ev:
                 lines.append('NSE event calendar (symbol-wise): OK for %d symbols' % got_ev)
                   # 2. NSE corporate announcements per symbol
@@ -386,6 +394,8 @@ def main():
                         flag.append('RESULTS_SOON')
                     elif not flag:
                         flag.append('EVENT_7D')
+            if s in ev_missing:
+                flag.append('EVENT_UNKNOWN')
             last = ''
             for a in ann.get(s, []):
                 d = pdate(a.get('an_dt') or a.get('sort_date') or '')

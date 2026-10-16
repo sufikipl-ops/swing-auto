@@ -2,7 +2,8 @@ name: app
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "50 12 * * 1-5"
+    - cron: "50 12 * * 1-5"   # 18:20 IST
+    - cron: "20 14 * * 1-5"   # 19:50 IST (dobara: NSE file ya screen late ho to)
 permissions:
   contents: write
 jobs:
@@ -22,7 +23,7 @@ jobs:
         run: python stock_report.py data docs
       - name: Copy latest reports for the app
         run: |
-          for f in screen_latest.csv gap_check.csv news_events.csv news_events.txt picks_review.csv; do
+          for f in screen_latest.csv gap_check.csv picks_review.csv; do   # news_events.* news workflow khud copy karta hai
             [ -f out/$f ] && cp out/$f docs/$f || true
           done
       - name: Commit
@@ -30,6 +31,10 @@ jobs:
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
           git add docs
-          git diff --cached --quiet || git commit -m "app data $(date -u +%F)"
-          git pull --rebase
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "app data $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

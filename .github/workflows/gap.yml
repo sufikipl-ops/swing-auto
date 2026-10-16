@@ -28,6 +28,11 @@ jobs:
           git config user.email "swing-bot@users.noreply.github.com"
           git add out/gap_check.txt
           git add out/gap_check.csv || true
-          git diff --cached --quiet || git commit -m "gap check $(date -u +%F)"
-          git pull --rebase || true
-          git push
+          if [ -f out/gap_check.csv ]; then cp out/gap_check.csv docs/gap_check.csv; git add docs/gap_check.csv; fi
+          git diff --cached --quiet && exit 0
+          git commit -m "gap check $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

@@ -27,6 +27,11 @@ jobs:
           git config user.email "swing-bot@users.noreply.github.com"
           git add out/picks_review.txt
           git add out/picks_review.csv || true
-          git diff --cached --quiet || git commit -m "picks review $(date -u +%F)"
-          git pull --rebase || true
-          git push
+          if [ -f out/picks_review.csv ]; then cp out/picks_review.csv docs/picks_review.csv; git add docs/picks_review.csv; fi
+          git diff --cached --quiet && exit 0
+          git commit -m "picks review $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

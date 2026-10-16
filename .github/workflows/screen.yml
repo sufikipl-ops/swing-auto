@@ -22,6 +22,12 @@ jobs:
         run: |
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
-          git add out/
-          git diff --cached --quiet || git commit -m "screen $(date -u +%F)"
-          git push
+          cp out/screen_latest.csv docs/screen_latest.csv   # app ko turant naye picks
+          git add out/ docs/screen_latest.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "screen $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
