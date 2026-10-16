@@ -74,12 +74,18 @@ def page_config():
 
 def screen_symbols():
     out = []
-    for fn in ('screen_latest.csv', 'dip_latest.csv'):
+    for fn in ('screen_latest.csv', 'dip_latest.csv', 'picks_review.csv'):
         for d in ('out', 'docs'):
             p = os.path.join(d, fn)
             if os.path.exists(p):
                 with open(p, newline='', encoding='utf-8') as h:
-                    out += [r['SYMBOL'].strip().upper() for r in csv.DictReader(h) if r.get('SYMBOL')]
+                    for r in csv.DictReader(h):
+                        sy = (r.get('SYMBOL') or r.get('symbol') or '').strip().upper()
+                        if not sy:
+                            continue
+                        if fn == 'picks_review.csv' and (r.get('status') or '').strip() not in ('OPEN', 'PENDING_TRIGGER'):
+                            continue          # sirf khule/pending trades (SL/target live dekhne ke liye)
+                        out.append(sy)
                 break
     return out
 
