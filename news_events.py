@@ -251,6 +251,9 @@ def main():
         with open('out/screen_latest.csv', newline='', encoding='utf-8') as h:
             rows = list(csv.DictReader(h))
         syms = [r['SYMBOL'] for r in rows]
+        drows = [{'SETUP': 'DIP', 'SYMBOL': x} for x in dip_symbols() if x not in syms]
+        allrows = rows + drows
+        evsyms = syms + [r['SYMBOL'] for r in drows]
         lines.append('screen data date: %s | candidates: %d' % (rows[0]['DATE'] if rows else '-', len(syms)))
         # 1. NSE event calendar (board meetings / results)
         events = {}
@@ -265,13 +268,13 @@ def main():
                 lines.append('event keys: %s' % ','.join(sorted(data[0].keys())))
             for e in data:
                 s = (e.get('symbol') or '').strip()
-                if s in syms:
+                if s in evsyms:
                     events.setdefault(s, []).append(e)
         except Exception as ex:
             lines.append('NSE event calendar FAIL: %s' % str(ex)[:150])
             # fallback: symbol-wise calendar (bulk endpoint 403 deta hai)
             fails = got_ev = 0
-            for s_ in syms:
+            for s_ in evsyms:
                 if fails >= 5 and got_ev == 0:
                     lines.append('event calendar (symbol-wise) bhi FAIL: result dates is run me nahi mile')
                     break
@@ -321,7 +324,7 @@ def main():
                 lines.append('RSS %s FAIL: %s' % (name, str(ex)[:100]))
         # 4. combine
         out_rows = []
-        for r in rows:
+        for r in allrows:
             s = r['SYMBOL']
             flag, nxt = [], ''
             for e in events.get(s, []):
