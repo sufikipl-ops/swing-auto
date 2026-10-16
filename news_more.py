@@ -1,7 +1,7 @@
 # Extra news sources for news_events.py: Google News (stock-wise), BSE announcements, Moneycontrol + Mint RSS.
 # Read-only, public endpoints, no secrets. Har function fail hone par khali list deta hai (workflow kabhi nahi tootta).
 import os, re, json, time, datetime, html, email.utils
-import urllib.request, urllib.parse
+import urllib.request, urllib.parse, http.cookiejar
 import xml.etree.ElementTree as ET
 
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -15,13 +15,29 @@ GENERIC = {'india', 'indian', 'bharat', 'global', 'power', 'steel', 'energy', 'c
            'chemicals', 'pharma', 'tech', 'systems', 'limited', 'the', 'new', 'first', 'eastern', 'western', 'southern'}
 
 
+_op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+_WARM = {}
+
+
 def _get(url, referer='', accept='*/*', timeout=30):
     h = {'User-Agent': UA, 'Accept': accept, 'Accept-Language': 'en-US,en;q=0.9'}
     if referer:
         h['Referer'] = referer
         h['Origin'] = re.match(r'https://[^/]+', referer).group(0)
-    with urllib.request.urlopen(urllib.request.Request(url, headers=h), timeout=timeout) as r:
+        h['Sec-Fetch-Site'] = 'same-site'; h['Sec-Fetch-Mode'] = 'cors'; h['Sec-Fetch-Dest'] = 'empty'
+    with _op.open(urllib.request.Request(url, headers=h), timeout=timeout) as r:
         return r.read().decode('utf-8', errors='ignore')
+
+
+def _bse_warm():
+    """BSE (Akamai) pehle homepage ki cookie maangta hai, warna api 403 deta hai."""
+    if not _WARM.get('bse'):
+        _WARM['bse'] = 1
+        try:
+            _get('https://www.bseindia.com/', accept='text/html,application/xhtml+xml,*/*')
+            time.sleep(1)
+        except Exception:
+            pass
 
 
 def load_names():
@@ -37,6 +53,8 @@ def short_name(sym, names):
     """'Redington Limited' -> 'Redington'; 'Adani Ports and Special Economic Zone Limited' -> 'Adani Ports'."""
     n = re.sub(r'\b(limited|ltd\.?|\(india\)|india limited)\b', ' ', names.get(sym, ''), flags=re.I)
     w = [x for x in re.split(r'[\s.&,()-]+', n) if x]
+    while w and w[0].lower() in ('the', 'm/s'):
+        w = w[1:]
     j = []                         # 'R R Kabel' -> 'RR Kabel'
     for x in w:
         if len(x) == 1 and j and re.fullmatch(r'[A-Za-z]+', j[-1]) and len(j[-1]) <= 3 and j[-1].isupper():
@@ -105,6 +123,7 @@ def bse_codes(lines):
             return d['codes']
     except Exception:
         pass
+    _bse_warm()
     raw = json.loads(_get('https://api.bseindia.com/BseIndiaAPI/api/ListofScripData/w?Group=&Scripcode=&industry='
                           '&segment=Equity&status=Active', referer='https://www.bseindia.com/',
                           accept='application/json, text/plain, */*', timeout=60))
@@ -127,6 +146,7 @@ def bse_ann(code, today, days=3):
     u = ('https://api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w?pageno=1&strCat=-1&strPrevDate=%s&strScrip=%s'
          '&strSearch=P&strToDate=%s&strType=C&subcategory=-1'
          % ((today - datetime.timedelta(days=days)).strftime('%Y%m%d'), code, today.strftime('%Y%m%d')))
+    _bse_warm()
     d = json.loads(_get(u, referer='https://www.bseindia.com/', accept='application/json, text/plain, */*'))
     out = []
     for r in (d.get('Table') or []):
