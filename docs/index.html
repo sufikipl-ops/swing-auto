@@ -89,7 +89,8 @@ input,select{border-radius:10px;background:var(--card);padding:9px;font-size:14p
 .foot{padding:8px 12px 18px;text-align:center}
 #toast{max-width:520px;margin:0 auto;bottom:66px}
 .plan .st{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0 4px}
-.plan .st div{background:var(--inset);border-radius:10px;padding:7px 2px;text-align:center}
+.plan .st div{background:var(--inset);border-radius:10px;padding:7px 2px;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent}.plan .st div:active{opacity:.6}
+.sec,.card{scroll-margin-top:8px}
 .plan .st b{display:block;font-size:16px;line-height:1.1}.plan .st small{font-size:9.5px}
 .plan .nx{padding:8px 10px;border-radius:10px;background:var(--bbg);margin-top:6px;font-size:12px}
 details.set>summary{color:var(--mu);font-size:11.5px;padding:6px 2px}
@@ -367,19 +368,19 @@ return '<div class="card" onclick="detail(\''+esc(sym)+'\')"><div class="row"><d
 function dipEvent(sym){var n=NW[sym];if(!n)return '<div class="y"><small>Result/board meeting ki date abhi check nahi hui: khud dekho (result paas ho to skip). Kal subah news check me aa jayegi.</small></div>';
 var fl=String(n.flags||'');if(fl.indexOf('RESULTS_SOON')>=0)return '<div class="r"><b>Result/board meeting paas ('+esc(n.next_event||'')+'): ye trade SKIP karo.</b></div>';
 if(n.next_event)return '<div class="y"><small>Aane wala event: '+esc(n.next_event)+'</small></div>';return '<div class="g"><small>Agle 7 din me koi result/board meeting nahi mila.</small></div>'}
-function dipSection(){if(!DP.length)return '<div class="sec"><h3>Dip setup</h3></div><div class="card"><small>Aaj koi dip setup nahi mila (ye roz nahi aata, hafte me ~2). Dip = uptrend wale liquid stock me 3 din me 8%+ girawat. Scan roz shaam ~6:20 par chalta hai.</small></div>';
-var h='<div class="sec"><h3>Dip setup ('+DP.length+')</h3></div><div class="hint"><b>Alag strategy (backtested):</b> majboot uptrend me tez girawat ke baad bounce par khelna. Upar ke breakout/pullback picks se alag hai. Din me 1-2 trade se zyada mat lo, pehle 30-50 trades chhote size me forward-test karo.</div>';
+function dipSection(){if(!DP.length)return '<div class="sec" id="sec-dip"><h3>Dip setup</h3></div><div class="card"><small>Aaj koi dip setup nahi mila (ye roz nahi aata, hafte me ~2). Dip = uptrend wale liquid stock me 3 din me 8%+ girawat. Scan roz shaam ~6:20 par chalta hai.</small></div>';
+var h='<div class="sec" id="sec-dip"><h3>Dip setup ('+DP.length+')</h3></div><div class="hint"><b>Alag strategy (backtested):</b> majboot uptrend me tez girawat ke baad bounce par khelna. Upar ke breakout/pullback picks se alag hai. Din me 1-2 trade se zyada mat lo, pehle 30-50 trades chhote size me forward-test karo.</div>';
 DP.slice().sort(function(a,b){return (dipPlus(b)-dipPlus(a))||(a.TIER>b.TIER)-(a.TIER<b.TIER)||(+a.RET3)-(+b.RET3)}).slice(0,8).forEach(function(r){h+=dipCard(r)});return h}
 function dipDetailCard(sym){var r=DPM[sym];if(!r)return '';var p=dipPlan(r,liveItem(sym));return '<div class="card"><h3 style="margin-top:0">Dip setup active (Tier '+esc(r.TIER)+')</h3><div>3 din me '+f(+r.RET3,1)+'% gira, uptrend me hai.</div>'+(p?'<div class="tiles"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>':'')+'<small>'+esc(DIPBT[r.TIER]||'')+' Max 5 din hold.</small></div>'}
 function picksView(){rankAll();var h=planCard()+'<details class="set card"><summary>Risk / Capital badlo (Rs '+ls('risk',700)+' / Rs '+ls('cap',50000)+')</summary><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></details>';
 h+=alertBanner()+ignoreCard();
 if(!pinsOn())h+='<div class="hint y">Sync setup baaki hai: Lock aur Risk/Capital abhi sirf is device par rahenge.</div>';
 /* 1) Locked */
-if(PN.length){h+='<div class="sec"><h3>Locked ('+PN.length+')</h3><small>Tumne lock kiye. Jab tak tum hatao nahi, yahin rahenge.</small></div>';
+if(PN.length){h+='<div class="sec" id="sec-lock"><h3>Locked ('+PN.length+')</h3><small>Tumne lock kiye. Jab tak tum hatao nahi, yahin rahenge.</small></div>';
 PN.forEach(function(sym){h+=PK[sym]?pickCard(PK[sym],0,true):pinOnlyCard(sym)})}
 /* 2) Aaj ke solid picks */
 var all=SR.filter(function(r){return !isPin(r.SYMBOL)}),sol=all.filter(function(r){return solid(r)&&!liveSkip(r.SYMBOL)}),skp=all.filter(function(r){return solid(r)&&liveSkip(r.SYMBOL)}),list=SHOWALL?all:sol.slice(0,TOPN);LVSIG=skipSig();
-h+='<div class="sec"><h3>'+(SHOWALL?'Sab picks':'Aaj ke solid picks')+'</h3><button class="tg" onclick="toggleAll()">'+(SHOWALL?'Sirf solid dikhao':'Sab dikhao ('+all.length+')')+'</button></div>';
+h+='<div class="sec" id="sec-sol"><h3>'+(SHOWALL?'Sab picks':'Aaj ke solid picks')+'</h3><button class="tg" onclick="toggleAll()">'+(SHOWALL?'Sirf solid dikhao':'Sab dikhao ('+all.length+')')+'</button></div>';
 if(!SC.length)h+='<div class="card">Aaj ke picks abhi nahi mile.</div>';
 else if(!list.length)h+='<div class="card">Aaj koi stock "majboot trend + buy zone" filter me pass nahi hua. Aise din trade skip karna bhi theek hai. "Sab dikhao" dabake poori list dekh sakte ho.</div>';
 else h+='<div class="hint">'+(SHOWALL?'Poori list, best se worst.':'<b>'+list.length+' solid picks'+(sol.length>TOPN?' (top '+TOPN+' / '+sol.length+')':'')+'</b>, best se worst.')+' Card dabao: poori report. Live gap/SL se skip hone layak stock neeche "Aaj skip karo" me jaate hain.</div>';
@@ -399,6 +400,10 @@ h+='<details class="card"><summary>Filter aur rank kaise bane? (padhne ke liye d
 '<li><b>Stop-loss:</b> 1 se 2.5 ATR door ho to achha. Bahut door ho to risk badhta hai, quantity chhoti hoti hai = minus.</li>'+
 '<li><b>Minus:</b> extended (pehle hi bhaga), delivery kam, RSI 75+, liquidity kam, result paas, nayi announcement, risk limit me 1 share bhi nahi.</li></ul>'+
 'Ye sirf technical score hai: sabse upar wala bhi jeetega, iski guarantee nahi. Trade se pehle news aur apna SL khud dekho.</div></details>';return h}
+/* "Aaj ka plan" tiles: dabao to us section par scroll (Dip section sirf solid view me hota hai) */
+function planGo(k){if(k=='dip'&&SHOWALL){SHOWALL=false;setSetting('showall',0);render()}
+var e=document.getElementById('sec-'+k);if(!e){toast(k=='lock'?'Abhi koi stock locked nahi hai':k=='ign'?'Aaj ignore karne layak koi stock nahi':'Ye section abhi khali hai');return}
+e.scrollIntoView({behavior:'smooth',block:'start'})}
 function toggleAll(){SHOWALL=!SHOWALL;setSetting('showall',SHOWALL?1:0);render()}
 function searchView(){return '<input id="q" placeholder="Stock ka naam ya symbol (e.g. Reliance ya RELIANCE)" autocapitalize="characters" autocomplete="off"><div id="sg" class="sug"></div>'}
 
@@ -581,7 +586,7 @@ function ignAll(){var m={};ignSyms().forEach(function(s){var r=ignoreReasons(s);
 function ignStrip(sym){var r=ignoreReasons(sym);return r.length?'<div class="ign"><b>IGNORE KARO:</b> '+r.map(esc).join(' | ')+'</div>':''}
 function ignSig(){var m=ignAll();return Object.keys(m).map(function(k){return k+m[k].length}).join(',')}
 function ignoreCard(){var m=ignAll(),k=Object.keys(m),sv_=(LV&&LV.alerts)||[];
-var h='';if(k.length)h+='<div class="card" style="border-color:var(--r)"><b class="r">Aaj ignore karo ('+k.length+')</b>'+k.map(function(s){return '<div class="ck" onclick="detail(\''+esc(s)+'\')"><b>'+esc(s)+'</b>: '+m[s].map(esc).join(' | ')+'</div>'}).join('')+'<small>Ye live check hai (price, gap, news, ASM/GSM, circuit). Suggestion badalte hi yahan aur Telegram par aata hai.</small></div>';
+var h='';if(k.length)h+='<div class="card" id="sec-ign" style="border-color:var(--r)"><b class="r">Aaj ignore karo ('+k.length+')</b>'+k.map(function(s){return '<div class="ck" onclick="detail(\''+esc(s)+'\')"><b>'+esc(s)+'</b>: '+m[s].map(esc).join(' | ')+'</div>'}).join('')+'<small>Ye live check hai (price, gap, news, ASM/GSM, circuit). Suggestion badalte hi yahan aur Telegram par aata hai.</small></div>';
 return h}
 function alertLog(){var L=(LV&&LV.alerts)||[];if(!L.length)return '<div class="card"><small>Aaj abhi koi alert nahi aaya.</small></div>';return L.slice().reverse().slice(0,25).map(function(a){return '<div class="card" onclick="detail(\''+esc(a.s)+'\')"><div class="row"><b>'+esc(a.s)+'</b><small>'+esc(a.at||'')+'</small></div><div class="r"><small>'+esc(a.t)+'</small></div></div>'}).join('')}
 function ignCheck(){try{var m=ignAll(),day=istDay(0),raw=localStorage.getItem('ign_'+day),first=raw==null,seen=raw?JSON.parse(raw):{},fresh=[];
@@ -618,7 +623,7 @@ var best=sol[0],bp=best?pickPlan(best):null,dp=DP.slice().sort(function(a,b){ret
 var nx=best?'<div class="nx" onclick="detail(\''+esc(best.SYMBOL)+'\')"><b>Pehle dekho:</b> '+esc(best.SYMBOL)+(bp?' | entry '+f(bp.entry)+', SL '+f(bp.stop)+', qty '+bp.q:'')+'</div>':'';
 if(dp)nx+='<div class="nx" onclick="detail(\''+esc(dp.SYMBOL)+'\')"><b>Dip:</b> '+esc(dp.SYMBOL)+' (Tier '+esc(dp.TIER)+(dipPlus(dp)?' A+':'')+')</div>';
 return '<div class="card plan"><div class="row"><div class="big">Aaj ka plan</div>'+chip(v[0],v[1])+'</div>'+(why.length?'<small>'+esc(why.join(' | '))+'</small>':'')+
-'<div class="st"><div><b>'+sol.length+'</b><small>Solid picks</small></div><div><b>'+DP.length+(ap?'<span class="g" style="font-size:12px"> A+'+ap+'</span>':'')+'</b><small>Dip</small></div><div><b>'+PN.length+'</b><small>Locked</small></div><div><b class="'+(ig?'r':'')+'">'+ig+'</b><small>Ignore</small></div></div>'+nx+'<small>Din me max 2 trade. Bina SL ke entry nahi.</small></div>'}
+'<div class="st"><div onclick="planGo(\'sol\')"><b>'+sol.length+'</b><small>Solid picks</small></div><div onclick="planGo(\'dip\')"><b>'+DP.length+(ap?'<span class="g" style="font-size:12px"> A+'+ap+'</span>':'')+'</b><small>Dip</small></div><div onclick="planGo(\'lock\')"><b>'+PN.length+'</b><small>Locked</small></div><div onclick="planGo(\'ign\')"><b class="'+(ig?'r':'')+'">'+ig+'</b><small>Ignore</small></div></div>'+nx+'<small>Din me max 2 trade. Bina SL ke entry nahi.</small></div>'}
 /* ---------- INSTALL (Add to desktop / home screen): mobile + PC ---------- */
 var DEFP=null;
 function isStandalone(){try{return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true}catch(e){return false}}
