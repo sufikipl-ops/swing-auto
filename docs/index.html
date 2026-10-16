@@ -234,9 +234,9 @@ function zoneTxt(s){if(s.v=='WEAK')return['Trend weak hai. Buy zone ignore karo,
 if(s.zone=='ABOVE_ZONE')return['Zone se upar (extended). Dip ka wait: '+f(s.zlo)+' - '+f(s.zhi)+'. Ya breakout: '+f(s.trig)+' ke upar close/volume ke saath','y'];
 return['EMA20 ke niche. Abhi buy zone nahi','r']}
 function load(){PN=lsj('pins',[]);if(!Array.isArray(PN))PN=[];SHOWALL=ls('showall',0)==1;
-return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check.csv'),get('news_events.csv'),get('picks_review.csv'),get('news_events.txt'),get('announcements.json',1)]).then(function(a){
+return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check.csv'),get('news_events.csv'),get('picks_review.csv'),get('news_events.txt'),get('announcements.json',1),getSheetPicks()]).then(function(a){
 AN=(a[6]&&a[6].items)||{};ANTS=(a[6]&&a[6].updated)||'';D=a[0]||{stocks:{},market:{}};ST=D.stocks;SK=D.skip||{};MK=D.market;SC=a[1]?csv(a[1]):[];(a[2]?csv(a[2]):[]).forEach(function(x){GP[x.symbol]=x});
-(a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=a[4]?csv(a[4]):[];HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
+(a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=mergePicks(a[4]?csv(a[4]):[],a[7]);HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
 var reg=MK.pct50<40?['Market kamzor','pr']:MK.pct50>60?['Market majboot','pg']:['Market mixed','py'];
 document.getElementById('mk').innerHTML='Data: '+esc(MK.date||'?')+' '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+staleChip(MK.date)+'<span id="lvchip"></span>'+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');render();syncAll()})}
 function links(sym){return '<a class="btn" target="_blank" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(sym+' share news')+'">Latest news</a>'+
@@ -341,8 +341,27 @@ h+='<details class="card"><summary>Filter aur rank kaise bane? (padhne ke liye d
 'Ye sirf technical score hai: sabse upar wala bhi jeetega, iski guarantee nahi. Trade se pehle news aur apna SL khud dekho.</div></details>';return h}
 function toggleAll(){SHOWALL=!SHOWALL;setSetting('showall',SHOWALL?1:0);render()}
 function searchView(){return '<input id="q" placeholder="Stock ka naam likho (e.g. RELIANCE)" autocapitalize="characters" autocomplete="off"><div id="sg" class="sug"></div>'}
+
+/* Picks sheet se seedha (aaj ki pick bhi) + raat ki review file ka result */
+var PICKS_GVIZ='https://docs.google.com/spreadsheets/d/1KNw0jZTk29jwo2ohxdYl11CNxXAvOTcE4Y4lG1Vromw/gviz/tq?tqx=out:csv&gid=777001';
+function getSheetPicks(){try{return fetch(PICKS_GVIZ+'&t='+Date.now()).then(function(r){if(!r.ok)throw 0;return r.text()}).catch(function(){return null})}catch(e){return Promise.resolve(null)}}
+function pickDate(x){x=String(x||'').trim();var m,MN={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+if(m=x.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))return m[1]+'-'+('0'+m[2]).slice(-2)+'-'+('0'+m[3]).slice(-2);
+if(m=x.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})/))return m[3]+'-'+('0'+m[2]).slice(-2)+'-'+('0'+m[1]).slice(-2);
+if(m=x.match(/^(\d{1,2})[ -]([A-Za-z]{3})[a-z]*[ -](\d{4})/)){var mo=MN[m[2].toLowerCase()];if(mo)return m[3]+'-'+('0'+mo).slice(-2)+'-'+('0'+m[1]).slice(-2)}
+if(/^\d{5}$/.test(x)){return new Date(Date.UTC(1899,11,30)+(+x)*864e5).toISOString().slice(0,10)}return x}
+function mergePicks(rev,txt){var out=rev.slice(),seen={};rev.forEach(function(t){seen[t.date+'|'+t.symbol]=1});
+if(!txt)return out;var rows;try{rows=csv(txt)}catch(e){return out}
+rows.forEach(function(r){var k=Object.keys(r);if(k.length<6)return;var sym=String(r[k[1]]||'').trim().toUpperCase(),d=pickDate(r[k[0]]),
+e=+String(r[k[2]]).replace(/,/g,''),sl=+String(r[k[3]]).replace(/,/g,''),tg=+String(r[k[4]]).replace(/,/g,''),q=+String(r[k[5]]).replace(/,/g,'');
+if(!sym||!(e>0)||!(sl>0)||!(tg>0)||seen[d+'|'+sym])return;seen[d+'|'+sym]=1;
+out.push({date:d,symbol:sym,entry:String(e),sl:String(sl),target:String(tg),qty:String(q||''),status:'NAYI',_new:1})});
+out.sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:0});return out}
+function newPickStatus(t){var it=liveItem(t.symbol),e=+t.entry,sl=+t.sl;
+if(it){if(it.ltp<=sl)return['SL ke neeche (skip)','pr'];if(it.h>=e)return['Triggered? (live high '+f(it.h)+')','pg'];return['Trigger ka wait (abhi '+f(it.ltp)+')','py']}
+return['Review raat ko aayega','py']}
 function tradesView(){if(!TR.length)return '<div class="card">Abhi koi trade logged nahi. Picks sheet me trade jodo.</div>';
-return TR.map(function(t){var c=t.status=='CLOSED'?(+t.R>0?'pg':'pr'):'py';return '<div class="card"><div class="row"><div class="big">'+esc(t.symbol)+'</div>'+chip(t.status,c)+'</div><small>'+esc(t.date)+' | Entry '+esc(t.entry)+' SL '+esc(t.sl)+' T '+esc(t.target)+' Qty '+esc(t.qty)+'</small>'+(t.status=='CLOSED'?'<div>Exit '+esc(t.exit)+' ('+esc(t.reason_exit)+') | R '+esc(t.R)+' | Rs '+esc(t.pnl)+'</div>':'')+'</div>'}).join('')+'<small>30-50 closed trades ke baad hi system ka faisla karo.</small>'}
+return TR.map(function(t){var c=t.status=='CLOSED'?(+t.R>0?'pg':'pr'):'py',ns=t._new?newPickStatus(t):null;return '<div class="card"><div class="row"><div class="big">'+esc(t.symbol)+'</div>'+(ns?chip(ns[0],ns[1]):chip(t.status,c))+'</div><small>'+esc(t.date)+' | Entry '+esc(t.entry)+' SL '+esc(t.sl)+' T '+esc(t.target)+' Qty '+esc(t.qty)+'</small>'+(t.status=='CLOSED'?'<div>Exit '+esc(t.exit)+' ('+esc(t.reason_exit)+') | R '+esc(t.R)+' | Rs '+esc(t.pnl)+'</div>':'')+'</div>'}).join('')+'<small>30-50 closed trades ke baad hi system ka faisla karo.</small>'}
 function newsView(){var h='',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
 fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+flagChips(n.flags)+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div>'+annBlock(k,false)+'</div>'});
 h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class="card">'+esc(l.trim())+'</div>'}).join(''):'<div class="card">Headlines nahi mili.</div>');return h}
