@@ -26,12 +26,16 @@ jobs:
         env:
           # Optional: asli AI saar ke liye. Secret na ho to free auto-saar chalta hai.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Copy news flags for the app
+        if: always()
+        run: |
+          for f in news_events.csv news_events.txt; do [ -f out/$f ] && cp out/$f docs/$f || true; done
       - name: Commit result
         if: always()
         run: |
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
-          git add out/news_events.txt out/news_events.csv out/announcements.json docs/announcements.json || true
+          git add out/news_events.txt out/news_events.csv out/announcements.json docs/announcements.json docs/news_events.csv docs/news_events.txt || true
           for f in docs/stock_news.json out/bse_codes.json; do if [ -f "$f" ]; then git add "$f"; fi; done
           git diff --cached --quiet && exit 0
           git commit -m "news $(date -u +%F-%H%M)"
