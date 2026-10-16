@@ -1,5 +1,5 @@
 DIP ENHANCEMENT TEST (generated 2026-10-16)
-Data 2022-09-08 to 2026-10-15. Base = Dip Tier A (<= -8% in 3d) or Tier B (-5..-8% and breadth>=50%), uptrend. Entry next open, stop 2 ATR, exit day-5 close, cost 0.25%.
+Data 2022-09-08 to 2026-10-16. Base = Dip Tier A (<= -8% in 3d) or Tier B (-5..-8% and breadth>=50%), uptrend. Entry next open, stop 2 ATR, exit day-5 close, cost 0.25%.
 A feature is only worth adding if it RAISES avgR vs the base AND stays positive in most years AND n >= 150. Many features tried => treat gains as hints.
 
 == Tier A + B | hold 5 days | BASE: n=922 win=59% avgR=0.130 PF=1.69 | per year 2022:-0.06 2023:0.23 2024:0.11 2025:-0.06 2026:0.14 ==
