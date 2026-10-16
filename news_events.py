@@ -13,7 +13,7 @@ FEEDS = [('ET Markets', 'https://economictimes.indiatimes.com/markets/stocks/rss
 ANTHROPIC_KEY = os.environ.get('ANTHROPIC_API_KEY', '').strip()      # optional: asli AI saar ke liye (GitHub Secret)
 ANTHROPIC_MODEL = os.environ.get('ANTHROPIC_MODEL', 'claude-haiku-4-5')
 ANTHROPIC_URL = os.environ.get('ANTHROPIC_URL', 'https://api.anthropic.com/v1/messages')
-MAX_PDF = int(os.environ.get('MAX_PDF', '14'))                        # ek run me kitni PDF padhni hain
+MAX_PDF = int(os.environ.get('MAX_PDF', '45'))                        # ek run me kitni PDF padhni hain
 cj = http.cookiejar.CookieJar()
 opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
 
