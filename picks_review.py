@@ -70,8 +70,71 @@ def load_prices(symbols):
     return px
 
 
+def review_dip(p, bars):
+    """DIP trade (Picks reason starts with DIP): market order at next open, no trigger.
+    Entry bar = first bar on/after the pick date; if the pick date's own close is ~ the logged entry (signal-day
+    close), the pick date IS the signal day, so entry is the NEXT bar. Skip if open gaps >+1.5%% or <-3%% vs prev
+    close. Stop = sl (gap through stop exits at open), optional target, time-stop at close of day MAX_HOLD."""
+    out = dict(status='NO_DATA', entry_date='', fill='', exit_date='', exit='', reason_exit='', R='', pnl='')
+    days = [b for b in bars if b[0] >= p['date']]
+    if not days:
+        return out
+    k0 = 0
+    if days[0][0] == p['date'] and days[0][4] and abs(days[0][4] / p['entry'] - 1) < 0.003:
+        k0 = 1
+    if k0 >= len(days):
+        out['status'] = 'PENDING_TRIGGER'
+        return out
+    prev = [b for b in bars if b[0] < days[k0][0]]
+    b = days[k0]
+    if None in b[1:]:
+        return out
+    pc = prev[-1][4] if prev else None
+    if pc:
+        gap = (b[1] / pc - 1) * 100
+        if gap > 1.5:
+            out['status'] = 'SKIPPED_GAPUP'
+            return out
+        if gap < -3:
+            out['status'] = 'SKIPPED_GAPDOWN'
+            return out
+    fill = b[1]
+    risk = fill - p['sl']
+    if risk <= 0:
+        out['status'] = 'BAD_LEVELS'
+        return out
+    out.update(entry_date=b[0].isoformat(), fill=round(fill, 2))
+    ex, why, exd, held = None, '', None, 0
+    for k in range(k0, len(days)):
+        d, o, h_, l, c = days[k]
+        if None in (o, h_, l, c):
+            continue
+        held += 1
+        if k > k0 and o <= p['sl']:
+            ex, why, exd = o, 'STOP(gap)', d
+            break
+        if l <= p['sl']:
+            ex, why, exd = p['sl'], 'STOP', d
+            break
+        if p['target'] > 0 and h_ >= p['target']:
+            ex, why, exd = p['target'], 'TARGET', d
+            break
+        if held >= MAX_HOLD:
+            ex, why, exd = c, 'TIME', d
+            break
+    if ex is None:
+        out['status'] = 'OPEN'
+        return out
+    cost = COST_PCT / 100.0 * fill
+    out.update(status='CLOSED', exit_date=exd.isoformat(), exit=round(ex, 2), reason_exit=why,
+               R=round((ex - fill - cost) / risk, 2), pnl=round((ex - fill - cost) * p['qty'], 0))
+    return out
+
+
 def review(p, bars):
     """bars: sorted list of (date, open, high, low, close). Returns dict with status, exit, R, pnl."""
+    if str(p.get('reason', '')).strip().upper().startswith('DIP'):
+        return review_dip(p, bars)
     days = [b for b in bars if b[0] >= p['date']]
     out = dict(status='NO_DATA', entry_date='', fill='', exit_date='', exit='', reason_exit='', R='', pnl='')
     if not days:
