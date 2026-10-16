@@ -73,11 +73,15 @@ def page_config():
 
 
 def screen_symbols():
-    for p in ('out/screen_latest.csv', 'docs/screen_latest.csv'):
-        if os.path.exists(p):
-            with open(p, newline='', encoding='utf-8') as h:
-                return [r['SYMBOL'].strip().upper() for r in csv.DictReader(h) if r.get('SYMBOL')]
-    return []
+    out = []
+    for fn in ('screen_latest.csv', 'dip_latest.csv'):
+        for d in ('out', 'docs'):
+            p = os.path.join(d, fn)
+            if os.path.exists(p):
+                with open(p, newline='', encoding='utf-8') as h:
+                    out += [r['SYMBOL'].strip().upper() for r in csv.DictReader(h) if r.get('SYMBOL')]
+                break
+    return out
 
 
 def server_state(url, key):
