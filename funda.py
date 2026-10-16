@@ -148,6 +148,24 @@ def yahoo_crumb(dbg):
     return None
 
 
+def roe_annual(sym):
+    """Yahoo ka seedha ROE field aksar khali hota hai: ROE = last annual net income / last annual equity (approx, average equity nahi)."""
+    now = int(time.time())
+    u = ('https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/%s?type=annualNetIncome,'
+         'annualStockholdersEquity&period1=%d&period2=%d' % (urllib.parse.quote(sym + '.NS'), now - 3 * 365 * 86400, now))
+    res = json.loads(get(u, ref='https://finance.yahoo.com/', tries=2))['timeseries']['result']
+    val = {}
+    for r in res:
+        t = (r.get('meta') or {}).get('type', [''])[0]
+        pts = [p for p in (r.get(t) or []) if p and (p.get('reportedValue') or {}).get('raw') is not None]
+        if pts:
+            pts.sort(key=lambda p: p.get('asOfDate', ''))
+            val[t] = pts[-1]['reportedValue']['raw']
+    if val.get('annualStockholdersEquity', 0) > 0 and 'annualNetIncome' in val:
+        return round(100.0 * val['annualNetIncome'] / val['annualStockholdersEquity'], 2)
+    return None
+
+
 def debt_equity(sym, dbg):
     y = sym + '.NS'
     c = yahoo_crumb(dbg)
@@ -168,6 +186,13 @@ def debt_equity(sym, dbg):
                          ('eg', rw(fd, 'earningsGrowth', 100)), ('rg', rw(fd, 'revenueGrowth', 100))):
                 if v is not None:
                     out[k] = v
+            if out.get('roe') is None:
+                try:
+                    r_ = roe_annual(sym)
+                    if r_ is not None:
+                        out['roe'] = r_; out['roe_src'] = 'annual'
+                except Exception as e:
+                    dbg['roe_err'] = '%s: %s' % (sym, str(e)[:80])
             if de is not None:
                 out.update(de=round(de / 100.0, 2), de_src='yahoo')      # Yahoo % me deta hai (45 = 0.45)
                 return out
@@ -212,10 +237,10 @@ def main():
             age = (today - datetime.date.fromisoformat(o['at'])).days if o else 99
         except Exception:
             age = 99
-        if o and age < MAX_AGE and not o.get('err') and o.get('qv') == 2:     # qv=2: reel quality fields bhi aa chuke hain
+        if o and age < MAX_AGE and not o.get('err') and o.get('qv') == 3:     # qv=3: reel quality fields (PE/ROE/EPS/growth) aa chuke hain
             items[sym] = o; cnt['cached'] += 1
             continue
-        it, err = {'at': today.isoformat(), 'qv': 2}, []
+        it, err = {'at': today.isoformat(), 'qv': 3}, []
         for name, fn in (('shp', shareholding), ('pledge', pledge), ('de', debt_equity)):
             cnt[name][1] += 1
             try:
