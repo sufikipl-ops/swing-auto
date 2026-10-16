@@ -11,6 +11,8 @@ BADNEWS = re.compile(r'fraud|show[- ]cause|sebi (order|probe|notice)|penalt|defa
                      r'resignation of (cfo|ceo|auditor|managing)|downgrad|rating (cut|withdraw)|forensic|search and seizure|'
                      r'enforcement directorate|\bcbi\b|suspension|delisting|invocation|warning letter|import alert|form 483|'
                      r'shutdown|fire at|lock-?out|strike|tax demand|raid', re.I)
+# NSE ki category jiske naam me hi "suspension" likha hai (grant bhi isi me aata hai): sirf text dekho
+NEUTRAL_CAT = re.compile(r'granting/withdrawal/surrender/cancellation/suspension', re.I)
 
 
 def _get(url, timeout=25):
@@ -84,7 +86,8 @@ def evaluate(items, ctx, today_str):
         if r.get('suspended'):
             add(sym, 'susp', 'Trading suspended hai')
         for a in ann.get(sym, []):
-            if BADNEWS.search('%s %s' % (a.get('cat', ''), a.get('text', ''))):
+            cat = '' if NEUTRAL_CAT.search(a.get('cat', '') or '') else a.get('cat', '')
+            if BADNEWS.search('%s %s' % (cat, a.get('text', ''))):
                 add(sym, 'news', 'Bura news ka shak: %s %s' % (a.get('cat', ''), (a.get('text', '') or '')[:80]))
                 break
         n = news.get(sym)
