@@ -329,8 +329,11 @@ return '<div class="card" onclick="detail(\''+esc(sym)+'\')"><div class="row"><d
 (p?'<div class="tiles"><div><small>Entry (9:20 market)</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss (2 ATR)</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target (optional)</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>':'')+
 (lv?'<div style="margin:6px 0">'+chip(lv[1],lv[0]=='ok'?'pg':'pr')+'</div>':'')+
 '<small>Rule: subah 9:20 par open kal ke close se +1.5% se zyada upar ya -3% se zyada neeche ho to SKIP. Warna market order, SL turant. Max 5 din hold: 5th din close par nikal jao (SL/target pehle lage to wahi). Entry price open se thoda alag ho sakta hai, SL entry ke hisaab se lagao.</small>'+
-(String(r.NOTE||'').indexOf('LOW_DELIV')>=0?'<div class="y"><small>Delivery kam: kamzor kharidari.</small></div>':'')+al+
-'<small>'+esc(DIPBT[r.TIER]||'')+' Result/board meeting ki date khud check karo (result paas ho to skip).</small></div>'}
+(String(r.NOTE||'').indexOf('LOW_DELIV')>=0?'<div class="y"><small>Delivery kam: kamzor kharidari.</small></div>':'')+dipEvent(sym)+al+
+'<small>'+esc(DIPBT[r.TIER]||'')+'</small></div>'}
+function dipEvent(sym){var n=NW[sym];if(!n)return '<div class="y"><small>Result/board meeting ki date abhi check nahi hui: khud dekho (result paas ho to skip). Kal subah news check me aa jayegi.</small></div>';
+var fl=String(n.flags||'');if(fl.indexOf('RESULTS_SOON')>=0)return '<div class="r"><b>Result/board meeting paas ('+esc(n.next_event||'')+'): ye trade SKIP karo.</b></div>';
+if(n.next_event)return '<div class="y"><small>Aane wala event: '+esc(n.next_event)+'</small></div>';return '<div class="g"><small>Agle 7 din me koi result/board meeting nahi mila.</small></div>'}
 function dipSection(){if(!DP.length)return '<div class="sec"><h3>Dip setup</h3></div><div class="card"><small>Aaj koi dip setup nahi mila (ye roz nahi aata, hafte me ~2). Dip = uptrend wale liquid stock me 3 din me 8%+ girawat. Scan roz shaam ~6:20 par chalta hai.</small></div>';
 var h='<div class="sec"><h3>Dip setup ('+DP.length+')</h3></div><div class="hint"><b>Alag strategy (backtested):</b> majboot uptrend me tez girawat ke baad bounce par khelna. Upar ke breakout/pullback picks se alag hai. Din me 1-2 trade se zyada mat lo, pehle 30-50 trades chhote size me forward-test karo.</div>';
 DP.slice().sort(function(a,b){return (a.TIER>b.TIER)-(a.TIER<b.TIER)||(+a.RET3)-(+b.RET3)}).slice(0,8).forEach(function(r){h+=dipCard(r)});return h}
