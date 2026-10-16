@@ -19,10 +19,22 @@ jobs:
           DAYS: "1500"
       - name: Run study
         run: python dip_study.py data out
+      - name: Save result as download too (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dip-result
+          path: |
+            out/dip_summary.txt
+            out/dip_results.csv
       - name: Commit result
         run: |
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
           git add out/dip_summary.txt out/dip_results.csv
-          git diff --cached --quiet || git commit -m "dipstudy $(date -u +%F)"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "dipstudy $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
