@@ -150,7 +150,7 @@ def main():
     cands = candidates()
     log('candidates: %d' % len(cands))
     try:
-        get('https://www.nseindia.com/', 'text/html,*/*', tries=2)      # cookie warm-up
+        get('https://www.nseindia.com/', 'text/html,*/*', tries=1)      # cookie warm-up
     except Exception as e:
         log('warmup fail: %s' % str(e)[:80])
     today = datetime.date.today()
@@ -164,16 +164,34 @@ def main():
         'https://nsearchives.nseindia.com/content/equities/gsm_list.csv'],
         ['https://www.nseindia.com/api/reportGSM'])
     log('ASM: %s (%d), GSM: %s (%d)' % (asm_st, len(asm), gsm_st, len(gsm)))
-    stocks, ok_q, bad_q = {}, 0, 0
-    for s in cands[:80]:
-        try:
-            q = quote_info(s)
-            stocks[s] = q; ok_q += 1
-        except Exception as e:
-            bad_q += 1
-            stocks[s] = {'err': str(e)[:60]}
-        time.sleep(0.4)
-    log('quote ok %d fail %d' % (ok_q, bad_q))
+    # price band: NSE ki daily list (sec_list). Pehle aaj, phir pichle din.
+    bandmap, band_st = {}, 'fail'
+    for back in range(0, 6):
+        d = today - datetime.timedelta(days=back)
+        if d.weekday() >= 5:
+            continue
+        for u in ('https://nsearchives.nseindia.com/content/equities/sec_list_%s.csv' % d.strftime('%d%m%Y'),
+                  'https://archives.nseindia.com/content/equities/sec_list_%s.csv' % d.strftime('%d%m%Y')):
+            try:
+                rows = list(csv.reader(get(u, 'text/csv,*/*', tries=1).splitlines()))
+                rows = [r for r in rows if any(c.strip() for c in r)]
+                hi = next((i for i, r in enumerate(rows[:8]) if pick_col(r, 'symbol') is not None and pick_col(r, 'band') is not None), None)
+                if hi is None:
+                    log('sec_list %s: band column nahi mila, header=%s' % (d, rows[0][:8] if rows else '-'))
+                    continue
+                si, bi = pick_col(rows[hi], 'symbol'), pick_col(rows[hi], 'band')
+                se = pick_col(rows[hi], 'series')
+                for r in rows[hi + 1:]:
+                    if len(r) > max(si, bi) and r[si].strip() and (se is None or len(r) <= se or r[se].strip() in ('EQ', 'BE', 'BZ', 'SM', 'ST', '')):
+                        bandmap[r[si].strip().upper()] = r[bi].strip()
+                if bandmap:
+                    band_st = 'ok'; log('sec_list %s ok (%d)' % (d, len(bandmap))); break
+            except Exception as e:
+                log('sec_list %s fail: %s' % (d, str(e)[:60]))
+        if band_st == 'ok':
+            break
+    ok_q = bad_q = 0
+    stocks = {}
     items = {}
     for s in cands:
         q = stocks.get(s, {})
@@ -184,8 +202,8 @@ def main():
             it['gsm'] = gsm[s] or 'GSM'
         if q.get('surv') and re.search(r'asm|gsm', q['surv'], re.I):
             it['surv'] = q['surv']
-        if q.get('band'):
-            it['band'] = q['band']
+        if bandmap.get(s):
+            it['band'] = bandmap[s]
         if q.get('series') and q['series'] not in ('EQ',):
             it['series'] = q['series']
         if q.get('suspended'):
@@ -196,7 +214,7 @@ def main():
             items[s] = it
     # ASM/GSM me jo bhi symbols mile (candidates ke bahar) unki list bhi rakho (search ke liye)
     out = dict(updated=datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
-               status=dict(asm=asm_st, gsm=gsm_st, quote='ok' if ok_q and not bad_q else ('part' if ok_q else 'fail')),
+               status=dict(asm=asm_st, gsm=gsm_st, band=band_st),
                checked=cands, items=items, asm_all=sorted(asm)[:600], gsm_all=sorted(gsm)[:600], log=LOG[-12:])
     os.makedirs('docs', exist_ok=True)
     with open('docs/restrict.json', 'w', encoding='utf-8') as h:
@@ -212,4 +230,4 @@ if __name__ == '__main__':
         os.makedirs('docs', exist_ok=True)
         with open('docs/restrict.json', 'w', encoding='utf-8') as h:
             json.dump(dict(updated=datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
-                           status=dict(asm='fail', gsm='fail', quote='fail'), checked=[], items={}, log=[str(e)[:200]]), h)
+                           status=dict(asm='fail', gsm='fail', band='fail'), checked=[], items={}, log=[str(e)[:200]]), h)
