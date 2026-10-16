@@ -5,11 +5,12 @@
 import os, sys, csv, json, time, datetime, re, traceback, io, subprocess
 import urllib.request, urllib.error, http.cookiejar
 import xml.etree.ElementTree as ET
+import news_more
 
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
       'Chrome/124.0 Safari/537.36')
 FEEDS = [('ET Markets', 'https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms'),
-         ('Business Standard', 'https://www.business-standard.com/rss/markets-106.rss')]
+         ('Business Standard', 'https://www.business-standard.com/rss/markets-106.rss')] + news_more.MORE_FEEDS
 ANTHROPIC_KEY = os.environ.get('ANTHROPIC_API_KEY', '').strip()      # optional: asli AI saar ke liye (GitHub Secret)
 ANTHROPIC_MODEL = os.environ.get('ANTHROPIC_MODEL', 'claude-haiku-4-5')
 ANTHROPIC_URL = os.environ.get('ANTHROPIC_URL', 'https://api.anthropic.com/v1/messages')
@@ -70,7 +71,8 @@ def ann_records(lst, today, days=3, limit=4):
         txt = re.sub(r'\s+', ' ', (a.get('attchmntText') or '')).strip()
         lvl, hint = impact(cat, txt)
         out.append(dict(date=str(a.get('an_dt') or a.get('sort_date') or '')[:20], cat=cat[:80], text=txt[:600],
-                        link=(a.get('attchmntFile') or a.get('attchmnt') or '').strip(), level=lvl, hint=hint))
+                        link=(a.get('attchmntFile') or a.get('attchmnt') or '').strip(), level=lvl, hint=hint,
+                        src=a.get('src') or 'NSE'))
         if len(out) >= limit:
             break
     return out
@@ -116,9 +118,10 @@ DATEP = re.compile(r'\b\d{1,2}(?:st|nd|rd|th)?[\s\-](?:Jan|Feb|Mar|Apr|May|Jun|J
 
 
 def pdf_text(url, max_chars=9000):
-    if not re.match(r'^https://(nsearchives|www)\.nseindia\.com/', url or ''):
+    if not re.match(r'^https://((nsearchives|www)\.nseindia\.com|www\.bseindia\.com)/', url or ''):
         return ''
-    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Referer': 'https://www.nseindia.com/',
+    ref = 'https://www.bseindia.com/' if 'bseindia' in url else 'https://www.nseindia.com/'
+    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Referer': ref,
                                                'Accept': 'application/pdf,*/*'})
     with opener.open(req, timeout=40) as r:
         data = r.read(9000000)
@@ -311,6 +314,28 @@ def main():
                     lines.append('NSE announcements FAIL: %s' % str(ex)[:150])
             time.sleep(0.8)
         lines.append('NSE announcements fetched for %d of %d symbols' % (ann_ok, len(syms) + len(extra)))
+        # 2b. BSE announcements (kuch filing sirf BSE par hoti hai). NSE wale duplicate hata ke jodte hain.
+        try:
+            codes, bse_ok, bse_new, bse_fail = news_more.bse_codes(lines), 0, 0, 0
+            for s in syms + extra:
+                c = codes.get(s)
+                if not c or (bse_fail >= 5 and bse_ok == 0):
+                    continue
+                try:
+                    b = news_more.bse_ann(c, today)
+                    bse_ok += 1
+                    if b:
+                        n0 = len(ann.get(s, []))
+                        ann[s] = news_more.merge_bse(ann.get(s, []), b)
+                        bse_new += len(ann[s]) - n0
+                except Exception as ex:
+                    bse_fail += 1
+                    if bse_fail == 1:
+                        lines.append('BSE announcement FAIL (%s): %s' % (s, str(ex)[:120]))
+                time.sleep(0.4)
+            lines.append('BSE announcements: %d symbols checked, %d naye (NSE me nahi the)' % (bse_ok, bse_new))
+        except Exception as ex:
+            lines.append('BSE FAIL: %s' % str(ex)[:150])
         # 3. RSS headlines
         heads = []
         for name, url in FEEDS:
@@ -322,6 +347,29 @@ def main():
                 lines.append('RSS %s: OK, %d items' % (name, len(items)))
             except Exception as ex:
                 lines.append('RSS %s FAIL: %s' % (name, str(ex)[:100]))
+        # 3b. Google News: har stock ki apni khabar (Moneycontrol, ET, Mint, CNBC... sab ek jagah)
+        names, snews, g_ok, g_fail = news_more.load_names(), {}, 0, 0
+        for s in syms + extra:
+            if g_fail >= 5 and g_ok == 0:
+                break
+            try:
+                snews[s] = news_more.google_news(s, names)
+                g_ok += 1
+            except Exception as ex:
+                g_fail += 1
+                if g_fail == 1:
+                    lines.append('Google News FAIL (%s): %s' % (s, str(ex)[:120]))
+            time.sleep(0.5)
+        lines.append('Google News: %d of %d symbols, %d headlines' % (g_ok, len(syms) + len(extra),
+                                                                      sum(len(v) for v in snews.values())))
+        if g_ok:
+            try:
+                with open('docs/stock_news.json', 'w', encoding='utf-8') as h:
+                    json.dump({'updated': ist.strftime('%Y-%m-%dT%H:%M:%S'), 'items': snews}, h, ensure_ascii=False,
+                              separators=(',', ':'))
+            except Exception as ex:
+                lines.append('stock_news.json write FAIL: %s' % str(ex)[:80])
+        day_ago = (ist - datetime.timedelta(hours=24)).strftime('%Y-%m-%d %H:%M')
         # 4. combine
         out_rows = []
         for r in allrows:
@@ -345,9 +393,12 @@ def main():
                     if not recs or recs[0]['level'] != 'LOW':
                         flag.append('NEW_ANNOUNCEMENT')
                         break
-            hl = [h[1][:90] for h in heads if re.search(r'\b%s\b' % re.escape(s), h[1], re.I)][:2]
-            if hl:
+            pat = news_more.name_pat(s, names)
+            hl = [h[1][:90] for h in heads if pat.search(h[1])][:2]
+            fresh = [x['t'][:90] for x in snews.get(s, []) if x.get('date', '') >= day_ago]
+            if hl or fresh:
                 flag.append('IN_NEWS')
+            hl = (hl + [t for t in fresh if t not in hl])[:2]
             out_rows.append(dict(setup=r['SETUP'], symbol=s, flags=' '.join(flag) or 'none', next_event=nxt,
                                  last_announcement=last, headlines=' | '.join(hl)))
         with open('out/news_events.csv', 'w', newline='', encoding='utf-8') as h:
