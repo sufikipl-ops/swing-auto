@@ -170,7 +170,7 @@ for sym, byd in data.items():
         # BEFORE the breakout: just under the 20-day high, range squeezed, volume quiet
         rng5 = sum(hi[k] - lo[k] for k in range(-5, 0)) / 5.0
         v5 = sum(vol[-5:]) / 5.0
-        if 0 < (r20 - cl[-1]) <= 1.5 * atr and (r20 - cl[-1]) / cl[-1] <= 0.03 and rng5 < 0.8 * atr and v5 <= 1.1 * v20:
+        if 0 < (r20 - cl[-1]) <= 1.0 * atr and (r20 - cl[-1]) / cl[-1] <= 0.03 and rng5 < 0.8 * atr and v5 <= 1.1 * v20:
             setup = 'PREBREAK'
     if not setup:
         continue
