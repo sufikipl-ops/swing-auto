@@ -168,25 +168,30 @@ def _words(s):
     return set(w for w in re.findall(r'[a-z0-9]{4,}', (s or '').lower()) if w not in GENERIC)
 
 
-def merge_bse(nse_list, bse_list):
-    """Jo announcement NSE par pehle se hai (same din, milte-julte shabd) use BSE se dobara mat jodo."""
+def _dt(a):
+    try:
+        return datetime.datetime.strptime(str(a.get('an_dt') or '')[:20].strip(), '%d-%b-%Y %H:%M:%S')
+    except ValueError:
+        return None
+
+
+def merge_bse(nse_list, bse_list, window_min=20):
+    """Jo filing NSE par pehle se hai use BSE se dobara mat jodo. Company ek hi filing dono exchange par kuch minute
+    ke farq se daalti hai, par wording alag hoti hai: isliye 20 min ke andar = same filing, ya same din + milte shabd."""
     out = list(nse_list)
+    used = set()
     for b in bse_list:
-        bw, bd = _words(b['desc'] + ' ' + b['attchmntText']), b['an_dt'][:11]
+        bt, bw = _dt(b), _words(b['desc'] + ' ' + b['attchmntText'])
         dup = False
-        for a in nse_list:
-            if str(a.get('an_dt') or a.get('sort_date') or '')[:11].lower() != bd.lower():
-                continue
-            aw = _words('%s %s' % (a.get('desc'), a.get('attchmntText')))
-            if bw and len(bw & aw) >= 0.5 * len(bw):
-                dup = True; break
+        for i, a in enumerate(nse_list):
+            at = _dt(a)
+            if bt and at and abs((bt - at).total_seconds()) <= window_min * 60 and i not in used:
+                used.add(i); dup = True; break
+            if bt and at and bt.date() == at.date():
+                aw = _words('%s %s' % (a.get('desc'), a.get('attchmntText')))
+                if bw and len(bw & aw) >= 0.5 * len(bw):
+                    dup = True; break
         if not dup:
             out.append(b)
-
-    def key(a):
-        try:
-            return datetime.datetime.strptime(str(a.get('an_dt') or '')[:20].strip(), '%d-%b-%Y %H:%M:%S')
-        except ValueError:
-            return datetime.datetime(1900, 1, 1)
-    out.sort(key=key, reverse=True)
+    out.sort(key=lambda a: _dt(a) or datetime.datetime(1900, 1, 1), reverse=True)
     return out
