@@ -5,7 +5,7 @@ on:
   workflow_dispatch: {}
   schedule:
     - cron: "0 3 * * 1-5"     # 08:30 IST (US close, Asia open)
-    - cron: "30 10 * * 1-5"   # 16:00 IST (Europe open)
+    - cron: "*/30 4-10 * * 1-5"   # 9:30 - 16:30 IST har 30 min (market ke time)
     - cron: "30 16 * * 1-5"   # 22:00 IST (US open)
 permissions:
   contents: write

@@ -15,6 +15,11 @@ POLL = float(os.environ.get('LIVE_POLL', '25'))
 MAX_RUN_MIN = float(os.environ.get('LIVE_MAX_MIN', '345'))   # GitHub job limit 6h se pehle band
 END_IST = os.environ.get('LIVE_END_IST', '15:32')            # market band hone ke baad ruk jao
 MAX_SYMS = 100
+PAGES_BASE = os.environ.get('PAGES_BASE', '')
+if not PAGES_BASE and os.environ.get('GITHUB_REPOSITORY'):
+    _o, _r = os.environ['GITHUB_REPOSITORY'].split('/', 1)
+    PAGES_BASE = 'https://%s.github.io/%s/' % (_o.lower(), _r)
+ALERTS_ON = os.environ.get('WATCH_ALERTS', '1') != '0'
 
 
 def ist_now():
@@ -102,6 +107,11 @@ def push_live(url, key, live):
     return bool(r.get('ok'))
 
 
+def notify(url, key, text):
+    r = http_json(url, {'key': key, 'action': 'notify', 'text': text[:3500]}, {'Content-Type': 'text/plain;charset=utf-8'})
+    return bool(r.get('ok')), (r.get('error') or r.get('message') or '')
+
+
 def parse_quotes(resp):
     """Angel quote response -> {SYMBOL: item}. Missing fields ko None rakhta hai."""
     out = {}
@@ -184,6 +194,12 @@ def main():
     print('tokens: %d' % len(tokmap))
     no_trade_since = None
     loops = 0
+    ctx, ctx_ts, sent_keys, alert_log, alert_day = {}, 0, set(), [], ''
+    try:
+        import watch_alerts
+    except Exception as e:
+        watch_alerts = None
+        print('watch_alerts import fail: %s' % e)
     while True:
         now = ist_now()
         if end_reached(now) or (time.time() - started) / 60 > MAX_RUN_MIN:
@@ -218,12 +234,37 @@ def main():
                 no_trade_since = no_trade_since or time.time()
         else:
             no_trade_since = None
+        # ---- IGNORE alerts (Telegram + app) ----
+        alert_msg = ''
+        if ALERTS_ON and watch_alerts and status == 'ok':
+            try:
+                dstr = today.strftime('%Y-%m-%d')
+                if alert_day != dstr:
+                    alert_day, sent_keys, alert_log = dstr, set(), []
+                    prev = ((st or {}).get('live') or {})
+                    if prev.get('date') == dstr:
+                        alert_log = list(prev.get('alerts') or [])[-120:]
+                        sent_keys = set(a.get('k') for a in alert_log)
+                if time.time() - ctx_ts > 240 or not ctx:
+                    ctx, ctx_ts = watch_alerts.load_ctx(PAGES_BASE), time.time()
+                fresh = {k: v for k, v in items.items() if traded_today(v, today) and v.get('ltp')}
+                new = [a for a in watch_alerts.evaluate(fresh, ctx, dstr) if a[0] not in sent_keys]
+                if new:
+                    lines = ['%s: %s' % (a[1], a[2]) for a in new[:12]]
+                    ok, why = notify(url, pkey, 'IGNORE / DHYAN (%s)\n' % now.strftime('%H:%M') + '\n'.join(lines) + ('\n+%d aur, app dekho' % (len(new) - 12) if len(new) > 12 else ''))
+                    alert_msg = 'notify %s %s (%d new)' % ('ok' if ok else 'FAIL', why, len(new))
+                    for a in new:
+                        sent_keys.add(a[0])
+                        alert_log.append({'k': a[0], 's': a[1], 't': a[2][:140], 'at': now.strftime('%H:%M')})
+                    alert_log = alert_log[-120:]
+            except Exception as e:
+                alert_msg = 'alerts err %s' % str(e)[:100]
         live = {'ts': now.strftime('%Y-%m-%dT%H:%M:%S'), 'date': today.strftime('%Y-%m-%d'), 'status': status,
-                'err': err, 'missing': missing, 'n': len(items), 'items': items}
+                'err': err, 'missing': missing, 'n': len(items), 'items': items, 'alerts': alert_log[-60:]}
         okp = push_live(url, pkey, live)
         loops += 1
         print('%s loop %d symbols=%d fetched=%d today=%d status=%s pushed=%s %s' % (
-            now.strftime('%H:%M:%S'), loops, len(syms), len(items), n_today, status, okp, err))
+            now.strftime('%H:%M:%S'), loops, len(syms), len(items), n_today, status, okp, err) + (' | ' + alert_msg if alert_msg else ''))
         if no_trade_since and time.time() - no_trade_since > 600:
             print('aaj market me trade nahi dikha (holiday?), bye'); break
         time.sleep(POLL)
