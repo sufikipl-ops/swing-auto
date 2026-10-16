@@ -1,0 +1,37 @@
+name: dip
+# Evening DIP scan (after the main screen). Also run manually: Actions > dip > Run workflow.
+# Note: the data-date check fails on purpose if NSE has not published today's file yet (the retry cron handles it).
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "50 12 * * 1-5"   # 18:20 IST
+    - cron: "20 14 * * 1-5"   # 19:50 IST (retry)
+permissions:
+  contents: write
+jobs:
+  dip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download bhavcopy
+        run: python fetch.py
+        env:
+          DAYS: "200"
+      - name: Dip scan
+        run: python dip_scan.py data out
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add out/dip_latest.csv docs/dip_latest.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "dip $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
