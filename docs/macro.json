@@ -1,0 +1,10 @@
+{"note":"Ye list tum khud edit kar sakte ho (GitHub me docs/macro.json). date = event ki date, end = alert kab tak (IST). level: caution = naya trade avoid ya qty aadhi, info = sirf dhyan. verify:true wali dates RBI/NSE site se ek baar confirm kar lena.",
+"events":[
+{"date":"2026-10-28","end":"2026-10-29","name":"US Fed (FOMC) rate decision","level":"caution","note":"Raat ~11:30 baje (India time) faisla aata hai. Agli subah India market me gap/hilna ho sakta hai."},
+{"date":"2026-11-03","end":"2026-11-04","name":"US midterm election","level":"info","note":"US market me hilna ho sakta hai, India par asar aksar halka."},
+{"date":"2026-11-06","end":"2026-11-09","name":"US jobs report (Non-farm payrolls)","level":"info","note":"Shaam ko aata hai; asar agle India trading din par."},
+{"date":"2026-11-12","end":"2026-11-12","name":"India CPI (mehngai) data","level":"info","note":"Shaam ~4 baje aata hai; asar agle din.","verify":true},
+{"date":"2026-12-04","end":"2026-12-04","name":"RBI policy (MPC) decision","level":"caution","note":"Subah ~10 baje faisla. 9:20 par entry ke baad turant hil sakta hai, khaaskar banks/NBFC/rate-sensitive.","verify":true},
+{"date":"2026-12-09","end":"2026-12-10","name":"US Fed (FOMC) rate decision","level":"caution","note":"Raat ~11:30 baje (India time) faisla."},
+{"date":"2027-02-01","end":"2027-02-01","name":"Union Budget (India)","level":"caution","note":"Poore market me bada hilna. Is din naya trade avoid.","verify":true}
+]}
