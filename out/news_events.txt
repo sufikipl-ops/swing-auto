@@ -1,10 +1,10 @@
-NEWS/EVENTS CHECK 2026-10-16 13:04 IST
+NEWS/EVENTS CHECK 2026-10-16 13:54 IST
 screen data date: 2026-10-15 | candidates: 31
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE announcements fetched for 31 of 31 symbols
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-PDF saar: 10 naye bane, 4 nahi bane, 0 pehle ke reuse (AI key: nahi)
+PDF saar: 17 naye bane, 5 nahi bane, 10 pehle ke reuse (AI key: nahi)
 announcements.json: 20 symbols with announcements in last 3 days
 HCLTECH      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-16 Updates | 
 SOUTHBANK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Change in Management | 
@@ -21,6 +21,8 @@ JGCHEM       PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updat
 MOTISONS     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-14 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
 STYLEBAAZA   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-15 Updates | 
 Symbols with no flags: 17. Top market headlines:
+  [ET Markets] 10 stocks held by 100+ MF schemes in September rally up to 205% in CY26; 6 turn multibaggers
+  [ET Markets] From worst to best: How IT stocks staged a Rs 2.6 lakh crore revival this week
   [ET Markets] Indian Bank reports a Rs 1,388 crore gain from sale of NSE shares
   [ET Markets] Jio IPO GMP at 20%: Grey market signals Rs 220 premium as brokerages say subscribe
   [ET Markets] HFCL’s AI, data centre exposure drives Nuvama’s Buy call; target implies 56% upside
@@ -34,6 +36,4 @@ Symbols with no flags: 17. Top market headlines:
   [ET Markets] Beyond Titan and Kalyan: Analysts pick these jewellery stocks as potential market winners. Do you own any?
   [ET Markets] Persistent Systems among 4 F&amp;O stocks with a sharp rise in futures open interest
   [ET Markets] Wipro shares rise over 2% as Q2 revenue grows 9% YoY. What are Nomura, Goldman Sachs analysts saying?
-  [ET Markets] Jio IPO: Meta, Google sit on nearly ₹1 lakh crore paper profit &amp; neither is selling
-  [ET Markets] India's Yes Bank AT-1 ruling won't impact ratings despite earnings hit, S&amp;P says
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
