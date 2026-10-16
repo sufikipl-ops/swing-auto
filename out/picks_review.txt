@@ -1,12 +1,13 @@
-PICKS REVIEW (forward test) 2026-10-15
-picks read: 4
+PICKS REVIEW (forward test) 2026-10-16
+picks read: 5
 date       symbol          entry       sl   target  qty status          exit_date      exit why            R      pnl
 2026-10-13 COFORGE        1945.0   1850.0   2135.0    5 OPEN                                                         
-2026-10-13 IPCALAB        1940.0   1855.0   2110.0    5 OPEN                                                         
+2026-10-13 IPCALAB        1940.0   1855.0   2110.0    5 CLOSED          2026-10-16   1855.0 STOP       -1.06   -449.0
 2026-10-15 NEOGEN         2790.0   2610.0   3150.0    2 PENDING_TRIGGER                                              
 2026-10-15 RAIN            253.0    236.0    287.0   29 PENDING_TRIGGER                                              
+2026-10-16 HCLTECH        1381.0   1335.0   1473.0   10 OPEN                                                         
 
-Status counts: OPEN=2, PENDING_TRIGGER=2
-No closed trades yet.
-Sample size: 0 closed. Below ~30 trades the numbers mean very little; aim for 30-50 before judging.
+Status counts: CLOSED=1, OPEN=2, PENDING_TRIGGER=2
+CLOSED trades: 1 | win rate 0% | avg R -1.06 | profit factor 0.00 | total pnl Rs -449
+Sample size: 1 closed. Below ~30 trades the numbers mean very little; aim for 30-50 before judging.
 Assumptions: daily bars only; if stop and target both fall in one day, stop counts first; entry at max(open, trigger); skip if open >1.5% above trigger; GTT alive 4 trading days; time-stop after 5 days; cost 0.25%. Not financial advice.
