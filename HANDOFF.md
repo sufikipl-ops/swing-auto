@@ -77,3 +77,5 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Result 2026-10-17: koi setup PASS nahi. Breakout har haal me minus (-0.04 se -0.55R). Reversal minus. Bounce 3:15 VWEAK +0.13R
   par doosre aadhe me -0.18R (fail). 3:15 entry aksar kal-open se thoda kam bura (gap ka nuksan bachta hai) par dono minus.
 - Faisla: live "trade layak" highlighter nahi banaya. Data kam hai: data_orb cache badhta nahi (fetch_all purani file skip karta hai).
+- data15.yml (har Ravivar): orb_study.fetch_all ab incremental hai (purani file me sirf naye din). data_orb cache + backup
+  branch "data-15min" (tar.gz, 90MB parts, har baar force-push single commit). Mahine ke pehle hafte intraswing study dobara chalti hai.
