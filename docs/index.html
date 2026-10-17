@@ -71,6 +71,7 @@ details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:13px;padd
 .wr{padding:9px 0;border-top:1px solid var(--bd);cursor:pointer}.wt{display:flex;justify-content:space-between;gap:10px}.wl{flex:1;min-width:0}.wl b{font-size:15px;display:block}.wl small{color:var(--mu);font-size:12px}
 .wv{text-align:right;white-space:nowrap}.wv b{display:block;font-size:15px}.wv small{font-size:11.5px}.wm{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .mp{font-size:11.5px;padding:3px 7px;border-radius:6px;background:var(--chip);color:var(--tx)}.mp.bad{background:var(--rbg);color:var(--r);font-weight:600}
+.wk{margin-top:6px}.wk>small{color:var(--mu);font-size:11.5px}.wk .wm{margin-top:3px}
 .wd{margin-top:6px}.wd summary{font-size:12.5px;padding:4px 0}.wd .at{font-size:12.5px}
 .igs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.igb{background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;min-height:40px}
 .igr{padding:6px 0;border-top:1px solid var(--bd);margin-top:4px}.igr b{display:block;font-size:13px}.igr small{color:var(--mu)}.tiles.t5 b{font-size:12px}
@@ -665,7 +666,7 @@ function ignAll(){var m={};ignSyms().forEach(function(s){var r=ignoreReasons(s);
 function ignStrip(sym){var r=ignoreReasons(sym);return r.length?'<div class="ign"><b>IGNORE KARO:</b> '+r.map(esc).join(' | ')+'</div>':''}
 function ignSig(){var m=ignAll();return Object.keys(m).map(function(k){return k+m[k].length}).join(',')}
 /* "Aaj ignore karo": wajah ke hisaab se group. Har stock ek watchlist-row: naam | price + badlaav, neeche us wajah ke asli number */
-var IGG=[[/OPEN trade/,'&#128308;','Tumhara trade: SL hit','Broker app me exit confirm karo.','sl'],[/ASM\/GSM/,'&#128683;','ASM/GSM list (exchange ki nigrani)','Zyada margin, circuit ki pabandi. Naya trade mat lo.','asm'],
+var IGG=[[/OPEN trade/,'&#128308;','Tumhara trade: SL hit','Broker app me exit confirm karo.','sl'],[/ASM\/GSM/,'&#128683;','ASM/GSM list (exchange ki nigrani)','NSE ye nigrani tab lagata hai jab share bahut tez bhaga/gira ho ya roz bahut upar-neeche hota ho. Circuit se door ho tab bhi list me rehta hai. Stage badhne par aur pabandi (zyada margin, trade-to-trade). Naya trade mat lo.','asm'],
 [/Bura news/,'&#128240;','Bura news ka shak','Saar padho, detail kholo, phir khud tay karo.','news'],[/Result/,'&#128197;','Result/board meeting paas','Result se pehle naya trade mat lo.','res'],
 [/circuit/i,'&#9940;','Circuit lag gaya','Entry/exit atak sakta hai.','cir'],[/Stop-loss|SL \(|SL ke/,'&#128201;','Price SL ke neeche','Setup toot gaya: skip.','psl'],[/[Gg]ap/,'&#8597;','Gap rule fail','Open bahut upar/neeche: aaj skip.','gap'],
 [/upar nikal|1\.5% upar khula/,'&#128640;','Bahut upar nikal gaya','Peecha mat karo.','up'],[/series|suspend/i,'&#9888;','Series/suspended','Sirf pabandi wali trading.','ser']];
@@ -677,9 +678,14 @@ function pl(t,c){return '<span class="mp'+(c?' '+c:'')+'">'+t+'</span>'}
 function wRow(sym,sub,pills,extra){var x=pxOf(sym);return '<div class="wr" onclick="detail(\''+esc(sym)+'\')"><div class="wt"><div class="wl"><b>'+esc(sym)+'</b><small>'+(sub||esc(NM[sym]||''))+'</small></div>'+
 (x?'<div class="wv"><b>'+f(x.ltp)+'</b><small class="'+(x.chg>=0?'g':'r')+'">'+(x.chg>=0?'+':'')+f(x.chg,2)+'% &middot; '+x.lbl+'</small></div>':'')+'</div>'+(pills?'<div class="wm">'+pills+'</div>':'')+(extra||'')+'</div>'}
 function igRow(kind,sym,txt){var x=pxOf(sym),r=rsInfo(sym),b=parseFloat(r.band);
-if(kind=='asm'){var stg=r.asm||r.gsm||r.surv||'',pills=pl((r.asm?'ASM ':r.gsm?'GSM ':'')+esc(stg),'bad');
-if(b>0&&x){var up=x.pc*(1+b/100),lo=x.pc*(1-b/100);pills+=pl('Circuit '+b+'%')+pl('Upper '+f(up))+pl('Lower '+f(lo))+pl('Upper se '+f((up/x.ltp-1)*100,1)+'% door')}
-else if(r.band)pills+=pl('Circuit: '+esc(r.band));return wRow(sym,'',pills)}
+if(kind=='asm'){var raw=String(r.asm||r.gsm||r.surv||''),typ=/^LT\b/.test(raw)?'Long-term ASM':/^ST\b/.test(raw)?'Short-term ASM':r.gsm?'GSM':'ASM',stg=raw.replace(/^(LT|ST)\s*/,''),s0=ST[sym],why='';
+/* NSE har stock ki exact wajah nahi batata; ASM/GSM aam taur par tez bhaag/girawat aur zyada upar-neeche par lagta hai: wahi numbers dikhao */
+if(s0){if(s0.l52>0)why+=pl('1 saal ke low se '+((s0.c/s0.l52-1)*100>=0?'+':'')+f((s0.c/s0.l52-1)*100,0)+'%',(s0.c/s0.l52-1)>=1?'bad':'');
+if(s0.low20>0)why+=pl('20 din ke low se +'+f((s0.c/s0.low20-1)*100,0)+'%',(s0.c/s0.low20-1)>=0.25?'bad':'');
+if(s0.h52>0&&s0.c<s0.h52*0.75)why+=pl('1 saal ke high se '+f((s0.c/s0.h52-1)*100,0)+'%','bad');
+if(s0.atr>0)why+=pl('Roz ka move '+f(s0.atr/s0.c*100,1)+'%',s0.atr/s0.c>=0.05?'bad':'')}
+var cir='';if(b>0&&x){var up=x.pc*(1+b/100),lo=x.pc*(1-b/100);cir=pl('Circuit band '+b+'%')+pl('Upper '+f(up)+' ('+f((up/x.ltp-1)*100,1)+'% door)')+pl('Lower '+f(lo))}else if(r.band)cir=pl('Circuit: '+esc(r.band));
+return wRow(sym,'<b class="r">'+typ+(stg?' &middot; '+esc(stg):'')+'</b>','',(why?'<div class="wk"><small>Kyu list me (kitna bhaga):</small><div class="wm">'+why+'</div></div>':'')+(cir?'<div class="wk"><small>Circuit (sirf jaankari):</small><div class="wm">'+cir+'</div></div>':''))}
 if(kind=='news'){var a=badNews(sym);if(!a)return wRow(sym,esc(txt));var m=((NEUTRALCAT.test(a.cat||'')?'':(a.cat||''))+' '+(a.text||'')).match(BADNEWS),kw=m?m[0]:'';
 var saar=a.summary||a.text||a.cat||'',ok=/^https:\/\/((nsearchives|www)\.nseindia\.com|www\.bseindia\.com)\//.test(a.link||'');
 return wRow(sym,esc(String(saar).slice(0,140))+(String(saar).length>140?'&hellip;':''),pl('Shabd: "'+esc(kw)+'"','bad')+pl(esc(a.src||'NSE')+' &middot; '+esc(String(a.date||'').slice(0,11))),
