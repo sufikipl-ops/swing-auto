@@ -68,6 +68,7 @@ if last < exp:
 
 cands = []
 above = tot = 0
+r60all = []     # liquid stocks ka 60-din return: momentum (top 20%) tag ke liye
 for sym, byd in data.items():
     if any(k in sym for k in ('ETF', 'BEES', 'LIQUID')):
         continue
@@ -89,6 +90,7 @@ for sym, byd in data.items():
         continue
     ret3 = cl[-1] / cl[-4] - 1
     ret60 = cl[-1] / cl[-61] - 1
+    r60all.append(ret60)
     rsi = rsi14(cl)
     if rsi is None or ret3 > -0.05:
         continue
@@ -103,6 +105,8 @@ for sym, byd in data.items():
     cands.append(dict(sym=sym, close=cl[-1], chg=(cl[-1] / cl[-2] - 1) * 100, ret3=ret3 * 100, ret60=ret60 * 100, rsi=rsi,
                       atr=atr, e20=e20[-1], e50=e50[-1], vx=vx, to20=to20, dl=b[-1][5], note=' '.join(note)))
 breadth = 100.0 * above / tot if tot else 0
+# momdip_study (2025-26 test): Dip + 60-din return top 20% = +0.04R vs Dip akela +0.02R (chhota farq, sirf tag)
+r60s = sorted(r60all); MOM_CUT = r60s[int(0.8 * len(r60s))] * 100 if r60s else 1e9
 rows = []
 for c in cands:
     if c['ret3'] <= -8:
@@ -114,12 +118,13 @@ for c in cands:
     stop = c['close'] - 2 * c['atr']
     rows.append([tier, c['sym'], last.isoformat(), round(c['close'], 2), round(c['chg'], 2), round(c['ret3'], 2), round(c['ret60'], 1),
                  round(c['rsi'], 1), round(c['atr'], 2), round(c['e20'], 1), round(c['e50'], 1), round(c['vx'], 2), round(c['to20'], 1),
-                 c['dl'] if c['dl'] is not None else '', round(stop, 2), round(c['close'] + 3 * c['atr'], 2), round(breadth, 1), c['note']])
+                 c['dl'] if c['dl'] is not None else '', round(stop, 2), round(c['close'] + 3 * c['atr'], 2), round(breadth, 1), c['note'],
+                 1 if c['ret60'] >= MOM_CUT else 0])
 rows.sort(key=lambda x: (x[0] != 'A', x[5]))
 head = ['TIER', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'RET3', 'RET60', 'RSI14', 'ATR14', 'EMA20', 'EMA50', 'VOL_X', 'TURN20_CR',
-        'DELIV_PCT', 'STOP_REF', 'TARGET_REF', 'BREADTH50', 'NOTE']
+        'DELIV_PCT', 'STOP_REF', 'TARGET_REF', 'BREADTH50', 'NOTE', 'MOM60_TOP20']
 for d in (out_dir, 'docs'):
     with open(os.path.join(d, 'dip_latest.csv'), 'w', newline='', encoding='utf-8') as h:
         w = csv.writer(h); w.writerow(head); w.writerows(rows)
-print('data date', last, '| breadth>EMA50 %.1f%% | dip candidates A=%d B=%d' % (
-    breadth, sum(1 for r in rows if r[0] == 'A'), sum(1 for r in rows if r[0] == 'B')))
+print('data date', last, '| breadth>EMA50 %.1f%% | 60-din top20%% cut %.1f%% | dip candidates A=%d B=%d' % (
+    breadth, MOM_CUT, sum(1 for r in rows if r[0] == 'A'), sum(1 for r in rows if r[0] == 'B')))
