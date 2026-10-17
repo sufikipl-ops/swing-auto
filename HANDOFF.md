@@ -38,6 +38,9 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   (dip_scan.py MOM60_TOP20 column), not a rule.
 - Intraday ORB 15-min + 8 EMA (an Instagram reel): 213 F&O stocks, 1 year: ~0R before costs, -0.2 to -0.35R after 0.15%
   costs; 0 of 32 combos positive. Do not add intraday setups; costs kill tight stops.
+- Trendline break (>=3 pivots, owner's reel, long+short, sweep/trend filters, 2-4R): 0 of 48 combos positive in both
+  train and test. Long test -0.09 to -0.19R (random -0.15R). Short test slightly plus only because 2025-26 was weak (train
+  negative). Not added.
 - R:R rule in app: picks without room for 1:2 before the next 20/60-day/52-week high get an 'R:R kam' chip and -12 rank
   (not backtested; targets themselves stay realistic, since 2R targets did not help in the sweep backtest).
 - Owner wants 2-3 setups side by side, each labelled with its strategy + backtest status, and the daily move (ATR) shown.
@@ -59,5 +62,4 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - docs/picks_review.csv scorecard: picks_review.py now handles DIP rows (market entry next open).
 - Dip stocks are not in angel_gap.py, but live alerts (watch_alerts.py) cover the Dip gap rule.
 - Morning scheduled prompt could mention restrict/ASM, A+ and IGNORE rules.
-- trendline study (falling/rising trendline break, long+short) was running at handoff time: check out/trendline_summary.txt.
 - Offered, not built: bulk/block deal + insider buying chip on picks.
