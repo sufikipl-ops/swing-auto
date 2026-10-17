@@ -72,8 +72,20 @@ details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:13px;padd
 .wv{text-align:right;white-space:nowrap}.wv b{display:block;font-size:15px}.wv small{font-size:11.5px}.wm{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .mp{font-size:11.5px;padding:3px 7px;border-radius:6px;background:var(--chip);color:var(--tx)}.mp.bad{background:var(--rbg);color:var(--r);font-weight:600}
 .wk{margin-top:6px}.wk>small{color:var(--mu);font-size:11.5px}.wk .wm{margin-top:3px}
-.ai-c textarea{width:100%;margin:8px 0 6px;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--inset);color:var(--tx);font:inherit;font-size:14px;resize:vertical}
-.aib{display:flex;flex-wrap:wrap;gap:6px}.aib .tg{font-size:12.5px;padding:7px 10px}
+#aifab{display:none;position:fixed;right:14px;bottom:calc(74px + env(safe-area-inset-bottom));z-index:45;align-items:center;gap:7px;border:0;border-radius:999px;padding:12px 18px 12px 14px;font:600 14px system-ui,sans-serif;color:#fff;background:linear-gradient(135deg,#7c5cff,#3b82f6);box-shadow:0 6px 20px rgba(76,90,255,.45)}
+#aifab span{font-size:17px}body.det.stk #aifab{display:flex}body.aion #aifab{display:none}
+#aish{display:none;position:fixed;inset:0;z-index:60}#aish.on{display:block}.aibk{position:absolute;inset:0;background:rgba(0,0,0,.45);opacity:0;transition:opacity .2s}#aish.up .aibk{opacity:1}
+.aip{position:absolute;left:0;right:0;bottom:0;max-width:640px;margin:0 auto;background:var(--card);border-radius:20px 20px 0 0;padding:8px 16px calc(16px + env(safe-area-inset-bottom));transform:translateY(100%);transition:transform .22s ease-out;box-shadow:0 -8px 30px rgba(0,0,0,.25)}
+#aish.up .aip{transform:none}.aigrab{width:40px;height:4px;border-radius:2px;background:var(--bd);margin:2px auto 10px}
+.aihd{display:flex;align-items:center;gap:10px}.aihd b{display:block;font-size:17px}.aihd small{color:var(--mu)}
+.aiav{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;background:linear-gradient(135deg,#7c5cff,#3b82f6)}
+.aix{border:0;background:var(--chip);color:var(--tx);width:34px;height:34px;border-radius:50%;font-size:15px}
+.aictx{margin:12px 0 10px;font-size:12px;color:var(--g);background:var(--gbg);padding:7px 10px;border-radius:10px}
+.aiqs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.aiqs button{display:flex;align-items:center;gap:8px;text-align:left;border:1px solid var(--bd);background:var(--inset);color:var(--tx);border-radius:12px;padding:11px 10px;font:500 13px system-ui,sans-serif;min-height:48px}.aiqs button span{font-size:18px}
+.aiin{display:flex;gap:8px;align-items:flex-end;margin-top:12px;border:1px solid var(--bd);border-radius:14px;padding:6px 6px 6px 12px;background:var(--inset)}
+.aiin textarea{flex:1;border:0;background:transparent;color:var(--tx);font:15px system-ui,sans-serif;resize:none;outline:none;padding:6px 0;min-height:24px}
+.aisend{border:0;width:42px;height:42px;border-radius:12px;color:#fff;font-size:18px;background:linear-gradient(135deg,#7c5cff,#3b82f6);flex:none}
+.aift{margin-top:8px;text-align:center}.aift small{color:var(--mu)}.aift a{color:var(--b)}
 .wd{margin-top:6px}.wd summary{font-size:12.5px;padding:4px 0}.wd .at{font-size:12.5px}
 .igs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.igb{background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;min-height:40px}
 .igr{padding:6px 0;border-top:1px solid var(--bd);margin-top:4px}.igr b{display:block;font-size:13px}.igr small{color:var(--mu)}.tiles.t5 b{font-size:12px}
@@ -114,6 +126,7 @@ details.set>summary{color:var(--mu);font-size:11.5px;padding:6px 2px}
 <main id="v"></main>
 <div class="foot">Sirf technical jankari, advice nahi. Profit ki guarantee nahi. Trade se pehle khud verify karo.</div>
 <div id="toast"></div>
+<button id="aifab" onclick="aiOpen()" aria-label="AI se poocho"><span>&#10022;</span>AI se poocho</button><div id="aish"></div>
 <nav><button data-t="picks" class="on">Picks</button><button data-t="search">Search</button><button data-t="trades">Trades</button><button data-t="news">News</button><button data-t="global">Global</button></nav>
 <script>
 /* ===== SYNC: Google Sheet (Apps Script web app) se Lock + risk/capital sab devices par same rehte hain. Sirf PIN_URL badalna hai ===== */
@@ -339,7 +352,7 @@ function ladder(s,p){var L=[['52-hafte high',s.h52],['60-din high',s.h60],['20-d
 L.push({n:'ABHI (close)',v:s.c,k:'now'});if(p){L.push({n:'Target',v:p.t1,k:'tg'});L.push({n:'Stop-loss',v:p.stop,k:'sl'});L.push({n:'Entry',v:p.entry,k:'en'})}
 L.sort(function(a,b){return b.v-a.v});
 return L.map(function(x){return '<div class="lr '+x.k+'"><span>'+x.n+'</span><span>'+f(x.v)+(x.k=='now'?'':' <small>('+(x.v>=s.c?'+':'')+f((x.v/s.c-1)*100,1)+'%)</small>')+'</span></div>'}).join('')}
-function detail(sym){if(cur==null)lastY=window.pageYOffset||0;else if(cur.charAt(0)=='@')LY=window.pageYOffset||0;cur=sym;rankAll();
+function detail(sym){if(cur==null)lastY=window.pageYOffset||0;else if(cur.charAt(0)=='@')LY=window.pageYOffset||0;cur=sym;document.body.classList.add('stk');rankAll();
 try{if(!(history.state&&history.state.d))history.pushState({d:sym},'')}catch(e){}
 var s=ST[sym],pk=PK[sym],rk=RK[sym],v=document.getElementById('v');
 bar(sym,rk?'Aaj ka rank #'+rk.n+' / '+SR.length+'  |  score '+rk.sc+'/100':'');
@@ -348,7 +361,7 @@ var fl=(NW[sym]||{}).flags||'',entry=pk?entryOf(pk):s.c,p=planFrom(entry,s.stop,
 /* 1. seedha jawab */
 h+='<div class="card vd '+vd[2]+'"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+lvp(sym,s.c,s.chg)+(pk?' | '+setupName(pk):'')+'</small></div>'+chip('Trend '+s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>'+
 '<div class="vt '+vd[2]+'">'+esc(vd[0])+'</div><div>'+esc(vd[1])+'</div>'+(rk?'<div style="margin-top:6px">'+chip('Rank #'+rk.n+' ('+rk.g[0]+')',rk.g[1])+gapChip(g)+'</div>':gapChip(g))+'</div>';
-h+='<div data-lv="'+esc(sym)+'" data-full="1"></div>'+ignStrip(sym)+aiCard(sym);
+h+='<div data-lv="'+esc(sym)+'" data-full="1"></div>'+ignStrip(sym);
 /* 2. trade plan */
 if(p){h+='<div class="card"><h3 style="margin-top:0">Trade plan</h3>'+stratLine(pk?stratOf(pk.SETUP):DPM[sym]?stratOf('DIP',DPM[sym].TIER,dipPlus(DPM[sym])):stratOf(''))+'<div class="tiles t5"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div>'+atrTile(s.atr,s.c)+'</div>'+
 '<div class="ir"><div class="l">Paisa lagega</div><div class="v">'+rs0(p.val)+'</div></div><div class="ir"><div class="l">SL hit hua to nuksan</div><div class="v r">'+rs0(p.loss)+'</div></div><div class="ir"><div class="l">Target hit hua to fayda</div><div class="v g">'+rs0(p.gain)+'</div></div>'+
@@ -372,12 +385,18 @@ h+='<div class="card">'+newsBlock(sym).replace('<h3>','<h3 style="margin-top:0">
 v.innerHTML=h;paintLive();window.scrollTo(0,0)}
 
 /* ---------- AI SE POOCHO: stock ki saari jaankari ke saath Claude kholo (user ka apna account, koi API key nahi) ---------- */
-function aiCard(sym){return '<div class="card ai-c" id="aiq"><div class="row"><b>&#129302; AI se poocho</b><small class="mu">Claude</small></div>'+
-'<small class="mu">Is stock ke baare me kuch bhi poocho. Claude ko is stock ka saara data (price, strategy, plan, checklist, fundamentals, khabar) apne-aap bhej diya jayega.</small>'+
-'<textarea id="aiQ" rows="2" placeholder="Jaise: result se pehle hold karna theek hai? Is girawat ki wajah kya hai?"></textarea>'+
-'<div class="aib">'+['Is stock me abhi entry theek hai?','Ye kyu gira/chadha? Latest news dekho','Mere SL aur target ka review karo','Company ka business aur risk samjhao'].map(function(q){return '<button class="tg" onclick="aiAsk(\''+esc(sym)+'\',\''+q.replace(/'/g,'')+'\')">'+esc(q)+'</button>'}).join('')+'</div>'+
-'<div class="row" style="margin-top:8px;gap:8px"><button class="btn" style="flex:1;border:0;background:var(--b);color:#fff;font-weight:600;min-height:44px" onclick="aiAsk(\''+esc(sym)+'\')">Claude me poocho &rarr;</button><button class="tg" onclick="aiCopy(\''+esc(sym)+'\')">Copy</button></div>'+
-'<small class="mu">Claude app/website khulega (login chahiye). Sawaal pehle se likha na dikhe to "Copy" dabao aur Claude me paste karo. AI galat ho sakta hai: pakki buy/sell salah nahi.</small></div>'}
+var AIQS=[['&#128200;','Abhi entry theek hai?','Is stock me abhi entry theek hai? Plan aur risk dekh ke batao.'],['&#128240;','Kyu gira / chadha?','Ye stock kyu gira/chadha? Latest news aur announcements web par dekho.'],
+['&#127919;','SL / target review','Mere SL aur target ka review karo: kya ye realistic hain?'],['&#127970;','Business aur risk','Company ka business aur sabse bade risk simple shabdon me samjhao.']];
+function aiOpen(){var sym=cur;if(!sym||sym.charAt(0)=='@')return;var sh=document.getElementById('aish'),s=ST[sym]||{},pk=PK[sym];
+var st=pk?stratOf(pk.SETUP):DPM[sym]?stratOf('DIP',DPM[sym].TIER,dipPlus(DPM[sym])):stratOf('');
+sh.innerHTML='<div class="aibk" onclick="aiClose()"></div><div class="aip" role="dialog" aria-label="AI se poocho"><div class="aigrab"></div>'+
+'<div class="aihd"><div class="aiav">&#10022;</div><div style="flex:1"><b>AI se poocho</b><small>'+esc(sym)+(s.c?' &middot; '+f(s.c):'')+' &middot; '+esc(st[0])+'</small></div><button class="aix" onclick="aiClose()" aria-label="Band karo">&#10005;</button></div>'+
+'<div class="aictx">&#10003; Is stock ka saara data saath jayega: price, strategy, plan, checklist, fundamentals, khabar</div>'+
+'<div class="aiqs">'+AIQS.map(function(q,i){return '<button onclick="aiAsk(\''+esc(sym)+'\',AIQS['+i+'][2])"><span>'+q[0]+'</span>'+esc(q[1])+'</button>'}).join('')+'</div>'+
+'<div class="aiin"><textarea id="aiQ" rows="2" placeholder="Apna sawaal likho..."></textarea><button class="aisend" onclick="aiAsk(\''+esc(sym)+'\')" aria-label="Bhejo">&#10148;</button></div>'+
+'<div class="aift"><small>Claude me khulega (aapka account). Sawaal na bhare to <a href="#" onclick="aiCopy(\''+esc(sym)+'\');return false">copy karke paste karo</a>. AI galat ho sakta hai.</small></div></div>';
+sh.classList.add('on');document.body.classList.add('aion');setTimeout(function(){sh.classList.add('up')},10)}
+function aiClose(){var sh=document.getElementById('aish');sh.classList.remove('up');document.body.classList.remove('aion');setTimeout(function(){sh.classList.remove('on');sh.innerHTML=''},220)}
 function aiPrompt(sym,q){var s=ST[sym]||{},pk=PK[sym],it=liveItem(sym),L=[],p=pk?pickPlan(pk):s.c?planFrom(s.c,s.stop,s.atr,resOf(s,s.c)):null,fd=FD&&FD.items&&FD.items[sym],r=rsInfo(sym),n=NW[sym],md=GL&&GL.mood;
 var st=pk?stratOf(pk.SETUP):DPM[sym]?stratOf('DIP',DPM[sym].TIER,dipPlus(DPM[sym])):stratOf('');
 L.push('Main India ka part-time swing trader hoon (NSE, delivery, 2-5 din hold, capital Rs '+ls('cap',50000)+', ek trade me max nuksan Rs '+ls('risk',700)+', options nahi). Mera "Swing Desk" app ye data deta hai:');
@@ -472,7 +491,7 @@ h+='<details class="card"><summary>Filter aur rank kaise bane? (padhne ke liye d
 /* "Aaj ka plan" tiles: dabao to us list ka alag page khulta hai (Wapas = main Picks). cur='@sol' etc. */
 var PLT={sol:'Aaj ke solid picks',dip:'Dip setup',lock:'Locked stocks',ign:'Aaj ignore karo'},LY=0;
 function planGo(k){if(cur==null)lastY=window.pageYOffset||0;try{history.pushState({l:k},'')}catch(e){}listView(k,false)}
-function listView(k,restore){cur='@'+k;rankAll();var v=document.getElementById('v'),h='',n=0;
+function listView(k,restore){cur='@'+k;document.body.classList.remove('stk');rankAll();var v=document.getElementById('v'),h='',n=0;
 if(k=='sol'){var sol=SR.filter(function(r){return !isPin(r.SYMBOL)&&solid(r)&&!liveSkip(r.SYMBOL)});n=sol.length;
 h=n?'<div class="hint"><b>'+n+' solid picks</b>, best se worst. Card dabao: poori report.</div>'+sol.map(function(r,i){return pickCard(r,i+1,false)}).join(''):'<div class="card">Aaj koi stock "majboot trend + buy zone" filter me pass nahi hua. Aise din trade skip karna bhi theek hai.</div>'}
 else if(k=='dip'){n=DP.length;h=dipSection()}
@@ -587,7 +606,7 @@ var TGTICK=0;setInterval(function(){if(document.hidden||!pinsOn())return;TGTICK+
 function newsView(){var h='<h3>Aaj ke alerts (live)</h3>'+alertLog()+'<h3>Telegram notes</h3><input id="tgq" placeholder="Search: stock / shabd" value="'+esc(TGQ)+'" autocomplete="off"><div id="tgl">'+tgList()+'</div>',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
 fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+flagChips(n.flags)+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div>'+annBlock(k,false)+'</div>'});
 h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class="card">'+esc(l.trim())+'</div>'}).join(''):'<div class="card">Headlines nahi mili.</div>');return h}
-function render(restore){cur=null;document.body.classList.remove('det');var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():tab=='global'?globalView():newsView();
+function render(restore){cur=null;document.body.classList.remove('det');document.body.classList.remove('stk');try{aiClose()}catch(e){}var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():tab=='global'?globalView():newsView();
 var rk=document.getElementById('rk'),cp=document.getElementById('cp'),q=document.getElementById('q');
 if(rk)rk.onchange=function(){var x=Math.round(+rk.value);if(!(x>0)){rk.value=ls('risk',700);return}setSetting('risk',x);render()};if(cp)cp.onchange=function(){var x=Math.round(+cp.value);if(!(x>0)){cp.value=ls('cap',50000);return}setSetting('cap',x);render()};
 if(q){q.oninput=function(){var raw=q.value.trim(),t=raw.toUpperCase().replace(/\s+/g,''),ql=nmNorm(raw),keys=Object.keys(ST).concat(Object.keys(SK)),a=[];
