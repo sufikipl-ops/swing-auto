@@ -22,7 +22,7 @@ jobs:
         run: |
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
-          git add docs/deals.json
+          git add docs/deals.json out/deals_hist.json
           git diff --cached --quiet && exit 0
           git commit -m "deals $(date -u +%F-%H%M)"
           for i in 1 2 3 4 5; do
