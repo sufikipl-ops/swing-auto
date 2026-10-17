@@ -68,7 +68,7 @@ body.det #bar{display:flex}body.det header{display:none}
 details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:13px;padding:6px 0}
 .tiles.t5{grid-template-columns:repeat(5,1fr)}.tiles.gwt{grid-template-columns:repeat(auto-fit,minmax(90px,1fr))}.tiles.gwt b{font-size:16px}
 .dlf{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.dlf .tg.on{background:var(--b);color:#fff}.dc .wt{cursor:pointer}
-.dr{border-top:1px solid var(--bd);padding:7px 0}.drt{display:flex;align-items:center;gap:6px}.drt small{margin-left:auto}.drw{font-size:13px;margin:2px 0}.drn{display:flex;justify-content:space-between;font-size:13px}
+.dr{border-top:1px solid var(--bd);padding:7px 0}.drb{opacity:.6}.drt{display:flex;align-items:center;gap:6px}.drt small{margin-left:auto}.drw{font-size:13px;margin:2px 0}.drn{display:flex;justify-content:space-between;font-size:13px}
 .igg{border:1px solid var(--bd);border-radius:10px;background:var(--inset);padding:8px 10px;margin:8px 0}.igh{display:flex;align-items:center;gap:6px}.igh b{flex:1;font-size:14px}
 .wr{padding:9px 0;border-top:1px solid var(--bd);cursor:pointer}.wt{display:flex;justify-content:space-between;gap:10px}.wl{flex:1;min-width:0}.wl b{font-size:15px;display:block}.wl small{color:var(--mu);font-size:12px}
 .wv{text-align:right;white-space:nowrap}.wv b{display:block;font-size:15px}.wv small{font-size:11.5px}.wm{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
@@ -765,30 +765,33 @@ return h+'<small>Row dabao: poori detail. Live check hai (price, gap, news, ASM/
 /* ---------- DEALS: bulk / block / insider (deals.py -> docs/deals.json). Sirf jaankari, backtest nahi. ---------- */
 var DLK={BULK:['Bulk','pb'],BLOCK:['Block','pb'],INSIDER:['Insider','pg']};
 function dealsOf(sym,days){var L=(DL&&DL.deals)||[],lim=days?istDay(-days):'';return L.filter(function(x){return x.sym==sym&&(!lim||x.date>=lim)})}
+/* x.both = usi din usi party ne kharida bhi aur becha bhi (HFT/intraday): bharose ka sanket nahi, ginti me nahi */
+function realDeal(x){return !x.both}
 function mySyms(){var m={};SR.forEach(function(r){m[r.SYMBOL]=1});DP.forEach(function(r){m[r.SYMBOL]=1});PN.forEach(function(s){m[s]=1});TR.forEach(function(t){if(t.status!='CLOSED')m[t.symbol]=1});return m}
-function dealChips(sym){var L=dealsOf(sym,7);if(!L.length)return '';var ib=L.some(function(x){return x.kind=='INSIDER'&&x.side=='BUY'}),is=L.some(function(x){return x.kind=='INSIDER'&&x.side=='SELL'}),
+function dealChips(sym){var L=dealsOf(sym,7).filter(realDeal);if(!L.length)return '';var ib=L.some(function(x){return x.kind=='INSIDER'&&x.side=='BUY'}),is=L.some(function(x){return x.kind=='INSIDER'&&x.side=='SELL'}),
 bb=L.some(function(x){return x.kind!='INSIDER'&&x.side=='BUY'}),bs=L.some(function(x){return x.kind!='INSIDER'&&x.side=='SELL'});
 return (ib?chip('Promoter kharid','pg'):'')+(is?chip('Promoter bikri','pr'):'')+(bb?chip('Bada kharid','pb'):'')+(bs?chip('Bada bikri','py'):'')}
 function dealRow(x){var b=x.side=='BUY',k=DLK[x.kind]||[x.kind,''];
-return '<div class="dr"><div class="drt"><span class="'+(b?'g':'r')+'"><b>'+(b?'KHARID':'BIKRI')+'</b></span> '+chip(k[0],k[1])+'<small class="mu">'+esc(x.date)+'</small></div>'+
+return '<div class="dr'+(x.both?' drb':'')+'"><div class="drt"><span class="'+(x.both?'mu':b?'g':'r')+'"><b>'+(b?'KHARID':'BIKRI')+'</b></span> '+chip(k[0],k[1])+(x.both?chip('Intraday (dono taraf)',''):'')+'<small class="mu">'+esc(x.date)+'</small></div>'+
 '<div class="drw"><b>'+esc(x.who||'-')+'</b>'+(x.cat?' <small class="mu">('+esc(x.cat)+')</small>':'')+'</div>'+
 '<div class="drn"><span>'+Number(x.qty).toLocaleString('en-IN')+' share'+(x.price?' @ '+f(x.price):'')+'</span>'+(x.value_cr!=null?'<b>Rs '+f(x.value_cr,x.value_cr<1?2:1)+' cr</b>':'')+'</div>'+(x.note?'<small class="mu">'+esc(x.note)+'</small>':'')+'</div>'}
 function dealsBlock(sym){var L=dealsOf(sym,14);if(!L.length)return '';return '<div style="margin-top:10px"><b>Bade sauda (14 din)</b>'+L.map(dealRow).join('')+'<small class="mu">NSE bulk/block deals aur promoter/director ki kharid-bikri. Sirf jaankari, buy signal nahi.</small></div>'}
 function dealsSet(k){DLF=k;render(true)}
 function dealsView(){if(!DL)return '<div class="card">Deals data abhi nahi bana. Ye roz shaam ~5:30 aur 8:30 baje banta hai (Actions &gt; deals).</div>';
-var my=mySyms(),L=(DL.deals||[]).filter(function(x){return DLF=='all'||(DLF=='buy'&&x.side=='BUY')||(DLF=='sell'&&x.side=='SELL')||(DLF=='insider'&&x.kind=='INSIDER')||(DLF=='mine'&&my[x.sym])});
+var my=mySyms(),L=(DL.deals||[]).filter(function(x){return DLF=='all'||(DLF=='buy'&&x.side=='BUY'&&!x.both)||(DLF=='sell'&&x.side=='SELL'&&!x.both)||(DLF=='insider'&&x.kind=='INSIDER')||(DLF=='mine'&&my[x.sym])});
 var G={},order=[];L.forEach(function(x){if(!G[x.sym]){G[x.sym]=[];order.push(x.sym)}G[x.sym].push(x)});
-order.sort(function(a,b){return (my[b]?1:0)-(my[a]?1:0)||(G[b][0].date>G[a][0].date?1:G[b][0].date<G[a][0].date?-1:0)||sumv(G[b])-sumv(G[a])});
+order.forEach(function(k){G[k].sort(function(a,b){return (a.both?1:0)-(b.both?1:0)})});
+order.sort(function(a,b){return (my[b]?1:0)-(my[a]?1:0)||(G[b].some(realDeal)?1:0)-(G[a].some(realDeal)?1:0)||(G[b][0].date>G[a][0].date?1:G[b][0].date<G[a][0].date?-1:0)||sumv(G[b])-sumv(G[a])});
 function sumv(A){return A.reduce(function(s,x){return s+(x.value_cr||0)},0)}
 var st=DL.status||{},bad=Object.keys(st).filter(function(k){return String(st[k]).indexOf('fail')==0});
-var h='<div class="card"><div class="row"><b>Bade sauda</b><small class="mu">'+esc(DL.updated||'')+'</small></div><small class="mu">Pichhle 14 din: <b>Bulk</b> (ek din me 0.5%+ share), <b>Block</b> (bada alag sauda) aur <b>Insider</b> (promoter/director ne apni company ke share kharide/beche). Sirf jaankari: buy signal nahi, backtest nahi hua.</small>'+
+var h='<div class="card"><div class="row"><b>Bade sauda</b><small class="mu">'+esc(DL.updated||'')+'</small></div><small class="mu">Pichhle 14 din: <b>Bulk</b> (ek din me 0.5%+ share), <b>Block</b> (bada alag sauda) aur <b>Insider</b> (promoter/director ne apni company ke share kharide/beche). Sirf jaankari: buy signal nahi, backtest nahi hua. <b>Intraday (dono taraf)</b> = usi din kharida bhi aur becha bhi (HFT/trading firm): iska bharosa ka matlab nahi, isliye ginti me nahi.</small>'+
 (bad.length?'<div class="y"><small>Is baar data nahi mila: '+bad.map(esc).join(', ')+'</small></div>':'')+
 '<div class="dlf">'+[['all','Sab'],['buy','Kharid'],['sell','Bikri'],['insider','Insider'],['mine','Mere stocks']].map(function(z){return '<button class="tg'+(DLF==z[0]?' on':'')+'" onclick="dealsSet(\''+z[0]+'\')">'+z[1]+'</button>'}).join('')+'</div></div>';
 if(!order.length)return h+'<div class="card"><small>Is filter me koi sauda nahi.</small></div>';
-order.slice(0,80).forEach(function(sym){var A=G[sym],x=pxOf(sym),nb=A.filter(function(d){return d.side=='BUY'}).length,ns=A.length-nb,tv=sumv(A);
+order.slice(0,80).forEach(function(sym){var A=G[sym],x=pxOf(sym),R=A.filter(realDeal),nb=R.filter(function(d){return d.side=='BUY'}).length,ns=R.length-nb,nh=A.length-R.length,tv=sumv(R);
 h+='<div class="card dc"><div class="wt" onclick="detail(\''+esc(sym)+'\')"><div class="wl"><b>'+esc(sym)+'</b><small>'+esc(NM[sym]||A[0].name||'')+'</small></div>'+
 (x?'<div class="wv"><b>'+f(x.ltp)+'</b><small class="'+(x.chg>=0?'g':'r')+'">'+(x.chg>=0?'+':'')+f(x.chg,2)+'%</small></div>':'')+'</div>'+
-'<div class="wm">'+(my[sym]?chip('Aapka stock','py'):'')+(nb?chip(nb+' kharid','pg'):'')+(ns?chip(ns+' bikri','pr'):'')+(A.some(function(d){return d.kind=='INSIDER'})?chip('Insider','pg'):'')+'<span class="mp">Kul Rs '+f(tv,1)+' cr</span></div>'+
+'<div class="wm">'+(my[sym]?chip('Aapka stock','py'):'')+(nb?chip(nb+' kharid','pg'):'')+(ns?chip(ns+' bikri','pr'):'')+(A.some(function(d){return d.kind=='INSIDER'})?chip('Insider','pg'):'')+(nh?chip(nh+' intraday',''):'')+(tv?'<span class="mp">Kul Rs '+f(tv,1)+' cr</span>':'')+'</div>'+
 A.slice(0,6).map(dealRow).join('')+(A.length>6?'<small class="mu">+'+(A.length-6)+' aur (stock dabao)</small>':'')+'</div>'});
 return h+(order.length>80?'<div class="card"><small>Sirf pehle 80 stock dikhaye. Filter lagao.</small></div>':'')}
 function alertLog(){var L=(LV&&LV.alerts)||[];if(!L.length)return '<div class="card"><small>Aaj abhi koi alert nahi aaya.</small></div>';return L.slice().reverse().slice(0,25).map(function(a){return '<div class="card" onclick="detail(\''+esc(a.s)+'\')"><div class="row"><b>'+esc(a.s)+'</b><small>'+esc(a.at||'')+'</small></div><div class="r"><small>'+esc(a.t)+'</small></div></div>'}).join('')}
