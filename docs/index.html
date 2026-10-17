@@ -68,6 +68,10 @@ body.det #bar{display:flex}body.det header{display:none}
 details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:13px;padding:6px 0}
 .tiles.t5{grid-template-columns:repeat(5,1fr)}.tiles.gwt{grid-template-columns:repeat(auto-fit,minmax(90px,1fr))}.tiles.gwt b{font-size:16px}
 .igg{border:1px solid var(--bd);border-radius:10px;background:var(--inset);padding:8px 10px;margin:8px 0}.igh{display:flex;align-items:center;gap:6px}.igh b{flex:1;font-size:14px}
+.wr{padding:9px 0;border-top:1px solid var(--bd);cursor:pointer}.wt{display:flex;justify-content:space-between;gap:10px}.wl{flex:1;min-width:0}.wl b{font-size:15px;display:block}.wl small{color:var(--mu);font-size:12px}
+.wv{text-align:right;white-space:nowrap}.wv b{display:block;font-size:15px}.wv small{font-size:11.5px}.wm{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.mp{font-size:11.5px;padding:3px 7px;border-radius:6px;background:var(--chip);color:var(--tx)}.mp.bad{background:var(--rbg);color:var(--r);font-weight:600}
+.wd{margin-top:6px}.wd summary{font-size:12.5px;padding:4px 0}.wd .at{font-size:12.5px}
 .igs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.igb{background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;min-height:40px}
 .igr{padding:6px 0;border-top:1px solid var(--bd);margin-top:4px}.igr b{display:block;font-size:13px}.igr small{color:var(--mu)}.tiles.t5 b{font-size:12px}
 .strat{margin:6px 0 2px;display:flex;flex-wrap:wrap;gap:4px;align-items:center}.strat small{color:var(--mu)}
@@ -660,21 +664,42 @@ function ignSyms(){var a=[],seen={};function add(s){if(s&&!seen[s]){seen[s]=1;a.
 function ignAll(){var m={};ignSyms().forEach(function(s){var r=ignoreReasons(s);if(r.length)m[s]=r});return m}
 function ignStrip(sym){var r=ignoreReasons(sym);return r.length?'<div class="ign"><b>IGNORE KARO:</b> '+r.map(esc).join(' | ')+'</div>':''}
 function ignSig(){var m=ignAll();return Object.keys(m).map(function(k){return k+m[k].length}).join(',')}
-/* "Aaj ignore karo": wajah ke hisaab se group (ek wajah = ek dibba, andar stocks ke button) */
-var IGG=[[/OPEN trade/,'&#128308;','Tumhara trade: SL hit','Broker app me exit confirm karo.'],[/ASM\/GSM/,'&#128683;','ASM/GSM list (exchange ki nigrani)','Margin/circuit ki pabandi. Trade mat lo.'],
-[/Bura news/,'&#128240;','Bura news ka shak','Announcement padh ke khud tay karo (keyword check hai).'],[/Result/,'&#128197;','Result/board meeting paas','Result se pehle naya trade mat lo.'],
-[/circuit/i,'&#9940;','Circuit lag gaya','Entry/exit atak sakta hai.'],[/Stop-loss|SL \(|SL ke/,'&#128201;','Price SL ke neeche','Setup toot gaya: skip.'],[/[Gg]ap/,'&#8597;','Gap rule fail','Open bahut upar/neeche: aaj skip.'],
-[/upar nikal/,'&#128640;','Bahut upar nikal gaya','Peecha mat karo.'],[/series|suspend/i,'&#9888;','Series/suspended','Sirf pabandi wali trading.']];
+/* "Aaj ignore karo": wajah ke hisaab se group. Har stock ek watchlist-row: naam | price + badlaav, neeche us wajah ke asli number */
+var IGG=[[/OPEN trade/,'&#128308;','Tumhara trade: SL hit','Broker app me exit confirm karo.','sl'],[/ASM\/GSM/,'&#128683;','ASM/GSM list (exchange ki nigrani)','Zyada margin, circuit ki pabandi. Naya trade mat lo.','asm'],
+[/Bura news/,'&#128240;','Bura news ka shak','Saar padho, detail kholo, phir khud tay karo.','news'],[/Result/,'&#128197;','Result/board meeting paas','Result se pehle naya trade mat lo.','res'],
+[/circuit/i,'&#9940;','Circuit lag gaya','Entry/exit atak sakta hai.','cir'],[/Stop-loss|SL \(|SL ke/,'&#128201;','Price SL ke neeche','Setup toot gaya: skip.','psl'],[/[Gg]ap/,'&#8597;','Gap rule fail','Open bahut upar/neeche: aaj skip.','gap'],
+[/upar nikal|1\.5% upar khula/,'&#128640;','Bahut upar nikal gaya','Peecha mat karo.','up'],[/series|suspend/i,'&#9888;','Series/suspended','Sirf pabandi wali trading.','ser']];
 function igGroup(t){for(var i=0;i<IGG.length;i++)if(IGG[i][0].test(t))return i;return -1}
-function ignoreCard(){var m=ignAll(),k=Object.keys(m);if(!k.length)return '';var G={},other=[];
-k.forEach(function(sym){m[sym].forEach(function(t){var i=igGroup(t),key=i<0?'x':i;(G[key]=G[key]||[]).push([sym,t])})});
+/* price: live ho to live, warna aakhri close */
+function pxOf(sym){var it=liveItem(sym),s=ST[sym];if(it){var pc=livePc(sym,it);return{ltp:it.ltp,pc:pc,chg:(it.ltp/pc-1)*100,o:it.o,lbl:'Live'}}
+if(s)return{ltp:s.c,pc:s.c/(1+(+s.chg||0)/100),chg:+s.chg||0,o:null,lbl:'Close'};var pk=PK[sym];return pk?{ltp:+pk.CLOSE,pc:+pk.CLOSE/(1+(+pk.CHG_PCT||0)/100),chg:+pk.CHG_PCT||0,o:null,lbl:'Close'}:null}
+function pl(t,c){return '<span class="mp'+(c?' '+c:'')+'">'+t+'</span>'}
+function wRow(sym,sub,pills,extra){var x=pxOf(sym);return '<div class="wr" onclick="detail(\''+esc(sym)+'\')"><div class="wt"><div class="wl"><b>'+esc(sym)+'</b><small>'+(sub||esc(NM[sym]||''))+'</small></div>'+
+(x?'<div class="wv"><b>'+f(x.ltp)+'</b><small class="'+(x.chg>=0?'g':'r')+'">'+(x.chg>=0?'+':'')+f(x.chg,2)+'% &middot; '+x.lbl+'</small></div>':'')+'</div>'+(pills?'<div class="wm">'+pills+'</div>':'')+(extra||'')+'</div>'}
+function igRow(kind,sym,txt){var x=pxOf(sym),r=rsInfo(sym),b=parseFloat(r.band);
+if(kind=='asm'){var stg=r.asm||r.gsm||r.surv||'',pills=pl((r.asm?'ASM ':r.gsm?'GSM ':'')+esc(stg),'bad');
+if(b>0&&x){var up=x.pc*(1+b/100),lo=x.pc*(1-b/100);pills+=pl('Circuit '+b+'%')+pl('Upper '+f(up))+pl('Lower '+f(lo))+pl('Upper se '+f((up/x.ltp-1)*100,1)+'% door')}
+else if(r.band)pills+=pl('Circuit: '+esc(r.band));return wRow(sym,'',pills)}
+if(kind=='news'){var a=badNews(sym);if(!a)return wRow(sym,esc(txt));var m=((NEUTRALCAT.test(a.cat||'')?'':(a.cat||''))+' '+(a.text||'')).match(BADNEWS),kw=m?m[0]:'';
+var saar=a.summary||a.text||a.cat||'',ok=/^https:\/\/((nsearchives|www)\.nseindia\.com|www\.bseindia\.com)\//.test(a.link||'');
+return wRow(sym,esc(String(saar).slice(0,140))+(String(saar).length>140?'&hellip;':''),pl('Shabd: "'+esc(kw)+'"','bad')+pl(esc(a.src||'NSE')+' &middot; '+esc(String(a.date||'').slice(0,11))),
+'<details class="wd" onclick="event.stopPropagation()"><summary>Kyu bura news? (detail)</summary><div><b>'+esc(a.cat||'')+'</b></div>'+'<div class="at">'+esc(a.text||'')+'</div>'+
+'<small>Is announcement me "<b>'+esc(kw)+'</b>" shabd aaya, jo aam taur par bura sanket hota hai (jaanch, penalty, rating cut, default jaisa). Ye keyword check hai: kabhi galat bhi hota hai, isliye ek baar padh lo.</small>'+(ok?'<div><a class="btn" target="_blank" rel="noopener" href="'+esc(a.link)+'">Poora padho (PDF)</a></div>':'')+'</details>')}
+if(kind=='sl'){var t=TR.filter(function(t){return t.symbol==sym&&t.status=='OPEN'})[0];if(t){var e=+t.entry,sl=+t.sl,q=+t.qty||0;
+return wRow(sym,'Tumhara trade: '+esc(t.date),pl('Entry '+f(e))+pl('SL '+f(sl),'bad')+(q?pl('Nuksan ~Rs '+f((e-sl)*q,0),'bad'):''))}}
+if(kind=='psl'||kind=='up'||kind=='gap'){var p=livePlan(sym)||(DPM[sym]?dipPlan(DPM[sym],liveItem(sym)):null),ps='';
+if(x&&x.o)ps+=pl('Open '+f(x.o))+pl('Gap '+((x.o/x.pc-1)*100>=0?'+':'')+f((x.o/x.pc-1)*100,1)+'%',kind=='gap'?'bad':'');
+if(p){ps+=pl((kind=='up'?'Trigger ':'Entry ')+f(p.entry));if(kind=='psl')ps+=pl('SL '+f(p.stop),'bad');if(kind=='up'&&x)ps+=pl('Trigger se '+f((x.o||x.ltp)/p.entry*100-100,1)+'% upar','bad')}
+return wRow(sym,esc(txt.replace(/^Dip:\s*/,'')),ps)}
+if(kind=='res'){var n=NW[sym]||{};return wRow(sym,'Result se pehle trade risky',pl(esc(n.next_event||'date paas'),'bad'))}
+if(kind=='cir'&&x&&b>0){var up2=x.pc*(1+b/100),lo2=x.pc*(1-b/100);return wRow(sym,esc(txt),pl('Circuit '+b+'%')+pl(x.ltp>=up2*0.995?'Upper '+f(up2):'Lower '+f(lo2),'bad'))}
+return wRow(sym,esc(txt))}
+function ignoreCard(){var m=ignAll(),k=Object.keys(m);if(!k.length)return '';var G={};
+k.forEach(function(sym){m[sym].forEach(function(t){var i=igGroup(t),key=i<0?'x':i;G[key]=G[key]||{};if(!G[key][sym])G[key][sym]=t})});
 var h='<div class="card" id="sec-ign" style="border-color:var(--r)"><div class="row"><b class="r">Aaj ignore karo</b>'+chip(k.length+' stock','pr')+'</div>';
-Object.keys(G).sort(function(a,b){return (a=='x'?99:+a)-(b=='x'?99:+b)}).forEach(function(key){var L=G[key],g=key=='x'?[0,'&#9888;','Aur wajah','']:IGG[+key],seen={};
-var det=L.filter(function(x){var d=x[1].replace(/^[^:]*:\s*/,'');return d&&d!=x[1]&&!/^\(?trade mat lo\)?$|^skip$|exit confirm karo$/i.test(d)});
-h+='<div class="igg"><div class="igh"><span>'+g[1]+'</span><b>'+g[2]+'</b>'+chip(L.length,'')+'</div>'+(g[3]?'<small class="mu">'+g[3]+'</small>':'')+
-(det.length||key=='x'?L.map(function(x){return '<div class="igr" onclick="detail(\''+esc(x[0])+'\')"><b>'+esc(x[0])+'</b><small>'+esc(x[1].replace(/^[^:]*:\s*/,''))+'</small></div>'}).join(''):
-'<div class="igs">'+L.filter(function(x){if(seen[x[0]])return false;seen[x[0]]=1;return true}).map(function(x){return '<button class="igb" onclick="detail(\''+esc(x[0])+'\')">'+esc(x[0])+'</button>'}).join('')+'</div>')+'</div>'});
-return h+'<small>Stock dabao: poori detail. Live check hai (price, gap, news, ASM/GSM, circuit). Badalte hi yahan aur Telegram par aata hai.</small></div>'}
+Object.keys(G).sort(function(a,b){return (a=='x'?99:+a)-(b=='x'?99:+b)}).forEach(function(key){var g=key=='x'?[0,'&#9888;','Aur wajah','','x']:IGG[+key],S=Object.keys(G[key]);
+h+='<div class="igg"><div class="igh"><span>'+g[1]+'</span><b>'+g[2]+'</b>'+chip(S.length,'')+'</div>'+(g[3]?'<small class="mu">'+g[3]+'</small>':'')+S.map(function(sym){return igRow(g[4],sym,G[key][sym])}).join('')+'</div>'});
+return h+'<small>Row dabao: poori detail. Live check hai (price, gap, news, ASM/GSM, circuit). Badalte hi yahan aur Telegram par aata hai.</small></div>'}
 function alertLog(){var L=(LV&&LV.alerts)||[];if(!L.length)return '<div class="card"><small>Aaj abhi koi alert nahi aaya.</small></div>';return L.slice().reverse().slice(0,25).map(function(a){return '<div class="card" onclick="detail(\''+esc(a.s)+'\')"><div class="row"><b>'+esc(a.s)+'</b><small>'+esc(a.at||'')+'</small></div><div class="r"><small>'+esc(a.t)+'</small></div></div>'}).join('')}
 function ignCheck(){try{var m=ignAll(),day=istDay(0),raw=localStorage.getItem('ign_'+day),first=raw==null,seen=raw?JSON.parse(raw):{},fresh=[];
 Object.keys(m).forEach(function(s){m[s].forEach(function(r){var k=s+'|'+r;if(!seen[k]){seen[k]=1;fresh.push(s+': '+r)}})});
