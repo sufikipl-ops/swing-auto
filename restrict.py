@@ -84,18 +84,19 @@ def parse_json_list(txt):
     d = json.loads(txt)
     items = []
 
-    def walk(x):
+    def walk(x, sec=''):
         if isinstance(x, dict):
             if any(str(k).lower() in ('symbol', 'scripcode') for k in x):
-                items.append(x)
-            for v in x.values():
-                walk(v)
+                items.append((x, sec))
+            for k, v in x.items():
+                kl = str(k).lower()      # NSE reportASM: 'longterm' / 'shortterm' section -> LT / ST
+                walk(v, 'LT' if 'long' in kl else 'ST' if 'short' in kl else sec)
         elif isinstance(x, list):
             for v in x:
-                walk(v)
+                walk(v, sec)
     walk(d)
     out = {}
-    for it in items:
+    for it, sec in items:
         sym = None
         for k, v in it.items():
             if str(k).lower() == 'symbol' and v:
@@ -106,7 +107,7 @@ def parse_json_list(txt):
         for k, v in it.items():
             if 'stage' in str(k).lower() or 'asmsurvind' in str(k).lower() or 'gsm' in str(k).lower():
                 st = str(v); break
-        out[sym] = st
+        out[sym] = ('%s %s' % (sec, st)).strip() if sec and not st.startswith(sec) else st
     return out
 
 
