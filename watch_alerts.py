@@ -133,7 +133,7 @@ def evaluate(items, ctx, today_str):
         tier = r.get('TIER') or 'A'
         if tier not in ('A', 'B') and not vweak:      # bounce sirf bahut kamzor market me trade hota hai
             continue
-        lbl = 'Dip' if tier in ('A', 'B') else 'Bounce'
+        lbl = 'Dip' if tier in ('A', 'B') else 'Structure' if tier.startswith('STRUCT') else 'Bounce'
         sym = (r.get('SYMBOL') or '').upper()
         it = items.get(sym)
         if not sym or not it or not it.get('ltp'):
@@ -146,7 +146,9 @@ def evaluate(items, ctx, today_str):
             add(sym, 'dgapup', '%s: gap-up %.1f%% (limit +1.5%%): skip' % (lbl, gap))
         elif gap < -3:
             add(sym, 'dgapdn', '%s: gap-down %.1f%% (limit -3%%): skip' % (lbl, gap))
-        elif atr and it['ltp'] <= o - 2 * atr:
+        elif lbl == 'Structure' and num(r.get('STOP_REF')) and it['ltp'] <= num(r.get('STOP_REF')):
+            add(sym, 'dsl', 'Structure: swing low SL (%.2f) ke neeche: skip' % num(r.get('STOP_REF')))
+        elif lbl != 'Structure' and atr and it['ltp'] <= o - 2 * atr:
             add(sym, 'dsl', '%s: price stop (%.2f) ke neeche: skip' % (lbl, o - 2 * atr))
         if sym not in seen_pick:
             common(sym, it)
