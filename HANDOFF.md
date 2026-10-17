@@ -85,3 +85,10 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - 4 saal: STRONG/MIXED/WEAK me minus (-0.02 se -0.42R); VWEAK me +0.19 se +0.37R (SL swing low, 2R, 10 din: +0.32R, 57%, 3/3 saal, n~250, clustered).
 - dip_scan.py roz STRUCT/STRUCT_DEEP rows (STOP_REF = swing low*0.998, TARGET_REF 2R) likhta hai; logic regime_study.struct_sig jaisa (dono saath badlo).
   App: structSection cards sirf VWEAK, warna ek line. watch_alerts: Structure SL = STOP_REF, sirf VWEAK me.
+
+## Purani reels dobara (awaaz sun ke, 2026-10-17)
+- ORB reel ki awaaz: 9:25 par 1.5-2% upar/neeche wale 3-4 F&O stock, advance/decline se disha, target 1:3 -> orb_study VIDEO + AD930 + 3R:
+  kharche ke baad -0.17 se -0.33R (fail). SL ~0.7% hone se 0.15% kharcha hi ~0.2R kha jaata hai.
+- Trendline reel ki awaaz: "4th-5th touch par tootti hai", liquidity fake-out -> T4 / T4+SWEEP: best LONG T4+SWEEP ~0R
+  (base -0.07R se behtar) par 2025+ test me minus; koi combo train+test dono me plus nahi (0/72). Reel ka asli timeframe 3-5 min intraday.
+- Awaaz: pip install faster-whisper, model 'medium', audio 25 sec tukdon me (vad_filter, beam 1) -> ~7 min per 2 min video.
