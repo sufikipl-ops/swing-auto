@@ -66,7 +66,10 @@ body.det #bar{display:flex}body.det header{display:none}
 .lr.up{color:var(--up)}.lr.dn{color:var(--dn)}.lr.now{background:var(--chip);color:var(--tx);font-weight:700;margin:3px 0}
 .lr.en{color:var(--b);font-weight:600}.lr.tg{color:var(--g);font-weight:600}.lr.sl{color:var(--r);font-weight:600}
 details{margin-top:8px}summary{cursor:pointer;color:var(--b);font-size:13px;padding:6px 0}
-.tiles.t5{grid-template-columns:repeat(5,1fr)}.tiles.t5 b{font-size:12px}
+.tiles.t5{grid-template-columns:repeat(5,1fr)}.tiles.gwt{grid-template-columns:repeat(auto-fit,minmax(90px,1fr))}.tiles.gwt b{font-size:16px}
+.igg{border:1px solid var(--bd);border-radius:10px;background:var(--inset);padding:8px 10px;margin:8px 0}.igh{display:flex;align-items:center;gap:6px}.igh b{flex:1;font-size:14px}
+.igs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.igb{background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;min-height:40px}
+.igr{padding:6px 0;border-top:1px solid var(--bd);margin-top:4px}.igr b{display:block;font-size:13px}.igr small{color:var(--mu)}.tiles.t5 b{font-size:12px}
 .strat{margin:6px 0 2px;display:flex;flex-wrap:wrap;gap:4px;align-items:center}.strat small{color:var(--mu)}
 .qbox{margin:6px 0;border:1px solid var(--bd);border-radius:10px;background:var(--inset);padding:2px 10px}.qbox summary{color:var(--tx);font-size:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.qbox summary small{width:100%;color:var(--mu)}
 .qt{width:100%;border-collapse:collapse;margin:6px 0;font-size:13px}.qt th{text-align:left;font-size:11px;color:var(--mu);font-weight:600;padding:4px 4px;border-bottom:1px solid var(--bd)}.qt td{padding:6px 4px;border-bottom:1px solid var(--bd);vertical-align:top}.qt tr:last-child td{border-bottom:0}.qt td:last-child,.qt th:last-child{white-space:nowrap;text-align:right}
@@ -567,8 +570,10 @@ function macroNow(){var t=istDay(0),n=istDay(1),o=[];(MC||[]).forEach(function(e
 function macroCaution(){return macroNow().filter(function(x){return x.e.level=='caution'})}
 function goTab(t){tab=t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x.dataset.t==t)});render()}
 function alertBanner(){var a=[],mc=macroCaution();mc.forEach(function(x){a.push('<b>'+esc(x.e.name)+'</b> ('+x.ph+'): '+esc(x.e.note||''))});
-var md=GL&&GL.mood;if(md&&(md.level=='CAUTION'||md.level=='RISK_OFF'))a.push('<b>Global '+(md.level=='RISK_OFF'?'RISK-OFF':'savdhani')+':</b> '+md.why.map(esc).join(', '));
-if(!a.length)return '';return '<div class="card" style="border-color:'+((md&&md.level=='RISK_OFF')?'var(--r)':'var(--y)')+'" onclick="goTab(\'global\')"><b class="y">Aaj savdhani</b>'+a.map(function(x){return '<div class="ck">&#9888; '+x+'</div>'}).join('')+'<small>Naye trade me qty aadhi ya skip socho. Ye alert backtest nahi hua, sirf savdhani hai. Detail: Global tab.</small></div>'}
+var md=GL&&GL.mood,gw=(md&&(md.level=='CAUTION'||md.level=='RISK_OFF'))?md.why:[];
+if(!a.length&&!gw.length)return '';
+var tl=gw.map(function(w){var x=String(w).match(/^(.*?)\s+([+-]?\d+(?:\.\d+)?)%\s*(.*)$/);if(!x)return '<div><small>'+esc(w)+'</small></div>';var n=x[1].replace(/\s+(average|avg)$/i,' avg'),v=+x[2],rest=x[3]||'';return '<div><small>'+esc(n)+'</small><b class="r">'+(v>0?'+':'')+f(v,1)+'%</b><small>'+esc(rest.replace(/\(|\)/g,'').replace(/^(gira|upar|neeche)\s*/,'$1 ').trim())+'</small></div>'}).join('');
+return '<div class="card" style="border-color:'+((md&&md.level=='RISK_OFF')?'var(--r)':'var(--y)')+'" onclick="goTab(\'global\')"><div class="row"><b class="y">Aaj savdhani</b>'+(gw.length?chip(md.level=='RISK_OFF'?'Global RISK-OFF':'Global savdhani',md.level=='RISK_OFF'?'pr':'py'):'')+'</div>'+(tl?'<div class="tiles gwt">'+tl+'</div>':'')+a.map(function(x){return '<div class="ck">&#9888; '+x+'</div>'}).join('')+'<small>Naye trade me qty aadhi ya skip socho. Ye alert backtest nahi hua, sirf savdhani hai. Detail: Global tab.</small></div>'}
 function rsInfo(sym){if(!RS)return{known:false,why:'restrict.json nahi bani'};var it=(RS.items||{})[sym]||{},ck=(RS.checked||[]).indexOf(sym)>=0,st=RS.status||{};
 return{known:ck&&st.asm=='ok'&&st.gsm=='ok',bandOk:st.band=='ok',asm:it.asm,gsm:it.gsm,surv:it.surv,band:it.band,series:it.series,susp:it.suspended,asmOk:st.asm=='ok',gsmOk:st.gsm=='ok',upd:RS.updated}}
 function rsChips(sym){var r=rsInfo(sym),o='';if(!r.known&&!r.asm&&!r.gsm)return '';if(r.asm||r.gsm||r.surv)o+=chip('ASM/GSM: trade mat lo','pr');if(r.series)o+=chip('Series '+r.series+' (sirf delivery)','pr');if(r.susp)o+=chip('Suspended','pr');
@@ -655,9 +660,21 @@ function ignSyms(){var a=[],seen={};function add(s){if(s&&!seen[s]){seen[s]=1;a.
 function ignAll(){var m={};ignSyms().forEach(function(s){var r=ignoreReasons(s);if(r.length)m[s]=r});return m}
 function ignStrip(sym){var r=ignoreReasons(sym);return r.length?'<div class="ign"><b>IGNORE KARO:</b> '+r.map(esc).join(' | ')+'</div>':''}
 function ignSig(){var m=ignAll();return Object.keys(m).map(function(k){return k+m[k].length}).join(',')}
-function ignoreCard(){var m=ignAll(),k=Object.keys(m),sv_=(LV&&LV.alerts)||[];
-var h='';if(k.length)h+='<div class="card" id="sec-ign" style="border-color:var(--r)"><b class="r">Aaj ignore karo ('+k.length+')</b>'+k.map(function(s){return '<div class="ck" onclick="detail(\''+esc(s)+'\')"><b>'+esc(s)+'</b>: '+m[s].map(esc).join(' | ')+'</div>'}).join('')+'<small>Ye live check hai (price, gap, news, ASM/GSM, circuit). Suggestion badalte hi yahan aur Telegram par aata hai.</small></div>';
-return h}
+/* "Aaj ignore karo": wajah ke hisaab se group (ek wajah = ek dibba, andar stocks ke button) */
+var IGG=[[/OPEN trade/,'&#128308;','Tumhara trade: SL hit','Broker app me exit confirm karo.'],[/ASM\/GSM/,'&#128683;','ASM/GSM list (exchange ki nigrani)','Margin/circuit ki pabandi. Trade mat lo.'],
+[/Bura news/,'&#128240;','Bura news ka shak','Announcement padh ke khud tay karo (keyword check hai).'],[/Result/,'&#128197;','Result/board meeting paas','Result se pehle naya trade mat lo.'],
+[/circuit/i,'&#9940;','Circuit lag gaya','Entry/exit atak sakta hai.'],[/Stop-loss|SL \(|SL ke/,'&#128201;','Price SL ke neeche','Setup toot gaya: skip.'],[/[Gg]ap/,'&#8597;','Gap rule fail','Open bahut upar/neeche: aaj skip.'],
+[/upar nikal/,'&#128640;','Bahut upar nikal gaya','Peecha mat karo.'],[/series|suspend/i,'&#9888;','Series/suspended','Sirf pabandi wali trading.']];
+function igGroup(t){for(var i=0;i<IGG.length;i++)if(IGG[i][0].test(t))return i;return -1}
+function ignoreCard(){var m=ignAll(),k=Object.keys(m);if(!k.length)return '';var G={},other=[];
+k.forEach(function(sym){m[sym].forEach(function(t){var i=igGroup(t),key=i<0?'x':i;(G[key]=G[key]||[]).push([sym,t])})});
+var h='<div class="card" id="sec-ign" style="border-color:var(--r)"><div class="row"><b class="r">Aaj ignore karo</b>'+chip(k.length+' stock','pr')+'</div>';
+Object.keys(G).sort(function(a,b){return (a=='x'?99:+a)-(b=='x'?99:+b)}).forEach(function(key){var L=G[key],g=key=='x'?[0,'&#9888;','Aur wajah','']:IGG[+key],seen={};
+var det=L.filter(function(x){var d=x[1].replace(/^[^:]*:\s*/,'');return d&&d!=x[1]&&!/^\(?trade mat lo\)?$|^skip$|exit confirm karo$/i.test(d)});
+h+='<div class="igg"><div class="igh"><span>'+g[1]+'</span><b>'+g[2]+'</b>'+chip(L.length,'')+'</div>'+(g[3]?'<small class="mu">'+g[3]+'</small>':'')+
+(det.length||key=='x'?L.map(function(x){return '<div class="igr" onclick="detail(\''+esc(x[0])+'\')"><b>'+esc(x[0])+'</b><small>'+esc(x[1].replace(/^[^:]*:\s*/,''))+'</small></div>'}).join(''):
+'<div class="igs">'+L.filter(function(x){if(seen[x[0]])return false;seen[x[0]]=1;return true}).map(function(x){return '<button class="igb" onclick="detail(\''+esc(x[0])+'\')">'+esc(x[0])+'</button>'}).join('')+'</div>')+'</div>'});
+return h+'<small>Stock dabao: poori detail. Live check hai (price, gap, news, ASM/GSM, circuit). Badalte hi yahan aur Telegram par aata hai.</small></div>'}
 function alertLog(){var L=(LV&&LV.alerts)||[];if(!L.length)return '<div class="card"><small>Aaj abhi koi alert nahi aaya.</small></div>';return L.slice().reverse().slice(0,25).map(function(a){return '<div class="card" onclick="detail(\''+esc(a.s)+'\')"><div class="row"><b>'+esc(a.s)+'</b><small>'+esc(a.at||'')+'</small></div><div class="r"><small>'+esc(a.t)+'</small></div></div>'}).join('')}
 function ignCheck(){try{var m=ignAll(),day=istDay(0),raw=localStorage.getItem('ign_'+day),first=raw==null,seen=raw?JSON.parse(raw):{},fresh=[];
 Object.keys(m).forEach(function(s){m[s].forEach(function(r){var k=s+'|'+r;if(!seen[k]){seen[k]=1;fresh.push(s+': '+r)}})});
