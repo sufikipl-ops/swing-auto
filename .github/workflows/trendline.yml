@@ -1,0 +1,40 @@
+name: trendline
+# Trendline break study, long + short (about 4 years). Run manually: Actions > trendline > Run workflow.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  trendline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download bhavcopy (about 4 years)
+        run: python fetch.py
+        env:
+          DAYS: "1500"
+      - name: Run study
+        run: python trendline_study.py data out
+      - name: Save result as download too (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: trendline-result
+          path: |
+            out/trendline_summary.txt
+            out/trendline_results.csv
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add out/trendline_summary.txt out/trendline_results.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "trendline $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
