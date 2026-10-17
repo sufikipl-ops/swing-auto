@@ -1,4 +1,4 @@
-PICKS REVIEW (forward test) 2026-10-16
+PICKS REVIEW (forward test) 2026-10-17
 picks read: 5
 date       symbol          entry       sl   target  qty status          exit_date      exit why            R      pnl
 2026-10-13 COFORGE        1945.0   1850.0   2135.0    5 OPEN                                                         
@@ -6,6 +6,8 @@ date       symbol          entry       sl   target  qty status          exit_dat
 2026-10-15 NEOGEN         2790.0   2610.0   3150.0    2 PENDING_TRIGGER                                              
 2026-10-15 RAIN            253.0    236.0    287.0   29 PENDING_TRIGGER                                              
 2026-10-16 HCLTECH        1381.0   1335.0   1473.0   10 OPEN                                                         
+
+Entry rule se alag: 2026-10-15 RAIN CHASED (entry 253.0, trigger 239.34)
 
 Status counts: CLOSED=1, OPEN=2, PENDING_TRIGGER=2
 CLOSED trades: 1 | win rate 0% | avg R -1.06 | profit factor 0.00 | total pnl Rs -449
