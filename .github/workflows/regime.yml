@@ -1,0 +1,43 @@
+name: regime
+# Market regime study (kaunsa setup kis market haal me chalta hai), ~4 saal. Har Shanivar + manual. Writes docs/regime.json for the app.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "30 3 * * 6"   # Shanivar 09:00 IST
+permissions:
+  contents: write
+jobs:
+  regime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download bhavcopy (about 4 years)
+        run: python fetch.py
+        env:
+          DAYS: "1500"
+      - name: Run study
+        run: python regime_study.py data out
+      - name: Save result as download too (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: regime-result
+          path: |
+            out/regime_summary.txt
+            out/regime_results.csv
+            docs/regime.json
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add out/regime_summary.txt out/regime_results.csv docs/regime.json
+          git diff --cached --quiet && exit 0
+          git commit -m "regime $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

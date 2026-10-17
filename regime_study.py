@@ -1,0 +1,216 @@
+# Market regime study: kaunsa setup kis market haal (tezi / mixed / kamzor / bahut kamzor) me chalta hai.
+# Regime = us din liquid stocks me se kitne % EMA50 ke upar (breadth). 4 saal ke SAARE kamzor din ek saath dekhe jaate
+# hain (2022 ka hissa, 2025, 2026), sirf ek saal nahi -> zyada data, kam kismat. Har setup har regime me alag saalon me
+# bhi tika ho tabhi maana jaata hai.
+# Honest rules: next-day OPEN entry, cost 0.25%, gap-up >1.5% / gap-down >3% skip, same-bar stop+target = stop,
+# 90 din split/bonus skip. Long only (cash me 2-5 din short nahi hota).
+# usage: python regime_study.py <bhav_folder> <out_folder> -> regime_summary.txt, regime_results.csv, docs/regime.json
+import csv, glob, os, sys, json, datetime, collections
+
+bhav_dir, out_dir = sys.argv[1], sys.argv[2]
+os.makedirs(out_dir, exist_ok=True)
+COST = 0.25 / 100.0
+GAP_UP, GAP_DN = 1.015, 0.97
+EXITS = [('2ATR/5d', 2.0, 5, None), ('2ATR/3d', 2.0, 3, None), ('1.5ATR/10d/T2R', 1.5, 10, 2.0)]
+REGIMES = [('STRONG', 60, 101), ('MIXED', 40, 60), ('WEAK', 25, 40), ('VWEAK', -1, 25)]
+SETUPS = ['DIP_A', 'DIP_B', 'BREAKOUT', 'PULLBACK', 'RS_LEADER', 'HIGH52', 'OVERSOLD_BOUNCE', 'DEEP_OVERSOLD']
+DESC = {'DIP_A': 'Uptrend stock 3 din me 8%+ gira (hamara Dip A)', 'DIP_B': 'Uptrend stock 3 din me 5-8% gira (Dip B)',
+        'BREAKOUT': '20-din high ke upar band, volume 1.5x+', 'PULLBACK': 'Uptrend stock EMA20 tak aaya',
+        'RS_LEADER': 'Market ka leader: 60-din return top 10%, EMA50 upar, high ke paas',
+        'HIGH52': 'Naya 52-hafte high par band', 'OVERSOLD_BOUNCE': 'Downtrend stock, RSI<30, 3 din me 8%+ gira (bounce)',
+        'DEEP_OVERSOLD': 'RSI<25 aur 10 din me 15%+ gira (gehra oversold bounce)'}
+MIN_N, MIN_YEARS = 100, 2
+
+
+def num(x):
+    try:
+        return float(str(x).strip())
+    except ValueError:
+        return None
+
+
+def ema(v, span):
+    a = 2.0 / (span + 1); e = v[0]; out = [e]
+    for x in v[1:]:
+        e = a * x + (1 - a) * e; out.append(e)
+    return out
+
+
+def rsi_series(cl):
+    out = [None] * len(cl); au = ad = None; n = 0
+    for i in range(1, len(cl)):
+        d = cl[i] - cl[i - 1]; up, dn = max(d, 0.0), max(-d, 0.0)
+        if au is None: au, ad = up, dn
+        else: au = au * 13 / 14.0 + up / 14.0; ad = ad * 13 / 14.0 + dn / 14.0
+        n += 1
+        if n >= 14: out[i] = 100.0 if ad == 0 else 100 - 100 / (1 + au / ad)
+    return out
+
+
+data = collections.defaultdict(dict)
+for f in sorted(glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv'))):
+    with open(f, newline='', encoding='utf-8', errors='ignore') as h:
+        rd = csv.reader(h); next(rd, None)
+        for r in rd:
+            if len(r) < 15 or r[1].strip() != 'EQ': continue
+            try:
+                d = datetime.datetime.strptime(r[2].strip(), '%d-%b-%Y').date()
+            except ValueError:
+                continue
+            t = tuple(num(r[k]) for k in (4, 5, 6, 8, 10, 11))
+            if None in t: continue
+            data[r[0].strip()][d] = t
+if not data:
+    print('no data'); sys.exit(1)
+alldates = sorted({d for v in data.values() for d in v})
+print('symbols', len(data), 'dates', alldates[0], alldates[-1], len(alldates), flush=True)
+
+
+def sim(op, hi, lo, cl, i, n, atr, stop_m, hold, tgt):
+    j = i + 1
+    if j >= n or op[j] > cl[i] * GAP_UP or op[j] < cl[i] * GAP_DN: return None
+    entry = op[j]; risk = stop_m * atr; stop = entry - risk
+    target = entry + tgt * risk if tgt else None
+    end = min(j + hold, n)
+    if end - j < hold: return None
+    ex = None
+    for k in range(j, end):
+        if k > j and op[k] <= stop: ex = op[k]; break
+        if lo[k] <= stop: ex = stop; break
+        if target is not None and hi[k] >= target: ex = target; break
+    if ex is None: ex = cl[end - 1]
+    return (ex - entry) / risk - COST * entry / risk
+
+
+# ---- pass 1: series, liquidity, breadth, cross-sectional 60d return rank
+S = {}
+above = collections.Counter(); tot = collections.Counter(); r60 = collections.defaultdict(list)
+for sym, byd in data.items():
+    if any(k in sym for k in ('ETF', 'BEES', 'LIQUID')): continue
+    ds = sorted(byd); n = len(ds)
+    if n < 130: continue
+    op = [byd[d][0] for d in ds]; hi = [byd[d][1] for d in ds]; lo = [byd[d][2] for d in ds]
+    cl = [byd[d][3] for d in ds]; vo = [byd[d][4] for d in ds]; to = [byd[d][5] / 100.0 for d in ds]
+    tr = [0.0] + [max(hi[i] - lo[i], abs(hi[i] - cl[i - 1]), abs(lo[i] - cl[i - 1])) for i in range(1, n)]
+    e50 = ema(cl, 50)
+    liq = [False] * n; atr = [None] * n
+    for i in range(60, n):
+        atr[i] = sum(tr[i - 13:i + 1]) / 14.0
+        to20 = sum(to[i - 20:i]) / 20.0
+        liq[i] = to20 >= 5 and cl[i] <= 6000 and atr[i] / cl[i] >= 0.004
+        if liq[i]:
+            tot[ds[i]] += 1; above[ds[i]] += cl[i] > e50[i]
+            r60[ds[i]].append(cl[i] / cl[i - 60] - 1)
+    S[sym] = (ds, op, hi, lo, cl, vo, atr, liq, e50)
+BR = {d: 100.0 * above[d] / tot[d] for d in tot if tot[d] >= int(os.environ.get('MIN_UNIVERSE', '50'))}
+if not BR:
+    print('breadth nahi bana (universe chhota)'); sys.exit(1)
+R60TOP = {}
+for d, v in r60.items():
+    v.sort(); R60TOP[d] = v[int(0.9 * len(v))] if v else 9e9
+bd = sorted(BR)
+
+
+def regime_of(b):
+    for name, lo_, hi_ in REGIMES:
+        if lo_ <= b < hi_: return name
+    return 'STRONG'
+REG = {d: regime_of(BR[d]) for d in bd}
+print('breadth days', len(bd), flush=True)
+
+# ---- pass 2: signals
+res = collections.defaultdict(list)          # (setup, regime, exit) -> [(date, R)]
+base = collections.defaultdict(list)         # (regime, exit) -> [(date, R)]
+for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
+    n = len(ds); e20 = ema(cl, 20); rs = rsi_series(cl)
+    bad = [i for i in range(1, n) if abs(cl[i] / cl[i - 1] - 1) > 0.35]; bp = 0; last_bad = -10 ** 9
+    for i in range(70, n - 11):
+        while bp < len(bad) and bad[bp] <= i: last_bad = bad[bp]; bp += 1
+        if last_bad > i - 90 or not liq[i]: continue
+        d = ds[i]; rg = REG.get(d)
+        if not rg: continue
+        R = None
+        if i % 5 == 0:
+            R = [sim(op, hi, lo, cl, i, n, atr[i], e[1], e[2], e[3]) for e in EXITS]
+            for k, r_ in enumerate(R):
+                if r_ is not None: base[(rg, k)].append((d, r_))
+        up = cl[i] > e50[i] and e20[i] > e50[i] and e50[i] > e50[i - 10]
+        ret3 = cl[i] / cl[i - 3] - 1; ret10 = cl[i] / cl[i - 10] - 1
+        av20 = sum(vo[i - 20:i]) / 20.0
+        sig = []
+        if up and ret3 <= -0.08: sig.append('DIP_A')
+        if up and -0.08 < ret3 <= -0.05: sig.append('DIP_B')
+        if cl[i] > max(hi[i - 20:i]) and av20 > 0 and vo[i] >= 1.5 * av20 and cl[i] > e50[i]: sig.append('BREAKOUT')
+        if up and lo[i] <= e20[i] * 1.005 and cl[i] >= e20[i] * 0.98: sig.append('PULLBACK')
+        if cl[i] > e50[i] and (cl[i] / cl[i - 60] - 1) >= R60TOP.get(d, 9e9) and cl[i] >= 0.95 * max(hi[i - 19:i + 1]): sig.append('RS_LEADER')
+        if i >= 250 and cl[i] >= max(hi[i - 250:i]): sig.append('HIGH52')
+        if cl[i] < e50[i] and rs[i] is not None and rs[i] < 30 and ret3 <= -0.08: sig.append('OVERSOLD_BOUNCE')
+        if rs[i] is not None and rs[i] < 25 and ret10 <= -0.15: sig.append('DEEP_OVERSOLD')
+        if not sig: continue
+        if R is None: R = [sim(op, hi, lo, cl, i, n, atr[i], e[1], e[2], e[3]) for e in EXITS]
+        for s_ in sig:
+            for k, r_ in enumerate(R):
+                if r_ is not None: res[(s_, rg, k)].append((d, r_))
+print('signals done', flush=True)
+
+
+def agg(v):
+    n = len(v)
+    if not n: return dict(n=0, avg=0.0, pf=0.0, win=0)
+    x = [r for _, r in v]; gp = sum(r for r in x if r > 0); gl = -sum(r for r in x if r < 0)
+    return dict(n=n, avg=sum(x) / n, pf=gp / gl if gl else 9.99, win=round(100.0 * sum(1 for r in x if r > 0) / n))
+
+
+years = sorted({d.year for d in bd})
+rows = []
+for (s_, rg, k), v in res.items():
+    a = agg(v); b = agg(base[(rg, k)])
+    yr = {y: agg([p for p in v if p[0].year == y]) for y in years}
+    yrs = [y for y in years if yr[y]['n'] >= 20]
+    pos = sum(1 for y in yrs if yr[y]['avg'] > 0)
+    rows.append(dict(setup=s_, regime=rg, exit=EXITS[k][0], n=a['n'], win=a['win'], avgR=round(a['avg'], 3), pf=round(a['pf'], 2),
+                     baseR=round(b['avg'], 3), edge=round(a['avg'] - b['avg'], 3), years_pos='%d/%d' % (pos, len(yrs)),
+                     ok=a['n'] >= MIN_N and a['avg'] > 0 and pos >= MIN_YEARS and pos >= len(yrs) - 1,
+                     **{'y%d' % y: (round(yr[y]['avg'], 3) if yr[y]['n'] >= 20 else '') for y in years},
+                     **{'n%d' % y: yr[y]['n'] for y in years}))
+with open(os.path.join(out_dir, 'regime_results.csv'), 'w', newline='') as h:
+    w = csv.DictWriter(h, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+
+# ---- report
+last = bd[-1]; cur = REG[last]; trend = BR[last] - BR[bd[-11]] if len(bd) > 11 else 0
+days_by = collections.Counter((d.year, REG[d]) for d in bd)
+L = ['MARKET REGIME STUDY (generated %s)' % datetime.date.today(),
+     'Data %s to %s. Regime = liquid stocks me EMA50 ke upar ka %%: STRONG >=60, MIXED 40-60, WEAK 25-40, VWEAK <25.' % (alldates[0], alldates[-1]),
+     'Entry next open, cost 0.25%%. ok = n>=%d, avgR>0, aur jin saalon me n>=20 unme se kam se kam %d (aur max 1 chhod ke sab) plus.' % (MIN_N, MIN_YEARS),
+     'baseR = usi regime me random liquid stock (kuch na karo jaisa). edge = setup - base.', '',
+     'AAJ (%s): breadth %.1f%% -> %s, 10 din me %+.1f points' % (last, BR[last], cur, trend), '',
+     'Har saal har regime ke din:  ' + '  '.join('%d: %s' % (y, ' '.join('%s %d' % (rg, days_by[(y, rg)]) for rg, _, _ in REGIMES if days_by[(y, rg)])) for y in years), '']
+for rg, _, _ in REGIMES:
+    L.append('== %s ==' % rg)
+    for k, e in enumerate(EXITS):
+        b = agg(base[(rg, k)]); L.append('  BASE %-15s n %6d avgR %.3f' % (e[0], b['n'], b['avg']))
+    L.append('  %-16s %-15s %6s %4s %7s %5s %7s %5s | %s' % ('setup', 'exit', 'n', 'win', 'avgR', 'PF', 'edge', 'yrs+', ' '.join('y%d' % y for y in years)))
+    for r in sorted([r for r in rows if r['regime'] == rg], key=lambda r: -r['avgR']):
+        if r['n'] < 30: continue
+        L.append('  %-16s %-15s %6d %3d%% %7.3f %5.2f %7.3f %5s | %s%s' % (r['setup'], r['exit'], r['n'], r['win'], r['avgR'], r['pf'], r['edge'], r['years_pos'],
+                 ' '.join(str(r['y%d' % y]) for y in years), '  <== OK' if r['ok'] else ''))
+    L.append('')
+best = {}
+for rg, _, _ in REGIMES:
+    ok = sorted([r for r in rows if r['regime'] == rg and r['ok']], key=lambda r: -r['avgR'])
+    seen, picks = set(), []
+    for r in ok:
+        if r['setup'] in seen: continue
+        seen.add(r['setup']); picks.append(r)
+    best[rg] = picks[:4]
+    L.append('%s me chalne wale setup: %s' % (rg, ', '.join('%s (%s, %+.2fR, n %d, %s saal plus)' % (r['setup'], r['exit'], r['avgR'], r['n'], r['years_pos']) for r in picks[:4]) or 'koi nahi (cash/chhota size behtar)'))
+L.append('Past results do not guarantee future results. Bahut combos dekhe: chhota plus luck ho sakta hai.')
+open(os.path.join(out_dir, 'regime_summary.txt'), 'w').write('\n'.join(L) + '\n')
+print('\n'.join(L))
+os.makedirs('docs', exist_ok=True)
+json.dump({'updated': datetime.date.today().isoformat(), 'date': last.isoformat(), 'breadth': round(BR[last], 1), 'regime': cur,
+           'trend10': round(trend, 1), 'desc': DESC,
+           'best': {rg: [dict(setup=r['setup'], exit=r['exit'], avgR=r['avgR'], n=r['n'], win=r['win'], years_pos=r['years_pos'], baseR=r['baseR']) for r in best[rg]] for rg in best},
+           'table': [dict(setup=r['setup'], regime=r['regime'], exit=r['exit'], avgR=r['avgR'], n=r['n'], win=r['win'], years_pos=r['years_pos'], ok=r['ok'])
+                     for r in rows if r['exit'] == '2ATR/5d']},
+          open('docs/regime.json', 'w'), separators=(',', ':'))
