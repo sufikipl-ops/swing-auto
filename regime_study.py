@@ -5,7 +5,7 @@
 # Honest rules: next-day OPEN entry, cost 0.25%, gap-up >1.5% / gap-down >3% skip, same-bar stop+target = stop,
 # 90 din split/bonus skip. Long only (cash me 2-5 din short nahi hota).
 # usage: python regime_study.py <bhav_folder> <out_folder> -> regime_summary.txt, regime_results.csv, docs/regime.json
-import csv, glob, os, sys, json, datetime, collections
+import csv, glob, os, sys, json, datetime, collections, bisect
 
 bhav_dir, out_dir = sys.argv[1], sys.argv[2]
 os.makedirs(out_dir, exist_ok=True)
@@ -13,12 +13,16 @@ COST = 0.25 / 100.0
 GAP_UP, GAP_DN = 1.015, 0.97
 EXITS = [('2ATR/5d', 2.0, 5, None), ('2ATR/3d', 2.0, 3, None), ('1.5ATR/10d/T2R', 1.5, 10, 2.0)]
 REGIMES = [('STRONG', 60, 101), ('MIXED', 40, 60), ('WEAK', 25, 40), ('VWEAK', -1, 25)]
-SETUPS = ['DIP_A', 'DIP_B', 'BREAKOUT', 'PULLBACK', 'RS_LEADER', 'HIGH52', 'OVERSOLD_BOUNCE', 'DEEP_OVERSOLD']
+SETUPS = ['DIP_A', 'DIP_B', 'BREAKOUT', 'PULLBACK', 'RS_LEADER', 'HIGH52', 'OVERSOLD_BOUNCE', 'DEEP_OVERSOLD', 'STRUCT', 'STRUCT_DEEP']
 DESC = {'DIP_A': 'Uptrend stock 3 din me 8%+ gira (hamara Dip A)', 'DIP_B': 'Uptrend stock 3 din me 5-8% gira (Dip B)',
         'BREAKOUT': '20-din high ke upar band, volume 1.5x+', 'PULLBACK': 'Uptrend stock EMA20 tak aaya',
         'RS_LEADER': 'Market ka leader: 60-din return top 10%, EMA50 upar, high ke paas',
         'HIGH52': 'Naya 52-hafte high par band', 'OVERSOLD_BOUNCE': 'Downtrend stock, RSI<30, 3 din me 8%+ gira (bounce)',
-        'DEEP_OVERSOLD': 'RSI<25 aur 10 din me 15%+ gira (gehra oversold bounce)'}
+        'DEEP_OVERSOLD': 'RSI<25 aur 10 din me 15%+ gira (gehra oversold bounce)',
+        'STRUCT': 'Market structure: higher high + higher low, retracement (38%+) ke baad chhota high toota (expansion shuru)',
+        'STRUCT_DEEP': 'Wahi structure setup, par retracement gehra (61.8%+, pichhle higher low ke upar)',
+        'STRUCT_ALL': 'Structure setup (STRUCT + STRUCT_DEEP dono)'}
+SWING_EXIT = 'SwingSL/10d/T2R'     # structure setups ka apna exit: SL retracement low ke neeche, target 2R, max 10 din
 MIN_N, MIN_YEARS = 100, 2
 
 
@@ -82,6 +86,45 @@ def sim(op, hi, lo, cl, i, n, atr, stop_m, hold, tgt):
     return (ex - entry) / risk - COST * entry / risk
 
 
+def sim_px(op, hi, lo, cl, i, n, stop_px, hold, tgt):
+    """Jaise sim, par SL ek fix bhav (swing low) par. Risk bahut chhota/bada ho to skip."""
+    j = i + 1
+    if j >= n or op[j] > cl[i] * GAP_UP or op[j] < cl[i] * GAP_DN: return None
+    entry = op[j]; risk = entry - stop_px
+    if risk <= entry * 0.01 or risk > entry * 0.15: return None
+    target = entry + tgt * risk; end = min(j + hold, n)
+    if end - j < hold: return None
+    ex = None
+    for k in range(j, end):
+        if k > j and op[k] <= stop_px: ex = op[k]; break
+        if lo[k] <= stop_px: ex = stop_px; break
+        if hi[k] >= target: ex = target; break
+    if ex is None: ex = cl[end - 1]
+    return (ex - entry) / risk - COST * entry / risk
+
+
+def struct_sig(hi, lo, cl, i, PH, PL, fired):
+    """Fractal swing points (2 din dono taraf, i-2 tak pakke). Uptrend: aakhri 2 swing high upar-upar, swing low bhi.
+    Aakhri pivot = swing high (expansion ka top), uske baad retracement jo pichhla higher low nahi toda,
+    aur aaj close retracement ke dauraan bane chhote high ke upar (chhota dhaancha upar muda). Return (name, swing_low) ya None."""
+    a_, b_ = bisect.bisect_right(PH, i - 2), bisect.bisect_right(PL, i - 2)
+    hs = PH[max(0, a_ - 2):a_]; ls = PL[max(0, b_ - 2):b_]
+    if len(hs) < 2 or len(ls) < 2: return None
+    h1, h2 = hs; l1, l2 = ls
+    if not (hi[h2] > hi[h1] and lo[l2] > lo[l1] and l2 < h2 and h1 < l2): return None
+    if h2 in fired or h2 >= i - 1: return None
+    seg = range(h2 + 1, i)
+    k = min(seg, key=lambda x: lo[x]); m = lo[k]
+    if m <= lo[l2] or i - k > 6 or k >= i: return None
+    leg = hi[h2] - lo[l2]
+    depth = (hi[h2] - m) / leg if leg > 0 else 0
+    if depth < 0.382: return None
+    mh = max(hi[k:i])
+    if not (cl[i] > mh and cl[i - 1] <= mh and cl[i] < hi[h2]): return None
+    fired.add(h2)
+    return ('STRUCT_DEEP' if depth >= 0.618 else 'STRUCT', m)
+
+
 # ---- pass 1: series, liquidity, breadth, cross-sectional 60d return rank
 S = {}
 above = collections.Counter(); tot = collections.Counter(); r60 = collections.defaultdict(list)
@@ -123,6 +166,9 @@ res = collections.defaultdict(list)          # (setup, regime, exit) -> [(date, 
 base = collections.defaultdict(list)         # (regime, exit) -> [(date, R)]
 for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
     n = len(ds); e20 = ema(cl, 20); rs = rsi_series(cl)
+    PH = [p for p in range(2, n - 2) if hi[p] > max(hi[p - 2:p]) and hi[p] >= max(hi[p + 1:p + 3])]
+    PL = [p for p in range(2, n - 2) if lo[p] < min(lo[p - 2:p]) and lo[p] <= min(lo[p + 1:p + 3])]
+    fired = set()
     bad = [i for i in range(1, n) if abs(cl[i] / cl[i - 1] - 1) > 0.35]; bp = 0; last_bad = -10 ** 9
     for i in range(70, n - 11):
         while bp < len(bad) and bad[bp] <= i: last_bad = bad[bp]; bp += 1
@@ -146,6 +192,12 @@ for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
         if i >= 250 and cl[i] >= max(hi[i - 250:i]): sig.append('HIGH52')
         if cl[i] < e50[i] and rs[i] is not None and rs[i] < 30 and ret3 <= -0.08: sig.append('OVERSOLD_BOUNCE')
         if rs[i] is not None and rs[i] < 25 and ret10 <= -0.15: sig.append('DEEP_OVERSOLD')
+        st = struct_sig(hi, lo, cl, i, PH, PL, fired)
+        if st:
+            sig.append(st[0]); sig.append('STRUCT_ALL')
+            r_ = sim_px(op, hi, lo, cl, i, n, st[1] * 0.998, 10, 2.0)
+            if r_ is not None:
+                res[(st[0], rg, len(EXITS))].append((d, r_)); res[('STRUCT_ALL', rg, len(EXITS))].append((d, r_))
         if not sig: continue
         if R is None: R = [sim(op, hi, lo, cl, i, n, atr[i], e[1], e[2], e[3]) for e in EXITS]
         for s_ in sig:
@@ -164,11 +216,11 @@ def agg(v):
 years = sorted({d.year for d in bd})
 rows = []
 for (s_, rg, k), v in res.items():
-    a = agg(v); b = agg(base[(rg, k)])
+    a = agg(v); b = agg(base[(rg, min(k, len(EXITS) - 1))])
     yr = {y: agg([p for p in v if p[0].year == y]) for y in years}
     yrs = [y for y in years if yr[y]['n'] >= 20]
     pos = sum(1 for y in yrs if yr[y]['avg'] > 0)
-    rows.append(dict(setup=s_, regime=rg, exit=EXITS[k][0], n=a['n'], win=a['win'], avgR=round(a['avg'], 3), pf=round(a['pf'], 2),
+    rows.append(dict(setup=s_, regime=rg, exit=EXITS[k][0] if k < len(EXITS) else SWING_EXIT, n=a['n'], win=a['win'], avgR=round(a['avg'], 3), pf=round(a['pf'], 2),
                      baseR=round(b['avg'], 3), edge=round(a['avg'] - b['avg'], 3), years_pos='%d/%d' % (pos, len(yrs)),
                      ok=a['n'] >= MIN_N and a['avg'] > 0 and pos >= MIN_YEARS and pos >= len(yrs) - 1,
                      **{'y%d' % y: (round(yr[y]['avg'], 3) if yr[y]['n'] >= 20 else '') for y in years},

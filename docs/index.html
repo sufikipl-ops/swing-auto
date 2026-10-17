@@ -428,7 +428,7 @@ function stratOf(setup,tier,plus){if(setup=='DIP')return plus?['Dip A+','pg','Ba
 function stratLine(st){var k={'Breakout':'BREAKOUT','Pullback':'PULLBACK','Dip A+':'DIP_A','Dip A':'DIP_A','Dip B':'DIP_B'}[st[0]];return '<div class="strat"><small>Strategy:</small> '+chip(st[0],st[1])+'<small>'+esc(st[2])+'</small>'+(k?regChip(k):'')+'</div>'}
 /* ---------- MARKET REGIME (regime_study.py: har setup alag market haal me 4-5 saal) ---------- */
 var REGN={STRONG:'Majboot',MIXED:'Mila-jula',WEAK:'Kamzor',VWEAK:'Bahut kamzor'},REGD={STRONG:'60%+ stock EMA50 ke upar',MIXED:'40-60% stock EMA50 ke upar',WEAK:'25-40% stock EMA50 ke upar',VWEAK:'25% se kam stock EMA50 ke upar'},
-SETN={DIP_A:'Dip A',DIP_B:'Dip B',BREAKOUT:'Breakout',PULLBACK:'Pullback',RS_LEADER:'RS leader',HIGH52:'52-hafte high',OVERSOLD_BOUNCE:'Oversold bounce',DEEP_OVERSOLD:'Gehra oversold'},SETAPP={DIP_A:1,DIP_B:1,BREAKOUT:1,PULLBACK:1,OVERSOLD_BOUNCE:1,DEEP_OVERSOLD:1};
+SETN={DIP_A:'Dip A',DIP_B:'Dip B',BREAKOUT:'Breakout',PULLBACK:'Pullback',RS_LEADER:'RS leader',HIGH52:'52-hafte high',OVERSOLD_BOUNCE:'Oversold bounce',DEEP_OVERSOLD:'Gehra oversold',STRUCT:'Structure (HH-HL retracement)',STRUCT_DEEP:'Structure gehra retracement',STRUCT_ALL:'Structure (sab)'},SETAPP={DIP_A:1,DIP_B:1,BREAKOUT:1,PULLBACK:1,OVERSOLD_BOUNCE:1,DEEP_OVERSOLD:1};
 function regNow(){var a=RT&&RT.regime?RT:null,b=RG&&RG.regime?RG:null;if(a&&b)return String(a.date)>=String(b.date)?a:b;return a||b}
 function regRow(k){var n=regNow();if(!n||!RG||!RG.table)return null;for(var i=0;i<RG.table.length;i++){var t=RG.table[i];if(t.setup==k&&t.regime==n.regime&&t.exit=='2ATR/5d')return t}return null}
 function rRs(r){var v=r*ls('risk',700);return (v<0?'-':'+')+'Rs '+Math.abs(Math.round(v))}
