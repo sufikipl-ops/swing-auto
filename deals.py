@@ -1,7 +1,7 @@
 # Bade sauda (read-only, NSE public): bulk deals, block deals, insider trading (SEBI PIT) - pichhle 14 din.
 # Writes docs/deals.json for the Swing Desk "Deals" tab. Sirf jaankari: iska backtest nahi hua, buy signal nahi.
 # Never crashes: har source ka status json me rehta hai (ok / fail), taaki app "data nahi mila" dikha sake.
-import os, sys, csv, io, json, re, datetime, traceback
+import os, sys, csv, io, json, re, datetime, traceback, collections
 
 from restrict import get, log, LOG      # same NSE session (cookie) + log helpers
 
@@ -57,9 +57,18 @@ def side_of(x):
 
 
 # ---------------- bulk / block ----------------
+def jget(u, dbg, tag, ref='https://www.nseindia.com/report-detail/display-bulk-and-block-deals'):
+    txt = get(u, ref=ref)
+    try:
+        return json.loads(txt)
+    except ValueError:
+        dbg[tag + '_resp'] = txt[:200]                     # NSE ne JSON ki jagah kya bheja (debug)
+        raise
+
+
 def deals_api(kind, fr, to, dbg):
     u = 'https://www.nseindia.com/api/historical/%s-deals?from=%s&to=%s' % (kind, fr.strftime('%d-%m-%Y'), to.strftime('%d-%m-%Y'))
-    rows = rows_of(json.loads(get(u)))
+    rows = rows_of(jget(u, dbg, kind))
     if rows and kind + '_keys' not in dbg:
         dbg[kind + '_keys'] = sorted(rows[0].keys())
     out = []
@@ -102,7 +111,10 @@ INS_CATS = re.compile(r'promoter|director|kmp|key managerial|chairman|ceo|cfo|ma
 
 def insider(fr, to, dbg):
     u = 'https://www.nseindia.com/api/corporates-pit?index=equities&from_date=%s&to_date=%s' % (fr.strftime('%d-%m-%Y'), to.strftime('%d-%m-%Y'))
-    rows = rows_of(json.loads(get(u)))
+    d = jget(u, dbg, 'pit', ref='https://www.nseindia.com/companies-listing/corporate-filings-insider-trading')
+    rows = rows_of(d)
+    if not rows:
+        dbg['pit_shape'] = (sorted(d.keys())[:12] if isinstance(d, dict) else type(d).__name__)
     if rows and 'pit_keys' not in dbg:
         dbg['pit_keys'] = sorted(rows[0].keys())
     out = []
@@ -134,10 +146,12 @@ def insider(fr, to, dbg):
 def main():
     ist = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     to = ist.date(); fr = to - datetime.timedelta(days=DAYS)
-    try:
-        get('https://www.nseindia.com/', 'text/html,*/*', tries=1)
-    except Exception as e:
-        log('warmup fail: %s' % str(e)[:80])
+    for wu in ('https://www.nseindia.com/', 'https://www.nseindia.com/report-detail/display-bulk-and-block-deals',
+               'https://www.nseindia.com/companies-listing/corporate-filings-insider-trading'):
+        try:
+            get(wu, 'text/html,*/*', tries=1)                # NSE cookie (kabhi homepage 403 deta hai)
+        except Exception as e:
+            log('warmup %s fail: %s' % (wu.split('/')[-1] or 'home', str(e)[:60]))
     dbg, status, allr = {}, {}, []
     for kind in ('bulk', 'block'):
         try:
@@ -166,6 +180,12 @@ def main():
         if k in seen or (x.get('date') or '') < fr.isoformat():
             continue
         seen.add(k); deals.append(x)
+    sides = collections.defaultdict(set)
+    for x in deals:
+        if x['kind'] != 'INSIDER':
+            sides[(x['date'], x['sym'], x['who'])].add(x['side'])
+    for x in deals:                                   # ek hi din kharid + bikri = intraday/HFT trader, bharosa nahi
+        x['both'] = x['kind'] != 'INSIDER' and len(sides[(x['date'], x['sym'], x['who'])]) > 1
     deals.sort(key=lambda x: (x['date'], x.get('value_cr') or 0), reverse=True)
     log('status: %s | deals kept: %d' % (json.dumps(status), len(deals)))
     os.makedirs('docs', exist_ok=True)
