@@ -2,7 +2,8 @@
 # LONG: girti trendline (>=3 swing highs, line ke upar koi close nahi) ke upar close -> agle din open par buy.
 # SHORT: chadhti trendline (>=3 swing lows) ke neeche close -> agle din open par sell (sirf jaankari: cash me
 #        overnight short nahi hota, futures chahiye).
-# Filters: SWEEP (pichhle 10 din me barabar lows/highs ke paar jaake wapas aaya), TREND (EMA50 disha me).
+# Filters: SWEEP (pichhle 10 din me barabar lows/highs ke paar jaake wapas aaya), TREND (EMA50 disha me),
+#          T4 (line ko 4+ baar chhua: video ki awaaz me '4th-5th touch par tootti hai'), T4+SWEEP.
 # Stops: ATR (1.5 ATR) ya STRUCT (breakout candle ka low/high, min 0.5 ATR). Targets 2R/3R/4R, max 10 din.
 # Next-day OPEN entry, gap filter, cost 0.25%, same-bar stop+target = stop. TRAIN <= 2024, TEST 2025+.
 # usage: python trendline_study.py <bhav_folder> <out_folder> -> trendline_summary.txt, trendline_results.csv
@@ -141,7 +142,7 @@ for sym, byd in data.items():
             if side == -1 and not (cl[i] < cl[i - 1]): continue
             bl = best_line(piv, vals, i, atr, cl, side)
             if not bl: continue
-            _, li, li1 = bl
+            ntouch, li, li1 = bl
             if not ((cl[i] - li) * side > 0.1 * atr and (cl[i - 1] - li1) * side <= 0.1 * atr): continue
             # SWEEP: pichhle 10 din me purane swing low (long) / high (short) ke paar gaya aur wapas band hua
             sweep = False
@@ -157,6 +158,8 @@ for sym, byd in data.items():
                     sweep = any(hi[k] > lvl and cl[k] < lvl for k in range(i - 10, i + 1))
             trend = (cl[i] > e50[i] and e50[i] > e50[i - 10]) if side == 1 else (cl[i] < e50[i] and e50[i] < e50[i - 10])
             filt = ['ANY'] + (['SWEEP'] if sweep else []) + (['TREND'] if trend else []) + (['SWEEP+TREND'] if sweep and trend else [])
+            if ntouch >= 4:                                   # video: line aksar 4th-5th touch par tootti hai
+                filt += ['T4'] + (['T4+SWEEP'] if sweep else [])
             for st in STOPS:
                 for t_ in TGTS:
                     if st == 'ATR1.5':
