@@ -1,0 +1,32 @@
+name: deals
+# Bulk / block deals + insider (promoter/director) kharid-bikri, pichhle 14 din -> docs/deals.json (app ka Deals tab).
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 12 * * 1-5"    # 17:30 IST (bulk/block deals market ke baad aate hain)
+    - cron: "0 15 * * 1-5"    # 20:30 IST (insider disclosures der se aate hain)
+permissions:
+  contents: write
+jobs:
+  deals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch deals
+        run: python deals.py
+      - name: Commit result
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add docs/deals.json
+          git diff --cached --quiet && exit 0
+          git commit -m "deals $(date -u +%F-%H%M)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
