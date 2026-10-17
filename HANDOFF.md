@@ -79,3 +79,9 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Faisla: live "trade layak" highlighter nahi banaya. Data kam hai: data_orb cache badhta nahi (fetch_all purani file skip karta hai).
 - data15.yml (har Ravivar): orb_study.fetch_all ab incremental hai (purani file me sirf naye din). data_orb cache + backup
   branch "data-15min" (tar.gz, 90MB parts, har baar force-push single commit). Mahine ke pehle hafte intraswing study dobara chalti hai.
+
+## Market structure setup (reel "retracement -> expansion", regime_study STRUCT/STRUCT_DEEP)
+- Fractal swing (2 din dono taraf), HH+HL, 38%+ retracement jo pichhla HL na tode, aaj close retracement ke chhote high ke upar.
+- 4 saal: STRONG/MIXED/WEAK me minus (-0.02 se -0.42R); VWEAK me +0.19 se +0.37R (SL swing low, 2R, 10 din: +0.32R, 57%, 3/3 saal, n~250, clustered).
+- dip_scan.py roz STRUCT/STRUCT_DEEP rows (STOP_REF = swing low*0.998, TARGET_REF 2R) likhta hai; logic regime_study.struct_sig jaisa (dono saath badlo).
+  App: structSection cards sirf VWEAK, warna ek line. watch_alerts: Structure SL = STOP_REF, sirf VWEAK me.

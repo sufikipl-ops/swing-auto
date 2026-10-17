@@ -1,7 +1,7 @@
 # DIP setup scan (backtested): strong stock in uptrend that dropped sharply in 3 days.
 # Backtest (4 yrs, 1014 days, liquid stocks, 0.25% cost): Tier A win ~61%, avgR +0.165, positive in every year (2025 ~0).
 # usage: python dip_scan.py <bhav_folder> <out_folder>   -> writes out/dip_latest.csv and docs/dip_latest.csv
-import csv, glob, os, sys, datetime, collections, json
+import csv, glob, os, sys, datetime, collections, json, bisect
 
 bhav_dir, out_dir = sys.argv[1], sys.argv[2]
 os.makedirs(out_dir, exist_ok=True)
@@ -66,7 +66,27 @@ while exp.weekday() >= 5:
 if last < exp:
     print('STALE DATA: latest', last, 'expected', exp); sys.exit(1)
 
+def struct_sig(hi, lo, cl, i, PH, PL, fired):
+    """regime_study.py jaisa hi (dono ek saath badalna): fractal swing (2 din dono taraf), higher high + higher low,
+    retracement 38%+ jo pichhla higher low na tode, aaj close retracement ke chhote high ke upar. -> (tier, swing_low, depth)"""
+    a_, b_ = bisect.bisect_right(PH, i - 2), bisect.bisect_right(PL, i - 2)
+    hs = PH[max(0, a_ - 2):a_]; ls = PL[max(0, b_ - 2):b_]
+    if len(hs) < 2 or len(ls) < 2: return None
+    h1, h2 = hs; l1, l2 = ls
+    if not (hi[h2] > hi[h1] and lo[l2] > lo[l1] and l2 < h2 and h1 < l2): return None
+    if h2 in fired or h2 >= i - 1: return None
+    k = min(range(h2 + 1, i), key=lambda x: lo[x]); m = lo[k]
+    if m <= lo[l2] or i - k > 6: return None
+    leg = hi[h2] - lo[l2]; depth = (hi[h2] - m) / leg if leg > 0 else 0
+    if depth < 0.382: return None
+    mh = max(hi[k:i])
+    if not (cl[i] > mh and cl[i - 1] <= mh and cl[i] < hi[h2]): return None
+    fired.add(h2)
+    return ('STRUCT_DEEP' if depth >= 0.618 else 'STRUCT', m, depth)
+
+
 cands = []
+struct = []    # regime_study: market structure setup sirf bahut kamzor market me chala (3/3 saal, n chhota)
 bounce = []    # regime_study: oversold bounce sirf bahut kamzor market (breadth<25%) me chala (5/5 saal)
 above = tot = 0
 labove = ltot = 0   # liquid universe breadth (regime_study jaisa)
@@ -94,6 +114,17 @@ for sym, byd in data.items():
     ret60 = cl[-1] / cl[-61] - 1
     r60all.append(ret60)
     ltot += 1; labove += cl[-1] > e50[-1]
+    n_ = len(cl)
+    PH = [p for p in range(2, n_ - 2) if hi[p] > max(hi[p - 2:p]) and hi[p] >= max(hi[p + 1:p + 3])]
+    PL = [p for p in range(2, n_ - 2) if lo[p] < min(lo[p - 2:p]) and lo[p] <= min(lo[p + 1:p + 3])]
+    fired, st = set(), None
+    for i_ in range(max(10, n_ - 40), n_):          # pichhle din bhi chalao taaki 'ek retracement = ek signal' wahi rahe
+        r_ = struct_sig(hi, lo, cl, i_, PH, PL, fired)
+        st = r_ if i_ == n_ - 1 else None
+    if st:
+        struct.append(dict(sym=sym, close=cl[-1], chg=(cl[-1] / cl[-2] - 1) * 100, ret3=(cl[-1] / cl[-4] - 1) * 100, ret60=(cl[-1] / cl[-61] - 1) * 100,
+                           rsi=rsi14(cl) or 0, atr=atr, e20=e20[-1], e50=e50[-1], vx=vol[-1] / (sum(vol[-21:-1]) / 20.0), to20=to20,
+                           kind=st[0], low=st[1], depth=st[2]))
     rsi_ = rsi14(cl); ret10 = cl[-1] / cl[-11] - 1
     if rsi_ is not None and cl[-1] < e50[-1] and ((rsi_ < 30 and ret3 <= -0.08) or (rsi_ < 25 and ret10 <= -0.15)):
         bounce.append(dict(sym=sym, close=cl[-1], chg=(cl[-1] / cl[-2] - 1) * 100, ret3=ret3 * 100, ret10=ret10 * 100, ret60=ret60 * 100,
@@ -134,6 +165,11 @@ for c in bounce:
     rows.append([c['kind'], c['sym'], last.isoformat(), round(c['close'], 2), round(c['chg'], 2), round(c['ret3'], 2), round(c['ret60'], 1),
                  round(c['rsi'], 1), round(c['atr'], 2), round(c['e20'], 1), round(c['e50'], 1), round(c['vx'], 2), round(c['to20'], 1),
                  '', round(c['close'] - 2 * c['atr'], 2), round(c['close'] + 3 * c['atr'], 2), round(breadth, 1), 'RET10 %.1f' % c['ret10'], 0])
+for c in struct:
+    stop = c['low'] * 0.998; risk = c['close'] - stop
+    rows.append([c['kind'], c['sym'], last.isoformat(), round(c['close'], 2), round(c['chg'], 2), round(c['ret3'], 2), round(c['ret60'], 1),
+                 round(c['rsi'], 1), round(c['atr'], 2), round(c['e20'], 1), round(c['e50'], 1), round(c['vx'], 2), round(c['to20'], 1),
+                 '', round(stop, 2), round(c['close'] + 2 * risk, 2), round(breadth, 1), 'DEPTH %.0f' % (c['depth'] * 100), 0])
 rows.sort(key=lambda x: ({'A': 0, 'B': 1}.get(x[0], 2), x[5]))
 head = ['TIER', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'RET3', 'RET60', 'RSI14', 'ATR14', 'EMA20', 'EMA50', 'VOL_X', 'TURN20_CR',
         'DELIV_PCT', 'STOP_REF', 'TARGET_REF', 'BREADTH50', 'NOTE', 'MOM60_TOP20']
@@ -142,6 +178,6 @@ for d in (out_dir, 'docs'):
         w = csv.writer(h); w.writerow(head); w.writerows(rows)
 json.dump({'date': last.isoformat(), 'breadth': round(lbr, 1), 'regime': REGIME, 'universe': ltot},
           open(os.path.join('docs', 'regime_today.json'), 'w'))
-print('liquid breadth %.1f%% -> %s | bounce candidates %d' % (lbr, REGIME, len(bounce)))
+print('liquid breadth %.1f%% -> %s | bounce candidates %d | structure %d' % (lbr, REGIME, len(bounce), len(struct)))
 print('data date', last, '| breadth>EMA50 %.1f%% | 60-din top20%% cut %.1f%% | dip candidates A=%d B=%d' % (
     breadth, MOM_CUT, sum(1 for r in rows if r[0] == 'A'), sum(1 for r in rows if r[0] == 'B')))
