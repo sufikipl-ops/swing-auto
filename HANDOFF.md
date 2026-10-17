@@ -71,3 +71,9 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - App: Picks par "Aaj ka market" card (docs/regime.json + docs/regime_today.json), Breakout/Pullback/Dip strategy line par
   "Is market me chala / nahi chalta" chip, Oversold bounce cards sirf VWEAK me (warna ek line).
 - dip_scan.py roz: BOUNCE/DEEP rows dip_latest.csv me (app inhe Dip list se alag rakhta hai) + docs/regime_today.json.
+
+## Live setup study (intraswing_study.py, Actions > intraswing, manual)
+- 15-min Angel data (F&O 213 stocks, Jan-Oct 2026, ~176 test din). Breakout / reversal / Dip A / bounce din me pakad ke 3:15 entry vs kal open.
+- Result 2026-10-17: koi setup PASS nahi. Breakout har haal me minus (-0.04 se -0.55R). Reversal minus. Bounce 3:15 VWEAK +0.13R
+  par doosre aadhe me -0.18R (fail). 3:15 entry aksar kal-open se thoda kam bura (gap ka nuksan bachta hai) par dono minus.
+- Faisla: live "trade layak" highlighter nahi banaya. Data kam hai: data_orb cache badhta nahi (fetch_all purani file skip karta hai).
