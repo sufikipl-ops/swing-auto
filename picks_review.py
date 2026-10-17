@@ -131,6 +131,27 @@ def review_dip(p, bars):
     return out
 
 
+def entry_check(p, bars):
+    """Breakout/pullback pick: app ka rule hai 'signal din ke high se 0.1% upar' (trigger) par entry, aur trigger se
+    1.5% se zyada upar khule to skip. Signal din = pick date se pehle wala trading din. Agar logged entry pick date ke
+    hi high ke trigger ke barabar hai (shaam ko agle din ka plan likha), to signal din = pick date.
+    Returns (trigger, 'OK' | 'EARLY' (trigger se neeche khareeda) | 'CHASED' (trigger se 1.5%+ upar) | '')."""
+    if str(p.get('reason', '')).strip().upper().startswith('DIP'):
+        return '', ''
+    prev = [b for b in bars if b[0] < p['date'] and b[2]]
+    same = [b for b in bars if b[0] == p['date'] and b[2]]
+    if not prev:
+        return '', ''
+    trig = prev[-1][2] * 1.001
+    if same and abs(p['entry'] / (same[0][2] * 1.001) - 1) < 0.003:
+        trig = same[0][2] * 1.001
+    if p['entry'] < trig * 0.999:
+        return round(trig, 2), 'EARLY'
+    if p['entry'] > trig * GAP_SKIP:
+        return round(trig, 2), 'CHASED'
+    return round(trig, 2), 'OK'
+
+
 def review(p, bars):
     """bars: sorted list of (date, open, high, low, close). Returns dict with status, exit, R, pnl."""
     if str(p.get('reason', '')).strip().upper().startswith('DIP'):
@@ -199,10 +220,11 @@ def main():
     for p in picks:
         bars = sorted((d,) + v for d, v in px.get(p['symbol'], {}).items())
         res = review(p, bars)
+        res['trigger'], res['entry_check'] = entry_check(p, bars)
         rows.append(dict(date=p['date'].isoformat(), symbol=p['symbol'], entry=p['entry'], sl=p['sl'],
                          target=p['target'], qty=p['qty'], **res))
     cols = ['date', 'symbol', 'entry', 'sl', 'target', 'qty', 'status', 'entry_date', 'fill', 'exit_date', 'exit',
-            'reason_exit', 'R', 'pnl']
+            'reason_exit', 'R', 'pnl', 'trigger', 'entry_check']
     with open(os.path.join(out_dir, 'picks_review.csv'), 'w', newline='', encoding='utf-8') as h:
         w = csv.DictWriter(h, fieldnames=cols, extrasaction='ignore')
         w.writeheader(); w.writerows(rows)
@@ -212,6 +234,11 @@ def main():
         lines.append('%-10s %-12s %8s %8s %8s %4s %-15s %-10s %8s %-9s %6s %8s' % (
             r['date'], r['symbol'], r['entry'], r['sl'], r['target'], r['qty'], r['status'], r['exit_date'],
             r['exit'], r['reason_exit'], r['R'], r['pnl']))
+    early = [r for r in rows if r.get('entry_check') in ('EARLY', 'CHASED')]
+    if early:
+        lines.append('')
+        lines.append('Entry rule se alag: ' + ', '.join('%s %s %s (entry %s, trigger %s)' % (
+            r['date'], r['symbol'], r['entry_check'], r['entry'], r['trigger']) for r in early))
     closed = [r for r in rows if r['status'] == 'CLOSED']
     cnt = collections.Counter(r['status'] for r in rows)
     lines.append('')
