@@ -19,7 +19,9 @@ jobs:
         with:
           path: data_orb
           key: orb-data-${{ github.run_id }}
-          restore-keys: orb-data-
+          restore-keys: |
+            data15-
+            orb-data-
       - name: Run study
         run: python orb_study.py
         env:

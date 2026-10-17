@@ -12,7 +12,7 @@ from angel_gap import totp, call, BASE, MASTER
 DATA = 'data_orb'
 DAYS = int(os.environ.get('ORB_DAYS', '370'))
 COSTS = [0.0, 0.0015]            # round trip: 0 = edge before costs; 0.15% = brokerage+STT+charges+slippage
-TARGETS = [1.5, 2.0]
+TARGETS = [1.5, 2.0, 3.0]        # 3.0 = video ki awaaz me bola '1:3 target'
 LAST_ENTRY = '14:30'             # breakout candle must start by this time
 LINES = []
 
@@ -182,11 +182,16 @@ def main():
                 for c in cs:
                     b = breadth[(d, c[0])]; b[0] += c[4] > pc; b[1] += 1
     # top 20 gainers / losers at 09:30 (first candle close vs prev close)
-    rank = {}
+    rank, vid = {}, {}
     for d in dates:
         ch = [(D[s][d][0][4] / prevc[s][d] - 1, s) for s in D if d in D[s] and prevc[s].get(d)]
         ch.sort()
         rank[d] = ({s for _, s in ch[-20:]}, {s for _, s in ch[:20]})
+        # video (awaaz): 9:25 par gainers me jo ~1.5-2% upar (losers me ~1.5-2% neeche), aise 3-4 stock
+        g = sorted([(abs(c - 0.0175), s) for c, s in ch if 0.01 <= c <= 0.025])[:4]
+        l_ = sorted([(abs(-c - 0.0175), s) for c, s in ch if -0.025 <= c <= -0.01])[:4]
+        up = sum(1 for c, _ in ch if c > 0)
+        vid[d] = ({s for _, s in g}, {s for _, s in l_}, up > len(ch) - up)
     half = dates[len(dates) // 2]
     res = collections.defaultdict(list)
     main_trades = []
@@ -197,6 +202,7 @@ def main():
                 continue
             for side in (1, -1):
                 top = s in (rank[d][0] if side == 1 else rank[d][1])
+                vsel = s in (vid[d][0] if side == 1 else vid[d][1])
                 for tr_ in TARGETS:
                     t = trade(cs, E[s][d], side, 1, tr_)
                     if not t:
@@ -208,11 +214,14 @@ def main():
                     mk = {'NONE': True, 'NIFTY': ngreen is not None and ngreen == (side == 1),
                           'BREADTH': (br > 0.5) == (side == 1)}
                     mk['NIFTY+BREADTH'] = mk['NIFTY'] and mk['BREADTH']
+                    mk['AD930'] = vid[d][2] == (side == 1)          # video: 9:25 advance/decline se disha
                     for m, ok in mk.items():
                         if not ok:
                             continue
-                        for sel in ('ALL_FNO', 'TOP20'):
+                        for sel in ('ALL_FNO', 'TOP20', 'VIDEO'):
                             if sel == 'TOP20' and not top:
+                                continue
+                            if sel == 'VIDEO' and not vsel:
                                 continue
                             for cost in COSTS:
                                 net = t['gross'] - cost * t['fill'] / t['risk']
@@ -260,7 +269,8 @@ def main():
     log('Cost ke baad dono halves me plus (n>=200): %d of %d combos.' % (len(good), len([r for r in rows if r['cost_pct'] > 0])))
     for r in sorted(good, key=lambda r: -r['avgR'])[:10]:
         log('  %s %s %s tgt %.1f: n %d, avgR %.3f, H1 %.3f, H2 %.3f' % (r['side'], r['select'], r['market'], r['target'], r['n'], r['avgR'], r['h1'], r['h2']))
-    log('Video wala asli setup = TOP20 + NIFTY+BREADTH (heatmap green/red), target 1.5-2R. Sector filter data me nahi hai.')
+    log('Video (awaaz) wala asli setup = VIDEO select (9:30 par 1-2.5% upar/neeche, 3-4 stock) + AD930 (advance/decline), target 3R.')
+    log('PDF wala = TOP20 + NIFTY+BREADTH, target 1.5-2R. Sector filter data me nahi hai.')
     log('Bahut saare combos dekhe: chhota plus luck ho sakta hai. Past results do not guarantee future results.')
     open('out/orb_summary.txt', 'w').write('\n'.join(LINES) + '\n')
 
