@@ -1,0 +1,70 @@
+name: data15
+# 15-min candles (F&O stocks, Angel) ko har hafte aage badhao, taaki live-setup study (intraswing) ka data saal dar saal bade.
+# Data 2 jagah: Actions cache (tez) + "data-15min" branch par backup (cache 7 din bina use mit jaata hai).
+# Mahine ke pehle hafte (ya manual run par) intraswing_study.py dobara chalta hai -> out/intraswing_summary.txt
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 4 * * 0"       # har Ravivar 09:30 IST
+permissions:
+  contents: write
+jobs:
+  data15:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: data_orb
+          key: data15-${{ github.run_id }}
+          restore-keys: |
+            data15-
+            orb-data-
+      - name: Restore from backup branch (agar cache nahi mila)
+        run: |
+          if [ -d data_orb ] && [ "$(ls data_orb | wc -l)" -ge 50 ]; then echo "cache ok: $(ls data_orb | wc -l) files"; exit 0; fi
+          if git fetch -q --depth 1 origin data-15min; then
+            mkdir -p bk && git --work-tree=bk checkout FETCH_HEAD -- . && cat bk/data_orb.tar.gz.part* | tar xzf - && rm -rf bk
+            echo "backup se: $(ls data_orb | wc -l) files"
+          else
+            echo "backup branch nahi mili: Angel se poora 1 saal aayega"
+          fi
+      - name: Naya data jodo
+        run: python -c "import orb_study; orb_study.fetch_all()"
+        env:
+          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+          ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+          ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+          ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
+      - name: Backup branch update
+        run: |
+          [ -d data_orb ] && [ "$(ls data_orb | wc -l)" -ge 50 ] || { echo "data kam hai, backup nahi"; exit 0; }
+          rm -rf /tmp/bk && mkdir /tmp/bk
+          tar czf - data_orb | split -b 90m - /tmp/bk/data_orb.tar.gz.part
+          ls -la /tmp/bk
+          cd /tmp/bk && git init -q -b data-15min && git config user.name "swing-bot" && git config user.email "swing-bot@users.noreply.github.com"
+          echo "15-min candles backup (data15 workflow). Code nahi, sirf data." > README.txt
+          git add -A && git commit -qm "15-min data backup $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data-15min
+      - name: Study (mahine ka pehla hafta ya manual)
+        id: study
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%d)" -le 7 ]; then python intraswing_study.py; echo "ran=1" >> "$GITHUB_OUTPUT"; else echo "is hafte study nahi"; fi
+      - name: Commit result
+        if: steps.study.outputs.ran == '1'
+        run: |
+          git config user.name "swing-bot"
+          git config user.email "swing-bot@users.noreply.github.com"
+          git add out/intraswing_summary.txt out/intraswing_results.csv || true
+          git diff --cached --quiet && exit 0
+          git commit -m "intraswing study $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

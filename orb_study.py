@@ -44,13 +44,25 @@ def fetch_all():
     while (today - end).days < DAYS:                     # 15-min: max ~200 din per request
         st = max(end - datetime.timedelta(days=180), today - datetime.timedelta(days=DAYS))
         wins.append((st, end)); end = st - datetime.timedelta(days=1)
-    got = fail = 0
+    got = fail = upd = 0
     for sym, tok in syms:
         p = os.path.join(DATA, sym + '.json')
+        old, ws = [], wins
         if os.path.exists(p) and os.path.getsize(p) > 1000:
-            continue
+            try:
+                old = json.load(open(p))
+            except Exception:
+                old = []
+        if old:                                           # purani file: sirf aakhri din ke baad ka naya data jodo
+            last = datetime.date.fromisoformat(str(old[-1][0])[:10])
+            if (today - last).days < 1:
+                continue
+            ws, end = [], today
+            while end >= last:
+                st = max(end - datetime.timedelta(days=180), last)
+                ws.append((st, end)); end = st - datetime.timedelta(days=1)
         cs = []
-        for st, en in wins:
+        for st, en in ws:
             for attempt in range(4):
                 r = call(key, BASE + '/rest/secure/angelbroking/historical/v1/getCandleData',
                          {'exchange': 'NSE', 'symboltoken': tok, 'interval': 'FIFTEEN_MINUTE',
@@ -60,10 +72,14 @@ def fetch_all():
                 time.sleep(3 + 4 * attempt)               # access-rate limit: ruk ke dobara
             time.sleep(0.8)
         if cs:
-            json.dump(sorted({c[0]: c for c in cs}.values()), open(p, 'w')); got += 1
-        else:
+            json.dump(sorted({c[0]: c for c in old + cs}.values()), open(p, 'w'))
+            if old:
+                upd += 1
+            else:
+                got += 1
+        elif not old:
             fail += 1
-    log('fetched %d symbols, %d failed (cache: %d files)' % (got, fail, len(os.listdir(DATA))))
+    log('fetched %d new symbols, updated %d, %d failed (cache: %d files)' % (got, upd, fail, len(os.listdir(DATA))))
 
 
 # ---------------- prepare ----------------
