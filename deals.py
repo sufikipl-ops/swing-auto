@@ -7,6 +7,8 @@ from restrict import get, log, LOG      # same NSE session (cookie) + log helper
 
 DAYS = int(os.environ.get('DEALS_DAYS', '14'))
 OUT = 'docs/deals.json'
+HIST = 'out/deals_hist.json'   # 1 saal ke bulk/block (bina intraday): bikri par kharid ka bhav milane ke liye
+HIST_DAYS = 365
 
 
 def num(x):
@@ -154,6 +156,56 @@ def insider(fr, to, dbg):
     return out
 
 
+def wavg(rows):
+    q = sum(r['qty'] for r in rows)
+    v = sum(r['qty'] * r['price'] for r in rows if r.get('price'))
+    return q, (v / q if q else None)
+
+
+def annotate(deals, ist):
+    """Intraday wale ka us din ka hisaab; asli bikri par hamare record se kharid ka bhav."""
+    hist = []
+    if os.path.exists(HIST):
+        try:
+            hist = json.load(open(HIST, encoding='utf-8')).get('deals', [])
+        except Exception:
+            hist = []
+    cut = (ist.date() - datetime.timedelta(days=HIST_DAYS)).isoformat()
+    seen, h2 = set(), []
+    for x in [d for d in deals if d['kind'] != 'INSIDER' and not d.get('both')] + hist:
+        k = (x.get('date'), x.get('sym'), x.get('kind'), x.get('who'), x.get('side'), x.get('qty'))
+        if k in seen or (x.get('date') or '') < cut:
+            continue
+        seen.add(k)
+        h2.append({k2: x.get(k2) for k2 in ('date', 'sym', 'kind', 'who', 'side', 'qty', 'price')})
+    h2.sort(key=lambda x: x['date'])
+    since = h2[0]['date'] if h2 else ist.date().isoformat()
+    grp = collections.defaultdict(list)
+    for x in deals:
+        if x.get('both'):
+            grp[(x['date'], x['sym'], x['who'])].append(x)
+    for g in grp.values():                       # usi din kharid + bikri: kitne me liya, kitne me becha
+        bq, bp = wavg([r for r in g if r['side'] == 'BUY'])
+        sq, sp = wavg([r for r in g if r['side'] == 'SELL'])
+        if bp and sp:
+            day = dict(bq=bq, bp=round(bp, 2), sq=sq, sp=round(sp, 2), pnl_l=round((sp - bp) * min(bq, sq) / 1e5, 2), carry=bq - sq)
+            for r in g:
+                r['day'] = day
+    for x in deals:                              # asli bikri: pehle (hamare record me) kab aur kitne me kharida
+        if x['kind'] == 'INSIDER' or x.get('both') or x['side'] != 'SELL':
+            continue
+        buys = [h for h in h2 if h['sym'] == x['sym'] and h['who'] == x['who'] and h['side'] == 'BUY' and h['date'] < x['date'] and h.get('price')]
+        x['since'] = since
+        if buys:
+            q, px = wavg(buys)
+            x['bought'] = dict(first=buys[0]['date'], last=buys[-1]['date'], qty=q, px=round(px, 2),
+                               pct=round((x['price'] / px - 1) * 100, 1) if x.get('price') else None)
+    os.makedirs(os.path.dirname(HIST), exist_ok=True)
+    with open(HIST, 'w', encoding='utf-8') as h:
+        json.dump({'updated': ist.strftime('%Y-%m-%d %H:%M IST'), 'deals': h2}, h, separators=(',', ':'))
+    log('hist rows %d since %s' % (len(h2), since))
+
+
 def main():
     ist = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     to = ist.date(); fr = to - datetime.timedelta(days=DAYS)
@@ -197,6 +249,7 @@ def main():
             sides[(x['date'], x['sym'], x['who'])].add(x['side'])
     for x in deals:                                   # ek hi din kharid + bikri = intraday/HFT trader, bharosa nahi
         x['both'] = x['kind'] != 'INSIDER' and len(sides[(x['date'], x['sym'], x['who'])]) > 1
+    annotate(deals, ist)
     deals.sort(key=lambda x: (x['date'], x.get('value_cr') or 0), reverse=True)
     log('status: %s | deals kept: %d' % (json.dumps(status), len(deals)))
     os.makedirs('docs', exist_ok=True)
