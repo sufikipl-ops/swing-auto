@@ -36,7 +36,7 @@ def _local(path):
 def load_ctx(pages_base=''):
     """Files: pehle Pages (taaki din bhar ki taza news mile), fail ho to repo ki local copy."""
     ctx = {}
-    for name in ('stocks.json', 'announcements.json', 'restrict.json'):
+    for name in ('stocks.json', 'announcements.json', 'restrict.json', 'regime_today.json'):
         txt = ''
         if pages_base:
             try:
@@ -128,7 +128,12 @@ def evaluate(items, ctx, today_str):
             elif (it.get('h') or 0) >= entry and it['ltp'] > entry * 1.015:
                 add(sym, 'ran', 'Entry se bahut upar nikal gaya: peecha mat karo')
         common(sym, it)
+    vweak = (ctx.get('regime_today.json') or {}).get('regime') == 'VWEAK'
     for r in ctx.get('dip_latest.csv', []):
+        tier = r.get('TIER') or 'A'
+        if tier not in ('A', 'B') and not vweak:      # bounce sirf bahut kamzor market me trade hota hai
+            continue
+        lbl = 'Dip' if tier in ('A', 'B') else 'Bounce'
         sym = (r.get('SYMBOL') or '').upper()
         it = items.get(sym)
         if not sym or not it or not it.get('ltp'):
@@ -138,11 +143,11 @@ def evaluate(items, ctx, today_str):
         o = it.get('o') or it['ltp']
         gap = (o / pc - 1) * 100 if pc else 0
         if gap > 1.5:
-            add(sym, 'dgapup', 'Dip: gap-up %.1f%% (limit +1.5%%): skip' % gap)
+            add(sym, 'dgapup', '%s: gap-up %.1f%% (limit +1.5%%): skip' % (lbl, gap))
         elif gap < -3:
-            add(sym, 'dgapdn', 'Dip: gap-down %.1f%% (limit -3%%): skip' % gap)
+            add(sym, 'dgapdn', '%s: gap-down %.1f%% (limit -3%%): skip' % (lbl, gap))
         elif atr and it['ltp'] <= o - 2 * atr:
-            add(sym, 'dsl', 'Dip: price stop (%.2f) ke neeche: skip' % (o - 2 * atr))
+            add(sym, 'dsl', '%s: price stop (%.2f) ke neeche: skip' % (lbl, o - 2 * atr))
         if sym not in seen_pick:
             common(sym, it)
     for r in ctx.get('picks_review.csv', []):
