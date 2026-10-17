@@ -110,9 +110,20 @@ INS_CATS = re.compile(r'promoter|director|kmp|key managerial|chairman|ceo|cfo|ma
 
 
 def insider(fr, to, dbg):
-    u = 'https://www.nseindia.com/api/corporates-pit?index=equities&from_date=%s&to_date=%s' % (fr.strftime('%d-%m-%Y'), to.strftime('%d-%m-%Y'))
-    d = jget(u, dbg, 'pit', ref='https://www.nseindia.com/companies-listing/corporate-filings-insider-trading')
-    rows = rows_of(d)
+    base = 'https://www.nseindia.com/api/corporates-pit?index=equities'
+    tries = [base + '&from_date=%s&to_date=%s' % (fr.strftime('%d-%m-%Y'), to.strftime('%d-%m-%Y')),   # NSE kabhi date range par
+             base,                                                                                 # khaali deta hai: default
+             base + '&period=1W']                                                                  # (latest) aur period bhi try
+    rows, d = [], {}
+    for k, u in enumerate(tries):
+        try:
+            d = jget(u, dbg, 'pit%d' % k, ref='https://www.nseindia.com/companies-listing/corporate-filings-insider-trading')
+        except Exception as e:
+            dbg['pit%d_err' % k] = str(e)[:80]; continue
+        rows = rows_of(d)
+        dbg['pit%d_rows' % k] = len(rows)
+        if rows:
+            break
     if not rows:
         dbg['pit_shape'] = (sorted(d.keys())[:12] if isinstance(d, dict) else type(d).__name__)
     if rows and 'pit_keys' not in dbg:
