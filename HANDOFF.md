@@ -63,3 +63,11 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Dip stocks are not in angel_gap.py, but live alerts (watch_alerts.py) cover the Dip gap rule.
 - Morning scheduled prompt could mention restrict/ASM, A+ and IGNORE rules.
 - Offered, not built: bulk/block deal + insider buying chip on picks.
+
+## Market regime (regime_study.py, regime.yml har Shanivar)
+- Regime = liquid stocks (20-din turnover 5cr+) me kitne % EMA50 ke upar: STRONG 60+, MIXED 40-60, WEAK 25-40, VWEAK <25.
+- Result (SL 2ATR, max 5 din, 0.25% cost): WEAK me Dip A +0.15R (59% jeet, 4/5 saal); VWEAK me Oversold bounce +0.26R (67%, 5/5) aur Gehra oversold +0.16R (5/5);
+  MIXED me koi setup pakka nahi; Breakout har haal me minus.
+- App: Picks par "Aaj ka market" card (docs/regime.json + docs/regime_today.json), Breakout/Pullback/Dip strategy line par
+  "Is market me chala / nahi chalta" chip, Oversold bounce cards sirf VWEAK me (warna ek line).
+- dip_scan.py roz: BOUNCE/DEEP rows dip_latest.csv me (app inhe Dip list se alag rakhta hai) + docs/regime_today.json.

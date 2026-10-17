@@ -133,7 +133,7 @@ details.set>summary{color:var(--mu);font-size:11.5px;padding:6px 2px}
 <script>
 /* ===== SYNC: Google Sheet (Apps Script web app) se Lock + risk/capital sab devices par same rehte hain. Sirf PIN_URL badalna hai ===== */
 var PIN_URL='https://script.google.com/macros/s/AKfycbwTutE4YKjhrqUNwYuZwgRqPSLvelaSeBwkibi2M6Kmexkfh27jVgYcceTr8yh73mQ7yQ/exec',PIN_KEY='sd-24e5af0f609d8c48f5c5';
-var RS=null,FD=null,SN={},DL=null,DLF='all',GL=null,MC=[],DP=[],DPM={},NM={},NMN={},NMA=[],TGC={},TG=[],TGTS=0,TGQ='',AN={},ANTS='',D={},SC=[],SR=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},PK={},RK={},tab='picks',cur=null,lastY=0,PN=[],SHOWALL=false,TOPN=8;
+var RS=null,FD=null,SN={},DL=null,DLF='all',GL=null,MC=[],DP=[],BN=[],RG=null,RT=null,DPM={},NM={},NMN={},NMA=[],TGC={},TG=[],TGTS=0,TGQ='',AN={},ANTS='',D={},SC=[],SR=[],GP={},NW={},TR=[],HL=[],ST={},SK={},MK={},PK={},RK={},tab='picks',cur=null,lastY=0,PN=[],SHOWALL=false,TOPN=8;
 var FLG={RESULTS_SOON:'Result/board meeting paas hai',EVENT_UNKNOWN:'Result date check nahi hui',NEW_ANNOUNCEMENT:'Nayi announcement aayi hai',IN_NEWS:'Khabron me hai'};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function csv(t){var o=[],r=[],f='',q=false,i,c;for(i=0;i<t.length;i++){c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
@@ -313,7 +313,7 @@ function zoneTxt(s){if(s.v=='WEAK')return['Trend weak hai. Buy zone ignore karo,
 if(s.zone=='ABOVE_ZONE')return['Zone se upar (extended). Dip ka wait: '+f(s.zlo)+' - '+f(s.zhi)+'. Ya breakout: '+f(s.trig)+' ke upar close/volume ke saath','y'];
 return['EMA20 ke niche. Abhi buy zone nahi','r']}
 function load(){PN=lsj('pins',[]);if(!Array.isArray(PN))PN=[];SHOWALL=ls('showall',0)==1;
-return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check.csv'),get('news_events.csv'),get('picks_review.csv'),get('news_events.txt'),get('announcements.json',1),getSheetPicks(),get('names.json',1),get('dip_latest.csv'),get('restrict.json',1),get('global.json',1),get('macro.json',1),get('funda.json',1),get('stock_news.json',1),get('deals.json',1)]).then(function(a){DL=a[15]||null;setNames(a[8]);RS=a[10]||null;FD=a[13]||null;SN=(a[14]&&a[14].items)||{};GL=a[11]||null;MC=(a[12]&&a[12].events)||[];DP=a[9]?csv(a[9]).filter(function(x){return x.SYMBOL}):[];DPM={};DP.forEach(function(x){DPM[x.SYMBOL]=x});
+return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check.csv'),get('news_events.csv'),get('picks_review.csv'),get('news_events.txt'),get('announcements.json',1),getSheetPicks(),get('names.json',1),get('dip_latest.csv'),get('restrict.json',1),get('global.json',1),get('macro.json',1),get('funda.json',1),get('stock_news.json',1),get('deals.json',1),get('regime.json',1),get('regime_today.json',1)]).then(function(a){DL=a[15]||null;RG=a[16]||null;RT=a[17]||null;setNames(a[8]);RS=a[10]||null;FD=a[13]||null;SN=(a[14]&&a[14].items)||{};GL=a[11]||null;MC=(a[12]&&a[12].events)||[];DP=a[9]?csv(a[9]).filter(function(x){return x.SYMBOL}):[];BN=DP.filter(function(x){return x.TIER=='BOUNCE'||x.TIER=='DEEP'});DP=DP.filter(function(x){return x.TIER=='A'||x.TIER=='B'});DPM={};DP.forEach(function(x){DPM[x.SYMBOL]=x});
 AN=(a[6]&&a[6].items)||{};ANTS=(a[6]&&a[6].updated)||'';D=a[0]||{stocks:{},market:{}};ST=D.stocks;SK=D.skip||{};MK=D.market;SC=a[1]?csv(a[1]):[];(a[2]?csv(a[2]):[]).forEach(function(x){GP[x.symbol]=x});
 (a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=mergePicks(a[4]?csv(a[4]):[],a[7]);HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
 var reg=MK.pct50<40?['Market kamzor','pr']:MK.pct50>60?['Market majboot','pg']:['Market mixed','py'];
@@ -425,7 +425,36 @@ function aiCopy(sym){var txt=aiPrompt(sym,aiQ(sym));try{navigator.clipboard.writ
 /* ---------- PICKS: Locked (upar) + aaj ke solid picks (best se worst) ---------- */
 /* Strategy label + backtest haal (har card par saaf dikhe ki call kis strategy se aayi) */
 function stratOf(setup,tier,plus){if(setup=='DIP')return plus?['Dip A+','pg','Backtest me chala: naye data (2025-26) par +0.15R, 58% jeet']:tier=='A'?['Dip A','pg','Backtest me chala: naye data (2025-26) par +0.09R']:['Dip B','py','Backtest: naye data me lagbhag breakeven (0R)'];if(setup=='BREAKOUT')return['Breakout','py','Backtest: fayda sabit nahi (avg -0.16R). Experimental'];if(setup=='PREBREAK')return['Breakout se pehle','py','Backtest: fayda sabit nahi (4 saal, avg -0.11R). Experimental'];if(setup=='PULLBACK')return['Pullback','py','Backtest: fayda sabit nahi (avg -0.10R). Experimental'];return['Locked (koi setup nahi)','','Aaj kisi strategy me nahi aaya, sirf tumhara lock']}
-function stratLine(st){return '<div class="strat"><small>Strategy:</small> '+chip(st[0],st[1])+'<small>'+esc(st[2])+'</small></div>'}
+function stratLine(st){var k={'Breakout':'BREAKOUT','Pullback':'PULLBACK','Dip A+':'DIP_A','Dip A':'DIP_A','Dip B':'DIP_B'}[st[0]];return '<div class="strat"><small>Strategy:</small> '+chip(st[0],st[1])+'<small>'+esc(st[2])+'</small>'+(k?regChip(k):'')+'</div>'}
+/* ---------- MARKET REGIME (regime_study.py: har setup alag market haal me 4-5 saal) ---------- */
+var REGN={STRONG:'Majboot',MIXED:'Mila-jula',WEAK:'Kamzor',VWEAK:'Bahut kamzor'},REGD={STRONG:'60%+ stock EMA50 ke upar',MIXED:'40-60% stock EMA50 ke upar',WEAK:'25-40% stock EMA50 ke upar',VWEAK:'25% se kam stock EMA50 ke upar'},
+SETN={DIP_A:'Dip A',DIP_B:'Dip B',BREAKOUT:'Breakout',PULLBACK:'Pullback',RS_LEADER:'RS leader',HIGH52:'52-hafte high',OVERSOLD_BOUNCE:'Oversold bounce',DEEP_OVERSOLD:'Gehra oversold'},SETAPP={DIP_A:1,DIP_B:1,BREAKOUT:1,PULLBACK:1,OVERSOLD_BOUNCE:1,DEEP_OVERSOLD:1};
+function regNow(){var a=RT&&RT.regime?RT:null,b=RG&&RG.regime?RG:null;if(a&&b)return String(a.date)>=String(b.date)?a:b;return a||b}
+function regRow(k){var n=regNow();if(!n||!RG||!RG.table)return null;for(var i=0;i<RG.table.length;i++){var t=RG.table[i];if(t.setup==k&&t.regime==n.regime&&t.exit=='2ATR/5d')return t}return null}
+function rRs(r){var v=r*ls('risk',700);return (v<0?'-':'+')+'Rs '+Math.abs(Math.round(v))}
+function regChip(k){var t=regRow(k),n=regNow();if(!t)return '';var info=' Aise market me pichhle saalon me: avg '+(t.avgR>0?'+':'')+t.avgR+'R, jeet '+t.win+'%, '+t.years_pos+' saal plus ('+t.n+' trades).';
+if(t.avgR<0)return '<div>'+chip('Is market ('+REGN[n.regime]+') me nahi chalta','pr')+'<small class="r">'+esc(info)+' Trade lena ho to aadhi qty, warna skip.</small></div>';
+if(t.ok&&t.avgR>=0.05)return '<div>'+chip('Is market me chala','pg')+'<small>'+esc(info)+'</small></div>';
+return '<div>'+chip('Is market me lagbhag 0','py')+'<small>'+esc(info)+'</small></div>'}
+function regCard(){var n=regNow();if(!n)return '';var rows=(RG&&RG.table||[]).filter(function(t){return t.regime==n.regime&&t.exit=='2ATR/5d'}).sort(function(a,b){return b.avgR-a.avgR});
+var good=rows.filter(function(t){return t.ok&&t.avgR>=0.05}),bad=rows.filter(function(t){return t.avgR<0}),zero=rows.filter(function(t){return good.indexOf(t)<0&&bad.indexOf(t)<0});
+function li(t,c){return '<div class="ir"><div class="l"><b>'+esc(SETN[t.setup]||t.setup)+'</b><small>'+(SETAPP[t.setup]?'':'app me scan nahi | ')+'jeet '+t.win+'% | '+esc(t.years_pos)+' saal plus | '+t.n+' trades</small></div><div class="v '+c+'">'+(t.avgR>0?'+':'')+t.avgR+'R<small> '+rRs(t.avgR)+'/trade</small></div></div>'}
+var c=n.regime=='STRONG'?'pg':n.regime=='MIXED'?'py':'pr';
+return '<details class="card" id="regc"><summary><b>Aaj ka market: </b>'+chip(REGN[n.regime],c)+'<small>'+f(+n.breadth,1)+'% liquid stock EMA50 ke upar ('+esc(n.date||'')+'). Kya chalega? dabao</small></summary>'+
+'<small>'+esc(REGD[n.regime])+'. Neeche har setup ka 4-5 saal ka hisaab, sirf aise hi market wale dino ka (SL 2 ATR, max 5 din, kharcha 0.25% kaat ke). Rs = tumhare Rs '+ls('risk',700)+' risk par ek trade ka average.</small>'+
+(good.length?'<div class="g" style="margin-top:6px"><b>Is market me chala</b></div>'+good.map(function(t){return li(t,'g')}).join(''):'<div class="y" style="margin-top:6px"><b>Is market me koi setup pakka nahi chala: aaj kam trade, chhota size.</b></div>')+
+(zero.length?'<div class="mu" style="margin-top:6px"><b>Lagbhag 0 (na fayda na nuksan)</b></div>'+zero.map(function(t){return li(t,'')}).join(''):'')+
+(bad.length?'<div class="r" style="margin-top:6px"><b>Is market me nuksan hua (skip)</b></div>'+bad.map(function(t){return li(t,'r')}).join(''):'')+
+'<small class="mu">Market haal roz shaam (Dip scan ke saath), setup ke number har Shanivar update. Edge chhota hai: 1 trade se kuch sabit nahi, 30-50 trade ka average dekho.</small></details>'}
+function bounceSection(){if(!BN.length)return '';var n=regNow(),vw=n&&n.regime=='VWEAK',t=regRow('OVERSOLD_BOUNCE');
+if(!vw)return '<div class="card"><small><b>Oversold bounce:</b> aaj '+BN.length+' stock bahut gire hue (RSI 30 se neeche) mile. Ye setup sirf tab chala jab market <b>bahut kamzor</b> ho (25% se kam stock EMA50 ke upar). Aaj market '+(n?esc(REGN[n.regime])+' ('+f(+n.breadth,1)+'%)':'?')+' hai'+(t?', aise market me ye '+(t.avgR>0?'+':'')+t.avgR+'R raha':'')+'. Isliye aaj ye trade nahi.</small></div>';
+var h='<div class="sec" id="sec-bn"><h3>Oversold bounce ('+BN.length+')</h3></div><div class="hint"><b>Sirf bahut kamzor market ka setup:</b> downtrend stock jo 3 din me 8%+ ya 10 din me 15%+ gira, RSI bahut neeche. Aise market me pichhle 5 saal me'+(t?' avg +'+t.avgR+'R, jeet '+t.win+'%':' plus')+'. Ulta khel hai (girte chaku), isliye SL zaroor aur qty utni hi jitni plan bole.</div>';
+BN.slice().sort(function(a,b){return (a.TIER>b.TIER)-(a.TIER<b.TIER)||(+a.RSI14)-(+b.RSI14)}).slice(0,6).forEach(function(r){var sym=r.SYMBOL,p=dipPlan(r,liveItem(sym)),B=r.TIER=='BOUNCE';
+h+='<div class="card" onclick="detail(\''+esc(sym)+'\')"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+(NM[sym]?esc(NM[sym])+' | ':'')+lvp(sym,r.CLOSE,r.CHG_PCT)+'</small></div><div>'+chip(B?'Oversold bounce':'Gehra oversold',B?'pg':'pb')+pinBtn(sym)+'</div></div>'+
+'<div class="y">3 din me '+f(+r.RET3,1)+'% gira, '+esc(String(r.NOTE||'').replace('RET10','10 din me'))+'%, RSI '+f(+r.RSI14,0)+' (downtrend, EMA50 neeche)</div>'+
+(p?'<div class="tiles t5"><div><small>Entry (9:20 market)</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss (2 ATR)</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target (optional)</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div>'+atrTile(r.ATR14,r.CLOSE)+'</div>':'')+
+'<small>Rule: Dip jaisa. Open kal ke close se +1.5% upar ya -3% neeche ho to SKIP. SL turant. Max 5 din, 5th din close par bahar.</small>'+ignStrip(sym)+dipEvent(sym)+'</div>'});return h}
+
 /* Roz ka move = ATR14: stock ek din me aam taur par kitna upar-neeche hota hai */
 function atrTile(atr,px){atr=+atr;px=+px;return '<div><small>Roz move</small><b>'+(atr>0?f(atr,1):'-')+'</b><small>'+(atr>0&&px>0?f(atr/px*100,1)+'%':'')+'</small></div>'}
 /* SL entry se kitna door hai, roz ke move (ATR) ke mukable */
@@ -467,7 +496,7 @@ function dipSection(){if(!DP.length)return '<div class="sec" id="sec-dip"><h3>Di
 var h='<div class="sec" id="sec-dip"><h3>Dip setup ('+DP.length+')</h3></div><div class="hint"><b>Alag strategy (backtested):</b> majboot uptrend me tez girawat ke baad bounce par khelna. Upar ke breakout/pullback picks se alag hai. Din me 1-2 trade se zyada mat lo, pehle 30-50 trades chhote size me forward-test karo.</div>';
 DP.slice().sort(function(a,b){return (dipPlus(b)-dipPlus(a))||(dipMom(b)-dipMom(a))||(a.TIER>b.TIER)-(a.TIER<b.TIER)||(+a.RET3)-(+b.RET3)}).slice(0,8).forEach(function(r){h+=dipCard(r)});return h}
 function dipDetailCard(sym){var r=DPM[sym];if(!r)return '';var p=dipPlan(r,liveItem(sym));return '<div class="card"><h3 style="margin-top:0">Dip setup active (Tier '+esc(r.TIER)+')</h3><div>3 din me '+f(+r.RET3,1)+'% gira, uptrend me hai.</div>'+(p?'<div class="tiles"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>':'')+'<small>'+esc(DIPBT[r.TIER]||'')+' Max 5 din hold.</small></div>'}
-function picksView(){rankAll();var h=planCard()+'<details class="set card"><summary>Risk / Capital badlo (Rs '+ls('risk',700)+' / Rs '+ls('cap',50000)+')</summary><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></details>';
+function picksView(){rankAll();var h=planCard()+regCard()+'<details class="set card"><summary>Risk / Capital badlo (Rs '+ls('risk',700)+' / Rs '+ls('cap',50000)+')</summary><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></details>';
 h+=alertBanner()+ignoreCard();
 if(!pinsOn())h+='<div class="hint y">Sync setup baaki hai: Lock aur Risk/Capital abhi sirf is device par rahenge.</div>';
 /* 1) Locked */
@@ -480,7 +509,7 @@ if(!SC.length)h+='<div class="card">Aaj ke picks abhi nahi mile.</div>';
 else if(!list.length)h+='<div class="card">Aaj koi stock "majboot trend + buy zone" filter me pass nahi hua. Aise din trade skip karna bhi theek hai. "Sab dikhao" dabake poori list dekh sakte ho.</div>';
 else h+='<div class="hint">'+(SHOWALL?'Poori list, best se worst.':'<b>'+list.length+' solid picks'+(sol.length>TOPN?' (top '+TOPN+' / '+sol.length+')':'')+'</b>, best se worst.')+' Card dabao: poori report. Live gap/SL se skip hone layak stock neeche "Aaj skip karo" me jaate hain.</div>';
 list.forEach(function(r,i){h+=pickCard(r,i+1,false)});
-if(!SHOWALL)h+=dipSection();
+if(!SHOWALL)h+=dipSection()+bounceSection();
 if(!SHOWALL&&skp.length){h+='<details class="card"><summary>Aaj skip karo ('+skp.length+'): gap / SL / bahut upar</summary>'+skp.map(function(r){var it=liveItem(r.SYMBOL),st=it?liveStatus(it,livePc(r.SYMBOL,it),livePlan(r.SYMBOL)):null;return '<div class="ir" onclick="detail(\''+esc(r.SYMBOL)+'\')"><div class="l"><b>'+esc(r.SYMBOL)+'</b><small>'+(st?esc(st[1]):'')+'</small></div><div class="v">'+f(it?it.ltp:r.CLOSE)+'</div></div>'}).join('')+'</div></details>'}
 h+='<details class="card"><summary>Filter aur rank kaise bane? (padhne ke liye dabao)</summary><div style="font-size:13px"><b>Solid filter (sab shart pass honi chahiye):</b><ul>'+
 '<li>Trend checks me kam se kam 75% pass (jaise 6/8) aur trend WEAK nahi.</li>'+
@@ -501,7 +530,7 @@ function planGo(k){if(cur==null)lastY=window.pageYOffset||0;try{history.pushStat
 function listView(k,restore){cur='@'+k;document.body.classList.remove('stk');rankAll();var v=document.getElementById('v'),h='',n=0;
 if(k=='sol'){var sol=SR.filter(function(r){return !isPin(r.SYMBOL)&&solid(r)&&!liveSkip(r.SYMBOL)});n=sol.length;
 h=n?'<div class="hint"><b>'+n+' solid picks</b>, best se worst. Card dabao: poori report.</div>'+sol.map(function(r,i){return pickCard(r,i+1,false)}).join(''):'<div class="card">Aaj koi stock "majboot trend + buy zone" filter me pass nahi hua. Aise din trade skip karna bhi theek hai.</div>'}
-else if(k=='dip'){n=DP.length;h=dipSection()}
+else if(k=='dip'){n=DP.length;h=dipSection()+bounceSection()}
 else if(k=='lock'){n=PN.length;h=n?PN.map(function(sym){return PK[sym]?pickCard(PK[sym],0,true):pinOnlyCard(sym)}).join(''):'<div class="card">Abhi koi stock locked nahi hai. Kisi card par "Lock" dabao to wo yahan aayega.</div>'}
 else{n=Object.keys(ignAll()).length;h=ignoreCard()||'<div class="card">Aaj ignore karne layak koi stock nahi.</div>'}
 document.getElementById('bar').innerHTML='<button class="back" onclick="back()">&larr; Wapas</button><div><div class="big">'+esc(PLT[k])+'</div><small>'+n+' stock</small></div>';

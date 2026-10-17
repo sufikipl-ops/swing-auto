@@ -27,7 +27,7 @@ jobs:
         run: |
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
-          git add out/dip_latest.csv docs/dip_latest.csv
+          git add out/dip_latest.csv docs/dip_latest.csv docs/regime_today.json
           git diff --cached --quiet && exit 0
           git commit -m "dip $(date -u +%F)"
           for i in 1 2 3 4 5; do
