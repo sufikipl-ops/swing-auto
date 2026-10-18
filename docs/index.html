@@ -142,7 +142,7 @@ h3{font-weight:600;color:var(--mu)}
 .clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;position:relative}
 .clamp::after{content:'';}
 small.clamp,.hint.clamp,.why.clamp{border-bottom:1px dashed var(--bd)}
-.clopen{cursor:auto}
+.clopen{cursor:auto}.chc{padding:10px 8px}.chc .row{padding:0 4px 6px}#chart{width:100%;min-height:10px}#chnote{padding:4px 4px 0}
 .wlc{padding:2px 12px}.wrow{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--bd);cursor:pointer;-webkit-tap-highlight-color:transparent}.wrow:last-child{border-bottom:0}.wrow:active{opacity:.6}
 .wrow .rk{width:30px;height:30px;font-size:12.5px}.rk.lk{font-size:13px}.rk.dp{background:var(--gbg);color:var(--g);font-size:11.5px}
 .wmid{flex:1;min-width:0}.wn{display:flex;align-items:center;flex-wrap:wrap;gap:4px}.wn b{font-size:15px;margin-right:4px;letter-spacing:-.01em}.wn .pill{margin:0;font-size:10px}
@@ -364,6 +364,25 @@ AN=(a[6]&&a[6].items)||{};ANTS=(a[6]&&a[6].updated)||'';D=a[0]||{stocks:{},marke
 (a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=mergePicks(a[4]?csv(a[4]):[],a[7]);HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
 var reg=MK.pct50<40?['Market kamzor','pr']:MK.pct50>60?['Market majboot','pg']:['Market mixed','py'];
 document.getElementById('mk').innerHTML='Analysis: '+esc(MK.date||'?')+' close '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+staleChip(MK.date)+'<span id="lvchip"></span>'+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');shSet('an',AN);shSet('nw',NW);shSet('rs',RS||{});shSet('gl',GL||{});LASTRF=Date.now();render();syncAll();loadTG();ignCheck()})}
+/* ---------- chart (TradingView lightweight-charts, docs/candles.json: sirf kaam ke ~160 stock) ---------- */
+var CDL=null,LWC=null;
+function chartCard(sym){return '<div class="card chc"><div class="row"><b>Chart (daily)</b><small class="mu" id="chleg">EMA20 <span style="color:#4c9aff">&#9472;</span> EMA50 <span style="color:#e3b341">&#9472;</span></small></div><div id="chart"></div><div id="chnote"></div></div>'}
+function tvLink(sym){return '<a class="btn" target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=NSE%3A'+encodeURIComponent(sym)+'">TradingView par chart</a>'}
+function loadLWC(){if(LWC)return LWC;LWC=new Promise(function(ok,no){var sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js';sc.onload=function(){ok(window.LightweightCharts)};sc.onerror=function(){LWC=null;no()};document.head.appendChild(sc)});return LWC}
+function emaArr(v,n){var a=2/(n+1),e=null;return v.map(function(x){e=e==null?x:a*x+(1-a)*e;return e})}
+function drawChart(sym,p){var box=document.getElementById('chart'),note=document.getElementById('chnote');if(!box)return;
+(CDL?Promise.resolve(CDL):get('candles.json',1).then(function(d){CDL=d||{s:{}};return CDL})).then(function(D){var rows=D.s&&D.s[sym];
+if(!rows||rows.length<20){box.style.display='none';note.innerHTML='<small class="mu">Is stock ka chart app me nahi hai (sirf picks, dip, locked aur trades ke stocks ka). </small>'+tvLink(sym);return}
+return loadLWC().then(function(LW){if(cur!==sym)return;var cs=getComputedStyle(document.documentElement),bg=cs.getPropertyValue('--card').trim(),tx=cs.getPropertyValue('--mu').trim(),bd=cs.getPropertyValue('--bd').trim();
+box.innerHTML='';var ch=LW.createChart(box,{height:280,layout:{background:{type:'solid',color:bg},textColor:tx,fontFamily:'Inter,system-ui,sans-serif'},grid:{vertLines:{color:bd},horzLines:{color:bd}},rightPriceScale:{borderColor:bd},timeScale:{borderColor:bd},crosshair:{mode:0},handleScroll:false,handleScale:false});
+var data=rows.map(function(r){return{time:D.dates[r[0]],open:r[1],high:r[2],low:r[3],close:r[4]}}),cl=data.map(function(x){return x.close});
+var cd=ch.addCandlestickSeries({upColor:'#2fbf71',downColor:'#e5534b',borderVisible:false,wickUpColor:'#2fbf71',wickDownColor:'#e5534b'});cd.setData(data);
+var vol=ch.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'v',color:'rgba(138,155,176,.35)'});ch.priceScale('v').applyOptions({scaleMargins:{top:.82,bottom:0}});vol.setData(rows.map(function(r){return{time:D.dates[r[0]],value:r[5],color:r[4]>=r[1]?'rgba(47,191,113,.35)':'rgba(229,83,75,.35)'}}));
+[[20,'#4c9aff'],[50,'#e3b341']].forEach(function(z){var e=emaArr(cl,z[0]),ls=ch.addLineSeries({color:z[1],lineWidth:1,priceLineVisible:false,lastValueVisible:false});ls.setData(data.map(function(x,i){return{time:x.time,value:e[i]}}).slice(Math.min(z[0],10)))});
+var t=TR.filter(function(x){return x.symbol==sym&&x.status!='CLOSED'})[0],L=t?[[+t.entry,'Meri entry','#4c9aff'],[+t.sl,'Mera SL','#e5534b'],[+t.target,'Mera target','#2fbf71']]:p?[[p.entry,'Entry','#4c9aff'],[p.stop,'SL','#e5534b'],[p.t1,'Target','#2fbf71']]:[];
+L.forEach(function(z){if(z[0]>0)cd.createPriceLine({price:z[0],color:z[2],lineWidth:1,lineStyle:2,axisLabelVisible:true,title:z[1]})});
+ch.timeScale().fitContent();note.innerHTML='<small class="mu">Pichhle '+rows.length+' din. Dotted lines: '+(t?'tumhare logged trade':'app ka plan')+' (entry / SL / target). </small>'+tvLink(sym);
+window.addEventListener('resize',function(){if(document.getElementById('chart')===box)ch.applyOptions({width:box.clientWidth})})})}).catch(function(){note.innerHTML='<small class="mu">Chart load nahi hua (internet?). </small>'+tvLink(sym)})}
 function links(sym){return '<a class="btn" target="_blank" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(sym+' share news')+'">Latest news</a>'+
 '<a class="btn" target="_blank" href="https://www.nseindia.com/get-quotes/equity?symbol='+encodeURIComponent(sym)+'">NSE</a>'+
 '<a class="btn" target="_blank" href="https://www.screener.in/company/'+encodeURIComponent(sym)+'/">Screener</a>'+
@@ -412,7 +431,7 @@ var fl=(NW[sym]||{}).flags||'',entry=pk?entryOf(pk):s.c,p=planFrom(entry,s.stop,
 /* 1. seedha jawab */
 h+='<div class="card vd '+vd[2]+'"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+lvp(sym,s.c,s.chg)+(pk?' | '+setupName(pk):'')+'</small></div>'+chip('Trend '+s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>'+
 '<div class="vt '+vd[2]+'">'+esc(vd[0])+'</div><div>'+esc(vd[1])+'</div>'+(rk?'<div style="margin-top:6px">'+chip('Rank #'+rk.n+' ('+rk.g[0]+')',rk.g[1])+gapChip(g)+'</div>':gapChip(g))+'</div>';
-h+='<div data-lv="'+esc(sym)+'" data-full="1"></div>'+ignStrip(sym);
+h+='<div data-lv="'+esc(sym)+'" data-full="1"></div>'+ignStrip(sym)+chartCard(sym);
 /* 2. trade plan */
 if(p){h+='<div class="card"><h3 style="margin-top:0">Trade plan</h3>'+stratLine(pk?stratOf(pk.SETUP):DPM[sym]?stratOf('DIP',DPM[sym].TIER,dipPlus(DPM[sym])):stratOf(''))+'<div class="tiles t5"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div>'+atrTile(s.atr,s.c)+'</div>'+
 '<div class="ir"><div class="l">Paisa lagega</div><div class="v">'+rs0(p.val)+'</div></div><div class="ir"><div class="l">SL hit hua to nuksan</div><div class="v r">'+rs0(p.loss)+'</div></div><div class="ir"><div class="l">Target hit hua to fayda</div><div class="v g">'+rs0(p.gain)+'</div></div>'+
@@ -433,7 +452,7 @@ h+='<div class="card"><h3 style="margin-top:0">Price levels (upar se neeche)</h3
 h+='<div class="card"><h3 style="margin-top:0">Numbers ka matlab</h3>'+indicators(s)+'</div>';
 /* 6. news + links */
 h+='<div class="card">'+newsBlock(sym).replace('<h3>','<h3 style="margin-top:0">')+annBlock(sym,true)+links(sym)+'</div>';
-v.innerHTML=h;paintLive();window.scrollTo(0,0)}
+v.innerHTML=h;paintLive();window.scrollTo(0,0);drawChart(sym,p)}
 
 /* ---------- AI SE POOCHO: stock ki saari jaankari ke saath Claude kholo (user ka apna account, koi API key nahi) ---------- */
 var AIQS=[['&#128200;','Abhi entry theek hai?','Is stock me abhi entry theek hai? Plan aur risk dekh ke batao.'],['&#128240;','Kyu gira / chadha?','Ye stock kyu gira/chadha? Latest news aur announcements web par dekho.'],

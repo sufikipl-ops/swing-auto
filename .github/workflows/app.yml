@@ -26,6 +26,8 @@ jobs:
           for f in screen_latest.csv gap_check.csv picks_review.csv; do   # news_events.* news workflow khud copy karta hai
             [ -f out/$f ] && cp out/$f docs/$f || true
           done
+      - name: Chart candles (kaam ke stocks)
+        run: python candles.py data || true
       - name: Commit
         run: |
           git config user.name "swing-bot"
