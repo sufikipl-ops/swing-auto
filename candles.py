@@ -59,7 +59,8 @@ def main():
                 if None in t: continue
                 d = d or datetime.datetime.strptime(r[2].strip(), '%d-%b-%Y').date().isoformat()
                 rows[s][d] = [round(t[0], 2), round(t[1], 2), round(t[2], 2), round(t[3], 2), int(t[4])]
-        if d: dates.append(d)
+        if d and d not in dates: dates.append(d)          # ek hi din ki do file (NSE re-upload) = ek candle
+    dates.sort()
     out = {}
     for s, byd in rows.items():
         if len(byd) >= 20:

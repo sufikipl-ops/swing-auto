@@ -126,3 +126,6 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Part 2: watchlist rows: pickRow / dipRow / pinRow + wlist(); live cells data-lvq (pxq) aur data-lvs (lstat) paintLive me.
 - Part 3: stock page chart: candles.py (app.yml, kaam ke max 160 stock x 100 din -> docs/candles.json), lightweight-charts 4.1.3
   (jsdelivr, lazy). EMA20/50, volume, entry/SL/target price lines (logged trade ho to uske). Baaki stocks: TradingView link.
+- Chart live: chLive() aaj ki candle LV.items se update karta hai (paintLive har ~30 sec), "LIVE" dot. Markers: signal din (setup naam),
+  logged trade ki entry. "ⓘ Ye trade kyun?" (whyHtml): setup rule (SETRULE), rk.P/rk.N, dip hisaab, regChip, plan kaise bana.
+- candles.py: ek din ki do bhavcopy file (NSE re-upload) ab ek hi candle; app bhi duplicate/zero rows hata deta hai.
