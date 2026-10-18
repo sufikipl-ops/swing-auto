@@ -30,6 +30,7 @@ jobs:
       - name: Commit result
         run: |
           git checkout -- docs/regime.json || true
+          git checkout -- docs/regime_trades.json 2>/dev/null || rm -f docs/regime_trades.json
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
           git add out/stock_summary*.txt out/stock_results*.csv

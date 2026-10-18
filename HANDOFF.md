@@ -117,3 +117,5 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   14:30 se live['prep'] {dip, bounce}; 15:12 ke baad ek baar Telegram "3:15 TAIYARI". Picks sheet (gviz) ke trade symbols bhi live list me.
   Payload 44000 char se upar ho to purane alerts kat-te hain (Apps Script limit 45000).
 - App: plan card me "Live market" line (#lvbr), "Kal ke liye taiyari" card (#lvprep), Trades tab me live P&L (data-tpl) + total (#tplsum).
+- Regime card ki har setup line dabao -> docs/regime_trades.json (regime_study, 2ATR/5d): us market haal me sabse zyada
+  bane 12 stock (trade, jeet, avg R) + haal ke 30 trades (signal din, stock, R). Har Shanivar update.

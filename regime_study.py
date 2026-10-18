@@ -198,11 +198,14 @@ print('breadth days', len(bd), flush=True)
 # ---- pass 2: signals
 TRADES = []                                   # TRADES=1: har trade (stock ke saath) -> out/regime_trades.csv.gz (stock_study.py ke liye)
 KEEP = bool(os.environ.get('TRADES'))
+EX = collections.defaultdict(list)
 
 
 def add(key, d, r_):
     res[key].append((d, r_))
     if KEEP: TRADES.append((CUR, d, key[0], key[1], key[2], r_))
+    if key[2] == 0 and (key[0] in SETUPS or key[0] == 'STRUCT_ALL'):   # app ke liye: 2ATR/5d ke asli trades (stock + din)
+        EX[(key[0], key[1])].append((d, CUR, r_))
 res = collections.defaultdict(list)          # (setup, regime, exit) -> [(date, R)]
 base = collections.defaultdict(list)         # (regime, exit) -> [(date, R)]
 for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
@@ -332,3 +335,15 @@ if KEEP:
                         round(100.0 * sum(1 for i in idx if cl[i] > e50[i]) / len(idx), 1), round(cl[idx[-1]] / cl[idx[0]] - 1, 3),
                         round(sorted(TO[sym][i] for i in idx)[len(idx) // 2], 2)])
     print('trades dumped', len(TRADES))
+# app: har setup + market haal ke pichhle trades (kaunsa stock, kab, kitna R) -> docs/regime_trades.json
+RTX = {}
+for (st_, rg), v in EX.items():
+    v.sort(key=lambda x: x[0])
+    per = collections.defaultdict(list)
+    for d, sy, r_ in v: per[sy].append(r_)
+    top = sorted(per.items(), key=lambda kv: (-len(kv[1]), -sum(kv[1])))[:12]
+    RTX.setdefault(st_, {})[rg] = {'n': len(v), 'recent': [[d.isoformat(), sy, round(r_, 2)] for d, sy, r_ in v[-30:][::-1]],
+                                   'stocks': [[sy, len(rs), round(sum(rs) / len(rs), 2), sum(1 for x in rs if x > 0)] for sy, rs in top]}
+json.dump({'updated': datetime.date.today().isoformat(), 'exit': '2ATR/5d', 'data': RTX},
+          open('docs/regime_trades.json', 'w'), separators=(',', ':'))
+print('regime_trades.json', sum(len(x) for x in RTX.values()))
