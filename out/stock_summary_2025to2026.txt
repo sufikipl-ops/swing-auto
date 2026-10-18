@@ -1,0 +1,72 @@
+HAR STOCK KI APNI STRATEGY - TEST (generated 2026-10-18)
+TRAIN 2025-01-01 se 2026-01-01 tak, TEST 2026-01-01 se.
+Universe: 50 stock (liquid 80%+ din, 2024 tak ke data se sabse zyada roz-move/ATR%). TRAIN < 2026-01-01, TEST >= 2026-01-01.
+Har stock pe har (setup, exit) jisme TRAIN me 4+ trade: TRAIN me sabse achha chuna, TEST me wahi lagaya.
+
+== TEST (2026-01-01 se) me nateeja, R per trade (kharcha kaat ke) ==
+  A. Har stock ki apni strategy (TRAIN se chuni)          n   126  avgR -0.262  jeet 35%
+  B. Apni strategy + market-haal filter                   n     5  avgR -0.098  jeet 40%
+  C. Sab stock pe ek hi setup: OVERSOLD_BOUNCE 2ATR/3d    n    51  avgR -0.025  jeet 47%
+  D. Sab stock pe Dip A (2ATR/5d)                         n    51  avgR +0.043  jeet 43%
+  E. In stocks ke saare signal (koi chunav nahi)          n  4973  avgR -0.026  jeet 42%
+  F. Har stock pe random setup (200 baar)                 avgR -0.070 (5%-95%: -0.151 .. +0.028)
+
+Kya pichhla result aage ka andaza deta hai? 204 (stock, setup) jode, rank correlation TRAIN vs TEST = +0.13
+  (0 = koi rishta nahi, kismat; +0.3 se upar = kaam ka rishta)
+  TRAIN ke top 20% jode: TRAIN avg +0.441 -> TEST avg -0.011
+
+== Har stock (chuna hua setup) ==
+stock          ATR%  setup            exit               nTr  trainR   nTe   testR
+TRU            6.18  (koi setup TRAIN me plus nahi / trade kam)
+SKIPPER        5.39  (koi setup TRAIN me plus nahi / trade kam)
+HCC            5.33  DEEP_OVERSOLD    1.5ATR/10d/T2R       4  +0.412     0       -
+MTNL           5.27  DIP_B            1.5ATR/10d/T2R       4  +0.900     0       -
+DHANI          5.23  (koi setup TRAIN me plus nahi / trade kam)
+INOXWIND       5.21  OVERSOLD_BOUNCE  2ATR/5d              5  +0.723     2  -0.625
+IFCI           5.03  BREAKOUT         2ATR/3d              6  +0.709    11  +0.004
+DISHTV         5.01  OVERSOLD_BOUNCE  2ATR/5d              7  +0.249     0       -
+COFFEEDAY      4.93  (koi setup TRAIN me plus nahi / trade kam)
+INOXGREEN      4.90  BREAKOUT         1.5ATR/10d/T2R       6  +1.130     2  -0.278
+FACT           4.85  (koi setup TRAIN me plus nahi / trade kam)
+BAJAJHIND      4.84  OVERSOLD_BOUNCE  2ATR/3d              8  +0.080     2  -0.220
+DCAL           4.84  PULLBACK         2ATR/5d             25  +0.093    13  -0.480
+PENIND         4.83  RS_LEADER        1.5ATR/10d/T2R      12  +0.309     0       -
+JPPOWER        4.78  (koi setup TRAIN me plus nahi / trade kam)
+JWL            4.78  BREAKOUT         2ATR/3d              4  +0.126     1  -0.007
+IDEA           4.77  PULLBACK         1.5ATR/10d/T2R      16  +0.657    28  -0.855
+IMAGICAA       4.76  (koi setup TRAIN me plus nahi / trade kam)
+TEXRAIL        4.76  (koi setup TRAIN me plus nahi / trade kam)
+TFCILTD        4.73  DIP_B            1.5ATR/10d/T2R       4  +1.488     1  +0.475
+SANGHVIMOV     4.73  BREAKOUT         2ATR/3d              8  +0.300     4  -0.029
+EDELWEISS      4.71  BREAKOUT         1.5ATR/10d/T2R       7  +0.020    11  -0.299
+CAPACITE       4.70  (koi setup TRAIN me plus nahi / trade kam)
+EKC            4.69  OVERSOLD_BOUNCE  2ATR/5d              8  +0.079     0       -
+VAKRANGEE      4.69  DEEP_OVERSOLD    2ATR/3d             10  +0.096     0       -
+DCXINDIA       4.67  DEEP_OVERSOLD    2ATR/3d              4  +0.414     0       -
+TDPOWERSYS     4.66  DIP_B            2ATR/5d              4  +0.841     6  -0.053
+RAMASTEEL      4.66  (koi setup TRAIN me plus nahi / trade kam)
+JISLJALEQS     4.64  BREAKOUT         2ATR/3d              4  +0.034     4  -0.552
+KELLTONTEC     4.63  PULLBACK         1.5ATR/10d/T2R      18  +0.175     0       -
+COCHINSHIP     4.63  (koi setup TRAIN me plus nahi / trade kam)
+KIRLOSBROS     4.62  BREAKOUT         2ATR/5d              4  +1.006     5  +0.505
+ELECTCAST      4.59  OVERSOLD_BOUNCE  2ATR/5d              7  +0.244     0       -
+SAKSOFT        4.58  (koi setup TRAIN me plus nahi / trade kam)
+KAYNES         4.57  PULLBACK         2ATR/3d             12  +0.013     7  +0.474
+PATELENG       4.56  (koi setup TRAIN me plus nahi / trade kam)
+EMIL           4.55  (koi setup TRAIN me plus nahi / trade kam)
+JINDALSAW      4.55  (koi setup TRAIN me plus nahi / trade kam)
+RVNL           4.55  BREAKOUT         2ATR/3d              4  +1.290     1  +0.086
+SDBL           4.54  DIP_B            2ATR/5d              7  +0.206     0       -
+ATULAUTO       4.53  (koi setup TRAIN me plus nahi / trade kam)
+TI             4.52  BREAKOUT         2ATR/5d             13  +0.223     9  +0.554
+PSB            4.52  (koi setup TRAIN me plus nahi / trade kam)
+GRSE           4.51  DIP_B            2ATR/5d              4  +0.901     2  -0.553
+GENUSPOWER     4.50  BREAKOUT         1.5ATR/10d/T2R      12  +0.575     7  -0.510
+KPIGREEN       4.50  BREAKOUT         2ATR/3d              7  +0.091     5  -0.186
+RTNINDIA       4.49  BREAKOUT         2ATR/3d              4  +0.607     2  -0.243
+MOREPENLAB     4.48  DEEP_OVERSOLD    2ATR/5d              6  +0.328     2  +0.233
+RAILTEL        4.48  BREAKOUT         2ATR/3d              7  +0.109     1  -0.431
+SHILPAMED      4.47  (koi setup TRAIN me plus nahi / trade kam)
+
+TEST me plus rahe: 7 / 22 stock (jinke TEST trade the).
+Dhyan: ek stock pe ek setup ke saal me sirf kuch trade bante hain, isliye har stock ka number akela bharose layak nahi.

@@ -1,0 +1,72 @@
+HAR STOCK KI APNI STRATEGY - TEST (generated 2026-10-18)
+TRAIN 2025-01-01 se 2026-01-01 tak, TEST 2026-01-01 se.
+Universe: 50 stock (liquid 80%+ din, 2024 tak ke data se sabse zyada turnover (bade stock)). TRAIN < 2026-01-01, TEST >= 2026-01-01.
+Har stock pe har (setup, exit) jisme TRAIN me 4+ trade: TRAIN me sabse achha chuna, TEST me wahi lagaya.
+
+== TEST (2026-01-01 se) me nateeja, R per trade (kharcha kaat ke) ==
+  A. Har stock ki apni strategy (TRAIN se chuni)          n   432  avgR -0.266  jeet 36%
+  B. Apni strategy + market-haal filter                   n    23  avgR -0.051  jeet 30%
+  C. Sab stock pe ek hi setup: RS_LEADER 1.5ATR/10d/T2R   n   302  avgR -0.377  jeet 30%
+  D. Sab stock pe Dip A (2ATR/5d)                         n     3  avgR -0.440  jeet 33%
+  E. In stocks ke saare signal (koi chunav nahi)          n  6141  avgR -0.264  jeet 36%
+  F. Har stock pe random setup (200 baar)                 avgR -0.241 (5%-95%: -0.350 .. -0.162)
+
+Kya pichhla result aage ka andaza deta hai? 240 (stock, setup) jode, rank correlation TRAIN vs TEST = -0.02
+  (0 = koi rishta nahi, kismat; +0.3 se upar = kaam ka rishta)
+  TRAIN ke top 20% jode: TRAIN avg +0.372 -> TEST avg -0.374
+
+== Har stock (chuna hua setup) ==
+stock          ATR%  setup            exit               nTr  trainR   nTe   testR
+HDFCBANK       1.64  RS_LEADER        1.5ATR/10d/T2R       9  +0.820     0       -
+RELIANCE       1.74  PULLBACK         1.5ATR/10d/T2R      34  +0.603     0       -
+ICICIBANK      1.72  RS_LEADER        1.5ATR/10d/T2R       6  +0.360     0       -
+SBIN           1.95  HIGH52           1.5ATR/10d/T2R      10  +0.662    11  -0.101
+INFY           1.92  (koi setup TRAIN me plus nahi / trade kam)
+AXISBANK       1.97  PULLBACK         2ATR/5d             36  +0.170    20  -0.353
+TATAMOTORS     2.34  (koi setup TRAIN me plus nahi / trade kam)
+KOTAKBANK      1.72  HIGH52           2ATR/5d              6  +0.172     0       -
+TCS            1.81  PULLBACK         2ATR/5d              5  +0.405    17  -0.529
+ZOMATO         3.80  (koi setup TRAIN me plus nahi / trade kam)
+LT             2.00  PULLBACK         1.5ATR/10d/T2R      59  +0.020    20  -0.878
+ADANIENT       3.08  (koi setup TRAIN me plus nahi / trade kam)
+BHARTIARTL     2.01  HIGH52           2ATR/5d             12  +0.093     0       -
+TATASTEEL      2.37  (koi setup TRAIN me plus nahi / trade kam)
+HAL            2.88  BREAKOUT         2ATR/5d              8  +0.359     6  -0.330
+ITC            1.76  (koi setup TRAIN me plus nahi / trade kam)
+M&M            2.43  PULLBACK         1.5ATR/10d/T2R      81  +0.404    14  -0.448
+INDUSINDBK     2.22  PULLBACK         1.5ATR/10d/T2R      43  +0.403    76  -0.050
+RECLTD         3.32  (koi setup TRAIN me plus nahi / trade kam)
+ADANIPORTS     2.78  RS_LEADER        1.5ATR/10d/T2R       6  +0.710     0       -
+HINDUNILVR     1.59  BREAKOUT         2ATR/5d              4  +0.213     2  +0.239
+NTPC           2.33  (koi setup TRAIN me plus nahi / trade kam)
+PFC            3.48  (koi setup TRAIN me plus nahi / trade kam)
+PNB            3.09  PULLBACK         2ATR/5d             32  +0.041    40  -0.116
+BANKBARODA     2.77  PULLBACK         1.5ATR/10d/T2R      49  +0.221    13  -1.279
+TATAPOWER      2.45  (koi setup TRAIN me plus nahi / trade kam)
+IRFC           3.98  (koi setup TRAIN me plus nahi / trade kam)
+HCLTECH        2.09  (koi setup TRAIN me plus nahi / trade kam)
+POWERGRID      2.23  (koi setup TRAIN me plus nahi / trade kam)
+BHEL           3.60  PULLBACK         1.5ATR/10d/T2R      49  +0.478    43  +0.149
+BEL            2.69  BREAKOUT         1.5ATR/10d/T2R      10  +0.539     4  -0.985
+MAZDOCK        4.45  RS_LEADER        1.5ATR/10d/T2R       6  +0.145     0       -
+COALINDIA      2.36  (koi setup TRAIN me plus nahi / trade kam)
+IDEA           4.77  PULLBACK         1.5ATR/10d/T2R      16  +0.657    28  -0.855
+VEDL           3.02  RS_LEADER        1.5ATR/10d/T2R      15  +1.023    28  -0.010
+HINDALCO       2.57  PULLBACK         1.5ATR/10d/T2R      60  +0.481    31  -0.316
+TITAN          1.90  HIGH52           1.5ATR/10d/T2R       7  +0.454    12  +0.988
+YESBANK        3.33  BREAKOUT         1.5ATR/10d/T2R       7  +0.040     9  -0.517
+ASIANPAINT     1.76  BREAKOUT         2ATR/5d              9  +0.435     3  -0.405
+CANBK          2.79  HIGH52           1.5ATR/10d/T2R      12  +0.321     0       -
+RVNL           4.55  BREAKOUT         2ATR/3d              4  +1.290     1  +0.086
+ONGC           2.38  (koi setup TRAIN me plus nahi / trade kam)
+SHRIRAMFIN     2.91  BREAKOUT         1.5ATR/10d/T2R       7  +1.122     3  +0.287
+PAYTM          4.12  BREAKOUT         1.5ATR/10d/T2R       6  +0.570     9  -0.299
+SUNPHARMA      1.83  (koi setup TRAIN me plus nahi / trade kam)
+TECHM          2.24  BREAKOUT         1.5ATR/10d/T2R       4  +0.668     6  -0.049
+WIPRO          1.96  (koi setup TRAIN me plus nahi / trade kam)
+BPCL           2.49  PULLBACK         1.5ATR/10d/T2R      63  +0.387    36  -0.553
+GAIL           2.79  (koi setup TRAIN me plus nahi / trade kam)
+INDIGO         2.39  RS_LEADER        2ATR/5d             39  +0.031     0       -
+
+TEST me plus rahe: 5 / 23 stock (jinke TEST trade the).
+Dhyan: ek stock pe ek setup ke saal me sirf kuch trade bante hain, isliye har stock ka number akela bharose layak nahi.

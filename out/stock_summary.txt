@@ -1,8 +1,9 @@
 HAR STOCK KI APNI STRATEGY - TEST (generated 2026-10-18)
+TRAIN shuru se 2025-01-01 tak, TEST 2025-01-01 se.
 Universe: 50 stock (liquid 80%+ din, 2024 tak ke data se sabse zyada roz-move/ATR%). TRAIN < 2025-01-01, TEST >= 2025-01-01.
 Har stock pe har (setup, exit) jisme TRAIN me 6+ trade: TRAIN me sabse achha chuna, TEST me wahi lagaya.
 
-== TEST (2025-26) me nateeja, R per trade (kharcha kaat ke) ==
+== TEST (2025-01-01 se) me nateeja, R per trade (kharcha kaat ke) ==
   A. Har stock ki apni strategy (TRAIN se chuni)          n   657  avgR -0.034  jeet 41%
   B. Apni strategy + market-haal filter                   n   298  avgR -0.016  jeet 42%
   C. Sab stock pe ek hi setup: OVERSOLD_BOUNCE 1.5ATR/10d/T2R n   190  avgR -0.123  jeet 40%
