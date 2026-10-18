@@ -155,6 +155,7 @@ def demand_sigs(op, hi, lo, cl, atr, n):
     return out
 
 
+TO = {}
 # ---- pass 1: series, liquidity, breadth, cross-sectional 60d return rank
 S = {}
 above = collections.Counter(); tot = collections.Counter(); r60 = collections.defaultdict(list)
@@ -174,7 +175,7 @@ for sym, byd in data.items():
         if liq[i]:
             tot[ds[i]] += 1; above[ds[i]] += cl[i] > e50[i]
             r60[ds[i]].append(cl[i] / cl[i - 60] - 1)
-    S[sym] = (ds, op, hi, lo, cl, vo, atr, liq, e50)
+    S[sym] = (ds, op, hi, lo, cl, vo, atr, liq, e50); TO[sym] = to
 BR = {d: 100.0 * above[d] / tot[d] for d in tot if tot[d] >= int(os.environ.get('MIN_UNIVERSE', '50'))}
 if not BR:
     print('breadth nahi bana (universe chhota)'); sys.exit(1)
@@ -315,11 +316,12 @@ if KEEP:
         for t in TRADES:
             w.writerow([t[0], t[1].isoformat(), t[2], t[3], EXITS[t[4]][0] if t[4] < len(EXITS) else SWING_EXIT, round(t[5], 4)])
     with open(os.path.join(out_dir, 'stock_stats.csv'), 'w', newline='') as h:   # stock chunne ke liye, sirf 2024 tak ka data
-        w = csv.writer(h); w.writerow(['sym', 'liq_days', 'days', 'atr_pct_med', 'above50_pct', 'ret_total'])
+        w = csv.writer(h); w.writerow(['sym', 'liq_days', 'days', 'atr_pct_med', 'above50_pct', 'ret_total', 'turnover_cr_med'])
         for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
             idx = [i for i in range(60, len(ds)) if ds[i].year <= 2024]
             if not idx: continue
             ap = sorted(atr[i] / cl[i] for i in idx if atr[i])
             w.writerow([sym, sum(1 for i in idx if liq[i]), len(idx), round(100 * ap[len(ap) // 2], 3) if ap else '',
-                        round(100.0 * sum(1 for i in idx if cl[i] > e50[i]) / len(idx), 1), round(cl[idx[-1]] / cl[idx[0]] - 1, 3)])
+                        round(100.0 * sum(1 for i in idx if cl[i] > e50[i]) / len(idx), 1), round(cl[idx[-1]] / cl[idx[0]] - 1, 3),
+                        round(sorted(TO[sym][i] for i in idx)[len(idx) // 2], 2)])
     print('trades dumped', len(TRADES))

@@ -23,13 +23,14 @@ jobs:
       - name: Stock study
         run: |
           python stock_study.py sf
-          mkdir -p out && cp sf/stock_summary.txt sf/stock_results.csv out/
+          PICK=turnover python stock_study.py sf
+          mkdir -p out && cp sf/stock_summary*.txt sf/stock_results*.csv out/
       - name: Commit result
         run: |
           git checkout -- docs/regime.json || true
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
-          git add out/stock_summary.txt out/stock_results.csv
+          git add out/stock_summary*.txt out/stock_results*.csv
           git diff --cached --quiet && exit 0
           git commit -m "stock study $(date -u +%F)"
           for i in 1 2 3 4 5; do
