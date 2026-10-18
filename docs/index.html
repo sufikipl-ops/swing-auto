@@ -143,6 +143,11 @@ h3{font-weight:600;color:var(--mu)}
 .clamp::after{content:'';}
 small.clamp,.hint.clamp,.why.clamp{border-bottom:1px dashed var(--bd)}
 .clopen{cursor:auto}
+.wlc{padding:2px 12px}.wrow{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--bd);cursor:pointer;-webkit-tap-highlight-color:transparent}.wrow:last-child{border-bottom:0}.wrow:active{opacity:.6}
+.wrow .rk{width:30px;height:30px;font-size:12.5px}.rk.lk{font-size:13px}.rk.dp{background:var(--gbg);color:var(--g);font-size:11.5px}
+.wmid{flex:1;min-width:0}.wn{display:flex;align-items:center;flex-wrap:wrap;gap:4px}.wn b{font-size:15px;margin-right:4px;letter-spacing:-.01em}.wn .pill{margin:0;font-size:10px}
+.wmid>small{display:block;margin-top:3px;font-size:12px}.wmm{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}.wmm .pill{margin:0;font-size:10px}
+.wrow .wv{text-align:right;white-space:nowrap;min-width:72px}.wrow .wv b{display:block;font-size:15px}.wrow .wv small{font-size:12px}
 </style></head><body>
 <header><div class="hdr"><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></span><h1>Swing Desk</h1></div><button class="mbtn" aria-label="Menu" onclick="menuToggle(event)"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>
 <div id="menu" class="menu"><button id="thm" onclick="cycleTheme()">Theme</button><button id="ntf" style="display:none" onclick="askNotif()">Alerts on karo</button><button id="inst" style="display:none" onclick="installApp()">App install karo</button></div></div><div class="mk" id="mk">loading...</div></header>
@@ -229,7 +234,7 @@ else if(full&&it.vwap>0)h+='<div>'+chip(it.ltp<it.vwap?'VWAP ke neeche':'VWAP ke
 return h+'</div>'}
 function paintLive(){var pe=document.querySelectorAll('[data-lvp]');for(var j=0;j<pe.length;j++){pe[j].innerHTML=priceHtml(pe[j].getAttribute('data-lvp'),pe[j].getAttribute('data-c'),pe[j].getAttribute('data-g'))}
 var els=document.querySelectorAll('[data-lv]');for(var i=0;i<els.length;i++){els[i].innerHTML=liveStrip(els[i].getAttribute('data-lv'),els[i].getAttribute('data-full')=='1')}
-var lb=document.getElementById('lvbr');if(lb)lb.innerHTML=lvBreadth();var lp=document.getElementById('lvprep');if(lp&&!lp.querySelector('details[open]'))lp.innerHTML=lvPrep();
+var pq=document.querySelectorAll('[data-lvq]');for(var z=0;z<pq.length;z++)pq[z].innerHTML=pxq(pq[z].getAttribute('data-lvq'),pq[z].getAttribute('data-c'),pq[z].getAttribute('data-g'));var ps=document.querySelectorAll('[data-lvs]');for(var y=0;y<ps.length;y++)ps[y].innerHTML=lstat(ps[y].getAttribute('data-lvs'));var lb=document.getElementById('lvbr');if(lb)lb.innerHTML=lvBreadth();var lp=document.getElementById('lvprep');if(lp&&!lp.querySelector('details[open]'))lp.innerHTML=lvPrep();
 var tp=document.querySelectorAll('[data-tpl]');for(var q=0;q<tp.length;q++){var tt=TR[+tp[q].getAttribute('data-tpl')];if(tt)tp[q].innerHTML=tradePl(tt)}var ts=document.getElementById('tplsum');if(ts)ts.innerHTML=tradePlSum();
 var c=document.getElementById('lvchip');if(c){var s=liveState();c.innerHTML=chip(s[1],s[0]=='ok'?'pg':s[0]=='closed'||s[0]=='off'||s[0]=='wait'?'':'pr')}}
 /* ---------- LIVE: market breadth (har 5 min), 3:15 taiyari, trade P&L (live.py + live_scan.py) ---------- */
@@ -525,6 +530,24 @@ return '<div class="card'+(locked?' pinned':(no<=3?' t3':''))+'" onclick="detail
 stratLine(stratOf(r.SETUP))+(st?'<div>'+chip(st[0],st[1])+'</div>':'')+
 (rk.P.length?'<div class="why g">&#10003; '+rk.P.slice(0,2).map(esc).join(' &middot; ')+'</div>':'')+(rk.N.length?'<div class="why r">&#9888; '+rk.N.slice(0,2).map(esc).join(' &middot; ')+'</div>':'')+
 tilesHtml(p,'Entry (upar)',r.ATR14,r.CLOSE)+'<div data-lv="'+esc(r.SYMBOL)+'"></div>'+ignStrip(r.SYMBOL)+rsChips(r.SYMBOL)+'<div>'+(function(){var q=rrRoom(ST[r.SYMBOL],p);return q&&!q.ok?chip('R:R kam (1:'+f(q.room,1)+')','pr'):''})()+dealChips(r.SYMBOL)+gapChip(GP[r.SYMBOL])+flagChips(fl)+(r.NOTE?chip(r.NOTE,'pr'):'')+'</div>'+annBlock(r.SYMBOL,false)+'</div>'}
+/* ---------- watchlist rows (broker app jaisa): naam, setup, plan ek line me, live bhav; dabao = poori report ---------- */
+function pxq(sym,c,g){var it=liveItem(sym),p,ch;if(it){p=it.ltp;ch=(p/livePc(sym,it)-1)*100}else{p=+c;ch=+g}
+return '<b>'+f(p)+'</b><small class="'+(ch>=0?'g':'r')+'">'+(ch>=0?'+':'')+f(ch,2)+'%</small>'}
+function pxCell(sym,c,g){return '<div class="wv" data-lvq="'+esc(sym)+'" data-c="'+esc(c)+'" data-g="'+esc(g)+'">'+pxq(sym,c,g)+'</div>'}
+function lstat(sym){var it=liveItem(sym),p=livePlan(sym);if(!it||!p)return '';var st=liveStatus(it,livePc(sym,it),p);if(!st)return '';
+var t={skip:'Skip',target:'Target',trig:'Triggered',wait:'Wait'}[st[0]]||st[1];return chip(t,st[2])}
+function pickRow(r,no,locked){var rk=RK[r.SYMBOL],p=pickPlan(r),st0=stratOf(r.SETUP),q=rrRoom(ST[r.SYMBOL],p),n=NW[r.SYMBOL],fl=n&&n.flags!='none'?n.flags:'',ps=locked?pinStatus(r.SYMBOL):null;
+var wl=[q&&!q.ok?chip('R:R kam','pr'):'',gapChip(GP[r.SYMBOL]),flagChips(fl),r.NOTE?chip(r.NOTE,'pr'):'',dealChips(r.SYMBOL)].join('').match(/<span class="pill[^>]*>[^<]*<\/span>/g)||[],warn=wl.slice(0,2).join('');
+return '<div class="wrow" onclick="detail(\''+esc(r.SYMBOL)+'\')">'+(locked?'<div class="rk lk">&#128274;</div>':'<div class="rk'+(no<=3?' r'+no:'')+'">'+no+'</div>')+
+'<div class="wmid"><div class="wn"><b>'+esc(r.SYMBOL)+'</b>'+chip(st0[0],st0[1])+'<span data-lvs="'+esc(r.SYMBOL)+'">'+lstat(r.SYMBOL)+'</span>'+(ps?chip(ps[0],ps[1]):'')+'</div>'+
+'<small>'+(p?'Entry '+f(p.entry)+' &middot; SL '+f(p.stop)+' &middot; Qty '+p.q:'')+(rk?' &middot; score '+rk.sc:'')+'</small>'+(rk&&rk.N.length?'<small class="r">&#9888; '+esc(rk.N[0])+'</small>':'')+(warn?'<div class="wmm">'+warn+'</div>':'')+'</div>'+pxCell(r.SYMBOL,r.CLOSE,r.CHG_PCT)+'</div>'}
+function dipRow(r){var sym=r.SYMBOL,p=dipPlan(r,liveItem(sym)),lv=dipLive(r),st0=stratOf('DIP',r.TIER,dipPlus(r));
+return '<div class="wrow" onclick="detail(\''+esc(sym)+'\')"><div class="rk dp">'+(dipPlus(r)?'A+':esc(r.TIER))+'</div><div class="wmid"><div class="wn"><b>'+esc(sym)+'</b>'+chip(st0[0],st0[1])+(dipMom(r)?chip('Momentum','pb'):'')+(lv?chip(lv[0]=='ok'?'Entry ok':'Skip',lv[0]=='ok'?'pg':'pr'):'')+'</div>'+
+'<small>3 din '+f(+r.RET3,1)+'% &middot; RSI '+f(+r.RSI14,0)+(p?' &middot; SL '+f(p.stop)+' &middot; Qty '+p.q:'')+'</small>'+(String(r.NOTE||'').indexOf('LOW_DELIV')>=0?'<small class="y">Delivery kam</small>':'')+'</div>'+pxCell(sym,r.CLOSE,r.CHG_PCT)+'</div>'}
+function pinRow(sym){var s=ST[sym],st=pinStatus(sym),k=SK[sym];if(!s)return '<div class="wrow" onclick="detail(\''+esc(sym)+'\')"><div class="rk lk">&#128274;</div><div class="wmid"><div class="wn"><b>'+esc(sym)+'</b>'+chip(st[0],st[1])+'</div><small>'+(k?esc(k[0]):'Data nahi mila')+'</small></div></div>';
+var p=planFrom(s.c,s.stop,s.atr,resOf(s,s.c)),st0=DPM[sym]?stratOf('DIP',DPM[sym].TIER,dipPlus(DPM[sym])):null;
+return '<div class="wrow" onclick="detail(\''+esc(sym)+'\')"><div class="rk lk">&#128274;</div><div class="wmid"><div class="wn"><b>'+esc(sym)+'</b>'+(st0?chip(st0[0],st0[1]):'')+chip(st[0],st[1])+'</div><small>Trend '+esc(s.v)+' '+s.score+'/'+s.mx+(p?' &middot; SL '+f(p.stop)+' &middot; Qty '+p.q:'')+'</small></div>'+pxCell(sym,s.c,s.chg)+'</div>'}
+function wlist(rows){return rows.length?'<div class="card wlc">'+rows.join('')+'</div>':''}
 /* locked stock jo aaj ki screen me nahi hai: stocks.json ke data se dikhao */
 function pinOnlyCard(sym){var s=ST[sym],st=pinStatus(sym);
 if(!s){var k=SK[sym];return '<div class="card pinned" onclick="detail(\''+esc(sym)+'\')"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+(k?esc(k[0]):'Data nahi mila')+'</small></div><div>'+pinBtn(sym)+'</div></div><div>'+chip(st[0],st[1])+'</div></div>'}
@@ -554,21 +577,21 @@ var fl=String(n.flags||'');if(fl.indexOf('RESULTS_SOON')>=0)return '<div class="
 if(n.next_event)return '<div class="y"><small>Aane wala event: '+esc(n.next_event)+'</small></div>';return '<div class="g"><small>Agle 7 din me koi result/board meeting nahi mila.</small></div>'}
 function dipSection(){if(!DP.length)return '<div class="sec" id="sec-dip"><h3>Dip setup</h3></div><div class="card"><small>Aaj koi dip setup nahi mila (ye roz nahi aata, hafte me ~2). Dip = uptrend wale liquid stock me 3 din me 8%+ girawat. Scan roz shaam ~6:20 par chalta hai.</small></div>';
 var h='<div class="sec" id="sec-dip"><h3>Dip setup ('+DP.length+')</h3></div><div class="hint"><b>Alag strategy (backtested):</b> majboot uptrend me tez girawat ke baad bounce par khelna. Upar ke breakout/pullback picks se alag hai. Din me 1-2 trade se zyada mat lo, pehle 30-50 trades chhote size me forward-test karo.</div>';
-DP.slice().sort(function(a,b){return (dipPlus(b)-dipPlus(a))||(dipMom(b)-dipMom(a))||(a.TIER>b.TIER)-(a.TIER<b.TIER)||(+a.RET3)-(+b.RET3)}).slice(0,8).forEach(function(r){h+=dipCard(r)});return h}
+var DROWS=DP.slice().sort(function(a,b){return (dipPlus(b)-dipPlus(a))||(dipMom(b)-dipMom(a))||(a.TIER>b.TIER)-(a.TIER<b.TIER)||(+a.RET3)-(+b.RET3)}).slice(0,8).map(dipRow);return h+wlist(DROWS)+'<div class="hint">Rule: subah 9:20 par open kal ke close se +1.5% upar ya -3% neeche ho to SKIP. SL turant. Max 5 din. Row dabao: poora plan.</div>'}
 function dipDetailCard(sym){var r=DPM[sym];if(!r)return '';var p=dipPlan(r,liveItem(sym));return '<div class="card"><h3 style="margin-top:0">Dip setup active (Tier '+esc(r.TIER)+')</h3><div>3 din me '+f(+r.RET3,1)+'% gira, uptrend me hai.</div>'+(p?'<div class="tiles"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>':'')+'<small>'+esc(DIPBT[r.TIER]||'')+' Max 5 din hold.</small></div>'}
 function picksView(){rankAll();var h=planCard()+regCard()+'<details class="set card"><summary>Risk / Capital badlo (₹'+ls('risk',700)+' / ₹'+ls('cap',50000)+')</summary><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></details>';
 h+=alertBanner()+ignoreCard();
 if(!pinsOn())h+='<div class="hint y">Sync setup baaki hai: Lock aur Risk/Capital abhi sirf is device par rahenge.</div>';
 /* 1) Locked */
 if(PN.length){h+='<div class="sec" id="sec-lock"><h3>Locked ('+PN.length+')</h3><small>Tumne lock kiye. Jab tak tum hatao nahi, yahin rahenge.</small></div>';
-PN.forEach(function(sym){h+=PK[sym]?pickCard(PK[sym],0,true):pinOnlyCard(sym)})}
+h+=wlist(PN.map(function(sym){return PK[sym]?pickRow(PK[sym],0,true):pinRow(sym)}))}
 /* 2) Aaj ke solid picks */
 var all=SR.filter(function(r){return !isPin(r.SYMBOL)}),sol=all.filter(function(r){return solid(r)&&!liveSkip(r.SYMBOL)}),skp=all.filter(function(r){return solid(r)&&liveSkip(r.SYMBOL)}),list=SHOWALL?all:sol.slice(0,TOPN);LVSIG=skipSig();
 h+='<div class="sec" id="sec-sol"><h3>'+(SHOWALL?'Sab picks':'Aaj ke solid picks')+'</h3><button class="tg" onclick="toggleAll()">'+(SHOWALL?'Sirf solid dikhao':'Sab dikhao ('+all.length+')')+'</button></div>';
 if(!SC.length)h+='<div class="card">Aaj ke picks abhi nahi mile.</div>';
 else if(!list.length)h+='<div class="card">Aaj koi stock "majboot trend + buy zone" filter me pass nahi hua. Aise din trade skip karna bhi theek hai. "Sab dikhao" dabake poori list dekh sakte ho.</div>';
 else h+='<div class="hint">'+(SHOWALL?'Poori list, best se worst.':'<b>'+list.length+' solid picks'+(sol.length>TOPN?' (top '+TOPN+' / '+sol.length+')':'')+'</b>, best se worst.')+' Card dabao: poori report. Live gap/SL se skip hone layak stock neeche "Aaj skip karo" me jaate hain.</div>';
-list.forEach(function(r,i){h+=pickCard(r,i+1,false)});
+h+=wlist(list.map(function(r,i){return pickRow(r,i+1,false)}));
 if(!SHOWALL)h+=dipSection()+bounceSection()+structSection();
 if(!SHOWALL&&skp.length){h+='<details class="card"><summary>Aaj skip karo ('+skp.length+'): gap / SL / bahut upar</summary>'+skp.map(function(r){var it=liveItem(r.SYMBOL),st=it?liveStatus(it,livePc(r.SYMBOL,it),livePlan(r.SYMBOL)):null;return '<div class="ir" onclick="detail(\''+esc(r.SYMBOL)+'\')"><div class="l"><b>'+esc(r.SYMBOL)+'</b><small>'+(st?esc(st[1]):'')+'</small></div><div class="v">'+f(it?it.ltp:r.CLOSE)+'</div></div>'}).join('')+'</div></details>'}
 h+='<details class="card"><summary>Filter aur rank kaise bane? (padhne ke liye dabao)</summary><div style="font-size:13px"><b>Solid filter (sab shart pass honi chahiye):</b><ul>'+
@@ -589,9 +612,9 @@ var PLT={sol:'Aaj ke solid picks',dip:'Dip setup',lock:'Locked stocks',ign:'Aaj 
 function planGo(k){if(cur==null)lastY=window.pageYOffset||0;try{history.pushState({l:k},'')}catch(e){}listView(k,false)}
 function listView(k,restore){cur='@'+k;document.body.classList.remove('stk');rankAll();var v=document.getElementById('v'),h='',n=0;
 if(k=='sol'){var sol=SR.filter(function(r){return !isPin(r.SYMBOL)&&solid(r)&&!liveSkip(r.SYMBOL)});n=sol.length;
-h=n?'<div class="hint"><b>'+n+' solid picks</b>, best se worst. Card dabao: poori report.</div>'+sol.map(function(r,i){return pickCard(r,i+1,false)}).join(''):'<div class="card">Aaj koi stock "majboot trend + buy zone" filter me pass nahi hua. Aise din trade skip karna bhi theek hai.</div>'}
+h=n?'<div class="hint"><b>'+n+' solid picks</b>, best se worst. Row dabao: poori report.</div>'+wlist(sol.map(function(r,i){return pickRow(r,i+1,false)})):'<div class="card">Aaj koi stock "majboot trend + buy zone" filter me pass nahi hua. Aise din trade skip karna bhi theek hai.</div>'}
 else if(k=='dip'){n=DP.length;h=dipSection()+bounceSection()+structSection()}
-else if(k=='lock'){n=PN.length;h=n?PN.map(function(sym){return PK[sym]?pickCard(PK[sym],0,true):pinOnlyCard(sym)}).join(''):'<div class="card">Abhi koi stock locked nahi hai. Kisi card par "Lock" dabao to wo yahan aayega.</div>'}
+else if(k=='lock'){n=PN.length;h=n?wlist(PN.map(function(sym){return PK[sym]?pickRow(PK[sym],0,true):pinRow(sym)})):'<div class="card">Abhi koi stock locked nahi hai. Kisi card par "Lock" dabao to wo yahan aayega.</div>'}
 else{n=Object.keys(ignAll()).length;h=ignoreCard()||'<div class="card">Aaj ignore karne layak koi stock nahi.</div>'}
 document.getElementById('bar').innerHTML='<button class="back" onclick="back()">&larr; Wapas</button><div><div class="big">'+esc(PLT[k])+'</div><small>'+n+' stock</small></div>';
 document.body.classList.add('det');v.innerHTML=h;paintLive();window.scrollTo(0,restore?LY:0)}
