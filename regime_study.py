@@ -13,7 +13,7 @@ COST = 0.25 / 100.0
 GAP_UP, GAP_DN = 1.015, 0.97
 EXITS = [('2ATR/5d', 2.0, 5, None), ('2ATR/3d', 2.0, 3, None), ('1.5ATR/10d/T2R', 1.5, 10, 2.0)]
 REGIMES = [('STRONG', 60, 101), ('MIXED', 40, 60), ('WEAK', 25, 40), ('VWEAK', -1, 25)]
-SETUPS = ['DIP_A', 'DIP_B', 'BREAKOUT', 'PULLBACK', 'RS_LEADER', 'HIGH52', 'OVERSOLD_BOUNCE', 'DEEP_OVERSOLD', 'STRUCT', 'STRUCT_DEEP']
+SETUPS = ['DIP_A', 'DIP_B', 'BREAKOUT', 'PULLBACK', 'RS_LEADER', 'HIGH52', 'OVERSOLD_BOUNCE', 'DEEP_OVERSOLD', 'STRUCT', 'STRUCT_DEEP', 'DEMAND_CHOCH']
 DESC = {'DIP_A': 'Uptrend stock 3 din me 8%+ gira (hamara Dip A)', 'DIP_B': 'Uptrend stock 3 din me 5-8% gira (Dip B)',
         'BREAKOUT': '20-din high ke upar band, volume 1.5x+', 'PULLBACK': 'Uptrend stock EMA20 tak aaya',
         'RS_LEADER': 'Market ka leader: 60-din return top 10%, EMA50 upar, high ke paas',
@@ -21,7 +21,8 @@ DESC = {'DIP_A': 'Uptrend stock 3 din me 8%+ gira (hamara Dip A)', 'DIP_B': 'Upt
         'DEEP_OVERSOLD': 'RSI<25 aur 10 din me 15%+ gira (gehra oversold bounce)',
         'STRUCT': 'Market structure: higher high + higher low, retracement (38%+) ke baad chhota high toota (expansion shuru)',
         'STRUCT_DEEP': 'Wahi structure setup, par retracement gehra (61.8%+, pichhle higher low ke upar)',
-        'STRUCT_ALL': 'Structure setup (STRUCT + STRUCT_DEEP dono)'}
+        'STRUCT_ALL': 'Structure setup (STRUCT + STRUCT_DEEP dono)',
+        'DEMAND_CHOCH': 'Resistance (2+ touch) ke upar badi candle se breakout, wapas demand zone me aaya, chhota high toota (change of character)'}
 SWING_EXIT = 'SwingSL/10d/T2R'     # structure setups ka apna exit: SL retracement low ke neeche, target 2R, max 10 din
 MIN_N, MIN_YEARS = 100, 2
 
@@ -125,6 +126,35 @@ def struct_sig(hi, lo, cl, i, PH, PL, fired):
     return ('STRUCT_DEEP' if depth >= 0.618 else 'STRUCT', m)
 
 
+def demand_sigs(op, hi, lo, cl, atr, n):
+    """Reel (liquidity / demand zone / CHoCH). Breakout: close 40-din high ke upar, us level ko pehle 2+ baar chhua (1% ke andar),
+    badi candle (range >= 1.5 ATR, close upar 25% me). Demand zone = breakout candle aur pichhle 2 din ka low .. breakout candle ka open.
+    Breakout ke baad price 1 ATR+ upar gayi, phir 5-40 din me zone me aayi (close zone ke neeche = zone khatam).
+    Entry signal: zone me aane ke baad 10 din ke andar close, us beech ke chhote high ke upar (pehli baar). Return {i: stop_px}."""
+    out = {}
+    for b in range(45, n - 2):
+        a = atr[b]
+        if not a: continue
+        res = max(hi[b - 40:b])
+        if not (cl[b] > res and hi[b] - lo[b] >= 1.5 * a and cl[b] >= lo[b] + 0.75 * (hi[b] - lo[b])): continue
+        if sum(1 for k in range(b - 40, b) if hi[k] >= res * 0.99) < 2: continue
+        zl = min(lo[b - 2:b + 1]); zh = max(op[b], zl + 0.5 * a)
+        peak, touch = cl[b], None
+        for k in range(b + 1, min(n - 1, b + 41)):
+            if cl[k] < zl: break
+            if touch is None:
+                peak = max(peak, hi[k])
+                if lo[k] <= zh and k - b >= 5 and peak >= cl[b] + a: touch = k
+                elif lo[k] <= zh: break
+                continue
+            if k - touch > 10: break
+            m = min(range(touch, k), key=lambda x: lo[x])
+            lvl = max(hi[max(touch - 3, m - 3):k])
+            if cl[k] > lvl and cl[k - 1] <= lvl:
+                out.setdefault(k, min(lo[touch:k + 1]) * 0.998); break
+    return out
+
+
 # ---- pass 1: series, liquidity, breadth, cross-sectional 60d return rank
 S = {}
 above = collections.Counter(); tot = collections.Counter(); r60 = collections.defaultdict(list)
@@ -168,7 +198,7 @@ for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
     n = len(ds); e20 = ema(cl, 20); rs = rsi_series(cl)
     PH = [p for p in range(2, n - 2) if hi[p] > max(hi[p - 2:p]) and hi[p] >= max(hi[p + 1:p + 3])]
     PL = [p for p in range(2, n - 2) if lo[p] < min(lo[p - 2:p]) and lo[p] <= min(lo[p + 1:p + 3])]
-    fired = set()
+    fired = set(); DZ = demand_sigs(op, hi, lo, cl, atr, n)
     bad = [i for i in range(1, n) if abs(cl[i] / cl[i - 1] - 1) > 0.35]; bp = 0; last_bad = -10 ** 9
     for i in range(70, n - 11):
         while bp < len(bad) and bad[bp] <= i: last_bad = bad[bp]; bp += 1
@@ -192,6 +222,10 @@ for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
         if i >= 250 and cl[i] >= max(hi[i - 250:i]): sig.append('HIGH52')
         if cl[i] < e50[i] and rs[i] is not None and rs[i] < 30 and ret3 <= -0.08: sig.append('OVERSOLD_BOUNCE')
         if rs[i] is not None and rs[i] < 25 and ret10 <= -0.15: sig.append('DEEP_OVERSOLD')
+        if i in DZ:
+            sig.append('DEMAND_CHOCH')
+            r_ = sim_px(op, hi, lo, cl, i, n, DZ[i], 10, 2.0)
+            if r_ is not None: res[('DEMAND_CHOCH', rg, len(EXITS))].append((d, r_))
         st = struct_sig(hi, lo, cl, i, PH, PL, fired)
         if st:
             sig.append(st[0]); sig.append('STRUCT_ALL')
