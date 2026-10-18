@@ -838,7 +838,15 @@ function mySyms(){var m={};SR.forEach(function(r){m[r.SYMBOL]=1});DP.forEach(fun
 function dealChips(sym){var L=dealsOf(sym,7).filter(realDeal);if(!L.length)return '';var ib=L.some(function(x){return x.kind=='INSIDER'&&x.side=='BUY'}),is=L.some(function(x){return x.kind=='INSIDER'&&x.side=='SELL'}),
 bb=L.some(function(x){return x.kind!='INSIDER'&&x.side=='BUY'}),bs=L.some(function(x){return x.kind!='INSIDER'&&x.side=='SELL'});
 return (ib?chip('Promoter kharid','pg'):'')+(is?chip('Promoter bikri','pr'):'')+(bb?chip('Bada kharid','pb'):'')+(bs?chip('Bada bikri','py'):'')}
-function dealRow(x){var b=x.side=='BUY',k=DLK[x.kind]||[x.kind,''];
+/* usi din usi party ki kharid + bikri (intraday) = ek hi line */
+function dealMerge(L){var out=[],G={};L.forEach(function(x){if(!x.both){out.push(x);return}var k=x.date+'|'+x.sym+'|'+x.who+'|'+x.kind;
+if(!G[k]){G[k]={date:x.date,sym:x.sym,name:x.name,kind:x.kind,who:x.who,both:true,merged:true,buy:null,sell:null,day:x.day,value_cr:0};out.push(G[k])}
+var g=G[k];g[x.side=='BUY'?'buy':'sell']=x;g.value_cr=Math.max(g.value_cr,x.value_cr||0);if(x.day)g.day=x.day});return out}
+function dealRow(x){if(x.merged){var k0=DLK[x.kind]||[x.kind,''],d=x.day;
+return '<div class="dr drb"><div class="drt"><span class="mu"><b>INTRADAY</b></span> '+chip(k0[0],k0[1])+chip('Kharida + becha, usi din','')+'<small class="mu">'+esc(x.date)+'</small></div><div class="drw"><b>'+esc(x.who||'-')+'</b></div>'+
+'<div class="drn"><span>'+(x.buy?'Kharid '+nIN(x.buy.qty)+(x.buy.price?' @ '+f(x.buy.price):''):'')+(x.buy&&x.sell?' | ':'')+(x.sell?'Bikri '+nIN(x.sell.qty)+(x.sell.price?' @ '+f(x.sell.price):''):'')+'</span><b>Rs '+f(x.value_cr,x.value_cr<1?2:1)+' cr</b></div>'+
+(d?'<div class="dw"><small>Trading firm ka din ka khel: lagbhag <b class="'+(d.pnl_l>=0?'g':'r')+'">Rs '+f(d.pnl_l,1)+' lakh</b> '+(d.pnl_l>=0?'munafa':'nuksan')+'. '+(d.carry>0?nIN(d.carry)+' share aage le gaye.':d.carry<0?nIN(-d.carry)+' share zyada beche.':'Din ke ant me hisaab barabar, stock par koi bharosa ka sanket nahi.')+'</small></div>':'')+'</div>'}
+var b=x.side=='BUY',k=DLK[x.kind]||[x.kind,''];
 return '<div class="dr'+(x.both?' drb':'')+'"><div class="drt"><span class="'+(x.both?'mu':b?'g':'r')+'"><b>'+(b?'KHARID':'BIKRI')+'</b></span> '+chip(k[0],k[1])+(x.both?chip('Intraday (dono taraf)',''):'')+'<small class="mu">'+esc(x.date)+'</small></div>'+
 '<div class="drw"><b>'+esc(x.who||'-')+'</b>'+(x.cat?' <small class="mu">('+esc(x.cat)+')</small>':'')+'</div>'+
 '<div class="drn"><span>'+Number(x.qty).toLocaleString('en-IN')+' share'+(x.price?' @ '+f(x.price):'')+'</span>'+(x.value_cr!=null?'<b>Rs '+f(x.value_cr,x.value_cr<1?2:1)+' cr</b>':'')+'</div>'+(x.note?'<small class="mu">'+esc(x.note)+'</small>':'')+dealWhy(x)+'</div>'}
@@ -851,7 +859,7 @@ var h='<div class="dw"><small><b>Ye short nahi:</b> cash market me raat bhar ka 
 if(b){var full=b.qty>=x.qty;h+='<b>Kharid:</b> hamare record me '+esc(b.first)+(b.last!=b.first?' se '+esc(b.last):'')+' tak '+nIN(b.qty)+' share @ avg '+f(b.px)+' liye the. Ab '+f(x.price)+' par becha = <b class="'+(b.pct>=0?'g':'r')+'">'+(b.pct>=0?'+':'')+f(b.pct,1)+'%</b>'+(full?'':' (sirf '+nIN(b.qty)+' share ka bhav pata; baaki share pehle se the)')+'.'}
 else h+='<b>Kitne me kharida tha:</b> NSE ye nahi batata (sirf us din ka sauda dikhata hai). Hamara record '+esc(x.since||'')+' se ban raha hai: is beech inki kharid nahi mili, yaani share usse pehle ke hain.';
 return h+'</small></div>'}
-function dealsBlock(sym){var L=dealsOf(sym,14);if(!L.length)return '';return '<div style="margin-top:10px"><b>Bade sauda (14 din)</b>'+L.map(dealRow).join('')+'<small class="mu">NSE bulk/block deals aur promoter/director ki kharid-bikri. Sirf jaankari, buy signal nahi.</small></div>'}
+function dealsBlock(sym){var L=dealMerge(dealsOf(sym,14));if(!L.length)return '';return '<div style="margin-top:10px"><b>Bade sauda (14 din)</b>'+L.map(dealRow).join('')+'<small class="mu">NSE bulk/block deals aur promoter/director ki kharid-bikri. Sirf jaankari, buy signal nahi.</small></div>'}
 function dealsSet(k){DLF=k;render(true)}
 function dealsView(){if(!DL)return '<div class="card">Deals data abhi nahi bana. Ye roz shaam ~5:30 aur 8:30 baje banta hai (Actions &gt; deals).</div>';
 var my=mySyms(),L=(DL.deals||[]).filter(function(x){return DLF=='all'||(DLF=='buy'&&x.side=='BUY'&&!x.both)||(DLF=='sell'&&x.side=='SELL'&&!x.both)||(DLF=='insider'&&x.kind=='INSIDER')||(DLF=='mine'&&my[x.sym])});
@@ -864,12 +872,12 @@ var h='<div class="card"><div class="row"><b>Bade sauda</b><small class="mu">'+e
 (bad.length?'<div class="y"><small>Is baar data nahi mila: '+bad.map(esc).join(', ')+'</small></div>':'')+
 '<div class="dlf">'+[['all','Sab'],['buy','Kharid'],['sell','Bikri'],['insider','Insider'],['mine','Mere stocks']].map(function(z){return '<button class="tg'+(DLF==z[0]?' on':'')+'" onclick="dealsSet(\''+z[0]+'\')">'+z[1]+'</button>'}).join('')+'</div></div>';
 if(!order.length)return h+'<div class="card"><small>Is filter me koi sauda nahi.</small></div>';
-order.slice(0,80).forEach(function(sym){var A=G[sym],x=pxOf(sym),R=A.filter(realDeal),nb=R.filter(function(d){return d.side=='BUY'}).length,ns=R.length-nb,nh=A.length-R.length,tv=sumv(R);
+order.slice(0,80).forEach(function(sym){var A=G[sym],x=pxOf(sym),R=A.filter(realDeal),nb=R.filter(function(d){return d.side=='BUY'}).length,ns=R.length-nb,nh=dealMerge(A).filter(function(x){return x.merged}).length,tv=sumv(R);
 var sb=R.filter(function(d){return d.side=='BUY'}).reduce(function(s,d){return s+(d.value_cr||0)},0),ss=tv-sb;
 h+='<details class="card dc"><summary><div class="wt"><div class="wl"><b>'+esc(sym)+'</b><small>'+esc(NM[sym]||A[0].name||'')+'</small></div>'+
 (x?'<div class="wv"><b>'+f(x.ltp)+'</b><small class="'+(x.chg>=0?'g':'r')+'">'+(x.chg>=0?'+':'')+f(x.chg,2)+'%</small></div>':'')+'</div>'+
 '<div class="wm">'+(my[sym]?chip('Aapka stock','py'):'')+(nb?chip(nb+' kharid','pg'):'')+(ns?chip(ns+' bikri','pr'):'')+(A.some(function(d){return d.kind=='INSIDER'})?chip('Insider','pg'):'')+(nh?chip(nh+' intraday',''):'')+'</div><div class="dsum">'+(sb?'<span class="g">Kharid Rs '+f(sb,1)+' cr</span>':'')+(ss?'<span class="r">Bikri Rs '+f(ss,1)+' cr</span>':'')+(!R.length?'<span class="mu">Sirf trading firm ka intraday</span>':'')+'<small class="mu">'+esc(A[0].date)+' | details &#9662;</small></div></summary>'+
-A.map(dealRow).join('')+'<button class="tg" style="margin-top:8px" onclick="detail(\''+esc(sym)+'\')">Stock ki poori report</button></details>'});
+dealMerge(A).map(dealRow).join('')+'<button class="tg" style="margin-top:8px" onclick="detail(\''+esc(sym)+'\')">Stock ki poori report</button></details>'});
 return h+(order.length>80?'<div class="card"><small>Sirf pehle 80 stock dikhaye. Filter lagao.</small></div>':'')}
 function alertLog(){var L=(LV&&LV.alerts)||[];if(!L.length)return '<div class="card"><small>Aaj abhi koi alert nahi aaya.</small></div>';return L.slice().reverse().slice(0,25).map(function(a){return '<div class="card" onclick="detail(\''+esc(a.s)+'\')"><div class="row"><b>'+esc(a.s)+'</b><small>'+esc(a.at||'')+'</small></div><div class="r"><small>'+esc(a.t)+'</small></div></div>'}).join('')}
 function ignCheck(){try{var m=ignAll(),day=istDay(0),raw=localStorage.getItem('ign_'+day),first=raw==null,seen=raw?JSON.parse(raw):{},fresh=[];
