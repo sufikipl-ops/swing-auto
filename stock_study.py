@@ -8,6 +8,8 @@ import csv, gzip, os, sys, random, collections, datetime
 out_dir = sys.argv[1] if len(sys.argv) > 1 else 'out'
 SPLIT = '2025-01-01'
 TOPN = int(os.environ.get('TOPN', '50'))
+PICK = os.environ.get('PICK', 'atr')       # atr = sabse zyada roz-move; turnover = sabse bade/stable (sabse zyada kaarobar)
+SUF = '' if PICK == 'atr' else '_' + PICK
 MIN_TRAIN = 6                   # ek stock pe ek setup ke kam se kam itne TRAIN trades, tabhi chuna ja sakta hai
 L = []
 
@@ -39,11 +41,12 @@ def spearman(a, b):
 stats = {}
 for r in csv.DictReader(open(os.path.join(out_dir, 'stock_stats.csv'))):
     try:
-        stats[r['sym']] = dict(liq=int(r['liq_days']), days=int(r['days']), atr=float(r['atr_pct_med']), up=float(r['above50_pct']))
+        stats[r['sym']] = dict(liq=int(r['liq_days']), days=int(r['days']), atr=float(r['atr_pct_med']), up=float(r['above50_pct']),
+                              to=float(r.get('turnover_cr_med') or 0))
     except ValueError:
         pass
 elig = [s for s, v in stats.items() if v['days'] >= 400 and v['liq'] >= 0.8 * v['days']]
-U = sorted(elig, key=lambda s: -stats[s]['atr'])[:TOPN]          # sabse zyada move wale (2024 tak ke data se)
+U = sorted(elig, key=lambda s: -stats[s]['to' if PICK == 'turnover' else 'atr'])[:TOPN]   # 2024 tak ke data se
 US = set(U)
 T = collections.defaultdict(lambda: collections.defaultdict(lambda: ([], [])))   # sym -> (setup,exit) -> (train[], test[])
 REGT = collections.defaultdict(lambda: ([], []))                                 # (setup,exit,regime) -> train/test (sab stock)
@@ -58,7 +61,7 @@ with gzip.open(os.path.join(out_dir, 'regime_trades.csv.gz'), 'rt') as h:
             if not tr: ALLTEST.append(R)
 
 log('HAR STOCK KI APNI STRATEGY - TEST (generated %s)' % datetime.date.today())
-log('Universe: %d stock (liquid 80%%+ din, 2024 tak ke data se sabse zyada roz-move/ATR%%). TRAIN < %s, TEST >= %s.' % (len(U), SPLIT, SPLIT))
+log('Universe: %d stock (liquid 80%%+ din, 2024 tak ke data se %s). TRAIN < %s, TEST >= %s.' % (len(U), 'sabse zyada turnover (bade stock)' if PICK == 'turnover' else 'sabse zyada roz-move/ATR%', SPLIT, SPLIT))
 log('Har stock pe har (setup, exit) jisme TRAIN me %d+ trade: TRAIN me sabse achha chuna, TEST me wahi lagaya.' % MIN_TRAIN)
 log('')
 
@@ -129,7 +132,7 @@ for s in U:
 log('')
 log('TEST me plus rahe: %d / %d stock (jinke TEST trade the).' % (pos, tested))
 log('Dhyan: ek stock pe ek setup ke saal me sirf kuch trade bante hain, isliye har stock ka number akela bharose layak nahi.')
-open(os.path.join(out_dir, 'stock_summary.txt'), 'w').write('\n'.join(L) + '\n')
+open(os.path.join(out_dir, 'stock_summary%s.txt' % SUF), 'w').write('\n'.join(L) + '\n')
 if rows:
-    with open(os.path.join(out_dir, 'stock_results.csv'), 'w', newline='') as h:
+    with open(os.path.join(out_dir, 'stock_results%s.csv' % SUF), 'w', newline='') as h:
         w = csv.DictWriter(h, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
