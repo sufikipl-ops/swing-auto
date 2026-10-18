@@ -6,6 +6,7 @@
 # 90 din split/bonus skip. Long only (cash me 2-5 din short nahi hota).
 # usage: python regime_study.py <bhav_folder> <out_folder> -> regime_summary.txt, regime_results.csv, docs/regime.json
 import csv, glob, os, sys, json, datetime, collections, bisect
+import indicators
 
 bhav_dir, out_dir = sys.argv[1], sys.argv[2]
 os.makedirs(out_dir, exist_ok=True)
@@ -23,6 +24,7 @@ DESC = {'DIP_A': 'Uptrend stock 3 din me 8%+ gira (hamara Dip A)', 'DIP_B': 'Upt
         'STRUCT_DEEP': 'Wahi structure setup, par retracement gehra (61.8%+, pichhle higher low ke upar)',
         'STRUCT_ALL': 'Structure setup (STRUCT + STRUCT_DEEP dono)',
         'DEMAND_CHOCH': 'Resistance (2+ touch) ke upar badi candle se breakout, wapas demand zone me aaya, chhota high toota (change of character)'}
+DESC.update(indicators.DESC)
 SWING_EXIT = 'SwingSL/10d/T2R'     # structure setups ka apna exit: SL retracement low ke neeche, target 2R, max 10 din
 MIN_N, MIN_YEARS = 100, 2
 
@@ -53,6 +55,7 @@ def rsi_series(cl):
 
 
 data = collections.defaultdict(dict)
+DLV = collections.defaultdict(dict)    # delivery % (indicators ke liye)
 for f in sorted(glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv'))):
     with open(f, newline='', encoding='utf-8', errors='ignore') as h:
         rd = csv.reader(h); next(rd, None)
@@ -64,7 +67,7 @@ for f in sorted(glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv'))):
                 continue
             t = tuple(num(r[k]) for k in (4, 5, 6, 8, 10, 11))
             if None in t: continue
-            data[r[0].strip()][d] = t
+            data[r[0].strip()][d] = t; DLV[r[0].strip()][d] = num(r[14])
 if not data:
     print('no data'); sys.exit(1)
 alldates = sorted({d for v in data.values() for d in v})
@@ -208,6 +211,7 @@ for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
     PH = [p for p in range(2, n - 2) if hi[p] > max(hi[p - 2:p]) and hi[p] >= max(hi[p + 1:p + 3])]
     PL = [p for p in range(2, n - 2) if lo[p] < min(lo[p - 2:p]) and lo[p] <= min(lo[p + 1:p + 3])]
     fired = set(); DZ = demand_sigs(op, hi, lo, cl, atr, n)
+    IND = indicators.all_signals(op, hi, lo, cl, vo, [DLV[sym].get(x) for x in ds]) if os.environ.get('INDICATORS', '1') == '1' else {}
     bad = [i for i in range(1, n) if abs(cl[i] / cl[i - 1] - 1) > 0.35]; bp = 0; last_bad = -10 ** 9
     for i in range(70, n - 11):
         while bp < len(bad) and bad[bp] <= i: last_bad = bad[bp]; bp += 1
@@ -235,6 +239,8 @@ for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
             sig.append('DEMAND_CHOCH')
             r_ = sim_px(op, hi, lo, cl, i, n, DZ[i], 10, 2.0)
             if r_ is not None: add(('DEMAND_CHOCH', rg, len(EXITS)), d, r_)
+        for nm_, ar_ in IND.items():
+            if ar_[i]: sig.append(nm_)
         st = struct_sig(hi, lo, cl, i, PH, PL, fired)
         if st:
             sig.append(st[0]); sig.append('STRUCT_ALL')
