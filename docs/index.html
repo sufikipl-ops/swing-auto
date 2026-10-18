@@ -436,9 +436,9 @@ function regChip(k){var t=regRow(k),n=regNow();if(!t)return '';var info=' Aise m
 if(t.avgR<0)return '<div>'+chip('Is market ('+REGN[n.regime]+') me nahi chalta','pr')+'<small class="r">'+esc(info)+' Trade lena ho to aadhi qty, warna skip.</small></div>';
 if(t.ok&&t.avgR>=0.05)return '<div>'+chip('Is market me chala','pg')+'<small>'+esc(info)+'</small></div>';
 return '<div>'+chip('Is market me lagbhag 0','py')+'<small>'+esc(info)+'</small></div>'}
-function regCard(){var n=regNow();if(!n)return '';var rows=(RG&&RG.table||[]).filter(function(t){return t.regime==n.regime&&t.exit=='2ATR/5d'}).sort(function(a,b){return b.avgR-a.avgR});
+function regCard(){var n=regNow();if(!n)return '';var rows=(RG&&RG.table||[]).filter(function(t){return t.regime==n.regime&&t.exit=='2ATR/5d'&&(SETN[t.setup]||(t.ok&&t.avgR>=0.05))}).sort(function(a,b){return b.avgR-a.avgR});
 var good=rows.filter(function(t){return t.ok&&t.avgR>=0.05}),bad=rows.filter(function(t){return t.avgR<0}),zero=rows.filter(function(t){return good.indexOf(t)<0&&bad.indexOf(t)<0});
-function li(t,c){return '<div class="ir"><div class="l"><b>'+esc(SETN[t.setup]||t.setup)+'</b><small>'+(SETAPP[t.setup]?'':'app me scan nahi | ')+'jeet '+t.win+'% | '+esc(t.years_pos)+' saal plus | '+t.n+' trades</small></div><div class="v '+c+'">'+(t.avgR>0?'+':'')+t.avgR+'R<small> '+rRs(t.avgR)+'/trade</small></div></div>'}
+function li(t,c){return '<div class="ir"><div class="l"><b>'+esc(SETN[t.setup]||(RG.desc&&RG.desc[t.setup])||t.setup)+'</b><small>'+(SETAPP[t.setup]?'':'app me scan nahi | ')+'jeet '+t.win+'% | '+esc(t.years_pos)+' saal plus | '+t.n+' trades</small></div><div class="v '+c+'">'+(t.avgR>0?'+':'')+t.avgR+'R<small> '+rRs(t.avgR)+'/trade</small></div></div>'}
 var c=n.regime=='STRONG'?'pg':n.regime=='MIXED'?'py':'pr';
 return '<details class="card" id="regc"><summary><b>Aaj ka market: </b>'+chip(REGN[n.regime],c)+'<small>'+f(+n.breadth,1)+'% liquid stock EMA50 ke upar ('+esc(n.date||'')+'). Kya chalega? dabao</small></summary>'+
 '<small>'+esc(REGD[n.regime])+'. Neeche har setup ka 4-5 saal ka hisaab, sirf aise hi market wale dino ka (SL 2 ATR, max 5 din, kharcha 0.25% kaat ke). Rs = tumhare Rs '+ls('risk',700)+' risk par ek trade ka average.</small>'+
