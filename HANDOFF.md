@@ -101,3 +101,11 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   correlation +0.12; sirf 11/40 stock TEST me plus (TCS PULLBACK +0.42 -> -0.69). Bade stocks me bhi per-stock fitting fail.
 - 2025 se seekho, 2026 pe lagao (MIN_TRAIN 4): chhote stock apni strategy -0.26R (random -0.07R), bade stock -0.27R (random -0.24R);
   TRAIN top 20% +0.44/+0.37R -> TEST -0.01/-0.37R. Mandi-se-mandi tulna me bhi per-stock pattern nahi tikta.
+
+## 20 indicators / platform signals (indicators.py, regime_study me, 2026-10-18)
+- MACD, RSI30, Supertrend, Bollinger, golden cross, EMA9/21, stochastic, ADX, Donchian, NR7, gap&go, delivery surge,
+  TradingView-jaisa Strong Buy, Ichimoku, PSAR, CCI, Williams, Heikin-Ashi, vol dry-up: STRONG/MIXED/WEAK me koi bhi
+  random liquid stock (base) se pakka behtar nahi (TV Strong Buy har haal me base ke barabar ya neeche).
+- VWEAK me base khud +0.06R (2ATR/5d) / +0.14R (1.5ATR/10d/T2R): bahut kamzor market me lagbhag kuch bhi kharido to plus.
+  Base se kaafi upar sirf: OVERSOLD_BOUNCE (+0.26 vs +0.06), STRUCT_DEEP (+0.37 vs +0.14). WEAK me DIP_A (+0.15 vs -0.22).
+- App card: core setups + sirf wo indicator jo base se 0.05R+ upar (table me baseR); random stock ka base bhi dikhaya.
