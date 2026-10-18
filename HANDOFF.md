@@ -99,3 +99,5 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   sab signal -0.10R, Dip A +0.04R. TRAIN vs TEST rank correlation +0.07; TRAIN ke top 20% jode +0.38R -> TEST -0.14R. Faisla: per-stock fitting kaam nahi karta.
 - stock_study PICK=turnover (50 sabse bade stock): apni strategy -0.18R, random -0.18R, sab signal -0.15R; TRAIN top 20% +0.33R -> TEST -0.15R,
   correlation +0.12; sirf 11/40 stock TEST me plus (TCS PULLBACK +0.42 -> -0.69). Bade stocks me bhi per-stock fitting fail.
+- 2025 se seekho, 2026 pe lagao (MIN_TRAIN 4): chhote stock apni strategy -0.26R (random -0.07R), bade stock -0.27R (random -0.24R);
+  TRAIN top 20% +0.44/+0.37R -> TEST -0.01/-0.37R. Mandi-se-mandi tulna me bhi per-stock pattern nahi tikta.
