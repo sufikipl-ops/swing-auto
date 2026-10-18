@@ -24,7 +24,9 @@ if not PAGES_BASE and os.environ.get('GITHUB_REPOSITORY'):
 ALERTS_ON = os.environ.get('WATCH_ALERTS', '1') != '0'
 BREADTH_SEC = float(os.environ.get('LIVE_BREADTH_SEC', '300'))   # live market breadth har 5 min (~1100 stock, ~25 sec lagte hain)
 PREP_FROM, PREP_SEND = '14:30', '15:12'                          # 3:15 taiyari list: app me 2:30 se, Telegram 3:12 ke baad ek baar
-LIVE_MAX_CHARS = 44000                                           # Apps Script 'Live' cell 45000 se bada nahi leta
+LIVE_MAX_CHARS = 44000
+INTRA_SEC = float(os.environ.get('LIVE_INTRA_SEC', '120'))      # chart ke live 1-min candles har 2 min (Apps Script Intraday.gs)
+INTRA_MAX = 60                                           # Apps Script 'Live' cell 45000 se bada nahi leta
 
 
 def ist_now():
@@ -123,6 +125,46 @@ def load_base():
 
 def hm(now):
     return now.strftime('%H:%M')
+
+
+def chart_symbols():
+    """Chart wale stocks (docs/candles.json) - inke aaj ke 1-min candles live bhejte hain."""
+    d = http_json(PAGES_BASE + 'candles.json?t=%d' % int(time.time()), timeout=60) if PAGES_BASE else {}
+    if not isinstance(d, dict) or not d.get('s'):
+        try:
+            d = json.load(open(os.path.join('docs', 'candles.json')))
+        except Exception:
+            d = {}
+    return list((d.get('s') or {}).keys())
+
+
+def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
+    """Aaj ke 1-min candles (Angel getCandleData) -> Apps Script 'putintra'. Return log text."""
+    fr = now.strftime('%Y-%m-%d') + ' 09:15'; to = now.strftime('%Y-%m-%d %H:%M')
+    data, fail = {}, 0
+    for s in syms:
+        if s not in tokmap:
+            continue
+        r = angel(key, '/rest/secure/angelbroking/historical/v1/getCandleData',
+                  {'exchange': 'NSE', 'symboltoken': tokmap[s], 'interval': 'ONE_MINUTE', 'fromdate': fr, 'todate': to}, jwt)
+        rows = (r.get('data') or []) if r.get('status') else None
+        if rows is None:
+            fail += 1; time.sleep(1.0); continue
+        bars = []
+        for c in rows:
+            try:
+                t = str(c[0]); hhmm = int(t[11:13]) * 100 + int(t[14:16])
+                bars.append([hhmm, round(float(c[1]), 2), round(float(c[2]), 2), round(float(c[3]), 2), round(float(c[4]), 2), int(c[5] or 0)])
+            except Exception:
+                pass
+        if bars:
+            data[s] = bars
+        time.sleep(0.35)
+    if not data:
+        return 'intra: kuch nahi mila (%d fail)' % fail
+    r = http_json(url, {'key': pkey, 'action': 'putintra', 'date': now.strftime('%Y-%m-%d'), 'data': data},
+                  {'Content-Type': 'text/plain;charset=utf-8'}, timeout=90)
+    return 'intra %d stocks push=%s %s (%d fail)' % (len(data), bool(r.get('ok')), (r.get('error') or '')[:40], fail)
 
 
 def prep_text(pr, bh, base_reg, now):
@@ -283,6 +325,8 @@ def main():
     print('live_base: %d stocks (%s)' % (len(base.get('syms') or {}), base.get('date')))
     gviz = page_var('PICKS_GVIZ'); tsyms, tsyms_ts = [], 0
     bh, bh_ts, bh_hist, pr, prep_sent, carry_day = None, 0, [], None, False, ''
+    csyms, intra_ts, intra_off = chart_symbols(), 0, False
+    print('chart stocks (live 1-min): %d' % len(csyms))
     ctx, ctx_ts, sent_keys, alert_log, alert_day = {}, 0, set(), [], ''
     try:
         import watch_alerts
@@ -383,6 +427,19 @@ def main():
                     bmsg = 'breadth: kam stock mile (%d) %s' % (len(bitems), berr)
             except Exception as e:
                 bmsg = 'breadth err %s' % str(e)[:100]
+        imsg = ''
+        if not intra_off and status == 'ok' and time.time() - intra_ts > INTRA_SEC:
+            intra_ts = time.time()
+            try:
+                isyms = []
+                for s_ in pins + tsyms + csyms:
+                    if s_ not in isyms:
+                        isyms.append(s_)
+                imsg = push_intraday(url, pkey, key, jwt, tokmap, isyms[:INTRA_MAX], now)
+                if 'bad action' in imsg:
+                    intra_off = True; imsg += ' -> Apps Script me Intraday.gs nahi laga, aaj band'
+            except Exception as e:
+                imsg = 'intra err %s' % str(e)[:100]
         live = {'ts': now.strftime('%Y-%m-%dT%H:%M:%S'), 'date': dstr, 'status': status,
                 'err': err, 'missing': missing, 'n': len(items), 'items': items, 'alerts': alert_log[-60:],
                 'breadth': bh, 'prep': pr}
@@ -392,7 +449,7 @@ def main():
         loops += 1
         print('%s loop %d symbols=%d fetched=%d today=%d status=%s pushed=%s %s' % (
             now.strftime('%H:%M:%S'), loops, len(syms), len(items), n_today, status, okp, err) + (' | ' + alert_msg if alert_msg else '')
-            + (' | ' + bmsg if bmsg else ''))
+            + (' | ' + bmsg if bmsg else '') + (' | ' + imsg if imsg else ''))
         if no_trade_since and time.time() - no_trade_since > 600:
             print('aaj market me trade nahi dikha (holiday?), bye'); break
         time.sleep(POLL)
