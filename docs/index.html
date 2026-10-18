@@ -4,6 +4,7 @@
 <meta name="theme-color" content="#0f1720"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Swing Desk"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <title>Swing Desk</title><script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <style>
 :root{--bg:#0f1720;--card:#18222e;--tx:#e8eef5;--mu:#8a9bb0;--g:#2fbf71;--r:#e5534b;--y:#e3b341;--b:#4c9aff;--bd:#263445;--chip:#223245;--nav:#0b1118;--inset:#0f1923;--gbg:#12301f;--rbg:#3a1a19;--ybg:#3a3016;--bbg:#16283d;--sm:#12202e;--ybd:#e3b34188;--bbd:#4c9aff88;--up:#f0a19c;--dn:#8fdcae;--ignt:#ffb4ae;--sh:none;color-scheme:dark}
@@ -122,14 +123,35 @@ input,select{border-radius:10px;background:var(--card);padding:9px;font-size:14p
 .plan .st b{display:block;font-size:16px;line-height:1.1}.plan .st small{font-size:9.5px}
 .plan .nx{padding:8px 10px;border-radius:10px;background:var(--bbg);margin-top:6px;font-size:12px}
 details.set>summary{color:var(--mu);font-size:11.5px;padding:6px 2px}
+/* ---- design system v2: Inter, ek jaisa header, icon tabs, kam text ---- */
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:13.5px;letter-spacing:-.005em}
+.v,.wv,.tiles b,.big,.lvg b,.plan .st b,.drn,.ir .v,.tpl{font-variant-numeric:tabular-nums}
+header{position:sticky;top:0;z-index:35;background:var(--bg);padding-bottom:4px}
+.hdr{display:flex;align-items:center;justify-content:space-between;position:relative}
+.brand{display:flex;align-items:center;gap:8px}.brand h1{margin:0;font-size:17px;font-weight:700;letter-spacing:-.02em}
+.logo{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#3b82f6,#7c5cff)}
+.mbtn{border:0;background:var(--chip);color:var(--tx);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.menu{display:none;position:absolute;right:0;top:42px;z-index:50;min-width:190px;background:var(--card);border:1px solid var(--bd);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);padding:6px}
+.menu.on{display:flex;flex-direction:column}.menu button{border:0;background:none;color:var(--tx);text-align:left;padding:11px 12px;border-radius:8px;font:500 14px Inter,system-ui,sans-serif}.menu button:active{background:var(--chip)}
+.mk{margin-top:6px}body:not([data-tab=picks]) .mk{display:none}
+nav button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 0 6px;font-size:10.5px;border-top:0}
+nav button.on{color:var(--b);border-top:0}nav button{position:relative}.nbd{position:absolute;top:3px;left:calc(50% + 6px);font-style:normal;background:var(--r);color:#fff;font-size:9.5px;font-weight:700;min-width:16px;height:16px;border-radius:8px;padding:0 4px;display:flex;align-items:center;justify-content:center}nav button svg{opacity:.85}nav button.on svg{opacity:1}
+.card{border-radius:14px;border-color:var(--bd)}
+h3{font-weight:600;color:var(--mu)}
+.big{letter-spacing:-.01em}
+.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;position:relative}
+.clamp::after{content:'';}
+small.clamp,.hint.clamp,.why.clamp{border-bottom:1px dashed var(--bd)}
+.clopen{cursor:auto}
 </style></head><body>
-<header><div class="row"><h1>Swing Desk</h1><span><button id="thm" class="tg" onclick="cycleTheme()">Theme</button> <button id="ntf" class="tg" style="display:none" onclick="askNotif()">Alerts on</button> <button id="inst" class="tg" style="display:none" onclick="installApp()">Install</button></span></div><div class="mk" id="mk">loading...</div></header>
+<header><div class="hdr"><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></span><h1>Swing Desk</h1></div><button class="mbtn" aria-label="Menu" onclick="menuToggle(event)"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>
+<div id="menu" class="menu"><button id="thm" onclick="cycleTheme()">Theme</button><button id="ntf" style="display:none" onclick="askNotif()">Alerts on karo</button><button id="inst" style="display:none" onclick="installApp()">App install karo</button></div></div><div class="mk" id="mk">loading...</div></header>
 <div id="bar"></div>
 <main id="v"></main>
 <div class="foot">Sirf technical jankari, advice nahi. Profit ki guarantee nahi. Trade se pehle khud verify karo.</div>
 <div id="toast"></div>
 <button id="aifab" onclick="aiOpen()" aria-label="AI se poocho"><span>&#10022;</span>AI se poocho</button><div id="aish"></div>
-<nav><button data-t="picks" class="on">Picks</button><button data-t="search">Search</button><button data-t="trades">Trades</button><button data-t="news">News</button><button data-t="deals">Deals</button><button data-t="global">Global</button></nav>
+<nav><button data-t="picks" class="on"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg><span>Picks</span></button><button data-t="search"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>Search</span></button><button data-t="trades"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg><span>Trades</span></button><button data-t="news"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M8 9h5M8 13h5"/></svg><span>News</span></button><button data-t="deals"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><span>Deals</span></button><button data-t="global"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>Global</span></button></nav>
 <script>
 /* ===== SYNC: Google Sheet (Apps Script web app) se Lock + risk/capital sab devices par same rehte hain. Sirf PIN_URL badalna hai ===== */
 var PIN_URL='https://script.google.com/macros/s/AKfycbwTutE4YKjhrqUNwYuZwgRqPSLvelaSeBwkibi2M6Kmexkfh27jVgYcceTr8yh73mQ7yQ/exec',PIN_KEY='sd-24e5af0f609d8c48f5c5';
@@ -145,7 +167,7 @@ function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function lsj(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function svj(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function f(x,n){return x==null||x===''||isNaN(x)?'-':(+x).toFixed(n==null?2:n)}
-function rs0(x){return 'Rs '+Math.round(x).toLocaleString('en-IN')}
+function rs0(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
 function chip(t,c){return '<span class="pill '+(c||'')+'">'+esc(t)+'</span>'}
 function vc(v){return v=='STRONG'?'pg':v=='WEAK'?'pr':'py'}
 function flagChips(fl){if(!fl||fl=='none')return '';return fl.split(' ').map(function(k){return chip(FLG[k]||k,k=='RESULTS_SOON'?'pr':'py')}).join('')}
@@ -224,9 +246,9 @@ if(p.bounce&&p.bounce.length)h+='<div class="'+(vw?'g':'mu')+'" style="margin-to
 return h+'</details>'}
 function tradePl(t){var it=liveItem(t.symbol),e=+t.entry,sl=+t.sl,tg=+t.target,q=+t.qty||0;if(!it||!(e>0))return '';
 if(t._new&&!(it.h>=e))return '';var pl=(it.ltp-e)*q,r=sl>0&&e>sl?(it.ltp-e)/(e-sl):null;
-return '<div class="tpl"><b class="'+(pl>=0?'g':'r')+'">Abhi '+f(it.ltp)+' | '+(q?(pl>=0?'+':'-')+'Rs '+f(Math.abs(pl),0):'qty?')+(r!=null?' ('+(r>=0?'+':'')+f(r,2)+'R)':'')+'</b><small> | SL '+(sl>0?f((it.ltp-sl)/it.ltp*100,1)+'% door':'-')+(tg>0?' | target '+f((tg-it.ltp)/it.ltp*100,1)+'% door':'')+'</small></div>'}
+return '<div class="tpl"><b class="'+(pl>=0?'g':'r')+'">Abhi '+f(it.ltp)+' | '+(q?(pl>=0?'+':'-')+'₹'+f(Math.abs(pl),0):'qty?')+(r!=null?' ('+(r>=0?'+':'')+f(r,2)+'R)':'')+'</b><small> | SL '+(sl>0?f((it.ltp-sl)/it.ltp*100,1)+'% door':'-')+(tg>0?' | target '+f((tg-it.ltp)/it.ltp*100,1)+'% door':'')+'</small></div>'}
 function tradePlSum(){var tot=0,n=0;TR.forEach(function(t){if(t.status!='OPEN'&&!t._new)return;var it=liveItem(t.symbol),e=+t.entry,q=+t.qty||0;if(!it||!(e>0)||!q||(t._new&&!(it.h>=e)))return;tot+=(it.ltp-e)*q;n++});
-return n?'<div class="tpl"><b>Khule trades ka live P&amp;L ('+n+'): <span class="'+(tot>=0?'g':'r')+'">'+(tot>=0?'+':'-')+'Rs '+f(Math.abs(tot),0)+'</span></b><small> (kharcha alag)</small></div>':''}
+return n?'<div class="tpl"><b>Khule trades ka live P&amp;L ('+n+'): <span class="'+(tot>=0?'g':'r')+'">'+(tot>=0?'+':'-')+'₹'+f(Math.abs(tot),0)+'</span></b><small> (kharcha alag)</small></div>':''}
 function skipSig(){var a=[];SR.forEach(function(r){if(liveSkip(r.SYMBOL))a.push(r.SYMBOL)});DP.forEach(function(r){var l=dipLive(r);a.push('d'+r.SYMBOL+(l?l[0]:''))});return a.join(',')+'|'+ignSig()}
 function onLive(){paintLive();if(!cur&&tab=='picks'){var ae=document.activeElement;if(ae&&ae.tagName=='INPUT')return;rankAll();var sg=skipSig();if(sg!==LVSIG){lastY=window.pageYOffset||0;render(true)}}}
 function tick(){if(!document.hidden){syncAll();maybeRefresh()}setTimeout(tick,marketHours()?30000:300000)}
@@ -370,7 +392,7 @@ if(s.dl!=null&&s.dla){var t4=s.dl>=s.dla?['Asli kharidari achhi','g']:s.dl>=0.6*
 if(s.pv&&s.e9!=null){var pv=s.pv,nu=[['R1',pv.r1],['R2',pv.r2]].filter(function(x){return x[1]>s.c})[0],nd=[['S1',pv.s1],['S2',pv.s2]].filter(function(x){return x[1]<s.c}).slice(-1)[0];
 var ab=s.c>s.e9,ap=s.c>pv.p,t5=ab&&ap?['EMA9 aur Pivot dono ke upar','y']:ab?['EMA9 upar, Pivot niche','y']:['EMA9 ke niche','y'];
 h+=irow('Pivot + EMA9','Kal ke levels: P '+f(pv.p)+' | S1 '+f(pv.s1)+' | R1 '+f(pv.r1)+' | R2 '+f(pv.r2)+(nu?'. Agla upar '+nu[0]+' '+f(nu[1]):'')+(nd?', neeche '+nd[0]+' '+f(nd[1]):'')+'. Sirf levels dekhne ke liye: 4 saal ke backtest me ye buy signal nahi nikla',f(s.e9),t5[0],t5[1])}
-h+=irow('Liquidity','Roz ka average turnover. 5 cr se upar easy buy/sell','Rs '+f(s.t20,0)+' cr',s.t20>=5?'Easily buy/sell':'Kam liquidity',s.t20>=5?'g':'r');
+h+=irow('Liquidity','Roz ka average turnover. 5 cr se upar easy buy/sell','₹'+f(s.t20,0)+' cr',s.t20>=5?'Easily buy/sell':'Kam liquidity',s.t20>=5?'g':'r');
 h+=irow('Roz ka utaar-chadhav','ATR: ek din me kitna hil sakta hai',f(pr,1)+'%',pr<3?'Shant':pr<6?'Normal':'Bahut volatile',pr<6?'g':'r');return h}
 function ladder(s,p){var L=[['52-hafte high',s.h52],['60-din high',s.h60],['20-din high',s.h20],['EMA9',s.e9],['EMA20',s.e20],['EMA50',s.e50],['Pivot R2',s.pv&&s.pv.r2],['Pivot R1',s.pv&&s.pv.r1],['Pivot P',s.pv&&s.pv.p],['Pivot S1',s.pv&&s.pv.s1],['Pivot S2',s.pv&&s.pv.s2],['EMA200',s.e200],['20-din low',s.low20],['5-din low',s.low5],['52-hafte low',s.l52]].filter(function(x){return x[1]!=null}).map(function(x){return{n:x[0],v:x[1],k:x[1]>s.c?'up':'dn'}});
 L.push({n:'ABHI (close)',v:s.c,k:'now'});if(p){L.push({n:'Target',v:p.t1,k:'tg'});L.push({n:'Stop-loss',v:p.stop,k:'sl'});L.push({n:'Entry',v:p.entry,k:'en'})}
@@ -423,10 +445,10 @@ sh.classList.add('on');document.body.classList.add('aion');setTimeout(function()
 function aiClose(){var sh=document.getElementById('aish');sh.classList.remove('up');document.body.classList.remove('aion');setTimeout(function(){sh.classList.remove('on');sh.innerHTML=''},220)}
 function aiPrompt(sym,q){var s=ST[sym]||{},pk=PK[sym],it=liveItem(sym),L=[],p=pk?pickPlan(pk):s.c?planFrom(s.c,s.stop,s.atr,resOf(s,s.c)):null,fd=FD&&FD.items&&FD.items[sym],r=rsInfo(sym),n=NW[sym],md=GL&&GL.mood;
 var st=pk?stratOf(pk.SETUP):DPM[sym]?stratOf('DIP',DPM[sym].TIER,dipPlus(DPM[sym])):stratOf('');
-L.push('Main India ka part-time swing trader hoon (NSE, delivery, 2-5 din hold, capital Rs '+ls('cap',50000)+', ek trade me max nuksan Rs '+ls('risk',700)+', options nahi). Mera "Swing Desk" app ye data deta hai:');
+L.push('Main India ka part-time swing trader hoon (NSE, delivery, 2-5 din hold, capital ₹'+ls('cap',50000)+', ek trade me max nuksan ₹'+ls('risk',700)+', options nahi). Mera "Swing Desk" app ye data deta hai:');
 L.push('STOCK: '+sym+(NM[sym]?' ('+NM[sym]+')':'')+'. Data '+((MK&&MK.date)||'')+' close'+(it?', abhi live '+f(it.ltp)+' (open '+f(it.o)+')':'')+'. Close '+f(s.c)+' ('+f(s.chg,2)+'% aaj).');
 L.push('STRATEGY: '+st[0]+' - '+st[2]+'.');
-if(p)L.push('APP PLAN: entry '+f(p.entry)+', SL '+f(p.stop)+', target '+f(p.t1)+', qty '+p.q+', SL par nuksan Rs '+f(p.loss,0)+'.');
+if(p)L.push('APP PLAN: entry '+f(p.entry)+', SL '+f(p.stop)+', target '+f(p.t1)+', qty '+p.q+', SL par nuksan ₹'+f(p.loss,0)+'.');
 var lg=TR.filter(function(t){return t.symbol==sym&&t.status!='CLOSED'})[0];if(lg)L.push('MERA TRADE: '+lg.date+' entry '+lg.entry+', SL '+lg.sl+', target '+lg.target+', qty '+lg.qty+', status '+lg.status+'.');
 if(s.c)L.push('TECHNICAL: trend '+s.v+' '+s.score+'/'+s.mx+', EMA20 '+f(s.e20)+', EMA50 '+f(s.e50)+', EMA200 '+f(s.e200)+', RSI '+f(s.rsi,0)+', ADX '+f(s.adx,0)+', ATR (roz ka move) '+f(s.atr,1)+' ('+f(s.atr/s.c*100,1)+'%), 52w high '+f(s.h52)+' / low '+f(s.l52)+', volume '+f(s.vx,1)+'x avg, delivery '+f(s.dl,0)+'% (avg '+f(s.dla,0)+'%).');
 var rr=[];if(r.asm||r.gsm)rr.push('ASM/GSM: '+(r.asm||r.gsm));if(r.band)rr.push('circuit band '+r.band+(parseFloat(r.band)?'%':''));if(n&&n.next_event)rr.push('aane wala event: '+n.next_event);if(n&&n.flags&&n.flags!='none')rr.push('flags: '+n.flags);if(rr.length)L.push('RISK: '+rr.join(', ')+'.');
@@ -450,7 +472,7 @@ var REGN={STRONG:'Majboot',MIXED:'Mila-jula',WEAK:'Kamzor',VWEAK:'Bahut kamzor'}
 SETN={DIP_A:'Dip A',DIP_B:'Dip B',BREAKOUT:'Breakout',PULLBACK:'Pullback',RS_LEADER:'RS leader',HIGH52:'52-hafte high',OVERSOLD_BOUNCE:'Oversold bounce',DEEP_OVERSOLD:'Gehra oversold',STRUCT:'Structure (HH-HL retracement)',STRUCT_DEEP:'Structure gehra retracement',STRUCT_ALL:'Structure (sab)',DEMAND_CHOCH:'Demand zone + CHoCH'},SETAPP={DIP_A:1,DIP_B:1,BREAKOUT:1,PULLBACK:1,OVERSOLD_BOUNCE:1,DEEP_OVERSOLD:1};
 function regNow(){var a=RT&&RT.regime?RT:null,b=RG&&RG.regime?RG:null;if(a&&b)return String(a.date)>=String(b.date)?a:b;return a||b}
 function regRow(k){var n=regNow();if(!n||!RG||!RG.table)return null;for(var i=0;i<RG.table.length;i++){var t=RG.table[i];if(t.setup==k&&t.regime==n.regime&&t.exit=='2ATR/5d')return t}return null}
-function rRs(r){var v=r*ls('risk',700);return (v<0?'-':'+')+'Rs '+Math.abs(Math.round(v))}
+function rRs(r){var v=r*ls('risk',700);return (v<0?'-':'+')+'₹'+Math.abs(Math.round(v))}
 function regChip(k){var t=regRow(k),n=regNow();if(!t)return '';var info=' Aise market me pichhle saalon me: avg '+(t.avgR>0?'+':'')+t.avgR+'R, jeet '+t.win+'%, '+t.years_pos+' saal plus ('+t.n+' trades).';
 if(t.avgR<0)return '<div>'+chip('Is market ('+REGN[n.regime]+') me nahi chalta','pr')+'<small class="r">'+esc(info)+' Trade lena ho to aadhi qty, warna skip.</small></div>';
 if(t.ok&&t.avgR>=0.05)return '<div>'+chip('Is market me chala','pg')+'<small>'+esc(info)+'</small></div>';
@@ -469,7 +491,7 @@ var good=rows.filter(function(t){return t.ok&&t.avgR>=0.05}),bad=rows.filter(fun
 function li(t,c){return '<details class="rgx" ontoggle="rgxOpen(this,\''+esc(t.setup)+'\',\''+esc(t.regime)+'\')"><summary><div class="ir"><div class="l"><b>'+esc(SETN[t.setup]||(RG.desc&&RG.desc[t.setup])||t.setup)+' <span class="mu">&#9662;</span></b><small>'+(SETAPP[t.setup]?'':'app me scan nahi | ')+'jeet '+t.win+'% | '+esc(t.years_pos)+' saal plus | '+t.n+' trades</small></div><div class="v '+c+'">'+(t.avgR>0?'+':'')+t.avgR+'R<small> '+rRs(t.avgR)+'/trade</small></div></div></summary><div class="rgxb"><small class="mu">Stock list load ho rahi hai...</small></div></details>'}
 var c=n.regime=='STRONG'?'pg':n.regime=='MIXED'?'py':'pr';var b0=rows.length&&rows[0].baseR!=null?rows[0].baseR:null;
 return '<details class="card" id="regc"><summary><b>Aaj ka market: </b>'+chip(REGN[n.regime],c)+'<small>'+f(+n.breadth,1)+'% liquid stock EMA50 ke upar ('+esc(n.date||'')+'). Kya chalega? dabao</small></summary>'+
-'<small>'+esc(REGD[n.regime])+'. Neeche har setup ka 4-5 saal ka hisaab, sirf aise hi market wale dino ka (SL 2 ATR, max 5 din, kharcha 0.25% kaat ke). Rs = tumhare Rs '+ls('risk',700)+' risk par ek trade ka average.</small>'+
+'<small>'+esc(REGD[n.regime])+'. Neeche har setup ka 4-5 saal ka hisaab, sirf aise hi market wale dino ka (SL 2 ATR, max 5 din, kharcha 0.25% kaat ke). ₹= tumhare ₹'+ls('risk',700)+' risk par ek trade ka average.</small>'+
 (good.length?'<div class="g" style="margin-top:6px"><b>Is market me chala</b></div>'+good.map(function(t){return li(t,'g')}).join(''):'<div class="y" style="margin-top:6px"><b>Is market me koi setup pakka nahi chala: aaj kam trade, chhota size.</b></div>')+
 (zero.length?'<div class="mu" style="margin-top:6px"><b>Lagbhag 0 (na fayda na nuksan)</b></div>'+zero.map(function(t){return li(t,'')}).join(''):'')+
 (bad.length?'<div class="r" style="margin-top:6px"><b>Is market me nuksan hua (skip)</b></div>'+bad.map(function(t){return li(t,'r')}).join(''):'')+
@@ -534,7 +556,7 @@ function dipSection(){if(!DP.length)return '<div class="sec" id="sec-dip"><h3>Di
 var h='<div class="sec" id="sec-dip"><h3>Dip setup ('+DP.length+')</h3></div><div class="hint"><b>Alag strategy (backtested):</b> majboot uptrend me tez girawat ke baad bounce par khelna. Upar ke breakout/pullback picks se alag hai. Din me 1-2 trade se zyada mat lo, pehle 30-50 trades chhote size me forward-test karo.</div>';
 DP.slice().sort(function(a,b){return (dipPlus(b)-dipPlus(a))||(dipMom(b)-dipMom(a))||(a.TIER>b.TIER)-(a.TIER<b.TIER)||(+a.RET3)-(+b.RET3)}).slice(0,8).forEach(function(r){h+=dipCard(r)});return h}
 function dipDetailCard(sym){var r=DPM[sym];if(!r)return '';var p=dipPlan(r,liveItem(sym));return '<div class="card"><h3 style="margin-top:0">Dip setup active (Tier '+esc(r.TIER)+')</h3><div>3 din me '+f(+r.RET3,1)+'% gira, uptrend me hai.</div>'+(p?'<div class="tiles"><div><small>Entry</small><b class="b">'+f(p.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+f(p.stop)+'</b></div><div><small>Target</small><b class="g">'+f(p.t1)+'</b></div><div><small>Qty</small><b>'+p.q+'</b></div></div>':'')+'<small>'+esc(DIPBT[r.TIER]||'')+' Max 5 din hold.</small></div>'}
-function picksView(){rankAll();var h=planCard()+regCard()+'<details class="set card"><summary>Risk / Capital badlo (Rs '+ls('risk',700)+' / Rs '+ls('cap',50000)+')</summary><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></details>';
+function picksView(){rankAll();var h=planCard()+regCard()+'<details class="set card"><summary>Risk / Capital badlo (₹'+ls('risk',700)+' / ₹'+ls('cap',50000)+')</summary><div class="row"><span>Risk/trade Rs</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:100px"></div><div class="row" style="margin-top:6px"><span>Capital Rs</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:100px"></div></details>';
 h+=alertBanner()+ignoreCard();
 if(!pinsOn())h+='<div class="hint y">Sync setup baaki hai: Lock aur Risk/Capital abhi sirf is device par rahenge.</div>';
 /* 1) Locked */
@@ -603,9 +625,10 @@ function tradeStats(){var cl=TR.filter(function(t){return t.status=='CLOSED'}),o
 pd=TR.filter(function(t){return t.status=='PENDING_TRIGGER'||t._new}).length,w=cl.filter(function(t){return +t.R>0}).length,
 slh=TR.filter(function(t){var l=tradeLive(t);return l&&l[1]=='pr'}).length,R=cl.reduce(function(a,t){return a+(+t.R||0)},0),P=cl.reduce(function(a,t){return a+(+t.pnl||0)},0);
 return '<div class="card"><div class="row"><div class="big">Scorecard</div>'+chip('Closed '+cl.length+'/30','py')+'</div><small>Open '+op+' | Trigger ka wait '+pd+'</small>'+(slh?'<div class="r"><small>'+slh+' trade me SL hit (live) dikh raha hai, broker me check karo.</small></div>':'')+
-(cl.length?'<div>Jeet '+w+' / '+cl.length+' ('+Math.round(100*w/cl.length)+'%) | Total R <span class="'+(R>=0?'g':'r')+'">'+(R>=0?'+':'')+f(R,2)+'</span> | P&amp;L Rs '+f(P,0)+'</div>':'<div>Abhi koi trade close nahi hua. 30 closed trades tak system par bharosa mat karo.</div>')+'</div>'}
+(cl.length?'<div>Jeet '+w+' / '+cl.length+' ('+Math.round(100*w/cl.length)+'%) | Total R <span class="'+(R>=0?'g':'r')+'">'+(R>=0?'+':'')+f(R,2)+'</span> | P&amp;L ₹'+f(P,0)+'</div>':'<div>Abhi koi trade close nahi hua. 30 closed trades tak system par bharosa mat karo.</div>')+'</div>'}
+var STL={OPEN:'Khula',CLOSED:'Band',PENDING_TRIGGER:'Trigger ka wait',NAYI:'Naya'};
 function tradesView(){if(!TR.length)return '<div class="card">Abhi koi trade logged nahi. Picks sheet me trade jodo.</div>';
-return tradeStats()+'<div id="tplsum">'+tradePlSum()+'</div>'+TR.map(function(t,ti){var c=t.status=='CLOSED'?(+t.R>0?'pg':'pr'):'py',ns=t._new?newPickStatus(t):null,tl=tradeLive(t);return '<div class="card"><div class="row"><div class="big">'+esc(t.symbol)+'</div>'+(tl?chip(tl[0],tl[1]):ns?chip(ns[0],ns[1]):chip(t.status,c))+(t.entry_check=='EARLY'?chip('Rule se pehle','pr'):t.entry_check=='CHASED'?chip('Peecha kiya','pr'):'')+'</div>'+(tl?'<div class="'+(tl[1]=='pr'?'r':'g')+'"><small>'+esc(tl[2])+'</small></div>':'')+'<small>'+esc(t.date)+' | Entry '+esc(t.entry)+' SL '+esc(t.sl)+' T '+esc(t.target)+' Qty '+esc(t.qty)+'</small>'+(t.status!='CLOSED'?'<div data-tpl="'+ti+'">'+tradePl(t)+'</div>':'')+(t.status=='CLOSED'?'<div>Exit '+esc(t.exit)+' ('+esc(t.reason_exit)+') | R '+esc(t.R)+' | Rs '+esc(t.pnl)+'</div>':'')+'</div>'}).join('')+'<small>30-50 closed trades ke baad hi system ka faisla karo.</small>'}
+return tradeStats()+'<div id="tplsum">'+tradePlSum()+'</div>'+TR.map(function(t,ti){var c=t.status=='CLOSED'?(+t.R>0?'pg':'pr'):'py',ns=t._new?newPickStatus(t):null,tl=tradeLive(t);return '<div class="card"><div class="row"><div class="big">'+esc(t.symbol)+'</div>'+(tl?chip(tl[0],tl[1]):ns?chip(ns[0],ns[1]):chip(STL[t.status]||t.status,c))+(t.entry_check=='EARLY'?chip('Rule se pehle','pr'):t.entry_check=='CHASED'?chip('Peecha kiya','pr'):'')+'</div>'+(tl?'<div class="'+(tl[1]=='pr'?'r':'g')+'"><small>'+esc(tl[2])+'</small></div>':'')+'<small>'+esc(t.date)+' | Entry '+esc(t.entry)+' SL '+esc(t.sl)+' T '+esc(t.target)+' Qty '+esc(t.qty)+'</small>'+(t.status!='CLOSED'?'<div data-tpl="'+ti+'">'+tradePl(t)+'</div>':'')+(t.status=='CLOSED'?'<div>Exit '+esc(t.exit)+' ('+esc(t.reason_exit)+') | R '+esc(t.R)+' | ₹'+esc(t.pnl)+'</div>':'')+'</div>'}).join('')+'<small>30-50 closed trades ke baad hi system ka faisla karo.</small>'}
 
 /* ---------- TELEGRAM NOTES (private channel se bot ko forward kiye messages) ---------- */
 var TGSTOP={THE:1,AND:1,FOR:1,NSE:1,BSE:1,FII:1,DII:1,IPO:1,EPS:1,PAT:1,QOQ:1,YOY:1,GDP:1,RBI:1,SEBI:1,ROE:1,ROCE:1,CMP:1,TGT:1,SL:1,BUY:1,SELL:1,NEW:1,ALL:1,NIFTY:1,SENSEX:1,FY:1,PE:1,PB:1,EBITDA:1,USD:1,INR:1};
@@ -669,7 +692,7 @@ function lss(k){try{return localStorage.getItem(k)||''}catch(e){return ''}}
 var TGSEEN=lss('tgseen'),TGPREV=TGSEEN;var TGFIRST=true,TGN=0;
 function tgNewCount(){return TG.filter(function(m){return m.rcv&&m.rcv>TGSEEN}).length}
 function tgMarkSeen(){var mx=TGSEEN;TG.forEach(function(m){if(m.rcv&&m.rcv>mx)mx=m.rcv});if(mx!==TGSEEN){TGSEEN=mx;sv('tgseen',mx)}tgBadge()}
-function tgBadge(){var b=document.querySelector('nav button[data-t=news]');if(!b)return;var n=tab=='news'?0:tgNewCount();b.textContent='News'+(n?' \u2022'+n:'')}
+function tgBadge(){var b=document.querySelector('nav button[data-t=news]');if(!b)return;var n=tab=='news'?0:tgNewCount(),sp=b.querySelector('span');if(sp)sp.textContent='News';var bd=b.querySelector('.nbd');if(n){if(!bd){bd=document.createElement('i');bd.className='nbd';b.appendChild(bd)}bd.textContent=n}else if(bd)bd.remove()}
 function loadTG(){if(!pinsOn())return Promise.resolve();return api({action:'tg'}).then(function(d){if(Array.isArray(d.tg)){var ch=JSON.stringify(d.tg)!=JSON.stringify(TG);TG=d.tg;TGTS=Date.now();
 if(TGFIRST){TGFIRST=false;if(!TGSEEN){var mx='';TG.forEach(function(m){if(m.rcv&&m.rcv>mx)mx=m.rcv});TGSEEN=mx;sv('tgseen',mx)}}
 else if(ch&&tgNewCount()>TGN&&tab!='news')toast('Naya Telegram note aaya');
@@ -680,7 +703,7 @@ var TGTICK=0;setInterval(function(){if(document.hidden||!pinsOn())return;TGTICK+
 function newsView(){var h='<h3>Aaj ke alerts (live)</h3>'+alertLog()+'<h3>Telegram notes</h3><input id="tgq" placeholder="Search: stock / shabd" value="'+esc(TGQ)+'" autocomplete="off"><div id="tgl">'+tgList()+'</div>',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
 fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+flagChips(n.flags)+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div>'+annBlock(k,false)+'</div>'});
 h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class="card">'+esc(l.trim())+'</div>'}).join(''):'<div class="card">Headlines nahi mili.</div>');return h}
-function render(restore){cur=null;document.body.classList.remove('det');document.body.classList.remove('stk');try{aiClose()}catch(e){}var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():tab=='global'?globalView():tab=='deals'?dealsView():newsView();
+function render(restore){cur=null;document.body.setAttribute('data-tab',tab);document.body.classList.remove('det');document.body.classList.remove('stk');try{aiClose()}catch(e){}var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():tab=='global'?globalView():tab=='deals'?dealsView():newsView();
 var rk=document.getElementById('rk'),cp=document.getElementById('cp'),q=document.getElementById('q');
 if(rk)rk.onchange=function(){var x=Math.round(+rk.value);if(!(x>0)){rk.value=ls('risk',700);return}setSetting('risk',x);render()};if(cp)cp.onchange=function(){var x=Math.round(+cp.value);if(!(x>0)){cp.value=ls('cap',50000);return}setSetting('cap',x);render()};
 if(q){q.oninput=function(){var raw=q.value.trim(),t=raw.toUpperCase().replace(/\s+/g,''),ql=nmNorm(raw),keys=Object.keys(ST).concat(Object.keys(SK)),a=[];
@@ -695,6 +718,13 @@ function istDay(o){return new Date(Date.now()+19800000+(o||0)*86400000).toISOStr
 function istTxt(u){var m=String(u||'').match(/(\d{4})-(\d\d)-(\d\d) (\d\d):(\d\d)/);if(!m)return '?';var d=new Date(Date.UTC(+m[1],m[2]-1,+m[3],+m[4],+m[5])+19800000).toISOString();return d.slice(8,10)+'-'+d.slice(5,7)+' '+d.slice(11,16)+' IST'}
 function macroNow(){var t=istDay(0),n=istDay(1),o=[];(MC||[]).forEach(function(e){if(!e||!e.date)return;var en=e.end||e.date;if(t>=e.date&&t<=en)o.push({e:e,ph:'aaj'});else if(n==e.date)o.push({e:e,ph:'kal'})});return o}
 function macroCaution(){return macroNow().filter(function(x){return x.e.level=='caution'})}
+/* menu (Theme / Alerts / Install) */
+function menuToggle(e){e.stopPropagation();document.getElementById('menu').classList.toggle('on')}
+document.addEventListener('click',function(e){var m=document.getElementById('menu');if(m&&!m.contains(e.target))m.classList.remove('on')});
+/* lambe explanation 2 line tak, tap karo to poora (professional look: pehle number, text baad me) */
+function clampLong(root){var els=root.querySelectorAll('.hint, small, .why');for(var i=0;i<els.length;i++){var el=els[i];if(el.dataset.cl)continue;el.dataset.cl=1;
+if((el.textContent||'').length<170||el.closest('.tiles,.ir,summary,.ign,.r,.aip,button,.qt,.menu'))continue;el.classList.add('clamp');el.addEventListener('click',function(ev){if(this.classList.contains('clamp')){ev.stopPropagation();this.classList.remove('clamp');this.classList.add('clopen')}})}}
+(function(){var v=document.getElementById('v'),t=null;if(!v||!window.MutationObserver)return;new MutationObserver(function(){clearTimeout(t);t=setTimeout(function(){clampLong(v)},30)}).observe(v,{childList:true,subtree:true})})();
 function goTab(t){tab=t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x.dataset.t==t)});render()}
 function alertBanner(){var a=[],mc=macroCaution();mc.forEach(function(x){a.push('<b>'+esc(x.e.name)+'</b> ('+x.ph+'): '+esc(x.e.note||''))});
 var md=GL&&GL.mood,gw=(md&&(md.level=='CAUTION'||md.level=='RISK_OFF'))?md.why:[];
@@ -735,7 +765,7 @@ else o.push('<details class="qbox" onclick="event.stopPropagation()"><summary><s
 '<small>Sirf info hai, SKIP nahi karta. Growth Yahoo ke latest quarter (saal-dar-saal) ka hai, Screener ke 3-saal wale se alag ho sakta hai. 3-5 din ke swing me fundamentals ka backtest nahi hai.</small></details>');
 return o}
 function checkCard(sym,p){var s=ST[sym],rows=[],hard=0,unk=0,it=liveItem(sym);function add(st,t,sub){rows.push(ckRow(st,t,sub));if(st=='bad')hard++;if(st=='?')unk++}
-if(s){add(s.t20>=5?'ok':'bad','Liquidity: 20 din ka turnover Rs '+f(s.t20,1)+' cr',s.t20>=5?'':'Kam liquidity: slippage aur exit me dikkat.');
+if(s){add(s.t20>=5?'ok':'bad','Liquidity: 20 din ka turnover ₹'+f(s.t20,1)+' cr',s.t20>=5?'':'Kam liquidity: slippage aur exit me dikkat.');
 add(s.c>s.e50&&s.e20>s.e50?'ok':'warn','Trend: price EMA50 ke upar aur EMA20 > EMA50',s.c>s.e50&&s.e20>s.e50?'':'Trend kamzor. (Dip setup me EMA50 ke upar hona zaroori hai.)')}
 var n=NW[sym];if(!n||String(n.flags||'').indexOf('EVENT_UNKNOWN')>=0)add('?','Result/board meeting ki date check nahi hui',n?'NSE se is baar date nahi mili. Khud dekh lo; result paas ho to skip.':'Khud dekh lo; result paas ho to skip.');else if(String(n.flags||'').indexOf('RESULTS_SOON')>=0)add('bad','Result/board meeting paas: '+esc(n.next_event||''),'Result se pehle naya trade mat lo.');else add('ok','Agle 7 din me result/board meeting nahi mila');
 var bn=badNews(sym);if(bn)add('bad','Bure news ka shak: '+esc(bn.cat||'')+' ('+esc(bn.date||'')+')','Keyword check hai, galat bhi ho sakta hai. Announcement padho: '+esc((bn.text||'').slice(0,140)));
@@ -745,7 +775,7 @@ else{if(r.asm||r.gsm||r.surv)add('bad','ASM/GSM list me ('+esc(r.asm||r.gsm||r.s
 if(r.series)add('bad','NSE series '+esc(r.series)+' (EQ nahi)','Sirf delivery / pabandi wali series.');var b=parseFloat(r.band);if(b)add(b<=5?'warn':'ok','Circuit limit '+b+'%',b<=5?'Tight band: SL ya exit circuit me phans sakta hai.':'');else if(r.band)add('ok','Circuit: '+esc(r.band));else add('?','Circuit limit ka data nahi mila','Broker app me price band dekh lo.')}
 var gp=null;if(it){var pc=livePc(sym,it),o=it.o||it.ltp;if(pc>0){gp=(o/pc-1)*100;add(gp>1.5||gp<-3?'bad':'ok','Gap: open '+(gp>=0?'+':'')+f(gp,1)+'% (limit +1.5% / -3%)',gp>1.5||gp<-3?'Gap rule fail: skip.':'')}}
 if(gp===null)add('?','Gap rule: 9:20 par dekho','Open kal ke close se +1.5% se upar ya -3% se neeche ho to skip.');
-if(p){add(p.q>=1?'ok':'bad','Risk: qty '+p.q+', SL hit par nuksan Rs '+f(p.loss,0),p.q>=1?'':'Risk limit me 1 share bhi nahi aata.');add('ok','Costs (brokerage+STT+charges) ~0.25% = Rs '+f(p.val*0.0025,0),'Target chhota ho to costs fayda kha jaate hain.')}
+if(p){add(p.q>=1?'ok':'bad','Risk: qty '+p.q+', SL hit par nuksan ₹'+f(p.loss,0),p.q>=1?'':'Risk limit me 1 share bhi nahi aata.');add('ok','Costs (brokerage+STT+charges) ~0.25% = ₹'+f(p.val*0.0025,0),'Target chhota ho to costs fayda kha jaate hain.')}
 var mc=macroCaution(),md=GL&&GL.mood;if(mc.length)add('warn','Macro event: '+esc(mc[0].e.name)+' ('+mc[0].ph+')','Qty aadhi ya skip socho.');
 else if(md&&md.level=='RISK_OFF')add('bad','Global market RISK-OFF',esc(md.why.join(', ')));else if(md&&md.level=='CAUTION')add('warn','Global savdhani',esc(md.why.join(', ')));else if(md)add('ok','Global market me bada dar nahi');else add('?','Global data nahi bana');
 var tA=(AN[sym]||[]).slice().sort(function(a,b){return pickDate(b.date)<pickDate(a.date)?-1:1})[0];
@@ -815,7 +845,7 @@ return wRow(sym,esc(String(saar).slice(0,140))+(String(saar).length>140?'&hellip
 '<details class="wd" onclick="event.stopPropagation()"><summary>Kyu bura news? (detail)</summary><div><b>'+esc(a.cat||'')+'</b></div>'+'<div class="at">'+esc(a.text||'')+'</div>'+
 '<small>Is announcement me "<b>'+esc(kw)+'</b>" shabd aaya, jo aam taur par bura sanket hota hai (jaanch, penalty, rating cut, default jaisa). Ye keyword check hai: kabhi galat bhi hota hai, isliye ek baar padh lo.</small>'+(ok?'<div><a class="btn" target="_blank" rel="noopener" href="'+esc(a.link)+'">Poora padho (PDF)</a></div>':'')+'</details>')}
 if(kind=='sl'){var t=TR.filter(function(t){return t.symbol==sym&&t.status=='OPEN'})[0];if(t){var e=+t.entry,sl=+t.sl,q=+t.qty||0;
-return wRow(sym,'Tumhara trade: '+esc(t.date),pl('Entry '+f(e))+pl('SL '+f(sl),'bad')+(q?pl('Nuksan ~Rs '+f((e-sl)*q,0),'bad'):''))}}
+return wRow(sym,'Tumhara trade: '+esc(t.date),pl('Entry '+f(e))+pl('SL '+f(sl),'bad')+(q?pl('Nuksan ~₹'+f((e-sl)*q,0),'bad'):''))}}
 if(kind=='psl'||kind=='up'||kind=='gap'){var p=livePlan(sym)||(DPM[sym]?dipPlan(DPM[sym],liveItem(sym)):null),ps='';
 if(x&&x.o)ps+=pl('Open '+f(x.o))+pl('Gap '+((x.o/x.pc-1)*100>=0?'+':'')+f((x.o/x.pc-1)*100,1)+'%',kind=='gap'?'bad':'');
 if(p){ps+=pl((kind=='up'?'Trigger ':'Entry ')+f(p.entry));if(kind=='psl')ps+=pl('SL '+f(p.stop),'bad');if(kind=='up'&&x)ps+=pl('Trigger se '+f((x.o||x.ltp)/p.entry*100-100,1)+'% upar','bad')}
@@ -844,16 +874,16 @@ if(!G[k]){G[k]={date:x.date,sym:x.sym,name:x.name,kind:x.kind,who:x.who,both:tru
 var g=G[k];g[x.side=='BUY'?'buy':'sell']=x;g.value_cr=Math.max(g.value_cr,x.value_cr||0);if(x.day)g.day=x.day});return out}
 function dealRow(x){if(x.merged){var k0=DLK[x.kind]||[x.kind,''],d=x.day;
 return '<div class="dr drb"><div class="drt"><span class="mu"><b>INTRADAY</b></span> '+chip(k0[0],k0[1])+chip('Kharida + becha, usi din','')+'<small class="mu">'+esc(x.date)+'</small></div><div class="drw"><b>'+esc(x.who||'-')+'</b></div>'+
-'<div class="drn"><span>'+(x.buy?'Kharid '+nIN(x.buy.qty)+(x.buy.price?' @ '+f(x.buy.price):''):'')+(x.buy&&x.sell?' | ':'')+(x.sell?'Bikri '+nIN(x.sell.qty)+(x.sell.price?' @ '+f(x.sell.price):''):'')+'</span><b>Rs '+f(x.value_cr,x.value_cr<1?2:1)+' cr</b></div>'+
-(d?'<div class="dw"><small>Trading firm ka din ka khel: lagbhag <b class="'+(d.pnl_l>=0?'g':'r')+'">Rs '+f(d.pnl_l,1)+' lakh</b> '+(d.pnl_l>=0?'munafa':'nuksan')+'. '+(d.carry>0?nIN(d.carry)+' share aage le gaye.':d.carry<0?nIN(-d.carry)+' share zyada beche.':'Din ke ant me hisaab barabar, stock par koi bharosa ka sanket nahi.')+'</small></div>':'')+'</div>'}
+'<div class="drn"><span>'+(x.buy?'Kharid '+nIN(x.buy.qty)+(x.buy.price?' @ '+f(x.buy.price):''):'')+(x.buy&&x.sell?' | ':'')+(x.sell?'Bikri '+nIN(x.sell.qty)+(x.sell.price?' @ '+f(x.sell.price):''):'')+'</span><b>₹'+f(x.value_cr,x.value_cr<1?2:1)+' cr</b></div>'+
+(d?'<div class="dw"><small>Trading firm ka din ka khel: lagbhag <b class="'+(d.pnl_l>=0?'g':'r')+'">₹'+f(d.pnl_l,1)+' lakh</b> '+(d.pnl_l>=0?'munafa':'nuksan')+'. '+(d.carry>0?nIN(d.carry)+' share aage le gaye.':d.carry<0?nIN(-d.carry)+' share zyada beche.':'Din ke ant me hisaab barabar, stock par koi bharosa ka sanket nahi.')+'</small></div>':'')+'</div>'}
 var b=x.side=='BUY',k=DLK[x.kind]||[x.kind,''];
 return '<div class="dr'+(x.both?' drb':'')+'"><div class="drt"><span class="'+(x.both?'mu':b?'g':'r')+'"><b>'+(b?'KHARID':'BIKRI')+'</b></span> '+chip(k[0],k[1])+(x.both?chip('Intraday (dono taraf)',''):'')+'<small class="mu">'+esc(x.date)+'</small></div>'+
 '<div class="drw"><b>'+esc(x.who||'-')+'</b>'+(x.cat?' <small class="mu">('+esc(x.cat)+')</small>':'')+'</div>'+
-'<div class="drn"><span>'+Number(x.qty).toLocaleString('en-IN')+' share'+(x.price?' @ '+f(x.price):'')+'</span>'+(x.value_cr!=null?'<b>Rs '+f(x.value_cr,x.value_cr<1?2:1)+' cr</b>':'')+'</div>'+(x.note?'<small class="mu">'+esc(x.note)+'</small>':'')+dealWhy(x)+'</div>'}
+'<div class="drn"><span>'+Number(x.qty).toLocaleString('en-IN')+' share'+(x.price?' @ '+f(x.price):'')+'</span>'+(x.value_cr!=null?'<b>₹'+f(x.value_cr,x.value_cr<1?2:1)+' cr</b>':'')+'</div>'+(x.note?'<small class="mu">'+esc(x.note)+'</small>':'')+dealWhy(x)+'</div>'}
 /* bikri ka matlab + kharid ka bhav (deals.py: x.day = usi din ka hisaab, x.bought = hamare record me pehle ki kharid) */
 function nIN(q){return Number(q).toLocaleString('en-IN')}
 function dealWhy(x){var d=x.day,b=x.bought;
-if(x.both&&d){if(x.side!='SELL')return '';return '<div class="dw"><small><b>Intraday hisaab:</b> kharida '+nIN(d.bq)+' @ '+f(d.bp)+', becha '+nIN(d.sq)+' @ '+f(d.sp)+' = lagbhag <b class="'+(d.pnl_l>=0?'g':'r')+'">Rs '+f(d.pnl_l,1)+' lakh</b> '+(d.pnl_l>=0?'munafa':'nuksan')+' (kharcha alag). '+(d.carry>0?nIN(d.carry)+' share bache (aage le gaye).':d.carry<0?nIN(-d.carry)+' share zyada beche (purane the).':'Din ke ant me hisaab barabar.')+'</small></div>'}
+if(x.both&&d){if(x.side!='SELL')return '';return '<div class="dw"><small><b>Intraday hisaab:</b> kharida '+nIN(d.bq)+' @ '+f(d.bp)+', becha '+nIN(d.sq)+' @ '+f(d.sp)+' = lagbhag <b class="'+(d.pnl_l>=0?'g':'r')+'">₹'+f(d.pnl_l,1)+' lakh</b> '+(d.pnl_l>=0?'munafa':'nuksan')+' (kharcha alag). '+(d.carry>0?nIN(d.carry)+' share bache (aage le gaye).':d.carry<0?nIN(-d.carry)+' share zyada beche (purane the).':'Din ke ant me hisaab barabar.')+'</small></div>'}
 if(x.kind=='INSIDER'||x.both||x.side!='SELL')return '';
 var h='<div class="dw"><small><b>Ye short nahi:</b> cash market me raat bhar ka short allowed nahi, aur isne usi din wapas nahi kharida. Matlab share inke paas pehle se the (asli bikri / nikalna). ';
 if(b){var full=b.qty>=x.qty;h+='<b>Kharid:</b> hamare record me '+esc(b.first)+(b.last!=b.first?' se '+esc(b.last):'')+' tak '+nIN(b.qty)+' share @ avg '+f(b.px)+' liye the. Ab '+f(x.price)+' par becha = <b class="'+(b.pct>=0?'g':'r')+'">'+(b.pct>=0?'+':'')+f(b.pct,1)+'%</b>'+(full?'':' (sirf '+nIN(b.qty)+' share ka bhav pata; baaki share pehle se the)')+'.'}
@@ -876,7 +906,7 @@ order.slice(0,80).forEach(function(sym){var A=G[sym],x=pxOf(sym),R=A.filter(real
 var sb=R.filter(function(d){return d.side=='BUY'}).reduce(function(s,d){return s+(d.value_cr||0)},0),ss=tv-sb;
 h+='<details class="card dc"><summary><div class="wt"><div class="wl"><b>'+esc(sym)+'</b><small>'+esc(NM[sym]||A[0].name||'')+'</small></div>'+
 (x?'<div class="wv"><b>'+f(x.ltp)+'</b><small class="'+(x.chg>=0?'g':'r')+'">'+(x.chg>=0?'+':'')+f(x.chg,2)+'%</small></div>':'')+'</div>'+
-'<div class="wm">'+(my[sym]?chip('Aapka stock','py'):'')+(nb?chip(nb+' kharid','pg'):'')+(ns?chip(ns+' bikri','pr'):'')+(A.some(function(d){return d.kind=='INSIDER'})?chip('Insider','pg'):'')+(nh?chip(nh+' intraday',''):'')+'</div><div class="dsum">'+(sb?'<span class="g">Kharid Rs '+f(sb,1)+' cr</span>':'')+(ss?'<span class="r">Bikri Rs '+f(ss,1)+' cr</span>':'')+(!R.length?'<span class="mu">Sirf trading firm ka intraday</span>':'')+'<small class="mu">'+esc(A[0].date)+' | details &#9662;</small></div></summary>'+
+'<div class="wm">'+(my[sym]?chip('Aapka stock','py'):'')+(nb?chip(nb+' kharid','pg'):'')+(ns?chip(ns+' bikri','pr'):'')+(A.some(function(d){return d.kind=='INSIDER'})?chip('Insider','pg'):'')+(nh?chip(nh+' intraday',''):'')+'</div><div class="dsum">'+(sb?'<span class="g">Kharid ₹'+f(sb,1)+' cr</span>':'')+(ss?'<span class="r">Bikri ₹'+f(ss,1)+' cr</span>':'')+(!R.length?'<span class="mu">Sirf trading firm ka intraday</span>':'')+'<small class="mu">'+esc(A[0].date)+' | details &#9662;</small></div></summary>'+
 dealMerge(A).map(dealRow).join('')+'<button class="tg" style="margin-top:8px" onclick="detail(\''+esc(sym)+'\')">Stock ki poori report</button></details>'});
 return h+(order.length>80?'<div class="card"><small>Sirf pehle 80 stock dikhaye. Filter lagao.</small></div>':'')}
 function alertLog(){var L=(LV&&LV.alerts)||[];if(!L.length)return '<div class="card"><small>Aaj abhi koi alert nahi aaya.</small></div>';return L.slice().reverse().slice(0,25).map(function(a){return '<div class="card" onclick="detail(\''+esc(a.s)+'\')"><div class="row"><b>'+esc(a.s)+'</b><small>'+esc(a.at||'')+'</small></div><div class="r"><small>'+esc(a.t)+'</small></div></div>'}).join('')}
@@ -905,7 +935,7 @@ function themeMode(){try{var t=localStorage.getItem('theme');return t==='light'|
 function applyTheme(){var m=themeMode(),r=document.documentElement;if(m=='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',m);
 var dark=m=='dark'||(m=='auto'&&!(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches));
 var mt=document.querySelector('meta[name=theme-color]');if(mt)mt.setAttribute('content',dark?'#0f1720':'#f3f5f8');
-var b=document.getElementById('thm');if(b)b.textContent=m=='auto'?'Auto':m=='light'?'Light':'Dark'}
+var b=document.getElementById('thm');if(b)b.textContent='Theme: '+(m=='auto'?'Auto (phone jaisa)':m=='light'?'Light':'Dark')}
 function cycleTheme(){var m=themeMode(),n=m=='auto'?'light':m=='light'?'dark':'auto';try{if(n=='auto')localStorage.removeItem('theme');else localStorage.setItem('theme',n)}catch(e){}applyTheme()}
 function planCard(){var all=SR.filter(function(r){return !isPin(r.SYMBOL)}),sol=all.filter(function(r){return solid(r)&&!liveSkip(r.SYMBOL)}),ig=Object.keys(ignAll()).length,
 ap=DP.filter(dipPlus).length,md=GL&&GL.mood,mc=macroCaution(),weak=MK&&MK.pct50<40,off=md&&md.level=='RISK_OFF',cau=md&&md.level=='CAUTION';
@@ -931,6 +961,6 @@ and?'Android Chrome: upar teen dot (⋮) dabao, phir "Install app" ya "Add to Ho
 var t=document.getElementById('toast');if(t){t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(function(){t.style.display='none'},12000)}}
 try{if('serviceWorker' in navigator&&(location.protocol=='https:'||location.hostname=='localhost'||location.hostname=='127.0.0.1'))navigator.serviceWorker.register('sw.js').catch(function(){})}catch(e){}
 showInst();
-document.addEventListener('visibilitychange',function(){if(!document.hidden){syncAll();if(Date.now()-LASTRF>60000)refreshStatic()}});showNtf();
+document.addEventListener('visibilitychange',function(){if(!document.hidden){syncAll();if(Date.now()-LASTRF>60000)refreshStatic()}});showNtf();try{applyTheme()}catch(e){}
 load();setTimeout(tick,30000);
 </script></body></html>
