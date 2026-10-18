@@ -92,3 +92,8 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Trendline reel ki awaaz: "4th-5th touch par tootti hai", liquidity fake-out -> T4 / T4+SWEEP: best LONG T4+SWEEP ~0R
   (base -0.07R se behtar) par 2025+ test me minus; koi combo train+test dono me plus nahi (0/72). Reel ka asli timeframe 3-5 min intraday.
 - Awaaz: pip install faster-whisper, model 'medium', audio 25 sec tukdon me (vad_filter, beam 1) -> ~7 min per 2 min video.
+
+## Demand zone + CHoCH reel (regime_study DEMAND_CHOCH) aur "har stock ki apni strategy" (stock_study.py, Actions > stockfit)
+- DEMAND_CHOCH: bahut kam banta hai (~360 trade/4 saal). STRONG -0.02..-0.06R, MIXED -0.11..-0.20R, WEAK +0.20..+0.40R par sirf 51 trade (pass nahi).
+- stock_study (top 50 ATR% liquid stock, setup 2022-24 se chuna, 2025-26 pe check): apni strategy -0.03R, random setup -0.14R,
+  sab signal -0.10R, Dip A +0.04R. TRAIN vs TEST rank correlation +0.07; TRAIN ke top 20% jode +0.38R -> TEST -0.14R. Faisla: per-stock fitting kaam nahi karta.
