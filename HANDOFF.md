@@ -109,3 +109,11 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - VWEAK me base khud +0.06R (2ATR/5d) / +0.14R (1.5ATR/10d/T2R): bahut kamzor market me lagbhag kuch bhi kharido to plus.
   Base se kaafi upar sirf: OVERSOLD_BOUNCE (+0.26 vs +0.06), STRUCT_DEEP (+0.37 vs +0.14). WEAK me DIP_A (+0.15 vs -0.22).
 - App card: core setups + sirf wo indicator jo base se 0.05R+ upar (table me baseR); random stock ka base bhi dikhaya.
+
+## Live upgrade (2026-10-18): live breadth, 3:15 taiyari, trade live P&L
+- dip_scan.py roz docs/live_base.json likhta hai (har liquid stock: e20, e50, e50 10 din pehle, c3/c60/c10, RSI au/ad, close, atr).
+- live_scan.py: breadth(items, base) aur prep(items, base) - dip_scan jaisi definitions (synthetic test: breadth, Dip A, bounce 100% match).
+- live.py: har 5 min base ke ~1100 stock ka quote (50 ke batch) -> live['breadth'] {pct, regime, at, hist, base_*};
+  14:30 se live['prep'] {dip, bounce}; 15:12 ke baad ek baar Telegram "3:15 TAIYARI". Picks sheet (gviz) ke trade symbols bhi live list me.
+  Payload 44000 char se upar ho to purane alerts kat-te hain (Apps Script limit 45000).
+- App: plan card me "Live market" line (#lvbr), "Kal ke liye taiyari" card (#lvprep), Trades tab me live P&L (data-tpl) + total (#tplsum).
