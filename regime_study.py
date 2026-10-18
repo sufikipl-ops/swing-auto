@@ -312,7 +312,8 @@ os.makedirs('docs', exist_ok=True)
 json.dump({'updated': datetime.date.today().isoformat(), 'date': last.isoformat(), 'breadth': round(BR[last], 1), 'regime': cur,
            'trend10': round(trend, 1), 'desc': DESC,
            'best': {rg: [dict(setup=r['setup'], exit=r['exit'], avgR=r['avgR'], n=r['n'], win=r['win'], years_pos=r['years_pos'], baseR=r['baseR']) for r in best[rg]] for rg in best},
-           'table': [dict(setup=r['setup'], regime=r['regime'], exit=r['exit'], avgR=r['avgR'], n=r['n'], win=r['win'], years_pos=r['years_pos'], ok=r['ok'])
+           'table': [dict(setup=r['setup'], regime=r['regime'], exit=r['exit'], avgR=r['avgR'], n=r['n'], win=r['win'], years_pos=r['years_pos'], ok=r['ok'],
+                          baseR=r['baseR'])
                      for r in rows if r['exit'] == '2ATR/5d']},
           open('docs/regime.json', 'w'), separators=(',', ':'))
 if KEEP:

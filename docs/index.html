@@ -436,16 +436,16 @@ function regChip(k){var t=regRow(k),n=regNow();if(!t)return '';var info=' Aise m
 if(t.avgR<0)return '<div>'+chip('Is market ('+REGN[n.regime]+') me nahi chalta','pr')+'<small class="r">'+esc(info)+' Trade lena ho to aadhi qty, warna skip.</small></div>';
 if(t.ok&&t.avgR>=0.05)return '<div>'+chip('Is market me chala','pg')+'<small>'+esc(info)+'</small></div>';
 return '<div>'+chip('Is market me lagbhag 0','py')+'<small>'+esc(info)+'</small></div>'}
-function regCard(){var n=regNow();if(!n)return '';var rows=(RG&&RG.table||[]).filter(function(t){return t.regime==n.regime&&t.exit=='2ATR/5d'&&(SETN[t.setup]||(t.ok&&t.avgR>=0.05))}).sort(function(a,b){return b.avgR-a.avgR});
+function regCard(){var n=regNow();if(!n)return '';var rows=(RG&&RG.table||[]).filter(function(t){return t.regime==n.regime&&t.exit=='2ATR/5d'&&(SETN[t.setup]||(t.ok&&t.avgR>=0.05&&t.baseR!=null&&t.avgR-t.baseR>=0.05))}).sort(function(a,b){return b.avgR-a.avgR});
 var good=rows.filter(function(t){return t.ok&&t.avgR>=0.05}),bad=rows.filter(function(t){return t.avgR<0}),zero=rows.filter(function(t){return good.indexOf(t)<0&&bad.indexOf(t)<0});
 function li(t,c){return '<div class="ir"><div class="l"><b>'+esc(SETN[t.setup]||(RG.desc&&RG.desc[t.setup])||t.setup)+'</b><small>'+(SETAPP[t.setup]?'':'app me scan nahi | ')+'jeet '+t.win+'% | '+esc(t.years_pos)+' saal plus | '+t.n+' trades</small></div><div class="v '+c+'">'+(t.avgR>0?'+':'')+t.avgR+'R<small> '+rRs(t.avgR)+'/trade</small></div></div>'}
-var c=n.regime=='STRONG'?'pg':n.regime=='MIXED'?'py':'pr';
+var c=n.regime=='STRONG'?'pg':n.regime=='MIXED'?'py':'pr';var b0=rows.length&&rows[0].baseR!=null?rows[0].baseR:null;
 return '<details class="card" id="regc"><summary><b>Aaj ka market: </b>'+chip(REGN[n.regime],c)+'<small>'+f(+n.breadth,1)+'% liquid stock EMA50 ke upar ('+esc(n.date||'')+'). Kya chalega? dabao</small></summary>'+
 '<small>'+esc(REGD[n.regime])+'. Neeche har setup ka 4-5 saal ka hisaab, sirf aise hi market wale dino ka (SL 2 ATR, max 5 din, kharcha 0.25% kaat ke). Rs = tumhare Rs '+ls('risk',700)+' risk par ek trade ka average.</small>'+
 (good.length?'<div class="g" style="margin-top:6px"><b>Is market me chala</b></div>'+good.map(function(t){return li(t,'g')}).join(''):'<div class="y" style="margin-top:6px"><b>Is market me koi setup pakka nahi chala: aaj kam trade, chhota size.</b></div>')+
 (zero.length?'<div class="mu" style="margin-top:6px"><b>Lagbhag 0 (na fayda na nuksan)</b></div>'+zero.map(function(t){return li(t,'')}).join(''):'')+
 (bad.length?'<div class="r" style="margin-top:6px"><b>Is market me nuksan hua (skip)</b></div>'+bad.map(function(t){return li(t,'r')}).join(''):'')+
-'<small class="mu">Market haal roz shaam (Dip scan ke saath), setup ke number har Shanivar update. Edge chhota hai: 1 trade se kuch sabit nahi, 30-50 trade ka average dekho.</small></details>'}
+(b0!=null?'<small class="mu">Tulna: is market me koi bhi random liquid stock (bina setup) = '+(b0>0?'+':'')+b0+'R. Setup tabhi kaam ka jab isse kaafi upar ho.</small><br>':'')+'<small class="mu">20 mashhoor indicator (MACD, Supertrend, TradingView Strong Buy, RSI...) bhi test hue: jo random se behtar nahi, wo yahan nahi dikhte.</small><br>'+'<small class="mu">Market haal roz shaam (Dip scan ke saath), setup ke number har Shanivar update. Edge chhota hai: 1 trade se kuch sabit nahi, 30-50 trade ka average dekho.</small></details>'}
 /* market structure (video: retracement -> expansion). regime_study: sirf bahut kamzor market me chala (3/3 saal, n chhota) */
 function structPlan(r,it){var ent=it&&it.o>0?it.o:+r.CLOSE,stop=+r.STOP_REF,p=planFrom(ent,stop);if(!p)return null;p.bad=p.rs>ent*0.15||p.rs<ent*0.01;return p}
 function structSection(){if(!STR.length)return '';var n=regNow(),vw=n&&n.regime=='VWEAK',t=regRow('STRUCT_ALL');
