@@ -6,11 +6,12 @@
 import csv, gzip, os, sys, random, collections, datetime
 
 out_dir = sys.argv[1] if len(sys.argv) > 1 else 'out'
-SPLIT = '2025-01-01'
+SPLIT = os.environ.get('SPLIT', '2025-01-01')
+TRAIN_FROM = os.environ.get('TRAIN_FROM', '')      # jaise 2025-01-01: sirf mandi wale saal se seekho
 TOPN = int(os.environ.get('TOPN', '50'))
 PICK = os.environ.get('PICK', 'atr')       # atr = sabse zyada roz-move; turnover = sabse bade/stable (sabse zyada kaarobar)
-SUF = '' if PICK == 'atr' else '_' + PICK
-MIN_TRAIN = 6                   # ek stock pe ek setup ke kam se kam itne TRAIN trades, tabhi chuna ja sakta hai
+SUF = ('' if PICK == 'atr' else '_' + PICK) + os.environ.get('SUFX', '')
+MIN_TRAIN = int(os.environ.get('MIN_TRAIN', '6'))                  # ek stock pe ek setup ke kam se kam itne TRAIN trades, tabhi chuna ja sakta hai
 L = []
 
 
@@ -54,6 +55,7 @@ ALLTEST = []
 with gzip.open(os.path.join(out_dir, 'regime_trades.csv.gz'), 'rt') as h:
     for r in csv.DictReader(h):
         if r['setup'] == 'STRUCT_ALL': continue
+        if r['date'] < TRAIN_FROM: continue
         R = float(r['R']); tr = r['date'] < SPLIT; k = (r['setup'], r['exit'])
         REGT[(r['setup'], r['exit'], r['regime'])][0 if tr else 1].append(R)
         if r['sym'] in US:
@@ -61,6 +63,7 @@ with gzip.open(os.path.join(out_dir, 'regime_trades.csv.gz'), 'rt') as h:
             if not tr: ALLTEST.append(R)
 
 log('HAR STOCK KI APNI STRATEGY - TEST (generated %s)' % datetime.date.today())
+log('TRAIN %s se %s tak, TEST %s se.' % (TRAIN_FROM or 'shuru', SPLIT, SPLIT))
 log('Universe: %d stock (liquid 80%%+ din, 2024 tak ke data se %s). TRAIN < %s, TEST >= %s.' % (len(U), 'sabse zyada turnover (bade stock)' if PICK == 'turnover' else 'sabse zyada roz-move/ATR%', SPLIT, SPLIT))
 log('Har stock pe har (setup, exit) jisme TRAIN me %d+ trade: TRAIN me sabse achha chuna, TEST me wahi lagaya.' % MIN_TRAIN)
 log('')
@@ -96,7 +99,7 @@ for _ in range(200):
     ravg.append(avg(v))
 ravg.sort()
 
-log('== TEST (2025-26) me nateeja, R per trade (kharcha kaat ke) ==')
+log('== TEST (%s se) me nateeja, R per trade (kharcha kaat ke) ==' % SPLIT)
 for name, rs in (('A. Har stock ki apni strategy (TRAIN se chuni)', ps_test),
                  ('B. Apni strategy + market-haal filter', ps_reg),
                  ('C. Sab stock pe ek hi setup: %s %s' % gk, g_test),
