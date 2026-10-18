@@ -26,8 +26,17 @@ jobs:
           for f in screen_latest.csv gap_check.csv picks_review.csv; do   # news_events.* news workflow khud copy karta hai
             [ -f out/$f ] && cp out/$f docs/$f || true
           done
-      - name: Chart candles (kaam ke stocks)
+      - name: Chart candles (kaam ke stocks, ~1 saal daily)
         run: python candles.py data || true
+        env:
+          CANDLE_DAYS: "250"
+      - name: Intraday 15-min candles (chart ke 15m / 1H timeframe)
+        run: python intraday.py || true
+        env:
+          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+          ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+          ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
+          ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
       - name: Commit
         run: |
           git config user.name "swing-bot"

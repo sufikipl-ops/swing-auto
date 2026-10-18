@@ -143,7 +143,7 @@ h3{font-weight:600;color:var(--mu)}
 .clamp::after{content:'';}
 small.clamp,.hint.clamp,.why.clamp{border-bottom:1px dashed var(--bd)}
 .clopen{cursor:auto}.chc{padding:10px 8px}.chr{display:flex;gap:6px;padding:0 4px 8px}.chr button{border:1px solid var(--bd);background:var(--inset);color:var(--mu);border-radius:8px;padding:5px 10px;font:600 12px Inter,system-ui,sans-serif}.chr button.on{background:var(--b);border-color:var(--b);color:#fff}.chr .chf{margin-left:auto;color:var(--tx)}
-#chart,#chfb{position:relative}.chtip{position:absolute;left:6px;top:4px;z-index:5;font-size:11px;color:var(--mu);pointer-events:none;background:color-mix(in srgb,var(--card) 80%,transparent);padding:2px 6px;border-radius:6px;font-variant-numeric:tabular-nums}.chtip span{color:var(--tx);font-weight:600}.chtip b{color:var(--tx);margin-right:4px}.chtip .g{color:var(--g)}.chtip .r{color:var(--r)}
+#chart,#chfb{position:relative}.chempty{padding:40px 12px;text-align:center;color:var(--mu);font-size:13px}.chr{flex-wrap:wrap}.chtip{position:absolute;left:6px;top:4px;z-index:5;font-size:11px;color:var(--mu);pointer-events:none;background:color-mix(in srgb,var(--card) 80%,transparent);padding:2px 6px;border-radius:6px;font-variant-numeric:tabular-nums}.chtip span{color:var(--tx);font-weight:600}.chtip b{color:var(--tx);margin-right:4px}.chtip .g{color:var(--g)}.chtip .r{color:var(--r)}
 #chfs{display:none;position:fixed;inset:0;z-index:80;background:var(--card);padding:calc(6px + env(safe-area-inset-top)) 8px calc(6px + env(safe-area-inset-bottom))}.chfh{display:flex;align-items:center;gap:8px;padding:2px 2px 6px}.chfh b{font-size:15px}.chfh .chr{padding:0;margin-left:auto}.chx{border:0;background:var(--chip);color:var(--tx);width:36px;height:36px;border-radius:10px;font-size:15px}.chfn{display:block;text-align:center;margin-top:4px}body.chfon{overflow:hidden}body.chfon #aifab{display:none}.whyk{margin:8px 4px 2px}.whyk>summary{font-size:13.5px;font-weight:600}.whyb{background:var(--inset);border-radius:10px;padding:8px 10px;margin-top:4px}.whyr{margin-top:8px;font-size:13px;line-height:1.45}.lvdot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--g);margin-left:8px;animation:lvp 1.4s infinite}@keyframes lvp{50%{opacity:.25}}.chc .row{padding:0 4px 6px}#chart{width:100%;min-height:10px}#chnote{padding:4px 4px 0}
 .wlc{padding:2px 12px}.wrow{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--bd);cursor:pointer;-webkit-tap-highlight-color:transparent}.wrow:last-child{border-bottom:0}.wrow:active{opacity:.6}
 .wrow .rk{width:30px;height:30px;font-size:12.5px}.rk.lk{font-size:13px}.rk.dp{background:var(--gbg);color:var(--g);font-size:11.5px}
@@ -369,10 +369,10 @@ document.getElementById('mk').innerHTML='Analysis: '+esc(MK.date||'?')+' close '
 /* ---------- chart (TradingView lightweight-charts, docs/candles.json: sirf kaam ke ~160 stock) ---------- */
 var CDL=null,LWC=null;
 /* aaj ki candle live (Angel bhav, ~30 sec): kal tak ki candles ke baad aaj ka bar jodo/badlo */
-function chLive(){var el=document.getElementById('chlive'),on=false;CHS.forEach(function(o){if(!document.body.contains(o.box)||cur!==o.sym)return;var it=liveItem(o.sym);if(!it||!(it.o>0))return;var d=istDate();if(d<=o.last)return;
+function chLive(){var el=document.getElementById('chlive'),on=false;CHS.forEach(function(o){if(!document.body.contains(o.box)||cur!==o.sym||o.tf!='1D')return;var it=liveItem(o.sym);if(!it||!(it.o>0))return;var d=istDate();if(d<=o.last)return;
 try{o.cd.update({time:d,open:it.o,high:Math.max(it.h||it.ltp,it.ltp),low:Math.min(it.l||it.ltp,it.ltp),close:it.ltp});if(it.vol)o.vol.update({time:d,value:it.vol,color:it.ltp>=it.o?'rgba(47,191,113,.35)':'rgba(229,83,75,.35)'})}catch(e){}on=it});
 if(el)el.innerHTML=on?' <span class="lvdot"></span><small class="g"> LIVE '+f(on.ltp)+'</small>':''}
-function chartCard(sym,p){return '<div class="card chc"><div class="row"><b>Chart (daily)<span id="chlive"></span></b><small class="mu" id="chleg">EMA20 <span style="color:#4c9aff">&#9472;</span> EMA50 <span style="color:#e3b341">&#9472;</span></small></div>'+chTools()+'<div id="chart"></div><div id="chnote"></div>'+
+function chartCard(sym,p){return '<div class="card chc"><div class="row"><b>Chart <span id="chtt">(Din)</span><span id="chlive"></span></b><small class="mu" id="chleg">EMA20 <span style="color:#4c9aff">&#9472;</span> EMA50 <span style="color:#e3b341">&#9472;</span></small></div>'+chTools()+'<div id="chart"></div><div id="chnote"></div>'+
 '<details class="whyk"><summary>&#9432; Ye trade kyun? (setup aur reason)</summary>'+whyHtml(sym,p)+'</details></div>'}
 /* "i" button: kis setup se, kya rule, is stock me kya sahi/galat, is market me kaisa chala, plan kaise bana */
 var SETRULE={BREAKOUT:'20-din ke high ke upar band hua, volume 1.5x se zyada aur trend majboot. Upar ki taraf naya move shuru hone ka andaza.',
@@ -396,46 +396,61 @@ return h+'</div>'}
 function tvLink(sym){return '<a class="btn" target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=NSE%3A'+encodeURIComponent(sym)+'">TradingView par chart</a>'}
 function loadLWC(){if(LWC)return LWC;LWC=new Promise(function(ok,no){var sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js';sc.onload=function(){ok(window.LightweightCharts)};sc.onerror=function(){LWC=null;no()};document.head.appendChild(sc)});return LWC}
 function emaArr(v,n){var a=2/(n+1),e=null;return v.map(function(x){e=e==null?x:a*x+(1-a)*e;return e})}
-var CHS=[],CHD=null;
+var CHS=[],CHD=null,INTRA=null,TFN={'15m':'15 min','1H':'1 ghanta','1D':'Din','1W':'Hafta','1M':'Mahina'};
 function chRows(D,rows){var seen={};return rows.filter(function(r){var t=D.dates[r[0]];if(!t||seen[t])return false;seen[t]=1;return r[1]>0&&r[2]>0&&r[3]>0&&r[4]>0}).sort(function(a,b){return D.dates[a[0]]<D.dates[b[0]]?-1:1})}
 function nfmt(v){return v>=1e7?f(v/1e7,2)+' cr':v>=1e5?f(v/1e5,1)+' L':nIN(Math.round(v))}
+function its(s){var m=String(s).match(/(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/);return m?Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5])/1000:null}
+function tlab(t){if(typeof t=='number'){var d=new Date(t*1000).toISOString();return d.slice(8,10)+'-'+d.slice(5,7)+' '+d.slice(11,16)}return String(t)}
+function aggBars(b,keyf){var out=[],cur=null;b.forEach(function(x){var k=keyf(x);if(!cur||cur.k!==k){cur={k:k,time:x.time,open:x.open,high:x.high,low:x.low,close:x.close,v:x.v||0};out.push(cur)}else{cur.high=Math.max(cur.high,x.high);cur.low=Math.min(cur.low,x.low);cur.close=x.close;cur.v+=x.v||0}});return out}
+function wkKey(t){var d=new Date(t+'T00:00:00Z'),day=(d.getUTCDay()+6)%7;d.setUTCDate(d.getUTCDate()-day);return d.toISOString().slice(0,10)}
+/* timeframe ke hisaab se bars: 1D/1W/1M daily candles se, 15m/1H intraday.json se */
+function tfBars(tf){var D=CHD.D,rows=CHD.rows,d=rows.map(function(r){return{time:D.dates[r[0]],open:r[1],high:r[2],low:r[3],close:r[4],v:r[5]}});
+if(tf=='1W')return aggBars(d,function(x){return wkKey(x.time)});if(tf=='1M')return aggBars(d,function(x){return String(x.time).slice(0,7)});
+if(tf=='15m'||tf=='1H'){var I=INTRA&&INTRA.s&&INTRA.s[CHD.sym];if(!I||!I.length)return null;var b=I.map(function(r){return{time:its(r[0]),open:r[1],high:r[2],low:r[3],close:r[4],v:r[5],hr:String(r[0]).slice(0,13)}}).filter(function(x){return x.time});
+return tf=='1H'?aggBars(b,function(x){return x.hr}):b}return d}
 /* ek chart banao (card me ya full screen). zoom: do ungli; khisakna: ungli; candle par ungli = O/H/L/C */
-function buildChart(LW,box,sym,p,D,rows,h,full){var cs=getComputedStyle(document.documentElement),bg=cs.getPropertyValue('--card').trim(),tx=cs.getPropertyValue('--mu').trim(),bd=cs.getPropertyValue('--bd').trim();
+function buildChart(LW,box,sym,p,bars,h,full,tf){var cs=getComputedStyle(document.documentElement),bg=cs.getPropertyValue('--card').trim(),tx=cs.getPropertyValue('--mu').trim(),bd=cs.getPropertyValue('--bd').trim(),intra=tf=='15m'||tf=='1H';
 box.innerHTML='<div class="chtip"></div>';var tip=box.firstChild;
 var ch=LW.createChart(box,{width:box.clientWidth,height:h,layout:{background:{type:'solid',color:bg},textColor:tx,fontFamily:'Inter,system-ui,sans-serif',fontSize:full?12:11},grid:{vertLines:{color:bd},horzLines:{color:bd}},
-rightPriceScale:{borderColor:bd,scaleMargins:{top:.1,bottom:.22}},timeScale:{borderColor:bd,rightOffset:4,barSpacing:full?10:8,minBarSpacing:2},crosshair:{mode:0},
-handleScroll:{mouseWheel:true,pressedMouseMove:true,horzTouchDrag:true,vertTouchDrag:false},handleScale:{axisPressedMouseMove:true,mouseWheel:true,pinch:true}});
-var data=rows.map(function(r){return{time:D.dates[r[0]],open:r[1],high:r[2],low:r[3],close:r[4]}}),vols={},idx={};rows.forEach(function(r,i){vols[D.dates[r[0]]]=r[5];idx[D.dates[r[0]]]=i});
+rightPriceScale:{borderColor:bd,scaleMargins:{top:.1,bottom:.22}},timeScale:{borderColor:bd,rightOffset:4,barSpacing:full?10:8,minBarSpacing:2,timeVisible:intra,secondsVisible:false},crosshair:{mode:0},
+handleScroll:{mouseWheel:true,pressedMouseMove:true,horzTouchDrag:true,vertTouchDrag:!!full},handleScale:{axisPressedMouseMove:{time:true,price:true},axisDoubleClickReset:true,mouseWheel:true,pinch:true}});
+var data=bars.map(function(x){return{time:x.time,open:x.open,high:x.high,low:x.low,close:x.close}}),vols={},idx={};bars.forEach(function(x,i){vols[x.time]=x.v;idx[x.time]=i});
 var cd=ch.addCandlestickSeries({upColor:'#2fbf71',downColor:'#e5534b',borderVisible:false,wickUpColor:'#2fbf71',wickDownColor:'#e5534b'});cd.setData(data);
 var vol=ch.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'v',lastValueVisible:false,priceLineVisible:false});ch.priceScale('v').applyOptions({scaleMargins:{top:.84,bottom:0}});
-vol.setData(rows.map(function(r){return{time:D.dates[r[0]],value:r[5],color:r[4]>=r[1]?'rgba(47,191,113,.35)':'rgba(229,83,75,.35)'}}));
-var cl=data.map(function(x){return x.close});[[20,'#4c9aff'],[50,'#e3b341']].forEach(function(z){var e=emaArr(cl,z[0]),ls=ch.addLineSeries({color:z[1],lineWidth:1,priceLineVisible:false,lastValueVisible:false,crosshairMarkerVisible:false});ls.setData(data.map(function(x,i){return{time:x.time,value:e[i]}}).slice(Math.min(z[0],10)))});
+vol.setData(bars.map(function(x){return{time:x.time,value:x.v||0,color:x.close>=x.open?'rgba(47,191,113,.35)':'rgba(229,83,75,.35)'}}));
+var cl=data.map(function(x){return x.close});[[20,'#4c9aff'],[50,'#e3b341']].forEach(function(z){if(data.length<z[0]+5)return;var e=emaArr(cl,z[0]),ls=ch.addLineSeries({color:z[1],lineWidth:1,priceLineVisible:false,lastValueVisible:false,crosshairMarkerVisible:false});ls.setData(data.map(function(x,i){return{time:x.time,value:e[i]}}).slice(Math.min(z[0],10)))});
 var t=TR.filter(function(x){return x.symbol==sym&&x.status!='CLOSED'})[0],L=t?[[+t.entry,'Meri entry','#4c9aff'],[+t.sl,'Mera SL','#e5534b'],[+t.target,'Mera target','#2fbf71']]:p?[[p.entry,'Entry','#4c9aff'],[p.stop,'SL','#e5534b'],[p.t1,'Target','#2fbf71']]:[];
 L.forEach(function(z){if(z[0]>0)cd.createPriceLine({price:z[0],color:z[2],lineWidth:1,lineStyle:2,axisLabelVisible:true,title:z[1]})});
-var sg=PK[sym]||DPM[sym],mk=[];if(sg&&sg.DATE){var sx=stratOf(PK[sym]?PK[sym].SETUP:'DIP',DPM[sym]&&DPM[sym].TIER,DPM[sym]&&dipPlus(DPM[sym]));mk.push({time:sg.DATE,position:'belowBar',color:'#e3b341',shape:'arrowUp',text:sx[0]})}
+if(tf=='1D'){var sg=PK[sym]||DPM[sym],mk=[];if(sg&&sg.DATE){var sx=stratOf(PK[sym]?PK[sym].SETUP:'DIP',DPM[sym]&&DPM[sym].TIER,DPM[sym]&&dipPlus(DPM[sym]));mk.push({time:sg.DATE,position:'belowBar',color:'#e3b341',shape:'arrowUp',text:sx[0]})}
 if(t&&t.date&&idx[t.date]!=null)mk.push({time:t.date,position:'aboveBar',color:'#4c9aff',shape:'arrowDown',text:'Meri entry'});
-mk=mk.filter(function(m){return idx[m.time]!=null}).sort(function(a,b){return a.time<b.time?-1:1});try{cd.setMarkers(mk)}catch(e){}
+mk=mk.filter(function(m){return idx[m.time]!=null}).sort(function(a,b){return a.time<b.time?-1:1});try{cd.setMarkers(mk)}catch(e){}}
 function tipFor(b,tm){if(!b)return;var i=idx[tm],pc=i>0?data[i-1].close:null,ch_=pc?(b.close/pc-1)*100:null,v=vols[tm],up=b.close>=b.open;
-tip.innerHTML='<b>'+esc(String(tm))+'</b> O <span>'+f(b.open)+'</span> H <span>'+f(b.high)+'</span> L <span>'+f(b.low)+'</span> C <span class="'+(up?'g':'r')+'">'+f(b.close)+'</span>'+(ch_!=null?' <span class="'+(ch_>=0?'g':'r')+'">'+(ch_>=0?'+':'')+f(ch_,2)+'%</span>':'')+(v?' Vol <span>'+nfmt(v)+'</span>':'')}
-var last=data[data.length-1];function tipNow(){var lv=liveItem(sym);if(lv&&lv.o>0&&istDate()>last.time){idx[istDate()]=data.length;vols[istDate()]=lv.vol;tipFor({open:lv.o,high:lv.h,low:lv.l,close:lv.ltp},istDate())}else tipFor(last,last.time)}tipNow();
+tip.innerHTML='<b>'+esc(tlab(tm))+'</b> O <span>'+f(b.open)+'</span> H <span>'+f(b.high)+'</span> L <span>'+f(b.low)+'</span> C <span class="'+(up?'g':'r')+'">'+f(b.close)+'</span>'+(ch_!=null?' <span class="'+(ch_>=0?'g':'r')+'">'+(ch_>=0?'+':'')+f(ch_,2)+'%</span>':'')+(v?' Vol <span>'+nfmt(v)+'</span>':'')}
+var last=data[data.length-1];function tipNow(){var lv=liveItem(sym);if(tf=='1D'&&lv&&lv.o>0&&istDate()>last.time){idx[istDate()]=data.length;vols[istDate()]=lv.vol;tipFor({open:lv.o,high:lv.h,low:lv.l,close:lv.ltp},istDate())}else tipFor(last,last.time)}tipNow();
 ch.subscribeCrosshairMove(function(pr){var b=pr&&pr.time?pr.seriesData.get(cd):null;if(b)tipFor(b,pr.time);else tipNow()});
-var o={sym:sym,ch:ch,cd:cd,vol:vol,box:box,data:data,last:last.time,full:full,h:h};o.range=function(n){o.cn=n;var N=data.length+(istDate()>o.last&&liveItem(sym)?1:0);if(!n){ch.timeScale().fitContent();return}ch.timeScale().setVisibleLogicalRange({from:Math.max(0,N-n),to:N+3})};
-o.range(full?90:55);CHS=CHS.filter(function(x){return x.sym==sym&&x.box!==box&&document.body.contains(x.box)});CHS.push(o);chLive();return o}
-function chRange(n,el){CHS.forEach(function(o){o.range(n)});if(el){var bs=el.parentNode.querySelectorAll('button');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i]===el)}}
-function chTools(){return '<div class="chr"><button onclick="chRange(22,this)">1M</button><button class="on" onclick="chRange(55,this)">3M</button><button onclick="chRange(0,this)">Sab</button><button class="chf" onclick="chFull()">&#x26F6; Bada karo</button></div>'}
+var o={sym:sym,ch:ch,cd:cd,vol:vol,box:box,data:data,last:last.time,full:full,h:h,tf:tf},defN={'15m':75,'1H':40,'1D':full?90:55,'1W':52,'1M':0}[tf];
+o.range=function(){var N=data.length+(tf=='1D'&&istDate()>o.last&&liveItem(sym)?1:0);if(!defN||N<=defN){ch.timeScale().fitContent();return}ch.timeScale().setVisibleLogicalRange({from:Math.max(0,N-defN),to:N+3})};
+o.range();CHS=CHS.filter(function(x){return x.sym==sym&&x.box!==box&&document.body.contains(x.box)});CHS.push(o);chLive();return o}
+function chTools(){var tf=CHD&&CHD.tf||'1D';return '<div class="chr">'+['15m','1H','1D','1W','1M'].map(function(k){return '<button class="'+(k==tf?'on':'')+'" onclick="chTf(\''+k+'\')">'+k+'</button>'}).join('')+'<button class="chf" onclick="chFull()">&#x26F6; Bada karo</button></div>'}
+function chTf(tf){if(!CHD)return;CHD.tf=tf;function go(){var tt=document.getElementById('chtt');if(tt)tt.textContent='('+TFN[tf]+')';var bars=tfBars(tf),bs=document.querySelectorAll('.chr button');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].textContent==tf);
+var targets=[[document.getElementById('chart'),330,false],[document.getElementById('chfb'),Math.max(260,window.innerHeight-96),true]],nt=document.getElementById('chnote');
+targets.forEach(function(z){if(!z[0]||!document.body.contains(z[0])||(z[2]&&!document.body.classList.contains('chfon')))return;
+if(!bars||bars.length<3){z[0].innerHTML='<div class="chempty">'+TFN[tf]+' ka data is stock ke liye abhi nahi hai. 15m / 1H roz shaam update hota hai (pichhle ~5 din).</div>';return}
+buildChart(CHD.LW,z[0],CHD.sym,CHD.p,bars,z[1],z[2],tf)})}
+if((tf=='15m'||tf=='1H')&&!INTRA)get('intraday.json',1).then(function(d){INTRA=d||{s:{}};go()});else go()}
 function drawChart(sym,p){var box=document.getElementById('chart'),note=document.getElementById('chnote');if(!box)return;
 (CDL?Promise.resolve(CDL):get('candles.json',1).then(function(d){CDL=d||{s:{}};return CDL})).then(function(D){var rows=D.s&&D.s[sym];
 if(!rows||rows.length<20){box.style.display='none';var tl=document.querySelector('.chr');if(tl)tl.style.display='none';note.innerHTML='<small class="mu">Is stock ka chart app me nahi hai (sirf picks, dip, locked aur trades ke stocks ka). </small>'+tvLink(sym);return}
-return loadLWC().then(function(LW){if(cur!==sym)return;rows=chRows(D,rows);CHD={LW:LW,sym:sym,p:p,D:D,rows:rows};buildChart(LW,box,sym,p,D,rows,330,false);
-var t=TR.filter(function(x){return x.symbol==sym&&x.status!='CLOSED'})[0];note.innerHTML='<small class="mu">Do ungli se zoom, ungli se khiskao, candle par ungli rakho to uska bhav upar dikhega. Dotted lines: '+(t?'tumhare logged trade':'app ka plan')+' (entry / SL / target). </small>'+tvLink(sym)})}).catch(function(){note.innerHTML='<small class="mu">Chart load nahi hua (internet?). </small>'+tvLink(sym)})}
+return loadLWC().then(function(LW){if(cur!==sym)return;rows=chRows(D,rows);CHD={LW:LW,sym:sym,p:p,D:D,rows:rows,tf:'1D'};var bs=document.querySelectorAll('.chr button');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].textContent=='1D');buildChart(LW,box,sym,p,tfBars('1D'),330,false,'1D');
+var t=TR.filter(function(x){return x.symbol==sym&&x.status!='CLOSED'})[0];note.innerHTML='<small class="mu">Do ungli se zoom, ungli se aage-peeche, daayi taraf ke bhav (price axis) ko upar-neeche kheencho to chart upar-neeche. Full screen me poora chart har taraf khiskega. Dotted lines: '+(t?'tumhare logged trade':'app ka plan')+' (entry / SL / target). </small>'+tvLink(sym)})}).catch(function(){note.innerHTML='<small class="mu">Chart load nahi hua (internet?). </small>'+tvLink(sym)})}
 /* full screen chart: phone ghumao (landscape) to aur bada */
 function chFull(){if(!CHD||!window.LightweightCharts)return;var ov=document.getElementById('chfs');if(!ov){ov=document.createElement('div');ov.id='chfs';document.body.appendChild(ov)}
-ov.innerHTML='<div class="chfh"><b>'+esc(CHD.sym)+'</b>'+chTools().replace('<button class="chf" onclick="chFull()">&#x26F6; Bada karo</button>','')+'<button class="chx" onclick="chFullClose()">&#10005;</button></div><div id="chfb"></div><small class="mu chfn">Phone ghumao (landscape) to chart aur bada dikhega.</small>';
+ov.innerHTML='<div class="chfh"><b>'+esc(CHD.sym)+'</b>'+chTools().replace('<button class="chf" onclick="chFull()">&#x26F6; Bada karo</button>','')+'<button class="chx" onclick="chFullClose()">&#10005;</button></div><div id="chfb"></div><small class="mu chfn">Har taraf khiskao, do ungli se zoom. Phone ghumao (landscape) to aur bada.</small>';
 ov.style.display='block';document.body.classList.add('chfon');try{history.pushState({chf:1},'')}catch(e){}
-var b=document.getElementById('chfb');setTimeout(function(){buildChart(CHD.LW,b,CHD.sym,CHD.p,CHD.D,CHD.rows,Math.max(260,window.innerHeight-96),true)},30)}
+setTimeout(function(){chTf(CHD.tf||'1D')},30)}
 function chFullClose(fromPop){var ov=document.getElementById('chfs');if(!ov||ov.style.display=='none')return;ov.style.display='none';document.body.classList.remove('chfon');CHS=CHS.filter(function(o){return !o.full});if(!fromPop)try{history.back()}catch(e){}}
 window.addEventListener('popstate',function(){chFullClose(true)});
-window.addEventListener('resize',function(){CHS.forEach(function(o){if(!document.body.contains(o.box))return;var h=o.full?Math.max(260,window.innerHeight-96):o.h;o.ch.applyOptions({width:o.box.clientWidth,height:h});o.range(o.cn)})});
+window.addEventListener('resize',function(){CHS.forEach(function(o){if(!document.body.contains(o.box))return;var h=o.full?Math.max(260,window.innerHeight-96):o.h;o.ch.applyOptions({width:o.box.clientWidth,height:h});o.range()})});
 function links(sym){return '<a class="btn" target="_blank" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(sym+' share news')+'">Latest news</a>'+
 '<a class="btn" target="_blank" href="https://www.nseindia.com/get-quotes/equity?symbol='+encodeURIComponent(sym)+'">NSE</a>'+
 '<a class="btn" target="_blank" href="https://www.screener.in/company/'+encodeURIComponent(sym)+'/">Screener</a>'+
