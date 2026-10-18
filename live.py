@@ -4,6 +4,8 @@
 import os, sys, re, csv, json, time, hmac, base64, struct, hashlib, datetime, traceback
 import urllib.request, urllib.error, urllib.parse
 
+import live_scan
+
 try:
     sys.stdout.reconfigure(line_buffering=True)   # GitHub log me lines turant dikhein
 except Exception:
@@ -20,6 +22,9 @@ if not PAGES_BASE and os.environ.get('GITHUB_REPOSITORY'):
     _o, _r = os.environ['GITHUB_REPOSITORY'].split('/', 1)
     PAGES_BASE = 'https://%s.github.io/%s/' % (_o.lower(), _r)
 ALERTS_ON = os.environ.get('WATCH_ALERTS', '1') != '0'
+BREADTH_SEC = float(os.environ.get('LIVE_BREADTH_SEC', '300'))   # live market breadth har 5 min (~1100 stock, ~25 sec lagte hain)
+PREP_FROM, PREP_SEND = '14:30', '15:12'                          # 3:15 taiyari list: app me 2:30 se, Telegram 3:12 ke baad ek baar
+LIVE_MAX_CHARS = 44000                                           # Apps Script 'Live' cell 45000 se bada nahi leta
 
 
 def ist_now():
@@ -75,6 +80,64 @@ def page_config():
             if m:
                 return m.group(1), m.group(2)
     return '', ''
+
+
+def page_var(name):
+    here = os.path.dirname(os.path.abspath(__file__))
+    for p in (os.path.join(here, 'docs', 'index.html'), os.path.join('docs', 'index.html')):
+        if os.path.exists(p):
+            m = re.search(r"var %s='([^']*)'" % name, open(p, encoding='utf-8').read())
+            if m:
+                return m.group(1)
+    return ''
+
+
+def sheet_trade_symbols(gviz):
+    """Picks sheet (Trades tab ke naye trade) ke pichhle 30 din ke symbols, taaki unka live P&L dikhe."""
+    if not gviz:
+        return []
+    try:
+        with urllib.request.urlopen(gviz + '&t=%d' % int(time.time()), timeout=30) as r:
+            rows = list(csv.reader(r.read().decode('utf-8', 'ignore').splitlines()))
+    except Exception:
+        return []
+    out = []
+    for r in rows[1:][-40:]:
+        if len(r) > 1:
+            s_ = r[1].strip().upper()
+            if re.match(r'^[A-Z0-9&\-]{2,20}$', s_) and s_ not in out:
+                out.append(s_)
+    return out
+
+
+def load_base():
+    """docs/live_base.json (dip_scan.py): Pages se taaza, warna repo ki copy."""
+    d = http_json(PAGES_BASE + 'live_base.json?t=%d' % int(time.time())) if PAGES_BASE else {}
+    if not isinstance(d, dict) or not d.get('syms'):
+        try:
+            d = json.load(open(os.path.join('docs', 'live_base.json')))
+        except Exception:
+            d = {}
+    return d if d.get('syms') else {}
+
+
+def hm(now):
+    return now.strftime('%H:%M')
+
+
+def prep_text(pr, bh, base_reg, now):
+    reg = (bh or {}).get('regime') or base_reg or '?'
+    L = ['3:15 TAIYARI (%s) - kal ke liye dhyan do' % hm(now),
+         'Market abhi: %s%% stock EMA50 ke upar -> %s' % ((bh or {}).get('pct', '?'), reg)]
+    if pr['dip']:
+        L.append('Dip A banne wale (din yahin band hua to): ' + ', '.join('%s %+.1f%% (3 din)' % (r['s'], r['r3']) for r in pr['dip'][:8]))
+    else:
+        L.append('Dip A: abhi koi nahi')
+    if pr['bounce']:
+        L.append('Oversold bounce: ' + ', '.join('%s RSI %d' % (r['s'], r['rsi']) for r in pr['bounce'][:8]) +
+                 ('' if reg == 'VWEAK' else ' (sirf BAHUT kamzor market me trade; abhi nahi)'))
+    L.append('Pakka signal shaam ~6:20 ki scan se. Entry kal 9:20 par, gap rule ke saath.')
+    return '\n'.join(L)
 
 
 def screen_symbols():
@@ -216,6 +279,10 @@ def main():
     print('tokens: %d' % len(tokmap))
     no_trade_since = None
     loops = 0
+    base = load_base()
+    print('live_base: %d stocks (%s)' % (len(base.get('syms') or {}), base.get('date')))
+    gviz = page_var('PICKS_GVIZ'); tsyms, tsyms_ts = [], 0
+    bh, bh_ts, bh_hist, pr, prep_sent, carry_day = None, 0, [], None, False, ''
     ctx, ctx_ts, sent_keys, alert_log, alert_day = {}, 0, set(), [], ''
     try:
         import watch_alerts
@@ -231,7 +298,9 @@ def main():
         st = server_state(url, pkey)
         pins = (st or {}).get('pins') or []
         syms = []
-        for s in screen_symbols() + pins:
+        if time.time() - tsyms_ts > 600:
+            tsyms, tsyms_ts = sheet_trade_symbols(gviz), time.time()
+        for s in screen_symbols() + pins + tsyms:
             if s not in syms:
                 syms.append(s)
         syms = syms[:MAX_SYMS]
@@ -281,12 +350,49 @@ def main():
                     alert_log = alert_log[-120:]
             except Exception as e:
                 alert_msg = 'alerts err %s' % str(e)[:100]
-        live = {'ts': now.strftime('%Y-%m-%dT%H:%M:%S'), 'date': today.strftime('%Y-%m-%d'), 'status': status,
-                'err': err, 'missing': missing, 'n': len(items), 'items': items, 'alerts': alert_log[-60:]}
+        # ---- live market breadth + 3:15 taiyari ----
+        dstr = today.strftime('%Y-%m-%d')
+        if carry_day != dstr:                      # doosri GitHub job: subah ka breadth history aur 'bheja' flag wapas lo
+            carry_day = dstr
+            prev = ((st or {}).get('live') or {})
+            if prev.get('date') == dstr:
+                bh_hist = list((prev.get('breadth') or {}).get('hist') or [])
+                prep_sent = bool((prev.get('prep') or {}).get('sent'))
+                bh, pr = prev.get('breadth'), prev.get('prep')
+        bmsg = ''
+        if base and status == 'ok' and time.time() - bh_ts > BREADTH_SEC:
+            bh_ts = time.time()
+            try:
+                btok = {s: tokmap[s] for s in base['syms'] if s in tokmap}
+                bitems, berr = fetch_quotes(key, jwt, btok)
+                bitems = {k: v for k, v in bitems.items() if traded_today(v, today) and v.get('ltp')}
+                b = live_scan.breadth(bitems, base)
+                if b:
+                    if not bh_hist or bh_hist[-1][0] != hm(now):
+                        bh_hist.append([hm(now), b['pct']])
+                    bh = dict(b, at=hm(now), hist=bh_hist[-80:], base_date=base.get('date'), base_regime=base.get('regime'),
+                              base_pct=base.get('breadth'))
+                    bmsg = 'breadth %s%% %s (%d)' % (b['pct'], b['regime'], b['n'])
+                    if hm(now) >= PREP_FROM:
+                        pr = dict(live_scan.prep(bitems, base), at=hm(now), sent=prep_sent)
+                        if not prep_sent and hm(now) >= PREP_SEND:
+                            ok, why = notify(url, pkey, prep_text(pr, bh, base.get('regime'), now))
+                            prep_sent = ok; pr['sent'] = ok
+                            bmsg += ' | prep notify %s %s' % ('ok' if ok else 'FAIL', why)
+                else:
+                    bmsg = 'breadth: kam stock mile (%d) %s' % (len(bitems), berr)
+            except Exception as e:
+                bmsg = 'breadth err %s' % str(e)[:100]
+        live = {'ts': now.strftime('%Y-%m-%dT%H:%M:%S'), 'date': dstr, 'status': status,
+                'err': err, 'missing': missing, 'n': len(items), 'items': items, 'alerts': alert_log[-60:],
+                'breadth': bh, 'prep': pr}
+        while len(json.dumps(live)) > LIVE_MAX_CHARS and live['alerts']:
+            live['alerts'] = live['alerts'][5:]
         okp = push_live(url, pkey, live)
         loops += 1
         print('%s loop %d symbols=%d fetched=%d today=%d status=%s pushed=%s %s' % (
-            now.strftime('%H:%M:%S'), loops, len(syms), len(items), n_today, status, okp, err) + (' | ' + alert_msg if alert_msg else ''))
+            now.strftime('%H:%M:%S'), loops, len(syms), len(items), n_today, status, okp, err) + (' | ' + alert_msg if alert_msg else '')
+            + (' | ' + bmsg if bmsg else ''))
         if no_trade_since and time.time() - no_trade_since > 600:
             print('aaj market me trade nahi dikha (holiday?), bye'); break
         time.sleep(POLL)

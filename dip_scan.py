@@ -22,6 +22,16 @@ def ema(v, span):
     return out
 
 
+def rsi_state(cl):
+    """rsi14 jaisa hi Wilder avg (au, ad) aakhri close tak: live.py kal ke state + aaj ke bhav se aaj ka RSI nikalta hai."""
+    au = ad = None
+    for i in range(1, len(cl)):
+        d = cl[i] - cl[i - 1]; up, dn = max(d, 0.0), max(-d, 0.0)
+        if au is None: au, ad = up, dn
+        else: au = au * 13 / 14.0 + up / 14.0; ad = ad * 13 / 14.0 + dn / 14.0
+    return au, ad
+
+
 def rsi14(cl):
     au = ad = None; n = 0; r = None
     for i in range(1, len(cl)):
@@ -85,6 +95,7 @@ def struct_sig(hi, lo, cl, i, PH, PL, fired):
     return ('STRUCT_DEEP' if depth >= 0.618 else 'STRUCT', m, depth)
 
 
+LIVEBASE = {}  # live.py ke liye: har liquid stock ka kal tak ka hisaab (breadth + 3:15 taiyari)
 cands = []
 struct = []    # regime_study: market structure setup sirf bahut kamzor market me chala (3/3 saal, n chhota)
 bounce = []    # regime_study: oversold bounce sirf bahut kamzor market (breadth<25%) me chala (5/5 saal)
@@ -114,6 +125,9 @@ for sym, byd in data.items():
     ret60 = cl[-1] / cl[-61] - 1
     r60all.append(ret60)
     ltot += 1; labove += cl[-1] > e50[-1]
+    au_, ad_ = rsi_state(cl)
+    LIVEBASE[sym] = [round(e20[-1], 3), round(e50[-1], 3), round(e50[-10], 3), cl[-3], cl[-60], cl[-10], round(au_, 4), round(ad_, 4),
+                     cl[-1], round(atr, 2)]
     n_ = len(cl)
     PH = [p for p in range(2, n_ - 2) if hi[p] > max(hi[p - 2:p]) and hi[p] >= max(hi[p + 1:p + 3])]
     PL = [p for p in range(2, n_ - 2) if lo[p] < min(lo[p - 2:p]) and lo[p] <= min(lo[p + 1:p + 3])]
@@ -176,6 +190,9 @@ head = ['TIER', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'RET3', 'RET60', 'RSI14', 
 for d in (out_dir, 'docs'):
     with open(os.path.join(d, 'dip_latest.csv'), 'w', newline='', encoding='utf-8') as h:
         w = csv.writer(h); w.writerow(head); w.writerows(rows)
+json.dump({'date': last.isoformat(), 'regime': REGIME, 'breadth': round(lbr, 1),
+           'cols': ['e20', 'e50', 'e50_10', 'c3', 'c60', 'c10', 'au', 'ad', 'close', 'atr'], 'syms': LIVEBASE},
+          open(os.path.join('docs', 'live_base.json'), 'w'), separators=(',', ':'))
 json.dump({'date': last.isoformat(), 'breadth': round(lbr, 1), 'regime': REGIME, 'universe': ltot},
           open(os.path.join('docs', 'regime_today.json'), 'w'))
 print('liquid breadth %.1f%% -> %s | bounce candidates %d | structure %d' % (lbr, REGIME, len(bounce), len(struct)))
