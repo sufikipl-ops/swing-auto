@@ -119,3 +119,10 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - App: plan card me "Live market" line (#lvbr), "Kal ke liye taiyari" card (#lvprep), Trades tab me live P&L (data-tpl) + total (#tplsum).
 - Regime card ki har setup line dabao -> docs/regime_trades.json (regime_study, 2ATR/5d): us market haal me sabse zyada
   bane 12 stock (trade, jeet, avg R) + haal ke 30 trades (signal din, stock, R). Har Shanivar update.
+
+## App design v2 (2026-10-18)
+- Part 1: Inter font, header logo + "⋯" menu (Theme/Alerts/Install), icon tab bar (News badge .nbd), ₹, Hinglish trade status (STL),
+  lambe text 2 line clamp (clampLong via MutationObserver on #v; .r/.ign/.tiles/.ir chhodta hai).
+- Part 2: watchlist rows: pickRow / dipRow / pinRow + wlist(); live cells data-lvq (pxq) aur data-lvs (lstat) paintLive me.
+- Part 3: stock page chart: candles.py (app.yml, kaam ke max 160 stock x 100 din -> docs/candles.json), lightweight-charts 4.1.3
+  (jsdelivr, lazy). EMA20/50, volume, entry/SL/target price lines (logged trade ho to uske). Baaki stocks: TradingView link.
