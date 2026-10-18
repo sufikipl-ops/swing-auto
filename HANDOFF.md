@@ -129,3 +129,7 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Chart live: chLive() aaj ki candle LV.items se update karta hai (paintLive har ~30 sec), "LIVE" dot. Markers: signal din (setup naam),
   logged trade ki entry. "ⓘ Ye trade kyun?" (whyHtml): setup rule (SETRULE), rk.P/rk.N, dip hisaab, regChip, plan kaise bana.
 - candles.py: ek din ki do bhavcopy file (NSE re-upload) ab ek hi candle; app bhi duplicate/zero rows hata deta hai.
+- Live intraday chart: live.py har 2 min chart stocks (candles.json + pins + sheet trades, max 60) ke aaj ke ONE_MINUTE candles
+  Apps Script 'putintra' (apps_script/Intraday.gs, sheet "Intra") me bhejta hai; 'bad action' mile to us din band.
+  App: 1m/5m/15m/1H = intraday.json (shaam ke 15-min, ~5 din) + api intra (aaj ke 1-min), har 30 sec refresh (market time).
+  Apps Script me doGet/doPost me ek-ek line chahiye: if (a === 'intra') ... aur if (body.action === 'putintra') ...

@@ -396,7 +396,7 @@ return h+'</div>'}
 function tvLink(sym){return '<a class="btn" target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=NSE%3A'+encodeURIComponent(sym)+'">TradingView par chart</a>'}
 function loadLWC(){if(LWC)return LWC;LWC=new Promise(function(ok,no){var sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js';sc.onload=function(){ok(window.LightweightCharts)};sc.onerror=function(){LWC=null;no()};document.head.appendChild(sc)});return LWC}
 function emaArr(v,n){var a=2/(n+1),e=null;return v.map(function(x){e=e==null?x:a*x+(1-a)*e;return e})}
-var CHS=[],CHD=null,INTRA=null,TFN={'15m':'15 min','1H':'1 ghanta','1D':'Din','1W':'Hafta','1M':'Mahina'};
+var CHS=[],CHD=null,INTRA=null,LIVEI={},TFN={'1m':'1 min','5m':'5 min','15m':'15 min','1H':'1 ghanta','1D':'Din','1W':'Hafta','1M':'Mahina'},TFI={'1m':1,'5m':5,'15m':15,'1H':60};
 function chRows(D,rows){var seen={};return rows.filter(function(r){var t=D.dates[r[0]];if(!t||seen[t])return false;seen[t]=1;return r[1]>0&&r[2]>0&&r[3]>0&&r[4]>0}).sort(function(a,b){return D.dates[a[0]]<D.dates[b[0]]?-1:1})}
 function nfmt(v){return v>=1e7?f(v/1e7,2)+' cr':v>=1e5?f(v/1e5,1)+' L':nIN(Math.round(v))}
 function its(s){var m=String(s).match(/(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/);return m?Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5])/1000:null}
@@ -406,10 +406,18 @@ function wkKey(t){var d=new Date(t+'T00:00:00Z'),day=(d.getUTCDay()+6)%7;d.setUT
 /* timeframe ke hisaab se bars: 1D/1W/1M daily candles se, 15m/1H intraday.json se */
 function tfBars(tf){var D=CHD.D,rows=CHD.rows,d=rows.map(function(r){return{time:D.dates[r[0]],open:r[1],high:r[2],low:r[3],close:r[4],v:r[5]}});
 if(tf=='1W')return aggBars(d,function(x){return wkKey(x.time)});if(tf=='1M')return aggBars(d,function(x){return String(x.time).slice(0,7)});
-if(tf=='15m'||tf=='1H'){var I=INTRA&&INTRA.s&&INTRA.s[CHD.sym];if(!I||!I.length)return null;var b=I.map(function(r){return{time:its(r[0]),open:r[1],high:r[2],low:r[3],close:r[4],v:r[5],hr:String(r[0]).slice(0,13)}}).filter(function(x){return x.time});
-return tf=='1H'?aggBars(b,function(x){return x.hr}):b}return d}
+if(TFI[tf]){var n=TFI[tf],td=istDate(),L=LIVEI[CHD.sym],lb=[];
+if(L&&L.bars&&L.date==td)lb=L.bars.map(function(r){var h=Math.floor(r[0]/100),m=r[0]%100;return{time:its(td+' '+('0'+h).slice(-2)+':'+('0'+m).slice(-2)),open:r[1],high:r[2],low:r[3],close:r[4],v:r[5]}}).filter(function(x){return x.time});
+var I=(INTRA&&INTRA.s&&INTRA.s[CHD.sym])||[],hb=n>=15?I.map(function(r){return{time:its(r[0]),open:r[1],high:r[2],low:r[3],close:r[4],v:r[5]}}).filter(function(x){return x.time&&tlab(x.time)&&new Date(x.time*1000).toISOString().slice(0,10)<td}):[];
+function bucket(x){var dd=new Date(x.time*1000).toISOString(),mins=(+dd.slice(11,13))*60+(+dd.slice(14,16));return dd.slice(0,10)+'|'+Math.floor((mins-555)/n)}
+var all=hb.concat(lb);if(!all.length)return null;var out=aggBars(all,bucket);out.forEach(function(x){var dd=new Date(x.time*1000).toISOString(),mins=(+dd.slice(11,13))*60+(+dd.slice(14,16)),st=555+Math.floor((mins-555)/n)*n;x.time=its(dd.slice(0,10)+' '+('0'+Math.floor(st/60)).slice(-2)+':'+('0'+st%60).slice(-2))});return out}return d}
+function fetchIntra(sym){if(!pinsOn())return Promise.resolve(null);return api({action:'intra',sym:sym}).then(function(d){LIVEI[sym]=d;return d}).catch(function(){LIVEI[sym]={err:1};return null})}
+/* market ke time: intraday chart har 30 sec taaza (Apps Script Intraday.gs se aaj ke 1-min candles) */
+setInterval(function(){if(document.hidden||!CHD||!TFI[CHD.tf]||cur!==CHD.sym||!marketHours())return;fetchIntra(CHD.sym).then(function(){var bars=tfBars(CHD.tf);if(!bars)return;
+CHS.forEach(function(o){if(o.sym!==CHD.sym||o.tf!==CHD.tf||!document.body.contains(o.box))return;try{o.cd.setData(bars.map(function(x){return{time:x.time,open:x.open,high:x.high,low:x.low,close:x.close}}));o.vol.setData(bars.map(function(x){return{time:x.time,value:x.v||0,color:x.close>=x.open?'rgba(47,191,113,.35)':'rgba(229,83,75,.35)'}}));
+var cl=bars.map(function(x){return x.close});(o.emas||[]).forEach(function(z){var e=emaArr(cl,z[0]);z[1].setData(bars.map(function(x,i){return{time:x.time,value:e[i]}}).slice(Math.min(z[0],10)))})}catch(e){}})})},30000);
 /* ek chart banao (card me ya full screen). zoom: do ungli; khisakna: ungli; candle par ungli = O/H/L/C */
-function buildChart(LW,box,sym,p,bars,h,full,tf){var cs=getComputedStyle(document.documentElement),bg=cs.getPropertyValue('--card').trim(),tx=cs.getPropertyValue('--mu').trim(),bd=cs.getPropertyValue('--bd').trim(),intra=tf=='15m'||tf=='1H';
+function buildChart(LW,box,sym,p,bars,h,full,tf){var cs=getComputedStyle(document.documentElement),bg=cs.getPropertyValue('--card').trim(),tx=cs.getPropertyValue('--mu').trim(),bd=cs.getPropertyValue('--bd').trim(),intra=!!TFI[tf];
 box.innerHTML='<div class="chtip"></div>';var tip=box.firstChild;
 var ch=LW.createChart(box,{width:box.clientWidth,height:h,layout:{background:{type:'solid',color:bg},textColor:tx,fontFamily:'Inter,system-ui,sans-serif',fontSize:full?12:11},grid:{vertLines:{color:bd},horzLines:{color:bd}},
 rightPriceScale:{borderColor:bd,scaleMargins:{top:.1,bottom:.22}},timeScale:{borderColor:bd,rightOffset:4,barSpacing:full?10:8,minBarSpacing:2,timeVisible:intra,secondsVisible:false},crosshair:{mode:0},
@@ -418,7 +426,7 @@ var data=bars.map(function(x){return{time:x.time,open:x.open,high:x.high,low:x.l
 var cd=ch.addCandlestickSeries({upColor:'#2fbf71',downColor:'#e5534b',borderVisible:false,wickUpColor:'#2fbf71',wickDownColor:'#e5534b'});cd.setData(data);
 var vol=ch.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'v',lastValueVisible:false,priceLineVisible:false});ch.priceScale('v').applyOptions({scaleMargins:{top:.84,bottom:0}});
 vol.setData(bars.map(function(x){return{time:x.time,value:x.v||0,color:x.close>=x.open?'rgba(47,191,113,.35)':'rgba(229,83,75,.35)'}}));
-var cl=data.map(function(x){return x.close});[[20,'#4c9aff'],[50,'#e3b341']].forEach(function(z){if(data.length<z[0]+5)return;var e=emaArr(cl,z[0]),ls=ch.addLineSeries({color:z[1],lineWidth:1,priceLineVisible:false,lastValueVisible:false,crosshairMarkerVisible:false});ls.setData(data.map(function(x,i){return{time:x.time,value:e[i]}}).slice(Math.min(z[0],10)))});
+var cl=data.map(function(x){return x.close}),emas=[];[[20,'#4c9aff'],[50,'#e3b341']].forEach(function(z){if(data.length<z[0]+5)return;var e=emaArr(cl,z[0]),ls=ch.addLineSeries({color:z[1],lineWidth:1,priceLineVisible:false,lastValueVisible:false,crosshairMarkerVisible:false});ls.setData(data.map(function(x,i){return{time:x.time,value:e[i]}}).slice(Math.min(z[0],10)));emas.push([z[0],ls])});
 var t=TR.filter(function(x){return x.symbol==sym&&x.status!='CLOSED'})[0],L=t?[[+t.entry,'Meri entry','#4c9aff'],[+t.sl,'Mera SL','#e5534b'],[+t.target,'Mera target','#2fbf71']]:p?[[p.entry,'Entry','#4c9aff'],[p.stop,'SL','#e5534b'],[p.t1,'Target','#2fbf71']]:[];
 L.forEach(function(z){if(z[0]>0)cd.createPriceLine({price:z[0],color:z[2],lineWidth:1,lineStyle:2,axisLabelVisible:true,title:z[1]})});
 if(tf=='1D'){var sg=PK[sym]||DPM[sym],mk=[];if(sg&&sg.DATE){var sx=stratOf(PK[sym]?PK[sym].SETUP:'DIP',DPM[sym]&&DPM[sym].TIER,DPM[sym]&&dipPlus(DPM[sym]));mk.push({time:sg.DATE,position:'belowBar',color:'#e3b341',shape:'arrowUp',text:sx[0]})}
@@ -428,16 +436,16 @@ function tipFor(b,tm){if(!b)return;var i=idx[tm],pc=i>0?data[i-1].close:null,ch_
 tip.innerHTML='<b>'+esc(tlab(tm))+'</b> O <span>'+f(b.open)+'</span> H <span>'+f(b.high)+'</span> L <span>'+f(b.low)+'</span> C <span class="'+(up?'g':'r')+'">'+f(b.close)+'</span>'+(ch_!=null?' <span class="'+(ch_>=0?'g':'r')+'">'+(ch_>=0?'+':'')+f(ch_,2)+'%</span>':'')+(v?' Vol <span>'+nfmt(v)+'</span>':'')}
 var last=data[data.length-1];function tipNow(){var lv=liveItem(sym);if(tf=='1D'&&lv&&lv.o>0&&istDate()>last.time){idx[istDate()]=data.length;vols[istDate()]=lv.vol;tipFor({open:lv.o,high:lv.h,low:lv.l,close:lv.ltp},istDate())}else tipFor(last,last.time)}tipNow();
 ch.subscribeCrosshairMove(function(pr){var b=pr&&pr.time?pr.seriesData.get(cd):null;if(b)tipFor(b,pr.time);else tipNow()});
-var o={sym:sym,ch:ch,cd:cd,vol:vol,box:box,data:data,last:last.time,full:full,h:h,tf:tf},defN={'15m':75,'1H':40,'1D':full?90:55,'1W':52,'1M':0}[tf];
+var o={sym:sym,ch:ch,cd:cd,vol:vol,box:box,data:data,last:last.time,full:full,h:h,tf:tf,emas:emas},defN={'1m':90,'5m':75,'15m':75,'1H':40,'1D':full?90:55,'1W':52,'1M':0}[tf];
 o.range=function(){var N=data.length+(tf=='1D'&&istDate()>o.last&&liveItem(sym)?1:0);if(!defN||N<=defN){ch.timeScale().fitContent();return}ch.timeScale().setVisibleLogicalRange({from:Math.max(0,N-defN),to:N+3})};
 o.range();CHS=CHS.filter(function(x){return x.sym==sym&&x.box!==box&&document.body.contains(x.box)});CHS.push(o);chLive();return o}
-function chTools(){var tf=CHD&&CHD.tf||'1D';return '<div class="chr">'+['15m','1H','1D','1W','1M'].map(function(k){return '<button class="'+(k==tf?'on':'')+'" onclick="chTf(\''+k+'\')">'+k+'</button>'}).join('')+'<button class="chf" onclick="chFull()">&#x26F6; Bada karo</button></div>'}
+function chTools(){var tf=CHD&&CHD.tf||'1D';return '<div class="chr">'+['1m','5m','15m','1H','1D','1W','1M'].map(function(k){return '<button class="'+(k==tf?'on':'')+'" onclick="chTf(\''+k+'\')">'+k+'</button>'}).join('')+'<button class="chf" onclick="chFull()">&#x26F6; Bada karo</button></div>'}
 function chTf(tf){if(!CHD)return;CHD.tf=tf;function go(){var tt=document.getElementById('chtt');if(tt)tt.textContent='('+TFN[tf]+')';var bars=tfBars(tf),bs=document.querySelectorAll('.chr button');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].textContent==tf);
 var targets=[[document.getElementById('chart'),330,false],[document.getElementById('chfb'),Math.max(260,window.innerHeight-96),true]],nt=document.getElementById('chnote');
 targets.forEach(function(z){if(!z[0]||!document.body.contains(z[0])||(z[2]&&!document.body.classList.contains('chfon')))return;
-if(!bars||bars.length<3){z[0].innerHTML='<div class="chempty">'+TFN[tf]+' ka data is stock ke liye abhi nahi hai. 15m / 1H roz shaam update hota hai (pichhle ~5 din).</div>';return}
+if(!bars||bars.length<3){var L=LIVEI[CHD.sym];z[0].innerHTML='<div class="chempty">'+TFN[tf]+' ka data abhi nahi hai. '+(tf=='1m'||tf=='5m'?'1m / 5m sirf aaj ka, market ke time (9:15 ke baad) live aata hai.':'15m / 1H: pichhle ~5 din roz shaam, aur aaj ka market ke time live.')+(L&&L.err?' (Live intraday ke liye Google Script me Intraday.gs lagana baaki hai.)':'')+'</div>';return}
 buildChart(CHD.LW,z[0],CHD.sym,CHD.p,bars,z[1],z[2],tf)})}
-if((tf=='15m'||tf=='1H')&&!INTRA)get('intraday.json',1).then(function(d){INTRA=d||{s:{}};go()});else go()}
+if(TFI[tf]){Promise.all([INTRA?INTRA:get('intraday.json',1).then(function(d){INTRA=d||{s:{}};return INTRA}),marketHours()||!LIVEI[CHD.sym]?fetchIntra(CHD.sym):null]).then(go)}else go()}
 function drawChart(sym,p){var box=document.getElementById('chart'),note=document.getElementById('chnote');if(!box)return;
 (CDL?Promise.resolve(CDL):get('candles.json',1).then(function(d){CDL=d||{s:{}};return CDL})).then(function(D){var rows=D.s&&D.s[sym];
 if(!rows||rows.length<20){box.style.display='none';var tl=document.querySelector('.chr');if(tl)tl.style.display='none';note.innerHTML='<small class="mu">Is stock ka chart app me nahi hai (sirf picks, dip, locked aur trades ke stocks ka). </small>'+tvLink(sym);return}
