@@ -192,9 +192,17 @@ REG = {d: regime_of(BR[d]) for d in bd}
 print('breadth days', len(bd), flush=True)
 
 # ---- pass 2: signals
+TRADES = []                                   # TRADES=1: har trade (stock ke saath) -> out/regime_trades.csv.gz (stock_study.py ke liye)
+KEEP = bool(os.environ.get('TRADES'))
+
+
+def add(key, d, r_):
+    res[key].append((d, r_))
+    if KEEP: TRADES.append((CUR, d, key[0], key[1], key[2], r_))
 res = collections.defaultdict(list)          # (setup, regime, exit) -> [(date, R)]
 base = collections.defaultdict(list)         # (regime, exit) -> [(date, R)]
 for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
+    CUR = sym
     n = len(ds); e20 = ema(cl, 20); rs = rsi_series(cl)
     PH = [p for p in range(2, n - 2) if hi[p] > max(hi[p - 2:p]) and hi[p] >= max(hi[p + 1:p + 3])]
     PL = [p for p in range(2, n - 2) if lo[p] < min(lo[p - 2:p]) and lo[p] <= min(lo[p + 1:p + 3])]
@@ -225,18 +233,18 @@ for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
         if i in DZ:
             sig.append('DEMAND_CHOCH')
             r_ = sim_px(op, hi, lo, cl, i, n, DZ[i], 10, 2.0)
-            if r_ is not None: res[('DEMAND_CHOCH', rg, len(EXITS))].append((d, r_))
+            if r_ is not None: add(('DEMAND_CHOCH', rg, len(EXITS)), d, r_)
         st = struct_sig(hi, lo, cl, i, PH, PL, fired)
         if st:
             sig.append(st[0]); sig.append('STRUCT_ALL')
             r_ = sim_px(op, hi, lo, cl, i, n, st[1] * 0.998, 10, 2.0)
             if r_ is not None:
-                res[(st[0], rg, len(EXITS))].append((d, r_)); res[('STRUCT_ALL', rg, len(EXITS))].append((d, r_))
+                add((st[0], rg, len(EXITS)), d, r_); add(('STRUCT_ALL', rg, len(EXITS)), d, r_)
         if not sig: continue
         if R is None: R = [sim(op, hi, lo, cl, i, n, atr[i], e[1], e[2], e[3]) for e in EXITS]
         for s_ in sig:
             for k, r_ in enumerate(R):
-                if r_ is not None: res[(s_, rg, k)].append((d, r_))
+                if r_ is not None: add((s_, rg, k), d, r_)
 print('signals done', flush=True)
 
 
@@ -300,3 +308,18 @@ json.dump({'updated': datetime.date.today().isoformat(), 'date': last.isoformat(
            'table': [dict(setup=r['setup'], regime=r['regime'], exit=r['exit'], avgR=r['avgR'], n=r['n'], win=r['win'], years_pos=r['years_pos'], ok=r['ok'])
                      for r in rows if r['exit'] == '2ATR/5d']},
           open('docs/regime.json', 'w'), separators=(',', ':'))
+if KEEP:
+    import gzip
+    with gzip.open(os.path.join(out_dir, 'regime_trades.csv.gz'), 'wt', newline='') as h:
+        w = csv.writer(h); w.writerow(['sym', 'date', 'setup', 'regime', 'exit', 'R'])
+        for t in TRADES:
+            w.writerow([t[0], t[1].isoformat(), t[2], t[3], EXITS[t[4]][0] if t[4] < len(EXITS) else SWING_EXIT, round(t[5], 4)])
+    with open(os.path.join(out_dir, 'stock_stats.csv'), 'w', newline='') as h:   # stock chunne ke liye, sirf 2024 tak ka data
+        w = csv.writer(h); w.writerow(['sym', 'liq_days', 'days', 'atr_pct_med', 'above50_pct', 'ret_total'])
+        for sym, (ds, op, hi, lo, cl, vo, atr, liq, e50) in S.items():
+            idx = [i for i in range(60, len(ds)) if ds[i].year <= 2024]
+            if not idx: continue
+            ap = sorted(atr[i] / cl[i] for i in idx if atr[i])
+            w.writerow([sym, sum(1 for i in idx if liq[i]), len(idx), round(100 * ap[len(ap) // 2], 3) if ap else '',
+                        round(100.0 * sum(1 for i in idx if cl[i] > e50[i]) / len(idx), 1), round(cl[idx[-1]] / cl[idx[0]] - 1, 3)])
+    print('trades dumped', len(TRADES))
