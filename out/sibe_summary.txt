@@ -1,0 +1,29 @@
+SIBE (sweep -> BOS) INTRADAY STUDY (generated 2026-10-19): 213 stocks
+Data 2025-12-29 se 2026-10-16, aadha 2026-05-18. R = kharcha (0.15%) kaat ke; gross = kharche se pehle.
+side   tgt   market       n  jeet     avgR    gross    pehla   doosra
+LONG   2R    ?         2788   38%   -0.206   -0.029   -0.206   -0.208
+LONG   2R    ALL      12719   40%   -0.162   -0.009   -0.145   -0.185
+LONG   2R    MIXED     4027   43%   -0.114   +0.030   -0.101   -0.125
+LONG   2R    STRONG    2915   36%   -0.204   -0.043   -0.213   -0.197
+LONG   2R    VWEAK     1594   45%   -0.061   +0.061    0.075   -0.187
+LONG   2R    WEAK      1395   36%   -0.238   -0.094   -0.142    -0.36
+LONG   PDAY  ?         2788   39%   -0.199   -0.022   -0.199   -0.109
+LONG   PDAY  ALL      12719   41%   -0.157   -0.005   -0.139   -0.183
+LONG   PDAY  MIXED     4027   44%   -0.106   +0.038   -0.099   -0.113
+LONG   PDAY  STRONG    2915   37%   -0.197   -0.036     -0.2   -0.194
+LONG   PDAY  VWEAK     1594   45%   -0.065   +0.058    0.099   -0.216
+LONG   PDAY  WEAK      1395   36%   -0.244   -0.100   -0.151   -0.361
+SHORT  2R    ?         3025   44%   -0.089   +0.076   -0.089   -0.279
+SHORT  2R    ALL      13131   43%   -0.103   +0.041   -0.115   -0.084
+SHORT  2R    MIXED     3609   41%   -0.152   -0.009    -0.23   -0.071
+SHORT  2R    STRONG    3599   45%   -0.061   +0.077   -0.044   -0.076
+SHORT  2R    VWEAK     1576   37%   -0.204   -0.076   -0.329   -0.065
+SHORT  2R    WEAK      1322   48%   +0.008   +0.138    0.162   -0.158
+SHORT  PDAY  ?         3025   45%   -0.094   +0.071   -0.093   -0.279
+SHORT  PDAY  ALL      13131   44%   -0.108   +0.035   -0.123   -0.085
+SHORT  PDAY  MIXED     3609   42%   -0.150   -0.008   -0.233   -0.065
+SHORT  PDAY  STRONG    3599   46%   -0.068   +0.070   -0.057   -0.077
+SHORT  PDAY  VWEAK     1576   37%   -0.207   -0.078   -0.331   -0.068
+SHORT  PDAY  WEAK      1322   48%   -0.020   +0.111    0.129   -0.178
+
+PASS (n>=100, avgR>+0.05, dono aadhe plus): koi nahi
