@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install PDF reader
-        run: pip install pypdf
+        run: pip install pypdf pypdfium2
       - name: Run news check
         run: python news_events.py
         env:

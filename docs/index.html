@@ -182,6 +182,7 @@ small.clamp,.hint.clamp,.why.clamp{border-bottom:1px dashed var(--bd)}
 .bell{position:relative;margin-right:6px}.bell i{position:absolute;top:2px;right:2px;font-style:normal;font-size:10px;font-weight:700;background:var(--r);color:#fff;border-radius:9px;min-width:16px;padding:1px 4px;line-height:14px;display:none}.hdr{gap:4px}.hdr .brand{margin-right:auto}.alc .alr{display:flex;gap:8px;font-size:12.5px;padding:5px 0;border-top:1px solid var(--bd)}.alc .alr:first-of-type{border-top:0}.alt{color:var(--mu);flex:none;width:38px}
 .lsc{border-color:var(--bbd)}
 .mpf{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.mpf label{display:flex;flex-direction:column;font-size:11px;color:var(--mu);gap:3px}.mpf input{width:100%;min-width:0;padding:7px 6px}
+.ipv{margin:6px 0 2px;padding:7px 10px;border-radius:9px;font-size:13.5px}.ipv.pg{background:var(--gbg);color:var(--g)}.ipv.pr{background:var(--rbg);color:var(--r)}.ipv.py{background:var(--ybg);color:var(--y)}.ipv b{color:var(--tx)}.ibar{display:block;margin-top:6px}
 </style></head><body>
 <header><div class="hdr"><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></span><h1>Swing Desk</h1></div><button class="mbtn bell" id="bell" aria-label="Alerts" onclick="alertsOpen()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg><i id="belln"></i></button><button class="mbtn" aria-label="Menu" onclick="menuToggle(event)"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>
 <div id="menu" class="menu"><button id="thm" onclick="cycleTheme()">Theme</button><button id="ntf" style="display:none" onclick="askNotif()">Alerts on karo</button><button id="inst" style="display:none" onclick="installApp()">App install karo</button></div></div><div class="mk" id="mk">loading...</div></header>
@@ -944,6 +945,16 @@ function ipoSet(k){IPOF=k;sv('ipof',k);render()}
 var IPOV={APPLY:['Listing: APPLY','pg'],SOCH:['Listing: soch ke','py'],SKIP:['Listing: SKIP','pr'],ACHHA:['Company: achhi','pg'],THEEK:['Company: theek','py'],KAMZOR:['Company: kamzor','pr']};
 function ipoTbl(rows,head){if(!rows||!rows.length)return '';return '<div style="overflow-x:auto"><table class="it">'+rows.map(function(r,i){var tg=(head&&i==0)?'th':'td';return '<tr>'+r.map(function(c){return '<'+tg+'>'+esc(c)+'</'+tg+'>'}).join('')+'</tr>'}).join('')+'</table></div>'}
 /* IPO card: har number ke saath matlab (hara achha / peela theek / laal bura), (i) dabao to detail, aakhir me report */
+/* bikri (bar) + munafa (chhoti bar) saal-dar-saal, growth % upar */
+function ipoBars(d){var w=320,h=150,n=d.length,mx=Math.max.apply(null,d.map(function(z){return Math.max(z[1]||0,z[2]||0)}))||1,bw=(w-20)/n;
+var o='<svg class="ibar" viewBox="0 0 '+w+' '+h+'" width="100%" height="'+h+'">';
+d.forEach(function(z,i){var x0=10+i*bw,rh=Math.max(1,(z[1]||0)/mx*(h-50)),ph=Math.abs(z[2]||0)/mx*(h-50),part=!/^31 (Mar|Dec)/.test(z[0])&&i==n-1||!/^31 (Mar|Dec)/.test(z[0]);
+o+='<rect x="'+(x0+bw*0.12).toFixed(1)+'" y="'+(h-22-rh).toFixed(1)+'" width="'+(bw*0.42).toFixed(1)+'" height="'+rh.toFixed(1)+'" rx="3" fill="var(--b)" opacity="'+(part?0.45:0.9)+'"/>';
+o+='<rect x="'+(x0+bw*0.56).toFixed(1)+'" y="'+(h-22-ph).toFixed(1)+'" width="'+(bw*0.3).toFixed(1)+'" height="'+Math.max(1,ph).toFixed(1)+'" rx="3" fill="'+((z[2]||0)<0?'var(--r)':'var(--g)')+'" opacity="'+(part?0.45:0.9)+'"/>';
+o+='<text x="'+(x0+bw/2).toFixed(1)+'" y="'+(h-8)+'" text-anchor="middle" font-size="10" fill="var(--mu)">'+esc(z[0].replace(/^\d+ /,''))+'</text>';
+o+='<text x="'+(x0+bw*0.33).toFixed(1)+'" y="'+(h-26-rh).toFixed(1)+'" text-anchor="middle" font-size="10" fill="var(--tx)">'+f(z[1],0)+'</text>';
+if(i>0&&!part&&d[i-1][1]&&/^31 (Mar|Dec)/.test(d[i-1][0])){var g=(z[1]/d[i-1][1]-1)*100;o+='<text x="'+(x0+bw*0.33).toFixed(1)+'" y="'+(h-38-rh).toFixed(1)+'" text-anchor="middle" font-size="10" font-weight="700" fill="'+(g>=0?'var(--g)':'var(--r)')+'">'+(g>=0?'+':'')+f(g,0)+'%</text>'}});
+return o+'</svg><div class="mu" style="font-size:11px"><span style="color:var(--b)">&#9632;</span> Bikri (₹ cr) &nbsp; <span style="color:var(--g)">&#9632;</span> Munafa &nbsp; <span style="color:var(--r)">&#9632;</span> Ghata &nbsp; halki bar = kuch mahine ka</div>'}
 function ipoI(b){var r=b.closest('.ir');var n=r&&r.nextElementSibling;if(n&&n.classList.contains('ix'))n.classList.toggle('on')}
 function pnum(v){var m=String(v==null?'':v).replace(/₹/g,'').match(/(\()?\s*(-?[\d,]*\.?\d+)/);if(!m)return null;var x=parseFloat(m[2].replace(/,/g,''));return isNaN(x)?null:(m[1]?-Math.abs(x):x)}
 function ipoCard(x){var sub=x.sub||{},g=x.gmp_pct,G=[],B=[],st={OPEN:['Khula hai','pg'],UPCOMING:['Aane wala','pb'],CLOSED:['Band, listing baaki','py']}[x.status]||[x.status,''];
@@ -952,7 +963,7 @@ return '<div class="ir"><div class="l">'+l+(info?' <button class="ib" onclick="i
 var h='<details class="card ipo"><summary><div class="row"><div><div class="big">'+esc(x.company||x.name)+'</div><small>'+esc(x.dates||x.issue_dates||'')+(x.kind=='SME'?' &middot; SME':'')+'</small></div>'+chip(st[0],st[1])+'</div>'+
 '<div style="margin:6px 0">'+chip(IPOV[x.lv][0],IPOV[x.lv][1])+' '+chip(IPOV[x.fv][0],IPOV[x.fv][1])+'</div>'+
 '<div class="tiles t4"><div><small>Price</small><b>₹'+f(x.band,0)+'</b></div><div><small>GMP</small><b class="'+(g>=10?'g':g<=3?'r':'')+'">'+(g==null?'-':(g>=0?'+':'')+f(g,0)+'%')+'</b></div><div><small>Bhara (kul)</small><b>'+(sub.TOTAL!=null?f(sub.TOTAL,1)+'x':'-')+'</b><small>'+(sub.QIB!=null?'QIB '+f(sub.QIB,1)+'x':'')+'</small></div><div><small>Kam se kam</small><b'+(x.min_amt>50000?' class="r"':'')+'>'+(x.min_amt?'₹'+Math.round(x.min_amt).toLocaleString('en-IN'):'-')+'</b></div></div>'+
-'<small class="mu">Dabao: har number ka matlab + aakhri report</small></summary>';
+(function(){var v=ipoVerdict(x);return '<div class="ipv '+v[1]+'"><b>Lena chahiye?</b> '+esc(v[2])+'</div>'})()+'<small class="mu">Dabao: har number ka matlab, bikri ka graph, karz-cash aur poori report</small></summary>';
 /* 1. demand */
 var d='',q=sub.QIB,ni=sub.NII,ri=sub.RII,tt=sub.TOTAL;
 if(q!=null)d+=R('Bade fund (QIB)',f(q,1)+'x',q>=50?'Bahut mazboot demand':q>=10?'Achhi demand':q>=1?'Theek-thaak':'Kamzor demand',q>=10?'g':q>=1?'y':'r','QIB = mutual fund, bank, insurance, videshi fund. Ye company ko research karke paisa lagate hain, isliye inki demand sabse bharosemand sanket hai. 10 guna se zyada achha, 50 guna se zyada bahut achha. 1 guna se kam = bade fund ko pasand nahi aaya.'+(x.status=='OPEN'?' Aakhri din QIB sabse zyada aata hai, isliye close (shaam 5 baje) tak dekhte raho.':''));
@@ -988,6 +999,17 @@ var de=pnum(k['Debt to equity ratio']);if(de!=null&&/\d/.test(String(k['Debt to 
 var eps=pnum(k['Earning Per Share (EPS)']);if(eps!=null)he+=R('EPS (ek share ki kamai)','₹'+f(eps,2),eps<0?'Ghata':'Munafe me',eps<0?'r':'','EPS = ek share par saal ka munafa. Minus = company ghate me.');
 if(he)h+='<h3>Company ki sehat</h3>'+he;
 if(x.fin_table)h+='<details class="sub"><summary><small>Poori financial table (₹ cr) dekho</small></summary>'+ipoTbl(x.fin_table,1)+'<small class="mu">Revenue = kul bikri, Expense = kharcha, PAT = aakhri munafa, Assets = sampatti. Saal ke bina wali line (jaise "June 2026") sirf kuch mahine ki hoti hai.</small></details>';
+/* 5b. saal-dar-saal bikri + munafa (chittorgarh), karz vs cash */
+var cf=x.chf;if(cf&&cf.rows){var P=cf.periods,RR=cf.rows,ti=RR['Total Income']||[],pt=RR['Profit After Tax']||[],tb=RR['Total Borrowing']||[],nw=RR['NET Worth']||RR['Net Worth']||[];
+var idx=P.map(function(p,i){return i}).filter(function(i){return ti[i]!=null}).reverse();
+if(idx.length>=2)h+='<h3>Bikri saal-dar-saal <button class="ib" onclick="this.parentNode.nextElementSibling.classList.toggle(\'on\')">i</button></h3><div class="ix">Har saal company ki kul kamai (Total Income, ₹ cr) aur munafa (PAT). Bars lagatar badh rahe hon to business badh raha hai. Pehli/aakhri patli bar sirf kuch mahine (jaise 3 mahine) ki ho sakti hai, use poore saal se mat milao.</div>'+ipoBars(idx.map(function(i){return [P[i],ti[i],pt[i]]}));
+var lt=idx[idx.length-1],db=tb[lt],cash=x.rhpc&&x.cash_ok!==false?x.rhpc.cash:null,ne=nw[lt];
+if(db!=null||cash!=null){var kr='';
+if(db!=null)kr+=R('Karz (kul borrowing)','₹'+f(db,0)+' cr',ne?(db/ne<0.5?'Kam (D/E '+f(db/ne,2)+')':db/ne<=1?'Theek (D/E '+f(db/ne,2)+')':'Zyada (D/E '+f(db/ne,2)+')'):'',ne?(db/ne<0.5?'g':db/ne<=1?'y':'r'):'','Company ne bank/bond se kitna udhaar liya hai ('+esc(P[lt])+'). D/E = karz company ki apni poonji (net worth ₹'+f(ne,0)+' cr) ka kitna guna. 0.5 se kam achha, 1 se zyada = byaaj ka bojh, risk.');
+if(cash!=null)kr+=R('Cash aur bank balance','₹'+f(cash,0)+' cr','','','Company ke paas turant kaam aane wala paisa (bank me, FD jaisa). Company ke IPO document (RHP) ke saar se liya.');
+if(db!=null&&cash!=null){var net=cash-db;kr+=R('Karz minus cash',(net>=0?'Net cash ₹'+f(net,0):'Net karz ₹'+f(-net,0))+' cr',net>=0?'Karz se zyada cash':(-net>(ne||1e9)?'Bahut karz':'Karz cash se zyada'),net>=0?'g':(-net>(ne||1e9)?'r':'y'),'Agar cash karz se zyada hai (net cash) to company kal hi saara karz chuka sakti hai: majboot. Net karz bada ho to munafe ka hissa byaaj me jaata hai.')}
+var dy=idx.filter(function(i){return tb[i]!=null});if(dy.length>=2)kr+='<div class="mu" style="margin-top:4px"><small>Karz saal-dar-saal: '+dy.map(function(i){return esc(P[i].replace(/^\d+ /,''))+' ₹'+f(tb[i],0)}).join(' &rarr; ')+' cr</small></div>';
+h+='<h3>Karz aur cash</h3>'+kr}}
 /* 6. promoter */
 var pr=(x.promoter||[]).filter(function(r){return /promoter/i.test(r[0]||'')})[0];
 if(pr){var pre=pnum(pr[2]),post=pnum(pr[4]);if(post!=null)h+='<h3>Maalik (promoter) ka hissa</h3>'+R('IPO ke baad',f(post,1)+'%'+(pre!=null?' (pehle '+f(pre,1)+'%)':''),post>=50?'Maalik ka bada hissa':post>=30?'Theek':'Maalik ka hissa kam',post>=50?'g':post>=30?'y':'r','Promoter = company chalane wale maalik. Unka bada hissa (50%+) matlab unka apna paisa daav par, achha sanket. 30% se kam = control kamzor, aage aur bech sakte hain.')}
@@ -997,7 +1019,7 @@ if(x.lots)h+='<details class="sub"><summary><small>Lot table dekho</small></summ
 h+=ipoReport(x,G,B);
 h+='<div style="margin-top:10px">'+(x.url?'<a class="btn" target="_blank" rel="noopener" href="'+esc(x.url)+'">Poora page</a> ':'')+(x.rhp?'<a class="btn" target="_blank" rel="noopener" href="'+esc(x.rhp)+'">RHP</a> ':'')+'<a class="btn" target="_blank" rel="noopener" href="https://www.nseindia.com/market-data/all-upcoming-issues-ipo">NSE</a></div>'+
 '<small class="mu">Data ipowatch + NSE se, scrape kiya hua: galti ho sakti hai. Bada paisa lagane se pehle RHP dekho.</small></details>';return h}
-function ipoReport(x,G,B){var L=x.lv,F=x.fv,cap=ls('cap',50000),over=x.min_amt&&x.min_amt>cap,t,c;
+function ipoVerdict(x){var L=x.lv,F=x.fv,cap=ls('cap',50000),over=x.min_amt&&x.min_amt>cap,t,c,sh;
 if(over){t='Abhi mat lo: kam se kam ₹'+Math.round(x.min_amt).toLocaleString('en-IN')+' lagega, jo aapke capital (₹'+cap.toLocaleString('en-IN')+') se zyada hai.';c='pr'}
 else if(L=='APPLY'&&F=='ACHHA'){t='Haan, apply karo (1 lot). Demand bhi achhi aur company bhi achhi: listing gain bhi mil sakta hai aur rakh bhi sakte ho.';c='pg'}
 else if(L=='APPLY'){t='Sirf listing gain ke liye apply karo (1 lot). Demand achhi hai par company '+(F=='KAMZOR'?'kamzor':'theek-thaak')+' hai: allotment mile to listing ke din (ya 1-2 din me) bech do, lamba mat rakho.';c='pg'}
@@ -1006,6 +1028,8 @@ else if(L=='SOCH'){t='Zyadatar skip. Demand thodi hai par company kamzor: risk z
 else if(F=='ACHHA'){t='Abhi apply mat karo: listing par fayda kam lagta hai. Company achhi hai, to listing ke baad agar share gire to khareedna soch sakte ho.';c='py'}
 else{t='Mat lo. Na demand achhi hai, na company: listing par nuksan ka khatra.';c='pr'}
 if(x.status=='UPCOMING'&&!x.sub)t+=' (Abhi IPO khula nahi: subscription aane par ye faisla badal sakta hai.)';
+sh=over?'Capital se bahar':L=='APPLY'&&F=='ACHHA'?'Haan, apply (1 lot)':L=='APPLY'?'Sirf listing gain ke liye':L=='SOCH'&&F!='KAMZOR'?'Soch ke, chhota daav':L=='SOCH'?'Zyadatar skip':F=='ACHHA'?'Abhi nahi, baad me dekho':'Mat lo';return [t,c,sh]}
+function ipoReport(x,G,B){var v=ipoVerdict(x),t=v[0],c=v[1];
 return '<div class="card ipr '+c+'"><h3 style="margin-top:0">Aakhri report: lena chahiye ya nahi?</h3><div class="vt '+c+'">'+esc(t)+'</div>'+
 '<div class="row" style="align-items:flex-start;gap:10px;margin-top:8px"><div style="flex:1"><b class="g">Achhi baatein</b>'+(G.length?G.map(function(z){return '<div class="ck g">&#10003; '+esc(z)+'</div>'}).join(''):'<div class="mu"><small>Koi khaas nahi</small></div>')+'</div>'+
 '<div style="flex:1"><b class="r">Buri baatein</b>'+(B.length?B.map(function(z){return '<div class="ck r">&#10007; '+esc(z)+'</div>'}).join(''):'<div class="mu"><small>Koi badi nahi</small></div>')+'</div></div>'+
