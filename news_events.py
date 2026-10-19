@@ -359,8 +359,16 @@ def main():
                 lines.append('RSS %s FAIL: %s' % (name, str(ex)[:100]))
         # 3b. Google News: har stock ki apni khabar (Moneycontrol, ET, Mint, CNBC... sab ek jagah)
         names, snews, g_ok, g_fail = news_more.load_names(), {}, 0, 0
-        for s in syms + extra:
-            if g_fail >= 5 and g_ok == 0:
+        gsyms = syms + extra
+        try:                                  # app ke chart wale stocks (picks, dip, locked, trades): sabki khabar
+            for s_ in json.load(open('docs/candles.json')).get('s', {}):
+                if s_ not in gsyms:
+                    gsyms.append(s_)
+        except Exception:
+            pass
+        gsyms, g_t0 = gsyms[:220], time.time()
+        for s in gsyms:
+            if (g_fail >= 5 and g_ok == 0) or time.time() - g_t0 > 420:
                 break
             try:
                 snews[s] = news_more.google_news(s, names)
@@ -370,7 +378,7 @@ def main():
                 if g_fail == 1:
                     lines.append('Google News FAIL (%s): %s' % (s, str(ex)[:120]))
             time.sleep(0.5)
-        lines.append('Google News: %d of %d symbols, %d headlines' % (g_ok, len(syms) + len(extra),
+        lines.append('Google News: %d of %d symbols, %d headlines' % (g_ok, len(gsyms),
                                                                       sum(len(v) for v in snews.values())))
         if g_ok:
             try:
