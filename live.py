@@ -27,7 +27,8 @@ PREP_FROM, PREP_SEND = '14:30', '15:12'                          # 3:15 taiyari 
 LIVE_MAX_CHARS = 44000
 INTRA_SEC = float(os.environ.get('LIVE_INTRA_SEC', '120'))      # chart ke live 1-min candles har 2 min (GitHub 'live-data' branch)
 INTRA_MAX = 60
-INTRA_PRI, INTRA_BATCH = 12, 18     # har round: pehle 12 (locked + trades) hamesha, baaki me se 18 baari-baari
+INTRA_PRI, INTRA_BATCH = 12, 18
+INTRA_BUDGET = 60                   # ek round me chart candles par max 60 sec     # har round: pehle 12 (locked + trades) hamesha, baaki me se 18 baari-baari
 INTRA_CACHE, INTRA_RR = {}, [0]                                           # Apps Script 'Live' cell 45000 se bada nahi leta
 
 
@@ -153,9 +154,12 @@ def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
     st = INTRA_RR[0] % max(1, len(rest)); pick = pri + (rest[st:] + rest[:st])[:INTRA_BATCH]
     INTRA_RR[0] = st + INTRA_BATCH
     fail, got, err1 = 0, 0, ''
+    t0 = time.time()
     for s in pick:
         if s not in tokmap:
             continue
+        if time.time() - t0 > INTRA_BUDGET:          # app ka live bhav ruke nahi: baaki agle round
+            break
         rows = None
         for attempt in range(3):
             r = angel(key, '/rest/secure/angelbroking/historical/v1/getCandleData',
@@ -462,6 +466,13 @@ def main():
                     bmsg = 'breadth: kam stock mile (%d) %s' % (len(bitems), berr)
             except Exception as e:
                 bmsg = 'breadth err %s' % str(e)[:100]
+        # pehle bhav/breadth app tak bhejo, phir chart wale candles (woh dheere hain: rate limit)
+        live = {'ts': ist_now().strftime('%Y-%m-%dT%H:%M:%S'), 'date': dstr, 'status': status,
+                'err': err, 'missing': missing, 'n': len(items), 'items': items, 'alerts': alert_log[-60:],
+                'breadth': bh, 'prep': pr}
+        while len(json.dumps(live)) > LIVE_MAX_CHARS and live['alerts']:
+            live['alerts'] = live['alerts'][5:]
+        okp = push_live(url, pkey, live)
         imsg = ''
         if not intra_off and status == 'ok' and time.time() - intra_ts > INTRA_SEC:
             intra_ts = time.time()
@@ -475,12 +486,6 @@ def main():
                     intra_off = True
             except Exception as e:
                 imsg = 'intra err %s' % str(e)[:100]
-        live = {'ts': now.strftime('%Y-%m-%dT%H:%M:%S'), 'date': dstr, 'status': status,
-                'err': err, 'missing': missing, 'n': len(items), 'items': items, 'alerts': alert_log[-60:],
-                'breadth': bh, 'prep': pr}
-        while len(json.dumps(live)) > LIVE_MAX_CHARS and live['alerts']:
-            live['alerts'] = live['alerts'][5:]
-        okp = push_live(url, pkey, live)
         loops += 1
         print('%s loop %d symbols=%d fetched=%d today=%d status=%s pushed=%s %s' % (
             now.strftime('%H:%M:%S'), loops, len(syms), len(items), n_today, status, okp, err) + (' | ' + alert_msg if alert_msg else '')

@@ -65,6 +65,26 @@ def adx14(hi, lo, cl):
     return adx
 
 
+def lite(byd, ds):
+    """Kam din wale (naye listing) stock: jitna data hai utne ke basic numbers. Setup signal nahi (60 din chahiye)."""
+    b = [byd[d] for d in ds]
+    cl = [x['cl'] for x in b]; hi = [x['hi'] for x in b]; lo = [x['lo'] for x in b]; vol = [x['vol'] for x in b]
+    c = cl[-1]; n = len(cl)
+    tr = [max(hi[i] - lo[i], abs(hi[i] - cl[i - 1]), abs(lo[i] - cl[i - 1])) for i in range(1, n)]
+    atr = sum(tr[-14:]) / len(tr[-14:])
+    pv = (hi[-1] + lo[-1] + c) / 3.0
+    va = sum(vol[:-1][-20:]) / len(vol[:-1][-20:])
+    to = [x['to'] / 100.0 for x in b]
+    dl = [x['dl'] for x in b if x['dl'] is not None]
+    r2 = lambda x: round(x, 2) if x is not None else None
+    return dict(n=n, d0=ds[0].isoformat(), c0=r2(cl[0]), c=r2(c), chg=r2((c / cl[-2] - 1) * 100), hi=r2(max(hi)), lo=r2(min(lo)),
+                low5=r2(min(lo[-5:])), atr=r2(atr), rsi=round(rsi14(cl), 1) if n >= 15 else None,
+                e9=r2(ema(cl, 9)[-1]) if n >= 9 else None, e20=r2(ema(cl, 20)[-1]) if n >= 20 else None,
+                r3=r2((c / cl[-4] - 1) * 100) if n >= 4 else None, vx=r2(vol[-1] / va) if va else None,
+                t20=round(sum(to[-20:]) / len(to[-20:]), 1), dl=r2(b[-1]['dl']), dla=r2(sum(dl[-21:-1]) / len(dl[-21:-1])) if len(dl) > 5 else None,
+                pv=dict(p=r2(pv), r1=r2(2 * pv - lo[-1]), s1=r2(2 * pv - hi[-1])))
+
+
 data = collections.defaultdict(dict); alld = set()
 for f in glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv')):
     with open(f, newline='', encoding='utf-8', errors='ignore') as h:
@@ -101,6 +121,8 @@ for sym, byd in data.items():
     ds = ds[cut:]
     if len(ds) < 60:
         skip[sym] = ['Sirf %d din ka data (60 chahiye)%s' % (len(ds), ', bada jump/split ke baad' if cut else ' (naya listing?)'), lastc]
+        if len(ds) >= 5:
+            skip[sym].append(lite(byd, ds))
         continue
     b = [byd[d] for d in ds]
     cl = [x['cl'] for x in b]; hi = [x['hi'] for x in b]; lo = [x['lo'] for x in b]
