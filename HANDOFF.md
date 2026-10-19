@@ -140,3 +140,11 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Synthetic random walk: gross ~0 (method clean).
 - Real: ~26k trades, ALL long -0.16R, short -0.10R net; gross ~0. No regime/side passes (WEAK short 2R +0.008 with second half -0.16). Not added to the app.
 - Workflow: sibe.yml (manual). Output out/sibe_summary.txt.
+
+## New listings (first 60 days) — ipo_study.py (2026-10-19)
+- User idea: a new listing sitting at its post-listing low "can't fall further" -> buy. Tested days 5-59 after listing, 1294 listings 2022-09..2026-10, ATR floored at 2%, next-open entry, 0.25% cost.
+- His idea FAILS: NEAR_LOW (0-3% above post-listing low) -0.10R, REV_LOW (bounce candle off the low) -0.08R, BELOW_LIST (15%+ under listing open) -0.07R. Base (any new-listing day) -0.06R.
+- What worked (2ATR stop / 5-day exit): DROP8 (3-day fall >= 8%) +0.057R ALL, 4/4 years, +0.8% avg; VWEAK +0.12R (n 315), STRONG +0.12R (n 153), MIXED negative. NEW_LOW (close below post-listing low) VWEAK +0.17R (n 266), ALL only +0.035.
+- Not added to the app yet (offered to user as a watch section). Fundamentals/news for IPOs not testable (no history).
+- App: stocks with 5-59 days now show a lite page (stock_report lite()).
+- News: news_all.py maps ~1,900 headlines/run from 15 RSS feeds + 29 Google News market searches to all stocks; News tab split into Telegram (headings, tap to open) and Baaki news.
