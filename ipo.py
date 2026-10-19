@@ -141,6 +141,80 @@ def nse_sub(sym):
         return {}, 'err %s' % str(e)[:40]
 
 
+
+CH_LISTS = ['https://www.chittorgarh.com/report/mainboard-ipo-list-in-india-bse-nse/83/',
+            'https://www.chittorgarh.com/report/sme-ipo-list-in-india-bse-sme-nse-emerge/84/']
+
+
+def ch_links():
+    """chittorgarh IPO pages: [(naam ke shabd, url)]."""
+    out = []
+    for u in CH_LISTS:
+        try:
+            for l in sorted(set(re.findall(r'href="(https://www\.chittorgarh\.com/ipo/[a-z0-9\-]+/\d+/)"', get(u)))):
+                out.append((set(l.rstrip('/').split('/')[-2].replace('-ipo', '').split('-')) - {'india', 'limited', 'ltd'}, l))
+        except Exception as e:
+            log('chittorgarh list FAIL %s' % str(e)[:60])
+    return out
+
+
+def ch_fin(url):
+    """chittorgarh: saal-dar-saal Assets / Total Income / PAT / EBITDA / Net Worth / Reserves / Total Borrowing (₹ cr)."""
+    for tb in tables(get(url)):
+        if tb and tb[0] and tb[0][0].lower().startswith('period ended') and any(r and r[0].lower().startswith('total borrowing') for r in tb):
+            head = tb[0][:-1]; rows = {r[0].strip(): [num(x) for x in r[1:-1]] for r in tb[1:] if r and len(r) > 2}
+            return dict(periods=head[1:], rows=rows)
+    return None
+
+
+def rhp_cash(sym):
+    """NSE RHP (zip) ke 'summary' balance sheet se: cash & bank balance, karz (borrowings), equity (₹ cr, sabse naya)."""
+    import zipfile, io
+    try:
+        d = nse('ipo-detail?symbol=%s&series=EQ' % sym)
+    except Exception as e:
+        return {'err': 'nse %s' % str(e)[:40]}
+    link = next((r.get('value') for r in (d.get('issueInfo') or {}).get('dataList', []) if 'red herring' in str(r.get('title', '')).lower()), None)
+    if not link or not str(link).startswith('http'):
+        return {'err': 'RHP link nahi'}
+    try:
+        req = urllib.request.Request(link, headers={'User-Agent': UA, 'Referer': 'https://www.nseindia.com/'})
+        blob = _op.open(req, timeout=120).read()
+        z = zipfile.ZipFile(io.BytesIO(blob)) if link.lower().endswith('.zip') else None
+        names = [n for n in z.namelist() if n.lower().endswith('.pdf')] if z else []
+        pdf = z.read(sorted(names, key=lambda n: (('rhp' not in n.lower().split('/')[-1]), -z.getinfo(n).file_size))[0]) if z else blob
+    except Exception as e:
+        return {'err': 'download %s' % str(e)[:40]}
+    import pypdfium2 as pdfium
+    doc = pdfium.PdfDocument(pdf)
+    best = None
+    for i in range(min(len(doc), 260)):
+        tx = doc[i].get_textpage().get_text_range()
+        if not re.search(r'cash and (bank|cash equivalents)', tx, re.I) or not re.search(r'borrowings', tx, re.I):
+            continue
+        if not re.search(r'total equity|net worth|total liabilities', tx, re.I) or re.search(r'proceeds|repayment', tx, re.I):
+            continue
+        unit = 1 / 10.0 if re.search(r'million', tx, re.I) else 1 / 100.0 if re.search(r'lakh', tx, re.I) else 1.0
+        cash = debt = eq = 0.0; fc = fd = fe = False
+        for l in tx.split('\n'):
+            l = l.strip(); m = re.findall(r'\(?-?[\d,]+\.\d+\)?|\(?-?\d{1,3}(?:,\d{2,3})+\)?', l)
+            if not m:
+                continue
+            v = m[0]; v = -float(v.strip('()').replace(',', '')) if v.startswith('(') else float(v.replace(',', ''))
+            ll = l.lower()
+            if re.search(r'cash and (bank|cash equivalents)|other bank balances|bank balances other', ll):
+                cash += v; fc = True
+            elif 'borrowing' in ll and 'proceeds' not in ll:
+                debt += v; fd = True
+            elif (re.match(r'^-?\s*total equity\b', ll) or re.match(r'^-?\s*net worth\b', ll)) and 'liabilit' not in ll:
+                if not fe:
+                    eq = v; fe = True
+        if fc and fd:
+            best = dict(cash=round(cash * unit, 1), debt=round(debt * unit, 1), equity=round(eq * unit, 1) if fe else None, page=i + 1)
+            break
+    return best or {'err': 'RHP me table nahi mili'}
+
+
 def fin_summary(d):
     """Financial table se: aakhri 2 poore saal ka revenue/PAT growth."""
     f = d.get('fin') or []; hd = [x.lower() for x in d.get('fin_head', [])]
@@ -205,6 +279,14 @@ def score(x, capital):
         if pe > 1.3 * ppe: F -= 1; fw.append('- Mehenga: P/E %.0f vs milti-julti companies ~%.0f' % (pe, ppe))
         elif pe < 0.8 * ppe: F += 1; fw.append('+ Sasta: P/E %.0f vs milti-julti companies ~%.0f' % (pe, ppe))
         else: fw.append('= P/E %.0f, milti-julti companies ~%.0f ke aas-paas' % (pe, ppe))
+    rc = x.get('rhpc') or {}; de = (x.get('fin') or {}).get('de')
+    if rc.get('cash') is not None and rc.get('debt') is not None and x.get('cash_ok', True):
+        if rc['cash'] >= rc['debt']: F += 1; fw.append('+ Karz se zyada cash: cash ₹%s cr vs karz ₹%s cr' % (rc['cash'], rc['debt']))
+        elif de is not None and de > 1: F -= 1; fw.append('- Karz zyada: karz ₹%s cr, cash sirf ₹%s cr (D/E %.1f)' % (rc['debt'], rc['cash'], de))
+        else: fw.append('= Karz ₹%s cr, cash ₹%s cr' % (rc['debt'], rc['cash']))
+    elif de is not None:
+        if de > 1: F -= 1; fw.append('- Karz zyada: D/E %.1f' % de)
+        elif de < 0.3: fw.append('= Karz kam: D/E %.2f' % de)
     if x.get('ofs_only'): F -= 1; fw.append('- Poora OFS: company ko naya paisa nahi, purane maalik bech rahe')
     elif x.get('fresh'): fw.append('= Naya paisa (fresh issue): %s' % x['fresh'])
     fv = 'ACHHA' if F >= 3 else 'THEEK' if F >= 1 else 'KAMZOR'
@@ -233,6 +315,7 @@ def main():
             log('NSE %s FAIL %s' % (path, str(e)[:60]))
     log('NSE issues %d' % len(nlist))
     items, used = [], set()
+    chl, rhp_n = ch_links(), [0]
     for g in rows:
         if g['status'] == 'CLOSED' and not g['url']:
             continue
@@ -275,12 +358,52 @@ def main():
                     x['peer_pe'] = pes[len(pes) // 2]
             except Exception as e:
                 log('detail FAIL %s %s' % (x['name'], str(e)[:60]))
+        try:                                           # chittorgarh: saal-dar-saal bikri + karz
+            w = set(nkey(x['name'])); cu = max(chl, key=lambda c: len(c[0] & w), default=None) if chl else None
+            if cu and len(cu[0] & w) >= min(2, len(w)):
+                cf = ch_fin(cu[1]); time.sleep(0.6)
+                if cf:
+                    x['chf'] = cf; x['ch_url'] = cu[1]
+        except Exception as e:
+            log('chittorgarh FAIL %s %s' % (x['name'], str(e)[:50]))
+        old = next((o for o in prev.get('items', []) if o.get('name') == x['name']), None)
+        if old and old.get('rhpc') and not old['rhpc'].get('err'):
+            x['rhpc'] = old.get('rhpc_raw') or old['rhpc']   # RHP ek baar hi padhte hain
+        elif x.get('symbol') and x['kind'] == 'MAIN' and rhp_n[0] < 3:
+            rhp_n[0] += 1; x['rhpc'] = rhp_cash(x['symbol']); log('RHP %s: %s' % (x['symbol'], x['rhpc']))
+        if x.get('rhpc') and not x['rhpc'].get('err'):
+            x['rhpc_raw'] = dict(x['rhpc'])
         if x.get('symbol') and x['status'] in ('OPEN', 'CLOSED'):
             x['sub'], x['sub_at'] = nse_sub(x['symbol']); time.sleep(0.6)
             if not x['sub']:                         # NSE ne na diya to pichhla rakho
                 old = next((o for o in prev.get('items', []) if o.get('symbol') == x['symbol']), None)
                 if old and old.get('sub'):
                     x['sub'], x['sub_at'] = old['sub'], old.get('sub_at', '') + ' (purana)'
+        cf = x.get('chf')
+        if cf:
+            pp_ = cf['periods']; mon = pp_[1].split()[1] if len(pp_) > 2 and len(pp_[1].split()) > 1 else 'Mar'
+            yrs = [k for k, pp in enumerate(pp_) if k > 0 and len(pp.split()) > 1 and pp.split()[1] == mon]   # poore saal (Mar ya Dec year-end)
+            R_ = cf['rows']; ti = R_.get('Total Income') or R_.get('Revenue') or []; pt = R_.get('Profit After Tax') or []
+            nw = R_.get('NET Worth') or R_.get('Net Worth') or []; tb = R_.get('Total Borrowing') or []
+            if len(yrs) >= 2 and ti and pt:
+                a_, b_ = yrs[1], yrs[0]                 # chittorgarh: naya pehle
+                fs_ = dict(year=cf['periods'][b_][-4:], rev=ti[b_], pat=pt[b_])
+                if ti[a_] and ti[b_] is not None: fs_['rev_g'] = round((ti[b_] / ti[a_] - 1) * 100, 1)
+                if pt[a_] and pt[a_] > 0 and pt[b_] is not None: fs_['pat_g'] = round((pt[b_] / pt[a_] - 1) * 100, 1)
+                if nw and tb and nw[b_] and tb[b_] is not None: fs_['de'] = round(tb[b_] / nw[b_], 2)
+                x['fin'] = fs_
+            # RHP cash ki unit jaancho: RHP equity ~ chittorgarh net worth (sabse naya). Karz chittorgarh ka (pakka).
+            rc = x.get('rhpc') or {}
+            if rc.get('cash') is not None and nw and nw[0]:
+                eqv = rc.get('equity'); k_ = None
+                if eqv:
+                    for fct in (1, 10, 100, 0.1, 0.01):
+                        if 0.7 <= eqv * fct / nw[0] <= 1.4: k_ = fct; break
+                x['cash_ok'] = k_ is not None
+                if k_ is not None:
+                    x['rhpc'] = dict(rc, cash=round(rc['cash'] * k_, 1), debt=(tb[0] if tb and tb[0] is not None else round(rc['debt'] * k_, 1)))
+                else:
+                    x['rhpc'] = dict(rc, cash=None)
         x['ls'], x['lv'], x['lw'], x['fs'], x['fv'], x['fw'] = score(x, 50000)
         items.append(x)
     order = {'OPEN': 0, 'UPCOMING': 1, 'CLOSED': 2}
