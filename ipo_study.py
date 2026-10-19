@@ -92,11 +92,11 @@ def run_trade(o, h, l, c, i, stop, tgt, hold):
     for k in range(j, min(len(c), j + hold)):
         if l[k] <= stop:
             ex = min(o[k], stop) if k > j else stop
-            return (ex - e) / risk - COST * e / risk
+            return ((ex - e) / risk - COST * e / risk, (ex / e - 1) * 100 - COST * 100)
         if tg and h[k] >= tg:
-            return tgt - COST * e / risk
+            return (tgt - COST * e / risk, (tg / e - 1) * 100 - COST * 100)
     k = min(len(c), j + hold) - 1
-    return (c[k] - e) / risk - COST * e / risk
+    return ((c[k] - e) / risk - COST * e / risk, (c[k] / e - 1) * 100 - COST * 100)
 
 
 def main():
@@ -117,11 +117,11 @@ def main():
         b = [byd[d] for d in ds]
         o = [x[0] for x in b]; h = [x[1] for x in b]; l = [x[2] for x in b]; c = [x[3] for x in b]; to = [x[4] for x in b]
         n_ipo += 1
-        for i in range(3, min(60, len(c) - 1)):
+        for i in range(5, min(60, len(c) - 1)):
             if sorted(to[max(0, i - 4):i + 1])[len(to[max(0, i - 4):i + 1]) // 2] < 2: continue      # 2 cr+ roz ka turnover
             lowp = min(l[:i])                          # aaj se pehle ka listing-ke-baad low
             tr = [max(h[k] - l[k], abs(h[k] - c[k - 1]), abs(l[k] - c[k - 1])) for k in range(max(1, i - 13), i + 1)]
-            atr = sum(tr) / len(tr)
+            atr = max(sum(tr) / len(tr), 0.02 * c[i])     # pehle dino ka ATR chhota/bekaar ho sakta hai: kam se kam 2%
             sig = ['BASE']
             if lowp < c[i] <= lowp * 1.03: sig.append('NEAR_LOW')
             if l[i] <= lowp * 1.02 and c[i] > o[i] and c[i] >= (h[i] + l[i]) / 2 and c[i] > lowp: sig.append('REV_LOW')
@@ -137,20 +137,20 @@ def main():
                 for ex, r in (('LOWSL/10d/T2R', r1), ('2ATR/5d', r2)):
                     if r is None: continue
                     for rk in (rg, 'ALL'):
-                        R[(s, ex, rk)].append((yr, r, sym))
+                        R[(s, ex, rk)].append((yr, r[0], sym, r[1]))
     log('Naye listing mile: %d. R = kharcha (0.25%%) kaat ke. "saal+" = kitne saal (15+ trade wale) me avg plus.' % n_ipo)
-    log('%-11s %-14s %-7s %6s %5s %8s %8s %8s  %s' % ('setup', 'exit', 'market', 'n', 'jeet', 'avgR', 'BASE', 'farak', 'saal+'))
+    log('%-11s %-14s %-7s %6s %5s %8s %8s %8s %7s  %s' % ('setup', 'exit', 'market', 'n', 'jeet', 'avgR', 'BASE', 'farak', 'avg%', 'saal+'))
     rows = []
     for k in sorted(R, key=lambda k: (k[1], k[0], k[2])):
         v = R[k]; n = len(v); rs = [x[1] for x in v]; avg = sum(rs) / n
         bv = R.get(('BASE', k[1], k[2]), []); base = sum(x[1] for x in bv) / len(bv) if bv else 0
         yrs = collections.defaultdict(list)
-        for y, r, _ in v: yrs[y].append(r)
+        for y, r, _, _p in v: yrs[y].append(r)
         yp = sum(1 for y in yrs if len(yrs[y]) >= 15 and sum(yrs[y]) > 0); yt = sum(1 for y in yrs if len(yrs[y]) >= 15)
         row = dict(setup=k[0], exit=k[1], regime=k[2], n=n, win=round(100.0 * sum(1 for r in rs if r > 0) / n), avgR=round(avg, 3),
-                   baseR=round(base, 3), edge=round(avg - base, 3), years='%d/%d' % (yp, yt), stocks=len(set(x[2] for x in v)))
+                   baseR=round(base, 3), edge=round(avg - base, 3), pct=round(sum(x[3] for x in v) / n, 2), years='%d/%d' % (yp, yt), stocks=len(set(x[2] for x in v)))
         rows.append(row)
-        log('%-11s %-14s %-7s %6d %4d%% %+8.3f %+8.3f %+8.3f  %s' % (k[0], k[1], k[2], n, row['win'], avg, base, avg - base, row['years']))
+        log('%-11s %-14s %-7s %6d %4d%% %+8.3f %+8.3f %+8.3f %+6.2f%%  %s' % (k[0], k[1], k[2], n, row['win'], avg, base, avg - base, row['pct'], row['years']))
     good = [r for r in rows if r['setup'] != 'BASE' and r['n'] >= 100 and r['avgR'] > 0.05 and r['edge'] >= 0.1
             and int(r['years'].split('/')[0]) >= 2 and int(r['years'].split('/')[0]) * 2 > int(r['years'].split('/')[1])]
     log('')
