@@ -150,6 +150,7 @@ small.clamp,.hint.clamp,.why.clamp{border-bottom:1px dashed var(--bd)}
 .wmid{flex:1;min-width:0}.wn{display:flex;align-items:center;flex-wrap:wrap;gap:4px}.wn b{font-size:15px;margin-right:4px;letter-spacing:-.01em}.wn .pill{margin:0;font-size:10px}
 .wmid>small{display:block;margin-top:3px;font-size:12px}.wmm{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}.wmm .pill{margin:0;font-size:10px}
 .wrow .wv{text-align:right;white-space:nowrap;min-width:72px}.wrow .wv b{display:block;font-size:15px}.wrow .wv small{font-size:12px}
+.nwr summary{list-style:none;cursor:pointer}.nwr summary::-webkit-details-marker{display:none}.nwh{font-weight:600;line-height:1.35}.nwr a{color:inherit;text-decoration:none}.btn.sm{padding:3px 8px;font-size:12px}
 </style></head><body>
 <header><div class="hdr"><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></span><h1>Swing Desk</h1></div><button class="mbtn" aria-label="Menu" onclick="menuToggle(event)"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>
 <div id="menu" class="menu"><button id="thm" onclick="cycleTheme()">Theme</button><button id="ntf" style="display:none" onclick="askNotif()">Alerts on karo</button><button id="inst" style="display:none" onclick="installApp()">App install karo</button></div></div><div class="mk" id="mk">loading...</div></header>
@@ -845,25 +846,41 @@ return '<div class="card"><div class="row"><small>'+(nw?chip('NAYA','pg')+' ':''
 (sy.length?'<div>'+sy.map(function(k){return '<button class="btn" onclick="detail(\''+esc(k)+'\')">'+esc(k)+'</button>'}).join(' ')+'</div>':'')+sy.slice(0,2).map(function(k){return tgAnalysis(m,k)}).join('')+'</div>'}
 function tgBlock(sym){if(!TG.length)return '';var u=String(sym).toUpperCase(),a=TG.filter(function(m){return tgSyms(m.text).indexOf(u)>=0}).slice(0,5);
 return '<h3>Telegram notes</h3>'+(a.length?a.map(function(m){return tgCard(m,1)}).join(''):'<small>Is stock par abhi koi Telegram note nahi.</small>')}
-function tgList(){var q=TGQ.trim().toUpperCase(),a=TG.filter(function(m){return !q||String(m.text).toUpperCase().indexOf(q)>=0||String(m.src).toUpperCase().indexOf(q)>=0}).slice(0,40);
-return a.length?a.map(function(m){return tgCard(m)}).join(''):'<div class="card">'+(TG.length?'Is search par kuch nahi mila.':'Abhi koi Telegram note nahi aaya. Private channel ke message apne bot ko forward karo.')+'</div>'}
 function lss(k){try{return localStorage.getItem(k)||''}catch(e){return ''}}
 var TGSEEN=lss('tgseen'),TGPREV=TGSEEN;var TGFIRST=true,TGN=0;
 function tgNewCount(){return TG.filter(function(m){return m.rcv&&m.rcv>TGSEEN}).length}
 function tgMarkSeen(){var mx=TGSEEN;TG.forEach(function(m){if(m.rcv&&m.rcv>mx)mx=m.rcv});if(mx!==TGSEEN){TGSEEN=mx;sv('tgseen',mx)}tgBadge()}
-function tgBadge(){var b=document.querySelector('nav button[data-t=news]');if(!b)return;var n=tab=='news'?0:tgNewCount(),sp=b.querySelector('span');if(sp)sp.textContent='News';var bd=b.querySelector('.nbd');if(n){if(!bd){bd=document.createElement('i');bd.className='nbd';b.appendChild(bd)}bd.textContent=n}else if(bd)bd.remove()}
+function tgBadge(){var b=document.querySelector('nav button[data-t=news]');if(!b)return;var n=tab=='news'&&NTAB=='tg'?0:tgNewCount(),sp=b.querySelector('span');if(sp)sp.textContent='News';var bd=b.querySelector('.nbd');if(n){if(!bd){bd=document.createElement('i');bd.className='nbd';b.appendChild(bd)}bd.textContent=n}else if(bd)bd.remove()}
 function loadTG(){if(!pinsOn())return Promise.resolve();return api({action:'tg'}).then(function(d){if(Array.isArray(d.tg)){var ch=JSON.stringify(d.tg)!=JSON.stringify(TG);TG=d.tg;TGTS=Date.now();
 if(TGFIRST){TGFIRST=false;if(!TGSEEN){var mx='';TG.forEach(function(m){if(m.rcv&&m.rcv>mx)mx=m.rcv});TGSEEN=mx;sv('tgseen',mx)}}
 else if(ch&&tgNewCount()>TGN&&tab!='news')toast('Naya Telegram note aaya');
 TGN=tgNewCount();
 if(ch&&!cur){var l=document.getElementById('tgl');if(l)l.innerHTML=tgList()}
-if(tab=='news')tgMarkSeen();else tgBadge()}}).catch(function(){})}
+if(tab=='news'&&NTAB=='tg')tgMarkSeen();else tgBadge()}}).catch(function(){})}
 var TGTICK=0;setInterval(function(){if(document.hidden||!pinsOn())return;TGTICK++;if(tab=='news'||cur||TGTICK%3==0)loadTG()},8000);
 /* bot se notes aana ruk jaye (Apps Script ka 5-min trigger) to chupke se purana na dikhe */
 function tgFresh(){var mx='';TG.forEach(function(m){if(m.rcv&&m.rcv>mx)mx=m.rcv});if(!mx)return '';var hr=(Date.now()-new Date(mx).getTime())/3.6e6;
 return '<div class="'+(hr>24?'y':'mu')+'" style="margin:-4px 0 8px"><small>Aakhri note app me aaya: '+esc(tgWhen(mx))+(hr>24?' ('+Math.round(hr)+' ghante pehle). Iske baad bot ko note bheja aur 10 min me yahan nahi aaya, to Apps Script me <b>setupTelegramPolling</b> ek baar Run karo.':'')+'</small></div>'}
-function newsView(){var h='<h3>Aaj ke alerts (live)</h3>'+alertLog()+'<h3>Telegram notes</h3>'+tgFresh()+'<input id="tgq" placeholder="Search: stock / shabd" value="'+esc(TGQ)+'" autocomplete="off"><div id="tgl">'+tgList()+'</div>',fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});h+='<h3>Picks me flags</h3>';if(!fl.length)h+='<div class="card">Koi flagged news/event nahi (ya news file abhi nahi bani).</div>';
-fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+flagChips(n.flags)+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div>'+annBlock(k,false)+'</div>'});
+/* News tab: 2 hisse. Telegram = sirf heading, dabao to poora note + analysis. Baaki news = sab platforms ki stock khabar */
+var NTAB=lss('ntab')||'tg',NQ='';
+function newsSet(k){NTAB=k;sv('ntab',k);render()}
+function tgHead(t){var L=String(t||'').split(/\n/).map(function(x){return x.replace(/[^\x20-\x7Eऀ-ॿ₹%]+/g,' ').replace(/\s+/g,' ').trim()}).filter(function(x){return x.length>2});var h=L[0]||'(note)';if(h.length<25&&L[1])h+=': '+L[1];return h.length>140?h.slice(0,137)+'...':h}
+function tgRow(m){var tx=String(m.text||''),sy=tgSyms(tx),nw=m.rcv&&m.rcv>TGPREV;
+return '<details class="card nwr"><summary><div class="nwh">'+(nw?chip('NAYA','pg')+' ':'')+esc(tgHead(tx))+'</div><small>'+esc(tgWhen(m.t))+(sy.length?' &middot; '+esc(sy.slice(0,4).join(', '))+(sy.length>4?' +'+(sy.length-4):''):'')+'</small></summary>'+
+'<div style="white-space:pre-wrap;margin-top:8px">'+esc(tx)+'</div><small class="mu">'+esc(m.src||'')+'</small>'+
+(sy.length?'<div style="margin-top:6px">'+sy.map(function(k){return '<button class="btn" onclick="detail(\''+esc(k)+'\')">'+esc(k)+'</button>'}).join(' ')+'</div>':'')+sy.slice(0,2).map(function(k){return tgAnalysis(m,k)}).join('')+'</details>'}
+function tgList(){var q=TGQ.trim().toUpperCase(),a=TG.filter(function(m){return !q||String(m.text).toUpperCase().indexOf(q)>=0||String(m.src).toUpperCase().indexOf(q)>=0||tgSyms(m.text).indexOf(q)>=0}).slice(0,60);
+return a.length?a.map(tgRow).join(''):'<div class="card">'+(TG.length?'Is search par kuch nahi mila.':'Abhi koi Telegram note nahi aaya. Private channel ke message apne bot ko forward karo.')+'</div>'}
+function mktNews(){var o=[],seen={},q=NQ.trim().toUpperCase();Object.keys(SN).forEach(function(k){(SN[k]||[]).forEach(function(x){var key=x.t;if(seen[key]){seen[key].s.push(k);return}var r={s:[k],t:x.t,src:x.src,date:x.date||'',link:x.link};seen[key]=r;o.push(r)})});
+if(q)o=o.filter(function(r){return r.t.toUpperCase().indexOf(q)>=0||r.s.some(function(k){return k.indexOf(q)==0||(NMN[k]&&NMN[k].toUpperCase().indexOf(q)>=0)})});
+o.sort(function(a,b){return a.date<b.date?1:-1});
+return o.length?o.slice(0,120).map(function(r){var bad=BADNEWS.test(r.t);return '<div class="card nwr"><div class="nwh"><a target="_blank" rel="noopener" href="'+esc(r.link)+'"'+(bad?' class="r"':'')+'>'+esc(r.t)+'</a></div><div class="row" style="margin-top:4px"><small>'+esc(r.src||'')+(r.date?' &middot; '+esc(r.date.slice(8,10)+'-'+r.date.slice(5,7)+' '+r.date.slice(11,16)):'')+'</small><span>'+r.s.slice(0,3).map(function(k){return '<span class="pill pb" style="cursor:pointer;margin-left:4px" onclick="detail(\''+esc(k)+'\')">'+esc(k)+'</span>'}).join('')+'</span></div></div>'}).join(''):'<div class="card">'+(q?'Is search par kuch nahi mila.':'Khabar abhi nahi aayi.')+'</div>'}
+function newsView(){var nn=tgNewCount();
+var h='<div class="dlf" style="margin-bottom:10px">'+[['tg','Telegram'+(nn&&NTAB!='tg'?' ('+nn+' naye)':'')],['mkt','Baaki news']].map(function(z){return '<button class="tg'+(NTAB==z[0]?' on':'')+'" onclick="newsSet(\''+z[0]+'\')">'+z[1]+'</button>'}).join('')+'</div>';
+if(NTAB=='tg')return h+'<h3>Telegram notes</h3>'+tgFresh()+'<input id="tgq" placeholder="Search: stock / shabd" value="'+esc(TGQ)+'" autocomplete="off"><div id="tgl">'+tgList()+'</div><small class="mu">Heading dabao: poora note aur stock analysis khulega.</small>';
+h+='<h3>Aaj ke alerts (live)</h3>'+alertLog();
+var fl=Object.keys(NW).filter(function(k){return NW[k].flags!='none'});if(fl.length){h+='<h3>Picks me flags</h3>';fl.forEach(function(k){var n=NW[k];h+='<div class="card" onclick="detail(\''+esc(k)+'\')"><div class="big">'+esc(k)+'</div>'+flagChips(n.flags)+'<div>'+esc(n.next_event||n.last_announcement||n.headlines)+'</div>'+annBlock(k,false)+'</div>'})}
+h+='<h3>Stocks ki taza khabar</h3><small class="mu">ET, Moneycontrol, Mint, Business Standard, CNBC, Google News: saare listed stocks, pichhle 3 din, har 20 min.</small><input id="nq" placeholder="Search: stock / shabd" value="'+esc(NQ)+'" autocomplete="off" style="margin-top:6px"><div id="nql">'+mktNews()+'</div>';
 h+='<h3>Market headlines</h3>'+(HL.length?HL.map(function(l){return '<div class="card">'+esc(l.trim())+'</div>'}).join(''):'<div class="card">Headlines nahi mili.</div>');return h}
 function render(restore){cur=null;document.body.setAttribute('data-tab',tab);document.body.classList.remove('det');document.body.classList.remove('stk');try{aiClose()}catch(e){}var v=document.getElementById('v');v.innerHTML=tab=='picks'?picksView():tab=='search'?searchView():tab=='trades'?tradesView():tab=='global'?globalView():tab=='deals'?dealsView():newsView();
 var rk=document.getElementById('rk'),cp=document.getElementById('cp'),q=document.getElementById('q');
@@ -871,7 +888,7 @@ if(rk)rk.onchange=function(){var x=Math.round(+rk.value);if(!(x>0)){rk.value=ls(
 if(q){q.oninput=function(){var raw=q.value.trim(),t=raw.toUpperCase().replace(/\s+/g,''),ql=nmNorm(raw),keys=Object.keys(ST).concat(Object.keys(SK)),a=[];
 if(t.length>=1){var seen={};a=keys.filter(function(k){if(seen[k])return false;seen[k]=1;return k.indexOf(t)>=0||(ql.length>=2&&NMN[k]&&NMN[k].indexOf(ql)>=0)}).sort(function(x,y){var sx=x.indexOf(t)==0?0:NMN[x]&&NMN[x].indexOf(ql)==0?1:2,sy=y.indexOf(t)==0?0:NMN[y]&&NMN[y].indexOf(ql)==0?1:2;return sx-sy||x.length-y.length}).slice(0,12)}
 document.getElementById('sg').innerHTML=a.length?a.map(function(k){return '<div onclick="detail(\''+k+'\')">'+k+(isPin(k)?' <small class="y">(Locked)</small>':'')+' <small>'+(NM[k]?esc(NM[k])+' | ':'')+(ST[k]?ST[k].v+' | '+f(ST[k].c):'data kam/band')+'</small></div>'}).join(''):(t.length?'<div>Nahi mila. Naam ya NSE symbol (jaise HEROMOTOCO) try karo. Naye ya kam data wale stock yahan nahi aate.</div>':'')};q.focus()}
-var tq=document.getElementById('tgq');if(tq)tq.oninput=function(){TGQ=tq.value;document.getElementById('tgl').innerHTML=tgList()};if(tab=='news'){TGPREV=TGSEEN;tgMarkSeen();if(Date.now()-TGTS>5000)loadTG()}else tgBadge();
+var tq=document.getElementById('tgq');if(tq)tq.oninput=function(){TGQ=tq.value;document.getElementById('tgl').innerHTML=tgList()};var nq=document.getElementById('nq');if(nq)nq.oninput=function(){NQ=nq.value;document.getElementById('nql').innerHTML=mktNews()};if(tab=='news'&&NTAB=='tg'){TGPREV=TGSEEN;tgMarkSeen();if(Date.now()-TGTS>5000)loadTG()}else tgBadge();
 paintLive();window.scrollTo(0,restore===true?lastY:0)}
 window.addEventListener('popstate',function(){var st=history.state;if(st&&st.l)listView(st.l,true);else render(true)});
 document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('nav button').forEach(function(x){x.classList.toggle('on',x==b)});render()}});
