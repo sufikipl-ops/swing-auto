@@ -1,0 +1,105 @@
+sitemap: 10926 url, 1335 IPO (subscription page wale), cache 0
+  50 naye IPO pages padhe
+  100 naye IPO pages padhe
+  150 naye IPO pages padhe
+  200 naye IPO pages padhe
+  250 naye IPO pages padhe
+  300 naye IPO pages padhe
+  350 naye IPO pages padhe
+  400 naye IPO pages padhe
+  450 naye IPO pages padhe
+  500 naye IPO pages padhe
+  550 naye IPO pages padhe
+  600 naye IPO pages padhe
+  650 naye IPO pages padhe
+  700 naye IPO pages padhe
+  750 naye IPO pages padhe
+  800 naye IPO pages padhe
+  850 naye IPO pages padhe
+  900 naye IPO pages padhe
+NSE past issues: 1479
+NSE se jude IPO: 426 (baaki BSE-only / naam nahi mila)
+Listing bhav mila: 423 IPO (2023-04-18 se 2026-10-08)
+Listing gain = listing din ka OPEN issue price se (allotment mila to yahi fayda). Close = listing din ka close.
+
+===== MAINBOARD (216 IPO) =====
+Sab IPO          open: n 216 | avg  +14.9% | median   +7.5% | plus  68%
+
+-- "Listing" faisla (QIB + GMP) vs listing gain (open) / listing din close --
+  APPLY  open: n  88 | avg  +34.5% | median  +27.7% | plus  95%
+         close: n  88 | avg  +36.7% | median  +29.3% | plus  96%
+  SOCH   open: n  46 | avg   +9.2% | median   +7.1% | plus  80%
+         close: n  46 | avg   +8.9% | median   +6.1% | plus  78%
+  SKIP   open: n  82 | avg   -2.9% | median   +0.0% | plus  34%
+         close: n  82 | avg   -3.7% | median   -2.4% | plus  36%
+
+-- QIB (aakhri din) vs listing gain --
+  QIB <1x     n   1 | avg   +0.0% | median   +0.0% | plus   0%
+  QIB 1-10x   n  78 | avg   -1.4% | median   +0.0% | plus  41%
+  QIB 10-50x  n  41 | avg   +6.4% | median   +4.6% | plus  65%
+  QIB 50x+    n  96 | avg  +32.0% | median  +26.4% | plus  93%
+
+-- Aakhri GMP vs listing gain --
+  GMP <3%     n  65 | avg   -3.7% | median   -1.4% | plus  29% | asli - GMP avg -4.2%
+  GMP 3-10%   n  41 | avg   +3.9% | median   +3.5% | plus  70% | asli - GMP avg -1.9%
+  GMP 10-25%  n  50 | avg  +13.0% | median  +13.8% | plus  86% | asli - GMP avg -3.0%
+  GMP 25-50%  n  43 | avg  +36.0% | median  +35.0% | plus 100% | asli - GMP avg +0.1%
+  GMP 50%+    n  14 | avg  +79.7% | median  +74.7% | plus 100% | asli - GMP avg +1.9%
+
+-- "Company" faisla vs 60 din baad (issue price se) --
+  ACHHA  60 din: n   4 | avg   -6.6% | median  -26.9% | plus  50%
+         listing open: n  38 | avg  +20.7% | median  +16.1% | plus  86%
+  THEEK  60 din: n   4 | avg  +12.4% | median   +6.4% | plus  50%
+         listing open: n  18 | avg  +18.3% | median   +7.0% | plus  55%
+  KAMZOR 60 din: n 147 | avg  +11.8% | median   +7.3% | plus  59%
+         listing open: n 160 | avg  +13.1% | median   +5.5% | plus  66%
+
+-- Saal-war: APPLY vs SKIP (listing open avg) --
+  2023  APPLY -
+        SKIP  n   1 | avg   +0.0% | median   +0.0% | plus   0%
+  2024  APPLY n  17 | avg  +60.0% | median  +48.6% | plus 100%
+        SKIP  n   8 | avg   -0.8% | median   +1.4% | plus  50%
+  2025  APPLY n  35 | avg  +21.5% | median  +14.7% | plus  94%
+        SKIP  n  33 | avg   -3.9% | median   +0.0% | plus  36%
+  2026  APPLY n  36 | avg  +35.0% | median  +32.5% | plus  94%
+        SKIP  n  40 | avg   -2.6% | median   -1.3% | plus  30%
+
+===== SME (207 IPO) =====
+Sab IPO          open: n 207 | avg  +17.0% | median   +4.9% | plus  64%
+
+-- "Listing" faisla (QIB + GMP) vs listing gain (open) / listing din close --
+  APPLY  open: n  64 | avg  +48.6% | median  +39.8% | plus  95%
+         close: n  64 | avg  +53.3% | median  +42.7% | plus  98%
+  SOCH   open: n  56 | avg   +7.5% | median   +4.2% | plus  60%
+         close: n  56 | avg   +8.2% | median   +1.7% | plus  57%
+  SKIP   open: n  87 | avg   -0.0% | median   +0.0% | plus  44%
+         close: n  87 | avg   -0.5% | median   -0.3% | plus  48%
+
+-- QIB (aakhri din) vs listing gain --
+  QIB <1x     n   5 | avg  -10.7% | median  -13.5% | plus   0%
+  QIB 1-10x   n  71 | avg   +0.2% | median   +0.0% | plus  47%
+  QIB 10-50x  n  48 | avg  +10.4% | median   +5.3% | plus  64%
+  QIB 50x+    n  63 | avg  +45.5% | median  +36.4% | plus  93%
+
+-- Aakhri GMP vs listing gain --
+  GMP <3%     n  27 | avg   -1.1% | median   +0.0% | plus  40% | asli - GMP avg -2.5%
+  GMP 3-10%   n  41 | avg   +1.6% | median   +2.3% | plus  51% | asli - GMP avg -4.1%
+  GMP 10-25%  n  37 | avg  +16.1% | median  +13.8% | plus  83% | asli - GMP avg -1.6%
+  GMP 25-50%  n  18 | avg  +28.6% | median  +25.6% | plus  77% | asli - GMP avg -6.2%
+  GMP 50%+    n  34 | avg  +67.5% | median  +90.0% | plus  97% | asli - GMP avg -6.2%
+
+-- "Company" faisla vs 60 din baad (issue price se) --
+  ACHHA  60 din: n  11 | avg  +34.7% | median  +17.2% | plus  63%
+         listing open: n  29 | avg  +15.3% | median   +2.6% | plus  62%
+  THEEK  60 din: n   2 | avg  -12.3% | median  -12.3% | plus   0%
+         listing open: n   8 | avg  +20.7% | median   +1.3% | plus  50%
+  KAMZOR 60 din: n 168 | avg  +17.0% | median   +3.4% | plus  54%
+         listing open: n 170 | avg  +17.2% | median   +6.2% | plus  65%
+
+-- Saal-war: APPLY vs SKIP (listing open avg) --
+  2024  APPLY n  21 | avg  +56.1% | median  +58.8% | plus  95%
+        SKIP  n   6 | avg   -1.1% | median   +2.1% | plus  50%
+  2025  APPLY n  26 | avg  +43.5% | median  +28.0% | plus  96%
+        SKIP  n  48 | avg   +1.9% | median   +0.0% | plus  47%
+  2026  APPLY n  17 | avg  +47.2% | median  +39.1% | plus  94%
+        SKIP  n  33 | avg   -2.7% | median   +0.0% | plus  39%
