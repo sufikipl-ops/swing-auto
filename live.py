@@ -25,7 +25,7 @@ ALERTS_ON = os.environ.get('WATCH_ALERTS', '1') != '0'
 BREADTH_SEC = float(os.environ.get('LIVE_BREADTH_SEC', '300'))   # live market breadth har 5 min (~1100 stock, ~25 sec lagte hain)
 PREP_FROM, PREP_SEND = '14:30', '15:12'                          # 3:15 taiyari list: app me 2:30 se, Telegram 3:12 ke baad ek baar
 LIVE_MAX_CHARS = 44000
-INTRA_SEC = float(os.environ.get('LIVE_INTRA_SEC', '120'))      # chart ke live 1-min candles har 2 min (Apps Script Intraday.gs)
+INTRA_SEC = float(os.environ.get('LIVE_INTRA_SEC', '120'))      # chart ke live 1-min candles har 2 min (GitHub 'live-data' branch)
 INTRA_MAX = 60                                           # Apps Script 'Live' cell 45000 se bada nahi leta
 
 
@@ -139,7 +139,9 @@ def chart_symbols():
 
 
 def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
-    """Aaj ke 1-min candles (Angel getCandleData) -> Apps Script 'putintra'. Return log text."""
+    """Aaj ke 1-min candles (Angel getCandleData) -> GitHub 'live-data' branch (intra/SYM.json, har baar ek hi commit
+    force-push: history nahi badhti, Pages build nahi hota). App raw.githubusercontent.com se padhta hai."""
+    import subprocess
     fr = now.strftime('%Y-%m-%d') + ' 09:15'; to = now.strftime('%Y-%m-%d %H:%M')
     data, fail = {}, 0
     for s in syms:
@@ -162,9 +164,27 @@ def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
         time.sleep(0.35)
     if not data:
         return 'intra: kuch nahi mila (%d fail)' % fail
-    r = http_json(url, {'key': pkey, 'action': 'putintra', 'date': now.strftime('%Y-%m-%d'), 'data': data},
-                  {'Content-Type': 'text/plain;charset=utf-8'}, timeout=90)
-    return 'intra %d stocks push=%s %s (%d fail)' % (len(data), bool(r.get('ok')), (r.get('error') or '')[:40], fail)
+    tok, repo = os.environ.get('GITHUB_TOKEN', ''), os.environ.get('GITHUB_REPOSITORY', '')
+    if not (tok and repo):
+        return 'intra: GITHUB_TOKEN nahi, push skip (%d stocks)' % len(data)
+    d = '/tmp/live_data_repo'
+    os.makedirs(os.path.join(d, 'intra'), exist_ok=True)
+    for f in os.listdir(os.path.join(d, 'intra')):
+        os.remove(os.path.join(d, 'intra', f))
+    at = now.strftime('%H:%M')
+    for s, bars in data.items():
+        json.dump({'date': now.strftime('%Y-%m-%d'), 'at': at, 'bars': bars}, open(os.path.join(d, 'intra', s + '.json'), 'w'), separators=(',', ':'))
+    json.dump({'date': now.strftime('%Y-%m-%d'), 'at': at, 'syms': sorted(data)}, open(os.path.join(d, 'intra', '_index.json'), 'w'))
+    def g(*a):
+        return subprocess.run(['git', '-C', d] + list(a), capture_output=True, text=True, timeout=120)
+    if not os.path.isdir(os.path.join(d, '.git')):
+        g('init', '-q', '-b', 'live-data'); g('config', 'user.name', 'swing-bot'); g('config', 'user.email', 'swing-bot@users.noreply.github.com')
+    g('checkout', '-q', '--orphan', 'tmp'); g('add', '-A')
+    c = g('commit', '-q', '-m', 'live intraday %s' % at)
+    p = g('push', '-q', '-f', os.environ.get('LIVE_DATA_REMOTE') or 'https://x-access-token:%s@github.com/%s.git' % (tok, repo), 'HEAD:live-data')
+    g('branch', '-q', '-D', 'live-data'); g('branch', '-q', '-m', 'live-data')
+    ok = p.returncode == 0
+    return 'intra %d stocks push=%s %s (%d fail)' % (len(data), ok, (p.stderr or '').replace(tok, '***')[:80] if not ok else '', fail)
 
 
 def prep_text(pr, bh, base_reg, now):
@@ -436,8 +456,8 @@ def main():
                     if s_ not in isyms:
                         isyms.append(s_)
                 imsg = push_intraday(url, pkey, key, jwt, tokmap, isyms[:INTRA_MAX], now)
-                if 'bad action' in imsg:
-                    intra_off = True; imsg += ' -> Apps Script me Intraday.gs nahi laga, aaj band'
+                if 'GITHUB_TOKEN nahi' in imsg:
+                    intra_off = True
             except Exception as e:
                 imsg = 'intra err %s' % str(e)[:100]
         live = {'ts': now.strftime('%Y-%m-%dT%H:%M:%S'), 'date': dstr, 'status': status,
