@@ -472,7 +472,7 @@ function links(sym){return '<a class="btn" target="_blank" href="https://www.goo
 '<a class="btn" target="_blank" href="https://in.tradingview.com/chart/?symbol=NSE:'+encodeURIComponent(sym)+'">Chart</a>'}
 function newsBlock(sym){var n=NW[sym],h='';if(n){h+='<h3>News / events</h3>';h+=n.flags&&n.flags!='none'?flagChips(n.flags):chip('Koi flag nahi (sab theek)','pg');
 if(n.next_event)h+='<div>Aane wala event: '+esc(n.next_event)+'</div>';if(n.last_announcement)h+='<div>Announcement: '+esc(n.last_announcement)+'</div>';
-if(n.headlines)h+='<div>'+esc(n.headlines)+'</div>'}else h+='<h3>News</h3>'+(SN[sym]&&SN[sym].length?'':'<small>Pichhle 3 din me is stock ki koi khabar nahi mili (auto-news picks, dip, locked aur trades wale stocks ki aati hai). Neeche "Latest news" dabao.</small>');return h+stockNews(sym)+dealsBlock(sym)+tgBlock(sym)}
+if(n.headlines)h+='<div>'+esc(n.headlines)+'</div>'}else h+='<h3>News</h3>'+(SN[sym]&&SN[sym].length?'':'<small>Pichhle 3 din me is stock ki koi khabar nahi mili (ET, Moneycontrol, Mint, BS, CNBC, Google News, har 20 min). Neeche "Latest news" dabao.</small>');return h+stockNews(sym)+dealsBlock(sym)+tgBlock(sym)}
 function stockNews(sym){var L=SN[sym]||[];if(!L.length)return '';return '<div style="margin-top:8px"><b>Taza khabar (pichhle 3 din)</b>'+L.map(function(x){var bad=BADNEWS.test(x.t);return '<div class="ir"><div class="l"><a target="_blank" rel="noopener" href="'+esc(x.link)+'"'+(bad?' class="r"':'')+'>'+esc(x.t)+'</a><small>'+esc(x.src||'')+(x.date?' | '+esc(x.date):'')+'</small></div></div>'}).join('')+'<small>Google News se (Moneycontrol, ET, Mint, CNBC...). Sirf headline; poori khabar link par.</small></div>'}
 
 /* ---------- STOCK DETAIL (simple report) ---------- */
