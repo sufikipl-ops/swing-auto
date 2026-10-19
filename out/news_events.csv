@@ -4,7 +4,7 @@ BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Senco, P
 BREAKOUT,HCLTECH,IN_NEWS,,,"Zensar, HCL Technologies rebounded from 100-month EMA support, says analyst"
 BREAKOUT,INDHOTEL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Stock to buy today: Indian Hotels Company (₹772)"
 BREAKOUT,APOLLO,EVENT_7D IN_NEWS,2026-10-24 Financial Results,,Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion | Apollo Micro Systems secures Make-II order for SAVIOR-ASW
-BREAKOUT,TIPSMUSIC,IN_NEWS,,,"TIPS Music zooms 10% to hit 52-wk high after Q2 nos, ₹6.50/share dividend | Earnings Beat: Here's What Tips Music Limited (NSE:TIPSMUSIC) Analysts Are Forecasting For"
+BREAKOUT,TIPSMUSIC,IN_NEWS,,,"TIPS Music zooms 10% to hit 52-wk high after Q2 nos, ₹6.50/share dividend | Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend"
 BREAKOUT,SKYGOLD,none,,,
 BREAKOUT,SHYAMMETL,IN_NEWS,,,"Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 1 | Shyam Metalics signs MoU for ₹50,000 crore steel complex"
 BREAKOUT,OAL,none,,,
@@ -19,9 +19,9 @@ PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"SBI Card ve
 PULLBACK,BHEL,IN_NEWS,,,Bharat Heavy Electricals Ltd. is Rated Buy
 PULLBACK,PAYTM,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
 PULLBACK,MRPL,IN_NEWS,,,"Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
-PULLBACK,ADANIPORTS,none,,,
-PULLBACK,MOTHERSON,none,,,
-PULLBACK,AUROPHARMA,IN_NEWS,,,What Aurobindo Pharma Holders Bought Into
+PULLBACK,ADANIPORTS,IN_NEWS,,,"Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength"
+PULLBACK,MOTHERSON,IN_NEWS,,,Samvardhana Motherson International Issues ₹250 Crore Commercial Paper with 87-Day Tenure
+PULLBACK,AUROPHARMA,IN_NEWS,,,What Aurobindo Pharma Holders Bought Into | US FDA Completes Inspection of Aurobindo Pharma's Eugia Unit with Four Observations
 PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,CARTRADE,none,,,
 PULLBACK,MOTISONS,none,,,
@@ -34,15 +34,15 @@ PULLBACK,AEQUS,none,,2026-10-17 Copy of Newspaper Publication,
 PULLBACK,PWL,none,,,
 PULLBACK,APLAPOLLO,EVENT_7D NEW_ANNOUNCEMENT,2026-10-26 Financial Results,2026-10-17 Board Meeting,
 PULLBACK,RAYMONDREL,IN_NEWS,,,Raymond Realty incorporates Ten X Mahalaxmi for redevelopment projects
-PULLBACK,BEML,IN_NEWS,,,BEML Land Assets Q1FY26 net loss widens to ₹47 lakh on tax hit
+PULLBACK,BEML,none,,,
 PULLBACK,LGEINDIA,IN_NEWS,,,"LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow | ""Creating a World Without Chores""... LG Electronics Unveils Its Vision for the Future of H"
 PULLBACK,MANINDS,none,,,
-PULLBACK,CUB,IN_NEWS,,,City Union Bank participates in Anand Rathi G-200 Summit in Mumbai
+PULLBACK,CUB,none,,,
 PULLBACK,LXCHEM,none,,,
 PULLBACK,GODREJAGRO,none,,,
 DIP,KRN,none,,,
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"YES Bank Q2 profit rises 65%; AT1 hit may risk 5,217 cr loss | YES Bank book value may fall up to 26% after SC ruling on AT-1 bonds"
-DIP,HDBFS,IN_NEWS,,,"Bonus issues, stock splits &amp; dividends: HDB Financial, IRFC, TechM among 19 stocks tur | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,Yes Bank stock rebounds after 17.5% crash in two sessions; Q2 profit jumps 65% but AT-1 bo | YES Bank book value may fall up to 26% after SC ruling on AT-1 bonds
+DIP,HDBFS,IN_NEWS,,,"Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s"
 DIP,SANGHVIMOV,IN_NEWS,,,Sanghvi Movers submits FY26 sustainability report with key ESG metrics
 DIP,ANANTRAJ,none,,,
 DIP,ARMANFIN,none,,,
