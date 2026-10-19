@@ -2,13 +2,13 @@ setup,symbol,flags,next_event,last_announcement,headlines
 BREAKOUT,HBLENGINE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Clarification,"​HBL Engineering among 4 stocks showing RSI trending up | HCL Tech, IHCL, Sagility, HBL Engineering among stocks to buy; check fresh target prices &"
 BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge | Up 38% in a month! PC Jeweller share price rallies 13% despite weak trend on D-Street | Ch
 BREAKOUT,HCLTECH,IN_NEWS,,,"HCL Technologies, Tech Mahindra overtake TCS in net hiring adds"
-BREAKOUT,INDHOTEL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks?"
-BREAKOUT,APOLLO,EVENT_7D IN_NEWS,2026-10-24 Financial Results,,Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion | Apollo Micro Systems secures Make-II order for SAVIOR-ASW
+BREAKOUT,INDHOTEL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term | Stock to buy today: Indian Hotels Company (₹772)
+BREAKOUT,APOLLO,EVENT_7D IN_NEWS,2026-10-24 Financial Results,,"Apollo Micro Systems publishes Q1FY27 results, reports ₹251.3 crore revenue | Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion"
 BREAKOUT,TIPSMUSIC,IN_NEWS,,,Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend
-BREAKOUT,SKYGOLD,none,,,
+BREAKOUT,SKYGOLD,IN_NEWS,,,Sky Gold And Diamonds Stock And 2 Other Indian Growth Stocks To Own
 BREAKOUT,SHYAMMETL,IN_NEWS,,,"Shyam Metalics And Energy Ltd. 52 Week High Streak Analysis | Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 1"
 BREAKOUT,OAL,none,,,
-BREAKOUT,ORIENTHOT,IN_NEWS,,,"Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Oriental Hotels Q2FY27 Results: Net profit down 8.2% to ₹1,162 lakh"
+BREAKOUT,ORIENTHOT,none,,,
 BREAKOUT,JUSTDIAL,RESULTS_SOON IN_NEWS,2026-10-19 Financial Results,,Just Dial shares skyrocket 13% as volume soars massively 115 times - More returns ahead or | Just Dial Share Price Rises 6.08%: Fundamentals and Sector
 BREAKOUT,SGMART,NEW_ANNOUNCEMENT,,2026-10-17 Board Meeting,
 BREAKOUT,MANOMAY,none,,,
@@ -38,12 +38,12 @@ PULLBACK,BEML,none,,,
 PULLBACK,LGEINDIA,IN_NEWS,,,"""Creating a World Without Chores""... LG Electronics Unveils Its Vision for the Future of H"
 PULLBACK,MANINDS,none,,,
 PULLBACK,CUB,none,,,
-PULLBACK,LXCHEM,none,,,
+PULLBACK,LXCHEM,IN_NEWS,,,CRISIL Downgrades Laxmi Organic Industries Long-Term Rating to AA-/Negative Amid Revenue D
 PULLBACK,GODREJAGRO,none,,,
 DIP,KRN,none,,,
 DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 "
 DIP,HDBFS,IN_NEWS,,,"Tech Mahindra, ICICI Lombard, HDB Financial: Top stocks to turn ex-dividend this week"
-DIP,SANGHVIMOV,IN_NEWS,,,Sanghvi Movers submits FY26 sustainability report with key ESG metrics
+DIP,SANGHVIMOV,none,,,
 DIP,ANANTRAJ,none,,,
 DIP,ARMANFIN,none,,,
 DIP,SENCO,IN_NEWS,,,Senco Gold clarifies sustainable EBITDA margin at 7.5-7.8% post Q1FY27 surge
