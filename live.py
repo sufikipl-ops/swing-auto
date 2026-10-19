@@ -26,7 +26,9 @@ BREADTH_SEC = float(os.environ.get('LIVE_BREADTH_SEC', '300'))   # live market b
 PREP_FROM, PREP_SEND = '14:30', '15:12'                          # 3:15 taiyari list: app me 2:30 se, Telegram 3:12 ke baad ek baar
 LIVE_MAX_CHARS = 44000
 INTRA_SEC = float(os.environ.get('LIVE_INTRA_SEC', '120'))      # chart ke live 1-min candles har 2 min (GitHub 'live-data' branch)
-INTRA_MAX = 60                                           # Apps Script 'Live' cell 45000 se bada nahi leta
+INTRA_MAX = 60
+INTRA_PRI, INTRA_BATCH = 12, 18     # har round: pehle 12 (locked + trades) hamesha, baaki me se 18 baari-baari
+INTRA_CACHE, INTRA_RR = {}, [0]                                           # Apps Script 'Live' cell 45000 se bada nahi leta
 
 
 def ist_now():
@@ -142,16 +144,28 @@ def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
     """Aaj ke 1-min candles (Angel getCandleData) -> GitHub 'live-data' branch (intra/SYM.json, har baar ek hi commit
     force-push: history nahi badhti, Pages build nahi hota). App raw.githubusercontent.com se padhta hai."""
     import subprocess
-    fr = now.strftime('%Y-%m-%d') + ' 09:15'; to = now.strftime('%Y-%m-%d %H:%M')
-    data, fail = {}, 0
-    for s in syms:
+    fr = now.strftime('%Y-%m-%d') + ' 09:15'; to = now.strftime('%Y-%m-%d %H:%M'); dstr = now.strftime('%Y-%m-%d')
+    for k in [k for k, v in INTRA_CACHE.items() if v['date'] != dstr]:
+        del INTRA_CACHE[k]
+    # Angel ek saath zyada maango to mana karta hai (rate limit): har round me priority (locked/trades) + baaki me se
+    # INTRA_BATCH round-robin; jo is round nahi aaya uska pichhla data rehta hai.
+    pri, rest = syms[:INTRA_PRI], [x for x in syms[INTRA_PRI:]]
+    st = INTRA_RR[0] % max(1, len(rest)); pick = pri + (rest[st:] + rest[:st])[:INTRA_BATCH]
+    INTRA_RR[0] = st + INTRA_BATCH
+    fail, got, err1 = 0, 0, ''
+    for s in pick:
         if s not in tokmap:
             continue
-        r = angel(key, '/rest/secure/angelbroking/historical/v1/getCandleData',
-                  {'exchange': 'NSE', 'symboltoken': tokmap[s], 'interval': 'ONE_MINUTE', 'fromdate': fr, 'todate': to}, jwt)
-        rows = (r.get('data') or []) if r.get('status') else None
+        rows = None
+        for attempt in range(3):
+            r = angel(key, '/rest/secure/angelbroking/historical/v1/getCandleData',
+                      {'exchange': 'NSE', 'symboltoken': tokmap[s], 'interval': 'ONE_MINUTE', 'fromdate': fr, 'todate': to}, jwt)
+            if r.get('status'):
+                rows = r.get('data') or []; break
+            err1 = err1 or str(r.get('message') or r.get('errorcode') or '')[:60]
+            time.sleep(1.5 * (attempt + 1))
         if rows is None:
-            fail += 1; time.sleep(1.0); continue
+            fail += 1; continue
         bars = []
         for c in rows:
             try:
@@ -160,10 +174,11 @@ def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
             except Exception:
                 pass
         if bars:
-            data[s] = bars
-        time.sleep(0.35)
+            INTRA_CACHE[s] = {'date': dstr, 'at': now.strftime('%H:%M'), 'bars': bars}; got += 1
+        time.sleep(0.6)
+    data = INTRA_CACHE
     if not data:
-        return 'intra: kuch nahi mila (%d fail)' % fail
+        return 'intra: kuch nahi mila (%d fail %s)' % (fail, err1)
     tok, repo = os.environ.get('GITHUB_TOKEN', ''), os.environ.get('GITHUB_REPOSITORY', '')
     if not (tok and repo):
         return 'intra: GITHUB_TOKEN nahi, push skip (%d stocks)' % len(data)
@@ -172,8 +187,8 @@ def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
     for f in os.listdir(os.path.join(d, 'intra')):
         os.remove(os.path.join(d, 'intra', f))
     at = now.strftime('%H:%M')
-    for s, bars in data.items():
-        json.dump({'date': now.strftime('%Y-%m-%d'), 'at': at, 'bars': bars}, open(os.path.join(d, 'intra', s + '.json'), 'w'), separators=(',', ':'))
+    for s, v in data.items():
+        json.dump(v, open(os.path.join(d, 'intra', s + '.json'), 'w'), separators=(',', ':'))
     json.dump({'date': now.strftime('%Y-%m-%d'), 'at': at, 'syms': sorted(data)}, open(os.path.join(d, 'intra', '_index.json'), 'w'))
     def g(*a):
         return subprocess.run(['git', '-C', d] + list(a), capture_output=True, text=True, timeout=120)
@@ -184,7 +199,7 @@ def push_intraday(url, pkey, key, jwt, tokmap, syms, now):
     p = g('push', '-q', '-f', os.environ.get('LIVE_DATA_REMOTE') or 'https://x-access-token:%s@github.com/%s.git' % (tok, repo), 'HEAD:live-data')
     g('branch', '-q', '-D', 'live-data'); g('branch', '-q', '-m', 'live-data')
     ok = p.returncode == 0
-    return 'intra %d stocks push=%s %s (%d fail)' % (len(data), ok, (p.stderr or '').replace(tok, '***')[:80] if not ok else '', fail)
+    return 'intra got %d/%d, total %d push=%s %s (%d fail %s)' % (got, len(pick), len(data), ok, (p.stderr or '').replace(tok, '***')[:80] if not ok else '', fail, err1)
 
 
 def prep_text(pr, bh, base_reg, now):
