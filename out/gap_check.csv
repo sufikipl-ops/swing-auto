@@ -1,32 +1,42 @@
 setup,symbol,status,prev_close,trigger,stop_low5,open,gap_pct,ltp,vwap,day_high,note
-PULLBACK,AEQUS,WAIT,259.2,265.92,254.6,258.0,-0.46,261.85,261.77,264.95,1.55% below trigger
-PULLBACK,ATHERENERG,WAIT,1470.0,1479.18,1368.6,1474.4,0.3,1466.0,1467.6,1474.9,0.90% below trigger; below VWAP
-PULLBACK,CARTRADE,WAIT,2964.0,3135.03,2814.6,2960.0,-0.13,2909.5,2921.64,2963.5,7.75% below trigger; below VWAP
-BREAKOUT,HCLTECH,WAIT,1360.0,1377.28,1175.0,1360.0,0.0,1372.2,1364.74,1377.0,0.37% below trigger
-PULLBACK,JGCHEM,WAIT,629.45,695.59,612.0,639.0,1.52,640.05,635.21,644.0,8.68% below trigger
-PULLBACK,RRKABEL,WAIT,2603.9,2657.65,2555.0,2607.0,0.12,2599.6,2592.86,2615.0,2.23% below trigger
-PULLBACK,STYLEBAAZA,WAIT,384.05,405.4,366.15,384.05,0.0,397.75,394.75,402.0,1.92% below trigger
-BREAKOUT,AEROPLANE,RUNAWAY,232.15,234.22,213.19,232.19,0.02,239.89,238.08,241.0,LTP >1.5% above trigger
-BREAKOUT,SKYGOLD,RUNAWAY,1001.45,1022.72,868.1,1010.0,0.85,1044.35,1037.72,1054.3,LTP >1.5% above trigger
-PULLBACK,APLAPOLLO,NO_DATA,2139.0,2172.07,2026.2,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,AUROPHARMA,NO_DATA,1677.9,1685.98,1633.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,BHEL,NO_DATA,434.25,453.2,420.65,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-BREAKOUT,BLUSPRING,NO_DATA,172.68,182.08,136.3,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,CHENNPETRO,SKIP_STOP_HIT,1444.0,1561.56,1426.0,1444.6,0.04,1405.7,1416.99,1448.3,price at/below stop; below VWAP
-PULLBACK,EDELWEISS,NO_DATA,134.47,135.54,126.33,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,ETERNAL,NO_DATA,323.0,323.32,313.6,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,FLUOROCHEM,NO_DATA,4512.5,4654.65,4408.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,GESHIP,SKIP_STOP_HIT,1484.1,1546.54,1468.9,1486.3,0.15,1464.8,1470.49,1492.0,price at/below stop; below VWAP
-PULLBACK,HERITGFOOD,NO_DATA,397.65,429.68,383.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,IPCALAB,NO_DATA,1913.1,1931.93,1861.4,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-BREAKOUT,KRISHANA,NO_DATA,211.95,214.2,184.21,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,MEESHO,NO_DATA,223.8,228.98,222.22,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,MOTISONS,NO_DATA,17.44,18.33,17.11,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,MRPL,NO_DATA,174.79,191.68,170.5,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,PAISALO,NO_DATA,81.08,83.58,79.64,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,PNB,NO_DATA,115.05,118.91,114.63,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,RADICO,NO_DATA,4449.0,4612.31,4319.1,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,REDINGTON,NO_DATA,392.1,403.85,377.95,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,SEDEMAC,NO_DATA,3190.1,3223.22,3104.6,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK,SONACOMS,NO_DATA,801.0,814.86,774.5,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
-BREAKOUT,SOUTHBANK,NO_DATA,51.48,52.13,46.15,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,ADANIPORTS,TRIGGERED,1750.8,1759.96,1725.1,1763.8,0.74,1761.2,1758.13,1770.0,
+PULLBACK,BEML,TRIGGERED,1968.5,1983.98,1895.0,1987.0,0.94,1985.0,1988.63,2004.9,below VWAP
+PULLBACK,MRPL,TRIGGERED,172.71,176.68,169.5,173.41,0.41,174.18,174.26,177.34,below VWAP
+PREBREAK,NYKAA,TRIGGERED,345.0,346.8,331.5,346.8,0.52,345.25,344.52,346.8,
+BREAKOUT,SHYAMMETL,TRIGGERED,1198.5,1224.22,1048.1,1200.2,0.14,1223.5,1208.39,1225.2,
+BREAKOUT,SKYGOLD,TRIGGERED,1060.6,1075.77,932.05,1075.0,1.36,1056.0,1065.25,1081.4,below VWAP
+PULLBACK,GODREJAGRO,WAIT,632.85,636.64,603.5,627.05,-0.92,631.75,627.71,632.1,0.77% below trigger
+BREAKOUT,HBLENGINE,WAIT,833.15,842.84,701.0,827.4,-0.69,805.55,812.33,832.85,4.63% below trigger; below VWAP
+PULLBACK,KTKBANK,WAIT,329.85,338.94,324.5,328.0,-0.56,330.25,330.0,333.85,2.63% below trigger
+PULLBACK,LGEINDIA,WAIT,1720.0,1732.13,1707.4,1717.0,-0.17,1712.5,1707.06,1717.6,1.15% below trigger
+PULLBACK,MOTHERSON,WAIT,160.0,162.93,152.77,160.39,0.24,159.48,159.33,161.22,2.16% below trigger
+PULLBACK,PATANJALI,WAIT,367.3,368.62,356.2,367.0,-0.08,363.75,363.19,367.0,1.34% below trigger
+PULLBACK,RADICO,WAIT,4473.4,4491.99,4319.1,4473.4,0.0,4487.3,4458.64,4489.4,0.10% below trigger
+PREBREAK,TRENT,WAIT,2958.7,3007.7,2901.5,2958.0,-0.02,2938.0,2931.07,2958.0,2.37% below trigger
+BREAKOUT,JUSTDIAL,RUNAWAY,713.25,720.42,644.15,716.45,0.45,747.1,733.38,748.6,LTP >1.5% above trigger
+BREAKOUT,PCJEWELLER,RUNAWAY,16.28,17.17,13.81,16.91,3.87,17.95,17.51,17.98,LTP >1.5% above trigger
+PULLBACK,AEQUS,NO_DATA,262.2,265.52,254.6,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,APLAPOLLO,NO_DATA,2152.7,2166.16,2109.4,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,APOLLO,NO_DATA,429.0,439.29,388.75,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,AUROPHARMA,NO_DATA,1666.9,1683.38,1647.1,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,BHEL,NO_DATA,434.6,439.94,426.15,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,CARTRADE,NO_DATA,3011.4,3028.02,2881.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,CUB,NO_DATA,227.38,229.16,222.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,ETERNAL,NO_DATA,325.3,327.78,313.6,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,HCLTECH,NO_DATA,1380.0,1386.18,1206.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,INDHOTEL,NO_DATA,772.1,776.93,708.1,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,LXCHEM,NO_DATA,179.02,182.39,173.5,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,MANINDS,NO_DATA,865.35,878.88,832.15,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,MANOMAY,NO_DATA,249.39,251.25,236.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,MOTISONS,NO_DATA,17.58,18.23,17.11,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,OAL,NO_DATA,629.55,635.63,500.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,ORIENTHOT,NO_DATA,151.8,154.07,138.15,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,PAISALO,NO_DATA,81.5,82.59,79.77,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,PAYTM,NO_DATA,1693.5,1720.72,1571.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,PWL,NO_DATA,133.64,137.8,132.31,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,RAYMONDREL,NO_DATA,652.55,670.62,644.15,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,SGMART,NO_DATA,798.2,822.82,751.0,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,SONACOMS,NO_DATA,800.0,808.96,782.4,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,TECHM,NO_DATA,1790.0,1798.8,1442.5,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT,TIPSMUSIC,NO_DATA,746.9,758.76,642.75,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK,WELSPUNLIV,NO_DATA,219.3,226.94,216.1,,,,,,no candles yet API: HTTP 403 Access denied because of exceeding access rate
