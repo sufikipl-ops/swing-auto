@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-19 12:23 IST
+NEWS/EVENTS CHECK 2026-10-19 12:45 IST
 screen data date: 2026-10-16 | candidates: 41
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 53 symbols
@@ -10,10 +10,10 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 57 of 57 symbols, 139 headlines
+Google News: 57 of 57 symbols, 125 headlines
 PDF saar: 0 naye bane, 0 nahi bane, 22 pehle ke reuse (AI key: nahi)
 announcements.json: 20 symbols with announcements in last 3 days
-HBLENGINE    BREAKOUT   IN_NEWS                            |  |  | ​HBL Engineering among 4 stocks showing RSI trending up | HBL Engineering among 4 stocks showing RSI trending up
+HBLENGINE    BREAKOUT   IN_NEWS                            |  |  | ​HBL Engineering among 4 stocks showing RSI trending up | HCL Tech, IHCL, Sagility, HBL Engineering among stocks to buy; check fresh target prices &
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge | Up 38% in a month! PC Jeweller share price rallies 13% despite weak trend on D-Street | Ch
 INDHOTEL     BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks?
 APOLLO       BREAKOUT   EVENT_7D IN_NEWS                   | 2026-10-24 Financial Results |  | Apollo Micro Systems publishes Q1FY27 results, reports ₹251.3 crore revenue | Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion
@@ -22,24 +22,27 @@ SHYAMMETL    BREAKOUT   IN_NEWS                            |  |  | Shyam Metalic
 ORIENTHOT    BREAKOUT   IN_NEWS                            |  |  | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Oriental Hotels Q2FY27 Results: Net profit down 8.2% to ₹1,162 lakh
 JUSTDIAL     BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-19 Financial Results |  | Just Dial Share Price Rises 6.08%: Fundamentals and Sector
 SGMART       BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-17 Board Meeting | 
-TECHM        BREAKOUT   IN_NEWS                            |  |  | How to trade Tech Mahindra shares after 22% rally in 4 days? Technical expert weighs in | Tech Mahindra Share Price Live Updates: Tech Mahindra's Price Movement Today
+TECHM        BREAKOUT   IN_NEWS                            |  |  | How to trade Tech Mahindra shares after 22% rally in 4 days? Technical expert weighs in | TCS, HCL Tech, Wipro, Infosys to Tech Mahindra — experts bullish on IT shares after Accent
 TRENT        PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-18 Resignation | Trent NSE:TRENT Physical Share Transfer Window 2026 | Harish Bhat resigns from Trent board after over 12 years
 ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Q2 Results This Week: Bajaj Finance, Swiggy, Eternal among 100 companies report this trunc | SBI Card vests 187,164 units as Eternal launch nears: SBI Card stock
 BHEL         PULLBACK   IN_NEWS                            |  |  | BHEL Shares Fall 5% Despite Strong Q2 Profit Growth
 PAYTM        PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
 MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru
 ADANIPORTS   PULLBACK   IN_NEWS                            |  |  | Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength
-MOTHERSON    PULLBACK   IN_NEWS                            |  |  | Samvardhana Motherson International Issues ₹250 Crore Commercial Paper with 87-Day Tenure
 AUROPHARMA   PULLBACK   IN_NEWS                            |  |  | What Aurobindo Pharma Holders Bought Into | US FDA Completes Inspection of Aurobindo Pharma's Eugia Unit with Four Observations
 SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results |  | 
 APLAPOLLO    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-26 Financial Results | 2026-10-17 Board Meeting | 
 LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics India receives ₹153.58 crore customs show cause notice
 YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 
-HDBFS        DIP        IN_NEWS                            |  |  | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru
+HDBFS        DIP        IN_NEWS                            |  |  | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s
 SANGHVIMOV   DIP        IN_NEWS                            |  |  | Sanghvi Movers submits FY26 sustainability report with key ESG metrics
+SENCO        DIP        IN_NEWS                            |  |  | Senco Gold clarifies sustainable EBITDA margin at 7.5-7.8% post Q1FY27 surge
+CHEMPLASTS   DIP        IN_NEWS                            |  |  | Chemplast Sanmar Ltd is Rated Strong Sell
 PASHUPATI    LOCKED     NEW_ANNOUNCEMENT                   |  | 2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-Symbols with no flags: 27. Top market headlines:
+Symbols with no flags: 26. Top market headlines:
+  [ET Markets] HFCL Q2 Results: Profit zooms 448% YoY to Rs 394 crore; stock hits 5% upper circuit
+  [ET Markets] HDFC Bank vs ICICI Bank: One has the growth, the other has the valuation edge. Which stock to buy?
   [ET Markets] How to trade Tech Mahindra shares after 22% rally in 4 days? Technical expert weighs in
   [ET Markets] PSU bank stocks soar up to 8%, but HDFC, Axis and other private lenders fall up to 5% after Q2 results. Why th
   [ET Markets] PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise target prices
@@ -53,6 +56,4 @@ Symbols with no flags: 27. Top market headlines:
   [ET Markets] Bulls lose ground! Sensex sinks over 700 points, Nifty slips below 22,950; 5 key triggers behind selloff
   [ET Markets] Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5,217 crore. What lie
   [ET Markets] HDFC Bank shares fall 2% after Q2 results. What are Jefferies, Motilal Oswal analysts saying?
-  [ET Markets] Urban Company shares slide 7% as Q2 net loss triples YoY on InstaHelp burn. Should you buy, sell or hold?
-  [ET Markets] ICICI Bank share price target after Q2 results: What are Jefferies, other analysts saying?
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.

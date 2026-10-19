@@ -1,5 +1,5 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,HBLENGINE,IN_NEWS,,,​HBL Engineering among 4 stocks showing RSI trending up | HBL Engineering among 4 stocks showing RSI trending up
+BREAKOUT,HBLENGINE,IN_NEWS,,,"​HBL Engineering among 4 stocks showing RSI trending up | HCL Tech, IHCL, Sagility, HBL Engineering among stocks to buy; check fresh target prices &"
 BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge | Up 38% in a month! PC Jeweller share price rallies 13% despite weak trend on D-Street | Ch
 BREAKOUT,HCLTECH,none,,,
 BREAKOUT,INDHOTEL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks?"
@@ -12,7 +12,7 @@ BREAKOUT,ORIENTHOT,IN_NEWS,,,"Indian Hotels, Oriental Hotels rally up to 6%; wha
 BREAKOUT,JUSTDIAL,RESULTS_SOON IN_NEWS,2026-10-19 Financial Results,,Just Dial Share Price Rises 6.08%: Fundamentals and Sector
 BREAKOUT,SGMART,NEW_ANNOUNCEMENT,,2026-10-17 Board Meeting,
 BREAKOUT,MANOMAY,none,,,
-BREAKOUT,TECHM,IN_NEWS,,,How to trade Tech Mahindra shares after 22% rally in 4 days? Technical expert weighs in | Tech Mahindra Share Price Live Updates: Tech Mahindra's Price Movement Today
+BREAKOUT,TECHM,IN_NEWS,,,"How to trade Tech Mahindra shares after 22% rally in 4 days? Technical expert weighs in | TCS, HCL Tech, Wipro, Infosys to Tech Mahindra — experts bullish on IT shares after Accent"
 PREBREAK,TRENT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-18 Resignation,Trent NSE:TRENT Physical Share Transfer Window 2026 | Harish Bhat resigns from Trent board after over 12 years
 PREBREAK,NYKAA,none,,,
 PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Q2 Results This Week: Bajaj Finance, Swiggy, Eternal among 100 companies report this trunc | SBI Card vests 187,164 units as Eternal launch nears: SBI Card stock"
@@ -20,7 +20,7 @@ PULLBACK,BHEL,IN_NEWS,,,BHEL Shares Fall 5% Despite Strong Q2 Profit Growth
 PULLBACK,PAYTM,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
 PULLBACK,MRPL,IN_NEWS,,,"Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
 PULLBACK,ADANIPORTS,IN_NEWS,,,"Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength"
-PULLBACK,MOTHERSON,IN_NEWS,,,Samvardhana Motherson International Issues ₹250 Crore Commercial Paper with 87-Day Tenure
+PULLBACK,MOTHERSON,none,,,
 PULLBACK,AUROPHARMA,IN_NEWS,,,What Aurobindo Pharma Holders Bought Into | US FDA Completes Inspection of Aurobindo Pharma's Eugia Unit with Four Observations
 PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,CARTRADE,none,,,
@@ -42,12 +42,12 @@ PULLBACK,LXCHEM,none,,,
 PULLBACK,GODREJAGRO,none,,,
 DIP,KRN,none,,,
 DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 "
-DIP,HDBFS,IN_NEWS,,,"Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
+DIP,HDBFS,IN_NEWS,,,"Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s"
 DIP,SANGHVIMOV,IN_NEWS,,,Sanghvi Movers submits FY26 sustainability report with key ESG metrics
 DIP,ANANTRAJ,none,,,
 DIP,ARMANFIN,none,,,
-DIP,SENCO,none,,,
-DIP,CHEMPLASTS,none,,,
+DIP,SENCO,IN_NEWS,,,Senco Gold clarifies sustainable EBITDA margin at 7.5-7.8% post Q1FY27 surge
+DIP,CHEMPLASTS,IN_NEWS,,,Chemplast Sanmar Ltd is Rated Strong Sell
 DIP,PREMIERPOL,none,,,
 DIP,KMEW,none,,,
 LOCKED,PASHUPATI,NEW_ANNOUNCEMENT,,"2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018",
