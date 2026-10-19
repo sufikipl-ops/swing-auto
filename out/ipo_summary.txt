@@ -1,65 +1,65 @@
 NAYE LISTING STUDY (2026-10-19): data 2022-09-12 se 2026-10-16, 3456 stocks
 Naye listing mile: 1294. R = kharcha (0.25%) kaat ke. "saal+" = kitne saal (15+ trade wale) me avg plus.
-setup       exit           market       n  jeet     avgR     BASE    farak  saal+
-BASE        2ATR/5d        ALL      24029   42%   -0.235   -0.235   +0.000  0/5
-BASE        2ATR/5d        MIXED     7446   40%   -0.130   -0.130   +0.000  1/5
-BASE        2ATR/5d        STRONG    8926   42%   -0.470   -0.470   +0.000  1/4
-BASE        2ATR/5d        VWEAK     2694   46%   -0.041   -0.041   +0.000  2/4
-BASE        2ATR/5d        WEAK      4963   43%   -0.075   -0.075   +0.000  1/4
-BELOW_LIST  2ATR/5d        ALL       3623   40%   -0.068   -0.235   +0.167  2/4
-BELOW_LIST  2ATR/5d        MIXED     1093   36%   -0.123   -0.130   +0.007  1/4
-BELOW_LIST  2ATR/5d        STRONG     715   36%   -0.055   -0.470   +0.415  0/4
-BELOW_LIST  2ATR/5d        VWEAK      891   47%   +0.002   -0.041   +0.044  3/4
-BELOW_LIST  2ATR/5d        WEAK       924   40%   -0.079   -0.075   -0.004  1/4
-DROP8       2ATR/5d        ALL       1067   51%   +0.055   -0.235   +0.291  4/4
-DROP8       2ATR/5d        MIXED      242   45%   -0.076   -0.130   +0.054  0/3
-DROP8       2ATR/5d        STRONG     184   54%   +0.139   -0.470   +0.609  3/4
-DROP8       2ATR/5d        VWEAK      324   53%   +0.116   -0.041   +0.158  3/3
-DROP8       2ATR/5d        WEAK       317   51%   +0.045   -0.075   +0.120  3/4
-NEAR_LOW    2ATR/5d        ALL       2845   38%   -0.742   -0.235   -0.507  0/4
-NEAR_LOW    2ATR/5d        MIXED      876   36%   -0.430   -0.130   -0.300  0/4
-NEAR_LOW    2ATR/5d        STRONG     937   35%   -1.698   -0.470   -1.228  1/4
-NEAR_LOW    2ATR/5d        VWEAK      386   46%   -0.020   -0.041   +0.021  1/3
-NEAR_LOW    2ATR/5d        WEAK       646   38%   -0.211   -0.075   -0.136  0/4
-NEW_LOW     2ATR/5d        ALL       1114   50%   +0.032   -0.235   +0.267  4/4
-NEW_LOW     2ATR/5d        MIXED      308   44%   -0.050   -0.130   +0.080  1/4
-NEW_LOW     2ATR/5d        STRONG     243   46%   -0.009   -0.470   +0.461  2/4
-NEW_LOW     2ATR/5d        VWEAK      276   59%   +0.157   -0.041   +0.199  3/3
-NEW_LOW     2ATR/5d        WEAK       287   51%   +0.033   -0.075   +0.108  2/4
-REV_LOW     2ATR/5d        ALL       1127   39%   -0.579   -0.235   -0.344  0/4
-REV_LOW     2ATR/5d        MIXED      369   36%   -0.262   -0.130   -0.132  0/3
-REV_LOW     2ATR/5d        STRONG     323   34%   -1.583   -0.470   -1.113  1/4
-REV_LOW     2ATR/5d        VWEAK      184   45%   -0.118   -0.041   -0.077  0/3
-REV_LOW     2ATR/5d        WEAK       251   45%   -0.089   -0.075   -0.015  1/4
-BASE        LOWSL/10d/T2R  ALL      11708   35%   -0.124   -0.124   +0.000  1/5
-BASE        LOWSL/10d/T2R  MIXED     3777   33%   -0.152   -0.152   +0.000  1/5
-BASE        LOWSL/10d/T2R  STRONG    3746   37%   -0.069   -0.069   +0.000  1/4
-BASE        LOWSL/10d/T2R  VWEAK     1628   39%   -0.068   -0.068   +0.000  2/4
-BASE        LOWSL/10d/T2R  WEAK      2557   33%   -0.197   -0.197   +0.000  0/4
-BELOW_LIST  LOWSL/10d/T2R  ALL       2940   31%   -0.203   -0.124   -0.079  0/4
-BELOW_LIST  LOWSL/10d/T2R  MIXED      899   31%   -0.238   -0.152   -0.087  1/4
-BELOW_LIST  LOWSL/10d/T2R  STRONG     524   29%   -0.263   -0.069   -0.193  0/4
-BELOW_LIST  LOWSL/10d/T2R  VWEAK      723   36%   -0.080   -0.068   -0.012  2/3
-BELOW_LIST  LOWSL/10d/T2R  WEAK       794   29%   -0.234   -0.197   -0.037  1/4
-DROP8       LOWSL/10d/T2R  ALL        686   37%   -0.086   -0.124   +0.037  1/4
-DROP8       LOWSL/10d/T2R  MIXED      149   39%   -0.073   -0.152   +0.079  2/3
-DROP8       LOWSL/10d/T2R  STRONG      95   36%   -0.088   -0.069   -0.018  2/4
-DROP8       LOWSL/10d/T2R  VWEAK      248   40%   +0.030   -0.068   +0.098  2/3
-DROP8       LOWSL/10d/T2R  WEAK       194   31%   -0.244   -0.197   -0.047  0/4
-NEAR_LOW    LOWSL/10d/T2R  ALL       2854   32%   -0.173   -0.124   -0.049  0/4
-NEAR_LOW    LOWSL/10d/T2R  MIXED      878   28%   -0.242   -0.152   -0.090  1/4
-NEAR_LOW    LOWSL/10d/T2R  STRONG     943   32%   -0.137   -0.069   -0.068  1/4
-NEAR_LOW    LOWSL/10d/T2R  VWEAK      386   38%   -0.036   -0.068   +0.032  1/3
-NEAR_LOW    LOWSL/10d/T2R  WEAK       647   32%   -0.212   -0.197   -0.015  0/4
-NEW_LOW     LOWSL/10d/T2R  ALL       1098   32%   -0.184   -0.124   -0.060  1/4
-NEW_LOW     LOWSL/10d/T2R  MIXED      306   28%   -0.291   -0.152   -0.139  1/4
-NEW_LOW     LOWSL/10d/T2R  STRONG     239   31%   -0.226   -0.069   -0.157  2/4
-NEW_LOW     LOWSL/10d/T2R  VWEAK      273   37%   -0.053   -0.068   +0.015  1/3
-NEW_LOW     LOWSL/10d/T2R  WEAK       280   32%   -0.158   -0.197   +0.039  2/4
-REV_LOW     LOWSL/10d/T2R  ALL       1103   34%   -0.119   -0.124   +0.004  1/4
-REV_LOW     LOWSL/10d/T2R  MIXED      362   31%   -0.169   -0.152   -0.017  0/3
-REV_LOW     LOWSL/10d/T2R  STRONG     322   38%   -0.056   -0.069   +0.014  1/4
-REV_LOW     LOWSL/10d/T2R  VWEAK      174   35%   -0.157   -0.068   -0.089  1/3
-REV_LOW     LOWSL/10d/T2R  WEAK       245   33%   -0.103   -0.197   +0.094  1/4
+setup       exit           market       n  jeet     avgR     BASE    farak    avg%  saal+
+BASE        2ATR/5d        ALL      23140   42%   -0.057   -0.057   +0.000  -0.46%  1/5
+BASE        2ATR/5d        MIXED     7142   40%   -0.100   -0.100   +0.000  -0.76%  1/5
+BASE        2ATR/5d        STRONG    8558   41%   -0.034   -0.034   +0.000  -0.27%  2/4
+BASE        2ATR/5d        VWEAK     2613   45%   -0.040   -0.040   +0.000  -0.34%  1/4
+BASE        2ATR/5d        WEAK      4827   43%   -0.044   -0.044   +0.000  -0.42%  2/4
+BELOW_LIST  2ATR/5d        ALL       3566   40%   -0.070   -0.057   -0.013  -0.69%  2/4
+BELOW_LIST  2ATR/5d        MIXED     1074   36%   -0.122   -0.100   -0.021  -1.26%  1/4
+BELOW_LIST  2ATR/5d        STRONG     696   35%   -0.067   -0.034   -0.033  -0.62%  0/4
+BELOW_LIST  2ATR/5d        VWEAK      886   47%   +0.003   -0.040   +0.042  -0.02%  3/4
+BELOW_LIST  2ATR/5d        WEAK       910   40%   -0.083   -0.044   -0.038  -0.73%  1/4
+DROP8       2ATR/5d        ALL        973   51%   +0.057   -0.057   +0.115  +0.81%  4/4
+DROP8       2ATR/5d        MIXED      216   45%   -0.066   -0.100   +0.034  -0.99%  0/3
+DROP8       2ATR/5d        STRONG     153   53%   +0.119   -0.034   +0.153  +1.56%  2/3
+DROP8       2ATR/5d        VWEAK      315   54%   +0.119   -0.040   +0.158  +1.74%  3/3
+DROP8       2ATR/5d        WEAK       289   52%   +0.050   -0.044   +0.095  +0.75%  3/4
+NEAR_LOW    2ATR/5d        ALL       2659   37%   -0.101   -0.057   -0.043  -0.69%  0/4
+NEAR_LOW    2ATR/5d        MIXED      823   36%   -0.173   -0.100   -0.073  -1.10%  0/4
+NEAR_LOW    2ATR/5d        STRONG     855   35%   -0.072   -0.034   -0.037  -0.54%  2/4
+NEAR_LOW    2ATR/5d        VWEAK      366   46%   -0.000   -0.040   +0.039  +0.12%  1/3
+NEAR_LOW    2ATR/5d        WEAK       615   38%   -0.104   -0.044   -0.060  -0.85%  0/4
+NEW_LOW     2ATR/5d        ALL        993   50%   +0.035   -0.057   +0.092  +0.65%  4/4
+NEW_LOW     2ATR/5d        MIXED      269   43%   -0.038   -0.100   +0.062  -0.39%  0/3
+NEW_LOW     2ATR/5d        STRONG     194   44%   -0.023   -0.034   +0.011  +0.22%  3/4
+NEW_LOW     2ATR/5d        VWEAK      266   59%   +0.171   -0.040   +0.211  +2.22%  3/3
+NEW_LOW     2ATR/5d        WEAK       264   51%   +0.014   -0.044   +0.058  +0.46%  2/4
+REV_LOW     2ATR/5d        ALL       1015   39%   -0.084   -0.057   -0.027  -0.57%  1/4
+REV_LOW     2ATR/5d        MIXED      327   35%   -0.118   -0.100   -0.017  -0.79%  0/3
+REV_LOW     2ATR/5d        STRONG     279   35%   -0.089   -0.034   -0.055  -0.52%  2/4
+REV_LOW     2ATR/5d        VWEAK      173   45%   -0.079   -0.040   -0.039  -0.73%  1/3
+REV_LOW     2ATR/5d        WEAK       236   44%   -0.037   -0.044   +0.008  -0.20%  2/4
+BASE        LOWSL/10d/T2R  ALL      10991   35%   -0.133   -0.133   +0.000  -0.82%  1/5
+BASE        LOWSL/10d/T2R  MIXED     3535   33%   -0.158   -0.158   +0.000  -0.96%  1/5
+BASE        LOWSL/10d/T2R  STRONG    3443   37%   -0.087   -0.087   +0.000  -0.43%  1/4
+BASE        LOWSL/10d/T2R  VWEAK     1562   38%   -0.070   -0.070   +0.000  -0.51%  2/4
+BASE        LOWSL/10d/T2R  WEAK      2451   33%   -0.203   -0.203   +0.000  -1.37%  0/4
+BELOW_LIST  LOWSL/10d/T2R  ALL       2888   31%   -0.201   -0.133   -0.068  -1.26%  0/4
+BELOW_LIST  LOWSL/10d/T2R  MIXED      881   31%   -0.233   -0.158   -0.075  -1.43%  1/4
+BELOW_LIST  LOWSL/10d/T2R  STRONG     507   29%   -0.277   -0.087   -0.189  -1.37%  0/4
+BELOW_LIST  LOWSL/10d/T2R  VWEAK      719   36%   -0.079   -0.070   -0.009  -0.73%  1/3
+BELOW_LIST  LOWSL/10d/T2R  WEAK       781   29%   -0.230   -0.203   -0.027  -1.46%  1/4
+DROP8       LOWSL/10d/T2R  ALL        602   38%   -0.067   -0.133   +0.066  -0.17%  1/4
+DROP8       LOWSL/10d/T2R  MIXED      126   42%   -0.012   -0.158   +0.147  -0.24%  2/3
+DROP8       LOWSL/10d/T2R  STRONG      67   33%   -0.213   -0.087   -0.126  -0.47%  0/3
+DROP8       LOWSL/10d/T2R  VWEAK      239   41%   +0.046   -0.070   +0.116  +0.52%  2/3
+DROP8       LOWSL/10d/T2R  WEAK       170   32%   -0.210   -0.203   -0.007  -0.97%  1/4
+NEAR_LOW    LOWSL/10d/T2R  ALL       2659   31%   -0.176   -0.133   -0.042  -0.68%  0/4
+NEAR_LOW    LOWSL/10d/T2R  MIXED      823   28%   -0.233   -0.158   -0.075  -0.94%  0/4
+NEAR_LOW    LOWSL/10d/T2R  STRONG     855   31%   -0.156   -0.087   -0.069  -0.54%  1/4
+NEAR_LOW    LOWSL/10d/T2R  VWEAK      366   38%   -0.029   -0.070   +0.040  -0.22%  1/3
+NEAR_LOW    LOWSL/10d/T2R  WEAK       615   31%   -0.212   -0.203   -0.009  -0.83%  0/4
+NEW_LOW     LOWSL/10d/T2R  ALL        985   32%   -0.170   -0.133   -0.037  -0.31%  1/4
+NEW_LOW     LOWSL/10d/T2R  MIXED      269   29%   -0.264   -0.158   -0.106  -0.69%  0/3
+NEW_LOW     LOWSL/10d/T2R  STRONG     193   29%   -0.278   -0.087   -0.190  -0.73%  1/4
+NEW_LOW     LOWSL/10d/T2R  VWEAK      263   38%   -0.037   -0.070   +0.033  +0.40%  1/3
+NEW_LOW     LOWSL/10d/T2R  WEAK       260   33%   -0.129   -0.203   +0.074  -0.33%  2/4
+REV_LOW     LOWSL/10d/T2R  ALL        991   33%   -0.136   -0.133   -0.003  -0.82%  1/4
+REV_LOW     LOWSL/10d/T2R  MIXED      319   28%   -0.213   -0.158   -0.054  -1.17%  0/3
+REV_LOW     LOWSL/10d/T2R  STRONG     277   37%   -0.063   -0.087   +0.024  -0.39%  1/4
+REV_LOW     LOWSL/10d/T2R  VWEAK      165   36%   -0.136   -0.070   -0.066  -0.82%  2/3
+REV_LOW     LOWSL/10d/T2R  WEAK       230   32%   -0.119   -0.203   +0.084  -0.85%  1/4
 
-PASS (n>=100, avgR>+0.05, BASE se 0.1R+ behtar, zyada saal plus): DROP8 2ATR/5d ALL +0.055 (n 1067), DROP8 2ATR/5d STRONG +0.139 (n 184), DROP8 2ATR/5d VWEAK +0.116 (n 324), NEW_LOW 2ATR/5d VWEAK +0.157 (n 276)
+PASS (n>=100, avgR>+0.05, BASE se 0.1R+ behtar, zyada saal plus): DROP8 2ATR/5d ALL +0.057 (n 973), DROP8 2ATR/5d STRONG +0.119 (n 153), DROP8 2ATR/5d VWEAK +0.119 (n 315), NEW_LOW 2ATR/5d VWEAK +0.171 (n 266)
