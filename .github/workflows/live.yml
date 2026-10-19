@@ -9,8 +9,15 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: "40 3 * * 1-5"   # 9:10 AM IST se 3:05 PM tak
-    - cron: "25 9 * * 1-5"   # 2:55 PM IST se 3:32 PM tak (GitHub job 6 ghante se zyada nahi chalta)
+    # GitHub ke schedule kabhi late/skip ho jaate hain, isliye kai baar. Ek run chal raha ho to agla 'pending' rehta hai
+    # (concurrency) aur pehla khatam hote hi shuru hota hai; market band ke baad shuru hua run turant band ho jaata hai.
+    - cron: "40 3 * * 1-5"   # 9:10 IST
+    - cron: "52 3 * * 1-5"   # 9:22 IST (backup)
+    - cron: "7 4 * * 1-5"    # 9:37 IST (backup)
+    - cron: "33 4 * * 1-5"   # 10:03 IST (backup)
+    - cron: "17 5 * * 1-5"   # 10:47 IST (backup)
+    - cron: "13 6 * * 1-5"   # 11:43 IST (backup)
+    - cron: "25 9 * * 1-5"   # 2:55 IST: 6 ghante wali limit ke baad 3:32 tak
 permissions:
   contents: write
 concurrency:
@@ -28,7 +35,7 @@ jobs:
       - name: Run live feed
         run: python live.py
         env:
-          LIVE_END_IST: ${{ github.event.schedule == '40 3 * * 1-5' && '15:05' || '15:32' }}
+          LIVE_END_IST: '15:32'
           TEST_ALERT: ${{ inputs.test_alert && '1' || '' }}
           ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
           ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
