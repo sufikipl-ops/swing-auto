@@ -23,7 +23,7 @@ if not PAGES_BASE and os.environ.get('GITHUB_REPOSITORY'):
     PAGES_BASE = 'https://%s.github.io/%s/' % (_o.lower(), _r)
 ALERTS_ON = os.environ.get('WATCH_ALERTS', '1') != '0'
 BREADTH_SEC = float(os.environ.get('LIVE_BREADTH_SEC', '300'))   # live market breadth har 5 min (~1100 stock, ~25 sec lagte hain)
-PREP_FROM, PREP_SEND = '14:30', '15:12'                          # 3:15 taiyari list: app me 2:30 se, Telegram 3:12 ke baad ek baar
+PREP_FROM, PREP_SEND = '09:20', '15:12'                          # live taiyari list: app me poore din (har breadth round), Telegram 3:12 ke baad ek baar
 LIVE_MAX_CHARS = 44000
 INTRA_SEC = float(os.environ.get('LIVE_INTRA_SEC', '120'))      # chart ke live 1-min candles har 2 min (GitHub 'live-data' branch)
 INTRA_MAX = 60
