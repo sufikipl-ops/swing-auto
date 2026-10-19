@@ -45,12 +45,13 @@ def rsi14(cl):
 
 
 data = collections.defaultdict(dict)
+data_be = collections.defaultdict(dict)
 alld = set()
 for f in glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv')):
     with open(f, newline='', encoding='utf-8', errors='ignore') as h:
         rd = csv.reader(h); next(rd, None)
         for r in rd:
-            if len(r) < 15 or r[1].strip() != 'EQ':
+            if len(r) < 15 or r[1].strip() not in ('EQ', 'BE'):
                 continue
             try:
                 d = datetime.datetime.strptime(r[2].strip(), '%d-%b-%Y').date()
@@ -60,6 +61,9 @@ for f in glob.glob(os.path.join(bhav_dir, 'sec_bhavdata_full_*.csv')):
             if None in t:
                 continue
             dl = num(r[14])
+            if r[1].strip() == 'BE':                 # trade-to-trade: sirf naye listing wale check me (ipo_study jaisa EQ+BE)
+                data_be[r[0].strip()][d] = (t[0], t[1], t[2], t[3], t[4], dl)
+                continue
             data[r[0].strip()][d] = (t[0], t[1], t[2], t[3], t[4], dl)
             alld.add(d)
 if not alld:
@@ -158,6 +162,26 @@ for sym, byd in data.items():
     cands.append(dict(sym=sym, close=cl[-1], chg=(cl[-1] / cl[-2] - 1) * 100, ret3=ret3 * 100, ret60=ret60 * 100, rsi=rsi,
                       atr=atr, e20=e20[-1], e50=e50[-1], vx=vx, to20=to20, dl=b[-1][5], note=' '.join(note)))
 breadth = 100.0 * above / tot if tot else 0
+# Naye listing (listing ke 5-59 din) jo 3 din me 8%+ gire: ipo_study (1294 listing, 2022-26) me +0.06R, 4/4 saal plus
+# (2 ATR stop, ATR kam se kam 2%, 5 din). MIXED market me minus tha: app ye batata hai.
+newdrop = []
+allsorted = sorted(alld)
+for sym in set(data) | set(data_be):
+    byd = dict(data_be.get(sym, {})); byd.update(data.get(sym, {}))
+    ds = sorted(byd)
+    if not ds or ds[-1] != last or len(allsorted) < 70 or ds[0] <= allsorted[60] or not (6 <= len(ds) <= 60):
+        continue
+    if any((ds[k] - ds[k - 1]).days > 20 for k in range(1, len(ds))):
+        continue                                   # bich me lamba gap = naam badla / relisting
+    b = [byd[d] for d in ds]
+    hi = [x[0] for x in b]; lo = [x[1] for x in b]; cl = [x[2] for x in b]; to = [x[4] / 100.0 for x in b]
+    t5 = sorted(to[-5:])[len(to[-5:]) // 2]
+    if t5 < 2 or cl[-1] > cl[-4] * 0.92:
+        continue
+    tr = [max(hi[k] - lo[k], abs(hi[k] - cl[k - 1]), abs(lo[k] - cl[k - 1])) for k in range(max(1, len(cl) - 14), len(cl))]
+    atr = max(sum(tr) / len(tr), 0.02 * cl[-1])
+    newdrop.append(dict(sym=sym, close=cl[-1], chg=(cl[-1] / cl[-2] - 1) * 100, ret3=(cl[-1] / cl[-4] - 1) * 100, atr=atr, to5=t5,
+                        n=len(ds), first=cl[0], low=min(lo), be=sym not in data or ds[-1] not in data.get(sym, {})))
 # momdip_study (2025-26 test): Dip + 60-din return top 20% = +0.04R vs Dip akela +0.02R (chhota farq, sirf tag)
 r60s = sorted(r60all); MOM_CUT = r60s[int(0.8 * len(r60s))] * 100 if r60s else 1e9
 rows = []
@@ -184,6 +208,11 @@ for c in struct:
     rows.append([c['kind'], c['sym'], last.isoformat(), round(c['close'], 2), round(c['chg'], 2), round(c['ret3'], 2), round(c['ret60'], 1),
                  round(c['rsi'], 1), round(c['atr'], 2), round(c['e20'], 1), round(c['e50'], 1), round(c['vx'], 2), round(c['to20'], 1),
                  '', round(stop, 2), round(c['close'] + 2 * risk, 2), round(breadth, 1), 'DEPTH %.0f' % (c['depth'] * 100), 0])
+for c in newdrop:
+    rows.append(['NEWDROP', c['sym'], last.isoformat(), round(c['close'], 2), round(c['chg'], 2), round(c['ret3'], 2), '',
+                 '', round(c['atr'], 2), '', '', '', round(c['to5'], 1), '', round(c['close'] - 2 * c['atr'], 2),
+                 round(c['close'] + 3 * c['atr'], 2), round(breadth, 1),
+                 'DAY %d LIST %.2f LOW %.2f%s' % (c['n'], c['first'], c['low'], ' BE' if c['be'] else ''), 0])
 rows.sort(key=lambda x: ({'A': 0, 'B': 1}.get(x[0], 2), x[5]))
 head = ['TIER', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'RET3', 'RET60', 'RSI14', 'ATR14', 'EMA20', 'EMA50', 'VOL_X', 'TURN20_CR',
         'DELIV_PCT', 'STOP_REF', 'TARGET_REF', 'BREADTH50', 'NOTE', 'MOM60_TOP20']
@@ -195,6 +224,6 @@ json.dump({'date': last.isoformat(), 'regime': REGIME, 'breadth': round(lbr, 1),
           open(os.path.join('docs', 'live_base.json'), 'w'), separators=(',', ':'))
 json.dump({'date': last.isoformat(), 'breadth': round(lbr, 1), 'regime': REGIME, 'universe': ltot},
           open(os.path.join('docs', 'regime_today.json'), 'w'))
-print('liquid breadth %.1f%% -> %s | bounce candidates %d | structure %d' % (lbr, REGIME, len(bounce), len(struct)))
+print('liquid breadth %.1f%% -> %s | bounce candidates %d | structure %d | naye listing drop %d' % (lbr, REGIME, len(bounce), len(struct), len(newdrop)))
 print('data date', last, '| breadth>EMA50 %.1f%% | 60-din top20%% cut %.1f%% | dip candidates A=%d B=%d' % (
     breadth, MOM_CUT, sum(1 for r in rows if r[0] == 'A'), sum(1 for r in rows if r[0] == 'B')))
