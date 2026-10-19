@@ -148,3 +148,13 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - App section "Naye listing ka dip" (dip_scan TIER NEWDROP, EQ+BE, 2ATR SL, half qty; MIXED regime shows "trade nahi"). Fundamentals/news for IPOs not testable (no history).
 - App: stocks with 5-59 days now show a lite page (stock_report lite()).
 - News: news_all.py maps ~1,900 headlines/run from 15 RSS feeds + 29 Google News market searches to all stocks; News tab split into Telegram (headings, tap to open) and Baaki news.
+
+## IPO tab + backtest (2026-10-19)
+- ipo.py (news.yml, every 20 min): ipowatch GMP + detail, chittorgarh year-wise financials/borrowing, NSE live subscription, NSE RHP (zip, pypdfium2) cash & bank (unit-checked vs net worth). Two verdicts: Listing (QIB+GMP) and Company (profit/growth/ROE/PE/OFS/net cash).
+- ipo_backtest.py (ipobt.yml, manual; cache out/ipo_hist.json): 423 IPOs 2023-04..2026-10 matched to NSE listing-day prices.
+  Mainboard (216): APPLY 88 -> avg +34.5%, 95% positive; SOCH 46 -> +9.2%, 80%; SKIP 82 -> -2.9%, 34%. QIB 50x+ +32% (93%); QIB 1-10x -1.4%.
+  SME (207): APPLY +48.6% (95%); SKIP 0.0% (45%). Holds every year 2024/25/26. GMP 25%+ is ~accurate on average; GMP <10% overstates by 2-4%.
+  Caveat: uses final-day QIB and last pre-listing GMP (slightly after the bid deadline). Company verdict NOT validated (old IPOs mostly lack financial data).
+- App shows the track record on every IPO card (docs/ipo_backtest.json).
+- Paper trading: paper.py (dip.yml) auto-tracks all signals -> docs/paper.json; manual paper trades in localStorage (Trades > Paper > Mere trade).
+- UI: Picks sub-tabs (Trade/Setups/Savdhani/Market/Locked), market gauge + intraday sparkline, alerts page via header bell, live setups card (prep from 09:20).
