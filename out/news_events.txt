@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-19 10:26 IST
+NEWS/EVENTS CHECK 2026-10-19 11:01 IST
 screen data date: 2026-10-16 | candidates: 41
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 53 symbols
@@ -10,7 +10,7 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 53 of 53 symbols, 131 headlines
+Google News: 53 of 53 symbols, 130 headlines
 PDF saar: 0 naye bane, 0 nahi bane, 22 pehle ke reuse (AI key: nahi)
 announcements.json: 20 symbols with announcements in last 3 days
 HBLENGINE    BREAKOUT   IN_NEWS                            |  |  | ​HBL Engineering among 4 stocks showing RSI trending up | HBL Engineering among 4 stocks showing RSI trending up
@@ -28,19 +28,23 @@ TRENT        PREBREAK   NEW_ANNOUNCEMENT                   |  | 2026-10-18 Resig
 ETERNAL      PULLBACK   RESULTS_SOON                       | 2026-10-21 Financial Results |  | 
 PAYTM        PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
 MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru
-ADANIPORTS   PULLBACK   IN_NEWS                            |  |  | Adani Ports SEZ Share Price Live Updates: Adani Ports SEZ Exceeds 100-Day Simple Moving Av | Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength
+ADANIPORTS   PULLBACK   IN_NEWS                            |  |  | Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength
 MOTHERSON    PULLBACK   IN_NEWS                            |  |  | Samvardhana Motherson International Issues ₹250 Crore Commercial Paper with 87-Day Tenure
 AUROPHARMA   PULLBACK   IN_NEWS                            |  |  | What Aurobindo Pharma Holders Bought Into | US FDA Completes Inspection of Aurobindo Pharma's Eugia Unit with Four Observations
-SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Sona BLW Q1 revenue rises 54% to ₹1,310 crore, unveils Robotics vertical
+SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results |  | 
 APLAPOLLO    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-26 Financial Results | 2026-10-17 Board Meeting | 
 RAYMONDREL   PULLBACK   IN_NEWS                            |  |  | Raymond Realty incorporates Ten X Mahalaxmi for redevelopment projects
-LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow | "Creating a World Without Chores"... LG Electronics Unveils Its Vision for the Future of H
-YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock rebounds after 17.5% crash in two sessions; Q2 profit jumps 65% but AT-1 bo
-HDBFS        DIP        IN_NEWS                            |  |  | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s
+LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics India receives ₹153.58 crore customs show cause notice | LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow
+CUB          PULLBACK   IN_NEWS                            |  |  | City Union Bank participates in Anand Rathi G-200 Summit in Mumbai
+YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 
+HDBFS        DIP        IN_NEWS                            |  |  | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru
 SANGHVIMOV   DIP        IN_NEWS                            |  |  | Sanghvi Movers submits FY26 sustainability report with key ESG metrics
 PASHUPATI    LOCKED     NEW_ANNOUNCEMENT                   |  | 2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-Symbols with no flags: 26. Top market headlines:
+Symbols with no flags: 25. Top market headlines:
+  [ET Markets] Stock Market Holiday 2026: Are NSE, BSE closed on October 20 for Dussehra? Check remaining holidays for the ye
+  [ET Markets] Ixigo shares rally 13% after travel platform reports all-time high profit
+  [ET Markets] Balrampur Chini, other sugar stocks slide up to 6% as govt halts diversion to ethanol
   [ET Markets] Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term
   [ET Markets] Bulls retreat as Sensex falls over 300 points, Nifty slips below 23,100. What's next for D-Street?
   [ET Markets] Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5,217 crore. What lie
@@ -53,7 +57,4 @@ Symbols with no flags: 26. Top market headlines:
   [ET Markets] IDBI Bank shares in focus as Q2 net profit falls 39%; NII tanks nearly 50% YoY
   [ET Markets] HDFC Life Share Price Live Updates: HDFC Life Stock Details
   [ET Markets] UltraTech Cem Share Price Live Updates: UltraTech Cement's Daily Performance
-  [ET Markets] ICICI Bank Share Price Live Updates: ICICI Bank's Breakout Above Resistance Level Highlights Market Strength
-  [ET Markets] L&amp;T Finance among 4 F&amp;O stocks with a sharp rise in futures open interest
-  [ET Markets] U-turn from regulator may be new lifeline to Indian derivatives
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.

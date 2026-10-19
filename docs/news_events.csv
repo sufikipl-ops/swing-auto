@@ -19,10 +19,10 @@ PULLBACK,ETERNAL,RESULTS_SOON,2026-10-21 Financial Results,,
 PULLBACK,BHEL,none,,,
 PULLBACK,PAYTM,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
 PULLBACK,MRPL,IN_NEWS,,,"Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
-PULLBACK,ADANIPORTS,IN_NEWS,,,"Adani Ports SEZ Share Price Live Updates: Adani Ports SEZ Exceeds 100-Day Simple Moving Av | Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength"
+PULLBACK,ADANIPORTS,IN_NEWS,,,"Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength"
 PULLBACK,MOTHERSON,IN_NEWS,,,Samvardhana Motherson International Issues ₹250 Crore Commercial Paper with 87-Day Tenure
 PULLBACK,AUROPHARMA,IN_NEWS,,,What Aurobindo Pharma Holders Bought Into | US FDA Completes Inspection of Aurobindo Pharma's Eugia Unit with Four Observations
-PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,"Sona BLW Q1 revenue rises 54% to ₹1,310 crore, unveils Robotics vertical"
+PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,CARTRADE,none,,,
 PULLBACK,MOTISONS,none,,,
 PULLBACK,RADICO,none,,,
@@ -35,14 +35,14 @@ PULLBACK,PWL,none,,,
 PULLBACK,APLAPOLLO,EVENT_7D NEW_ANNOUNCEMENT,2026-10-26 Financial Results,2026-10-17 Board Meeting,
 PULLBACK,RAYMONDREL,IN_NEWS,,,Raymond Realty incorporates Ten X Mahalaxmi for redevelopment projects
 PULLBACK,BEML,none,,,
-PULLBACK,LGEINDIA,IN_NEWS,,,"LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow | ""Creating a World Without Chores""... LG Electronics Unveils Its Vision for the Future of H"
+PULLBACK,LGEINDIA,IN_NEWS,,,"LG Electronics India receives ₹153.58 crore customs show cause notice | LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow"
 PULLBACK,MANINDS,none,,,
-PULLBACK,CUB,none,,,
+PULLBACK,CUB,IN_NEWS,,,City Union Bank participates in Anand Rathi G-200 Summit in Mumbai
 PULLBACK,LXCHEM,none,,,
 PULLBACK,GODREJAGRO,none,,,
 DIP,KRN,none,,,
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock rebounds after 17.5% crash in two sessions; Q2 profit jumps 65% but AT-1 bo"
-DIP,HDBFS,IN_NEWS,,,"Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s"
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 "
+DIP,HDBFS,IN_NEWS,,,"Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
 DIP,SANGHVIMOV,IN_NEWS,,,Sanghvi Movers submits FY26 sustainability report with key ESG metrics
 DIP,ANANTRAJ,none,,,
 DIP,ARMANFIN,none,,,
