@@ -133,3 +133,10 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   GitHub 'live-data' branch par intra/SYM.json likhta hai (har baar ek orphan commit force-push; live.yml contents: write).
   App raw.githubusercontent.com/<repo>/live-data/intra/SYM.json padhta hai. 1m/5m/15m/1H = intraday.json (shaam ke 15-min,
   ~5 din) + aaj ke 1-min, har 30 sec refresh (market time). Apps Script me koi badlav nahi chahiye.
+
+## SIBE reel (Sweep -> Break of structure -> Entry) — FAIL (2026-10-19)
+- Rule from the reel audio: mark previous session high/low; price sweeps one, then BOS the other way -> entry; SL beyond sweep; TP = opposite swing.
+- Test: sibe_study.py on data_orb (213 F&O stocks, 15-min, 2025-12-29..2026-10-16). Sweep of the previous day's low/high, close back beyond it + beyond the last-3-bar extreme, entry next open (by 14:30), SL sweep extreme ±0.05%, target previous-day opposite extreme or 2R, EOD exit, 0.15% cost.
+- Synthetic random walk: gross ~0 (method clean).
+- Real: ~26k trades, ALL long -0.16R, short -0.10R net; gross ~0. No regime/side passes (WEAK short 2R +0.008 with second half -0.16). Not added to the app.
+- Workflow: sibe.yml (manual). Output out/sibe_summary.txt.
