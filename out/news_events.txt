@@ -1,18 +1,19 @@
-NEWS/EVENTS CHECK 2026-10-19 07:24 IST
+NEWS/EVENTS CHECK 2026-10-19 08:57 IST
 screen data date: 2026-10-16 | candidates: 41
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 53 symbols
-locked stocks added for announcements: KRN,YESBANK,HDBFS,SANGHVIMOV,ANANTRAJ,ARMANFIN,SENCO,CHEMPLASTS,PREMIERPOL,KMEW
-NSE announcements fetched for 51 of 51 symbols
-BSE announcements: 51 symbols checked, 9 naye (NSE me nahi the)
+locked stocks added for announcements: PASHUPATI,AURUM,KRN,YESBANK,HDBFS,SANGHVIMOV,ANANTRAJ,ARMANFIN,SENCO,CHEMPLASTS,PREMIERPOL,KMEW
+NSE announcements fetched for 53 of 53 symbols
+BSE announcements: 53 symbols checked, 14 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
-RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
+RSS Moneycontrol: OK, 15 items
+RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 51 of 51 symbols, 122 headlines
-PDF saar: 8 naye bane, 0 nahi bane, 13 pehle ke reuse (AI key: nahi)
-announcements.json: 18 symbols with announcements in last 3 days
+Google News: 53 of 53 symbols, 129 headlines
+PDF saar: 1 naye bane, 0 nahi bane, 21 pehle ke reuse (AI key: nahi)
+announcements.json: 20 symbols with announcements in last 3 days
+HBLENGINE    BREAKOUT   IN_NEWS                            |  |  | ​HBL Engineering among 4 stocks showing RSI trending up | HBL Engineering among 4 stocks showing RSI trending up
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Senco, PC Jeweller zoom up to 17%; why are gold-related stocks dazzling? | PC Jeweller Q1FY27 revenue jumps to ₹877 crore, net profit surges
 HCLTECH      BREAKOUT   IN_NEWS                            |  |  | Zensar, HCL Technologies rebounded from 100-month EMA support, says analyst
 INDHOTEL     BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Stock to buy today: Indian Hotels Company (₹772)
@@ -27,30 +28,33 @@ TRENT        PREBREAK   NEW_ANNOUNCEMENT                   |  | 2026-10-18 Resig
 ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | SBI Card vests 187,164 units as Eternal launch nears: SBI Card stock
 BHEL         PULLBACK   IN_NEWS                            |  |  | Bharat Heavy Electricals Ltd. is Rated Buy
 PAYTM        PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
-MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, ICICI Prudential AMC
+MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru
 AUROPHARMA   PULLBACK   IN_NEWS                            |  |  | What Aurobindo Pharma Holders Bought Into
-SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Sona BLW Q1 revenue rises 54% to ₹1,310 crore, unveils Robotics vertical
+SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results |  | 
 APLAPOLLO    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-26 Financial Results | 2026-10-17 Board Meeting | 
+RAYMONDREL   PULLBACK   IN_NEWS                            |  |  | Raymond Realty incorporates Ten X Mahalaxmi for redevelopment projects
+BEML         PULLBACK   IN_NEWS                            |  |  | BEML Land Assets Q1FY26 net loss widens to ₹47 lakh on tax hit
 LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow | "Creating a World Without Chores"... LG Electronics Unveils Its Vision for the Future of H
-YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | YES Bank Q2 profit rises 65%; AT1 hit may risk 5,217 cr loss | Stocks to watch: Jio Fin, Yes Bank, Wipro, L&T Fin, Angel One, Urban Co
-HDBFS        DIP        IN_NEWS                            |  |  | Bonus issues, stock splits &amp; dividends: HDB Financial, IRFC, TechM among 19 stocks tur | Bonus issues, stock splits & dividends: HDB Financial, IRFC, TechM among 19 stocks turning
+CUB          PULLBACK   IN_NEWS                            |  |  | City Union Bank participates in Anand Rathi G-200 Summit in Mumbai
+YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | YES Bank Q2 profit rises 65%; AT1 hit may risk 5,217 cr loss | YES Bank book value may fall up to 26% after SC ruling on AT-1 bonds
+HDBFS        DIP        IN_NEWS                            |  |  | Bonus issues, stock splits &amp; dividends: HDB Financial, IRFC, TechM among 19 stocks tur | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru
 SANGHVIMOV   DIP        IN_NEWS                            |  |  | Sanghvi Movers submits FY26 sustainability report with key ESG metrics
-SENCO        DIP        IN_NEWS                            |  |  | Senco Gold clarifies sustainable EBITDA margin at 7.5-7.8% post Q1FY27 surge
-Symbols with no flags: 29. Top market headlines:
+PASHUPATI    LOCKED     NEW_ANNOUNCEMENT                   |  | 2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
+Symbols with no flags: 25. Top market headlines:
+  [ET Markets] IDBI Bank shares in focus as Q2 net profit falls 39%; NII tanks nearly 50% YoY
+  [ET Markets] L&amp;T Finance among 4 F&amp;O stocks with a sharp rise in futures open interest
+  [ET Markets] U-turn from regulator may be new lifeline to Indian derivatives
+  [ET Markets] HFCL among 3 stocks closing above VWAP
+  [ET Markets] ​HBL Engineering among 4 stocks showing RSI trending up
+  [ET Markets] Wipro among 4 stocks showing White Marubozu pattern
+  [ET Markets] HBL Engineering among 4 stocks showing RSI trending up
+  [ET Markets] RIL Share Price Live Updates: RIL's recent returns reflect market challenges
+  [ET Markets] Positive Breakout: These 6 stocks cross above their 200 DMAs
+  [ET Markets] Sensex Today | Nifty 50 | Stock Market Live Updates: GIFT Nifty signals a muted start; Asian shares trade lowe
   [ET Markets] Stocks in news: Vedanta, HDFC Bank, ICICI Bank, Axis Bank, HFCL, IREDA, Zen Tech and Oil India
   [ET Markets] D-St set for a cautious opening as GIFT Nifty signals muted start
   [ET Markets] Pharma Q2 Outlook: Pricing pressure, US competition to weigh on select players
   [ET Markets] Nifty rally faces crucial test at key resistance levels: Analysts
   [ET Markets] Public sector banks' Rs 7.8 lakh core corporate loan pipeline signals capex revival
-  [ET Markets] Challenges ahead for Fairfax's management of IDBI Bank post ₹52,878 crore stake deal approval
-  [ET Markets] Private banks' margins fall as FCNR deposits raise funding costs
-  [ET Markets] Banks also count cost of insurance payout curbs
-  [ET Markets] Anup Bagchi backs 'exceptional' team as he connects the dots at HDFC Bank
-  [ET Markets] Tata Sons reviews AoA to meet Sebi listing norms
-  [ET Markets] Global investors against use of judicial anti-avoidance rule by tax officials
-  [ET Markets] DIIs increase stake in 8 midcap stocks in Q2FY27
-  [ET Markets] Bajaj Finance Q2 preview: Profit may jump 29%, NII 24% as strong loan growth lifts earnings
-  [ET Markets] FPI selling crosses Rs 52,000 crore in October as Nifty defies foreign exodus
-  [ET Markets] FMCG firms grapple with input cost inflation in Q2, brace for margin pressure in H2
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.

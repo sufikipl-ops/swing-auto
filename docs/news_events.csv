@@ -1,5 +1,5 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,HBLENGINE,none,,,
+BREAKOUT,HBLENGINE,IN_NEWS,,,​HBL Engineering among 4 stocks showing RSI trending up | HBL Engineering among 4 stocks showing RSI trending up
 BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Senco, PC Jeweller zoom up to 17%; why are gold-related stocks dazzling? | PC Jeweller Q1FY27 revenue jumps to ₹877 crore, net profit surges"
 BREAKOUT,HCLTECH,IN_NEWS,,,"Zensar, HCL Technologies rebounded from 100-month EMA support, says analyst"
 BREAKOUT,INDHOTEL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Stock to buy today: Indian Hotels Company (₹772)"
@@ -18,11 +18,11 @@ PREBREAK,NYKAA,none,,,
 PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"SBI Card vests 187,164 units as Eternal launch nears: SBI Card stock"
 PULLBACK,BHEL,IN_NEWS,,,Bharat Heavy Electricals Ltd. is Rated Buy
 PULLBACK,PAYTM,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
-PULLBACK,MRPL,IN_NEWS,,,"Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, ICICI Prudential AMC"
+PULLBACK,MRPL,IN_NEWS,,,"Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
 PULLBACK,ADANIPORTS,none,,,
 PULLBACK,MOTHERSON,none,,,
 PULLBACK,AUROPHARMA,IN_NEWS,,,What Aurobindo Pharma Holders Bought Into
-PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,"Sona BLW Q1 revenue rises 54% to ₹1,310 crore, unveils Robotics vertical"
+PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,CARTRADE,none,,,
 PULLBACK,MOTISONS,none,,,
 PULLBACK,RADICO,none,,,
@@ -33,22 +33,22 @@ PULLBACK,PAISALO,EVENT_7D,2026-10-22 Financial Results,,
 PULLBACK,AEQUS,none,,2026-10-17 Copy of Newspaper Publication,
 PULLBACK,PWL,none,,,
 PULLBACK,APLAPOLLO,EVENT_7D NEW_ANNOUNCEMENT,2026-10-26 Financial Results,2026-10-17 Board Meeting,
-PULLBACK,RAYMONDREL,none,,,
-PULLBACK,BEML,none,,,
+PULLBACK,RAYMONDREL,IN_NEWS,,,Raymond Realty incorporates Ten X Mahalaxmi for redevelopment projects
+PULLBACK,BEML,IN_NEWS,,,BEML Land Assets Q1FY26 net loss widens to ₹47 lakh on tax hit
 PULLBACK,LGEINDIA,IN_NEWS,,,"LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow | ""Creating a World Without Chores""... LG Electronics Unveils Its Vision for the Future of H"
 PULLBACK,MANINDS,none,,,
-PULLBACK,CUB,none,,,
+PULLBACK,CUB,IN_NEWS,,,City Union Bank participates in Anand Rathi G-200 Summit in Mumbai
 PULLBACK,LXCHEM,none,,,
 PULLBACK,GODREJAGRO,none,,,
 DIP,KRN,none,,,
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"YES Bank Q2 profit rises 65%; AT1 hit may risk 5,217 cr loss | Stocks to watch: Jio Fin, Yes Bank, Wipro, L&T Fin, Angel One, Urban Co"
-DIP,HDBFS,IN_NEWS,,,"Bonus issues, stock splits &amp; dividends: HDB Financial, IRFC, TechM among 19 stocks tur | Bonus issues, stock splits & dividends: HDB Financial, IRFC, TechM among 19 stocks turning"
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"YES Bank Q2 profit rises 65%; AT1 hit may risk 5,217 cr loss | YES Bank book value may fall up to 26% after SC ruling on AT-1 bonds"
+DIP,HDBFS,IN_NEWS,,,"Bonus issues, stock splits &amp; dividends: HDB Financial, IRFC, TechM among 19 stocks tur | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru"
 DIP,SANGHVIMOV,IN_NEWS,,,Sanghvi Movers submits FY26 sustainability report with key ESG metrics
 DIP,ANANTRAJ,none,,,
 DIP,ARMANFIN,none,,,
-DIP,SENCO,IN_NEWS,,,Senco Gold clarifies sustainable EBITDA margin at 7.5-7.8% post Q1FY27 surge
+DIP,SENCO,none,,,
 DIP,CHEMPLASTS,none,,,
 DIP,PREMIERPOL,none,,,
 DIP,KMEW,none,,,
-LOCKED,PASHUPATI,none,,,
-LOCKED,AURUM,none,,,
+LOCKED,PASHUPATI,NEW_ANNOUNCEMENT,,"2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+LOCKED,AURUM,none,,2026-10-17 Copy of Newspaper Publication,
