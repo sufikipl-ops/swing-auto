@@ -173,6 +173,8 @@ function ls(k,d){try{var v=localStorage.getItem(k);return v==null?d:+v}catch(e){
 function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function lsj(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function svj(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+/* '2026-10-16' -> 'Shukra 16 Oct' (picks/analysis din ke close par bante hain; live bhav alag dikhta hai) */
+function dName(d){if(!d)return '?';var x=new Date(d+'T12:00:00');if(isNaN(x))return d;return ['Ravi','Som','Mangal','Budh','Guru','Shukra','Shani'][x.getDay()]+' '+x.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][x.getMonth()]}
 function f(x,n){return x==null||x===''||isNaN(x)?'-':(+x).toFixed(n==null?2:n)}
 function rs0(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
 function chip(t,c){return '<span class="pill '+(c||'')+'">'+esc(t)+'</span>'}
@@ -206,7 +208,7 @@ function liveItem(sym){var it=LV&&LV.items&&LV.items[sym];return it&&it.ltp>0&&t
 function liveState(){if(!pinsOn())return['off','Live: sync setup baaki'];if(!LV)return['wait','Live: data aa raha hai...'];
 if(LV.status=='err')return['err','Live feed me dikkat: '+(LV.err||'')];
 var age=liveAge();
-if(marketHours()&&age>150)return['stale','Live feed ruka hua hai ('+Math.round(age/60)+' min purana). GitHub Actions "live" check karo'];
+if(marketHours()&&age>240)return['stale','Live feed ruka hua hai ('+Math.round(age/60)+' min purana). GitHub Actions "live" check karo'];
 if(LV.status=='closed'||(LV.date&&LV.date!=istDate()))return['closed',marketHours()?'Aaj market me trade nahi dikha (holiday ya abhi shuru nahi)':'Market band'];
 return['ok',marketHours()?'Live '+lvTime():'Market band, aakhri live '+lvTime()]}
 /* plan ke hisaab se aaj ka status (angel_gap.py wale hi rules): skip / triggered / wait */
@@ -365,7 +367,7 @@ return Promise.all([get('stocks.json',1),get('screen_latest.csv'),get('gap_check
 AN=(a[6]&&a[6].items)||{};ANTS=(a[6]&&a[6].updated)||'';D=a[0]||{stocks:{},market:{}};ST=D.stocks;SK=D.skip||{};MK=D.market;SC=a[1]?csv(a[1]):[];(a[2]?csv(a[2]):[]).forEach(function(x){GP[x.symbol]=x});
 (a[3]?csv(a[3]):[]).forEach(function(x){NW[x.symbol]=x});TR=mergePicks(a[4]?csv(a[4]):[],a[7]);HL=a[5]?a[5].split('\n').filter(function(l){return l.indexOf('  [')==0}):[];
 var reg=MK.pct50<40?['Market kamzor','pr']:MK.pct50>60?['Market majboot','pg']:['Market mixed','py'];
-document.getElementById('mk').innerHTML='Analysis: '+esc(MK.date||'?')+' close '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+staleChip(MK.date)+'<span id="lvchip"></span>'+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');shSet('an',AN);shSet('nw',NW);shSet('rs',RS||{});shSet('gl',GL||{});LASTRF=Date.now();render();syncAll();loadTG();ignCheck()})}
+document.getElementById('mk').innerHTML='Picks: '+esc(dName(MK.date))+' ke close se '+chip(reg[0],reg[1])+chip('EMA50 ke upar: '+MK.pct50+'%')+chip('Adv/Dec: '+MK.adv+'/'+MK.dec)+staleChip(MK.date)+'<span id="lvchip"></span>'+(MK.pct50<40?'<br>Kamzor market me naye trade kam lo ya skip karo.':'');shSet('an',AN);shSet('nw',NW);shSet('rs',RS||{});shSet('gl',GL||{});LASTRF=Date.now();render();syncAll();loadTG();ignCheck()})}
 /* ---------- chart (TradingView lightweight-charts, docs/candles.json: sirf kaam ke ~160 stock) ---------- */
 var CDL=null,LWC=null;
 /* aaj ki candle live (Angel bhav, ~30 sec): kal tak ki candles ke baad aaj ka bar jodo/badlo */
@@ -503,11 +505,36 @@ function ladder(s,p){var L=[['52-hafte high',s.h52],['60-din high',s.h60],['20-d
 L.push({n:'ABHI (close)',v:s.c,k:'now'});if(p){L.push({n:'Target',v:p.t1,k:'tg'});L.push({n:'Stop-loss',v:p.stop,k:'sl'});L.push({n:'Entry',v:p.entry,k:'en'})}
 L.sort(function(a,b){return b.v-a.v});
 return L.map(function(x){return '<div class="lr '+x.k+'"><span>'+x.n+'</span><span>'+f(x.v)+(x.k=='now'?'':' <small>('+(x.v>=s.c?'+':'')+f((x.v/s.c-1)*100,1)+'%)</small>')+'</span></div>'}).join('')}
+/* naya listing / kam data: jitna data hai utne ke numbers. Setup (Dip/Bounce/Structure) 60 din ke data par hi test hue hain */
+function liteHtml(sym,k){var x=k[2],c=x.c,pr=x.atr/c*100,h='',ok=function(b){return b?'<span class="g">&#10003;</span>':'<span class="r">&#10007;</span>'},na='<span class="mu">?</span>';
+var left=Math.max(0,60-x.n),ls=x.c0?(c/x.c0-1)*100:null;
+h+='<div class="card"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+lvp(sym,c,x.chg)+'</small></div>'+chip('Naya: '+x.n+' din','y')+'</div>'+
+'<div class="y" style="margin-top:6px">Poora analysis aur setup signal ke liye 60 din ka data chahiye. Abhi '+x.n+' din (pehla din '+esc(x.d0)+'), '+left+' trading din aur. Tab tak neeche ke basic numbers dekho.</div></div>';
+h+='<div data-lv="'+esc(sym)+'" data-full="1"></div>';
+h+='<div class="card"><h3 style="margin-top:0">Ab tak ka safar</h3><div class="tiles t5"><div><small>Pehle din close</small><b>'+f(x.c0)+'</b></div><div><small>Ab tak</small><b class="'+(ls>=0?'g':'r')+'">'+(ls>=0?'+':'')+f(ls,1)+'%</b></div><div><small>Sabse upar</small><b>'+f(x.hi)+'</b></div><div><small>Sabse neeche</small><b>'+f(x.lo)+'</b></div>'+atrTile(x.atr,c)+'</div></div>';
+var r=x.rsi,g=[];
+h+='<div class="card"><h3 style="margin-top:0">Dip strategy check (jitna nap sakte hain)</h3>'+
+'<div class="ck">'+(x.e20!=null?ok(c>x.e20):na)+' Price EMA20 ke upar '+(x.e20!=null?'<small>('+f(x.e20)+')</small>':'<small>(20 din chahiye)</small>')+'</div>'+
+'<div class="ck">'+na+' Price EMA50 ke upar, EMA50 upar ja raha <small>(50+ din chahiye)</small></div>'+
+'<div class="ck">'+na+' 60 din ka return plus <small>(60 din chahiye)</small></div>'+
+'<div class="ck">'+(x.r3!=null?ok(x.r3<=-8):na)+' 3 din me 8%+ gira <small>('+(x.r3!=null?f(x.r3,1)+'%':'-')+')</small></div>'+
+'<div class="ck">'+(r!=null?ok(r<45):na)+' RSI 45 se neeche <small>('+(r!=null?f(r,0):'15 din chahiye')+')</small></div>'+
+'<small>Dip A ka backtest (4 saal, +0.15R WEAK market me) purane stocks par hua tha jinke paas 60+ din ka trend tha. Naye listing par ye rule test nahi hua, isliye app yahan signal nahi deta. Khud trade karo to chhota risk rakho.</small></div>';
+h+='<div class="card"><h3 style="margin-top:0">Numbers ka matlab</h3>';
+if(r!=null){var t=r<40?['Kamzor','r']:r<50?['Thanda (dip zone)','y']:r<=72?['Healthy','g']:['Garam','r'];h+=irow('RSI14','Taqat ka meter (thode din ka data, kam bharosa)',f(r,1),t[0],t[1])}
+h+=irow('Roz ka utaar-chadhav','ATR: ek din me kitna hil sakta hai',f(pr,1)+'%',pr<3?'Shant':pr<6?'Normal':'Bahut volatile',pr<6?'g':'r');
+if(x.vx!=null)h+=irow('Volume','Aaj ka volume vs ab tak ka average',f(x.vx)+'x',x.vx>=1.5?'Bheed zyada':x.vx>=0.8?'Normal':'Kam interest',x.vx>=0.8?'g':'y');
+h+=irow('Liquidity','Roz ka average turnover. 5 cr se upar easy buy/sell','₹'+f(x.t20,0)+' cr',x.t20>=5?'Easily buy/sell':'Kam liquidity',x.t20>=5?'g':'r');
+if(x.dl!=null&&x.dla)h+=irow('Delivery %','Kitna maal asli me liya gaya (aaj / average)',f(x.dl,0)+' / '+f(x.dla,0),x.dl>=x.dla?'Achhi':'Kam',x.dl>=x.dla?'g':'y');
+var L=[['Listing ke baad high',x.hi],['Pivot R1',x.pv.r1],['Pivot P',x.pv.p],['EMA9',x.e9],['EMA20',x.e20],['Pivot S1',x.pv.s1],['5-din low',x.low5],['Listing ke baad low',x.lo]].filter(function(y){return y[1]!=null});
+L.push(['ABHI (close)',c]);L.sort(function(a,b){return b[1]-a[1]});
+h+='</div><div class="card"><h3 style="margin-top:0">Price levels (upar se neeche)</h3>'+L.map(function(y){var nw=y[0].charAt(0)=='A';return '<div class="lr '+(nw?'now':y[1]>c?'up':'dn')+'"><span>'+y[0]+'</span><span>'+f(y[1])+(nw?'':' <small>('+(y[1]>=c?'+':'')+f((y[1]/c-1)*100,1)+'%)</small>')+'</span></div>'}).join('')+'</div>';
+h+='<div class="card">'+newsBlock(sym).replace('<h3>','<h3 style="margin-top:0">')+annBlock(sym,true)+links(sym)+'</div>';return h}
 function detail(sym){if(cur==null)lastY=window.pageYOffset||0;else if(cur.charAt(0)=='@')LY=window.pageYOffset||0;cur=sym;document.body.classList.add('stk');rankAll();
 try{if(!(history.state&&history.state.d))history.pushState({d:sym},'')}catch(e){}
 var s=ST[sym],pk=PK[sym],rk=RK[sym],v=document.getElementById('v');
 bar(sym,rk?'Aaj ka rank #'+rk.n+' / '+SR.length+'  |  score '+rk.sc+'/100':'');
-if(!s){var k=SK[sym];v.innerHTML='<div class="card"><div class="big">'+esc(sym)+'</div>'+(k?'<div class="y">Analysis nahi ban saka: '+esc(k[0])+'</div><small>Last close '+f(k[1])+'</small>':'<div>Ye symbol hamare data me nahi hai.</div>')+links(sym)+'</div>';window.scrollTo(0,0);return}
+if(!s){var k=SK[sym];v.innerHTML=k&&k[2]?liteHtml(sym,k):'<div class="card"><div class="big">'+esc(sym)+'</div>'+(k?'<div class="y">Analysis nahi ban saka: '+esc(k[0])+'</div><small>Last close '+f(k[1])+'</small>':'<div>Ye symbol hamare data me nahi hai.</div>')+links(sym)+'</div>';paintLive();window.scrollTo(0,0);return}
 var fl=(NW[sym]||{}).flags||'',entry=pk?entryOf(pk):s.c,p=planFrom(entry,s.stop,s.atr,resOf(s,entry)),vd=verdict(s,pk,rk,p,fl),g=GP[sym],h='';
 /* 1. seedha jawab */
 h+='<div class="card vd '+vd[2]+'"><div class="row"><div><div class="big">'+esc(sym)+'</div><small>'+lvp(sym,s.c,s.chg)+(pk?' | '+setupName(pk):'')+'</small></div>'+chip('Trend '+s.v+' '+s.score+'/'+s.mx,vc(s.v))+'</div>'+
@@ -595,7 +622,7 @@ function regCard(){var n=regNow();if(!n)return '';var rows=(RG&&RG.table||[]).fi
 var good=rows.filter(function(t){return t.ok&&t.avgR>=0.05}),bad=rows.filter(function(t){return t.avgR<0}),zero=rows.filter(function(t){return good.indexOf(t)<0&&bad.indexOf(t)<0});
 function li(t,c){return '<details class="rgx" ontoggle="rgxOpen(this,\''+esc(t.setup)+'\',\''+esc(t.regime)+'\')"><summary><div class="ir"><div class="l"><b>'+esc(SETN[t.setup]||(RG.desc&&RG.desc[t.setup])||t.setup)+' <span class="mu">&#9662;</span></b><small>'+(SETAPP[t.setup]?'':'app me scan nahi | ')+'jeet '+t.win+'% | '+esc(t.years_pos)+' saal plus | '+t.n+' trades</small></div><div class="v '+c+'">'+(t.avgR>0?'+':'')+t.avgR+'R<small> '+rRs(t.avgR)+'/trade</small></div></div></summary><div class="rgxb"><small class="mu">Stock list load ho rahi hai...</small></div></details>'}
 var c=n.regime=='STRONG'?'pg':n.regime=='MIXED'?'py':'pr';var b0=rows.length&&rows[0].baseR!=null?rows[0].baseR:null;
-return '<details class="card" id="regc"><summary><b>Aaj ka market: </b>'+chip(REGN[n.regime],c)+'<small>'+f(+n.breadth,1)+'% liquid stock EMA50 ke upar ('+esc(n.date||'')+'). Kya chalega? dabao</small></summary>'+
+return '<details class="card" id="regc"><summary><b>Aaj ka market: </b>'+chip(REGN[n.regime],c)+'<small>'+f(+n.breadth,1)+'% liquid stock EMA50 ke upar ('+esc(dName(n.date))+' close). Kya chalega? dabao</small></summary>'+
 '<small>'+esc(REGD[n.regime])+'. Neeche har setup ka 4-5 saal ka hisaab, sirf aise hi market wale dino ka (SL 2 ATR, max 5 din, kharcha 0.25% kaat ke). ₹= tumhare ₹'+ls('risk',700)+' risk par ek trade ka average.</small>'+
 (good.length?'<div class="g" style="margin-top:6px"><b>Is market me chala</b></div>'+good.map(function(t){return li(t,'g')}).join(''):'<div class="y" style="margin-top:6px"><b>Is market me koi setup pakka nahi chala: aaj kam trade, chhota size.</b></div>')+
 (zero.length?'<div class="mu" style="margin-top:6px"><b>Lagbhag 0 (na fayda na nuksan)</b></div>'+zero.map(function(t){return li(t,'')}).join(''):'')+
