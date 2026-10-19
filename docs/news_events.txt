@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-19 16:03 IST
+NEWS/EVENTS CHECK 2026-10-19 16:39 IST
 screen data date: 2026-10-16 | candidates: 41
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 53 symbols
@@ -7,17 +7,17 @@ NSE announcements fetched for 53 of 53 symbols
 BSE announcements: 53 symbols checked, 15 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-RSS Moneycontrol: OK, 15 items
-RSS Moneycontrol: OK, 4 items
+RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
+RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
 RSS Mint: OK, 35 items
-Google News: 57 of 57 symbols, 116 headlines
+Google News: 57 of 57 symbols, 114 headlines
 PDF saar: 0 naye bane, 0 nahi bane, 21 pehle ke reuse (AI key: nahi)
 announcements.json: 21 symbols with announcements in last 3 days
 HBLENGINE    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Clarification | ​HBL Engineering among 4 stocks showing RSI trending up | HCL Tech, IHCL, Sagility, HBL Engineering among stocks to buy; check fresh target prices &
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge | Up 38% in a month! PC Jeweller share price rallies 13% despite weak trend on D-Street | Ch
 HCLTECH      BREAKOUT   IN_NEWS                            |  |  | HCL Technologies, Tech Mahindra overtake TCS in net hiring adds
 INDHOTEL     BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term | Stock to buy today: Indian Hotels Company (₹772)
-APOLLO       BREAKOUT   EVENT_7D IN_NEWS                   | 2026-10-24 Financial Results |  | Apollo Micro Systems publishes Q1FY27 results, reports ₹251.3 crore revenue | Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion
+APOLLO       BREAKOUT   EVENT_7D IN_NEWS                   | 2026-10-24 Financial Results |  | Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion
 TIPSMUSIC    BREAKOUT   IN_NEWS                            |  |  | Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend
 SKYGOLD      BREAKOUT   IN_NEWS                            |  |  | Sky Gold And Diamonds Stock And 2 Other Indian Growth Stocks To Own
 SHYAMMETL    BREAKOUT   IN_NEWS                            |  |  | Shyam Metalics And Energy Ltd. 52 Week High Streak Analysis | Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 1
@@ -31,17 +31,18 @@ BHEL         PULLBACK   IN_NEWS                            |  |  | BHEL Q2FY27 R
 PAYTM        PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
 MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M
 ADANIPORTS   PULLBACK   IN_NEWS                            |  |  | Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength | Adani Ports sets results date as Jefferies favors Adani Ports stock
-MOTHERSON    PULLBACK   IN_NEWS                            |  |  | Samvardhana Motherson International Issues ₹250 Crore Commercial Paper with 87-Day Tenure
-AUROPHARMA   PULLBACK   IN_NEWS                            |  |  | US FDA Completes Inspection of Aurobindo Pharma's Eugia Unit with Four Observations
 SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results |  | 
 APLAPOLLO    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-26 Financial Results | 2026-10-17 Board Meeting | 
 LGEINDIA     PULLBACK   IN_NEWS                            |  |  | "Creating a World Without Chores"... LG Electronics Unveils Its Vision for the Future of H
+LXCHEM       PULLBACK   IN_NEWS                            |  |  | CRISIL Downgrades Laxmi Organic Industries Long-Term Rating to AA-/Negative Amid Revenue D
 YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 
 HDBFS        DIP        IN_NEWS                            |  |  | Tech Mahindra, ICICI Lombard, HDB Financial: Top stocks to turn ex-dividend this week
 CHEMPLASTS   DIP        IN_NEWS                            |  |  | Chemplast Sanmar Ltd is Rated Strong Sell
 PASHUPATI    LOCKED     NEW_ANNOUNCEMENT                   |  | 2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-Symbols with no flags: 25. Top market headlines:
+Symbols with no flags: 26. Top market headlines:
+  [ET Markets] Hindustan Zinc Q2 Results: Net profit skyrockets 142% YoY to Rs 6,412 crore, revenue soars 77%
+  [ET Markets] Muhurat Trading 2026: BSE announces date and timings of special session. Check details
   [ET Markets] Cupid, Sterlite Tech among stocks top 10 equity PMS portfolios hold as Nifty, Sensex plunge up to 13% in 2026
   [ET Markets] FIIs raise stakes in 8 smallcap stocks in Q2; shares surge over 200% in FY27 so far
   [ET Markets] UltraTech Cement Q2 Results: Net profit jumps 21% YoY to Rs 1,494 crore; revenue up 19%
@@ -55,6 +56,4 @@ Symbols with no flags: 25. Top market headlines:
   [ET Markets] Easy exits hurting Indian stocks: Nirmala Sitharaman explains why equities are underperforming
   [ET Markets] Kross shares rally 16% after Q2 profit jumps 143% YoY; stock hits 52-week high
   [ET Markets] Stock Market Holiday 2026: Are NSE, BSE closed on October 20 for Dussehra? Check remaining holidays for the ye
-  [ET Markets] Ixigo shares rally 13% after travel platform reports all-time high profit
-  [ET Markets] Sugar stocks Balrampur Chini, Bajaj Sugar, others crash up to 7% as centre stops diversion to ethanol
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
