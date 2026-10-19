@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-19 09:44 IST
+NEWS/EVENTS CHECK 2026-10-19 10:26 IST
 screen data date: 2026-10-16 | candidates: 41
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 53 symbols
@@ -10,51 +10,50 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 53 of 53 symbols, 132 headlines
+Google News: 53 of 53 symbols, 131 headlines
 PDF saar: 0 naye bane, 0 nahi bane, 22 pehle ke reuse (AI key: nahi)
 announcements.json: 20 symbols with announcements in last 3 days
 HBLENGINE    BREAKOUT   IN_NEWS                            |  |  | ​HBL Engineering among 4 stocks showing RSI trending up | HBL Engineering among 4 stocks showing RSI trending up
-PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Senco, PC Jeweller zoom up to 17%; why are gold-related stocks dazzling? | PC Jeweller Q1FY27 revenue jumps to ₹877 crore, net profit surges
+PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Senco, PC Jeweller zoom up to 17%; why are gold-related stocks dazzling? | Up 38% in a month! PC Jeweller share price rallies 9% despite weak trend on D-Street  | Ch
 HCLTECH      BREAKOUT   IN_NEWS                            |  |  | Zensar, HCL Technologies rebounded from 100-month EMA support, says analyst
-INDHOTEL     BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Stock to buy today: Indian Hotels Company (₹772)
+INDHOTEL     BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks?
 APOLLO       BREAKOUT   EVENT_7D IN_NEWS                   | 2026-10-24 Financial Results |  | Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion | Apollo Micro Systems secures Make-II order for SAVIOR-ASW
 TIPSMUSIC    BREAKOUT   IN_NEWS                            |  |  | TIPS Music zooms 10% to hit 52-wk high after Q2 nos, ₹6.50/share dividend | Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend
-SHYAMMETL    BREAKOUT   IN_NEWS                            |  |  | Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 1 | Shyam Metalics signs MoU for ₹50,000 crore steel complex
+SHYAMMETL    BREAKOUT   IN_NEWS                            |  |  | Shyam Metalics And Energy Ltd. 52 Week High Streak Analysis | Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 1
 ORIENTHOT    BREAKOUT   IN_NEWS                            |  |  | Indian Hotels, Oriental Hotels rally up to 6%; what's driving hotel stocks? | Oriental Hotels Q2FY27 Results: Net profit down 8.2% to ₹1,162 lakh
 JUSTDIAL     BREAKOUT   RESULTS_SOON                       | 2026-10-19 Financial Results |  | 
 SGMART       BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-17 Board Meeting | 
-TECHM        BREAKOUT   IN_NEWS                            |  |  | Stock split, bonus, dividend, buyback record date in 19-25Oct week: Angel One, JSW, IRFC,  | Record Dates This Week: JSW Dulux, Tech Mahindra among 13 important names with corporate a
+TECHM        BREAKOUT   IN_NEWS                            |  |  | Record Dates This Week: JSW Dulux, Tech Mahindra among 13 important names with corporate a
 TRENT        PREBREAK   NEW_ANNOUNCEMENT                   |  | 2026-10-18 Resignation | 
-ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | SBI Card vests 187,164 units as Eternal launch nears: SBI Card stock
-BHEL         PULLBACK   IN_NEWS                            |  |  | Bharat Heavy Electricals Ltd. is Rated Buy
+ETERNAL      PULLBACK   RESULTS_SOON                       | 2026-10-21 Financial Results |  | 
 PAYTM        PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
 MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru
-ADANIPORTS   PULLBACK   IN_NEWS                            |  |  | Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength
+ADANIPORTS   PULLBACK   IN_NEWS                            |  |  | Adani Ports SEZ Share Price Live Updates: Adani Ports SEZ Exceeds 100-Day Simple Moving Av | Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength
 MOTHERSON    PULLBACK   IN_NEWS                            |  |  | Samvardhana Motherson International Issues ₹250 Crore Commercial Paper with 87-Day Tenure
 AUROPHARMA   PULLBACK   IN_NEWS                            |  |  | What Aurobindo Pharma Holders Bought Into | US FDA Completes Inspection of Aurobindo Pharma's Eugia Unit with Four Observations
-SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
+SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Sona BLW Q1 revenue rises 54% to ₹1,310 crore, unveils Robotics vertical
 PAISALO      PULLBACK   EVENT_7D                           | 2026-10-22 Financial Results |  | 
 APLAPOLLO    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-26 Financial Results | 2026-10-17 Board Meeting | 
 RAYMONDREL   PULLBACK   IN_NEWS                            |  |  | Raymond Realty incorporates Ten X Mahalaxmi for redevelopment projects
 LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics, Polycab among picks as premiumisation and infrastructure demand drive grow | "Creating a World Without Chores"... LG Electronics Unveils Its Vision for the Future of H
-YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | Yes Bank stock rebounds after 17.5% crash in two sessions; Q2 profit jumps 65% but AT-1 bo | YES Bank book value may fall up to 26% after SC ruling on AT-1 bonds
+YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-17 Press Release | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock rebounds after 17.5% crash in two sessions; Q2 profit jumps 65% but AT-1 bo
 HDBFS        DIP        IN_NEWS                            |  |  | Dividends, bonus issues, stock splits this week: HDB Financial, IRFC, Angel One, ICICI Pru | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s
 SANGHVIMOV   DIP        IN_NEWS                            |  |  | Sanghvi Movers submits FY26 sustainability report with key ESG metrics
 PASHUPATI    LOCKED     NEW_ANNOUNCEMENT                   |  | 2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
-Symbols with no flags: 25. Top market headlines:
+Symbols with no flags: 26. Top market headlines:
+  [ET Markets] Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term
+  [ET Markets] Bulls retreat as Sensex falls over 300 points, Nifty slips below 23,100. What's next for D-Street?
+  [ET Markets] Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5,217 crore. What lie
+  [ET Markets] HDFC Bank shares fall 2% after Q2 results. What are Jefferies, Motilal Oswal analysts saying?
+  [ET Markets] Urban Company shares slide 7% as Q2 net loss triples YoY on InstaHelp burn. Should you buy, sell or hold?
+  [ET Markets] ICICI Bank share price target after Q2 results: What are Jefferies, other analysts saying?
+  [ET Markets] 11 years, zero net FII flow: How a $64 billion outflow erased 9 years of equity buying
   [ET Markets] Axis Bank shares fall over 4% despite 38% YoY jump in Q2 net profit. Why brokerages are revising target prices
+  [ET Markets] Eicher Motors Share Price Live Updates: Eicher Motors Current Trading Status
   [ET Markets] IDBI Bank shares in focus as Q2 net profit falls 39%; NII tanks nearly 50% YoY
+  [ET Markets] HDFC Life Share Price Live Updates: HDFC Life Stock Details
+  [ET Markets] UltraTech Cem Share Price Live Updates: UltraTech Cement's Daily Performance
   [ET Markets] ICICI Bank Share Price Live Updates: ICICI Bank's Breakout Above Resistance Level Highlights Market Strength
   [ET Markets] L&amp;T Finance among 4 F&amp;O stocks with a sharp rise in futures open interest
   [ET Markets] U-turn from regulator may be new lifeline to Indian derivatives
-  [ET Markets] Axis Bank Share Price Live Updates: Axis Bank's bearish movement below EMA
-  [ET Markets] UPL Share Price Live Updates: UPL Falls Below Key Moving Average
-  [ET Markets] HFCL among 3 stocks closing above VWAP
-  [ET Markets] Bajaj Finance Share Price Live Updates: Bajaj Finance falls below its 20-day Simple Moving Average
-  [ET Markets] ​HBL Engineering among 4 stocks showing RSI trending up
-  [ET Markets] HDFC Bank Share Price Live Updates: HDFC Bank's price action signals a bearish trend
-  [ET Markets] Wipro among 4 stocks showing White Marubozu pattern
-  [ET Markets] HBL Engineering among 4 stocks showing RSI trending up
-  [ET Markets] Tata Consumer Share Price Live Updates: Tata Consumer slips under its 20-day Exponential Moving Average
-  [ET Markets] LTIMindtree Share Price Live Updates: LTIMindtree Falls Below Key Moving Average
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
