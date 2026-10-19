@@ -7,9 +7,9 @@ BREAKOUT,APOLLO,EVENT_7D IN_NEWS,2026-10-24 Financial Results,,"Apollo Micro Sys
 BREAKOUT,TIPSMUSIC,IN_NEWS,,,Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend
 BREAKOUT,SKYGOLD,IN_NEWS,,,Sky Gold And Diamonds Stock And 2 Other Indian Growth Stocks To Own
 BREAKOUT,SHYAMMETL,IN_NEWS,,,"Shyam Metalics And Energy Ltd. 52 Week High Streak Analysis | Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 1"
-BREAKOUT,OAL,none,,,
+BREAKOUT,OAL,IN_NEWS,,,Oriental Aromatics Ltd. (OAL) Share Price hits fresh 52-week high
 BREAKOUT,ORIENTHOT,none,,,
-BREAKOUT,JUSTDIAL,RESULTS_SOON IN_NEWS,2026-10-19 Financial Results,,Just Dial shares skyrocket 13% as volume soars massively 115 times - More returns ahead or | Just Dial Share Price Rises 6.08%: Fundamentals and Sector
+BREAKOUT,JUSTDIAL,RESULTS_SOON IN_NEWS,2026-10-19 Financial Results,,Just Dial shares skyrocket 13% as volume soars massively 115 times - More returns ahead or | Just Dial Share Price Jumps 13% on Heavy Volume: What Next?
 BREAKOUT,SGMART,NEW_ANNOUNCEMENT,,2026-10-17 Board Meeting,
 BREAKOUT,MANOMAY,none,,,
 BREAKOUT,TECHM,IN_NEWS,,,"How to trade Tech Mahindra shares after 22% rally in 4 days? Technical expert weighs in | What to do with IT stocks? TCS, HCL Tech, Wipro, Infosys, Tech Mahindra — Why experts are "
@@ -38,7 +38,7 @@ PULLBACK,BEML,none,,,
 PULLBACK,LGEINDIA,IN_NEWS,,,"""Creating a World Without Chores""... LG Electronics Unveils Its Vision for the Future of H"
 PULLBACK,MANINDS,none,,,
 PULLBACK,CUB,none,,,
-PULLBACK,LXCHEM,IN_NEWS,,,CRISIL Downgrades Laxmi Organic Industries Long-Term Rating to AA-/Negative Amid Revenue D
+PULLBACK,LXCHEM,none,,,
 PULLBACK,GODREJAGRO,none,,,
 DIP,KRN,none,,,
 DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 "
@@ -46,7 +46,7 @@ DIP,HDBFS,IN_NEWS,,,"Tech Mahindra, ICICI Lombard, HDB Financial: Top stocks to 
 DIP,SANGHVIMOV,none,,,
 DIP,ANANTRAJ,none,,,
 DIP,ARMANFIN,none,,,
-DIP,SENCO,IN_NEWS,,,Senco Gold clarifies sustainable EBITDA margin at 7.5-7.8% post Q1FY27 surge
+DIP,SENCO,none,,,
 DIP,CHEMPLASTS,IN_NEWS,,,Chemplast Sanmar Ltd is Rated Strong Sell
 DIP,PREMIERPOL,none,,,
 DIP,KMEW,none,,,
