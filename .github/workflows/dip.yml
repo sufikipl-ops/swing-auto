@@ -23,11 +23,13 @@ jobs:
           DAYS: "200"
       - name: Dip scan
         run: python dip_scan.py data out
+      - name: Paper trading (app ke signals nakli paise se)
+        run: python paper.py data
       - name: Commit result
         run: |
           git config user.name "swing-bot"
           git config user.email "swing-bot@users.noreply.github.com"
-          git add out/dip_latest.csv docs/dip_latest.csv docs/regime_today.json docs/live_base.json
+          git add out/dip_latest.csv docs/dip_latest.csv docs/regime_today.json docs/live_base.json docs/paper.json
           git diff --cached --quiet && exit 0
           git commit -m "dip $(date -u +%F)"
           for i in 1 2 3 4 5; do
