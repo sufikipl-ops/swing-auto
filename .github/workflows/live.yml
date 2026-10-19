@@ -1,5 +1,6 @@
 name: live
-# Market ke time (9:10 - 15:32 IST) har ~25 sec me live prices Google Sheet me bhejta hai. Repo me kuch commit nahi karta.
+# Market ke time (9:10 - 15:32 IST) har ~25 sec me live prices Google Sheet me bhejta hai. main me kuch commit nahi karta;
+# chart ke live 1-min candles alag 'live-data' branch par force-push (ek hi commit) hote hain.
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +12,7 @@ on:
     - cron: "40 3 * * 1-5"   # 9:10 AM IST se 3:05 PM tak
     - cron: "25 9 * * 1-5"   # 2:55 PM IST se 3:32 PM tak (GitHub job 6 ghante se zyada nahi chalta)
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: ${{ inputs.test_alert && 'live-test' || 'live-feed' }}
   cancel-in-progress: false
@@ -33,3 +34,4 @@ jobs:
           ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
           ANGEL_PIN: ${{ secrets.ANGEL_PIN }}
           ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
+          GITHUB_TOKEN: ${{ github.token }}
