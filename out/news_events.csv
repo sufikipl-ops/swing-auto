@@ -1,54 +1,78 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,HBLENGINE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Clarification,"​HBL Engineering among 4 stocks showing RSI trending up | HCL Tech, IHCL, Sagility, HBL Engineering among stocks to buy; check fresh target prices &"
-BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge | Up 38% in a month! PC Jeweller share price rallies 13% despite weak trend on D-Street | Ch
-BREAKOUT,HCLTECH,IN_NEWS,,,"HCL Technologies, Tech Mahindra overtake TCS in net hiring adds"
-BREAKOUT,INDHOTEL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,Tech picks: Indian Hotels among 5 stocks to buy for healthy returns in short term | Stock to buy today: Indian Hotels Company (₹772)
-BREAKOUT,APOLLO,EVENT_7D IN_NEWS,2026-10-24 Financial Results,,Apollo Micro Systems lists 1.4 crore shares at ₹114 following warrant conversion
-BREAKOUT,TIPSMUSIC,IN_NEWS,,,Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend
-BREAKOUT,SKYGOLD,IN_NEWS,,,Sky Gold And Diamonds Stock And 2 Other Indian Growth Stocks To Own
-BREAKOUT,SHYAMMETL,IN_NEWS,,,"Shyam Metalics And Energy Ltd. 52 Week High Streak Analysis | Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 1"
-BREAKOUT,OAL,IN_NEWS,,,Oriental Aromatics Ltd. (OAL) Share Price hits fresh 52-week high
-BREAKOUT,ORIENTHOT,none,,,
-BREAKOUT,JUSTDIAL,RESULTS_SOON IN_NEWS,2026-10-19 Financial Results,,Just Dial shares skyrocket 13% as volume soars massively 115 times - More returns ahead or | Just Dial Share Price Jumps 13% on Heavy Volume: What Next?
-BREAKOUT,SGMART,NEW_ANNOUNCEMENT,,2026-10-17 Board Meeting,
-BREAKOUT,MANOMAY,none,,,
-BREAKOUT,TECHM,IN_NEWS,,,"How to trade Tech Mahindra shares after 22% rally in 4 days? Technical expert weighs in | What to do with IT stocks? TCS, HCL Tech, Wipro, Infosys, Tech Mahindra — Why experts are "
-PREBREAK,TRENT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-18 Resignation,Harish Bhat resigns as investors await Trent Q2 results; shares fall | Trent NSE:TRENT Physical Share Transfer Window 2026
-PREBREAK,NYKAA,none,,,
+BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge
+BREAKOUT,PNB,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8%"
+BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s"
+BREAKOUT,KROSS,IN_NEWS,,2026-10-18 Copy of Newspaper Publication,"Kross shares rally 16% after Q2 profit jumps 143% YoY; stock hits 52-week high | Kross share price zooms 20%, hits record high on huge volume; here's why"
+BREAKOUT,SOUTHBANK,IN_NEWS,,,South Indian Bank Share Price: Sector and Peer Analysis | South Indian Bank plans to enter credit card business in 6 months: MD & CEO
+BREAKOUT,TIPSMUSIC,IN_NEWS,,,Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend | Tips Music - PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a m
+BREAKOUT,MVGJL,none,,,
+BREAKOUT,SIMPLEXINF,none,,,
+BREAKOUT,DHANBANK,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Broad-Based Technical Strength Lifts Dhanlaxmi Bank Ltd to 52-Week High of Rs 37
+BREAKOUT,ONWARDTEC,IN_NEWS,,,"ONWARD TECHNOLOGIES Share Price Today Up 10% | Onward Technologies Ltd Share Price Rise Streak, Valuation"
+PREBREAK,KOTAKBANK,EVENT_7D IN_NEWS,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kotak Mahindra Bank slips Monday, outperforms competitors | Kotak Mahindra Bank sets October 24 results: HSBC targets Kotak Mahindra Bank stock at INR"
+PREBREAK,PETRONET,none,,,
 PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal schedules October 21 results for Eternal stock"
 PULLBACK,BHEL,IN_NEWS,,,BHEL Q2FY27 Results: Net profit up 120% YoY to ₹810 crore | BHEL Shares Fall 5% Despite Strong Q2 Profit Growth
-PULLBACK,PAYTM,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Paytm Shares Crash Over 7% as RBI Cancels Paytm Payments Bank Licence; One 97 Comm Issues 
-PULLBACK,MRPL,IN_NEWS,,,"Dividend record date: Last chance to buy today to qualify, Elecon, ICICI Prudential AMC, M"
-PULLBACK,ADANIPORTS,IN_NEWS,,,"Jefferies Favors Adani Ports, JSW Infra On Volume Growth And Operational Strength | Adani Ports sets results date as Jefferies favors Adani Ports stock"
-PULLBACK,MOTHERSON,none,,,
-PULLBACK,AUROPHARMA,none,,,
-PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,,
-PULLBACK,CARTRADE,none,,,
-PULLBACK,MOTISONS,none,,,
-PULLBACK,RADICO,none,,,
-PULLBACK,WELSPUNLIV,none,,,
-PULLBACK,KTKBANK,none,,2026-10-17 Analysts/Institutional Investor Meet/Con. Call Updates,
-PULLBACK,PATANJALI,none,,,
-PULLBACK,PAISALO,EVENT_7D,2026-10-22 Financial Results,,
-PULLBACK,AEQUS,none,,2026-10-17 Copy of Newspaper Publication,
-PULLBACK,PWL,none,,,
-PULLBACK,APLAPOLLO,EVENT_7D NEW_ANNOUNCEMENT,2026-10-26 Financial Results,2026-10-17 Board Meeting,
-PULLBACK,RAYMONDREL,none,,,
-PULLBACK,BEML,none,,,
-PULLBACK,LGEINDIA,IN_NEWS,,,"""Creating a World Without Chores""... LG Electronics Unveils Its Vision for the Future of H"
-PULLBACK,MANINDS,none,,,
-PULLBACK,CUB,none,,,
-PULLBACK,LXCHEM,IN_NEWS,,,CRISIL Downgrades Laxmi Organic Industries Long-Term Rating to AA-/Negative Amid Revenue D
-PULLBACK,GODREJAGRO,none,,,
+PULLBACK,CHENNPETRO,RESULTS_SOON,2026-10-22 Financial Results,,
+PULLBACK,WELCORP,IN_NEWS,,,"Metal sector stocks today, October 19: Welspun Corp jumps 1.57%, Hindustan Zinc up 0.65%; "
+PULLBACK,PAYTM,EVENT_7D,2026-10-26 Financial Results,,
+PULLBACK,MRPL,none,,,
+PULLBACK,NYKAA,none,,,
+PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
+PULLBACK,MOTILALOFS,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | HDFC Bank shares fall 2% after Q2 results. What are Jefferies, Motilal Oswal analysts sayi"
+PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
+PULLBACK,FCL,none,,,
+PULLBACK,LLOYDSENGG,IN_NEWS,,,Lloyds Engineering Shares Rise 94% in Six Months: Can Defence Drive The Next Leg?
+PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,ACME Solar signs PPA with SECI for 300 MW peak power supply at Rs 6/unit | ACME Solar Signs 300 MW SECI Power Supply PPA; Shares Fall 0.72%
+PULLBACK,SANSERA,IN_NEWS,,,"Sansera Engineering Ltd. Share Price Rise Streak at Rs 4,205"
+PULLBACK,PNBHOUSING,none,,,
+PULLBACK,LGEINDIA,IN_NEWS,,,LG Electronics Brings Its Heritage Of Customer-Centric Innovation to Times Square | LG Electronics Airs 160-Second Video on New York's Times Square Chronicling 68 Years of Ap
+PULLBACK,KTKBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Resignation of Director/KMP/SMP,"Karnataka Bank COO Raja B S resigns effective October 19, 2026 | Karnataka Bank: COO Raja B S Resigns, Effective October 19, 2026"
+PULLBACK,MBAPL,none,,,
+PULLBACK,SGFIN,IN_NEWS,,,"SG Finserve Ltd (BOM:539199) (Q2 2027) Earnings Call Highlights: Record ?59 Crore PAT, Nil | SG Finserve Q2 FY27: PAT Up 106%, Loan Book ₹5,694 Crore, Zero NPA"
+PULLBACK,TI,none,,,
+PULLBACK,OMNI,none,,,
+PULLBACK,MARSONS,none,,,
+PULLBACK,OPTIEMUS,none,,,
+PULLBACK,DCBBANK,EVENT_7D IN_NEWS,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,DCB Bank DCBBANK Q2 FY27 Earnings Call Date & Details
+PULLBACK,SEDEMAC,none,,,
+DIP,AMAL,none,,,
+DIP,YESBANK,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Yes Bank's evaluating capital actions to back growth plans | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5"
 DIP,KRN,none,,,
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-17 Press Release,"Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5 | Yes Bank stock pares gains, slips further after 17.5% crash; Q2 profit jumps 65% but AT-1 "
-DIP,HDBFS,IN_NEWS,,,"Tech Mahindra, ICICI Lombard, HDB Financial: Top stocks to turn ex-dividend this week"
-DIP,SANGHVIMOV,none,,,
+DIP,HEROMOTORS,IN_NEWS,,,Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
+DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd. Share Price Live Today | ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE"
+DIP,HDBFS,IN_NEWS,,,"Tech Mahindra, ICICI Lombard, HDB Financial: Top stocks to turn ex-dividend this week | HDB Financial targets mid-teen loan book growth, plans to keep margins above 8%"
+DIP,HTEL,none,,,
+DIP,ADROITIND,IN_NEWS,,,"ADROITIND Share Price Near All-Time Low: Price, Valuation"
 DIP,ANANTRAJ,none,,,
+DIP,AYE,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,Aye Finance Ltd Hits Intraday Low Amid Price Pressure on 19 Oct 2026
+DIP,SSRETAIL,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"SS Retail Ltd. Share Price Today - SS Retail Ltd. Stock Price Live NSE/BSE | SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE"
+DIP,ENRIN,IN_NEWS,,,"Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | PTA-CMS: Siemens Energy AG: Disclosure pursuant to art. 5 para. 1 lit. b), para. 3 of the "
+DIP,MONEYVIEW,IN_NEWS,,,Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview's first backer eyes India's next 500 million borrowers after IPO
+DIP,SJVN,IN_NEWS,,,SJVN Share Price Today Down 5% | Caught Out By SJVN's Fall? Here's What The Bears Saw
+DIP,EMMVEE,none,,,
+DIP,RPOWER,none,,,
+DIP,HAZOOR,none,,,
+DIP,GERMAN,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-24 Financial Results,2026-10-19 Board Meeting,Is German Green Steel and Power the Best Stock in Its Sector? A Look at the Numbers
+DIP,MANIKA,none,,,
+DIP,TEMPSENS,IN_NEWS,,,Tempsens Instruments (India) Ltd. Share Price Live Today
+DIP,MVELECTRO,IN_NEWS,,,MV Electrosystems Ltd. Share Price Today - MV Electrosystems Ltd. Stock Price Live NSE/BSE
+DIP,HSCL,IN_NEWS,,,Himadri Speciality's Battery Materials Expansion and Falling Margins: Is It Time to Watch 
+DIP,TALBROAUTO,none,,,
+DIP,FUSION,none,,,
+DIP,BLEL,none,,,
+DIP,ACEVECTOR,IN_NEWS,,,Acevector Ltd | Stock Share Price Live
+DIP,ORIENTCABL,none,,,
+DIP,PRASOLCHEM,none,,,
+DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting issues corrigendum to EGM notice on Oct 24 | Swaraj Suiting NSE:SWARAJ EGM Corrigendum October 2026
 DIP,ARMANFIN,none,,,
-DIP,SENCO,none,,,
-DIP,CHEMPLASTS,IN_NEWS,,,Chemplast Sanmar Ltd is Rated Strong Sell
-DIP,PREMIERPOL,none,,,
-DIP,KMEW,none,,,
-LOCKED,PASHUPATI,NEW_ANNOUNCEMENT,,"2026-10-17 Certificate under SEBI (Depositories and Participants) Regulations, 2018",
-LOCKED,AURUM,none,,2026-10-17 Copy of Newspaper Publication,
+DIP,IZMO,none,,,
+DIP,JSLL,none,,,
+DIP,CARTRADE,none,,,
+DIP,ZYDUSWELL,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
+DIP,SAREGAMA,IN_NEWS,,,Catch Salt & Spices marks World Food Day on Zee’s SAREGAMA | DS Group's Catch Salt & Spices Celebrated The Comfort Of Food On SAREGAMA This World Food 
+DIP,VENKEYS,none,,,
+DIP,APOLLOTYRE,none,,,
+DIP,RIIL,none,,,
+LOCKED,PASHUPATI,none,,,
+LOCKED,AURUM,none,,,
