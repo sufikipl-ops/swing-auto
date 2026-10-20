@@ -3,12 +3,12 @@ BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jewell
 BREAKOUT,PNB,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8%"
 BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results"
 BREAKOUT,KROSS,IN_NEWS,,2026-10-18 Copy of Newspaper Publication,"Kross shares rally 16% after Q2 profit jumps 143% YoY; stock hits 52-week high | Kross share price zooms 20%, hits record high on huge volume; here's why"
-BREAKOUT,SOUTHBANK,IN_NEWS,,,South Indian Bank Share Price: Sector and Peer Analysis | Plan to enter credit card biz in six months: South Indian Bank MD & CEO
-BREAKOUT,TIPSMUSIC,IN_NEWS,,,Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend | Tips Music - PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a m
+BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank MD Pai looks at strong culture, gold loan prowess to drive growth | South Indian Bank Share Price: Sector and Peer Analysis"
+BREAKOUT,TIPSMUSIC,IN_NEWS,,,Tips Music - PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a m
 BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
 BREAKOUT,DHANBANK,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Broad-Based Technical Strength Lifts Dhanlaxmi Bank Ltd to 52-Week High of Rs 37
-BREAKOUT,ONWARDTEC,IN_NEWS,,,"ONWARD TECHNOLOGIES Share Price Today Up 10% | Onward Technologies Ltd Share Price Rise Streak, Valuation"
+BREAKOUT,ONWARDTEC,IN_NEWS,,,"Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, . | ONWARD TECHNOLOGIES Share Price Today Up 10%"
 PREBREAK,KOTAKBANK,EVENT_7D IN_NEWS,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kotak Mahindra Bank slips Monday, outperforms competitors | Kotak Mahindra Bank sets October 24 results: HSBC targets Kotak Mahindra Bank stock at INR"
 PREBREAK,PETRONET,none,,,
 PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal schedules October 21 results for Eternal stock"
@@ -19,7 +19,7 @@ PULLBACK,PAYTM,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,MRPL,none,,,
 PULLBACK,NYKAA,none,,,
 PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
-PULLBACK,MOTILALOFS,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | HDFC Bank shares fall 2% after Q2 results. What are Jefferies, Motilal Oswal analysts sayi"
+PULLBACK,MOTILALOFS,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Motilal Oswal reiterates INR 198 target for Ashok Leyland stock"
 PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,FCL,none,,,
 PULLBACK,LLOYDSENGG,IN_NEWS,,,Lloyds Engineering Shares Rise 94% in Six Months: Can Defence Drive The Next Leg?
@@ -37,13 +37,13 @@ PULLBACK,OPTIEMUS,none,,,
 PULLBACK,DCBBANK,EVENT_7D IN_NEWS,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,DCB Bank DCBBANK Q2 FY27 Earnings Call Date & Details
 PULLBACK,SEDEMAC,none,,,
 DIP,AMAL,none,,,
-DIP,YESBANK,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Yes Bank's evaluating capital actions to back growth plans | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5"
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Yes Bank's evaluating capital actions to back growth plans | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5"
 DIP,KRN,none,,,
 DIP,HEROMOTORS,IN_NEWS,,,Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
 DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd. Share Price Live Today | ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE"
 DIP,HDBFS,IN_NEWS,,,"Tech Mahindra, ICICI Lombard, HDB Financial: Top stocks to turn ex-dividend this week | HDB Financial targets mid-teen loan book growth, plans to keep margins above 8%"
 DIP,HTEL,none,,,
-DIP,ADROITIND,IN_NEWS,,,"ADROITIND Share Price Near All-Time Low: Price, Valuation"
+DIP,ADROITIND,none,,,
 DIP,ANANTRAJ,none,,,
 DIP,AYE,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,Aye Finance Ltd Hits Intraday Low Amid Price Pressure on 19 Oct 2026
 DIP,SSRETAIL,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"SS Retail Ltd. Share Price Today - SS Retail Ltd. Stock Price Live NSE/BSE | SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE"
@@ -64,7 +64,7 @@ DIP,BLEL,none,,,
 DIP,ACEVECTOR,IN_NEWS,,,Acevector Ltd | Stock Share Price Live
 DIP,ORIENTCABL,none,,,
 DIP,PRASOLCHEM,none,,,
-DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting issues corrigendum to EGM notice on Oct 24 | Swaraj Suiting NSE:SWARAJ EGM Corrigendum October 2026
+DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting Ltd is Rated Sell | Swaraj Suiting issues corrigendum to EGM notice on Oct 24
 DIP,ARMANFIN,none,,,
 DIP,IZMO,none,,,
 DIP,JSLL,none,,,
