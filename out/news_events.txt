@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-20 09:42 IST
+NEWS/EVENTS CHECK 2026-10-20 10:23 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 77 symbols
@@ -10,8 +10,8 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 138 headlines
-PDF saar: 2 naye bane, 2 nahi bane, 12 pehle ke reuse (AI key: nahi)
+Google News: 82 of 82 symbols, 137 headlines
+PDF saar: 0 naye bane, 2 nahi bane, 14 pehle ke reuse (AI key: nahi)
 announcements.json: 24 symbols with announcements in last 3 days
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge
 PNB          BREAKOUT   IN_NEWS                            |  |  | PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8%
@@ -28,7 +28,7 @@ CHENNPETRO   PULLBACK   RESULTS_SOON                       | 2026-10-22 Financia
 WELCORP      PULLBACK   IN_NEWS                            |  |  | Metal sector stocks today, October 19: Welspun Corp jumps 1.57%, Hindustan Zinc up 0.65%; 
 PAYTM        PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
-MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Motilal Oswal reiterates INR 198 target for Ashok Leyland stock
+MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Motilal Oswal sets INR 625 target for Jubilant FoodWorks stock
 APLAPOLLO    PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 LLOYDSENGG   PULLBACK   IN_NEWS                            |  |  | Lloyds Engineering Shares Rise 94% in Six Months: Can Defence Drive The Next Leg?
 ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | ACME Solar signs PPA with SECI for 300 MW peak power supply at Rs 6/unit | ACME Solar Signs 300 MW SECI Power Supply PPA; Shares Fall 0.72%
