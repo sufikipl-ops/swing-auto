@@ -1,5 +1,6 @@
 # Reel "Z-score mean reversion": z = (close - 20 din ka average) / 20 din ka std. z <= -2 (bahut gira) -> kal open par kharido,
-# wapas 20-din average ko chhuye to becho. Stop-loss + time-stop. (Reel me awaaz nahi thi; rule screen ke text se.)
+# wapas 20-din average ko chhuye to becho. Stop-loss + time-stop (reel: "teen din me wapas nahi aaya to bahar").
+# Reel ka hook bhi: "jo stock aaj 10% gira, kal wahi kharido". (Rule reel ki captions se, jo bola gaya wahi likha tha.)
 # Daily NSE bhavcopy ~4 saal, liquid stocks (20-din turnover 5 cr+). Kal OPEN par entry, gap filter (open +1.5% upar / -3% neeche
 # = skip), kharcha 0.25%, same din SL aur target = SL. Market haal (breadth) ke hisaab se alag, saal-war bhi.
 # usage: python zscore_study.py <bhav_folder> <out_folder>    (SYNTH=1 -> random walk sanity)
@@ -75,10 +76,12 @@ def main():
            for d in alld if tot[d] >= 50}
     log('Z-SCORE MEAN REVERSION STUDY%s (%s): data %s se %s, %d stocks' % (' [SYNTH]' if syn else '', datetime.date.today(), alld[0], alld[-1], len(data)))
     # variants: (naam, z cut, SL ATR guna ya None, max din, trend filter)
-    VARS = [('Z-2 / SL2ATR / 10d', -2.0, 2.0, 10, None), ('Z-2 / SL3ATR / 20d', -2.0, 3.0, 20, None),
+    VARS = [('REEL: Z-2 / SL2ATR / 3d', -2.0, 2.0, 3, None), ('REEL: Z-2 / bina SL / 3d', -2.0, None, 3, None),
+            ('REEL: Z-2 / SL3ATR / 3d', -2.0, 3.0, 3, None), ('REEL: 10% gira / SL2ATR / 3d', 'D10', 2.0, 3, None),
+            ('REEL: 10% gira / bina SL / 3d', 'D10', None, 3, None), ('Z-2 / SL2ATR / 10d', -2.0, 2.0, 10, None), ('Z-2 / SL3ATR / 20d', -2.0, 3.0, 20, None),
             ('Z-2 / bina SL / 10d', -2.0, None, 10, None), ('Z-2.5 / SL2ATR / 10d', -2.5, 2.0, 10, None),
             ('Z-2 / SL2ATR / 10d + EMA200 upar', -2.0, 2.0, 10, 'up'), ('Z-2 / SL2ATR / 10d + EMA200 neeche', -2.0, 2.0, 10, 'down'),
-            ('BASE: koi bhi din / SL2ATR / 10d', None, 2.0, 10, None)]
+            ('BASE: koi bhi din / SL2ATR / 10d', None, 2.0, 10, None), ('BASE: koi bhi din / SL2ATR / 3d', None, 2.0, 3, None)]
     R = collections.defaultdict(list)
     rnd = random.Random(3)
     for sym, byd in data.items():
@@ -105,6 +108,8 @@ def main():
                     continue                     # ek stock me ek waqt ek hi trade
                 if zc is None:
                     if rnd.random() > 0.02: continue
+                elif zc == 'D10':
+                    if c[i] > c[i - 1] * 0.90: continue          # aaj 10%+ gira
                 elif z > zc:
                     continue
                 if tf == 'up' and c[i] < E[i]: continue
@@ -143,8 +148,9 @@ def main():
             rows.append(row)
             log('%-36s %-7s %6d %4d%% %+8.3f %+6.2f%% %6.1f  %4d/%4d/%4d  %s' % (name, rg, n, row['win'], avg, pc, row['days'], ex['SL'], ex['Average'], ex['Time'], row['years']))
         log('')
-    base = {r['regime']: r['avgR'] for r in rows if r['variant'].startswith('BASE')}
-    good = [r for r in rows if not r['variant'].startswith('BASE') and r['n'] >= 100 and r['avgR'] > 0.05 and r['avgR'] - base.get(r['regime'], 0) >= 0.05
+    base = {r['regime']: r['avgR'] for r in rows if r['variant'] == 'BASE: koi bhi din / SL2ATR / 10d'}
+    base3 = {r['regime']: r['avgR'] for r in rows if r['variant'] == 'BASE: koi bhi din / SL2ATR / 3d'}
+    good = [r for r in rows if not r['variant'].startswith('BASE') and r['n'] >= 100 and r['avgR'] > 0.05 and r['avgR'] - (base3 if '/ 3d' in r['variant'] else base).get(r['regime'], 0) >= 0.05
             and int(r['years'].split('/')[0]) * 2 > int(r['years'].split('/')[1])]
     log('PASS (n>=100, avgR>+0.05, BASE se 0.05R+ behtar, zyada saal plus): %s' % (
         '; '.join('%s %s %+.3f (n %d)' % (r['variant'], r['regime'], r['avgR'], r['n']) for r in good) or 'koi nahi'))
