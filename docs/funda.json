@@ -1,28 +1,5 @@
 {
  "debug": {
-  "pledge_keys": [
-   "broadcastDt",
-   "comName",
-   "compBroadcastDate",
-   "disclosureFromDate",
-   "disclosureToDate",
-   "nbfcNonPromoShare",
-   "nbfcPromoShare",
-   "noOfPledgeShare",
-   "noOfSecPledgeShare",
-   "numSharesPledged",
-   "percPromoterHolding",
-   "percPromoterShares",
-   "percSharesPledged",
-   "percTotShares",
-   "sharesCollateral",
-   "shp",
-   "totDematShares",
-   "totIssuedShares",
-   "totPromoterHolding",
-   "totPromoterShares",
-   "totPublicHolding"
-  ],
   "shp_keys": [
    "broadcastDate",
    "cgTimeStamp",
@@ -166,7 +143,7 @@
    "sector": "Consumer Defensive"
   },
   "AMAL": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "de": 0.0,
    "de_date": "2026-03-31",
    "de_src": "yahoo-annual",
@@ -485,15 +462,12 @@
    "qv": 3
   },
   "DHANBANK": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "de": 0.36,
    "de_date": "2026-03-31",
    "de_src": "yahoo-annual",
-   "err": [
-    "pledge"
-   ],
    "pledge": null,
-   "pledge_date": "2026-09-30",
+   "pledge_note": "NSE par pledge record nahi",
    "prom": 0.0,
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
@@ -644,7 +618,7 @@
    "sector": "Financial Services"
   },
   "GERMAN": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "err": [
     "de"
    ],
@@ -689,7 +663,7 @@
    "sector": "Consumer Defensive"
   },
   "HAZOOR": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "de": 0.73,
    "de_src": "yahoo",
    "eg": -98.2,
@@ -1019,15 +993,12 @@
    "sector": "Consumer Cyclical"
   },
   "KTKBANK": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "de": 0.07,
    "de_date": "2026-03-31",
    "de_src": "yahoo-annual",
-   "err": [
-    "pledge"
-   ],
    "pledge": null,
-   "pledge_date": "2026-06-30",
+   "pledge_note": "NSE par pledge record nahi",
    "prom": 0.0,
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
@@ -1713,12 +1684,12 @@
    "sector": "Technology"
   },
   "RIIL": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "err": [
     "de"
    ],
-   "pledge": 0.0,
-   "pledge_date": "2026-06-30",
+   "pledge": null,
+   "pledge_note": "NSE par pledge record nahi",
    "prom": 45.43,
    "prom_date": "2026-06-30",
    "prom_prev": 45.43,
@@ -1957,15 +1928,12 @@
    "sector": "Consumer Cyclical"
   },
   "SOUTHBANK": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "de": 0.3,
    "de_date": "2026-03-31",
    "de_src": "yahoo-annual",
-   "err": [
-    "pledge"
-   ],
    "pledge": null,
-   "pledge_date": "2026-09-30",
+   "pledge_note": "NSE par pledge record nahi",
    "prom": 0.0,
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
@@ -2181,15 +2149,12 @@
    "sector": "Consumer Cyclical"
   },
   "YESBANK": {
-   "at": "2026-10-19",
+   "at": "2026-10-20",
    "de": 1.28,
    "de_date": "2026-03-31",
    "de_src": "yahoo-annual",
-   "err": [
-    "pledge"
-   ],
    "pledge": null,
-   "pledge_date": "2026-09-30",
+   "pledge_note": "NSE par pledge record nahi",
    "prom": 0.0,
    "prom_date": "2026-09-30",
    "prom_prev": 0.0,
@@ -2220,13 +2185,13 @@
  "log": [
   "candidates: 77",
   "warmup fail: HTTP Error 403: Forbidden",
-  "status: {\"shp\": \"64/66\", \"pledge\": \"62/66\", \"de\": \"64/66\", \"cached\": 11}"
+  "status: {\"shp\": \"6/8\", \"pledge\": \"8/8\", \"de\": \"6/8\", \"cached\": 69}"
  ],
  "status": {
-  "cached": 11,
-  "de": "64/66",
-  "pledge": "62/66",
-  "shp": "64/66"
+  "cached": 69,
+  "de": "6/8",
+  "pledge": "8/8",
+  "shp": "6/8"
  },
- "updated": "2026-10-19 14:28 UTC"
+ "updated": "2026-10-20 14:20 UTC"
 }
