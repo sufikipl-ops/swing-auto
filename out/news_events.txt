@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-20 10:57 IST
+NEWS/EVENTS CHECK 2026-10-20 11:39 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 77 symbols
@@ -10,7 +10,7 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 134 headlines
+Google News: 82 of 82 symbols, 136 headlines
 PDF saar: 0 naye bane, 2 nahi bane, 14 pehle ke reuse (AI key: nahi)
 announcements.json: 25 symbols with announcements in last 3 days
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge
@@ -18,6 +18,7 @@ PNB          BREAKOUT   IN_NEWS                            |  |  | PNB shares ju
 KARURVYSYA   BREAKOUT   IN_NEWS                            |  | 2026-10-19 General | Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results
 KROSS        BREAKOUT   IN_NEWS                            |  | 2026-10-18 Copy of Newspaper Publication | Kross shares rally 16% after Q2 profit jumps 143% YoY; stock hits 52-week high | Kross share price zooms 20%, hits record high on huge volume; here's why
 SOUTHBANK    BREAKOUT   IN_NEWS                            |  |  | South Indian Bank MD Pai looks at strong culture, gold loan prowess to drive growth | South Indian Bank Share Price: Sector and Peer Analysis
+TIPSMUSIC    BREAKOUT   IN_NEWS                            |  |  | Tips Music - PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a m
 DHANBANK     BREAKOUT   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Broad-Based Technical Strength Lifts Dhanlaxmi Bank Ltd to 52-Week High of Rs 37
 ONWARDTEC    BREAKOUT   IN_NEWS                            |  |  | Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, . | Onward Technologies Q2 FY27: Revenue Up 22%, Guidance Raised
 KOTAKBANK    PREBREAK   EVENT_7D IN_NEWS                   | 2026-10-24 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Kotak Mahindra Bank slips Monday, outperforms competitors | Kotak Mahindra Bank sets October 24 results: HSBC targets Kotak Mahindra Bank stock at INR
@@ -30,12 +31,13 @@ MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | PNB shares ju
 APLAPOLLO    PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 LLOYDSENGG   PULLBACK   IN_NEWS                            |  |  | Lloyds Engineering Shares Rise 94% in Six Months: Can Defence Drive The Next Leg?
 ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | ACME Solar signs PPA with SECI for 300 MW peak power supply at Rs 6/unit | ACME Solar signs 300 MW peak power supply agreement with SECI
-SANSERA      PULLBACK   IN_NEWS                            |  |  | Sansera Engineering Ltd. Share Price Rise Streak at Rs 4,205
-LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics unveils next-generation traffic safety solution, advances V2X to target the
-KTKBANK      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Resignation of Director/KMP/SMP | Karnataka Bank COO Raja B S resigns effective October 19, 2026 | Karnataka Bank: COO Raja B S Resigns, Effective October 19, 2026
+LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics Brings Its Heritage Of Customer-Centric Innovation to Times Square | LG Electronics Airs 160-Second Video on New York's Times Square Chronicling 68 Years of Ap
+KTKBANK      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Resignation of Director/KMP/SMP | Karnataka Bank COO Raja B S resigns effective October 19, 2026 | Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service
 SGFIN        PULLBACK   IN_NEWS                            |  |  | SG Finserve Ltd (BOM:539199) (Q2 2027) Earnings Call Highlights: Record ?59 Crore PAT, Nil | SG Finserve Q2 FY27: PAT Up 106%, Loan Book ₹5,694 Crore, Zero NPA
+MARSONS      PULLBACK   IN_NEWS                            |  |  | Marsons Limited (MARSONS) share price — eduinvesting
 DCBBANK      PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-23 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | DCB Bank DCBBANK Q2 FY27 Earnings Call Date & Details
 YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Credit Rating | Yes Bank's evaluating capital actions to back growth plans | Yes Bank shares rise as Q2 profit beats estimates, but AT1 bond verdict hit pegged at Rs 5
+HEROMOTORS   DIP        IN_NEWS                            |  |  | Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
 ESDS         DIP        IN_NEWS                            |  |  | ESDS Software Solution Ltd. Share Price Live Today | ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE
 HDBFS        DIP        IN_NEWS                            |  |  | Tech Mahindra, ICICI Lombard, HDB Financial: Top stocks to turn ex-dividend this week | HDB Financial targets mid-teen loan book growth, plans to keep margins above 8%
 AYE          DIP        RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Aye Finance Ltd Hits Intraday Low Amid Price Pressure on 19 Oct 2026
@@ -50,7 +52,7 @@ HSCL         DIP        IN_NEWS                            |  |  | Himadri Speci
 ACEVECTOR    DIP        IN_NEWS                            |  |  | Acevector Ltd | Stock Share Price Live
 SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting Ltd is Rated Sell | Swaraj Suiting issues corrigendum to EGM notice on Oct 24
 SAREGAMA     DIP        IN_NEWS                            |  |  | Catch Salt & Spices marks World Food Day on Zee’s SAREGAMA | DS Group's Catch Salt & Spices Celebrated The Comfort Of Food On SAREGAMA This World Food 
-Symbols with no flags: 40. Top market headlines:
+Symbols with no flags: 38. Top market headlines:
   [ET Markets] From ₹228 a GB to ₹7.5: How Mukesh Ambani’s Jio rewired India’s internet and is now seeking a ₹10 lakh crore v
   [ET Markets] Stock Market Holiday 2026: Is stock market closed today for Dussehra? Check remaining holidays for the year
   [ET Markets] HFCL Q2 net profit jumps 448% to Rs 394 crore
