@@ -1,23 +1,23 @@
-NEWS/EVENTS CHECK 2026-10-20 07:24 IST
+NEWS/EVENTS CHECK 2026-10-20 08:56 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 77 symbols
 locked stocks added for announcements: PASHUPATI,AURUM,AMAL,YESBANK,KRN,HEROMOTORS,ESDS,HDBFS,HTEL,ADROITIND,ANANTRAJ,AYE,SSRETAIL,ENRIN,MONEYVIEW,SJVN,EMMVEE,RPOWER,HAZOOR,GERMAN,MANIKA,TEMPSENS,MVELECTRO,HSCL,TALBROAUTO,FUSION,BLEL,ACEVECTOR,ORIENTCABL,PRASOLCHEM,SWARAJ,ARMANFIN,IZMO,JSLL,CARTRADE,ZYDUSWELL,SAREGAMA,VENKEYS,APOLLOTYRE,RIIL
-NSE announcements fetched for 76 of 77 symbols
+NSE announcements fetched for 77 of 77 symbols
 BSE announcements: 76 symbols checked, 3 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 139 headlines
-PDF saar: 9 naye bane, 2 nahi bane, 5 pehle ke reuse (AI key: nahi)
+Google News: 82 of 82 symbols, 135 headlines
+PDF saar: 0 naye bane, 2 nahi bane, 14 pehle ke reuse (AI key: nahi)
 announcements.json: 24 symbols with announcements in last 3 days
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge
 PNB          BREAKOUT   IN_NEWS                            |  |  | PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8%
-KARURVYSYA   BREAKOUT   IN_NEWS                            |  | 2026-10-19 General | Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results | Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade — Key levels, targets & s
+KARURVYSYA   BREAKOUT   IN_NEWS                            |  | 2026-10-19 General | Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results
 KROSS        BREAKOUT   IN_NEWS                            |  | 2026-10-18 Copy of Newspaper Publication | Kross shares rally 16% after Q2 profit jumps 143% YoY; stock hits 52-week high | Kross share price zooms 20%, hits record high on huge volume; here's why
-SOUTHBANK    BREAKOUT   IN_NEWS                            |  |  | South Indian Bank Share Price: Sector and Peer Analysis | South Indian Bank plans to enter credit card business in 6 months: MD & CEO
+SOUTHBANK    BREAKOUT   IN_NEWS                            |  |  | South Indian Bank Share Price: Sector and Peer Analysis | Plan to enter credit card biz in six months: South Indian Bank MD & CEO
 TIPSMUSIC    BREAKOUT   IN_NEWS                            |  |  | Just Two Days Till Tips Music Limited (NSE:TIPSMUSIC) Will Be Trading Ex-Dividend | Tips Music - PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a m
 DHANBANK     BREAKOUT   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Broad-Based Technical Strength Lifts Dhanlaxmi Bank Ltd to 52-Week High of Rs 37
 ONWARDTEC    BREAKOUT   IN_NEWS                            |  |  | ONWARD TECHNOLOGIES Share Price Today Up 10% | Onward Technologies Ltd Share Price Rise Streak, Valuation
@@ -55,6 +55,7 @@ ACEVECTOR    DIP        IN_NEWS                            |  |  | Acevector Ltd
 SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting issues corrigendum to EGM notice on Oct 24 | Swaraj Suiting NSE:SWARAJ EGM Corrigendum October 2026
 SAREGAMA     DIP        IN_NEWS                            |  |  | Catch Salt & Spices marks World Food Day on Zee’s SAREGAMA | DS Group's Catch Salt & Spices Celebrated The Comfort Of Food On SAREGAMA This World Food 
 Symbols with no flags: 36. Top market headlines:
+  [ET Markets] Stock Market Holiday 2026: Is stock market closed today for Dussehra? Check remaining holidays for the year
   [ET Markets] HFCL Q2 net profit jumps 448% to Rs 394 crore
   [ET Markets] Steelmakers may outperform non-ferrous peers in Q2 as higher volumes support earnings
   [ET Markets] UltraTech Cement Q2 net profit up 21% in September quarter
@@ -69,5 +70,4 @@ Symbols with no flags: 36. Top market headlines:
   [ET Markets] Central Bank of India reports technical glitch in RTGS outward system
   [ET Markets] Ireda net profit grows to Rs 554 cr in Sep qtr
   [ET Markets] Bajaj Finance Q2 consolidated net profit rises 29% to Rs 6,367 crore
-  [ET Markets] Waaree Renewable Technologies Q2 Results: Net profit falls 29% to Rs 81 crore
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
