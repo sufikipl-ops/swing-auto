@@ -158,3 +158,9 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - App shows the track record on every IPO card (docs/ipo_backtest.json).
 - Paper trading: paper.py (dip.yml) auto-tracks all signals -> docs/paper.json; manual paper trades in localStorage (Trades > Paper > Mere trade).
 - UI: Picks sub-tabs (Trade/Setups/Savdhani/Market/Locked), market gauge + intraday sparkline, alerts page via header bell, live setups card (prep from 09:20).
+
+## Z-score mean reversion reel (2026-10-20) - only VWEAK, not added
+- zscore_study.py (zscore.yml): 20-day z <= -2, next-open entry, exit at the 20-day average, SL/time stop; 3235 stocks 2022-09..2026-10.
+- ALL regimes ~0 (Z-2/SL2ATR/10d -0.03R; random-day base -0.18R). WEAK -0.10R, MIXED -0.09R. VWEAK passes: no-SL/10d +0.16R (3/3 yrs),
+  SL3ATR/20d +0.11R (75% win, 3/3), Z-2.5/SL2ATR +0.16R. Synthetic: ~0 with 54-67% "win rate" (small target inflates win %).
+- Same regime as OVERSOLD_BOUNCE (+0.26R VWEAK) and largely the same stocks, so no new app section.
