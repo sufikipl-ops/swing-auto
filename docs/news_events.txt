@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-20 15:23 IST
+NEWS/EVENTS CHECK 2026-10-20 15:56 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 77 symbols
@@ -10,7 +10,7 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 130 headlines
+Google News: 82 of 82 symbols, 133 headlines
 PDF saar: 0 naye bane, 2 nahi bane, 14 pehle ke reuse (AI key: nahi)
 announcements.json: 26 symbols with announcements in last 3 days
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge
@@ -29,28 +29,26 @@ MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend stoc
 SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,
 MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Daily Market Commentary for October 19th 2026 - Motilal Oswal Financial Services Ltd
 APLAPOLLO    PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
-ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | ACME Solar signs PPA with SECI for 300 MW peak power supply at Rs 6/unit | ACME Solar signs 300 MW peak power supply agreement with SECI
+ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | ACME Solar signs PPA with SECI for 300 MW peak power supply at Rs 6/unit
 LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics Brings Its Heritage Of Customer-Centric Innovation to Times Square | LG Electronics Airs 160-Second Video on New York's Times Square Chronicling 68 Years of Ap
 KTKBANK      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Resignation of Director/KMP/SMP | Karnataka Bank COO Raja B S resigns effective October 19, 2026 | Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service
 SGFIN        PULLBACK   IN_NEWS                            |  |  | SG Finserve Ltd (BOM:539199) (Q2 2027) Earnings Call Highlights: Record ?59 Crore PAT, Nil | SG Finserve Q2 FY27: PAT Up 106%, Loan Book ₹5,694 Crore, Zero NPA
 OPTIEMUS     PULLBACK   IN_NEWS                            |  | 2026-10-20 Copy of Newspaper Publication | Optiemus Infracom Share Certificate Loss Notice Oct 2026
 DCBBANK      PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-23 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | DCB Bank DCBBANK Q2 FY27 Earnings Call Date & Details
 YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Credit Rating | Yes Bank's evaluating capital actions to back growth plans | Top banking share to buy after Q2 results 2026? HDFC Bank vs Axis Bank vs ICICI Bank vs Ye
-HEROMOTORS   DIP        IN_NEWS                            |  |  | Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
-ESDS         DIP        IN_NEWS                            |  |  | ESDS Software Solution Ltd. Share Price Live Today
+ESDS         DIP        IN_NEWS                            |  |  | ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE
 HDBFS        DIP        IN_NEWS                            |  | 2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates | HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore
 AYE          DIP        RESULTS_SOON                       | 2026-10-21 Financial Results |  | 
-SSRETAIL     DIP        IN_NEWS                            |  | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | SS Retail Ltd. Share Price Today - SS Retail Ltd. Stock Price Live NSE/BSE | SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE
+SSRETAIL     DIP        IN_NEWS                            |  | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE | SS Retail to host investor conference in Mumbai on Oct 23
 ENRIN        DIP        IN_NEWS                            |  |  | Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | PTA-CMS: Siemens Energy AG: Disclosure pursuant to art. 5 para. 1 lit. b), para. 3 of the 
-MONEYVIEW    DIP        IN_NEWS                            |  |  | Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview's first backer eyes India's next 500 million borrowers after IPO
-SJVN         DIP        IN_NEWS                            |  |  | SJVN Share Price Today Down 5% | Caught Out By SJVN's Fall? Here's What The Bears Saw
+MONEYVIEW    DIP        IN_NEWS                            |  |  | Moneyview's first backer eyes India's next 500 million borrowers after IPO
+SJVN         DIP        IN_NEWS                            |  |  | Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc | SJVN Share Price Today Down 5%
 GERMAN       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-24 Financial Results | 2026-10-19 Board Meeting | 
-MVELECTRO    DIP        IN_NEWS                            |  |  | MV Electrosystems Ltd. Share Price Today - MV Electrosystems Ltd. Stock Price Live NSE/BSE
-HSCL         DIP        IN_NEWS                            |  |  | Himadri Speciality's Battery Materials Expansion and Falling Margins: Is It Time to Watch  | Himadri Speciality Chemical Q2: Revenue Surges 58% to ₹1,691 Crore, PAT Rises 31% to ₹231 
-BLEL         DIP        IN_NEWS                            |  |  | Behari Lal Engineering Ltd. Share Price Live Today
-SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting issues corrigendum to EGM notice on Oct 24 | Swaraj Suiting NSE:SWARAJ EGM Corrigendum October 2026
+HSCL         DIP        IN_NEWS                            |  |  | Himadri Speciality's Battery Materials Expansion and Falling Margins: Is It Time to Watch 
+ACEVECTOR    DIP        IN_NEWS                            |  |  | Acevector Ltd | Stock Share Price Live
+SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting Ltd Valuation Shifts to Fair Amid Sector Volatility | Swaraj Suiting issues corrigendum to EGM notice on Oct 24
 AURUM        LOCKED     IN_NEWS                            |  |  | Aurum Proptech Ltd (BOM:539289) (Q2 2027) Earnings Call Highlights: Revenue Surges 64% as 
-Symbols with no flags: 40. Top market headlines:
+Symbols with no flags: 42. Top market headlines:
   [ET Markets] Jio IPO opens tomorrow: How can investors maximise allotment chances under Rs 2,500 crore RIL shareholders quo
   [ET Markets] WhatsApp stock tips: Nithin Kamath warns of more pump-and-dump schemes as ED freezes accounts worth Rs 200 cro
   [ET Markets] Mukul Agrawal portfolio: Ace investor adds 7 new equity stocks in Q2. Do you own any?
