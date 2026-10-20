@@ -3,13 +3,13 @@ BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jewell
 BREAKOUT,PNB,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8%"
 BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results"
 BREAKOUT,KROSS,IN_NEWS,,2026-10-18 Copy of Newspaper Publication,"Kross shares rally 16% after Q2 profit jumps 143% YoY; stock hits 52-week high | Kross share price zooms 20%, hits record high on huge volume; here's why"
-BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank MD Pai looks at strong culture, gold loan prowess to drive growth | South Indian Bank Share Price: Sector and Peer Analysis"
+BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank MD Pai looks at strong culture, gold loan prowess to drive growth | Plan to enter credit card biz in six months: South Indian Bank MD & CEO"
 BREAKOUT,TIPSMUSIC,none,,,
 BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
 BREAKOUT,DHANBANK,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Broad-Based Technical Strength Lifts Dhanlaxmi Bank Ltd to 52-Week High of Rs 37
 BREAKOUT,ONWARDTEC,IN_NEWS,,,"Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, ."
-PREBREAK,KOTAKBANK,EVENT_7D IN_NEWS,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kotak Mahindra Bank slips Monday, outperforms competitors"
+PREBREAK,KOTAKBANK,EVENT_7D,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PREBREAK,PETRONET,none,,,
 PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal Q2 FY27 Results on Oct 21: Can Blinkit Deliver the Profit Jump Brokerages Expect?"
 PULLBACK,BHEL,IN_NEWS,,,BHEL Q2FY27 Results: Net profit up 120% YoY to ₹810 crore | BHEL and 4 Other Stocks With Over 100% Profit Growth Trading Up to 50% Discount to Keep an
@@ -41,14 +41,14 @@ DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,Yes Bank's evalua
 DIP,KRN,none,,,
 DIP,HEROMOTORS,none,,,
 DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE"
-DIP,HDBFS,IN_NEWS,,2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates,HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore
+DIP,HDBFS,IN_NEWS,,2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates,HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore | HDB Financial Services Q2 PAT Jumps 34% To Rs 780 Crore
 DIP,HTEL,none,,,
 DIP,ADROITIND,none,,,
 DIP,ANANTRAJ,none,,,
 DIP,AYE,RESULTS_SOON,2026-10-21 Financial Results,,
 DIP,SSRETAIL,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE | SS Retail to host investor conference in Mumbai on Oct 23"
 DIP,ENRIN,IN_NEWS,,,"Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | PTA-CMS: Siemens Energy AG: Disclosure pursuant to art. 5 para. 1 lit. b), para. 3 of the "
-DIP,MONEYVIEW,IN_NEWS,,,Moneyview's first backer eyes India's next 500 million borrowers after IPO
+DIP,MONEYVIEW,none,,,
 DIP,SJVN,IN_NEWS,,,Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc | SJVN Share Price Today Down 5%
 DIP,EMMVEE,none,,,
 DIP,RPOWER,none,,,
@@ -61,10 +61,10 @@ DIP,HSCL,IN_NEWS,,,Himadri Speciality's Battery Materials Expansion and Falling 
 DIP,TALBROAUTO,none,,,
 DIP,FUSION,none,,,
 DIP,BLEL,none,,,
-DIP,ACEVECTOR,IN_NEWS,,,Acevector Ltd | Stock Share Price Live
+DIP,ACEVECTOR,none,,,
 DIP,ORIENTCABL,none,,,
 DIP,PRASOLCHEM,none,,,
-DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting Ltd Valuation Shifts to Fair Amid Sector Volatility | Swaraj Suiting issues corrigendum to EGM notice on Oct 24
+DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting Ltd is Rated Sell | Swaraj Suiting issues corrigendum to EGM notice on Oct 24
 DIP,ARMANFIN,none,,,
 DIP,IZMO,none,,,
 DIP,JSLL,none,,,
