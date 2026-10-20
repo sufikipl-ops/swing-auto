@@ -1,7 +1,7 @@
-NEWS/EVENTS CHECK 2026-10-20 14:43 IST
+NEWS/EVENTS CHECK 2026-10-20 15:23 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
-NSE event calendar (symbol-wise): OK for 75 symbols
+NSE event calendar (symbol-wise): OK for 77 symbols
 locked stocks added for announcements: PASHUPATI,AURUM,AMAL,YESBANK,KRN,HEROMOTORS,ESDS,HDBFS,HTEL,ADROITIND,ANANTRAJ,AYE,SSRETAIL,ENRIN,MONEYVIEW,SJVN,EMMVEE,RPOWER,HAZOOR,GERMAN,MANIKA,TEMPSENS,MVELECTRO,HSCL,TALBROAUTO,FUSION,BLEL,ACEVECTOR,ORIENTCABL,PRASOLCHEM,SWARAJ,ARMANFIN,IZMO,JSLL,CARTRADE,ZYDUSWELL,SAREGAMA,VENKEYS,APOLLOTYRE,RIIL
 NSE announcements fetched for 77 of 77 symbols
 BSE announcements: 76 symbols checked, 3 naye (NSE me nahi the)
@@ -10,8 +10,8 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 131 headlines
-PDF saar: 1 naye bane, 2 nahi bane, 13 pehle ke reuse (AI key: nahi)
+Google News: 82 of 82 symbols, 130 headlines
+PDF saar: 0 naye bane, 2 nahi bane, 14 pehle ke reuse (AI key: nahi)
 announcements.json: 26 symbols with announcements in last 3 days
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge
 PNB          BREAKOUT   IN_NEWS                            |  |  | PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8%
@@ -21,12 +21,12 @@ SOUTHBANK    BREAKOUT   IN_NEWS                            |  |  | South Indian 
 DHANBANK     BREAKOUT   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results |  | Broad-Based Technical Strength Lifts Dhanlaxmi Bank Ltd to 52-Week High of Rs 37
 ONWARDTEC    BREAKOUT   IN_NEWS                            |  |  | Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, .
 KOTAKBANK    PREBREAK   EVENT_7D IN_NEWS                   | 2026-10-24 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Kotak Mahindra Bank slips Monday, outperforms competitors
-ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal schedules October 21 results for Eternal stock
+ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal Q2 FY27 Results on Oct 21: Can Blinkit Deliver the Profit Jump Brokerages Expect?
 BHEL         PULLBACK   IN_NEWS                            |  |  | BHEL Q2FY27 Results: Net profit up 120% YoY to ₹810 crore | BHEL and 4 Other Stocks With Over 100% Profit Growth Trading Up to 50% Discount to Keep an
-CHENNPETRO   PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-22 Financial Results |  | Chennai Petroleum Share Price Today: Price Action Review
+CHENNPETRO   PULLBACK   RESULTS_SOON                       | 2026-10-22 Financial Results |  | 
 PAYTM        PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date 
-SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
+SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,
 MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Daily Market Commentary for October 19th 2026 - Motilal Oswal Financial Services Ltd
 APLAPOLLO    PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | ACME Solar signs PPA with SECI for 300 MW peak power supply at Rs 6/unit | ACME Solar signs 300 MW peak power supply agreement with SECI
@@ -39,7 +39,7 @@ YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Credi
 HEROMOTORS   DIP        IN_NEWS                            |  |  | Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
 ESDS         DIP        IN_NEWS                            |  |  | ESDS Software Solution Ltd. Share Price Live Today
 HDBFS        DIP        IN_NEWS                            |  | 2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates | HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore
-AYE          DIP        RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Aye Finance Ltd Hits Intraday Low Amid Price Pressure on 19 Oct 2026
+AYE          DIP        RESULTS_SOON                       | 2026-10-21 Financial Results |  | 
 SSRETAIL     DIP        IN_NEWS                            |  | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | SS Retail Ltd. Share Price Today - SS Retail Ltd. Stock Price Live NSE/BSE | SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE
 ENRIN        DIP        IN_NEWS                            |  |  | Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | PTA-CMS: Siemens Energy AG: Disclosure pursuant to art. 5 para. 1 lit. b), para. 3 of the 
 MONEYVIEW    DIP        IN_NEWS                            |  |  | Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview's first backer eyes India's next 500 million borrowers after IPO
@@ -47,10 +47,10 @@ SJVN         DIP        IN_NEWS                            |  |  | SJVN Share Pr
 GERMAN       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-24 Financial Results | 2026-10-19 Board Meeting | 
 MVELECTRO    DIP        IN_NEWS                            |  |  | MV Electrosystems Ltd. Share Price Today - MV Electrosystems Ltd. Stock Price Live NSE/BSE
 HSCL         DIP        IN_NEWS                            |  |  | Himadri Speciality's Battery Materials Expansion and Falling Margins: Is It Time to Watch  | Himadri Speciality Chemical Q2: Revenue Surges 58% to ₹1,691 Crore, PAT Rises 31% to ₹231 
-ACEVECTOR    DIP        IN_NEWS                            |  |  | Acevector Ltd | Stock Share Price Live
+BLEL         DIP        IN_NEWS                            |  |  | Behari Lal Engineering Ltd. Share Price Live Today
 SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting issues corrigendum to EGM notice on Oct 24 | Swaraj Suiting NSE:SWARAJ EGM Corrigendum October 2026
-SAREGAMA     DIP        IN_NEWS                            |  |  | DS Group's Catch Salt & Spices Celebrated The Comfort Of Food On SAREGAMA This World Food 
-Symbols with no flags: 38. Top market headlines:
+AURUM        LOCKED     IN_NEWS                            |  |  | Aurum Proptech Ltd (BOM:539289) (Q2 2027) Earnings Call Highlights: Revenue Surges 64% as 
+Symbols with no flags: 40. Top market headlines:
   [ET Markets] Jio IPO opens tomorrow: How can investors maximise allotment chances under Rs 2,500 crore RIL shareholders quo
   [ET Markets] WhatsApp stock tips: Nithin Kamath warns of more pump-and-dump schemes as ED freezes accounts worth Rs 200 cro
   [ET Markets] Mukul Agrawal portfolio: Ace investor adds 7 new equity stocks in Q2. Do you own any?

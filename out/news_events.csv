@@ -11,14 +11,14 @@ BREAKOUT,DHANBANK,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Broad-Based Tec
 BREAKOUT,ONWARDTEC,IN_NEWS,,,"Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, ."
 PREBREAK,KOTAKBANK,EVENT_7D IN_NEWS,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kotak Mahindra Bank slips Monday, outperforms competitors"
 PREBREAK,PETRONET,none,,,
-PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal schedules October 21 results for Eternal stock"
+PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal Q2 FY27 Results on Oct 21: Can Blinkit Deliver the Profit Jump Brokerages Expect?"
 PULLBACK,BHEL,IN_NEWS,,,BHEL Q2FY27 Results: Net profit up 120% YoY to ₹810 crore | BHEL and 4 Other Stocks With Over 100% Profit Growth Trading Up to 50% Discount to Keep an
-PULLBACK,CHENNPETRO,RESULTS_SOON IN_NEWS,2026-10-22 Financial Results,,Chennai Petroleum Share Price Today: Price Action Review
+PULLBACK,CHENNPETRO,RESULTS_SOON,2026-10-22 Financial Results,,
 PULLBACK,WELCORP,none,,,
 PULLBACK,PAYTM,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,MRPL,IN_NEWS,,,"Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date "
 PULLBACK,NYKAA,none,,,
-PULLBACK,SONACOMS,EVENT_7D,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
+PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,"
 PULLBACK,MOTILALOFS,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Daily Market Commentary for October 19th 2026 - Motilal Oswal Financial Services Ltd"
 PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,FCL,none,,,
@@ -45,7 +45,7 @@ DIP,HDBFS,IN_NEWS,,2026-10-20 Analysts/Institutional Investor Meet/Con. Call Upd
 DIP,HTEL,none,,,
 DIP,ADROITIND,none,,,
 DIP,ANANTRAJ,none,,,
-DIP,AYE,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,Aye Finance Ltd Hits Intraday Low Amid Price Pressure on 19 Oct 2026
+DIP,AYE,RESULTS_SOON,2026-10-21 Financial Results,,
 DIP,SSRETAIL,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"SS Retail Ltd. Share Price Today - SS Retail Ltd. Stock Price Live NSE/BSE | SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE"
 DIP,ENRIN,IN_NEWS,,,"Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | PTA-CMS: Siemens Energy AG: Disclosure pursuant to art. 5 para. 1 lit. b), para. 3 of the "
 DIP,MONEYVIEW,IN_NEWS,,,Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview's first backer eyes India's next 500 million borrowers after IPO
@@ -60,8 +60,8 @@ DIP,MVELECTRO,IN_NEWS,,,MV Electrosystems Ltd. Share Price Today - MV Electrosys
 DIP,HSCL,IN_NEWS,,,"Himadri Speciality's Battery Materials Expansion and Falling Margins: Is It Time to Watch  | Himadri Speciality Chemical Q2: Revenue Surges 58% to ₹1,691 Crore, PAT Rises 31% to ₹231 "
 DIP,TALBROAUTO,none,,,
 DIP,FUSION,none,,,
-DIP,BLEL,none,,,
-DIP,ACEVECTOR,IN_NEWS,,,Acevector Ltd | Stock Share Price Live
+DIP,BLEL,IN_NEWS,,,Behari Lal Engineering Ltd. Share Price Live Today
+DIP,ACEVECTOR,none,,,
 DIP,ORIENTCABL,none,,,
 DIP,PRASOLCHEM,none,,,
 DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting issues corrigendum to EGM notice on Oct 24 | Swaraj Suiting NSE:SWARAJ EGM Corrigendum October 2026
@@ -70,7 +70,9 @@ DIP,IZMO,none,,,
 DIP,JSLL,none,,,
 DIP,CARTRADE,none,,,
 DIP,ZYDUSWELL,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
-DIP,SAREGAMA,IN_NEWS,,,DS Group's Catch Salt & Spices Celebrated The Comfort Of Food On SAREGAMA This World Food 
+DIP,SAREGAMA,none,,,
 DIP,VENKEYS,none,,,
 DIP,APOLLOTYRE,none,,,
 DIP,RIIL,none,,,
+LOCKED,PASHUPATI,none,,,
+LOCKED,AURUM,IN_NEWS,,,Aurum Proptech Ltd (BOM:539289) (Q2 2027) Earnings Call Highlights: Revenue Surges 64% as 
