@@ -31,8 +31,10 @@ def fetch_all():
     if not res.get('status') or not res.get('data'):
         log('LOGIN FAIL: %s' % res.get('message')); return
     jwt = res['data']['jwtToken']
-    with urllib.request.urlopen(MASTER, timeout=180) as r:
-        master = json.loads(r.read().decode())
+    import live
+    master = live.master_list(600)                     # resume ke saath (server beech me todta hai)
+    if not master:
+        log('scrip master download fail: cached data_orb hi'); return
     fno = sorted({m['name'] for m in master if m.get('exch_seg') == 'NFO' and m.get('instrumenttype') == 'FUTSTK'})
     eq = {m['symbol']: m['token'] for m in master if m.get('exch_seg') == 'NSE' and m['symbol'].endswith('-EQ')}
     idx = next((m['token'] for m in master if m.get('exch_seg') == 'NSE' and m.get('symbol') in ('Nifty 50', 'NIFTY 50')), '99926000')

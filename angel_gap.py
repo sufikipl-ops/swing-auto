@@ -105,9 +105,8 @@ def main():
         if not res.get('status') or not res.get('data'):
             lines.append('LOGIN FAIL: %s' % res.get('message')); finish(1)
         jwt = res['data']['jwtToken']
-        with urllib.request.urlopen(MASTER, timeout=120) as r:
-            master = json.loads(r.read().decode())
-        tok = {m['symbol']: m['token'] for m in master if m.get('exch_seg') == 'NSE' and m['symbol'].endswith('-EQ')}
+        import live                                      # master tod-tod ke aata hai: resume + cache (live.nse_tokens)
+        tok = {k + '-EQ': v for k, v in live.nse_tokens(150).items()}
         results = []
         for row in rows:
             t = tok.get(row['SYMBOL'] + '-EQ')
