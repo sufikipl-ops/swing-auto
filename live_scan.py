@@ -35,8 +35,8 @@ def stock_state(ltp, b):
 
 
 def prep(items, base):
-    """Abhi ke bhav par agar din yahin band ho to kaun Dip A / Bounce banega. -> {'dip': [...], 'bounce': [...]}"""
-    dip, bounce = [], []
+    """Abhi ke bhav par agar din yahin band ho to kaun Dip A / Bounce / 10% gira banega. -> {'dip', 'bounce', 'drop'}"""
+    dip, bounce, drop = [], [], []
     for s, b in (base.get('syms') or {}).items():
         it = items.get(s)
         if not it or not it.get('ltp'):
@@ -48,5 +48,7 @@ def prep(items, base):
             dip.append(row)
         if ltp < k['e50'] and ((k['rsi'] < 30 and k['ret3'] <= -0.08) or (k['rsi'] < 25 and k['ret10'] <= -0.15)):
             bounce.append(dict(row, deep=not (k['rsi'] < 30 and k['ret3'] <= -0.08)))
-    dip.sort(key=lambda r: r['r3']); bounce.sort(key=lambda r: r['rsi'])
-    return {'dip': dip[:12], 'bounce': bounce[:12]}
+        if ltp <= b[8] * 0.90:                      # aaj 10%+ gira (reel setup, sirf bahut kamzor market)
+            drop.append(row)
+    dip.sort(key=lambda r: r['r3']); bounce.sort(key=lambda r: r['rsi']); drop.sort(key=lambda r: r['chg'])
+    return {'dip': dip[:12], 'bounce': bounce[:12], 'drop': drop[:12]}
