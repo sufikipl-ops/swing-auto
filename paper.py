@@ -78,11 +78,13 @@ def new_signals(led):
 def result_signals(led, bhav):
     """Aaj jin companies ka result ka reaction din tha (NSE 'Outcome of Board Meeting', results_study jaisa niyam):
     RES_GAP = gap 3%+ aur din bhar tika (close>=open), volume 2x+; RES_UP8 = din +8%+, volume 3x+. Liquid (20-din 5 cr+)."""
-    files = {}
+    files = {}                                             # tareekh file ke andar se (chhutti wali file me pichhla din hota hai)
     for f in glob.glob(os.path.join(bhav, 'sec_bhavdata_full_*.csv')):
         try:
-            files[datetime.datetime.strptime(os.path.basename(f)[-12:-4], '%d%m%Y').date()] = f
-        except ValueError:
+            with open(f, newline='', encoding='utf-8', errors='ignore') as h:
+                rd = csv.reader(h); next(rd, None); r = next(rd, None)
+            files[datetime.datetime.strptime(r[2].strip(), '%d-%b-%Y').date()] = f
+        except (ValueError, TypeError, IndexError, StopIteration):
             pass
     tdays = sorted(files)[-26:]
     if len(tdays) < 22:
