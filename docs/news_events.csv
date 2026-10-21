@@ -1,55 +1,55 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | PC Jeweller shares soar 26% in just two sessions. Here’s what’s triggering the sharp surge
-BREAKOUT,PNB,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8%"
-BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results"
-BREAKOUT,KROSS,IN_NEWS,,2026-10-18 Copy of Newspaper Publication,"Kross shares rally 16% after Q2 profit jumps 143% YoY; stock hits 52-week high | Kross share price zooms 20%, hits record high on huge volume; here's why"
-BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank MD Pai looks at strong culture, gold loan prowess to drive growth | Plan to enter credit card biz in six months: South Indian Bank MD & CEO"
+BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | 8 Stocks Hit 52-Week Highs: PC Jeweller (NSE: PCJEWELLER), Sky Gold and More"
+BREAKOUT,PNB,IN_NEWS,,,"Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8% | Punjab National Bank warns customers against AI-led cyberattacks amid surging frauds"
+BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results | Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21"
+BREAKOUT,KROSS,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kross share price zooms 20%, hits record high on huge volume; here's why"
+BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank revises MCLR rates effective Oct 20, 2026 | Plan to enter credit card biz in six months: South Indian Bank MD & CEO | Business Standar"
 BREAKOUT,TIPSMUSIC,none,,,
 BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
-BREAKOUT,DHANBANK,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Broad-Based Technical Strength Lifts Dhanlaxmi Bank Ltd to 52-Week High of Rs 37
-BREAKOUT,ONWARDTEC,IN_NEWS,,,"Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, ."
+BREAKOUT,DHANBANK,EVENT_7D,2026-10-26 Financial Results,,
+BREAKOUT,ONWARDTEC,IN_NEWS,,,"Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA | Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, ."
 PREBREAK,KOTAKBANK,EVENT_7D,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PREBREAK,PETRONET,none,,,
-PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Eternal Q2 preview: Brokerages expect market share gains, steady margins | Eternal Q2 FY27 Results on Oct 21: Can Blinkit Deliver the Profit Jump Brokerages Expect?"
-PULLBACK,BHEL,IN_NEWS,,,BHEL Q2FY27 Results: Net profit up 120% YoY to ₹810 crore | BHEL and 4 Other Stocks With Over 100% Profit Growth Trading Up to 50% Discount to Keep an
+PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Eternal Q2 preview: Brokerages expect market share gains, steady margins"
+PULLBACK,BHEL,none,,,
 PULLBACK,CHENNPETRO,RESULTS_SOON,2026-10-22 Financial Results,,
-PULLBACK,WELCORP,none,,,
+PULLBACK,WELCORP,IN_NEWS,,,"Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand"
 PULLBACK,PAYTM,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,MRPL,IN_NEWS,,,"Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date "
 PULLBACK,NYKAA,none,,,
-PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,"
-PULLBACK,MOTILALOFS,IN_NEWS,,,"PNB shares jump 8% after Q2 results beat estimates; Jefferies, Motilal Oswal, others raise | Daily Market Commentary for October 19th 2026 - Motilal Oswal Financial Services Ltd"
+PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026, | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,"
+PULLBACK,MOTILALOFS,IN_NEWS,,,"MOTILAL OSWAL NIFTY OIL & GAS ETF Stock/Share price , NSE/BSE Forecast News and Live Quote | Daily Market Commentary for October 19th 2026 - Motilal Oswal Financial Services Ltd"
 PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,FCL,none,,,
 PULLBACK,LLOYDSENGG,none,,,
-PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,ACME Solar signs PPA with SECI for 300 MW peak power supply at Rs 6/unit
+PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,"Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR"
 PULLBACK,SANSERA,none,,,
-PULLBACK,PNBHOUSING,none,,,
-PULLBACK,LGEINDIA,IN_NEWS,,,LG Electronics Brings Its Heritage Of Customer-Centric Innovation to Times Square | LG Electronics Airs 160-Second Video on New York's Times Square Chronicling 68 Years of Ap
-PULLBACK,KTKBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Resignation of Director/KMP/SMP,"Karnataka Bank COO Raja B S resigns effective October 19, 2026 | Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service"
+PULLBACK,PNBHOUSING,EVENT_7D,2026-10-28 Financial Results,,
+PULLBACK,LGEINDIA,IN_NEWS,,,LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
+PULLBACK,KTKBANK,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-28 Financial Results,2026-10-19 Resignation of Director/KMP/SMP,Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service
 PULLBACK,MBAPL,none,,,
-PULLBACK,SGFIN,IN_NEWS,,,"SG Finserve Ltd (BOM:539199) (Q2 2027) Earnings Call Highlights: Record ?59 Crore PAT, Nil | SG Finserve Q2 FY27: PAT Up 106%, Loan Book ₹5,694 Crore, Zero NPA"
+PULLBACK,SGFIN,none,,,
 PULLBACK,TI,none,,,
 PULLBACK,OMNI,none,,,
 PULLBACK,MARSONS,none,,,
 PULLBACK,OPTIEMUS,IN_NEWS,,2026-10-20 Copy of Newspaper Publication,Optiemus Infracom Share Certificate Loss Notice Oct 2026
-PULLBACK,DCBBANK,EVENT_7D IN_NEWS,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,DCB Bank DCBBANK Q2 FY27 Earnings Call Date & Details
+PULLBACK,DCBBANK,RESULTS_SOON,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,SEDEMAC,none,,,
-DIP,AMAL,none,,,
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,Yes Bank's evaluating capital actions to back growth plans | Top banking share to buy after Q2 results 2026? HDFC Bank vs Axis Bank vs ICICI Bank vs Ye
-DIP,KRN,none,,,
+DIP,AMAL,IN_NEWS,,,"The Technical Signals Behind (AMAL) That Institutions Follow | A $0.17 quarterly dividend from Amalgamated Financial (AMAL) is payable November 19, 2026."
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Yes Bank's evaluating capital actions to back growth plans"
+DIP,KRN,IN_NEWS,,,Mutual funds raise stake in KRN Heat Exchanger; Union MF enters with five schemes
 DIP,HEROMOTORS,none,,,
-DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE"
-DIP,HDBFS,IN_NEWS,,2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates,HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore | HDB Financial Services Q2 PAT Jumps 34% To Rs 780 Crore
+DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | Buoyed by blockbuster IPO, ESDS bets on AI chip rentals for $5 billion revenue in 5 years"
+DIP,HDBFS,IN_NEWS,,2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates,HDB Financial Services Q2 FY27 Profit Jumps 34% YoY as Disbursements Rise 18% | HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore
 DIP,HTEL,none,,,
 DIP,ADROITIND,none,,,
-DIP,ANANTRAJ,none,,,
+DIP,ANANTRAJ,EVENT_7D,2026-10-28 Financial Results,,
 DIP,AYE,RESULTS_SOON,2026-10-21 Financial Results,,
-DIP,SSRETAIL,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"SS Retail Ltd Share Price Today,, SSRETAIL Share Price NSE, BSE | SS Retail to host investor conference in Mumbai on Oct 23"
-DIP,ENRIN,IN_NEWS,,,"Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | PTA-CMS: Siemens Energy AG: Disclosure pursuant to art. 5 para. 1 lit. b), para. 3 of the "
-DIP,MONEYVIEW,none,,,
-DIP,SJVN,IN_NEWS,,,Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc | SJVN Share Price Today Down 5%
+DIP,SSRETAIL,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
+DIP,ENRIN,IN_NEWS,,,Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy's Turbine Expansion Puts the Valuation Question Front and Center
+DIP,MONEYVIEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Amendment to AOA/MOA,"Moneyview board approves ESOP ratification, AOA alteration, and capital reclass | Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification"
+DIP,SJVN,IN_NEWS,,,Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc
 DIP,EMMVEE,none,,,
 DIP,RPOWER,none,,,
 DIP,HAZOOR,none,,,
@@ -57,14 +57,14 @@ DIP,GERMAN,EVENT_7D NEW_ANNOUNCEMENT,2026-10-24 Financial Results,2026-10-19 Boa
 DIP,MANIKA,none,,,
 DIP,TEMPSENS,none,,,
 DIP,MVELECTRO,none,,,
-DIP,HSCL,IN_NEWS,,,Himadri Speciality's Battery Materials Expansion and Falling Margins: Is It Time to Watch 
+DIP,HSCL,none,,,
 DIP,TALBROAUTO,none,,,
-DIP,FUSION,none,,,
+DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
 DIP,BLEL,none,,,
 DIP,ACEVECTOR,none,,,
 DIP,ORIENTCABL,none,,,
 DIP,PRASOLCHEM,none,,,
-DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting Ltd is Rated Sell | Swaraj Suiting issues corrigendum to EGM notice on Oct 24
+DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting EGM Corrigendum Notice October 2026
 DIP,ARMANFIN,none,,,
 DIP,IZMO,none,,,
 DIP,JSLL,none,,,
