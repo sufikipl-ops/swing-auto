@@ -1,0 +1,155 @@
+REVERSAL BREAKOUT STUDY (2026-10-21): 2022-09-13 se 2026-10-19, 3235 stocks
+avg% = kharcha kaat ke (0.25%), SL 2 ATR, kal open par entry. "saal+" = kitne saal (20+ trade) avg plus.
+
+===== 5 din rakho =====
+setup                                        market       n  jeet     avg%  saal+
+BASE: random din                             ALL       8134   42%   -0.37%  1/5
+BASE: random din                             STRONG    3583   43%   +0.04%  1/4
+BASE: random din                             MIXED     2303   38%   -0.97%  0/5
+BASE: random din                             WEAK      1390   40%   -0.77%  1/4
+BASE: random din                             VWEAK      825   50%   +0.19%  2/4
+BO_UP (abhi ka niyam)                        ALL      14304   42%   -0.51%  1/5
+BO_UP (abhi ka niyam)                        STRONG    9647   42%   -0.36%  1/5
+BO_UP (abhi ka niyam)                        MIXED     3227   40%   -0.94%  0/5
+BO_UP (abhi ka niyam)                        WEAK      1009   44%   -0.54%  1/4
+BO_UP (abhi ka niyam)                        VWEAK      318   42%   -0.41%  2/4
+BO_UP (abhi ka niyam) fresh                  ALL      11012   41%   -0.54%  1/5
+BO_UP (abhi ka niyam) fresh                  STRONG    7379   42%   -0.41%  1/4
+BO_UP (abhi ka niyam) fresh                  MIXED     2487   40%   -0.96%  0/5
+BO_UP (abhi ka niyam) fresh                  WEAK       813   42%   -0.63%  1/4
+BO_UP (abhi ka niyam) fresh                  VWEAK      254   43%   -0.30%  2/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            ALL       3292   43%   -0.39%  0/5
+BO_UP (abhi ka niyam) LATE(>1ATR)            STRONG    2268   43%   -0.21%  0/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            MIXED      740   41%   -0.88%  0/5
+BO_UP (abhi ka niyam) LATE(>1ATR)            WEAK       196   50%   -0.17%  1/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            VWEAK       64   38%   -0.84%  0/1
+BO_REV (EMA20<=EMA50)                        ALL       3895   39%   -0.88%  0/5
+BO_REV (EMA20<=EMA50)                        STRONG    1998   39%   -0.74%  1/4
+BO_REV (EMA20<=EMA50)                        MIXED     1154   40%   -0.86%  0/4
+BO_REV (EMA20<=EMA50)                        WEAK       548   37%   -1.55%  1/4
+BO_REV (EMA20<=EMA50)                        VWEAK      173   46%   -0.50%  1/3
+BO_REV (EMA20<=EMA50) fresh                  ALL       3077   39%   -0.89%  0/5
+BO_REV (EMA20<=EMA50) fresh                  STRONG    1566   39%   -0.67%  1/4
+BO_REV (EMA20<=EMA50) fresh                  MIXED      898   40%   -0.92%  0/4
+BO_REV (EMA20<=EMA50) fresh                  WEAK       445   37%   -1.58%  1/4
+BO_REV (EMA20<=EMA50) fresh                  VWEAK      149   46%   -0.78%  1/2
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            ALL        818   39%   -0.87%  0/4
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            STRONG     432   40%   -0.97%  0/4
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            MIXED      256   40%   -0.65%  1/3
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            WEAK       103   34%   -1.43%  0/3
+BO_REV_STRONG (+4%, vol 3x)                  ALL       1710   39%   -0.79%  0/5
+BO_REV_STRONG (+4%, vol 3x)                  STRONG     860   39%   -0.68%  1/4
+BO_REV_STRONG (+4%, vol 3x)                  MIXED      517   39%   -0.49%  0/4
+BO_REV_STRONG (+4%, vol 3x)                  WEAK       234   38%   -1.57%  1/4
+BO_REV_STRONG (+4%, vol 3x)                  VWEAK       87   40%   -1.39%  0/2
+BO_REV_STRONG (+4%, vol 3x) fresh            ALL       1036   39%   -0.78%  0/4
+BO_REV_STRONG (+4%, vol 3x) fresh            STRONG     498   40%   -0.56%  1/4
+BO_REV_STRONG (+4%, vol 3x) fresh            MIXED      311   39%   -0.42%  1/4
+BO_REV_STRONG (+4%, vol 3x) fresh            WEAK       153   40%   -1.57%  1/4
+BO_REV_STRONG (+4%, vol 3x) fresh            VWEAK       65   42%   -2.11%  0/2
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      ALL        674   38%   -0.82%  0/4
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      STRONG     362   38%   -0.85%  1/4
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      MIXED      206   40%   -0.58%  1/3
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      WEAK        81   36%   -1.58%  0/2
+
+===== 10 din rakho =====
+setup                                        market       n  jeet     avg%  saal+
+BASE: random din                             ALL       8134   42%   -0.22%  1/5
+BASE: random din                             STRONG    3583   45%   +0.51%  1/4
+BASE: random din                             MIXED     2303   37%   -1.13%  0/5
+BASE: random din                             WEAK      1390   37%   -1.41%  0/4
+BASE: random din                             VWEAK      825   54%   +1.22%  3/4
+BO_UP (abhi ka niyam)                        ALL      14304   41%   -0.34%  1/5
+BO_UP (abhi ka niyam)                        STRONG    9647   42%   -0.12%  1/5
+BO_UP (abhi ka niyam)                        MIXED     3227   39%   -0.91%  0/5
+BO_UP (abhi ka niyam)                        WEAK      1009   39%   -0.48%  1/4
+BO_UP (abhi ka niyam)                        VWEAK      318   44%   -0.52%  2/4
+BO_UP (abhi ka niyam) fresh                  ALL      11012   41%   -0.40%  1/5
+BO_UP (abhi ka niyam) fresh                  STRONG    7379   42%   -0.16%  1/4
+BO_UP (abhi ka niyam) fresh                  MIXED     2487   39%   -0.92%  0/5
+BO_UP (abhi ka niyam) fresh                  WEAK       813   38%   -0.94%  0/4
+BO_UP (abhi ka niyam) fresh                  VWEAK      254   47%   -0.37%  3/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            ALL       3292   42%   -0.16%  1/5
+BO_UP (abhi ka niyam) LATE(>1ATR)            STRONG    2268   43%   -0.00%  1/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            MIXED      740   39%   -0.86%  1/5
+BO_UP (abhi ka niyam) LATE(>1ATR)            WEAK       196   46%   +1.42%  4/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            VWEAK       64   33%   -1.12%  0/1
+BO_REV (EMA20<=EMA50)                        ALL       3895   38%   -1.09%  1/5
+BO_REV (EMA20<=EMA50)                        STRONG    1998   40%   -0.53%  2/4
+BO_REV (EMA20<=EMA50)                        MIXED     1154   36%   -1.28%  1/4
+BO_REV (EMA20<=EMA50)                        WEAK       548   33%   -2.76%  1/4
+BO_REV (EMA20<=EMA50)                        VWEAK      173   41%   -0.56%  2/3
+BO_REV (EMA20<=EMA50) fresh                  ALL       3077   38%   -1.13%  1/5
+BO_REV (EMA20<=EMA50) fresh                  STRONG    1566   40%   -0.53%  2/4
+BO_REV (EMA20<=EMA50) fresh                  MIXED      898   36%   -1.35%  1/4
+BO_REV (EMA20<=EMA50) fresh                  WEAK       445   34%   -2.77%  1/4
+BO_REV (EMA20<=EMA50) fresh                  VWEAK      149   40%   -0.99%  1/2
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            ALL        818   37%   -0.92%  1/4
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            STRONG     432   41%   -0.56%  1/4
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            MIXED      256   35%   -1.03%  1/3
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            WEAK       103   28%   -2.72%  0/3
+BO_REV_STRONG (+4%, vol 3x)                  ALL       1710   38%   -1.02%  1/5
+BO_REV_STRONG (+4%, vol 3x)                  STRONG     860   40%   -0.56%  1/4
+BO_REV_STRONG (+4%, vol 3x)                  MIXED      517   37%   -0.65%  2/4
+BO_REV_STRONG (+4%, vol 3x)                  WEAK       234   32%   -3.34%  1/4
+BO_REV_STRONG (+4%, vol 3x)                  VWEAK       87   38%   -1.17%  1/2
+BO_REV_STRONG (+4%, vol 3x) fresh            ALL       1036   39%   -1.08%  2/4
+BO_REV_STRONG (+4%, vol 3x) fresh            STRONG     498   40%   -0.61%  1/4
+BO_REV_STRONG (+4%, vol 3x) fresh            MIXED      311   40%   -0.42%  2/4
+BO_REV_STRONG (+4%, vol 3x) fresh            WEAK       153   36%   -3.36%  1/4
+BO_REV_STRONG (+4%, vol 3x) fresh            VWEAK       65   38%   -2.12%  0/2
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      ALL        674   36%   -0.94%  1/4
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      STRONG     362   40%   -0.50%  1/4
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      MIXED      206   33%   -1.00%  1/3
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      WEAK        81   25%   -3.30%  0/2
+
+===== 20 din rakho =====
+setup                                        market       n  jeet     avg%  saal+
+BASE: random din                             ALL       8134   38%   -0.29%  1/5
+BASE: random din                             STRONG    3583   43%   +0.77%  1/4
+BASE: random din                             MIXED     2303   32%   -1.61%  1/5
+BASE: random din                             WEAK      1390   33%   -1.84%  0/4
+BASE: random din                             VWEAK      825   48%   +1.53%  3/4
+BO_UP (abhi ka niyam)                        ALL      14304   38%   -0.04%  1/5
+BO_UP (abhi ka niyam)                        STRONG    9647   40%   +0.38%  1/5
+BO_UP (abhi ka niyam)                        MIXED     3227   34%   -1.03%  1/5
+BO_UP (abhi ka niyam)                        WEAK      1009   36%   -0.72%  1/4
+BO_UP (abhi ka niyam)                        VWEAK      318   42%   +0.23%  3/4
+BO_UP (abhi ka niyam) fresh                  ALL      11012   38%   -0.17%  1/5
+BO_UP (abhi ka niyam) fresh                  STRONG    7379   40%   +0.26%  1/4
+BO_UP (abhi ka niyam) fresh                  MIXED     2487   34%   -1.04%  1/5
+BO_UP (abhi ka niyam) fresh                  WEAK       813   34%   -1.34%  0/4
+BO_UP (abhi ka niyam) fresh                  VWEAK      254   44%   +0.32%  3/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            ALL       3292   39%   +0.38%  1/5
+BO_UP (abhi ka niyam) LATE(>1ATR)            STRONG    2268   41%   +0.78%  1/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            MIXED      740   35%   -1.01%  1/5
+BO_UP (abhi ka niyam) LATE(>1ATR)            WEAK       196   43%   +1.83%  3/4
+BO_UP (abhi ka niyam) LATE(>1ATR)            VWEAK       64   36%   -0.10%  0/1
+BO_REV (EMA20<=EMA50)                        ALL       3895   33%   -1.14%  1/5
+BO_REV (EMA20<=EMA50)                        STRONG    1998   37%   -0.31%  1/4
+BO_REV (EMA20<=EMA50)                        MIXED     1154   31%   -1.32%  1/4
+BO_REV (EMA20<=EMA50)                        WEAK       548   23%   -3.79%  1/4
+BO_REV (EMA20<=EMA50)                        VWEAK      173   36%   -0.64%  1/3
+BO_REV (EMA20<=EMA50) fresh                  ALL       3077   33%   -1.12%  1/5
+BO_REV (EMA20<=EMA50) fresh                  STRONG    1566   37%   -0.20%  1/4
+BO_REV (EMA20<=EMA50) fresh                  MIXED      898   32%   -1.36%  1/4
+BO_REV (EMA20<=EMA50) fresh                  WEAK       445   22%   -3.82%  0/4
+BO_REV (EMA20<=EMA50) fresh                  VWEAK      149   36%   -0.94%  1/2
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            ALL        818   35%   -1.21%  1/4
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            STRONG     432   39%   -0.74%  1/4
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            MIXED      256   31%   -1.20%  1/3
+BO_REV (EMA20<=EMA50) LATE(>1ATR)            WEAK       103   27%   -3.70%  0/3
+BO_REV_STRONG (+4%, vol 3x)                  ALL       1710   33%   -1.17%  1/5
+BO_REV_STRONG (+4%, vol 3x)                  STRONG     860   37%   -0.17%  1/4
+BO_REV_STRONG (+4%, vol 3x)                  MIXED      517   32%   -1.09%  1/4
+BO_REV_STRONG (+4%, vol 3x)                  WEAK       234   22%   -4.70%  1/4
+BO_REV_STRONG (+4%, vol 3x)                  VWEAK       87   31%   -1.42%  1/2
+BO_REV_STRONG (+4%, vol 3x) fresh            ALL       1036   33%   -1.17%  1/4
+BO_REV_STRONG (+4%, vol 3x) fresh            STRONG     498   37%   +0.02%  2/4
+BO_REV_STRONG (+4%, vol 3x) fresh            MIXED      311   33%   -0.76%  2/4
+BO_REV_STRONG (+4%, vol 3x) fresh            WEAK       153   20%   -5.26%  1/4
+BO_REV_STRONG (+4%, vol 3x) fresh            VWEAK       65   31%   -2.05%  1/2
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      ALL        674   33%   -1.18%  1/4
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      STRONG     362   37%   -0.43%  1/4
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      MIXED      206   31%   -1.60%  1/3
+BO_REV_STRONG (+4%, vol 3x) LATE(>1ATR)      WEAK        81   26%   -3.65%  0/2
