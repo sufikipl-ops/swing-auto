@@ -1,15 +1,16 @@
-PICKS REVIEW (forward test) 2026-10-20
-picks read: 5
+PICKS REVIEW (forward test) 2026-10-21
+picks read: 6
 date       symbol          entry       sl   target  qty status          exit_date      exit why            R      pnl
-2026-10-13 COFORGE        1945.0   1850.0   2135.0    5 OPEN                                                         
+2026-10-13 COFORGE        1945.0   1850.0   2135.0    5 CLOSED          2026-10-21   1951.0 TIME        0.01      6.0
 2026-10-13 IPCALAB        1940.0   1855.0   2110.0    5 CLOSED          2026-10-16   1855.0 STOP       -1.06   -449.0
-2026-10-15 NEOGEN         2790.0   2610.0   3150.0    2 PENDING_TRIGGER                                              
-2026-10-15 RAIN            253.0    236.0    287.0   29 PENDING_TRIGGER                                              
+2026-10-15 NEOGEN         2790.0   2610.0   3150.0    2 NO_TRIGGER                                                   
+2026-10-15 RAIN            253.0    236.0    287.0   29 NO_TRIGGER                                                   
 2026-10-16 HCLTECH        1381.0   1335.0   1473.0   10 OPEN                                                         
+2026-10-21 BHEL            436.8    424.5    461.0   40 PENDING_TRIGGER                                              
 
 Entry rule se alag: 2026-10-15 RAIN CHASED (entry 253.0, trigger 239.34)
 
-Status counts: CLOSED=1, OPEN=2, PENDING_TRIGGER=2
-CLOSED trades: 1 | win rate 0% | avg R -1.06 | profit factor 0.00 | total pnl Rs -449
-Sample size: 1 closed. Below ~30 trades the numbers mean very little; aim for 30-50 before judging.
+Status counts: CLOSED=2, NO_TRIGGER=2, OPEN=1, PENDING_TRIGGER=1
+CLOSED trades: 2 | win rate 50% | avg R -0.53 | profit factor 0.01 | total pnl Rs -443
+Sample size: 2 closed. Below ~30 trades the numbers mean very little; aim for 30-50 before judging.
 Assumptions: daily bars only; if stop and target both fall in one day, stop counts first; entry at max(open, trigger); skip if open >1.5% above trigger; GTT alive 4 trading days; time-stop after 5 days; cost 0.25%. Not financial advice.
