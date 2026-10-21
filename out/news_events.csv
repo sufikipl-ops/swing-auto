@@ -3,7 +3,7 @@ BREAKOUT,PCJEWELLER,RESULTS_SOON,2026-10-21 Financial Results,,
 BREAKOUT,PNB,IN_NEWS,,,"PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58% | Punjab National Bank warns customers against AI-led cyberattacks amid surging frauds"
 BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21"
 BREAKOUT,KROSS,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kross share price zooms 20%, hits record high on huge volume; here's why"
-BREAKOUT,SOUTHBANK,IN_NEWS,,,"Stock to buy today: South Indian Bank (54.31) – BUY | South Indian Bank revises MCLR rates effective Oct 20, 2026"
+BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank revises MCLR rates effective Oct 20, 2026 | Plan to enter credit card biz in six months: South Indian Bank MD & CEO | Business Standar"
 BREAKOUT,TIPSMUSIC,IN_NEWS,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,"Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify"
 BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
@@ -11,7 +11,7 @@ BREAKOUT,DHANBANK,EVENT_7D,2026-10-26 Financial Results,,
 BREAKOUT,ONWARDTEC,IN_NEWS,,,Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA
 PREBREAK,KOTAKBANK,EVENT_7D,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PREBREAK,PETRONET,none,,,
-PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS"
+PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Eternal Q2 preview: Brokerages expect market share gains, steady margins"
 PULLBACK,BHEL,none,,,
 PULLBACK,CHENNPETRO,RESULTS_SOON,2026-10-22 Financial Results,,
 PULLBACK,WELCORP,IN_NEWS,,,"Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand"
@@ -23,9 +23,9 @@ PULLBACK,MOTILALOFS,IN_NEWS,,,"Consumer durables demand mixed; prefer LG, Polyca
 PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,FCL,none,,,
 PULLBACK,LLOYDSENGG,none,,,
-PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Buy Acme Solar at Rs 418 - Market Trading Guide: Federal Bank among 4 stock recommendation
+PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,"Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR"
 PULLBACK,SANSERA,none,,,
-PULLBACK,PNBHOUSING,EVENT_7D,2026-10-28 Financial Results,,
+PULLBACK,PNBHOUSING,EVENT_7D IN_NEWS,2026-10-28 Financial Results,,PNB Housing Finance Downgraded to Hold Amid Valuation and Technical Concerns
 PULLBACK,LGEINDIA,IN_NEWS,,,LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
 PULLBACK,KTKBANK,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-28 Financial Results,2026-10-19 Resignation of Director/KMP/SMP,Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service
 PULLBACK,MBAPL,none,,,
@@ -36,8 +36,8 @@ PULLBACK,MARSONS,none,,,
 PULLBACK,OPTIEMUS,IN_NEWS,,2026-10-20 Copy of Newspaper Publication,Optiemus Infracom Share Certificate Loss Notice Oct 2026
 PULLBACK,DCBBANK,RESULTS_SOON,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,SEDEMAC,none,,,
-DIP,AMAL,IN_NEWS,,,"The Technical Signals Behind (AMAL) That Institutions Follow | A $0.17 quarterly dividend from Amalgamated Financial (AMAL) is payable November 19, 2026."
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS"
+DIP,AMAL,IN_NEWS,,,What To Expect From Amalgamated Financial’s (AMAL) Q3 Earnings | The Technical Signals Behind (AMAL) That Institutions Follow
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | YES Bank share price targets: Goldman Sachs, Citi among 10 brokers with 'Sell' calls; what"
 DIP,KRN,IN_NEWS,,,Mutual funds raise stake in KRN Heat Exchanger; Union MF enters with five schemes
 DIP,HEROMOTORS,none,,,
 DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | Buoyed by blockbuster IPO, ESDS bets on AI chip rentals for $5 billion revenue in 5 years"
@@ -48,7 +48,7 @@ DIP,ANANTRAJ,EVENT_7D,2026-10-28 Financial Results,,
 DIP,AYE,RESULTS_SOON,2026-10-21 Financial Results,,
 DIP,SSRETAIL,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,ENRIN,IN_NEWS,,,Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy's Turbine Expansion Puts the Valuation Question Front and Center
-DIP,MONEYVIEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Amendment to AOA/MOA,"Moneyview board approves ESOP ratification, AOA alteration, and capital reclass | Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification"
+DIP,MONEYVIEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Amendment to AOA/MOA,"Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification | Moneyview board approves ESOP ratification, AOA alteration, and capital reclass"
 DIP,SJVN,IN_NEWS,,,Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc
 DIP,EMMVEE,none,,,
 DIP,RPOWER,none,,,
@@ -57,7 +57,7 @@ DIP,GERMAN,EVENT_7D NEW_ANNOUNCEMENT,2026-10-24 Financial Results,2026-10-19 Boa
 DIP,MANIKA,none,,,
 DIP,TEMPSENS,none,,,
 DIP,MVELECTRO,none,,,
-DIP,HSCL,IN_NEWS,,,Himadri Speciality Chemical among 3 stocks to close crossing below VWAP | Info Edge (India) - Himadri Speciality Chemical among 3 stocks to close crossing below VWA
+DIP,HSCL,IN_NEWS,,,Himadri Speciality Chemical among 3 stocks to close crossing below VWAP
 DIP,TALBROAUTO,none,,,
 DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
 DIP,BLEL,none,,,
