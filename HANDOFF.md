@@ -171,3 +171,15 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   cross-down exit +0.72% vs random in-trend entry +0.80% (signal adds nothing). Not added.
 - Also: Angel scrip master breaks mid-download (2026-10-21) -> live.master_list() resumes via Range; docs/angel_tokens.json cache.
 - New VWEAK setup DROP10 ("ek din me 10% gira", zscore_study +0.33R) in dip_scan/app/paper/live prep.
+
+## Results trading (LTTS case, 2026-10-21)
+- Result timestamps: NSE corporate-announcements "Outcome of Board Meeting" (cache out/results_dates.json). Good coverage only 2025+
+  (~6k/yr; 2022-24 ~500/yr), so all three studies are effectively 2 years.
+- revbo_study.py (revbo.yml) - reversal breakout (20d-high + vol, EMA20<=EMA50, LTTS 14-Oct): FAIL. 3895 trades, 5/10/20d
+  -0.88/-1.09/-1.14% vs random -0.37/-0.22/-0.29%; +4% vol3x version same. Current BO_UP rule ~= random (-0.51/-0.34/-0.04%). Keep EMA20>EMA50.
+- results_study.py (results.yml) - post-result trade: next-day OPEN entry FAILS (UP4+VOL3 -0.52/-0.37/-0.03%). Buying a bad
+  result (-4%, vol3x) worst (-1.5..-1.7%). Reaction-day CLOSE entry tentative plus: UP8+VOL3 +0.64/+0.70/+1.44% (n 338),
+  GAP3 held (close>=open) +0.41/+0.64/+1.65% (n 334); random -0.14/-0.22/-0.08%. Mostly STRONG regime, ~0 in MIXED, 2 yrs only. Not added.
+- preres_study.py (preres.yml) - predict before the result (buy 3d before, exit 2d after): FAIL. No signal predicts the result
+  day: all results 42% up; PREV_GOOD 42%; SEASON_GOOD 43%; DELIV_UP 34%; SCORE3+ 31% (-1.35%/trade). VWEAK plus rows (+2%)
+  match the VWEAK random base, not prediction. Not added.
