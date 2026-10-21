@@ -1,41 +1,13 @@
-GAP CHECK 2026-10-20 09:46 IST (screen data date from screen_latest.csv)
+GAP CHECK 2026-10-21 09:47 IST (screen data date from screen_latest.csv)
 screen data date: 2026-10-19 | candidates: 37
-setup      symbol         status          trigger      open     gap%     ltp      vwap  note
-PULLBACK   ACMESOLAR      NO_DATA          422.42                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   APLAPOLLO      NO_DATA         2157.96                                       no candles yet
-PULLBACK   BHEL           NO_DATA          436.74                                       no candles yet
-PULLBACK   CHENNPETRO     NO_DATA         1460.26                                       no candles yet
-PULLBACK   DCBBANK        NO_DATA          214.21                                       no candles yet
-BREAKOUT   DHANBANK       NO_DATA           37.54                                       no candles yet
-PULLBACK   ETERNAL        NO_DATA          327.43                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   FCL            NO_DATA           57.02                                       no candles yet
-BREAKOUT   KARURVYSYA     NO_DATA          376.63                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PREBREAK   KOTAKBANK      NO_DATA          453.55                                       no candles yet
-BREAKOUT   KROSS          NO_DATA          326.73                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   KTKBANK        NO_DATA          334.18                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   LGEINDIA       NO_DATA         1719.32                                       no candles yet
-PULLBACK   LLOYDSENGG     NO_DATA            98.0                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   MARSONS        NO_DATA          126.41                                       no candles yet
-PULLBACK   MBAPL          NO_DATA          174.17                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   MOTILALOFS     NO_DATA         1066.01                                       no candles yet
-PULLBACK   MRPL           NO_DATA          177.52                                       no candles yet
-BREAKOUT   MVGJL          NO_DATA          244.24                                       no candles yet
-PULLBACK   NYKAA          NO_DATA          348.75                                       no candles yet
-PULLBACK   OMNI           NO_DATA          622.52                                       no candles yet
-BREAKOUT   ONWARDTEC      NO_DATA          496.15                                       no candles yet
-PULLBACK   OPTIEMUS       NO_DATA          786.79                                       no candles yet
-PULLBACK   PAYTM          NO_DATA         1718.72                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-BREAKOUT   PCJEWELLER     NO_DATA           18.67                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PREBREAK   PETRONET       NO_DATA           299.9                                       no candles yet
-BREAKOUT   PNB            NO_DATA          125.35                                       no candles yet
-PULLBACK   PNBHOUSING     NO_DATA         1175.37                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   SANSERA        NO_DATA         4231.53                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   SEDEMAC        NO_DATA         3250.15                                       no candles yet
-PULLBACK   SGFIN          NO_DATA          690.34                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-BREAKOUT   SIMPLEXINF     NO_DATA          294.94                                       no candles yet
-PULLBACK   SONACOMS       NO_DATA          813.21                                       no candles yet
-BREAKOUT   SOUTHBANK      NO_DATA           54.91                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   TI             NO_DATA          560.76                                       no candles yet
-BREAKOUT   TIPSMUSIC      NO_DATA          785.78                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   WELCORP        NO_DATA         2622.62                                       no candles yet
-Status guide: TRIGGERED = price crossed trigger and is within 1.5%; WAIT = not yet; SKIP_* / RUNAWAY = do not enter. Not financial advice.
+ERROR: recent call last):
+  File "/home/runner/work/swing-auto/swing-auto/angel_gap.py", line 109, in main
+    master = json.loads(r.read().decode())
+                        ^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/http/client.py", line 510, in read
+    s = self._safe_read(self.length)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/http/client.py", line 684, in _safe_read
+    raise IncompleteRead(data.getvalue(), amt - data.tell())
+http.client.IncompleteRead: IncompleteRead(1802240 bytes read, 34490356 more expected)
+
