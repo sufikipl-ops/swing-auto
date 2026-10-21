@@ -1,18 +1,18 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Multibagger stock: PC Jeweller shares jump 5% after surging 40% in 2 weeks | Q2 beat, bulk | PC Jeweller Shares Rally 5%; Stock Gains 40% in Two Weeks as Q2 FY27 Revenue Rises 28%"
+BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Multibagger alert! PC Jeweller shares jump 6% to fresh 52-week high, rally over 100% in 20 | Multibagger stock: PC Jeweller shares jump 5% after surging 40% in 2 weeks | Q2 beat, bulk"
 BREAKOUT,PNB,IN_NEWS,,,"PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58%"
 BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21"
 BREAKOUT,KROSS,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
-BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank shares: Already up 15% in Oct, hit 52-week high - What is driving rally? | Stock to buy today: South Indian Bank (54.31) – BUY"
-BREAKOUT,TIPSMUSIC,IN_NEWS,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,"Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify"
+BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank shares: Already up 15% in Oct, hit 52-week high - What is driving rally? | South Indian Bank Share Price at 52-Week High: Rally Reasons"
+BREAKOUT,TIPSMUSIC,IN_NEWS,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,"Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify | Tips Music expects YouTube Shorts monetisation deal to progress in Q3 FY27"
 BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
 BREAKOUT,DHANBANK,EVENT_7D,2026-10-26 Financial Results,,
 BREAKOUT,ONWARDTEC,IN_NEWS,,,Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA
 PREBREAK,KOTAKBANK,EVENT_7D IN_NEWS,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,HSBC raises target for Kotak Mahindra Bank stock to INR 520
 PREBREAK,PETRONET,none,,,
-PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Eternal Q2 preview: Brokerages expect market share gains, steady margins"
-PULLBACK,BHEL,IN_NEWS,,,Interview for BHEL CMD post on Oct 23; eight executives shortlisted
+PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Eternal Q2 results 2026 today: 24% returns in 6 months | Preview | should you buy multibag"
+PULLBACK,BHEL,none,,,
 PULLBACK,CHENNPETRO,RESULTS_SOON,2026-10-22 Financial Results,,
 PULLBACK,WELCORP,IN_NEWS,,,"Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand | Metal sector stocks today, October 21: Vedanta Oil falls 2.92%, NALCO down 1.81%, Welspun "
 PULLBACK,PAYTM,EVENT_7D,2026-10-26 Financial Results,,
@@ -20,7 +20,7 @@ PULLBACK,MRPL,IN_NEWS,,,"Dividend stocks alert: Check Elecon Eng, ICICI Prudenti
 PULLBACK,NYKAA,none,,,
 PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026, | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,"
 PULLBACK,MOTILALOFS,IN_NEWS,,,"Consumer durables demand mixed; prefer LG, Polycab India: Motilal Oswal | Buy Sobha; target of Rs 1710: Motilal Oswal"
-PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
+PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,FCL,none,,,
 PULLBACK,LLOYDSENGG,none,,,
 PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,"Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR"
@@ -37,7 +37,7 @@ PULLBACK,OPTIEMUS,none,,2026-10-20 Copy of Newspaper Publication,
 PULLBACK,DCBBANK,RESULTS_SOON,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,SEDEMAC,none,,,
 DIP,AMAL,IN_NEWS,,,What To Expect From Amalgamated Financial’s (AMAL) Q3 Earnings | The Technical Signals Behind (AMAL) That Institutions Follow
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Yes Bank Share Price Today Nears One-Year Low at Rs 16.53"
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | YES Bank share price targets: Goldman Sachs, Citi among 10 brokers with 'Sell' calls; what"
 DIP,KRN,IN_NEWS,,,Mutual funds raise stake in KRN Heat Exchanger; Union MF enters with five schemes
 DIP,HEROMOTORS,none,,,
 DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | Buoyed by blockbuster IPO, ESDS bets on AI chip rentals for $5 billion revenue in 5 years"
@@ -47,8 +47,8 @@ DIP,ADROITIND,IN_NEWS,,,Adroit Industries (India) Ltd. Share Price Today - Adroi
 DIP,ANANTRAJ,EVENT_7D,2026-10-28 Financial Results,,
 DIP,AYE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-10-21 Financial Results,2026-10-21 Press Release,"Aye Finance Q2 net profit up 151% to ₹86.72 crore, beats estimate | Aye Finance Q2 FY27 Net Profit Surges 151.1% YoY to ₹86.72 Crore; H1 PAT Reaches ₹161.22 C"
 DIP,SSRETAIL,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
-DIP,ENRIN,IN_NEWS,,,Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy's Turbine Expansion Puts the Valuation Question Front and Center
-DIP,MONEYVIEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Amendment to AOA/MOA,"Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview board approves ESOP ratification, AOA alteration, and capital reclass"
+DIP,ENRIN,IN_NEWS,,,Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy stock sits 32.04 percent below its 52-week high
+DIP,MONEYVIEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Amendment to AOA/MOA,Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification
 DIP,SJVN,IN_NEWS,,,Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc
 DIP,EMMVEE,none,,,
 DIP,RPOWER,none,,,
@@ -59,9 +59,9 @@ DIP,TEMPSENS,none,,,
 DIP,MVELECTRO,none,,,
 DIP,HSCL,IN_NEWS,,,Himadri Speciality Chemical among 3 stocks to close crossing below VWAP | Himadri Speciality Chemical Ltd Hits Intraday Low Amid Price Pressure
 DIP,TALBROAUTO,none,,,
-DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q2 25/26 earnings call transcript | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
+DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q2 25/26 earnings call transcript
 DIP,BLEL,none,,,
-DIP,ACEVECTOR,IN_NEWS,,,"ACEVECTOR Share Price Near 52-Week Low: Price and Valuation | ACEVECTOR LTD. Stock/Share price , NSE/BSE Forecast News and Live Quotes"
+DIP,ACEVECTOR,IN_NEWS,,,ACEVECTOR Share Price Near 52-Week Low: Price and Valuation
 DIP,ORIENTCABL,none,,,
 DIP,PRASOLCHEM,none,,,
 DIP,SWARAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Corrigendum,Swaraj Suiting EGM Corrigendum Notice October 2026
