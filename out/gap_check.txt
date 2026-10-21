@@ -1,13 +1,41 @@
-GAP CHECK 2026-10-21 09:47 IST (screen data date from screen_latest.csv)
+GAP CHECK 2026-10-21 13:02 IST (screen data date from screen_latest.csv)
 screen data date: 2026-10-19 | candidates: 37
-ERROR: recent call last):
-  File "/home/runner/work/swing-auto/swing-auto/angel_gap.py", line 109, in main
-    master = json.loads(r.read().decode())
-                        ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/http/client.py", line 510, in read
-    s = self._safe_read(self.length)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/http/client.py", line 684, in _safe_read
-    raise IncompleteRead(data.getvalue(), amt - data.tell())
-http.client.IncompleteRead: IncompleteRead(1802240 bytes read, 34490356 more expected)
-
+setup      symbol         status          trigger      open     gap%     ltp      vwap  note
+PULLBACK   ACMESOLAR      TRIGGERED        422.42    422.75      1.2  404.15    409.51  below VWAP
+PULLBACK   CHENNPETRO     TRIGGERED       1460.26    1444.5     0.84  1406.8   1430.85  below VWAP
+BREAKOUT   KARURVYSYA     TRIGGERED        376.63     368.2     -0.5   363.2     376.5  below VWAP
+BREAKOUT   MVGJL          TRIGGERED        244.24     247.5     2.63   223.5    232.98  below VWAP
+BREAKOUT   PCJEWELLER     TRIGGERED         18.67     18.75     3.42   18.33     18.37  below VWAP
+BREAKOUT   SOUTHBANK      TRIGGERED         54.91      55.0     1.36    54.8     55.38  below VWAP
+PULLBACK   WELCORP        TRIGGERED       2622.62    2625.6     1.26  2563.8   2582.11  below VWAP
+PULLBACK   DCBBANK        WAIT             214.21    210.99     0.29  208.99    208.16  2.50% below trigger
+BREAKOUT   DHANBANK       WAIT              37.54     36.83    -0.59   35.25     35.72  6.50% below trigger; below VWAP
+PULLBACK   MBAPL          WAIT             174.17     165.9     0.94  164.27    164.66  6.03% below trigger; below VWAP
+PULLBACK   OPTIEMUS       WAIT             786.79     751.9     0.43   732.0    732.04  7.48% below trigger; below VWAP
+PULLBACK   PAYTM          WAIT            1718.72    1678.2    -0.45  1661.0   1666.05  3.48% below trigger; below VWAP
+PREBREAK   PETRONET       WAIT              299.9     295.0     0.46  296.15    297.19  1.27% below trigger; below VWAP
+BREAKOUT   PNB            WAIT             125.35     122.5     0.49  121.83    122.95  2.89% below trigger; below VWAP
+PULLBACK   PNBHOUSING     WAIT            1175.37    1147.9      0.0  1152.0    1155.4  2.03% below trigger; below VWAP
+PULLBACK   SGFIN          WAIT             690.34     660.0     0.53  627.65    633.89  9.99% below trigger; below VWAP
+BREAKOUT   TIPSMUSIC      WAIT             785.78     775.0     0.43  752.85    755.68  4.37% below trigger; below VWAP
+PULLBACK   APLAPOLLO      NO_DATA         2157.96                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   BHEL           SKIP_STOP_HIT    436.74     430.0     0.62  411.65    419.99  price at/below stop; below VWAP
+PULLBACK   ETERNAL        SKIP_STOP_HIT    327.43     322.5     0.72  309.55    314.58  price at/below stop; below VWAP
+PULLBACK   FCL            SKIP_STOP_HIT     57.02      56.1     0.52   53.38     54.41  price at/below stop; below VWAP
+PREBREAK   KOTAKBANK      NO_DATA          453.55                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT   KROSS          SKIP_GAPDOWN     326.73     293.0    -1.53   282.3    283.84  gap down; below VWAP
+PULLBACK   KTKBANK        NO_DATA          334.18                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   LGEINDIA       NO_DATA         1719.32                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   LLOYDSENGG     NO_DATA            98.0                                       no candles yet API: Too many requests
+PULLBACK   MARSONS        SKIP_STOP_HIT    126.41     124.3      0.4  121.53    122.33  price at/below stop; below VWAP
+PULLBACK   MOTILALOFS     SKIP_STOP_HIT   1066.01    1021.0      0.0   986.8    998.84  price at/below stop; below VWAP
+PULLBACK   MRPL           SKIP_STOP_HIT    177.52     173.0    -0.41  167.56     170.3  price at/below stop; below VWAP
+PULLBACK   NYKAA          SKIP_STOP_HIT    348.75    339.45     0.83   325.8    333.36  price at/below stop; below VWAP
+PULLBACK   OMNI           NO_DATA          622.52                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT   ONWARDTEC      NO_DATA          496.15                                       no candles yet API: Too many requests
+PULLBACK   SANSERA        SKIP_STOP_HIT   4231.53    4150.5      0.0  3960.0   3987.22  price at/below stop; below VWAP
+PULLBACK   SEDEMAC        SKIP_STOP_HIT   3250.15    3219.8     0.55  3057.5   3104.57  price at/below stop; below VWAP
+BREAKOUT   SIMPLEXINF     NO_DATA          294.94                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   SONACOMS       SKIP_STOP_HIT    813.21    797.85     0.48   763.0    768.86  price at/below stop; below VWAP
+PULLBACK   TI             SKIP_STOP_HIT    560.76     545.0     0.13  514.45    526.09  price at/below stop; below VWAP
+Status guide: TRIGGERED = price crossed trigger and is within 1.5%; WAIT = not yet; SKIP_* / RUNAWAY = do not enter. Not financial advice.
