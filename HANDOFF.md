@@ -164,3 +164,10 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - ALL regimes ~0 (Z-2/SL2ATR/10d -0.03R; random-day base -0.18R). WEAK -0.10R, MIXED -0.09R. VWEAK passes: no-SL/10d +0.16R (3/3 yrs),
   SL3ATR/20d +0.11R (75% win, 3/3), Z-2.5/SL2ATR +0.16R. Synthetic: ~0 with 54-67% "win rate" (small target inflates win %).
 - Same regime as OVERSOLD_BOUNCE (+0.26R VWEAK) and largely the same stocks, so no new app section.
+
+## MA crossover reel (9/21, SL1%/T2%) - FAIL (2026-10-21)
+- ma_study.py (ma.yml). Nifty 2008-2026 (Yahoo): reel version 125 trades, 36% win, CAGR -0.4%, last 2 yrs -9%; 9/21 cross-only +4.0% CAGR,
+  EMA +6.8%, buy&hold +7.3% (DD -60% vs -20/-25%). Stocks 2022-26 (21.8k trades): SL1/T2 -0.49%/trade, 25% win, 0/5 years plus;
+  cross-down exit +0.72% vs random in-trend entry +0.80% (signal adds nothing). Not added.
+- Also: Angel scrip master breaks mid-download (2026-10-21) -> live.master_list() resumes via Range; docs/angel_tokens.json cache.
+- New VWEAK setup DROP10 ("ek din me 10% gira", zscore_study +0.33R) in dip_scan/app/paper/live prep.
