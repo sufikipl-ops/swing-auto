@@ -1,5 +1,5 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Multibagger stock: PC Jeweller shares jump 5% after surging 40% in 2 weeks | Q2 beat, bulk"
+BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Multibagger stock: PC Jeweller shares jump 5% after surging 40% in 2 weeks | Q2 beat, bulk | PC Jeweller Shares Rally 5%; Stock Gains 40% in Two Weeks as Q2 FY27 Revenue Rises 28%"
 BREAKOUT,PNB,IN_NEWS,,,"PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58%"
 BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21"
 BREAKOUT,KROSS,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
@@ -9,7 +9,7 @@ BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
 BREAKOUT,DHANBANK,EVENT_7D,2026-10-26 Financial Results,,
 BREAKOUT,ONWARDTEC,IN_NEWS,,,Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA
-PREBREAK,KOTAKBANK,EVENT_7D,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
+PREBREAK,KOTAKBANK,EVENT_7D IN_NEWS,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,HSBC raises target for Kotak Mahindra Bank stock to INR 520
 PREBREAK,PETRONET,none,,,
 PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Eternal Q2 preview: Brokerages expect market share gains, steady margins"
 PULLBACK,BHEL,IN_NEWS,,,Interview for BHEL CMD post on Oct 23; eight executives shortlisted
@@ -19,14 +19,14 @@ PULLBACK,PAYTM,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,MRPL,IN_NEWS,,,"Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date "
 PULLBACK,NYKAA,none,,,
 PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026, | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,"
-PULLBACK,MOTILALOFS,IN_NEWS,,,"Consumer durables demand mixed; prefer LG, Polycab India: Motilal Oswal | UltraTech Q2 Review: Motilal Oswal Sees 24% Rally After Strong Volume Growth; Check Target"
+PULLBACK,MOTILALOFS,IN_NEWS,,,"Consumer durables demand mixed; prefer LG, Polycab India: Motilal Oswal | Buy Sobha; target of Rs 1710: Motilal Oswal"
 PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,FCL,none,,,
 PULLBACK,LLOYDSENGG,none,,,
 PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,"Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR"
 PULLBACK,SANSERA,none,,,
 PULLBACK,PNBHOUSING,EVENT_7D IN_NEWS,2026-10-28 Financial Results,,PNB Housing Finance Downgraded to Hold Amid Valuation and Technical Concerns
-PULLBACK,LGEINDIA,IN_NEWS,,,LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
+PULLBACK,LGEINDIA,IN_NEWS,,,"LG Electronics stock falls 3.02 percent below Tradegate close | Jio IPO becomes fastest-subscribed among India's mega-IPOs, beats Hyundai and LG Electroni"
 PULLBACK,KTKBANK,EVENT_7D NEW_ANNOUNCEMENT,2026-10-28 Financial Results,2026-10-19 Resignation of Director/KMP/SMP,
 PULLBACK,MBAPL,none,,,
 PULLBACK,SGFIN,none,,,
@@ -36,8 +36,8 @@ PULLBACK,MARSONS,none,,,
 PULLBACK,OPTIEMUS,none,,2026-10-20 Copy of Newspaper Publication,
 PULLBACK,DCBBANK,RESULTS_SOON,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,SEDEMAC,none,,,
-DIP,AMAL,IN_NEWS,,,"The Technical Signals Behind (AMAL) That Institutions Follow | A $0.17 quarterly dividend from Amalgamated Financial (AMAL) is payable November 19, 2026."
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | YES Bank share price targets: Goldman Sachs, Citi among 10 brokers with 'Sell' calls; what"
+DIP,AMAL,IN_NEWS,,,What To Expect From Amalgamated Financial’s (AMAL) Q3 Earnings | The Technical Signals Behind (AMAL) That Institutions Follow
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Yes Bank Share Price Today Nears One-Year Low at Rs 16.53"
 DIP,KRN,IN_NEWS,,,Mutual funds raise stake in KRN Heat Exchanger; Union MF enters with five schemes
 DIP,HEROMOTORS,none,,,
 DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | Buoyed by blockbuster IPO, ESDS bets on AI chip rentals for $5 billion revenue in 5 years"
@@ -45,7 +45,7 @@ DIP,HDBFS,IN_NEWS,,2026-10-20 Analysts/Institutional Investor Meet/Con. Call Upd
 DIP,HTEL,none,,,
 DIP,ADROITIND,IN_NEWS,,,Adroit Industries (India) Ltd. Share Price Today - Adroit Industries (India) Ltd. Stock Pr
 DIP,ANANTRAJ,EVENT_7D,2026-10-28 Financial Results,,
-DIP,AYE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-10-21 Financial Results,2026-10-21 Press Release,"Aye Finance Q2 results: Net profit grows 3X to Rs 86.7 crore, total income up 18.4% | Aye Finance Q2 FY27 Net Profit Surges 151% To Rs 86.72 Crore, Revenue From Operations Rise"
+DIP,AYE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-10-21 Financial Results,2026-10-21 Press Release,"Aye Finance Q2 net profit up 151% to ₹86.72 crore, beats estimate | Aye Finance Q2 FY27 Net Profit Surges 151.1% YoY to ₹86.72 Crore; H1 PAT Reaches ₹161.22 C"
 DIP,SSRETAIL,none,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,ENRIN,IN_NEWS,,,Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy's Turbine Expansion Puts the Valuation Question Front and Center
 DIP,MONEYVIEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Amendment to AOA/MOA,"Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview board approves ESOP ratification, AOA alteration, and capital reclass"
@@ -55,7 +55,7 @@ DIP,RPOWER,none,,,
 DIP,HAZOOR,none,,,
 DIP,GERMAN,EVENT_7D NEW_ANNOUNCEMENT,2026-10-24 Financial Results,2026-10-19 Board Meeting,
 DIP,MANIKA,none,,,
-DIP,TEMPSENS,IN_NEWS,,,Tempsens Instruments Q1FY27 Results: Net profit up 14% to ₹15.2 crore
+DIP,TEMPSENS,none,,,
 DIP,MVELECTRO,none,,,
 DIP,HSCL,IN_NEWS,,,Himadri Speciality Chemical among 3 stocks to close crossing below VWAP | Himadri Speciality Chemical Ltd Hits Intraday Low Amid Price Pressure
 DIP,TALBROAUTO,none,,,
