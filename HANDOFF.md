@@ -191,3 +191,8 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   Only BULL + equal lows in VWEAK +0.16R (n 315, 4/4 yrs), weaker than OVERSOLD_BOUNCE/STRUCT/DROP10 in the same regime. Not added.
 - Paper trading also tracks watch-only result-day setups RES_GAP / RES_UP8 (go=False, excluded from ALL stats).
 - Gap check writes a date column; the app shows only today's check (stale holiday NO_DATA fixed), API_BUSY on Angel rate limit.
+
+## SMC "Power of 3" reel (AMD: open ke neeche jaal -> MSS -> FVG entry) - FAIL (2026-10-21)
+- po3_study.py, run locally on the 15-min backup (branch data-15min -> data_orb/): 214 F&O stocks, 2025-10-13..2026-10-16.
+- Long: MSS entry 17.5k trades -0.01R before costs, -0.13R after 0.15%; FVG retrace 3.1k -> +0.01R / -0.16R; 0/13 months plus.
+  Short mirror ~+0.02R / -0.10R. Random-time base ~0R / -0.2..-0.3R. Synthetic random walk gives the same ~0R. Not added (and intraday).
