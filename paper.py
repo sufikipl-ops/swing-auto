@@ -12,7 +12,7 @@ COST = 0.0025
 GAP_UP, GAP_DN = 1.015, 0.97
 # setup -> (max din, target R ya None, naam)
 RULES = {'A': (5, None, 'Dip A'), 'B': (5, None, 'Dip B'), 'BOUNCE': (5, None, 'Oversold bounce'), 'DEEP': (5, None, 'Gehra oversold'),
-         'STRUCT': (10, 2.0, 'Structure'), 'STRUCT_DEEP': (10, 2.0, 'Structure (gehra)'), 'NEWDROP': (5, None, 'Naye listing ka dip'),
+         'STRUCT': (10, 2.0, 'Structure'), 'STRUCT_DEEP': (10, 2.0, 'Structure (gehra)'), 'NEWDROP': (5, None, 'Naye listing ka dip'), 'DROP10': (3, 'mean', 'Ek din me 10% gira'),
          'BREAKOUT': (5, 'atr', 'Pick: breakout'), 'PULLBACK': (5, 'atr', 'Pick: pullback')}
 
 
@@ -30,6 +30,8 @@ def go_flag(setup, regime, note=''):
     if setup == 'B':
         return regime in ('STRONG', 'MIXED')
     if setup in ('BOUNCE', 'DEEP', 'STRUCT', 'STRUCT_DEEP'):
+        return regime == 'VWEAK'
+    if setup == 'DROP10':
         return regime == 'VWEAK'
     if setup == 'NEWDROP':
         return regime != 'MIXED'
@@ -59,6 +61,8 @@ def new_signals(led):
             s = dict(sym=sym, setup=st, sig=d, close=c, atr=atr, regime=rg, go=go_flag(st, rg, r.get('NOTE') or ''), status='WAIT')
             if st in ('STRUCT', 'STRUCT_DEEP'):
                 s['stop_ref'] = num(r.get('STOP_REF'))
+            if st == 'DROP10':
+                s['mean'] = num(r.get('TARGET_REF'))       # 20-din average: wahan becho
             if st in ('BREAKOUT', 'PULLBACK'):
                 s['trig'] = num(r.get('ENTRY')) or c
                 lo5 = num(r.get('LOW5'))
@@ -109,7 +113,8 @@ def run(s, p):
     risk = e - stop
     if risk <= 0 or risk / e > 0.15:
         s.update(status='SKIP', why='SL entry ke upar ya 15%% se door', exit_date=d0); return
-    tp = e + tgt * risk if isinstance(tgt, float) else (e + min(1.5 * s['atr'], 2 * risk) if tgt == 'atr' else None)
+    tp = e + tgt * risk if isinstance(tgt, float) else (e + min(1.5 * s['atr'], 2 * risk) if tgt == 'atr' else
+                                                       (s['mean'] if tgt == 'mean' and s.get('mean') and s['mean'] > e else None))
     qty = int(min(RISK // risk, CAP // e))
     if qty < 1:
         s.update(status='SKIP', why='Capital/risk me 1 share bhi nahi', exit_date=d0); return

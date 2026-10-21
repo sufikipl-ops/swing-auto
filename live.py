@@ -217,6 +217,9 @@ def prep_text(pr, bh, base_reg, now):
     if pr['bounce']:
         L.append('Oversold bounce: ' + ', '.join('%s RSI %d' % (r['s'], r['rsi']) for r in pr['bounce'][:8]) +
                  ('' if reg == 'VWEAK' else ' (sirf BAHUT kamzor market me trade; abhi nahi)'))
+    if pr.get('drop'):
+        L.append('Aaj 10%%+ gire: ' + ', '.join('%s %+.1f%%' % (r['s'], r['chg']) for r in pr['drop'][:8]) +
+                 ('' if reg == 'VWEAK' else ' (sirf BAHUT kamzor market me trade; abhi nahi)'))
     L.append('Pakka signal shaam ~6:20 ki scan se. Entry kal 9:20 par, gap rule ke saath.')
     return '\n'.join(L)
 

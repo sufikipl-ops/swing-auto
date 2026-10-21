@@ -101,6 +101,7 @@ def struct_sig(hi, lo, cl, i, PH, PL, fired):
 
 LIVEBASE = {}  # live.py ke liye: har liquid stock ka kal tak ka hisaab (breadth + 3:15 taiyari)
 cands = []
+drop10 = []    # ek din me 10%+ gire liquid stocks (sirf bahut kamzor market me trade)
 struct = []    # regime_study: market structure setup sirf bahut kamzor market me chala (3/3 saal, n chhota)
 bounce = []    # regime_study: oversold bounce sirf bahut kamzor market (breadth<25%) me chala (5/5 saal)
 above = tot = 0
@@ -128,6 +129,9 @@ for sym, byd in data.items():
     ret3 = cl[-1] / cl[-4] - 1
     ret60 = cl[-1] / cl[-61] - 1
     r60all.append(ret60)
+    if cl[-1] <= cl[-2] * 0.90:      # zscore_study (reel): ek din me 10%+ gira -> sirf bahut kamzor market me +0.33R (3/3 saal)
+        drop10.append(dict(sym=sym, close=cl[-1], chg=(cl[-1] / cl[-2] - 1) * 100, ret3=ret3 * 100, ret60=ret60 * 100, rsi=rsi14(cl) or 0,
+                           atr=atr, e20=e20[-1], e50=e50[-1], vx=vol[-1] / (sum(vol[-21:-1]) / 20.0), to20=to20, mean=sum(cl[-20:]) / 20.0))
     ltot += 1; labove += cl[-1] > e50[-1]
     au_, ad_ = rsi_state(cl)
     LIVEBASE[sym] = [round(e20[-1], 3), round(e50[-1], 3), round(e50[-10], 3), cl[-3], cl[-60], cl[-10], round(au_, 4), round(ad_, 4),
@@ -213,6 +217,10 @@ for c in newdrop:
                  '', round(c['atr'], 2), '', '', '', round(c['to5'], 1), '', round(c['close'] - 2 * c['atr'], 2),
                  round(c['close'] + 3 * c['atr'], 2), round(breadth, 1),
                  'DAY %d LIST %.2f LOW %.2f%s' % (c['n'], c['first'], c['low'], ' BE' if c['be'] else ''), 0])
+for c in drop10:
+    rows.append(['DROP10', c['sym'], last.isoformat(), round(c['close'], 2), round(c['chg'], 2), round(c['ret3'], 2), round(c['ret60'], 1),
+                 round(c['rsi'], 1), round(c['atr'], 2), round(c['e20'], 1), round(c['e50'], 1), round(c['vx'], 2), round(c['to20'], 1),
+                 '', round(c['close'] - 2 * c['atr'], 2), round(c['mean'], 2), round(breadth, 1), 'MEAN20 %.2f' % c['mean'], 0])
 rows.sort(key=lambda x: ({'A': 0, 'B': 1}.get(x[0], 2), x[5]))
 head = ['TIER', 'SYMBOL', 'DATE', 'CLOSE', 'CHG_PCT', 'RET3', 'RET60', 'RSI14', 'ATR14', 'EMA20', 'EMA50', 'VOL_X', 'TURN20_CR',
         'DELIV_PCT', 'STOP_REF', 'TARGET_REF', 'BREADTH50', 'NOTE', 'MOM60_TOP20']
@@ -224,6 +232,6 @@ json.dump({'date': last.isoformat(), 'regime': REGIME, 'breadth': round(lbr, 1),
           open(os.path.join('docs', 'live_base.json'), 'w'), separators=(',', ':'))
 json.dump({'date': last.isoformat(), 'breadth': round(lbr, 1), 'regime': REGIME, 'universe': ltot},
           open(os.path.join('docs', 'regime_today.json'), 'w'))
-print('liquid breadth %.1f%% -> %s | bounce candidates %d | structure %d | naye listing drop %d' % (lbr, REGIME, len(bounce), len(struct), len(newdrop)))
+print('liquid breadth %.1f%% -> %s | bounce candidates %d | structure %d | naye listing drop %d | 10%% gira %d' % (lbr, REGIME, len(bounce), len(struct), len(newdrop), len(drop10)))
 print('data date', last, '| breadth>EMA50 %.1f%% | 60-din top20%% cut %.1f%% | dip candidates A=%d B=%d' % (
     breadth, MOM_CUT, sum(1 for r in rows if r[0] == 'A'), sum(1 for r in rows if r[0] == 'B')))

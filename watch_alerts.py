@@ -131,9 +131,14 @@ def evaluate(items, ctx, today_str):
     vweak = (ctx.get('regime_today.json') or {}).get('regime') == 'VWEAK'
     for r in ctx.get('dip_latest.csv', []):
         tier = r.get('TIER') or 'A'
-        if tier not in ('A', 'B') and not vweak:      # bounce sirf bahut kamzor market me trade hota hai
+        reg_ = (ctx.get('regime_today.json') or {}).get('regime')
+        if tier == 'NEWDROP':
+            if reg_ == 'MIXED':
+                continue
+        elif tier not in ('A', 'B') and not vweak:      # bounce / structure / 10% gira sirf bahut kamzor market me trade
             continue
-        lbl = 'Dip' if tier in ('A', 'B') else 'Structure' if tier.startswith('STRUCT') else 'Bounce'
+        lbl = 'Dip' if tier in ('A', 'B') else 'Structure' if tier.startswith('STRUCT') else 'Naya listing dip' if tier == 'NEWDROP' \
+            else '10% gira' if tier == 'DROP10' else 'Bounce'
         sym = (r.get('SYMBOL') or '').upper()
         it = items.get(sym)
         if not sym or not it or not it.get('ltp'):
