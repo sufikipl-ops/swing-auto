@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-21 07:26 IST
+NEWS/EVENTS CHECK 2026-10-21 08:57 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 77 symbols
@@ -10,26 +10,27 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 146 headlines
-PDF saar: 2 naye bane, 1 nahi bane, 6 pehle ke reuse (AI key: nahi)
+Google News: 82 of 82 symbols, 147 headlines
+PDF saar: 0 naye bane, 1 nahi bane, 8 pehle ke reuse (AI key: nahi)
 announcements.json: 15 symbols with announcements in last 3 days
-PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | 8 Stocks Hit 52-Week Highs: PC Jeweller (NSE: PCJEWELLER), Sky Gold and More
-PNB          BREAKOUT   IN_NEWS                            |  |  | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8% | Punjab National Bank warns customers against AI-led cyberattacks amid surging frauds
-KARURVYSYA   BREAKOUT   IN_NEWS                            |  | 2026-10-19 General | Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results | Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21
+PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month
+PNB          BREAKOUT   IN_NEWS                            |  |  | Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8% | PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58%
+KARURVYSYA   BREAKOUT   IN_NEWS                            |  | 2026-10-19 General | Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21
 KROSS        BREAKOUT   IN_NEWS                            |  | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Kross share price zooms 20%, hits record high on huge volume; here's why
 SOUTHBANK    BREAKOUT   IN_NEWS                            |  |  | South Indian Bank revises MCLR rates effective Oct 20, 2026 | Plan to enter credit card biz in six months: South Indian Bank MD & CEO | Business Standar
+TIPSMUSIC    BREAKOUT   IN_NEWS                            |  |  | Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify
 DHANBANK     BREAKOUT   EVENT_7D                           | 2026-10-26 Financial Results |  | 
-ONWARDTEC    BREAKOUT   IN_NEWS                            |  |  | Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA | Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, .
+ONWARDTEC    BREAKOUT   IN_NEWS                            |  |  | Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA
 KOTAKBANK    PREBREAK   EVENT_7D                           | 2026-10-24 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
-ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Eternal Q2 preview: Brokerages expect market share gains, steady margins
+ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS
 CHENNPETRO   PULLBACK   RESULTS_SOON                       | 2026-10-22 Financial Results |  | 
 WELCORP      PULLBACK   IN_NEWS                            |  |  | Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand
 PAYTM        PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
-MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date 
+MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date 
 SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026, | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,
-MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | MOTILAL OSWAL NIFTY OIL & GAS ETF Stock/Share price , NSE/BSE Forecast News and Live Quote | Daily Market Commentary for October 19th 2026 - Motilal Oswal Financial Services Ltd
+MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | Consumer durables demand mixed; prefer LG, Polycab India: Motilal Oswal | UltraTech Q2 Review: Motilal Oswal Sees 24% Rally After Strong Volume Growth; Check Target
 APLAPOLLO    PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
-ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR
+ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR
 PNBHOUSING   PULLBACK   EVENT_7D                           | 2026-10-28 Financial Results |  | 
 LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
 KTKBANK      PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-28 Financial Results | 2026-10-19 Resignation of Director/KMP/SMP | Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service
@@ -46,10 +47,16 @@ ENRIN        DIP        IN_NEWS                            |  |  | Siemens Energ
 MONEYVIEW    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Amendment to AOA/MOA | Moneyview board approves ESOP ratification, AOA alteration, and capital reclass | Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification
 SJVN         DIP        IN_NEWS                            |  |  | Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc
 GERMAN       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-24 Financial Results | 2026-10-19 Board Meeting | 
-FUSION       DIP        IN_NEWS                            |  |  | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
+FUSION       DIP        IN_NEWS                            |  |  | FUSION FINANCE LIMITED (FUSIONPP.BO) Q2 25/26 earnings call transcript | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
 SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting EGM Corrigendum Notice October 2026
 AURUM        LOCKED     IN_NEWS                            |  |  | Aurum Proptech Ltd (BOM:539289) (Q2 2027) Earnings Call Highlights: Revenue Surges 64% as 
-Symbols with no flags: 41. Top market headlines:
+Symbols with no flags: 40. Top market headlines:
+  [ET Markets] Union Bank Of India among 4 stocks showing RSI trending up
+  [ET Markets] There is no contingency plan from government to deal with higher fuel price:  RS Sharma
+  [ET Markets] Jio Platforms IPO GMP Live Updates: Jio Platforms’ much-awaited IPO opens today. Check GMP, brokerage views
+  [ET Markets] Stock split alert! Last day to buy JSW Dulux shares to be eligible for 1:10 split
+  [ET Markets] Negative Breakout: These 8 large-cap stocks cross below their 200 DMAs
+  [ET Markets] Sensex Today | Nifty 50 | Stock Market Live Updates: GIFT Nifty signals a negative start; Asian shares trade h
   [ET Markets] Sun Pharma to raise Rs 10,000 crore to part-finance Organon deal
   [ET Markets] Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc
   [ET Markets] D-Street poised for positive start as GIFT Nifty signals gains
@@ -59,10 +66,4 @@ Symbols with no flags: 41. Top market headlines:
   [ET Markets] Market Trading Guide: Federal Bank among 4 stock recommendations for Wednesday
   [ET Markets] Jio IPO all set to open: How can investors maximise allotment chances under Rs 2,500 crore RIL shareholders qu
   [ET Markets] WhatsApp stock tips: Nithin Kamath warns of more pump-and-dump schemes as ED freezes accounts worth Rs 200 cro
-  [ET Markets] Mukul Agrawal portfolio: Ace investor adds 7 new equity stocks in Q2. Do you own any?
-  [ET Markets] From ₹228 a GB to ₹7.5: How Mukesh Ambani’s Jio rewired India’s internet and is now seeking a ₹10 lakh crore v
-  [ET Markets] Stock Market Holiday 2026: Is stock market closed today for Dussehra? Check remaining holidays for the year
-  [ET Markets] HFCL Q2 net profit jumps 448% to Rs 394 crore
-  [ET Markets] Steelmakers may outperform non-ferrous peers in Q2 as higher volumes support earnings
-  [ET Markets] UltraTech Cement Q2 net profit up 21% in September quarter
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.

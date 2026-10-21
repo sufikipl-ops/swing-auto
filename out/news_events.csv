@@ -1,29 +1,29 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month | 8 Stocks Hit 52-Week Highs: PC Jeweller (NSE: PCJEWELLER), Sky Gold and More"
-BREAKOUT,PNB,IN_NEWS,,,"Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8% | Punjab National Bank warns customers against AI-led cyberattacks amid surging frauds"
-BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Karur Vysya Bank hits new lifetime high, up 8% in two days post Q2 results | Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21"
+BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month
+BREAKOUT,PNB,IN_NEWS,,,"Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8% | PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58%"
+BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21"
 BREAKOUT,KROSS,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kross share price zooms 20%, hits record high on huge volume; here's why"
 BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank revises MCLR rates effective Oct 20, 2026 | Plan to enter credit card biz in six months: South Indian Bank MD & CEO | Business Standar"
-BREAKOUT,TIPSMUSIC,none,,,
+BREAKOUT,TIPSMUSIC,IN_NEWS,,,"Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify"
 BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
 BREAKOUT,DHANBANK,EVENT_7D,2026-10-26 Financial Results,,
-BREAKOUT,ONWARDTEC,IN_NEWS,,,"Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA | Onward Technologies Ltd (BOM:517536) (Q2 2027) Earnings Call Highlights: Record Revenue, ."
+BREAKOUT,ONWARDTEC,IN_NEWS,,,Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA
 PREBREAK,KOTAKBANK,EVENT_7D,2026-10-24 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PREBREAK,PETRONET,none,,,
-PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Eternal Q2 preview: Brokerages expect market share gains, steady margins"
+PULLBACK,ETERNAL,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS"
 PULLBACK,BHEL,none,,,
 PULLBACK,CHENNPETRO,RESULTS_SOON,2026-10-22 Financial Results,,
 PULLBACK,WELCORP,IN_NEWS,,,"Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand"
 PULLBACK,PAYTM,EVENT_7D,2026-10-26 Financial Results,,
-PULLBACK,MRPL,IN_NEWS,,,"Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date "
+PULLBACK,MRPL,IN_NEWS,,,"Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date "
 PULLBACK,NYKAA,none,,,
 PULLBACK,SONACOMS,EVENT_7D IN_NEWS,2026-10-26 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026, | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,"
-PULLBACK,MOTILALOFS,IN_NEWS,,,"MOTILAL OSWAL NIFTY OIL & GAS ETF Stock/Share price , NSE/BSE Forecast News and Live Quote | Daily Market Commentary for October 19th 2026 - Motilal Oswal Financial Services Ltd"
+PULLBACK,MOTILALOFS,IN_NEWS,,,"Consumer durables demand mixed; prefer LG, Polycab India: Motilal Oswal | UltraTech Q2 Review: Motilal Oswal Sees 24% Rally After Strong Volume Growth; Check Target"
 PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,FCL,none,,,
 PULLBACK,LLOYDSENGG,none,,,
-PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,"Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR"
+PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,"Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR"
 PULLBACK,SANSERA,none,,,
 PULLBACK,PNBHOUSING,EVENT_7D,2026-10-28 Financial Results,,
 PULLBACK,LGEINDIA,IN_NEWS,,,LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
@@ -59,7 +59,7 @@ DIP,TEMPSENS,none,,,
 DIP,MVELECTRO,none,,,
 DIP,HSCL,none,,,
 DIP,TALBROAUTO,none,,,
-DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
+DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q2 25/26 earnings call transcript | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
 DIP,BLEL,none,,,
 DIP,ACEVECTOR,none,,,
 DIP,ORIENTCABL,none,,,
