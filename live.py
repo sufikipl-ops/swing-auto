@@ -356,7 +356,13 @@ def main():
     started = time.time()
     jwt = login(key, cid, pin, tsec)
     print('login ok')
-    master = http_json(MASTER, None, {}, timeout=180)
+    master = None
+    for attempt in range(4):                     # 36 MB file: net beech me tute to dobara (2026-10-21 IncompleteRead se live ruka tha)
+        master = http_json(MASTER, None, {}, timeout=180)
+        if isinstance(master, list) and len(master) > 1000:
+            break
+        print('master download try %d fail: %s' % (attempt + 1, str(master)[:120]))
+        time.sleep(10 * (attempt + 1))
     if not isinstance(master, list):
         print('master download fail: %s' % str(master)[:150]); sys.exit(1)
     tokmap = {m['symbol'][:-3]: m['token'] for m in master if m.get('exch_seg') == 'NSE' and str(m.get('symbol', '')).endswith('-EQ')}
