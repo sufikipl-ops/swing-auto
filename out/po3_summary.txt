@@ -1,0 +1,92 @@
+SMC POWER OF 3 (reel) STUDY: 214 stocks, 250 din (2025-10-13 se 2026-10-16), 15-min candles
+R = risk ke hisaab se. "mahine+" = kitne mahine (10+ trade) avg plus. Kharcha 0.15% = brokerage+STT+slippage.
+
+===== LONG | exit: 2R ya 15:15 =====
+setup                          hissa          n  jeet R (0 kh.) R (0.15%)  mahine+
+BASE: random time              ALL         7199   36%    -0.04R    -0.31R  0/13
+BASE: random time              1st half    3498   37%    -0.02R    -0.28R  1/7
+BASE: random time              2nd half    3701   35%    -0.07R    -0.33R  0/7
+MSS (close par)                ALL        17538   41%    -0.01R    -0.13R  0/13
+MSS (close par)                1st half    8685   42%    +0.01R    -0.11R  1/7
+MSS (close par)                2nd half    8853   39%    -0.03R    -0.15R  0/7
+MSS_OPEN (open ke upar bhi)    ALL        17451   41%    -0.01R    -0.13R  0/13
+MSS_OPEN (open ke upar bhi)    1st half    8642   42%    +0.01R    -0.11R  1/7
+MSS_OPEN (open ke upar bhi)    2nd half    8809   39%    -0.03R    -0.15R  0/7
+FVG (gap par wapas aake)       ALL         3106   39%    +0.01R    -0.16R  0/13
+FVG (gap par wapas aake)       1st half    1567   43%    +0.05R    -0.11R  1/7
+FVG (gap par wapas aake)       2nd half    1539   35%    -0.04R    -0.21R  0/7
+
+===== LONG | exit: IRL (din ka pehla high) ya 15:15 =====
+setup                          hissa          n  jeet R (0 kh.) R (0.15%)  mahine+
+BASE: random time              ALL         7199   37%    -0.04R    -0.31R  0/13
+BASE: random time              1st half    3498   38%    -0.04R    -0.30R  1/7
+BASE: random time              2nd half    3701   37%    -0.05R    -0.31R  0/7
+MSS (close par)                ALL        17538   41%    -0.01R    -0.13R  0/13
+MSS (close par)                1st half    8685   43%    +0.01R    -0.11R  1/7
+MSS (close par)                2nd half    8853   40%    -0.03R    -0.15R  0/7
+MSS_OPEN (open ke upar bhi)    ALL        17451   41%    -0.01R    -0.13R  0/13
+MSS_OPEN (open ke upar bhi)    1st half    8642   43%    +0.01R    -0.11R  1/7
+MSS_OPEN (open ke upar bhi)    2nd half    8809   40%    -0.03R    -0.14R  0/7
+FVG (gap par wapas aake)       ALL         3106   46%    +0.01R    -0.15R  0/13
+FVG (gap par wapas aake)       1st half    1567   49%    +0.06R    -0.10R  1/7
+FVG (gap par wapas aake)       2nd half    1539   42%    -0.04R    -0.20R  0/7
+
+===== LONG | exit: sirf 15:15 =====
+setup                          hissa          n  jeet R (0 kh.) R (0.15%)  mahine+
+BASE: random time              ALL         7199   33%    -0.03R    -0.29R  0/13
+BASE: random time              1st half    3498   34%    -0.01R    -0.27R  1/7
+BASE: random time              2nd half    3701   32%    -0.04R    -0.31R  0/7
+MSS (close par)                ALL        17538   40%    -0.01R    -0.13R  0/13
+MSS (close par)                1st half    8685   42%    +0.01R    -0.11R  1/7
+MSS (close par)                2nd half    8853   39%    -0.03R    -0.14R  0/7
+MSS_OPEN (open ke upar bhi)    ALL        17451   40%    -0.01R    -0.13R  0/13
+MSS_OPEN (open ke upar bhi)    1st half    8642   42%    +0.01R    -0.11R  1/7
+MSS_OPEN (open ke upar bhi)    2nd half    8809   39%    -0.03R    -0.14R  0/7
+FVG (gap par wapas aake)       ALL         3106   39%    +0.00R    -0.16R  0/13
+FVG (gap par wapas aake)       1st half    1567   43%    +0.05R    -0.11R  1/7
+FVG (gap par wapas aake)       2nd half    1539   35%    -0.05R    -0.21R  0/7
+
+===== SHORT | exit: 2R ya 15:15 =====
+setup                          hissa          n  jeet R (0 kh.) R (0.15%)  mahine+
+BASE: random time              ALL         7320   41%    +0.03R    -0.20R  0/13
+BASE: random time              1st half    3584   40%    +0.00R    -0.23R  0/7
+BASE: random time              2nd half    3736   42%    +0.05R    -0.17R  0/7
+MSS (close par)                ALL        18568   44%    +0.02R    -0.10R  1/13
+MSS (close par)                1st half    9112   43%    +0.02R    -0.10R  0/7
+MSS (close par)                2nd half    9456   44%    +0.02R    -0.11R  1/7
+MSS_OPEN (open ke upar bhi)    ALL        18490   44%    +0.02R    -0.10R  1/13
+MSS_OPEN (open ke upar bhi)    1st half    9070   43%    +0.02R    -0.10R  0/7
+MSS_OPEN (open ke upar bhi)    2nd half    9420   44%    +0.01R    -0.11R  1/7
+FVG (gap par wapas aake)       ALL         3058   42%    -0.00R    -0.16R  0/13
+FVG (gap par wapas aake)       1st half    1563   41%    -0.02R    -0.17R  0/7
+FVG (gap par wapas aake)       2nd half    1495   43%    +0.02R    -0.14R  0/7
+
+===== SHORT | exit: IRL (din ka pehla high) ya 15:15 =====
+setup                          hissa          n  jeet R (0 kh.) R (0.15%)  mahine+
+BASE: random time              ALL         7320   43%    +0.01R    -0.22R  0/13
+BASE: random time              1st half    3584   42%    -0.00R    -0.24R  0/7
+BASE: random time              2nd half    3736   43%    +0.02R    -0.20R  0/7
+MSS (close par)                ALL        18568   45%    +0.02R    -0.10R  1/13
+MSS (close par)                1st half    9112   44%    +0.02R    -0.10R  0/7
+MSS (close par)                2nd half    9456   45%    +0.01R    -0.11R  1/7
+MSS_OPEN (open ke upar bhi)    ALL        18490   45%    +0.02R    -0.10R  1/13
+MSS_OPEN (open ke upar bhi)    1st half    9070   44%    +0.02R    -0.10R  0/7
+MSS_OPEN (open ke upar bhi)    2nd half    9420   45%    +0.01R    -0.11R  1/7
+FVG (gap par wapas aake)       ALL         3058   47%    +0.00R    -0.15R  0/13
+FVG (gap par wapas aake)       1st half    1563   47%    -0.01R    -0.16R  0/7
+FVG (gap par wapas aake)       2nd half    1495   48%    +0.01R    -0.15R  0/7
+
+===== SHORT | exit: sirf 15:15 =====
+setup                          hissa          n  jeet R (0 kh.) R (0.15%)  mahine+
+BASE: random time              ALL         7320   39%    +0.03R    -0.20R  0/13
+BASE: random time              1st half    3584   38%    +0.02R    -0.22R  0/7
+BASE: random time              2nd half    3736   40%    +0.04R    -0.19R  0/7
+MSS (close par)                ALL        18568   44%    +0.02R    -0.11R  1/13
+MSS (close par)                1st half    9112   43%    +0.02R    -0.10R  0/7
+MSS (close par)                2nd half    9456   44%    +0.01R    -0.11R  1/7
+MSS_OPEN (open ke upar bhi)    ALL        18490   44%    +0.01R    -0.11R  1/13
+MSS_OPEN (open ke upar bhi)    1st half    9070   43%    +0.02R    -0.10R  0/7
+MSS_OPEN (open ke upar bhi)    2nd half    9420   44%    +0.01R    -0.11R  1/7
+FVG (gap par wapas aake)       ALL         3058   42%    -0.01R    -0.16R  0/13
+FVG (gap par wapas aake)       1st half    1563   40%    -0.03R    -0.18R  0/7
+FVG (gap par wapas aake)       2nd half    1495   43%    +0.02R    -0.14R  0/7
