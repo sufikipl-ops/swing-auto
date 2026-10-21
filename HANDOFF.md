@@ -183,3 +183,11 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - preres_study.py (preres.yml) - predict before the result (buy 3d before, exit 2d after): FAIL. No signal predicts the result
   day: all results 42% up; PREV_GOOD 42%; SEASON_GOOD 43%; DELIV_UP 34%; SCORE3+ 31% (-1.35%/trade). VWEAK plus rows (+2%)
   match the VWEAK random base, not prediction. Not added.
+
+## Liquidity + candlestick reel (2026-10-21) - FAIL
+- liqc_study.py (liqc.yml). Daily version (reel uses 5m/1H; no intraday history): first break of the prior 20-day low, candle type
+  on that day, next-open entry, SL under the sweep low, 2R/10d or 5d exit. 3235 stocks 2022-09..2026-10.
+- Every type is negative overall: REJECT (closed back above) -0.20R (14.6k), HAMMER -0.27R, BULL -0.12R, RAN -0.30R; equal lows no help.
+  Only BULL + equal lows in VWEAK +0.16R (n 315, 4/4 yrs), weaker than OVERSOLD_BOUNCE/STRUCT/DROP10 in the same regime. Not added.
+- Paper trading also tracks watch-only result-day setups RES_GAP / RES_UP8 (go=False, excluded from ALL stats).
+- Gap check writes a date column; the app shows only today's check (stale holiday NO_DATA fixed), API_BUSY on Angel rate limit.
