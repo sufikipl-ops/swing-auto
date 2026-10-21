@@ -1,10 +1,10 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,PCJEWELLER,RESULTS_SOON IN_NEWS,2026-10-21 Financial Results,,PC Jeweller among 8 stocks that hit 52-week high and rallied up to 42% in a month
-BREAKOUT,PNB,IN_NEWS,,,"Nifty PSU Bank index surges 3%; PNB, PSB, Canara, Union Bank soar up to 8% | PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58%"
+BREAKOUT,PCJEWELLER,RESULTS_SOON,2026-10-21 Financial Results,,
+BREAKOUT,PNB,IN_NEWS,,,"PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58% | Punjab National Bank warns customers against AI-led cyberattacks amid surging frauds"
 BREAKOUT,KARURVYSYA,IN_NEWS,,2026-10-19 General,"Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21"
 BREAKOUT,KROSS,IN_NEWS,,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,"Kross share price zooms 20%, hits record high on huge volume; here's why"
-BREAKOUT,SOUTHBANK,IN_NEWS,,,"South Indian Bank revises MCLR rates effective Oct 20, 2026 | Plan to enter credit card biz in six months: South Indian Bank MD & CEO | Business Standar"
-BREAKOUT,TIPSMUSIC,IN_NEWS,,,"Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify"
+BREAKOUT,SOUTHBANK,IN_NEWS,,,"Stock to buy today: South Indian Bank (54.31) – BUY | South Indian Bank revises MCLR rates effective Oct 20, 2026"
+BREAKOUT,TIPSMUSIC,IN_NEWS,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,"Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify"
 BREAKOUT,MVGJL,none,,,
 BREAKOUT,SIMPLEXINF,none,,,
 BREAKOUT,DHANBANK,EVENT_7D,2026-10-26 Financial Results,,
@@ -23,7 +23,7 @@ PULLBACK,MOTILALOFS,IN_NEWS,,,"Consumer durables demand mixed; prefer LG, Polyca
 PULLBACK,APLAPOLLO,EVENT_7D,2026-10-26 Financial Results,,
 PULLBACK,FCL,none,,,
 PULLBACK,LLOYDSENGG,none,,,
-PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,"Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR"
+PULLBACK,ACMESOLAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-19 Updates,Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Buy Acme Solar at Rs 418 - Market Trading Guide: Federal Bank among 4 stock recommendation
 PULLBACK,SANSERA,none,,,
 PULLBACK,PNBHOUSING,EVENT_7D,2026-10-28 Financial Results,,
 PULLBACK,LGEINDIA,IN_NEWS,,,LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
@@ -37,7 +37,7 @@ PULLBACK,OPTIEMUS,IN_NEWS,,2026-10-20 Copy of Newspaper Publication,Optiemus Inf
 PULLBACK,DCBBANK,RESULTS_SOON,2026-10-23 Financial Results,2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,SEDEMAC,none,,,
 DIP,AMAL,IN_NEWS,,,"The Technical Signals Behind (AMAL) That Institutions Follow | A $0.17 quarterly dividend from Amalgamated Financial (AMAL) is payable November 19, 2026."
-DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Yes Bank's evaluating capital actions to back growth plans"
+DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"Stocks in news: Reliance Industries, Eternal, IREDA, Yes Bank, Trent and Hindustan Zinc | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS"
 DIP,KRN,IN_NEWS,,,Mutual funds raise stake in KRN Heat Exchanger; Union MF enters with five schemes
 DIP,HEROMOTORS,none,,,
 DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | Buoyed by blockbuster IPO, ESDS bets on AI chip rentals for $5 billion revenue in 5 years"
@@ -57,9 +57,9 @@ DIP,GERMAN,EVENT_7D NEW_ANNOUNCEMENT,2026-10-24 Financial Results,2026-10-19 Boa
 DIP,MANIKA,none,,,
 DIP,TEMPSENS,none,,,
 DIP,MVELECTRO,none,,,
-DIP,HSCL,none,,,
+DIP,HSCL,IN_NEWS,,,Himadri Speciality Chemical among 3 stocks to close crossing below VWAP | Info Edge (India) - Himadri Speciality Chemical among 3 stocks to close crossing below VWA
 DIP,TALBROAUTO,none,,,
-DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q2 25/26 earnings call transcript | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
+DIP,FUSION,IN_NEWS,,,FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
 DIP,BLEL,none,,,
 DIP,ACEVECTOR,none,,,
 DIP,ORIENTCABL,none,,,
