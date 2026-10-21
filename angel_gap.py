@@ -113,17 +113,21 @@ def main():
             if not t:
                 results.append(dict(setup=row['SETUP'], symbol=row['SYMBOL'], status='NO_TOKEN', note='symbol not in master'))
                 continue
-            for attempt in range(3):                     # 'exceeding access rate' (403) -> thoda ruk ke dobara
+            for attempt in range(5):                     # 'exceeding access rate' / 'Too many requests' -> ruk ke dobara
+                                                         # (live feed bhi isi account se chalta hai)
                 r = call(key, BASE + '/rest/secure/angelbroking/historical/v1/getCandleData',
                          {'exchange': 'NSE', 'symboltoken': t, 'interval': 'FIFTEEN_MINUTE',
                           'fromdate': today + ' 09:15', 'todate': today + ' 15:30'}, jwt)
-                if 'access rate' not in str(r.get('message', '')):
+                busy = any(k in str(r.get('message', '')).lower() for k in ('access rate', 'too many'))
+                if not busy:
                     break
-                time.sleep(3 * (attempt + 1))
+                time.sleep(4 * (attempt + 1))
             cs = [c for c in (r.get('data') or []) if str(c[0]).startswith(today)]
             d = decide(row, cs)
             if not r.get('status'):
                 d['note'] = (d.get('note', '') + ' API: %s' % r.get('message'))[:120]
+                if busy and d.get('status') == 'NO_DATA':
+                    d['status'] = 'API_BUSY'
             d['date'] = today                            # app sirf aaj ka gap check dikhata hai
             results.append(d)
             time.sleep(1.6)

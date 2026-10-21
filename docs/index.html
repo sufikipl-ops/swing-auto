@@ -214,7 +214,7 @@ function rs0(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
 function chip(t,c){return '<span class="pill '+(c||'')+'">'+esc(t)+'</span>'}
 function vc(v){return v=='STRONG'?'pg':v=='WEAK'?'pr':'py'}
 function flagChips(fl){if(!fl||fl=='none')return '';return fl.split(' ').map(function(k){return chip(FLG[k]||k,k=='RESULTS_SOON'?'pr':'py')}).join('')}
-function gapChip(g){return g?chip('9:20 gap: '+g.status,g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr'):''}
+function gapChip(g){return g?chip('9:20 gap: '+(g.status=='API_BUSY'?'Angel busy (live card dekho)':g.status=='NO_DATA'?'abhi data nahi':g.status),g.status=='TRIGGERED'?'pg':g.status=='WAIT'?'py':'pr'):''}
 
 /* ---------- ANNOUNCEMENTS: NSE ka apna text + importance tag + PDF link (news_events.py banata hai) ---------- */
 var ANL={HIGH:['Bada asar','pr',0],MID:['Padh lo','py',1],LOW:['Routine','',2]};
