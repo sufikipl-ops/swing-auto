@@ -13,7 +13,11 @@ GAP_UP, GAP_DN = 1.015, 0.97
 # setup -> (max din, target R ya None, naam)
 RULES = {'A': (5, None, 'Dip A'), 'B': (5, None, 'Dip B'), 'BOUNCE': (5, None, 'Oversold bounce'), 'DEEP': (5, None, 'Gehra oversold'),
          'STRUCT': (10, 2.0, 'Structure'), 'STRUCT_DEEP': (10, 2.0, 'Structure (gehra)'), 'NEWDROP': (5, None, 'Naye listing ka dip'), 'DROP10': (3, 'mean', 'Ek din me 10% gira'),
-         'BREAKOUT': (5, 'atr', 'Pick: breakout'), 'PULLBACK': (5, 'atr', 'Pick: pullback')}
+         'BREAKOUT': (5, 'atr', 'Pick: breakout'), 'PULLBACK': (5, 'atr', 'Pick: pullback'),
+         'RES_GAP': (20, None, 'Result: gap-up tika (dekhne ke liye)'), 'RES_UP8': (20, None, 'Result: +8% vol 3x (dekhne ke liye)')}
+# sirf dekhne wale (results_study me tentative plus, 2 saal data): result wale din CLOSE par entry, 20 din, SL 2 ATR. App inhe trade
+# karne ko nahi kehta (go=False) aur ye kul (ALL) hisaab me nahi gine jaate.
+WATCH = ('RES_GAP', 'RES_UP8')
 
 
 def num(x):
@@ -71,6 +75,74 @@ def new_signals(led):
     return out
 
 
+def result_signals(led, bhav):
+    """Aaj jin companies ka result ka reaction din tha (NSE 'Outcome of Board Meeting', results_study jaisa niyam):
+    RES_GAP = gap 3%+ aur din bhar tika (close>=open), volume 2x+; RES_UP8 = din +8%+, volume 3x+. Liquid (20-din 5 cr+)."""
+    files = {}
+    for f in glob.glob(os.path.join(bhav, 'sec_bhavdata_full_*.csv')):
+        try:
+            files[datetime.datetime.strptime(os.path.basename(f)[-12:-4], '%d%m%Y').date()] = f
+        except ValueError:
+            pass
+    tdays = sorted(files)[-26:]
+    if len(tdays) < 22:
+        return []
+    D = tdays[-1]
+    try:
+        from results_study import nse
+        got = nse('https://www.nseindia.com/api/corporate-announcements?index=equities&from_date=%s&to_date=%s'
+                  % ((D - datetime.timedelta(days=6)).strftime('%d-%m-%Y'), D.strftime('%d-%m-%Y')))
+    except Exception as e:
+        print('paper: NSE results fetch fail', str(e)[:80]); return []
+    ev = set()
+    for r in got:
+        tx = (r.get('attchmntText') or '').lower()
+        if (r.get('desc') or '') != 'Outcome of Board Meeting' or 'result' not in tx or ('financial' not in tx and 'quarter' not in tx):
+            continue
+        try:
+            dt = datetime.datetime.strptime((r.get('sort_date') or '')[:16], '%Y-%m-%d %H:%M')
+        except ValueError:
+            continue
+        rd_ = dt.date() if dt.hour * 60 + dt.minute < 9 * 60 + 15 else dt.date() + datetime.timedelta(days=1)
+        if next((d for d in tdays if d >= rd_), None) == D:
+            ev.add((r.get('symbol') or '').strip())
+    ev.discard('')
+    px = collections.defaultdict(dict)
+    for d in tdays:
+        with open(files[d], newline='', encoding='utf-8', errors='ignore') as h:
+            rd = csv.reader(h); next(rd, None)
+            for r in rd:
+                if len(r) < 15 or r[0].strip() not in ev or r[1].strip() != 'EQ':
+                    continue
+                try:
+                    px[r[0].strip()][d] = (float(r[4]), float(r[5]), float(r[6]), float(r[8]), float(r[10]), float(r[11]) / 100.0)
+                except ValueError:
+                    pass
+    try:
+        reg = json.load(open('docs/regime_today.json'))
+    except Exception:
+        reg = {}
+    rg = reg.get('regime') if reg.get('date') == D.isoformat() else None
+    have = set((s['sym'], s['setup'], s['sig']) for s in led['signals']); out = []
+    for sym in sorted(ev):
+        b = [px[sym][d] for d in tdays if d in px[sym]]
+        if len(b) < 22 or D not in px[sym]:
+            continue
+        b = b[-22:]; o, h, l, c, v = b[-1][:5]; pc = b[-2][3]
+        if sum(x[5] for x in b[-21:-1]) / 20.0 < 5:
+            continue
+        vx = v / (sum(x[4] for x in b[-21:-1]) / 20.0); gap = (o / pc - 1) * 100; day = (c / pc - 1) * 100
+        tr = [max(b[k][1] - b[k][2], abs(b[k][1] - b[k - 1][3]), abs(b[k][2] - b[k - 1][3])) for k in range(len(b) - 14, len(b))]
+        atr = sum(tr) / 14.0
+        for st, ok in (('RES_GAP', gap >= 3 and c >= o and vx >= 2), ('RES_UP8', day >= 8 and vx >= 3)):
+            if not ok or (sym, st, D.isoformat()) in have:
+                continue
+            out.append(dict(sym=sym, setup=st, sig=D.isoformat(), close=c, atr=round(atr, 2), regime=rg, go=False, status='WAIT',
+                            at_close=True, note='gap %+.1f%%, din %+.1f%%, vol %.1fx' % (gap, day, vx)))
+    print('paper: aaj %d result reaction, %d result signal' % (len(ev), len(out)))
+    return out
+
+
 def load_px(bhav, syms):
     px = collections.defaultdict(dict)
     for f in glob.glob(os.path.join(bhav, 'sec_bhavdata_full_*.csv')):
@@ -92,9 +164,18 @@ def run(s, p):
     if s['status'] in ('CLOSED', 'SKIP'):
         return
     days = sorted(d for d in p if d > s['sig'])
+    maxd, tgt, _ = RULES[s['setup']]
+    if s.get('at_close'):                                  # result wala: usi din close par liya (3:15 jaisa), gap rule nahi
+        e = s['close']; stop = e - 2 * s['atr']; risk = e - stop; qty = int(min(RISK // risk, CAP // e))
+        if qty < 1:
+            s.update(status='SKIP', why='Capital/risk me 1 share bhi nahi', exit_date=s['sig']); return
+        s.update(entry_date=s['sig'], entry=round(e, 2), stop=round(stop, 2), target=None, qty=qty)
+        if not days:
+            s.update(status='OPEN', last=round(e, 2), last_date=s['sig'], held=0, R=round(-COST * e / risk, 2), pnl=round(-COST * qty * e))
+            return
+        return walk(s, p, days, maxd, e, stop, None, risk, qty)
     if not days:
         return
-    maxd, tgt, _ = RULES[s['setup']]
     d0 = days[0]; o, h, l, c = p[d0]
     if o > s['close'] * GAP_UP or o < s['close'] * GAP_DN:
         s.update(status='SKIP', why='Gap (open %.2f, kal close %.2f)' % (o, s['close']), exit_date=d0); return
@@ -119,13 +200,18 @@ def run(s, p):
     if qty < 1:
         s.update(status='SKIP', why='Capital/risk me 1 share bhi nahi', exit_date=d0); return
     s.update(entry_date=d0, entry=round(e, 2), stop=round(stop, 2), target=round(tp, 2) if tp else None, qty=qty)
+    return walk(s, p, days, maxd, e, stop, tp, risk, qty, True)
+
+
+def walk(s, p, days, maxd, e, stop, tp, risk, qty, open_day=False):
+    """open_day: pehla din entry ka din hai (open par liya) -> us din SL lage to SL bhav, warna gap me open bhav."""
     for k, d in enumerate(days[:maxd]):
         o, h, l, c = p[d]
         if l <= stop:
-            ex = stop if k == 0 else min(o, stop)
+            ex = stop if (k == 0 and open_day) else min(o, stop)
             return close_it(s, d, ex, 'SL', e, risk, qty)
         if tp and h >= tp:
-            return close_it(s, d, max(o, tp) if k > 0 else tp, 'Target', e, risk, qty)
+            return close_it(s, d, tp if (k == 0 and open_day) else max(o, tp), 'Target', e, risk, qty)
         if k == maxd - 1:
             return close_it(s, d, c, '%d din poore' % maxd, e, risk, qty)
     d = days[min(len(days), maxd) - 1]; c = p[d][3]
@@ -145,13 +231,14 @@ def main():
     except Exception:
         led = {'start': datetime.date.today().isoformat(), 'risk': RISK, 'signals': []}
     led['signals'] += new_signals(led)
+    led['signals'] += result_signals(led, bhav)
     todo = [s for s in led['signals'] if s['status'] not in ('CLOSED', 'SKIP')]
     px = load_px(bhav, set(s['sym'] for s in todo))
     for s in todo:
         run(s, px.get(s['sym'], {}))
     st = collections.defaultdict(lambda: dict(n=0, win=0, R=0.0, pnl=0, open=0, skip=0))
     for s in led['signals']:
-        for k in (s['setup'], 'ALL'):
+        for k in ((s['setup'],) if s['setup'] in WATCH else (s['setup'], 'ALL')):
             for g in (('go' if s.get('go') else 'show'), 'all'):
                 x = st[k + '|' + g]
                 if s['status'] == 'CLOSED':
