@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-21 10:24 IST
+NEWS/EVENTS CHECK 2026-10-21 10:57 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 77 symbols
@@ -7,13 +7,13 @@ NSE announcements fetched for 77 of 77 symbols
 BSE announcements: 76 symbols checked, 2 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
-RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
+RSS Moneycontrol: OK, 15 items
+RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 148 headlines
+Google News: 82 of 82 symbols, 151 headlines
 PDF saar: 0 naye bane, 1 nahi bane, 8 pehle ke reuse (AI key: nahi)
 announcements.json: 16 symbols with announcements in last 3 days
-PCJEWELLER   BREAKOUT   RESULTS_SOON                       | 2026-10-21 Financial Results |  | 
+PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Multibagger stock: PC Jeweller shares jump 5% after surging 40% in 2 weeks | Q2 beat, bulk
 PNB          BREAKOUT   IN_NEWS                            |  |  | PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58% | Punjab National Bank warns customers against AI-led cyberattacks amid surging frauds
 KARURVYSYA   BREAKOUT   IN_NEWS                            |  | 2026-10-19 General | Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21
 KROSS        BREAKOUT   IN_NEWS                            |  | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Kross share price zooms 20%, hits record high on huge volume; here's why
@@ -24,7 +24,7 @@ ONWARDTEC    BREAKOUT   IN_NEWS                            |  |  | Onward Techno
 KOTAKBANK    PREBREAK   EVENT_7D                           | 2026-10-24 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
 ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Eternal Q2 preview: Brokerages expect market share gains, steady margins
 CHENNPETRO   PULLBACK   RESULTS_SOON                       | 2026-10-22 Financial Results |  | 
-WELCORP      PULLBACK   IN_NEWS                            |  |  | Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand
+WELCORP      PULLBACK   IN_NEWS                            |  |  | Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand | Metal sector stocks today, October 21: Vedanta Oil falls 2.92%, NALCO down 1.81%, Welspun 
 PAYTM        PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
 MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date 
 SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026, | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,
@@ -34,24 +34,27 @@ ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updat
 PNBHOUSING   PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-28 Financial Results |  | PNB Housing Finance Downgraded to Hold Amid Valuation and Technical Concerns
 LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
 KTKBANK      PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-28 Financial Results | 2026-10-19 Resignation of Director/KMP/SMP | Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service
-OPTIEMUS     PULLBACK   IN_NEWS                            |  | 2026-10-20 Copy of Newspaper Publication | Optiemus Infracom Share Certificate Loss Notice Oct 2026
 DCBBANK      PULLBACK   RESULTS_SOON                       | 2026-10-23 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
-AMAL         DIP        IN_NEWS                            |  |  | What To Expect From Amalgamated Financial’s (AMAL) Q3 Earnings | The Technical Signals Behind (AMAL) That Institutions Follow
+AMAL         DIP        IN_NEWS                            |  |  | The Technical Signals Behind (AMAL) That Institutions Follow | A $0.17 quarterly dividend from Amalgamated Financial (AMAL) is payable November 19, 2026.
 YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Credit Rating | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | YES Bank share price targets: Goldman Sachs, Citi among 10 brokers with 'Sell' calls; what
 KRN          DIP        IN_NEWS                            |  |  | Mutual funds raise stake in KRN Heat Exchanger; Union MF enters with five schemes
 ESDS         DIP        IN_NEWS                            |  |  | ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | Buoyed by blockbuster IPO, ESDS bets on AI chip rentals for $5 billion revenue in 5 years
 HDBFS        DIP        IN_NEWS                            |  | 2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates | HDB Financial Services Q2 FY27 Profit Jumps 34% YoY as Disbursements Rise 18% | HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore
+ADROITIND    DIP        IN_NEWS                            |  |  | Adroit Industries (India) Ltd. Share Price Today - Adroit Industries (India) Ltd. Stock Pr
 ANANTRAJ     DIP        EVENT_7D                           | 2026-10-28 Financial Results |  | 
 AYE          DIP        RESULTS_SOON                       | 2026-10-21 Financial Results |  | 
-ENRIN        DIP        IN_NEWS                            |  |  | Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy's Turbine Expansion Puts the Valuation Question Front and Center
-MONEYVIEW    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Amendment to AOA/MOA | Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification | Moneyview board approves ESOP ratification, AOA alteration, and capital reclass
+ENRIN        DIP        IN_NEWS                            |  |  | Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy's Record Quarter Raises the Bar — and the Stakes for Investors
+MONEYVIEW    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Amendment to AOA/MOA | Moneyview board approves ESOP ratification, AOA alteration, and capital reclass | Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification
 SJVN         DIP        IN_NEWS                            |  |  | Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc
 GERMAN       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-24 Financial Results | 2026-10-19 Board Meeting | 
 HSCL         DIP        IN_NEWS                            |  |  | Himadri Speciality Chemical among 3 stocks to close crossing below VWAP
-FUSION       DIP        IN_NEWS                            |  |  | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
+FUSION       DIP        IN_NEWS                            |  |  | FUSION FINANCE LIMITED (FUSIONPP.BO) Q2 25/26 earnings call transcript | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
+ACEVECTOR    DIP        IN_NEWS                            |  |  | ACEVECTOR Share Price Near 52-Week Low: Price and Valuation | ACEVECTOR LTD. Stock/Share price , NSE/BSE Forecast News and Live Quotes
 SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting EGM Corrigendum Notice October 2026
 AURUM        LOCKED     IN_NEWS                            |  |  | Aurum Proptech Ltd (BOM:539289) (Q2 2027) Earnings Call Highlights: Revenue Surges 64% as 
-Symbols with no flags: 39. Top market headlines:
+Symbols with no flags: 38. Top market headlines:
+  [ET Markets] Bajaj Finance shares fall 3% after Q2 results. What Jefferies, Nomura, other brokerages now expect?
+  [ET Markets] Transrail Lighting shares rally 9% after bagging orders worth Rs 927 crore
   [ET Markets] Why L&amp;T Technology shares jumped 11% to hit the Rs 4,000 level afterQ2 results
   [ET Markets] Hindustan Zinc shares jump 4% after Q2 net profit more than doubles. Why Jefferies cut target price?
   [ET Markets] Why is market rising today? Sensex jumps 800 points, Nifty above 23,050. 5 key factors behind D-Street rebound
@@ -59,12 +62,10 @@ Symbols with no flags: 39. Top market headlines:
   [ET Markets] UltraTech Cement shares jump 3% as brokerages revise target prices after Q2 results. What Jefferies, Citi are 
   [ET Markets] Jio IPO beyond telecom: Why the Ambanis are pitching AI, cloud and 7,220 patents as Jio’s tech future
   [ET Markets] Anand Rathi Wealth among 5 F&amp;O stocks with a sharp rise in futures open interest
-  [ET Markets] HD Fire Protect shares to list today; GMP signals 26% listing gain
+  [ET Markets] HD Fire Protect shares list at 24% premium over IPO price on NSE
   [ET Markets] TCS Share Price Live Updates: TCS Stock Details
   [ET Markets] Himadri Speciality Chemical among 3 stocks to close crossing below VWAP
   [ET Markets] Cipla Share Price Live Updates: Cipla Stock Details
+  [ET Markets] Bajaj Auto Share Price Live Updates: Bajaj Auto's Price Movement Signals Concern
   [ET Markets] Jammu &amp; Kashmir Bank among 3 stocks that closed crossing above VWAP
-  [ET Markets] Union Bank Of India among 4 stocks showing RSI trending up
-  [ET Markets] Adani Ports SEZ Share Price Live Updates: Adani Ports SEZ Surges Past 20-Day SMA
-  [ET Markets] Tata Steel Share Price Live Updates: Tata Steel Stock Details
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
