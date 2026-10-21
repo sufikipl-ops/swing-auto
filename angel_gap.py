@@ -113,16 +113,23 @@ def main():
             if not t:
                 results.append(dict(setup=row['SETUP'], symbol=row['SYMBOL'], status='NO_TOKEN', note='symbol not in master'))
                 continue
-            r = call(key, BASE + '/rest/secure/angelbroking/historical/v1/getCandleData',
-                     {'exchange': 'NSE', 'symboltoken': t, 'interval': 'FIFTEEN_MINUTE',
-                      'fromdate': today + ' 09:15', 'todate': today + ' 15:30'}, jwt)
+            for attempt in range(3):                     # 'exceeding access rate' (403) -> thoda ruk ke dobara
+                r = call(key, BASE + '/rest/secure/angelbroking/historical/v1/getCandleData',
+                         {'exchange': 'NSE', 'symboltoken': t, 'interval': 'FIFTEEN_MINUTE',
+                          'fromdate': today + ' 09:15', 'todate': today + ' 15:30'}, jwt)
+                if 'access rate' not in str(r.get('message', '')):
+                    break
+                time.sleep(3 * (attempt + 1))
             cs = [c for c in (r.get('data') or []) if str(c[0]).startswith(today)]
             d = decide(row, cs)
             if not r.get('status'):
                 d['note'] = (d.get('note', '') + ' API: %s' % r.get('message'))[:120]
+            d['date'] = today                            # app sirf aaj ka gap check dikhata hai
             results.append(d)
             time.sleep(1.6)
-        cols = ['setup', 'symbol', 'status', 'prev_close', 'trigger', 'stop_low5', 'open', 'gap_pct', 'ltp', 'vwap',
+        for x in results:
+            x.setdefault('date', today)
+        cols = ['date', 'setup', 'symbol', 'status', 'prev_close', 'trigger', 'stop_low5', 'open', 'gap_pct', 'ltp', 'vwap',
                 'day_high', 'note']
         order = {'TRIGGERED': 0, 'WAIT': 1, 'RUNAWAY': 2}
         results.sort(key=lambda x: (order.get(x['status'], 3), x['symbol']))
