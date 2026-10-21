@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-21 10:57 IST
+NEWS/EVENTS CHECK 2026-10-21 11:39 IST
 screen data date: 2026-10-19 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 77 symbols
@@ -10,49 +10,34 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 82 of 82 symbols, 151 headlines
+Google News FAIL (PCJEWELLER): HTTP Error 503: Service Unavailable
+Google News: 0 of 82 symbols, 0 headlines
 PDF saar: 0 naye bane, 1 nahi bane, 8 pehle ke reuse (AI key: nahi)
 announcements.json: 16 symbols with announcements in last 3 days
 PCJEWELLER   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Multibagger stock: PC Jeweller shares jump 5% after surging 40% in 2 weeks | Q2 beat, bulk
-PNB          BREAKOUT   IN_NEWS                            |  |  | PNB Q2FY27 Results: Net profit up 13% to ₹5,532 crore, NIM at 2.58% | Punjab National Bank warns customers against AI-led cyberattacks amid surging frauds
-KARURVYSYA   BREAKOUT   IN_NEWS                            |  | 2026-10-19 General | Five Stocks To Buy Today: Maruti Suzuki, Karur Vysya Bank, Ratnaveer And More | October 21
 KROSS        BREAKOUT   IN_NEWS                            |  | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Kross share price zooms 20%, hits record high on huge volume; here's why
-SOUTHBANK    BREAKOUT   IN_NEWS                            |  |  | South Indian Bank revises MCLR rates effective Oct 20, 2026 | Plan to enter credit card biz in six months: South Indian Bank MD & CEO | Business Standar
-TIPSMUSIC    BREAKOUT   IN_NEWS                            |  | 2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates | Angel One, Tips Music Dividend Record Date: Last Day To Buy Shares To Qualify
+SOUTHBANK    BREAKOUT   IN_NEWS                            |  |  | South Indian Bank shares: Already up 15% in Oct, hit 52-week high - What is driving rally?
 DHANBANK     BREAKOUT   EVENT_7D                           | 2026-10-26 Financial Results |  | 
-ONWARDTEC    BREAKOUT   IN_NEWS                            |  |  | Onward Technologies Delivers its Strongest-ever Quarter; Total Revenue up 22.2% and EBITDA
 KOTAKBANK    PREBREAK   EVENT_7D                           | 2026-10-24 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
 ETERNAL      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-21 Financial Results |  | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | Eternal Q2 preview: Brokerages expect market share gains, steady margins
 CHENNPETRO   PULLBACK   RESULTS_SOON                       | 2026-10-22 Financial Results |  | 
-WELCORP      PULLBACK   IN_NEWS                            |  |  | Welspun Corp’s $350 million US bet rides rising oil, gas pipeline demand | Metal sector stocks today, October 21: Vedanta Oil falls 2.92%, NALCO down 1.81%, Welspun 
 PAYTM        PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
-MRPL         PULLBACK   IN_NEWS                            |  |  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date  | Dividend stocks alert: Check Elecon Eng, ICICI Prudential, Mangalore Refinery record date 
-SONACOMS     PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026, | Sona BLW, Solar Industries, Oracle, Aurobindo Pharma, CG Power: Midcap performers of 2026,
-MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | Consumer durables demand mixed; prefer LG, Polycab India: Motilal Oswal | UltraTech Q2 Review: Motilal Oswal Sees 24% Rally After Strong Volume Growth; Check Target
+SONACOMS     PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
+MOTILALOFS   PULLBACK   IN_NEWS                            |  |  | Consumer durables demand mixed; prefer LG, Polycab India: Motilal Oswal
 APLAPOLLO    PULLBACK   EVENT_7D                           | 2026-10-26 Financial Results |  | 
-ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Updates | Acme Solar gets Nomura's 'Buy'; NTPC Green rated 'Neutral' on execution risks | Trade Spotlight: How should you trade ACME Solar Holdings, Blue Star, Oriental Hotels, PVR
-PNBHOUSING   PULLBACK   EVENT_7D IN_NEWS                   | 2026-10-28 Financial Results |  | PNB Housing Finance Downgraded to Hold Amid Valuation and Technical Concerns
-LGEINDIA     PULLBACK   IN_NEWS                            |  |  | LG Electronics stock falls 3.02 percent below Tradegate close | LG Electronics : Smart Factory Solution
-KTKBANK      PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-28 Financial Results | 2026-10-19 Resignation of Director/KMP/SMP | Karnataka Bank COO Raja B S Resigns After Nearly 37 Years of Service
+ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-19 Updates | 
+PNBHOUSING   PULLBACK   EVENT_7D                           | 2026-10-28 Financial Results |  | 
+KTKBANK      PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-28 Financial Results | 2026-10-19 Resignation of Director/KMP/SMP | 
 DCBBANK      PULLBACK   RESULTS_SOON                       | 2026-10-23 Financial Results | 2026-10-19 Analysts/Institutional Investor Meet/Con. Call Updates | 
-AMAL         DIP        IN_NEWS                            |  |  | The Technical Signals Behind (AMAL) That Institutions Follow | A $0.17 quarterly dividend from Amalgamated Financial (AMAL) is payable November 19, 2026.
-YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Credit Rating | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS | YES Bank share price targets: Goldman Sachs, Citi among 10 brokers with 'Sell' calls; what
-KRN          DIP        IN_NEWS                            |  |  | Mutual funds raise stake in KRN Heat Exchanger; Union MF enters with five schemes
-ESDS         DIP        IN_NEWS                            |  |  | ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | Buoyed by blockbuster IPO, ESDS bets on AI chip rentals for $5 billion revenue in 5 years
-HDBFS        DIP        IN_NEWS                            |  | 2026-10-20 Analysts/Institutional Investor Meet/Con. Call Updates | HDB Financial Services Q2 FY27 Profit Jumps 34% YoY as Disbursements Rise 18% | HDB Financial Services Q2FY27 net profit up 34% YoY to ₹780 crore
-ADROITIND    DIP        IN_NEWS                            |  |  | Adroit Industries (India) Ltd. Share Price Today - Adroit Industries (India) Ltd. Stock Pr
+YESBANK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Credit Rating | Stocks to watch: Eternal, Hindustan Zinc, YES Bank, Bajaj Fin, IREDA, LTTS
 ANANTRAJ     DIP        EVENT_7D                           | 2026-10-28 Financial Results |  | 
 AYE          DIP        RESULTS_SOON                       | 2026-10-21 Financial Results |  | 
-ENRIN        DIP        IN_NEWS                            |  |  | Siemens Energy CEO Sees Data Center Boom Lasting on Power Needs | Siemens Energy's Record Quarter Raises the Bar — and the Stakes for Investors
-MONEYVIEW    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-20 Amendment to AOA/MOA | Moneyview board approves ESOP ratification, AOA alteration, and capital reclass | Moneyview Ltd Board Approves Governance Changes and Share Capital Reclassification
-SJVN         DIP        IN_NEWS                            |  |  | Suzlon Energy vs Tata Power vs SJVN: Which Power Stock Charged Up FII’s Portfolios In Marc
+MONEYVIEW    DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-20 Amendment to AOA/MOA | 
 GERMAN       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-24 Financial Results | 2026-10-19 Board Meeting | 
 HSCL         DIP        IN_NEWS                            |  |  | Himadri Speciality Chemical among 3 stocks to close crossing below VWAP
-FUSION       DIP        IN_NEWS                            |  |  | FUSION FINANCE LIMITED (FUSIONPP.BO) Q2 25/26 earnings call transcript | FUSION FINANCE LIMITED (FUSIONPP.BO) Q4 25/26 earnings call transcript
-ACEVECTOR    DIP        IN_NEWS                            |  |  | ACEVECTOR Share Price Near 52-Week Low: Price and Valuation | ACEVECTOR LTD. Stock/Share price , NSE/BSE Forecast News and Live Quotes
-SWARAJ       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-19 Corrigendum | Swaraj Suiting EGM Corrigendum Notice October 2026
-AURUM        LOCKED     IN_NEWS                            |  |  | Aurum Proptech Ltd (BOM:539289) (Q2 2027) Earnings Call Highlights: Revenue Surges 64% as 
-Symbols with no flags: 38. Top market headlines:
+SWARAJ       DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-19 Corrigendum | 
+Symbols with no flags: 55. Top market headlines:
+  [ET Markets] Missed reversal in IT stocks? Jefferies gives 3 ideas with up to 50% re-rating potential
   [ET Markets] Bajaj Finance shares fall 3% after Q2 results. What Jefferies, Nomura, other brokerages now expect?
   [ET Markets] Transrail Lighting shares rally 9% after bagging orders worth Rs 927 crore
   [ET Markets] Why L&amp;T Technology shares jumped 11% to hit the Rs 4,000 level afterQ2 results
@@ -67,5 +52,4 @@ Symbols with no flags: 38. Top market headlines:
   [ET Markets] Himadri Speciality Chemical among 3 stocks to close crossing below VWAP
   [ET Markets] Cipla Share Price Live Updates: Cipla Stock Details
   [ET Markets] Bajaj Auto Share Price Live Updates: Bajaj Auto's Price Movement Signals Concern
-  [ET Markets] Jammu &amp; Kashmir Bank among 3 stocks that closed crossing above VWAP
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
