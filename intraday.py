@@ -18,15 +18,9 @@ def main():
     except Exception:
         print('candles.json nahi mila, skip'); return
     jwt = live.login(key, cid, pin, tsec)
-    master = None
-    for attempt in range(4):
-        master = live.http_json(live.MASTER, None, {}, timeout=180)
-        if isinstance(master, list) and len(master) > 1000:
-            break
-        time.sleep(10 * (attempt + 1))
-    if not isinstance(master, list):
+    tok = live.nse_tokens()
+    if not tok:
         print('master download fail'); return
-    tok = {m['symbol'][:-3]: m['token'] for m in master if m.get('exch_seg') == 'NSE' and str(m.get('symbol', '')).endswith('-EQ')}
     now = live.ist_now(); fr = (now - datetime.timedelta(days=DAYS)).strftime('%Y-%m-%d') + ' 09:15'
     to = now.strftime('%Y-%m-%d %H:%M')
     out, fail = {}, 0

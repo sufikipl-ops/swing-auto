@@ -58,6 +58,55 @@ def http_json(url, body=None, headers=None, timeout=30):
         return {'status': False, 'message': 'ERR %s' % e}
 
 
+TOKEN_CACHE = 'docs/angel_tokens.json'      # NSE EQ symbol -> Angel token (har shaam taaza; master download fail ho to yahi)
+
+
+def master_list(budget=480):
+    """Angel scrip master (36 MB, poori list). Server beech me todta hai (2026-10-21), isliye Range se wahin se aage jodte hain."""
+    buf, t0, tries = b'', time.time(), 0
+    while time.time() - t0 < budget and tries < 40:
+        tries += 1
+        hd = {'Range': 'bytes=%d-' % len(buf)} if buf else {}
+        try:
+            with urllib.request.urlopen(urllib.request.Request(MASTER, headers=hd), timeout=90) as r:
+                if buf and r.status != 206:
+                    buf = b''                     # server ne Range nahi maana: shuru se
+                while True:
+                    ch = r.read(1 << 20)
+                    if not ch:
+                        break
+                    buf += ch
+        except Exception as e:
+            print('master part %d: %s (ab tak %.1f MB)' % (tries, str(e)[:60], len(buf) / 1e6))
+        try:
+            m = json.loads(buf.decode())
+            if isinstance(m, list) and len(m) > 1000:
+                print('master ok: %d rows (%d tries)' % (len(m), tries))
+                return m
+        except Exception:
+            pass
+    return None
+
+
+def nse_tokens(budget=480):
+    """{SYMBOL: token} NSE EQ. Master na mile to docs/angel_tokens.json (pichhli baar ka). Mile to cache bhi taaza."""
+    m = master_list(budget)
+    if m:
+        tok = {x['symbol'][:-3]: x['token'] for x in m if x.get('exch_seg') == 'NSE' and str(x.get('symbol', '')).endswith('-EQ')}
+        if len(tok) > 1000:
+            try:
+                json.dump(tok, open(TOKEN_CACHE, 'w'), separators=(',', ':'))
+            except Exception:
+                pass
+            return tok
+    try:
+        tok = json.load(open(TOKEN_CACHE))
+        print('master download nahi hua: cache se %d tokens' % len(tok))
+        return tok
+    except Exception:
+        return {}
+
+
 def angel(key, path, body, jwt=None):
     hd = {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-UserType': 'USER',
           'X-SourceID': 'WEB', 'X-ClientLocalIP': '127.0.0.1', 'X-ClientPublicIP': '127.0.0.1',
@@ -356,16 +405,9 @@ def main():
     started = time.time()
     jwt = login(key, cid, pin, tsec)
     print('login ok')
-    master = None
-    for attempt in range(4):                     # 36 MB file: net beech me tute to dobara (2026-10-21 IncompleteRead se live ruka tha)
-        master = http_json(MASTER, None, {}, timeout=180)
-        if isinstance(master, list) and len(master) > 1000:
-            break
-        print('master download try %d fail: %s' % (attempt + 1, str(master)[:120]))
-        time.sleep(10 * (attempt + 1))
-    if not isinstance(master, list):
-        print('master download fail: %s' % str(master)[:150]); sys.exit(1)
-    tokmap = {m['symbol'][:-3]: m['token'] for m in master if m.get('exch_seg') == 'NSE' and str(m.get('symbol', '')).endswith('-EQ')}
+    tokmap = nse_tokens(150)                      # jaldi shuru: na mile to cache (shaam ko intraday.py taaza karta hai)
+    if len(tokmap) < 1000:
+        print('master download fail aur cache bhi nahi'); sys.exit(1)
     print('tokens: %d' % len(tokmap))
     no_trade_since = None
     loops = 0
