@@ -1,0 +1,118 @@
+LIQUIDITY + CANDLESTICK (reel) STUDY (2026-10-21): 2022-09-13 se 2026-10-19, 3235 stocks
+R = risk ke hisaab se (1R = entry se SL). Kharcha kaat ke. "saal+" = kitne saal (20+ trade) avg plus.
+
+===== exit: 2R ya 10 din =====
+candle                                       market       n  jeet   avg R  saal+
+BASE: random din                             ALL       8464   33%  -0.57R  0/5
+BASE: random din                             STRONG    3716   35%  -0.45R  0/4
+BASE: random din                             MIXED     2338   29%  -0.51R  0/5
+BASE: random din                             WEAK      1366   32%  -1.02R  1/5
+BASE: random din                             VWEAK      828   35%  -0.64R  1/4
+REJECT (toota, wapas upar band)              ALL      14607   33%  -0.20R  0/5
+REJECT (toota, wapas upar band)              STRONG    3486   34%  -0.26R  1/4
+REJECT (toota, wapas upar band)              MIXED     4314   32%  -0.21R  1/5
+REJECT (toota, wapas upar band)              WEAK      3559   30%  -0.29R  0/5
+REJECT (toota, wapas upar band)              VWEAK     2978   38%  -0.02R  3/5
+REJECT (toota, wapas upar band) +EQ_LOW      ALL      10364   34%  -0.19R  1/5
+REJECT (toota, wapas upar band) +EQ_LOW      STRONG    2589   34%  -0.24R  1/4
+REJECT (toota, wapas upar band) +EQ_LOW      MIXED     3143   32%  -0.21R  0/5
+REJECT (toota, wapas upar band) +EQ_LOW      WEAK      2488   31%  -0.25R  0/5
+REJECT (toota, wapas upar band) +EQ_LOW      VWEAK     1949   39%  -0.00R  3/5
+HAMMER (lambi neeche pooch)                  ALL       2315   35%  -0.27R  1/5
+HAMMER (lambi neeche pooch)                  STRONG     540   34%  -0.61R  1/4
+HAMMER (lambi neeche pooch)                  MIXED      717   34%  -0.18R  1/5
+HAMMER (lambi neeche pooch)                  WEAK       507   33%  -0.35R  1/4
+HAMMER (lambi neeche pooch)                  VWEAK      519   38%  -0.01R  2/4
+HAMMER (lambi neeche pooch) +EQ_LOW          ALL       1620   36%  -0.25R  1/5
+HAMMER (lambi neeche pooch) +EQ_LOW          STRONG     403   35%  -0.73R  1/4
+HAMMER (lambi neeche pooch) +EQ_LOW          MIXED      523   35%  -0.12R  0/4
+HAMMER (lambi neeche pooch) +EQ_LOW          WEAK       359   35%  -0.16R  1/4
+HAMMER (lambi neeche pooch) +EQ_LOW          VWEAK      313   40%  +0.02R  3/4
+BULL (green, upar band)                      ALL       2368   38%  -0.12R  1/5
+BULL (green, upar band)                      STRONG     562   39%  -0.05R  1/4
+BULL (green, upar band)                      MIXED      712   34%  -0.20R  1/4
+BULL (green, upar band)                      WEAK       563   35%  -0.28R  1/4
+BULL (green, upar band)                      VWEAK      500   46%  +0.08R  4/4
+BULL (green, upar band) +EQ_LOW              ALL       1634   39%  -0.06R  1/5
+BULL (green, upar band) +EQ_LOW              STRONG     410   40%  +0.00R  1/4
+BULL (green, upar band) +EQ_LOW              MIXED      501   35%  -0.19R  1/4
+BULL (green, upar band) +EQ_LOW              WEAK       390   35%  -0.13R  0/4
+BULL (green, upar band) +EQ_LOW              VWEAK      315   50%  +0.16R  4/4
+RAN (neeche hi band)                         ALL      14889   31%  -0.30R  0/5
+RAN (neeche hi band)                         STRONG    3024   31%  -0.44R  0/4
+RAN (neeche hi band)                         MIXED     4141   31%  -0.31R  0/5
+RAN (neeche hi band)                         WEAK      3988   27%  -0.35R  1/5
+RAN (neeche hi band)                         VWEAK     3498   35%  -0.11R  3/5
+RAN (neeche hi band) +EQ_LOW                 ALL      10887   31%  -0.33R  0/5
+RAN (neeche hi band) +EQ_LOW                 STRONG    2324   31%  -0.50R  0/4
+RAN (neeche hi band) +EQ_LOW                 MIXED     3082   30%  -0.34R  0/5
+RAN (neeche hi band) +EQ_LOW                 WEAK      2941   27%  -0.34R  1/5
+RAN (neeche hi band) +EQ_LOW                 VWEAK     2355   35%  -0.14R  2/5
+RAN_STRONG (red, neeche band)                ALL      11333   30%  -0.27R  0/5
+RAN_STRONG (red, neeche band)                STRONG    2347   30%  -0.26R  0/4
+RAN_STRONG (red, neeche band)                MIXED     3129   30%  -0.30R  0/5
+RAN_STRONG (red, neeche band)                WEAK      3102   27%  -0.35R  1/5
+RAN_STRONG (red, neeche band)                VWEAK     2582   32%  -0.15R  2/5
+RAN_STRONG (red, neeche band) +EQ_LOW        ALL       8185   30%  -0.28R  0/5
+RAN_STRONG (red, neeche band) +EQ_LOW        STRONG    1766   30%  -0.27R  0/4
+RAN_STRONG (red, neeche band) +EQ_LOW        MIXED     2318   30%  -0.32R  0/5
+RAN_STRONG (red, neeche band) +EQ_LOW        WEAK      2272   27%  -0.35R  1/5
+RAN_STRONG (red, neeche band) +EQ_LOW        VWEAK     1696   32%  -0.15R  2/5
+
+===== exit: 5 din =====
+candle                                       market       n  jeet   avg R  saal+
+BASE: random din                             ALL       8464   29%  -0.52R  0/5
+BASE: random din                             STRONG    3716   31%  -0.49R  0/4
+BASE: random din                             MIXED     2338   26%  -0.49R  0/5
+BASE: random din                             WEAK      1366   29%  -0.73R  1/5
+BASE: random din                             VWEAK      828   33%  -0.54R  1/4
+REJECT (toota, wapas upar band)              ALL      14607   32%  -0.21R  0/5
+REJECT (toota, wapas upar band)              STRONG    3486   33%  -0.26R  1/4
+REJECT (toota, wapas upar band)              MIXED     4314   29%  -0.22R  1/5
+REJECT (toota, wapas upar band)              WEAK      3559   29%  -0.27R  1/5
+REJECT (toota, wapas upar band)              VWEAK     2978   36%  -0.04R  3/5
+REJECT (toota, wapas upar band) +EQ_LOW      ALL      10364   32%  -0.19R  1/5
+REJECT (toota, wapas upar band) +EQ_LOW      STRONG    2589   34%  -0.22R  1/4
+REJECT (toota, wapas upar band) +EQ_LOW      MIXED     3143   30%  -0.24R  0/5
+REJECT (toota, wapas upar band) +EQ_LOW      WEAK      2488   29%  -0.24R  1/5
+REJECT (toota, wapas upar band) +EQ_LOW      VWEAK     1949   37%  -0.02R  3/5
+HAMMER (lambi neeche pooch)                  ALL       2315   37%  -0.26R  1/5
+HAMMER (lambi neeche pooch)                  STRONG     540   38%  -0.55R  1/4
+HAMMER (lambi neeche pooch)                  MIXED      717   37%  -0.12R  1/5
+HAMMER (lambi neeche pooch)                  WEAK       507   34%  -0.33R  1/4
+HAMMER (lambi neeche pooch)                  VWEAK      519   38%  -0.11R  2/4
+HAMMER (lambi neeche pooch) +EQ_LOW          ALL       1620   38%  -0.24R  1/5
+HAMMER (lambi neeche pooch) +EQ_LOW          STRONG     403   40%  -0.64R  2/4
+HAMMER (lambi neeche pooch) +EQ_LOW          MIXED      523   38%  -0.12R  0/4
+HAMMER (lambi neeche pooch) +EQ_LOW          WEAK       359   36%  -0.10R  2/4
+HAMMER (lambi neeche pooch) +EQ_LOW          VWEAK      313   37%  -0.08R  1/4
+BULL (green, upar band)                      ALL       2368   39%  -0.15R  1/5
+BULL (green, upar band)                      STRONG     562   40%  -0.11R  1/4
+BULL (green, upar band)                      MIXED      712   37%  -0.19R  1/4
+BULL (green, upar band)                      WEAK       563   35%  -0.26R  1/4
+BULL (green, upar band)                      VWEAK      500   43%  -0.03R  3/4
+BULL (green, upar band) +EQ_LOW              ALL       1634   40%  -0.09R  1/5
+BULL (green, upar band) +EQ_LOW              STRONG     410   42%  -0.05R  1/4
+BULL (green, upar band) +EQ_LOW              MIXED      501   37%  -0.17R  1/4
+BULL (green, upar band) +EQ_LOW              WEAK       390   35%  -0.13R  1/4
+BULL (green, upar band) +EQ_LOW              VWEAK      315   46%  +0.03R  2/4
+RAN (neeche hi band)                         ALL      14889   26%  -0.30R  0/5
+RAN (neeche hi band)                         STRONG    3024   27%  -0.40R  0/4
+RAN (neeche hi band)                         MIXED     4141   24%  -0.37R  0/5
+RAN (neeche hi band)                         WEAK      3988   23%  -0.38R  1/5
+RAN (neeche hi band)                         VWEAK     3498   31%  -0.04R  3/5
+RAN (neeche hi band) +EQ_LOW                 ALL      10887   26%  -0.34R  0/5
+RAN (neeche hi band) +EQ_LOW                 STRONG    2324   26%  -0.51R  0/4
+RAN (neeche hi band) +EQ_LOW                 MIXED     3082   24%  -0.42R  0/5
+RAN (neeche hi band) +EQ_LOW                 WEAK      2941   23%  -0.39R  1/5
+RAN (neeche hi band) +EQ_LOW                 VWEAK     2355   31%  -0.03R  3/5
+RAN_STRONG (red, neeche band)                ALL      11333   24%  -0.27R  1/5
+RAN_STRONG (red, neeche band)                STRONG    2347   26%  -0.20R  1/4
+RAN_STRONG (red, neeche band)                MIXED     3129   23%  -0.38R  0/5
+RAN_STRONG (red, neeche band)                WEAK      3102   22%  -0.38R  1/5
+RAN_STRONG (red, neeche band)                VWEAK     2582   27%  -0.06R  3/5
+RAN_STRONG (red, neeche band) +EQ_LOW        ALL       8185   24%  -0.29R  1/5
+RAN_STRONG (red, neeche band) +EQ_LOW        STRONG    1766   25%  -0.24R  1/4
+RAN_STRONG (red, neeche band) +EQ_LOW        MIXED     2318   22%  -0.42R  0/5
+RAN_STRONG (red, neeche band) +EQ_LOW        WEAK      2272   22%  -0.39R  1/5
+RAN_STRONG (red, neeche band) +EQ_LOW        VWEAK     1696   28%  -0.02R  3/5
