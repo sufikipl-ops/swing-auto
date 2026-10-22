@@ -16,7 +16,7 @@ PULLBACK,JAYNECOIND,none,,,
 PULLBACK,KMEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Outcome of Board Meeting,KMEW Promoter Reclassification: 16 Members Seek Public Category
 PULLBACK,SAGILITY,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-10-22 Financial Results/Dividend,2026-10-21 Press Release,Sagility subsidiary signs definitive deal for Chirok Health worth $32.35 million | Sagility Accelerates Provider Growth Strategy Through Acquisition of Chirok Health
 PULLBACK,SSWL,RESULTS_SOON,2026-10-23 Financial Results/Dividend,,
-PULLBACK,ABDL,EVENT_7D IN_NEWS,2026-10-27 Financial Results,,Allied Blenders & Distillers Ltd Hits Intraday Low Amid Price Pressure
+PULLBACK,ABDL,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-27 Financial Results,2026-10-22 Press Release,Allied Blenders starts malt distillery in Telangana with 4.4 million BL capacity | Allied Blenders & Distillers Ltd Hits Intraday Low Amid Price Pressure
 PULLBACK,IIFLCAPS,IN_NEWS,,,IIFL Capital's Maiden Late-Stage Private Equity Fund Announces First Close at ~ ₹500 Crore
 PULLBACK,WSTCSTPAPR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Board Meeting,"CompassMSP Acquires SecureNet Solutions, Expanding High-Touch IT for Real Estate, Healthca"
 PULLBACK,SGMART,EVENT_7D,2026-10-27 Financial Results,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,
@@ -26,9 +26,9 @@ PULLBACK,MOBIKWIK,none,,,
 PULLBACK,SHRIPISTON,IN_NEWS,,,Sunsure Energy Signs 21 MWp PPA with SPR Auto Technologies and SPR Takahata Precision
 PULLBACK,PROTEAN,none,,,
 PULLBACK,DWARKESH,EVENT_7D NEW_ANNOUNCEMENT,2026-10-29 Financial Results,2026-10-21 Board Meeting,
-PULLBACK,LEMONTREE,IN_NEWS,,,"Lemon Tree Hotels Signs New Property in Visakhapatnam | Omaxe, Lemon Tree Hotels ink MoU"
+PULLBACK,LEMONTREE,IN_NEWS,,,Lemon Tree Hotels Signs New Property in Visakhapatnam
 PULLBACK,DCBBANK,RESULTS_SOON,2026-10-23 Financial Results,,
-PULLBACK,RSYSTEMS,none,,,
+PULLBACK,RSYSTEMS,IN_NEWS,,,R Systems declares ₹8 per share second interim dividend for FY26
 PULLBACK,TNPETRO,none,,,
 PULLBACK,KNACK,EVENT_7D,2026-10-27 Financial Results/Other business matters,,
 PULLBACK,ZOTA,none,,,
@@ -37,15 +37,15 @@ DIP,INDORAMA,IN_NEWS,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call 
 DIP,FCL,none,,,
 DIP,AMAL,IN_NEWS,,,Can Amalgamated Financial (NASDAQ:AMAL) Defend a 3.78% Margin When Third-Quarter Earnings 
 DIP,HEROMOTORS,IN_NEWS,,,"Hero Motors, SML Mahindra, Wheels India locked at 10% lower circuits"
-DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,eMudhra tanks 20%; why IT-enabled services stock sank in Wednesday's trade? | eMudhra stock plunges 20% after researcher flags weak keys in intermediate certificates
-DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,eMudhra tanks 20%; why IT-enabled services stock sank in Wednesday's trade? | eMudhra stock plunges 20% after researcher flags weak keys in intermediate certificates
-DIP,HSCL,IN_NEWS,,,Himadri Speciality Chemical Ltd Hits Intraday Low Amid Price Pressure
-DIP,HSCL,IN_NEWS,,,Himadri Speciality Chemical Ltd Hits Intraday Low Amid Price Pressure
-DIP,SRIT,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-26 Financial Results/Other business matters,2026-10-20 Board Meeting,"SRIT INDIA LTD. Stock/Share price , NSE/BSE Forecast News and Live Quotes | SRIT Share Price Falls 9.89%: Price Action and Analysis"
+DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,"eMudhra tanks 20%; why IT-enabled services stock sank in Wednesday's trade? | eMudhra shares crash 14% today, down 34% in 5 days: Here's why the stock is falling"
+DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,"eMudhra tanks 20%; why IT-enabled services stock sank in Wednesday's trade? | eMudhra shares crash 14% today, down 34% in 5 days: Here's why the stock is falling"
+DIP,HSCL,none,,,
+DIP,HSCL,none,,,
+DIP,SRIT,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-26 Financial Results/Other business matters,2026-10-20 Board Meeting,"SRIT INDIA LTD. Stock/Share price , NSE/BSE Forecast News and Live Quotes | SRIT India Ltd Share Price Today,, SRIT Share Price NSE, BSE"
 DIP,GERMAN,RESULTS_SOON IN_NEWS,2026-10-24 Financial Results,,German Green Steel & Power Ltd. Share Price Live Today
 DIP,KRN,EVENT_7D NEW_ANNOUNCEMENT,2026-10-29 Financial Results,2026-10-21 Board Meeting,
 DIP,ESDS,IN_NEWS,,,"ESDS, Advit among 9 listings with up to 220% rally YTD; more steam left? | ESDS Software Solution Ltd. Share Price Live Today"
-DIP,TRIVENIPT,RESULTS_SOON IN_NEWS,2026-10-23 Financial Results,,TRIVENI POWER TRANS LTD (TRIVENIP) Share Price Near 52-Week Low as Stock Trades at Rs 526
+DIP,TRIVENIPT,RESULTS_SOON,2026-10-23 Financial Results,,
 DIP,ADROITIND,EVENT_7D NEW_ANNOUNCEMENT,2026-10-28 Financial Results/Other business matters,2026-10-21 Board Meeting,
 DIP,JSFB,RESULTS_SOON IN_NEWS,2026-10-23 Financial Results,,Jana Small Finance Bank Falls as Federal Bank Rules Out Stake
 DIP,AYE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,Aye Finance Q2 Results: Net profit more than doubles to Rs 87 crore | Aye Finance Q2FY27 Results: Net profit up 151% YoY to ₹86.72 crore
@@ -56,7 +56,7 @@ DIP,ADVAIT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 General Updates,"Despite Advait 
 DIP,SJVN,none,,,
 DIP,KPEL,IN_NEWS,,,KP Energy locked at 5% upper circuit on 9-MW wind power project contract
 DIP,MANIKA,IN_NEWS,,,MANIKA PLASTECH LIMITED Share Price
-DIP,LASERPOWER,IN_NEWS,,,Laser Power & Infra Ltd. Share Price Today Near Yearly Low | Laser Power & Infra Share Price Weakens in Latest Trade
+DIP,LASERPOWER,IN_NEWS,,,Laser Power & Infra Ltd. Share Price Today Near Yearly Low
 DIP,GENESYS,IN_NEWS,,,Genesys International Share Price Falls 8.12%; Analysis
 DIP,MILKYMIST,none,,,
 DIP,FUSION,none,,,
@@ -65,12 +65,12 @@ DIP,PRIORITY,IN_NEWS,,,Priority Jewels Share Price Today: Price Fall Explained
 DIP,GKENERGY,none,,,
 DIP,GAJA,IN_NEWS,,,Gaja Alternative Asset Management (NSEI:GAJA) - Stock Analysis
 DIP,SOLEX,IN_NEWS,,,Solex Energy Subsidiary Approves INR 150 Crore Convertible Debenture Issue
-DIP,ACEVECTOR,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-26 Financial Results,2026-10-21 Board Meeting,ACEVECTOR Share Price Near 52-Week Low: Price and Valuation | AceVector's $44.4M IPO lists at an 11.5% discount despite 5x demand
+DIP,ACEVECTOR,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-26 Financial Results,2026-10-21 Board Meeting,AceVector's $44.4M IPO lists at an 11.5% discount despite 5x demand
 DIP,HAZOOR,none,,,
 DIP,NELCO,IN_NEWS,,2026-10-21 Copy of Newspaper Publication,NELCO Q2 FY27 Results: Consolidated Financials Explained
 DIP,EMMVEE,IN_NEWS,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,Emmvee Photovoltaic Power Q2 FY27 Earnings Call Key Highlights
 DIP,BLEL,none,,,
-DIP,CREDITACC,RESULTS_SOON IN_NEWS,2026-10-22 Financial Results/Other business matters,2026-10-21 ESOP/ESOS/ESPS,"CreditAccess Grameen Share Price Fall: NBFC Context | CreditAccess Grameen ESOP Allotment: 14,575 Shares Issued"
+DIP,CREDITACC,RESULTS_SOON IN_NEWS,2026-10-22 Financial Results/Other business matters,2026-10-21 ESOP/ESOS/ESPS,CreditAccess Grameen Share Price Fall: NBFC Context
 DIP,SUNSHINE,IN_NEWS,,,Sunshine Pictures Ltd. Share Price Today - Sunshine Pictures Ltd. Stock Price Live NSE/BSE
 DIP,YESBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-20 Credit Rating,"YES Bank share price targets: Goldman Sachs, Citi among 10 brokers with 'Sell' calls; what | Yes Bank shares slump nearly 4% as Nomura cuts target price to Rs 18 after AT1 bond verdic"
 DIP,TIRUMALCHM,none,,,
@@ -91,7 +91,7 @@ DIP,DREDGECORP,none,,,
 DIP,ANANTRAJ,EVENT_7D IN_NEWS,2026-10-28 Financial Results,,"Reliance Power, Anant Raj and 4 Other Nifty 500 Stocks Trading Below RSI 30: Do You Own An"
 DIP,PRAJIND,EVENT_7D NEW_ANNOUNCEMENT,2026-10-29 Financial Results,2026-10-21 Board Meeting,
 DIP,WAAREERTL,IN_NEWS,,2026-10-20 Copy of Newspaper Publication,"Waaree Renewable Eyes Core Growth With Over ₹20,000 Crore Order Pipeline | Waaree Renewable Technologies shares fall 12% as costs hit Q2 profit; revenue rises"
-DIP,RPOWER,none,,,
+DIP,RPOWER,IN_NEWS,,,"Reliance Power, Anant Raj and 4 Other Nifty 500 Stocks Trading Below RSI 30: Do You Own An"
 DIP,HCG,none,,,
 DIP,TALBROAUTO,none,,,
 DIP,JSLL,none,,,
