@@ -1,17 +1,17 @@
 setup,symbol,flags,next_event,last_announcement,headlines
 BREAKOUT,INDHOTEL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,"Indian Hotels gains 3% as analysts raise earnings estimates, target post Q2 | Why Indian Hotels Share Price is Rising"
 BREAKOUT,WIPRO,IN_NEWS,,,"Buzzing Stocks: Wipro, Reliance, PSP Projects, Bajaj Electricals, Hero MotoCorp, TCP, Mahi | IT stocks rebound sharply in October: TCS gains 22%, Wipro and Tech Mahindra gain 20% — 3 "
-BREAKOUT,CRISIL,RESULTS_SOON IN_NEWS,2026-10-23 Financial Results/Dividend,,"Fibe's NBFC arm EarlySalary gets rating upgrade from Crisil, India Ratings | Archean Chemical Industries Limited Receives Credit Rating Revision from CRISIL for Long-T"
+BREAKOUT,CRISIL,RESULTS_SOON IN_NEWS,2026-10-23 Financial Results/Dividend,,Archean Chemical Industries Limited Receives Credit Rating Revision from CRISIL for Long-T | Elin Electronics CRISIL A Stable Rating Reaffirmed for Rs 134 Cr
 BREAKOUT,ORIENTHOT,none,,,
-PREBREAK,PVRINOX,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-28 Financial Results/Other business matters,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,"PVR Inox shares at 52-week high, already up 45% in 6 months - Is there more steam left in  | Trade Spotlight: How should you trade Coforge, PVR Inox, PTC Industries, Wipro, RBL Bank, "
-PULLBACK,CHENNPETRO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Press Release,"Chennai Petroleum Q2 results 2026: Navratna PSU declares  ₹25 dividend, PAT jumps 212 % Yo | Chennai Petroleum Q2 results 2026: Navratna PSU declares ₹25 dividend, PAT jumps 212 % YoY"
-PULLBACK,LAURUSLABS,EVENT_7D IN_NEWS,2026-10-29 Financial Results/Dividend,,What Laurus Labs Buyers Were Betting On Before A 118% Rally
+PREBREAK,PVRINOX,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-28 Financial Results/Other business matters,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,"PVR Inox shares at 52-week high, already up 45% in 6 months - Is there more steam left in "
+PULLBACK,CHENNPETRO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Press Release,"Chennai Petroleum Q2 results 2026: Navratna PSU declares ₹25 dividend, PAT jumps 212 % YoY | Chennai Petroleum appoints R G N Price & Co as statutory auditors for FY27"
+PULLBACK,LAURUSLABS,EVENT_7D IN_NEWS,2026-10-29 Financial Results/Dividend,,"Laurus Labs Limited (LAURUSLABS.NS) Stock Price, News, Quote & History | What Laurus Labs Buyers Were Betting On Before A 118% Rally"
 PULLBACK,DLF,IN_NEWS,,2026-10-22 Analysts/Institutional Investor Meet/Con. Call Updates,₹100 crore for an apartment? Ashneer Grover reveals what makes DLF Camellias so expensive
 PULLBACK,NAZARA,EVENT_7D,2026-10-26 Financial Results,2026-10-22 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,PETRONET,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Agreements,"Petronet LNG signs term sheet for ₹1,200 crore CBG joint venture | Petronet LNG CBG Joint Venture With Gruner Renewable Energy"
 PULLBACK,ICICIGI,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-21 Certificate under SEBI (Depositories and Participants) Regulations, 2018",ICICI Lombard ICICIGI Analyst Meet Cancelled October 2026
 PULLBACK,RATNAVEER,none,,,
-PULLBACK,KMEW,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Outcome of Board Meeting,Knowledge Marine & Engineering Works (KMEW.NS) Slips 6.13% to ₹3120.2 as Traders Eye ₹2964
+PULLBACK,KMEW,NEW_ANNOUNCEMENT,,2026-10-21 Outcome of Board Meeting,
 PULLBACK,MARSONS,none,,,
 PULLBACK,ABDL,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-27 Financial Results,2026-10-22 Action(s) initiated or orders passed,Allied Blenders Starts Malt Distillery Operations in Telangana | Allied Blenders starts malt distillery in Telangana with 4.4 million BL capacity
 PULLBACK,MUFIN,none,,,
@@ -31,26 +31,26 @@ PULLBACK,GODREJAGRO,none,,,
 PULLBACK,RGL,none,,,
 DIP,ROSSTECH,none,,,
 DIP,FILATEX,IN_NEWS,,,Filatex Fashions Lower Circuit Streak: Day 2 Price and Data
-DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Press Release,"Stocks in news: Swiggy, Infosys, HPCL, eMudhra, Adani Power, Shriram Finance, Tata Motors  | Stock crash alert! eMudhra shares plunge 37% in just two sessions. What’s unfolding?"
-DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Press Release,"Stocks in news: Swiggy, Infosys, HPCL, eMudhra, Adani Power, Shriram Finance, Tata Motors  | Stock crash alert! eMudhra shares plunge 37% in just two sessions. What’s unfolding?"
+DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Press Release,"Stocks in news: Swiggy, Infosys, HPCL, eMudhra, Adani Power, Shriram Finance, Tata Motors  | Stocks to watch: eMudhra, Infosys, Swiggy, HPCL, Havells, Sun Pharma, JSL"
+DIP,EMUDHRA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Press Release,"Stocks in news: Swiggy, Infosys, HPCL, eMudhra, Adani Power, Shriram Finance, Tata Motors  | Stocks to watch: eMudhra, Infosys, Swiggy, HPCL, Havells, Sun Pharma, JSL"
 DIP,ONEGLOBAL,IN_NEWS,,,One Global Service Provider Share Price Fall Streak Today
 DIP,HEROMOTORS,IN_NEWS,,,Hero Motors shares hit 5% lower circuit; stock still up 42% from IPO price | Check key sup | Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
 DIP,HSCL,IN_NEWS,,2026-10-22 Analysts/Institutional Investor Meet/Con. Call Updates,"Himadri Speciality Chemicals plans  ₹1,613 crore capacity expansion across key businesses | Himadri Speciality Chemicals plans ₹1,613 crore capacity expansion across key businesses"
 DIP,MOLBIO,none,,,
 DIP,JSFB,RESULTS_SOON,2026-10-23 Financial Results,,
-DIP,FINCABLES,none,,,
-DIP,AMAL,IN_NEWS,,,Why is Amalgamated Financial (AMAL) stock rocketing higher today | Amal Ltd (AMAL.NS) stock major holders
+DIP,FINCABLES,IN_NEWS,,,Finolex Cables Ltd. is Rated Buy by MarketsMOJO
+DIP,AMAL,IN_NEWS,,,Why is Amalgamated Financial (AMAL) stock rocketing higher today | Amalgamated Financial (NASDAQ:AMAL) Posts Record Q3 Profit as Revenue Meets Expectations
 DIP,PRIORITY,none,,,
 DIP,GENESYS,none,,,
 DIP,TATVA,IN_NEWS,,,"Tatva Chintan Q2FY27 results: Revenue up 76% YoY to ₹2,173 crore | Tatva Chintan Share Price Update on Market Cap and Ratios"
-DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | ESDS, Advit among 9 listings with up to 220% rally YTD; more steam left?"
-DIP,WAAREERTL,IN_NEWS,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,"Waaree Renewable Eyes Core Growth With Over ₹20,000 Crore Order Pipeline"
+DIP,ESDS,IN_NEWS,,,"ESDS Software Solution Ltd Share Price Today,, ESDS Share Price NSE, BSE | ESDS Software Solution Ltd. Share Price Live Today"
+DIP,WAAREERTL,none,,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,AUGMONT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 General Updates,"Augmont Enterprises Ltd (AUGMONT) Share Price | Augmont Enterprises reports fire at subsidiary, ₹2 crore loss"
 DIP,GERMAN,RESULTS_SOON IN_NEWS,2026-10-24 Financial Results,,"GERMAN Share Price near 52-week low: price, valuation"
 DIP,RUNWALENTR,RESULTS_SOON,2026-10-23 Financial Results,2026-10-21 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,YATRA,IN_NEWS,,,Yatra Online Share Price News: Intraday Fall and Metrics
 DIP,SUNSHINE,none,,,
-DIP,KEI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 General Updates,"KEI Industries share price plunges 10%, nears 52-week low; here's why | KEI Industries shares: Down 15% in one month! Jefferies India sees 45% upside after Q2 res"
+DIP,KEI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 General Updates,"KEI Industries share price plunges 10%, nears 52-week low; here's why | KEI Industries Share Price"
 DIP,ACEVECTOR,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-26 Financial Results,2026-10-21 Board Meeting,"ACEVECTOR LTD. Stock/Share price , NSE/BSE Forecast News and Live Quotes | ACEVECTOR 52 Week Low Streak: Sector and Valuation View"
 DIP,AYE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,Aye Finance Q2FY27 Results: Net profit up 151% YoY to ₹86.72 crore | Aye Finance Ltd (NSE:AYE) (Q2 2027) Earnings Call Highlights: Profit Doubles as AUM Climbs
 DIP,ONIXSOLAR,none,,,
@@ -62,13 +62,13 @@ DIP,FUSION,IN_NEWS,,,Fusion Finance Ltd Forms Death Cross Signalling Bearish Tre
 DIP,GARUDA,none,,,
 DIP,JINDWORLD,none,,,
 DIP,AWHCL,none,,,
-DIP,CREDITACC,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Change in Auditors,CreditAccess Grameen Q2 profit jumps fourfold to Rs 502 crore | Earnings call transcript: CreditAccess Grameen posts record Q2 FY 2027 profit
+DIP,CREDITACC,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Change in Auditors,CreditAccess Grameen Q2 profit jumps fourfold to Rs 502 crore | CreditAccess Grameen Q2 Results: Profit jumps 4-fold as credit costs fall 43%; FY27 guidan
 DIP,MONEYVIEW,IN_NEWS,,,Moneyview Ltd. Share Price Today - Moneyview Ltd. Stock Price Live NSE/BSE | Moneyview's first backer looks past the IPO to India's next 500 mn borrowers | Business St
-DIP,TIRUMALCHM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Action(s) taken or orders passed,"Thirumalai Chemicals faces ₹24.52 lakh customs demand over RoDTEP claims | Thirumalai Chemicals (TIRUMALCHM) Share Price near 52-week low; price action, valuation an"
-DIP,SANDHAR,IN_NEWS,,,Sandhar Technologies Limited (SANDHAR) share price — eduinvesting
+DIP,TIRUMALCHM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Action(s) taken or orders passed,Thirumalai Chemicals faces ₹24.52 lakh customs demand over RoDTEP claims
+DIP,SANDHAR,none,,,
 DIP,SUVEN,none,,,
-DIP,GAJA,none,,,
-DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd. Share Price Live Today | Turtlemint Fintech Solutions Ltd (TURTLEMINT) Share Price
+DIP,GAJA,IN_NEWS,,,Gaja Alternative Asset Management (NSEI:GAJA) - Stock Analysis
+DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd (TURTLEMINT) Share Price | Turtlemint Fintech Solutions Ltd. Share Price Live Today
 DIP,SOLEX,IN_NEWS,,,Solex Energy Ltd. 52 Week Low Streak Keeps Stock Near Low | Solex Energy to unveil India’s First N-Type Quarter Cell Solar Module at REI 2026
 DIP,IZMO,none,,,
 DIP,JWL,none,,,
@@ -98,8 +98,8 @@ DIP,GLASSWALL,IN_NEWS,,,Glass Wall Systems (India) Ltd. Share Price Live Today
 DIP,SWIGGY,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Monitoring Agency Report,"Stocks in news: Swiggy, Infosys, HPCL, eMudhra, Adani Power, Shriram Finance, Tata Motors  | Swiggy Q2 Results: Loss narrows YoY to Rs 922 crore; revenue jumps 36%"
 DIP,HCC,none,,,
 DIP,DHOOTTRANS,IN_NEWS,,,Dhoot Transmission Ltd. Share Price Today - Dhoot Transmission Ltd. Stock Price Live NSE/B
-DIP,AGIIL,IN_NEWS,,,AGI Infra Ltd 52 Week Low Streak: Fundamentals & Sector
-DIP,CMPDI,RESULTS_SOON IN_NEWS,2026-10-23 Financial Results/Dividend,,Central Mine Planning & Design Institute Ltd (CMPDI) Share Price
+DIP,AGIIL,IN_NEWS,,,"Multibagger Stock Alert! AGI Infra Down 4.2%, Delivers 661% Returns In 3 Yrs | What's Next | AGI Infra Ltd 52 Week Low Streak: Fundamentals & Sector"
+DIP,CMPDI,RESULTS_SOON,2026-10-23 Financial Results/Dividend,,
 DIP,LASERPOWER,IN_NEWS,,,Laser Power & Infra Ltd (LASERPOWER) Share Price
 DIP,LLOYDSENT,none,,,
 DIP,PACEDIGITK,none,,,
@@ -133,14 +133,14 @@ DIP,HEGAM,NEW_ANNOUNCEMENT,,2026-10-22 Board Meeting,
 DIP,SUMICHEM,EVENT_7D IN_NEWS,2026-10-26 Financial Results,,Sumitomo Chemical India Share Price today: weak price action | Sumitomo Chemical deepens India semiconductor push with Tata Electronics pact
 DIP,BOMDYEING,IN_NEWS,,,Bombay Dyeing 52 Week Low Streak extends near yearly low
 DIP,SKYWAYS,none,,,
-DIP,IDEA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Shareholders meeting,"Vodafone Idea zooms 12% after FPO sees 6x subscription; focus shifts to allotment, listing | Vodafone Idea shares: Up 20% in 6 months! Will Q2 results 2026 fuel this rally? Experts' v"
+DIP,IDEA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Shareholders meeting,"Vodafone Idea zooms 12% after FPO sees 6x subscription; focus shifts to allotment, listing | Vodafone Idea Share Price Declines Amid Telecom Context"
 DIP,NAVA,none,,,
 DIP,JNPR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Credit Rating,Juniper Green Energy Adds Wind Power Capacity To Operational Portfolio | Juniper Green Energy (NSE:JNPR) Renewable Subsidiary Expansion
 DIP,MANIKA,IN_NEWS,,,MANIKA PLASTECH LIMITED Share Price
-DIP,NAM-INDIA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Monitoring Agency Report,"Nippon Life India AMC gets Sebi nod to settle Yes Bank AT-1 bond case | Nippon Life, 10% owner, buys $6.77 million Corebridge Financial stock By Investing.com"
+DIP,NAM-INDIA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-22 Monitoring Agency Report,"Nippon Life India AMC gets Sebi nod to settle Yes Bank AT-1 bond case | Earnings call transcript: Nippon Life India posts record Q2 profit, shares fall"
 DIP,LCCPROJECT,EVENT_7D NEW_ANNOUNCEMENT,2026-10-30 Financial Results,2026-10-22 Board Meeting,
 DIP,NORTHARC,none,,,
-DIP,VMM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,Lost 30% in 6 months! Motilal Oswal sees 39% upside in Vishal Mega Mart stock - Check targ | VMM Share Price News: Fresh 52-Week Low and Sector View
+DIP,VMM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-21 Press Release,Lost 30% in 6 months! Motilal Oswal sees 39% upside in Vishal Mega Mart stock - Check targ
 DIP,UTKARSHBNK,none,,,
 DIP,YESBANK,IN_NEWS,,,"Yes Bank AT1 Bonds: Why the Supreme Court Reversed the ₹8,415 Crore Write-Down | Nippon AMC gets Sebi nod for settlement in Yes Bank AT1 case"
 DIP,SUDARSCHEM,none,,,
@@ -149,7 +149,7 @@ DIP,TECHNOE,none,,,
 DIP,VISHNU,none,,,
 DIP,AEGISVOPAK,EVENT_7D NEW_ANNOUNCEMENT,2026-10-26 Financial Results,2026-10-21 Board Meeting,
 DIP,MAZDOCK,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-27 Financial Results/Dividend,2026-10-22 Board Meeting,"Garden Reach, Mazagon Dock shares: Goldman Sachs says 'Sell' GRSE, MDL; stocks fall up to  | Mazagon Dock Share Price - Live NSE: MAZDOCK Stock Price & Chart"
-DIP,ORIENTCABL,IN_NEWS,,,Orient Cables Share Price Near 52-Week Low; Price Action
+DIP,ORIENTCABL,IN_NEWS,,,Orient Cables (India) Ltd. Share Price Today - Orient Cables (India) Ltd. Stock Price Live | Orient Cables Share Price Near 52-Week Low; Price Action
 DIP,COMSYN,none,,,
 DIP,MAHSEAMLES,none,,,
 DIP,ANANTRAJ,EVENT_7D,2026-10-28 Financial Results,,
