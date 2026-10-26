@@ -218,3 +218,9 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Changes: paper.py go for BOUNCE/DEEP/STRUCT*/DROP10 only if VWEAK and day_count() >= 16 (unique liquid symbols, TURN20 >= 5 cr);
   stop_mode 'close' for those + A (new and waiting signals). App: bigDay() gates those sections ("aaj trade nahi" on small days),
   "bada din" note, SL close-par text.
+
+## Top gainers reel (Nifty 50 top % gainers at 3:20 -> next 4-5 days, 2026-10-26) - mixed, not added
+- topgain_study.py (run locally on 4 yrs bhav; out/topgain_summary.txt). Universe = top 50 by 60-day turnover (no historical Nifty list).
+- Buy at that day's CLOSE: TOP3 5d +0.27% vs all 50 -0.01%, bottom-3 -0.15%; TOP3 with +2%: +0.32% (2/5 yrs).
+  Buy next OPEN: TOP3 -0.26% vs all -0.19% -> the whole edge is the overnight gap; the reel's 3:20 entry matters.
+- By regime (close, 5d, TOP3 +2%): STRONG +0.67% (4/4 yrs), WEAK +1.40% (4/4), MIXED -0.77%, VWEAK -0.17%. Inconsistent -> watch only.
