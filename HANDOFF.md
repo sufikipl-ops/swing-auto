@@ -204,3 +204,6 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   STRONG version +0.05%. Short covering -0.17%, short build-up -0.49%.
 - Lead (not added): LONG_UNWIND (price -2%, OI -5% = longs exiting) as a buy: 5d +0.45% (54% win, 4/5 yrs, n 878), 10d +0.57%;
   STRONG +0.65%, VWEAK +1.45% (n 197) but MIXED/WEAK negative. Needs a threshold robustness check before any use.
+- unwind_study.py (unwind.yml) robustness check of LONG_UNWIND: NOT robust, not added. Grid looks good (P-3 OI-3 5d +1.11%,
+  P-5 OI-3 +2.63% n 180) but P-2 OI-5 is +1.06% in the 1st half (2022-09..2024-10) and -0.66% in the 2nd half (recent 2 yrs),
+  and the gain sits in the expiry week (day>=22 +0.68%) vs other days -0.03%. Price-only P-2 -0.13%. Re-check later with more data.
