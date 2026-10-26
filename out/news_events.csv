@@ -5,7 +5,7 @@ PULLBACK,SAGILITY,IN_NEWS,,2026-10-24 Copy of Newspaper Publication,"IT stocks d
 PULLBACK,TFCILTD,none,,,
 PULLBACK,SHREEJISPG,IN_NEWS,,,Shreeji Shipping Global submits FY26 annual report ahead of AGM
 PULLBACK,TARIL,none,,,
-PULLBACK,GESHIP,none,,,
+PULLBACK,GESHIP,IN_NEWS,,,"Inaugural OCBC-Great Eastern Pickleball Open draws over 1,000 participants | The Straits T"
 PULLBACK,CASTROLIND,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-24 Change in Auditors,"Castrol India Q3FY26 Results: Earnings call set for Oct 26, 2026"
 PULLBACK,SAMBHV,none,,,
 PULLBACK,EBGNG,none,,,
@@ -15,7 +15,7 @@ PULLBACK,COHANCE,none,,,
 PULLBACK,KPL,none,,,
 PULLBACK,GRMOVER,none,,,
 PULLBACK,GODIGIT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-24 Credit Rating- New,Go Digit General Insurance reschedules 10th AGM to August 18 for shareholder votes | CCI approves Go Digit General Insurance merger with Infoworks Services
-DIP,ONEPOINT,IN_NEWS,,,"One rocket, one bullet, one point each for FC AshantiGold 04 and Asante Kotoko"
+DIP,ONEPOINT,none,,,
 DIP,KOPRAN,none,,,
 DIP,SMCGLOBAL,RESULTS_SOON,2026-10-26 Financial Results,,
 DIP,ABDL,RESULTS_SOON,2026-10-27 Financial Results,,
@@ -42,18 +42,18 @@ DIP,KANOHAR,none,,,
 DIP,JPPOWER,none,,,
 DIP,FINCABLES,none,,,
 DIP,DEEPA,RESULTS_SOON,2026-10-26 Financial Results,,
-DIP,ESDS,none,,,
-DIP,AUGMONT,IN_NEWS,,,AUGMONT Share Price Today - Augmont Enterprises Ltd. Stock Price Live NSE/BSE
-DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd (TURTLEMINT) Share Price | Turtlemint Fintech releases Q1FY27 earnings call transcript
+DIP,ESDS,IN_NEWS,,,NIFTY STRONG REVERSE?🔥CRUDE OIL💥US BOND YIELD CRASH?💥ESDS💥COCHIN SHIPYARD💥PINE LABS💥PHYSIC
+DIP,AUGMONT,IN_NEWS,,,Augmont Enterprises Ltd. Share Price Today - Augmont Enterprises Ltd. Stock Price Live NSE | AUGMONT Share Price Today - Augmont Enterprises Ltd. Stock Price Live NSE/BSE
+DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd (TURTLEMINT) Share Price
 DIP,GENESYS,none,,,
 DIP,RUNWALENTR,IN_NEWS,,2026-10-24 Investor Presentation,Runwal Enterprises Q1FY27 Results: Net profit falls 65% YoY to ₹498 crore
-DIP,ACEVECTOR,RESULTS_SOON,2026-10-26 Financial Results,,
+DIP,ACEVECTOR,RESULTS_SOON IN_NEWS,2026-10-26 Financial Results,,"ACEVECTOR LTD. Stock/Share price , NSE/BSE Forecast News and Live Quotes"
 DIP,SCI,none,,,
 DIP,RKFORGE,none,,,
 DIP,KPEL,IN_NEWS,,,KP Energy locked at 5% upper circuit on 9-MW wind power project contract
 DIP,MOLBIO,none,,,
-DIP,GAJA,IN_NEWS,,,Gaja Alternative Asset Management (NSEI:GAJA) - Stock Analysis
-DIP,AMAL,none,,,
+DIP,GAJA,IN_NEWS,,,Gaja Alternative Asset Management (NSEI:GAJA) - Stock Analysis | Gaja Alternative Asset Mgmt releases Q1FY27 earnings call transcript
+DIP,AMAL,IN_NEWS,,,Why Amalgamated Financial (AMAL) Is Getting Attention Today
 DIP,AWHCL,none,,,
 DIP,OLAELEC,IN_NEWS,,,SoftBank sells a quarter of its Ola Electric rights entitlements even as Motilal Oswal ups
 DIP,ARCIL,EVENT_7D,2026-10-29 Financial Results,,
@@ -63,7 +63,7 @@ DIP,VINCOFE,IN_NEWS,,,This Vintage Coffee Grinder Is The Ultimate Thrift Store F
 DIP,COMSYN,none,,,
 DIP,EMMVEE,none,,,
 DIP,RICOAUTO,none,,,
-DIP,PACEDIGITK,none,,,
+DIP,PACEDIGITK,IN_NEWS,,,"Coal India Awards Telangana BESS Project to Pace Digitek for ₹1,074 crore"
 DIP,AGIIL,none,,,
 DIP,ADOR,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-24 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011",Be Sure To Check Out Ador Welding Limited (NSE:ADOR) Before It Goes Ex-Dividend | Clarus Capital raises Ador Welding stake to 7.02% via open market buy
 DIP,SOLEX,none,,,
@@ -74,7 +74,7 @@ DIP,TECHNOE,none,,,
 DIP,PRIORITY,IN_NEWS,,,Priority Jewels IPO Oversubscribed 29x On Day 2: GMP Spikes 22%; Should You Apply For List
 DIP,NELCO,IN_NEWS,,,"NELCO.NS (NELCO) Share Price Today, Live Chart & News"
 DIP,ORIRAIL,none,,2026-10-24 Analyst / Investor Meet,
-DIP,KNRCON,IN_NEWS,,,KNR Constructions Ltd. Share Price Today - KNR Constructions Ltd. Stock Price Live NSE/BSE
+DIP,KNRCON,none,,,
 DIP,CAMLINFINE,none,,,
 DIP,JWL,none,,,
 DIP,DYCL,RESULTS_SOON IN_NEWS,2026-10-27 Financial Results,,We Ran A Stock Scan For Earnings Growth And Dynamic Cables (NSE:DYCL) Passed With Ease
@@ -103,7 +103,7 @@ DIP,GRSE,IN_NEWS,,,What GRSE Bears Saw Before The Fall
 DIP,GLASSWALL,none,,,
 DIP,MIDHANI,IN_NEWS,,,"MIDHANI board approves FY26 results, recommends dividend"
 DIP,JNPR,EVENT_7D,2026-10-30 Financial Results,,
-DIP,PTC,EVENT_7D IN_NEWS,2026-11-02 Financial Results,,"Pakistan Telecommunication Co. Ltd. Class A Estimates – PSX:PTC | PTC Therapeutics (PTCT) Shares Slid, So What Is Driving Attention Now?"
+DIP,PTC,EVENT_7D IN_NEWS,2026-11-02 Financial Results,,Pakistan Telecommunication Co. Ltd. Class A Estimates – PSX:PTC | PTC Apr 2027 155.000 put (PTC270416P00155000) interactive stock chart
 DIP,PANORAMA,none,,,
 DIP,FIVESTAR,RESULTS_SOON,2026-10-26 Financial Results,,
 DIP,ZEEL,IN_NEWS,,,Zee Entertainment turns profitable in Q1FY27; secures FIFA rights till 2034
@@ -137,7 +137,7 @@ DIP,ARDEE,none,,,
 DIP,KSB,none,,,
 DIP,SANDUMA,IN_NEWS,,,Sandur Manganese subsidiary leases 6.2 acres for medical devices unit
 DIP,RENUKA,EVENT_7D,2026-10-30 Financial Results,,
-DIP,DECNGOLD,IN_NEWS,,,Deccan Gold Mines Q1 Results: ₹6.35 crore PAT from Jonnagiri gold sales
+DIP,DECNGOLD,IN_NEWS,,,"Deccan Gold Mines shares FY26 annual report link, sends AGM notice"
 DIP,KIRLOSENG,none,,,
 DIP,MOSCHIP,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-10-28 Financial Results/Fund Raising,2026-10-25 Board Meeting,Moschip Technologies to consider Vayavya Labs acquisition and fundraising on Oct 28
 DIP,HINDCOPPER,none,,,
@@ -145,7 +145,7 @@ DIP,GERMAN,NEW_ANNOUNCEMENT,,2026-10-24 Financial Results,
 DIP,ITI,none,,,
 DIP,DCW,none,,,
 DIP,DEEPAKFERT,none,,,
-DIP,ELEVATE,IN_NEWS,,,"Elevate Campuses Ltd Share Price Today,, ELEVATE Share Price NSE, BSE"
+DIP,ELEVATE,none,,,
 DIP,JMFINANCIL,none,,,
 DIP,SURYAROSNI,none,,,
 DIP,MAZDOCK,RESULTS_SOON IN_NEWS,2026-10-27 Financial Results/Dividend,,"Dividend buzz: Dalmia Bharat, Mazagon Dock, Coal India, NTPC, others to consider payouts t | Mazagon Dock releases investor deck with ₹1.82 lakh crore order book"
@@ -155,7 +155,7 @@ DIP,HEGAM,none,,,
 DIP,TATAINVEST,EVENT_7D,2026-11-02 Financial Results,,
 DIP,GODREJIND,IN_NEWS,,,Godrej Industries Downgraded to Strong Sell Amid Weak Financials and Bearish Technicals
 DIP,LLOYDSENT,none,,,
-DIP,PCBL,none,,,
+DIP,PCBL,IN_NEWS,,,PCBL Chemical sets Sept 15 cut-off for 65th AGM e-voting
 DIP,INOXWIND,IN_NEWS,,,Inox Wind share price up 6% as board to consider bonus share proposal | Inox Wind promoter group completes ₹221.64 crore inter-se share transfer
 DIP,M&MFIN,none,,,
 DIP,DHOOTTRANS,none,,,
@@ -166,7 +166,7 @@ DIP,PITTIENG,IN_NEWS,,,"Pitti Engineering Q2FY27 Results: Net profit falls 15%, 
 DIP,EXICOM,none,,,
 DIP,GNFC,EVENT_7D,2026-11-02 Financial Results,,
 DIP,AEGISVOPAK,RESULTS_SOON,2026-10-26 Financial Results,,
-DIP,BORORENEW,EVENT_7D IN_NEWS,2026-10-30 Financial Results,,Borosil Renewables returns to profit in Q1FY27
+DIP,BORORENEW,EVENT_7D,2026-10-30 Financial Results,,
 DIP,SRIT,RESULTS_SOON,2026-10-26 Financial Results/Other business matters,,
 DIP,TRIVENIPT,IN_NEWS,,2026-10-24 Copy of Newspaper Publication,Triveni Power Transmission Q2FY27 Results: Order book up 57% to ₹626 crore
 DIP,ALEMBICLTD,none,,,
@@ -175,9 +175,9 @@ DIP,SHILCTECH,RESULTS_SOON,2026-10-28 Financial Results,,
 DIP,HCC,none,,,
 DIP,GSFC,EVENT_7D IN_NEWS,2026-11-02 Financial Results,,Gujarat State Petronet falls sharply from day#39;s high as tariff cut triggers flurry of d | ‘Garv Hai’ athlete Vivaan Dave wins two gold medals at Gujarat State Table Tennis Champion
 DIP,PRAJIND,EVENT_7D,2026-10-29 Financial Results,,
-DIP,WABAG,none,,,
+DIP,WABAG,IN_NEWS,,,Va Tech Wabag wins large order for Vienna water works
 DIP,KMCSHIL,none,,,
-DIP,IFCI,IN_NEWS,,,IFCI Limited confirms no encumbrance on shares in FY26 | IFCI shares e-voting dates for Dilip Singh Punia's director role at 33rd AGM
+DIP,IFCI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Board Meeting,IFCI shares e-voting dates for Dilip Singh Punia's director role at 33rd AGM
 DIP,SAMMAANCAP,none,,,
 DIP,RAILTEL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-25 Record Date,RailTel Corporation NSE:RAILTEL Q2 FY27 Results and Interim Dividend
 DIP,AFFLE,none,,,
@@ -195,7 +195,7 @@ DIP,UCOBANK,none,,,
 DIP,GENUSPOWER,EVENT_7D,2026-10-26 Buyback,,
 DIP,ATUL,NEW_ANNOUNCEMENT,,2026-10-24 General Updates,
 DIP,WELENT,none,,,
-DIP,UTKARSHBNK,IN_NEWS,,,Utkarsh Small Finance Bank Schedules Q1FY27 Earnings Call for August 3
+DIP,UTKARSHBNK,none,,,
 DIP,ORIENTTECH,none,,,
 DIP,KRN,EVENT_7D,2026-10-29 Financial Results,,
 DIP,UNITDSPR,RESULTS_SOON,2026-10-28 Financial Results,,
@@ -216,7 +216,7 @@ DIP,RCF,none,,,
 DIP,EXIDEIND,none,,,
 DIP,SANGHVIMOV,none,,,
 DIP,ANANTRAJ,RESULTS_SOON,2026-10-28 Financial Results,,
-DIP,MAHSEAMLES,none,,,
+DIP,MAHSEAMLES,IN_NEWS,,,Maharashtra Seamless FY26 net profit at ₹718 cr
 DIP,ARMANFIN,NEW_ANNOUNCEMENT,,2026-10-24 Credit Rating- Others,
 DIP,VIMTALABS,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-30 Financial Results,2026-10-24 Board Meeting,Does Vimta Labs (NSE:VIMTALABS) Deserve A Spot On Your Watchlist?
 DIP,YESBANK,NEW_ANNOUNCEMENT,,2026-10-24 General Updates,
