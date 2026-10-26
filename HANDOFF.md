@@ -196,3 +196,11 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - po3_study.py, run locally on the 15-min backup (branch data-15min -> data_orb/): 214 F&O stocks, 2025-10-13..2026-10-16.
 - Long: MSS entry 17.5k trades -0.01R before costs, -0.13R after 0.15%; FVG retrace 3.1k -> +0.01R / -0.16R; 0/13 months plus.
   Short mirror ~+0.02R / -0.10R. Random-time base ~0R / -0.2..-0.3R. Synthetic random walk gives the same ~0R. Not added (and intraday).
+
+## Long build-up / futures OI (order-block.com reel, 2026-10-26) - FAIL (one lead)
+- oibu_study.py (oibu.yml; OI from NSE F&O bhavcopy, old + UDiFF formats, non-expiring contracts only; cache out/fo_oi.json in
+  Actions cache). 2022-09..2026-10, 1011 days, next-open entry, SL 2 ATR, 0.25% cost.
+- LONG_BU (price +2%, OI +5%) 5d -0.11% (n 3939) vs price-only +2% -0.19% vs random -0.31%: OI adds ~nothing. TOP5 worse (-0.40%).
+  STRONG version +0.05%. Short covering -0.17%, short build-up -0.49%.
+- Lead (not added): LONG_UNWIND (price -2%, OI -5% = longs exiting) as a buy: 5d +0.45% (54% win, 4/5 yrs, n 878), 10d +0.57%;
+  STRONG +0.65%, VWEAK +1.45% (n 197) but MIXED/WEAK negative. Needs a threshold robustness check before any use.
