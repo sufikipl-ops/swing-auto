@@ -1,0 +1,148 @@
+LONG UNWIND (gira + OI ghata -> kharido) PAKKA TEST (2026-10-26): 2022-09-19 se 2026-10-23, F&O OI 1012 din
+avg% = kharcha (0.25%) kaat ke, SL 2 ATR, kal open par entry. P = bhav badlav %, OI = OI badlav %. "saal+" = (20+ trade wale) plus saal.
+
+===== 5 din rakho =====
+setup                                market       n  jeet     avg%  saal+
+BASE: random F&O din                 ALL       3513   46%   -0.28%  1/5
+BASE: random F&O din                 STRONG    1449   48%   +0.00%  1/4
+BASE: random F&O din                 MIXED      939   43%   -0.56%  1/5
+BASE: random F&O din                 WEAK       592   40%   -0.92%  1/4
+BASE: random F&O din                 VWEAK      395   51%   +0.14%  3/4
+P-2 (OI dekhe bina)                  ALL      13225   48%   -0.13%  1/5
+P-2 (OI dekhe bina)                  STRONG    4116   49%   +0.08%  1/5
+P-2 (OI dekhe bina)                  MIXED     3255   45%   -0.43%  1/5
+P-2 (OI dekhe bina)                  WEAK      2915   45%   -0.55%  0/5
+P-2 (OI dekhe bina)                  VWEAK     2616   54%   +0.39%  4/5
+P-2 OI-3                             ALL       1635   53%   +0.37%  3/5
+P-2 OI-3                             STRONG     572   57%   +0.65%  2/4
+P-2 OI-3                             MIXED      323   47%   -0.58%  1/5
+P-2 OI-3                             WEAK       353   46%   -0.27%  2/4
+P-2 OI-3                             VWEAK      350   58%   +1.35%  3/4
+P-2 OI-5                             ALL        836   53%   +0.29%  4/5
+P-2 OI-5                             STRONG     323   56%   +0.39%  2/4
+P-2 OI-5                             MIXED      145   50%   -0.68%  1/3
+P-2 OI-5                             WEAK       162   46%   -0.39%  1/4
+P-2 OI-5                             VWEAK      183   57%   +1.44%  2/3
+P-2 OI-10                            ALL        193   55%   +0.43%  2/4
+P-2 OI-10                            STRONG      88   58%   +0.13%  2/2
+P-2 OI-10                            WEAK        33   48%   -0.12%  0/0
+P-2 OI-10                            VWEAK       40   60%   +2.27%  1/1
+P-3 OI-3                             ALL        774   58%   +1.11%  3/5
+P-3 OI-3                             STRONG     258   62%   +1.44%  3/3
+P-3 OI-3                             MIXED      148   51%   +0.10%  3/3
+P-3 OI-3                             WEAK       142   49%   +0.02%  3/4
+P-3 OI-3                             VWEAK      213   64%   +2.14%  2/3
+P-3 OI-5                             ALL        432   57%   +1.07%  3/4
+P-3 OI-5                             STRONG     166   60%   +1.14%  2/2
+P-3 OI-5                             MIXED       69   52%   +0.34%  1/1
+P-3 OI-5                             WEAK        74   43%   -0.36%  2/2
+P-3 OI-5                             VWEAK      114   66%   +2.39%  2/2
+P-3 OI-10                            ALL        115   55%   +0.51%  2/3
+P-3 OI-10                            STRONG      54   57%   +0.06%  2/2
+P-5 OI-3                             ALL        180   68%   +2.63%  3/3
+P-5 OI-3                             STRONG      66   76%   +3.23%  2/2
+P-5 OI-3                             VWEAK       64   77%   +4.17%  2/2
+P-5 OI-5                             ALL        113   65%   +2.40%  3/3
+P-5 OI-5                             STRONG      48   73%   +3.15%  2/2
+P-5 OI-5                             VWEAK       38   76%   +4.10%  0/0
+P-5 OI-10                            ALL         39   56%   +1.49%  0/0
+P-2 OI-5 | oversold (10d <= -8%)     ALL        132   49%   +0.19%  2/3
+P-2 OI-5 | oversold (10d <= -8%)     VWEAK       67   55%   +1.53%  1/1
+P-2 OI-5 | oversold NAHI             ALL        710   55%   +0.35%  3/5
+P-2 OI-5 | oversold NAHI             STRONG     304   56%   +0.38%  2/4
+P-2 OI-5 | oversold NAHI             MIXED      126   52%   -0.03%  3/3
+P-2 OI-5 | oversold NAHI             WEAK       138   49%   -0.40%  1/4
+P-2 OI-5 | oversold NAHI             VWEAK      120   58%   +1.49%  2/3
+P-2 OI-5 | expiry hafta (din>=22)    ALL        379   55%   +0.68%  3/4
+P-2 OI-5 | expiry hafta (din>=22)    STRONG     129   63%   +1.14%  2/3
+P-2 OI-5 | expiry hafta (din>=22)    MIXED       58   47%   +0.09%  1/1
+P-2 OI-5 | expiry hafta (din>=22)    WEAK        80   51%   +0.39%  2/2
+P-2 OI-5 | expiry hafta (din>=22)    VWEAK      105   53%   +0.57%  1/2
+P-2 OI-5 | baaki din                 ALL        467   52%   -0.03%  2/4
+P-2 OI-5 | baaki din                 STRONG     198   53%   -0.02%  1/2
+P-2 OI-5 | baaki din                 MIXED       87   53%   -1.20%  0/1
+P-2 OI-5 | baaki din                 WEAK        84   40%   -1.21%  0/2
+P-2 OI-5 | baaki din                 VWEAK       82   60%   +2.32%  1/2
+P-2 OI-5 | 1st half                  ALL        468   60%   +1.06%  3/3
+P-2 OI-5 | 1st half                  STRONG     261   60%   +1.06%  2/2
+P-2 OI-5 | 1st half                  MIXED       73   53%   -0.98%  0/1
+P-2 OI-5 | 1st half                  WEAK        59   47%   -0.02%  1/1
+P-2 OI-5 | 1st half                  VWEAK       52   87%   +5.25%  1/1
+P-2 OI-5 | 2nd half                  ALL        369   45%   -0.66%  1/3
+P-2 OI-5 | 2nd half                  STRONG      62   40%   -2.46%  0/2
+P-2 OI-5 | 2nd half                  MIXED       72   47%   -0.38%  1/2
+P-2 OI-5 | 2nd half                  WEAK       104   46%   -0.50%  0/3
+P-2 OI-5 | 2nd half                  VWEAK      131   45%   -0.08%  1/2
+
+===== 10 din rakho =====
+setup                                market       n  jeet     avg%  saal+
+BASE: random F&O din                 ALL       3513   45%   -0.14%  1/5
+BASE: random F&O din                 STRONG    1449   48%   +0.27%  1/4
+BASE: random F&O din                 MIXED      939   42%   -0.57%  1/5
+BASE: random F&O din                 WEAK       592   38%   -1.20%  0/4
+BASE: random F&O din                 VWEAK      395   53%   +0.94%  3/4
+P-2 (OI dekhe bina)                  ALL      13225   46%   -0.12%  1/5
+P-2 (OI dekhe bina)                  STRONG    4116   49%   +0.37%  1/5
+P-2 (OI dekhe bina)                  MIXED     3255   43%   -0.47%  1/5
+P-2 (OI dekhe bina)                  WEAK      2915   38%   -1.20%  1/5
+P-2 (OI dekhe bina)                  VWEAK     2616   51%   +0.70%  4/5
+P-2 OI-3                             ALL       1635   51%   +0.45%  2/5
+P-2 OI-3                             STRONG     572   54%   +1.01%  2/4
+P-2 OI-3                             MIXED      323   46%   -0.94%  1/5
+P-2 OI-3                             WEAK       353   44%   -0.84%  1/4
+P-2 OI-3                             VWEAK      350   59%   +2.00%  2/4
+P-2 OI-5                             ALL        836   52%   +0.45%  3/5
+P-2 OI-5                             STRONG     323   53%   +0.78%  1/4
+P-2 OI-5                             MIXED      145   48%   -1.13%  2/3
+P-2 OI-5                             WEAK       162   47%   -0.93%  1/4
+P-2 OI-5                             VWEAK      183   58%   +2.25%  2/3
+P-2 OI-10                            ALL        193   48%   +0.45%  2/4
+P-2 OI-10                            STRONG      88   48%   +0.36%  1/2
+P-2 OI-10                            WEAK        33   36%   -2.07%  0/0
+P-2 OI-10                            VWEAK       40   60%   +3.75%  1/1
+P-3 OI-3                             ALL        774   57%   +1.53%  3/5
+P-3 OI-3                             STRONG     258   60%   +2.44%  3/3
+P-3 OI-3                             MIXED      148   44%   -0.76%  2/3
+P-3 OI-3                             WEAK       142   53%   +0.15%  2/4
+P-3 OI-3                             VWEAK      213   64%   +2.90%  2/3
+P-3 OI-5                             ALL        432   57%   +1.61%  3/4
+P-3 OI-5                             STRONG     166   58%   +2.19%  2/2
+P-3 OI-5                             MIXED       69   48%   -0.54%  0/1
+P-3 OI-5                             WEAK        74   47%   -0.58%  1/2
+P-3 OI-5                             VWEAK      114   67%   +3.54%  2/2
+P-3 OI-10                            ALL        115   51%   +1.05%  2/3
+P-3 OI-10                            STRONG      54   52%   +0.68%  2/2
+P-5 OI-3                             ALL        180   67%   +3.69%  2/3
+P-5 OI-3                             STRONG      66   74%   +5.90%  2/2
+P-5 OI-3                             VWEAK       64   73%   +4.72%  1/2
+P-5 OI-5                             ALL        113   65%   +3.65%  3/3
+P-5 OI-5                             STRONG      48   71%   +5.52%  2/2
+P-5 OI-5                             VWEAK       38   79%   +5.44%  0/0
+P-5 OI-10                            ALL         39   54%   +3.45%  0/0
+P-2 OI-5 | oversold (10d <= -8%)     ALL        132   58%   +0.70%  3/3
+P-2 OI-5 | oversold (10d <= -8%)     VWEAK       67   63%   +2.75%  1/1
+P-2 OI-5 | oversold NAHI             ALL        710   51%   +0.45%  3/5
+P-2 OI-5 | oversold NAHI             STRONG     304   52%   +0.82%  2/4
+P-2 OI-5 | oversold NAHI             MIXED      126   48%   -0.55%  2/3
+P-2 OI-5 | oversold NAHI             WEAK       138   46%   -1.05%  1/4
+P-2 OI-5 | oversold NAHI             VWEAK      120   57%   +2.13%  2/3
+P-2 OI-5 | expiry hafta (din>=22)    ALL        379   55%   +0.89%  3/4
+P-2 OI-5 | expiry hafta (din>=22)    STRONG     129   57%   +1.66%  2/3
+P-2 OI-5 | expiry hafta (din>=22)    MIXED       58   40%   -1.37%  1/1
+P-2 OI-5 | expiry hafta (din>=22)    WEAK        80   62%   +0.75%  1/2
+P-2 OI-5 | expiry hafta (din>=22)    VWEAK      105   56%   +1.13%  1/2
+P-2 OI-5 | baaki din                 ALL        467   49%   +0.07%  2/4
+P-2 OI-5 | baaki din                 STRONG     198   51%   +0.30%  1/2
+P-2 OI-5 | baaki din                 MIXED       87   54%   -0.97%  0/1
+P-2 OI-5 | baaki din                 WEAK        84   31%   -2.68%  0/2
+P-2 OI-5 | baaki din                 VWEAK       82   60%   +3.46%  1/2
+P-2 OI-5 | 1st half                  ALL        468   58%   +1.66%  3/3
+P-2 OI-5 | 1st half                  STRONG     261   55%   +1.49%  2/2
+P-2 OI-5 | 1st half                  MIXED       73   45%   -1.77%  0/1
+P-2 OI-5 | 1st half                  WEAK        59   61%   +1.15%  1/1
+P-2 OI-5 | 1st half                  VWEAK       52   88%   +8.12%  1/1
+P-2 OI-5 | 2nd half                  ALL        369   45%   -1.07%  0/3
+P-2 OI-5 | 2nd half                  STRONG      62   44%   -2.20%  0/2
+P-2 OI-5 | 2nd half                  MIXED       72   51%   -0.49%  2/2
+P-2 OI-5 | 2nd half                  WEAK       104   39%   -2.04%  0/3
+P-2 OI-5 | 2nd half                  VWEAK      131   47%   -0.08%  1/2
