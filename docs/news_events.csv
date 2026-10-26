@@ -1,13 +1,13 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,CYIENT,IN_NEWS,,,"Cyient shares snap 3-day losing streak, jump 10% post Q2, ₹12 dividend | IT stocks dividend record date this week: Cyient, LT Tech, Hexaware, Hypersoft, Sagility -"
+BREAKOUT,CYIENT,IN_NEWS,,,"IT stocks dividend record date this week: Cyient, LT Tech, Hexaware, Hypersoft, Sagility - | Buy, Sell Or Hold: Tata Motors PV, Cyient, Swiggy, Inox Wind And L&T Finance — Ask Profit"
 PREBREAK,ANANDRATHI,IN_NEWS,,,"Stocks to buy: Ganesh Dongre of Anand Rathi recommends 3 shares — Eternal, BoB, Apollo Hos"
-PULLBACK,SAGILITY,IN_NEWS,,2026-10-24 Copy of Newspaper Publication,"IT stocks dividend record date this week: Cyient, LT Tech, Hexaware, Hypersoft, Sagility - | Sagility Q2FY27 net profit up 13.1% to ₹2,842 crore; declares dividend"
+PULLBACK,SAGILITY,IN_NEWS,,2026-10-24 Copy of Newspaper Publication,"IT stocks dividend record date this week: Cyient, LT Tech, Hexaware, Hypersoft, Sagility - | Be Sure To Check Out Sagility Limited (NSE:SAGILITY) Before It Goes Ex-Dividend"
 PULLBACK,TFCILTD,none,,,
-PULLBACK,SHREEJISPG,none,,,
+PULLBACK,SHREEJISPG,IN_NEWS,,,Shreeji Shipping Global submits FY26 annual report ahead of AGM
 PULLBACK,TARIL,none,,,
 PULLBACK,GESHIP,none,,,
 PULLBACK,CASTROLIND,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-24 Change in Auditors,"Castrol India Q3FY26 Results: Earnings call set for Oct 26, 2026"
-PULLBACK,SAMBHV,IN_NEWS,,,Sambhv Steel's Stainless Steel Bet Raises the Stakes on Capacity Growth
+PULLBACK,SAMBHV,none,,,
 PULLBACK,EBGNG,none,,,
 PULLBACK,IIFLCAPS,RESULTS_SOON IN_NEWS,2026-10-28 Financial Results/Other business matters,,IIFL Capital hires four Barclays bankers to expand wealth business
 PULLBACK,THELEELA,IN_NEWS,,,Stock to buy today: Leela Palaces Hotels & Resorts (₹577.70)
@@ -21,9 +21,9 @@ DIP,SMCGLOBAL,RESULTS_SOON,2026-10-26 Financial Results,,
 DIP,ABDL,RESULTS_SOON,2026-10-27 Financial Results,,
 DIP,MAFANG,none,,,
 DIP,AXISCADES,none,,,
-DIP,EMUDHRA,none,,,
-DIP,SWIGGY,IN_NEWS,,,Swiggy sinks 16% to record low as quick-commerce losses widen
-DIP,SWIGGY,IN_NEWS,,,Swiggy sinks 16% to record low as quick-commerce losses widen
+DIP,EMUDHRA,IN_NEWS,,,eMudhra stock tanks 20 per cent to 52-week low after govt orders security probe
+DIP,SWIGGY,none,,,
+DIP,SWIGGY,none,,,
 DIP,JINDALSAW,none,,,
 DIP,YATRA,none,,,
 DIP,SMLMAH,none,,,
@@ -36,7 +36,7 @@ DIP,HEROMOTORS,none,,,
 DIP,RAJRATAN,none,,,
 DIP,WAAREERTL,IN_NEWS,,,Waaree Renewable promoter confirms no encumbrance on shares | Waaree Renewable Q2FY27 Results: Net profit falls 30% to ₹81.48 crore
 DIP,TINNARUBR,IN_NEWS,,2026-10-25 Investor Presentation,"Tinna Rubber Q2FY27 profit up 45%; outlines Vision 2029 for ₹1,000 Cr revenue | Tinna Rubber H1 FY27 PAT Jumps 60%; Revenue Rises 25% YoY"
-DIP,CREDITACC,none,,,
+DIP,CREDITACC,IN_NEWS,,,CreditAccess Grameen among 4 stocks closing below VWAP
 DIP,KEI,none,,,
 DIP,KANOHAR,none,,,
 DIP,JPPOWER,none,,,
@@ -44,7 +44,7 @@ DIP,FINCABLES,none,,,
 DIP,DEEPA,RESULTS_SOON,2026-10-26 Financial Results,,
 DIP,ESDS,IN_NEWS,,,NIFTY STRONG REVERSE?🔥CRUDE OIL💥US BOND YIELD CRASH?💥ESDS💥COCHIN SHIPYARD💥PINE LABS💥PHYSIC
 DIP,AUGMONT,IN_NEWS,,,AUGMONT Share Price Today - Augmont Enterprises Ltd. Stock Price Live NSE/BSE
-DIP,TURTLEMINT,none,,,
+DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech releases Q1FY27 earnings call transcript
 DIP,GENESYS,none,,,
 DIP,RUNWALENTR,IN_NEWS,,2026-10-24 Investor Presentation,Runwal Enterprises Q1FY27 Results: Net profit falls 65% YoY to ₹498 crore
 DIP,ACEVECTOR,RESULTS_SOON,2026-10-26 Financial Results,,
@@ -69,16 +69,16 @@ DIP,ADOR,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-24 Disclosures under Reg. 29(1) of S
 DIP,SOLEX,none,,,
 DIP,SANDHAR,none,,,
 DIP,XTRANET,none,,,
-DIP,SKYWAYS,none,,,
+DIP,SKYWAYS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 General Updates,Skyways Air Services: India Air Exports Market Share Hits 6.3%
 DIP,TECHNOE,none,,,
 DIP,PRIORITY,IN_NEWS,,,Priority Jewels IPO Oversubscribed 29x On Day 2: GMP Spikes 22%; Should You Apply For List
 DIP,NELCO,IN_NEWS,,,"NELCO.NS (NELCO) Share Price Today, Live Chart & News"
 DIP,ORIRAIL,none,,2026-10-24 Analyst / Investor Meet,
-DIP,KNRCON,IN_NEWS,,,KNR Constructions Ltd is Rated Strong Sell
+DIP,KNRCON,none,,,
 DIP,CAMLINFINE,none,,,
 DIP,JWL,none,,,
 DIP,DYCL,RESULTS_SOON IN_NEWS,2026-10-27 Financial Results,,We Ran A Stock Scan For Earnings Growth And Dynamic Cables (NSE:DYCL) Passed With Ease
-DIP,GLOBUSSPR,EVENT_7D IN_NEWS,2026-10-30 Financial Results,,MIT and 238 Plan cross 5% stake in Globus Spirits via QIP
+DIP,GLOBUSSPR,EVENT_7D IN_NEWS,2026-10-30 Financial Results,,MIT and 238 Plan cross 5% stake in Globus Spirits via QIP | Globus Spirits Ltd is Rated Hold by MarketsMOJO
 DIP,MVELECTRO,none,,,
 DIP,EIEL,IN_NEWS,,,Enviro Infra Engineers Secures ₹411.08 Crore Sewerage Project Under AMRUT 2.0
 DIP,JISLJALEQS,none,,,
@@ -103,7 +103,7 @@ DIP,GRSE,IN_NEWS,,,What GRSE Bears Saw Before The Fall
 DIP,GLASSWALL,none,,,
 DIP,MIDHANI,none,,,
 DIP,JNPR,EVENT_7D,2026-10-30 Financial Results,,
-DIP,PTC,EVENT_7D IN_NEWS,2026-11-02 Financial Results,,"High dividend, low price: 4 stocks under  ₹200 with high yield - IOCL, PTC India, Central  | Pakistan Telecommunication Co. Ltd. Class A Estimates – PSX:PTC"
+DIP,PTC,EVENT_7D IN_NEWS,2026-11-02 Financial Results,,Pakistan Telecommunication Co. Ltd. Class A Estimates – PSX:PTC
 DIP,PANORAMA,none,,,
 DIP,FIVESTAR,RESULTS_SOON,2026-10-26 Financial Results,,
 DIP,ZEEL,IN_NEWS,,,Zee Entertainment turns profitable in Q1FY27; secures FIFA rights till 2034
@@ -137,9 +137,9 @@ DIP,ARDEE,none,,,
 DIP,KSB,none,,,
 DIP,SANDUMA,IN_NEWS,,,Sandur Manganese subsidiary leases 6.2 acres for medical devices unit
 DIP,RENUKA,EVENT_7D,2026-10-30 Financial Results,,
-DIP,DECNGOLD,IN_NEWS,,,"Deccan Gold Mines shares FY26 annual report link, sends AGM notice"
+DIP,DECNGOLD,IN_NEWS,,,Deccan Gold Mines Q1 Results: ₹6.35 crore PAT from Jonnagiri gold sales
 DIP,KIRLOSENG,none,,,
-DIP,MOSCHIP,RESULTS_SOON NEW_ANNOUNCEMENT,2026-10-28 Financial Results/Fund Raising,2026-10-25 Board Meeting,
+DIP,MOSCHIP,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-10-28 Financial Results/Fund Raising,2026-10-25 Board Meeting,Moschip Technologies to consider Vayavya Labs acquisition and fundraising on Oct 28
 DIP,HINDCOPPER,none,,,
 DIP,GERMAN,NEW_ANNOUNCEMENT,,2026-10-24 Financial Results,
 DIP,ITI,none,,,
