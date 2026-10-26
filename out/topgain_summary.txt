@@ -1,0 +1,266 @@
+TOP GAINERS (Nifty 50 jaisa) -> AGLE 4-5 DIN STUDY (2026-10-26): 2022-09-19 se 2026-10-26, 3247 stocks
+avg% = kharcha (0.25%) kaat ke. "saal+" = kitne saal (20+ trade) avg plus.
+
+===== entry close (3:20) | 4 din | SL nahi =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   47%   -0.06%  2/5
+SAB 50 (tulna)               STRONG   20670   48%   +0.04%  1/5
+SAB 50 (tulna)               MIXED    12730   45%   -0.41%  0/5
+SAB 50 (tulna)               WEAK      8370   47%   -0.11%  3/5
+SAB 50 (tulna)               VWEAK     5147   53%   +0.49%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   46%   +0.16%  2/4
+TOP1 (sabse zyada chadha)    STRONG     417   47%   +0.71%  4/4
+TOP1 (sabse zyada chadha)    MIXED      257   40%   -1.39%  1/4
+TOP1 (sabse zyada chadha)    WEAK       169   51%   +1.22%  3/4
+TOP1 (sabse zyada chadha)    VWEAK      104   50%   +0.07%  1/2
+TOP3                         ALL       2841   48%   +0.22%  2/5
+TOP3                         STRONG    1251   49%   +0.58%  4/4
+TOP3                         MIXED      771   45%   -0.68%  1/5
+TOP3                         WEAK       507   49%   +0.84%  3/4
+TOP3                         VWEAK      312   50%   +0.02%  2/4
+TOP5                         ALL       4735   47%   +0.02%  2/5
+TOP5                         STRONG    2085   48%   +0.35%  4/4
+TOP5                         MIXED     1285   43%   -0.70%  1/5
+TOP5                         WEAK       845   47%   +0.51%  3/4
+TOP5                         VWEAK      520   49%   -0.25%  2/4
+TOP3 jo +2% se zyada         ALL       2361   48%   +0.26%  3/5
+TOP3 jo +2% se zyada         STRONG    1102   49%   +0.63%  4/4
+TOP3 jo +2% se zyada         MIXED      640   45%   -0.79%  1/4
+TOP3 jo +2% se zyada         WEAK       393   49%   +1.00%  3/4
+TOP3 jo +2% se zyada         VWEAK      226   52%   +0.15%  2/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   47%   -0.14%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   47%   -0.09%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   44%   -0.45%  0/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   47%   -0.40%  1/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   52%   +0.86%  3/4
+
+===== entry close (3:20) | 4 din | SL 2ATR =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   47%   -0.11%  1/5
+SAB 50 (tulna)               STRONG   20670   47%   -0.00%  1/5
+SAB 50 (tulna)               MIXED    12730   44%   -0.45%  0/5
+SAB 50 (tulna)               WEAK      8370   46%   -0.20%  2/5
+SAB 50 (tulna)               VWEAK     5147   53%   +0.40%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   46%   +0.09%  2/4
+TOP1 (sabse zyada chadha)    STRONG     417   47%   +0.57%  4/4
+TOP1 (sabse zyada chadha)    MIXED      257   40%   -1.34%  1/4
+TOP1 (sabse zyada chadha)    WEAK       169   49%   +1.03%  3/4
+TOP1 (sabse zyada chadha)    VWEAK      104   48%   +0.13%  0/2
+TOP3                         ALL       2841   47%   +0.17%  2/5
+TOP3                         STRONG    1251   49%   +0.50%  4/4
+TOP3                         MIXED      771   44%   -0.73%  1/5
+TOP3                         WEAK       507   48%   +0.68%  3/4
+TOP3                         VWEAK      312   49%   +0.19%  2/4
+TOP5                         ALL       4735   46%   -0.03%  2/5
+TOP5                         STRONG    2085   47%   +0.29%  4/4
+TOP5                         MIXED     1285   42%   -0.76%  1/5
+TOP5                         WEAK       845   47%   +0.42%  3/4
+TOP5                         VWEAK      520   48%   -0.19%  2/4
+TOP3 jo +2% se zyada         ALL       2361   47%   +0.22%  2/5
+TOP3 jo +2% se zyada         STRONG    1102   48%   +0.55%  4/4
+TOP3 jo +2% se zyada         MIXED      640   44%   -0.81%  1/4
+TOP3 jo +2% se zyada         WEAK       393   48%   +0.87%  3/4
+TOP3 jo +2% se zyada         VWEAK      226   50%   +0.36%  1/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   46%   -0.22%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   46%   -0.15%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   43%   -0.52%  1/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   46%   -0.45%  2/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   51%   +0.62%  3/4
+
+===== entry close (3:20) | 5 din | SL nahi =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   48%   -0.01%  2/5
+SAB 50 (tulna)               STRONG   20670   48%   +0.09%  1/5
+SAB 50 (tulna)               MIXED    12730   46%   -0.40%  0/5
+SAB 50 (tulna)               WEAK      8370   47%   -0.11%  3/5
+SAB 50 (tulna)               VWEAK     5147   54%   +0.67%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   47%   +0.26%  2/4
+TOP1 (sabse zyada chadha)    STRONG     417   49%   +0.76%  3/4
+TOP1 (sabse zyada chadha)    MIXED      257   39%   -1.51%  1/4
+TOP1 (sabse zyada chadha)    WEAK       169   50%   +1.98%  4/4
+TOP1 (sabse zyada chadha)    VWEAK      104   52%   -0.19%  0/2
+TOP3                         ALL       2841   48%   +0.27%  2/5
+TOP3                         STRONG    1251   49%   +0.62%  3/4
+TOP3                         MIXED      771   45%   -0.74%  1/5
+TOP3                         WEAK       507   50%   +1.17%  4/4
+TOP3                         VWEAK      312   48%   -0.09%  2/4
+TOP5                         ALL       4735   47%   +0.10%  2/5
+TOP5                         STRONG    2085   48%   +0.44%  3/4
+TOP5                         MIXED     1285   44%   -0.71%  1/5
+TOP5                         WEAK       845   49%   +0.71%  3/4
+TOP5                         VWEAK      520   50%   -0.25%  2/4
+TOP3 jo +2% se zyada         ALL       2361   48%   +0.32%  2/5
+TOP3 jo +2% se zyada         STRONG    1102   49%   +0.67%  4/4
+TOP3 jo +2% se zyada         MIXED      640   45%   -0.77%  1/4
+TOP3 jo +2% se zyada         WEAK       393   50%   +1.40%  4/4
+TOP3 jo +2% se zyada         VWEAK      226   49%   -0.17%  1/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   48%   -0.15%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   46%   -0.21%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   47%   -0.44%  0/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   48%   -0.39%  2/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   54%   +1.20%  3/4
+
+===== entry close (3:20) | 5 din | SL 2ATR =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   47%   -0.10%  1/5
+SAB 50 (tulna)               STRONG   20670   47%   +0.03%  1/5
+SAB 50 (tulna)               MIXED    12730   45%   -0.47%  0/5
+SAB 50 (tulna)               WEAK      8370   46%   -0.23%  2/5
+SAB 50 (tulna)               VWEAK     5147   53%   +0.54%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   46%   +0.19%  2/4
+TOP1 (sabse zyada chadha)    STRONG     417   49%   +0.68%  3/4
+TOP1 (sabse zyada chadha)    MIXED      257   38%   -1.46%  1/4
+TOP1 (sabse zyada chadha)    WEAK       169   49%   +1.73%  4/4
+TOP1 (sabse zyada chadha)    VWEAK      104   50%   -0.17%  0/2
+TOP3                         ALL       2841   47%   +0.23%  2/5
+TOP3                         STRONG    1251   48%   +0.58%  3/4
+TOP3                         MIXED      771   44%   -0.78%  1/5
+TOP3                         WEAK       507   49%   +0.94%  3/4
+TOP3                         VWEAK      312   47%   +0.10%  2/4
+TOP5                         ALL       4735   46%   +0.03%  2/5
+TOP5                         STRONG    2085   47%   +0.38%  3/4
+TOP5                         MIXED     1285   43%   -0.77%  1/5
+TOP5                         WEAK       845   47%   +0.55%  3/4
+TOP5                         VWEAK      520   48%   -0.21%  2/4
+TOP3 jo +2% se zyada         ALL       2361   47%   +0.28%  2/5
+TOP3 jo +2% se zyada         STRONG    1102   48%   +0.63%  4/4
+TOP3 jo +2% se zyada         MIXED      640   43%   -0.81%  1/4
+TOP3 jo +2% se zyada         WEAK       393   49%   +1.20%  4/4
+TOP3 jo +2% se zyada         VWEAK      226   48%   +0.09%  1/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   47%   -0.25%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   46%   -0.24%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   45%   -0.50%  1/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   47%   -0.63%  2/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   53%   +0.96%  3/4
+
+===== entry kal open | 4 din | SL nahi =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   45%   -0.23%  1/5
+SAB 50 (tulna)               STRONG   20670   45%   -0.15%  1/5
+SAB 50 (tulna)               MIXED    12730   43%   -0.57%  0/5
+SAB 50 (tulna)               WEAK      8370   45%   -0.23%  2/5
+SAB 50 (tulna)               VWEAK     5147   52%   +0.28%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   43%   -0.44%  1/4
+TOP1 (sabse zyada chadha)    STRONG     417   44%   -0.09%  1/4
+TOP1 (sabse zyada chadha)    MIXED      257   38%   -1.77%  0/4
+TOP1 (sabse zyada chadha)    WEAK       169   46%   +0.74%  3/4
+TOP1 (sabse zyada chadha)    VWEAK      104   47%   -0.44%  0/2
+TOP3                         ALL       2841   45%   -0.31%  1/5
+TOP3                         STRONG    1251   46%   -0.09%  1/4
+TOP3                         MIXED      771   42%   -0.99%  0/5
+TOP3                         WEAK       507   45%   +0.30%  3/4
+TOP3                         VWEAK      312   46%   -0.45%  2/4
+TOP5                         ALL       4735   43%   -0.41%  0/5
+TOP5                         STRONG    2085   45%   -0.19%  0/4
+TOP5                         MIXED     1285   40%   -1.00%  0/5
+TOP5                         WEAK       845   45%   +0.06%  2/4
+TOP5                         VWEAK      520   46%   -0.61%  2/4
+TOP3 jo +2% se zyada         ALL       2361   44%   -0.35%  1/5
+TOP3 jo +2% se zyada         STRONG    1102   45%   -0.12%  0/4
+TOP3 jo +2% se zyada         MIXED      640   42%   -1.12%  0/4
+TOP3 jo +2% se zyada         WEAK       393   44%   +0.31%  2/4
+TOP3 jo +2% se zyada         VWEAK      226   46%   -0.43%  1/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   45%   -0.27%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   44%   -0.20%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   42%   -0.67%  0/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   46%   -0.40%  1/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   51%   +0.65%  3/4
+
+===== entry kal open | 4 din | SL 2ATR =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   45%   -0.28%  0/5
+SAB 50 (tulna)               STRONG   20670   45%   -0.20%  1/5
+SAB 50 (tulna)               MIXED    12730   42%   -0.60%  0/5
+SAB 50 (tulna)               WEAK      8370   45%   -0.29%  2/5
+SAB 50 (tulna)               VWEAK     5147   51%   +0.18%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   42%   -0.56%  1/4
+TOP1 (sabse zyada chadha)    STRONG     417   43%   -0.25%  1/4
+TOP1 (sabse zyada chadha)    MIXED      257   37%   -1.61%  0/4
+TOP1 (sabse zyada chadha)    WEAK       169   44%   +0.37%  3/4
+TOP1 (sabse zyada chadha)    VWEAK      104   44%   -0.74%  0/2
+TOP3                         ALL       2841   44%   -0.37%  1/5
+TOP3                         STRONG    1251   45%   -0.20%  0/4
+TOP3                         MIXED      771   42%   -0.94%  0/5
+TOP3                         WEAK       507   44%   +0.11%  3/4
+TOP3                         VWEAK      312   45%   -0.40%  2/4
+TOP5                         ALL       4735   43%   -0.47%  0/5
+TOP5                         STRONG    2085   44%   -0.28%  0/4
+TOP5                         MIXED     1285   39%   -0.99%  0/5
+TOP5                         WEAK       845   44%   -0.05%  2/4
+TOP5                         VWEAK      520   45%   -0.61%  2/4
+TOP3 jo +2% se zyada         ALL       2361   43%   -0.41%  1/5
+TOP3 jo +2% se zyada         STRONG    1102   44%   -0.23%  0/4
+TOP3 jo +2% se zyada         MIXED      640   42%   -1.04%  0/4
+TOP3 jo +2% se zyada         WEAK       393   43%   +0.11%  2/4
+TOP3 jo +2% se zyada         VWEAK      226   44%   -0.38%  1/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   44%   -0.34%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   44%   -0.23%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   41%   -0.74%  0/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   45%   -0.41%  1/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   49%   +0.35%  2/4
+
+===== entry kal open | 5 din | SL nahi =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   46%   -0.19%  1/5
+SAB 50 (tulna)               STRONG   20670   46%   -0.10%  1/5
+SAB 50 (tulna)               MIXED    12730   44%   -0.57%  0/5
+SAB 50 (tulna)               WEAK      8370   46%   -0.23%  2/5
+SAB 50 (tulna)               VWEAK     5147   53%   +0.46%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   45%   -0.34%  1/4
+TOP1 (sabse zyada chadha)    STRONG     417   46%   -0.04%  2/4
+TOP1 (sabse zyada chadha)    MIXED      257   39%   -1.89%  0/4
+TOP1 (sabse zyada chadha)    WEAK       169   49%   +1.48%  4/4
+TOP1 (sabse zyada chadha)    VWEAK      104   48%   -0.68%  0/2
+TOP3                         ALL       2841   46%   -0.26%  1/5
+TOP3                         STRONG    1251   46%   -0.05%  1/4
+TOP3                         MIXED      771   44%   -1.06%  0/5
+TOP3                         WEAK       507   47%   +0.63%  3/4
+TOP3                         VWEAK      312   45%   -0.55%  2/4
+TOP5                         ALL       4735   45%   -0.34%  1/5
+TOP5                         STRONG    2085   45%   -0.10%  1/4
+TOP5                         MIXED     1285   43%   -1.01%  0/5
+TOP5                         WEAK       845   46%   +0.26%  3/4
+TOP5                         VWEAK      520   48%   -0.61%  2/4
+TOP3 jo +2% se zyada         ALL       2361   45%   -0.29%  1/5
+TOP3 jo +2% se zyada         STRONG    1102   45%   -0.08%  1/4
+TOP3 jo +2% se zyada         MIXED      640   44%   -1.10%  1/4
+TOP3 jo +2% se zyada         WEAK       393   47%   +0.70%  4/4
+TOP3 jo +2% se zyada         VWEAK      226   45%   -0.73%  1/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   46%   -0.29%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   44%   -0.33%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   46%   -0.66%  0/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   45%   -0.39%  1/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   55%   +0.99%  3/4
+
+===== entry kal open | 5 din | SL 2ATR =====
+kaun                         market       n  jeet     avg%  saal+
+SAB 50 (tulna)               ALL      46917   45%   -0.26%  1/5
+SAB 50 (tulna)               STRONG   20670   45%   -0.17%  1/5
+SAB 50 (tulna)               MIXED    12730   43%   -0.62%  0/5
+SAB 50 (tulna)               WEAK      8370   45%   -0.31%  2/5
+SAB 50 (tulna)               VWEAK     5147   52%   +0.33%  4/5
+TOP1 (sabse zyada chadha)    ALL        947   43%   -0.47%  1/4
+TOP1 (sabse zyada chadha)    STRONG     417   45%   -0.19%  1/4
+TOP1 (sabse zyada chadha)    MIXED      257   37%   -1.76%  0/4
+TOP1 (sabse zyada chadha)    WEAK       169   47%   +1.04%  3/4
+TOP1 (sabse zyada chadha)    VWEAK      104   46%   -0.87%  0/2
+TOP3                         ALL       2841   44%   -0.32%  1/5
+TOP3                         STRONG    1251   45%   -0.13%  1/4
+TOP3                         MIXED      771   43%   -1.01%  1/5
+TOP3                         WEAK       507   46%   +0.34%  3/4
+TOP3                         VWEAK      312   44%   -0.41%  2/4
+TOP5                         ALL       4735   44%   -0.41%  1/5
+TOP5                         STRONG    2085   44%   -0.20%  1/4
+TOP5                         MIXED     1285   41%   -1.01%  0/5
+TOP5                         WEAK       845   45%   +0.06%  2/4
+TOP5                         VWEAK      520   47%   -0.53%  2/4
+TOP3 jo +2% se zyada         ALL       2361   44%   -0.35%  1/5
+TOP3 jo +2% se zyada         STRONG    1102   44%   -0.16%  1/4
+TOP3 jo +2% se zyada         MIXED      640   43%   -1.07%  1/4
+TOP3 jo +2% se zyada         WEAK       393   46%   +0.39%  3/4
+TOP3 jo +2% se zyada         VWEAK      226   43%   -0.52%  1/3
+BOTTOM3 (sabse zyada gira)   ALL       2841   45%   -0.38%  1/5
+BOTTOM3 (sabse zyada gira)   STRONG    1251   43%   -0.35%  1/4
+BOTTOM3 (sabse zyada gira)   MIXED      771   44%   -0.71%  0/5
+BOTTOM3 (sabse zyada gira)   WEAK       507   44%   -0.57%  2/4
+BOTTOM3 (sabse zyada gira)   VWEAK      312   53%   +0.67%  2/4
