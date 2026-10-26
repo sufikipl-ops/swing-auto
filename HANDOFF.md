@@ -207,3 +207,14 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - unwind_study.py (unwind.yml) robustness check of LONG_UNWIND: NOT robust, not added. Grid looks good (P-3 OI-3 5d +1.11%,
   P-5 OI-3 +2.63% n 180) but P-2 OI-5 is +1.06% in the 1st half (2022-09..2024-10) and -0.66% in the 2nd half (recent 2 yrs),
   and the gain sits in the expiry week (day>=22 +0.68%) vs other days -0.03%. Price-only P-2 -0.13%. Re-check later with more data.
+
+## Paper week 19-23 Oct 2026 and the fix (2026-10-26)
+- Paper: 43 closed, 2 wins, -40R. Breadth fell 22% -> 11%; 23 Oct a market-wide sell wave (Nifty low 12:50, most stock lows
+  10:15-11:10) took stops 0-1.5% below; 15/23 back above stop by 26 Oct, only 3 above entry. No code bug (backtest engine agrees).
+- turn_study.py: VWEAK bounce works while breadth still falls (+0.25R); "turning" days are worse (+0.06R). No week like 19-23 Oct in 4 yrs.
+- pick_study.py (4 yrs, 3966 signals): close-basis 2-ATR stop >= intraday stop in every setup (all +0.22R -> +0.25R; STRUCT_DEEP
+  +0.31 -> +0.45R). Top-2-per-day by any rule ~= random 2 (+0.03..+0.09R) vs all signals +0.22R: the edge is in days with many
+  signals. Random 2 per day by signals that day: 1-5 -0.07R, 6-15 +0.02R, 16-40 +0.24R, 41-100 +0.17R, 100+ +0.83R.
+- Changes: paper.py go for BOUNCE/DEEP/STRUCT*/DROP10 only if VWEAK and day_count() >= 16 (unique liquid symbols, TURN20 >= 5 cr);
+  stop_mode 'close' for those + A (new and waiting signals). App: bigDay() gates those sections ("aaj trade nahi" on small days),
+  "bada din" note, SL close-par text.

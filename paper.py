@@ -18,6 +18,12 @@ RULES = {'A': (5, None, 'Dip A'), 'B': (5, None, 'Dip B'), 'BOUNCE': (5, None, '
 # sirf dekhne wale (results_study me tentative plus, 2 saal data): result wale din CLOSE par entry, 20 din, SL 2 ATR. App inhe trade
 # karne ko nahi kehta (go=False) aur ye kul (ALL) hisaab me nahi gine jaate.
 WATCH = ('RES_GAP', 'RES_UP8')
+# pick_study (4 saal): VWEAK bounce setups ka fayda sirf "bade din" par, jab ek din me 16+ liquid stock signal dein (poora market
+# oversold): random 2/din +0.17..+0.83R; 1-5 signal wale din -0.07R, 6-15 +0.02R. Isliye go sirf BIG_DAY+ par.
+# Stop close par (3:15/close stop ke neeche ho tabhi bahar): saare pass setups me barabar ya behtar (+0.22R -> +0.25R).
+BIG_DAY = 16
+DAY_SETUPS = ('BOUNCE', 'DEEP', 'STRUCT', 'STRUCT_DEEP', 'DROP10')
+CLOSE_STOP = ('BOUNCE', 'DEEP', 'STRUCT', 'STRUCT_DEEP', 'DROP10', 'A')
 
 
 def num(x):
@@ -27,21 +33,28 @@ def num(x):
         return None
 
 
-def go_flag(setup, regime, note=''):
+def go_flag(setup, regime, note='', dayn=0):
     """App us din kya kehta: trade karo (True) ya sirf dikhaya / 'aaj trade nahi' (False). index.html ke sections jaisa."""
     if setup in ('A',):
         return True
     if setup == 'B':
         return regime in ('STRONG', 'MIXED')
-    if setup in ('BOUNCE', 'DEEP', 'STRUCT', 'STRUCT_DEEP'):
-        return regime == 'VWEAK'
-    if setup == 'DROP10':
-        return regime == 'VWEAK'
+    if setup in DAY_SETUPS:
+        return regime == 'VWEAK' and dayn >= BIG_DAY
     if setup == 'NEWDROP':
         return regime != 'MIXED'
     if setup in ('BREAKOUT', 'PULLBACK'):
         return 'EXTENDED' not in note and 'LOW_DELIV' not in note
     return False
+
+
+def day_count(fn='docs/dip_latest.csv'):
+    """Aaj kitne liquid (20-din 5 cr+) stock me VWEAK bounce/structure/10%-gira signal aaya (ek stock ek baar). index.html bigDay() jaisa."""
+    try:
+        rows = list(csv.DictReader(open(fn, encoding='utf-8')))
+    except Exception:
+        return 0
+    return len(set(r['SYMBOL'] for r in rows if r.get('TIER') in DAY_SETUPS and (num(r.get('TURN20_CR')) or 0) >= 5))
 
 
 def new_signals(led):
@@ -51,6 +64,7 @@ def new_signals(led):
     except Exception:
         reg = {}
     out = []
+    dayn = day_count()
     for fn, key in (('docs/dip_latest.csv', 'TIER'), ('docs/screen_latest.csv', 'SETUP')):
         if not os.path.exists(fn):
             continue
@@ -62,7 +76,9 @@ def new_signals(led):
             if not c or not atr:
                 continue
             rg = reg.get('regime') if reg.get('date') == d else None
-            s = dict(sym=sym, setup=st, sig=d, close=c, atr=atr, regime=rg, go=go_flag(st, rg, r.get('NOTE') or ''), status='WAIT')
+            s = dict(sym=sym, setup=st, sig=d, close=c, atr=atr, regime=rg, go=go_flag(st, rg, r.get('NOTE') or '', dayn), status='WAIT')
+            if st in DAY_SETUPS: s['dayn'] = dayn
+            if st in CLOSE_STOP: s['stop_mode'] = 'close'
             if st in ('STRUCT', 'STRUCT_DEEP'):
                 s['stop_ref'] = num(r.get('STOP_REF'))
             if st == 'DROP10':
@@ -206,9 +222,19 @@ def run(s, p):
 
 
 def walk(s, p, days, maxd, e, stop, tp, risk, qty, open_day=False):
-    """open_day: pehla din entry ka din hai (open par liya) -> us din SL lage to SL bhav, warna gap me open bhav."""
+    """open_day: pehla din entry ka din hai (open par liya) -> us din SL lage to SL bhav, warna gap me open bhav.
+    stop_mode 'close': din ke beech ka jhatka nahi, close stop ke neeche ho tabhi us din close par bahar."""
+    cs = s.get('stop_mode') == 'close'
     for k, d in enumerate(days[:maxd]):
         o, h, l, c = p[d]
+        if cs:
+            if tp and h >= tp:
+                return close_it(s, d, tp if (k == 0 and open_day) else max(o, tp), 'Target', e, risk, qty)
+            if c < stop:
+                return close_it(s, d, c, 'SL (close par)', e, risk, qty)
+            if k == maxd - 1:
+                return close_it(s, d, c, '%d din poore' % maxd, e, risk, qty)
+            continue
         if l <= stop:
             ex = stop if (k == 0 and open_day) else min(o, stop)
             return close_it(s, d, ex, 'SL', e, risk, qty)
@@ -233,6 +259,9 @@ def main():
     except Exception:
         led = {'start': datetime.date.today().isoformat(), 'risk': RISK, 'signals': []}
     led['signals'] += new_signals(led)
+    for s in led['signals']:                               # jo abhi entry ka intezaar kar rahe (WAIT), unpe bhi naya niyam
+        if s['status'] == 'WAIT' and s['setup'] in CLOSE_STOP and 'stop_mode' not in s:
+            s['stop_mode'] = 'close'
     led['signals'] += result_signals(led, bhav)
     todo = [s for s in led['signals'] if s['status'] not in ('CLOSED', 'SKIP')]
     px = load_px(bhav, set(s['sym'] for s in todo))
