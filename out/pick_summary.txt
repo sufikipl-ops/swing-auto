@@ -1,0 +1,77 @@
+STOP-LOSS + ROZ KE 2 PICK STUDY (2026-10-26): 2022-09-19 se 2026-10-26, 3247 stocks
+Kul signal: 3966. R = Rs500 risk par kitne guna. "saal+" = (20+ trade) plus saal. "bura hafta" = hafte ka avg <= -0.7R.
+
+===== 1) STOP-LOSS: din ke beech vs close par =====
+
+-- OVERSOLD_BOUNCE --
+stop                      n  jeet   avg R
+INTRA 2ATR (abhi)      1960   66%  +0.26R  4/5  bura hafta 0/34  sabse bura -5.7R
+CLOSE 2ATR             1960   67%  +0.28R  4/5  bura hafta 0/34  sabse bura -5.7R
+INTRA 3ATR             1960   67%  +0.19R  4/5  bura hafta 0/34  sabse bura -3.8R
+CLOSE 1.5ATR           1960   66%  +0.36R  4/5  bura hafta 0/34  sabse bura -7.7R
+
+-- DEEP_OVERSOLD --
+stop                      n  jeet   avg R
+INTRA 2ATR (abhi)       839   63%  +0.19R  5/5  bura hafta 0/36  sabse bura -4.2R
+CLOSE 2ATR              839   64%  +0.21R  5/5  bura hafta 0/36  sabse bura -4.0R
+INTRA 3ATR              839   64%  +0.15R  5/5  bura hafta 0/36  sabse bura -2.8R
+CLOSE 1.5ATR            839   63%  +0.26R  5/5  bura hafta 0/36  sabse bura -5.4R
+
+-- DROP10 --
+stop                      n  jeet   avg R
+INTRA 2ATR (abhi)       247   78%  +0.40R  2/3  bura hafta 0/26  sabse bura -1.0R
+CLOSE 2ATR              247   79%  +0.41R  2/3  bura hafta 0/26  sabse bura -1.4R
+INTRA 3ATR              247   79%  +0.28R  2/3  bura hafta 0/26  sabse bura -0.9R
+CLOSE 1.5ATR            247   79%  +0.55R  2/3  bura hafta 0/26  sabse bura -1.5R
+
+-- STRUCT --
+stop                      n  jeet   avg R
+INTRA 2ATR (abhi)        81   46%  +0.11R  2/2  bura hafta 12/29  sabse bura -1.6R
+CLOSE 2ATR               81   52%  +0.19R  2/2  bura hafta 7/29  sabse bura -3.2R
+INTRA 3ATR               81   49%  +0.12R  1/2  bura hafta 6/29  sabse bura -1.2R
+CLOSE 1.5ATR             81   48%  +0.08R  1/2  bura hafta 12/29  sabse bura -4.3R
+
+-- STRUCT_DEEP --
+stop                      n  jeet   avg R
+INTRA 2ATR (abhi)       201   55%  +0.31R  3/3  bura hafta 4/29  sabse bura -2.9R
+CLOSE 2ATR              201   64%  +0.45R  3/3  bura hafta 3/29  sabse bura -3.1R
+INTRA 3ATR              201   62%  +0.37R  3/3  bura hafta 4/29  sabse bura -2.0R
+CLOSE 1.5ATR            201   59%  +0.37R  3/3  bura hafta 6/29  sabse bura -4.2R
+
+-- DIP_A --
+stop                      n  jeet   avg R
+INTRA 2ATR (abhi)       638   53%  +0.06R  3/5  bura hafta 2/56  sabse bura -5.6R
+CLOSE 2ATR              638   54%  +0.08R  4/5  bura hafta 3/56  sabse bura -5.7R
+INTRA 3ATR              638   54%  +0.05R  4/5  bura hafta 1/56  sabse bura -3.7R
+CLOSE 1.5ATR            638   53%  +0.09R  3/5  bura hafta 5/56  sabse bura -7.6R
+
+-- SAB --
+stop                      n  jeet   avg R
+INTRA 2ATR (abhi)      3966   63%  +0.22R  5/5  bura hafta 0/73  sabse bura -5.7R
+CLOSE 2ATR             3966   64%  +0.25R  5/5  bura hafta 0/73  sabse bura -5.7R
+INTRA 3ATR             3966   64%  +0.17R  5/5  bura hafta 0/73  sabse bura -3.8R
+CLOSE 1.5ATR           3966   63%  +0.30R  5/5  bura hafta 1/73  sabse bura -7.7R
+
+===== 2) ROZ KE 2 (max 2 naye trade/din, ek stock ek baar) | stop: INTRA 2ATR (abhi) =====
+kaise chuna                                         n  jeet   avg R
+SAB (har signal)                                 3966   63%  +0.22R  5/5  bura hafta 0/73  sabse bura -5.7R
+Liquidity sabse zyada                             397   48%  +0.02R  2/4  bura hafta 1/73  sabse bura -5.6R
+ATR% sabse kam (shant stock)                      397   45%  +0.00R  2/4  bura hafta 1/73  sabse bura -5.6R
+ATR% sabse zyada                                  397   45%  -0.01R  2/4  bura hafta 3/73  sabse bura -2.9R
+Setup priority (STRUCT>DROP10>BOUNCE>A>DEEP)      397   48%  +0.04R  3/4  bura hafta 4/73  sabse bura -5.6R
+3 din me sabse zyada gira                         397   47%  +0.00R  2/4  bura hafta 1/73  sabse bura -2.4R
+3 din me sabse kam gira                           397   48%  +0.06R  3/4  bura hafta 1/73  sabse bura -2.9R
+RSI sabse kam                                     397   49%  +0.04R  3/4  bura hafta 2/73  sabse bura -2.3R
+Random 2 (tulna)                               avg +0.03R (50 baar: -0.00 se +0.07)
+
+===== 2) ROZ KE 2 (max 2 naye trade/din, ek stock ek baar) | stop: CLOSE 2ATR =====
+kaise chuna                                         n  jeet   avg R
+SAB (har signal)                                 3966   64%  +0.25R  5/5  bura hafta 0/73  sabse bura -5.7R
+Liquidity sabse zyada                             397   51%  +0.06R  3/4  bura hafta 1/73  sabse bura -5.7R
+ATR% sabse kam (shant stock)                      397   47%  +0.04R  2/4  bura hafta 1/73  sabse bura -5.7R
+ATR% sabse zyada                                  397   46%  +0.00R  3/4  bura hafta 3/73  sabse bura -3.2R
+Setup priority (STRUCT>DROP10>BOUNCE>A>DEEP)      397   50%  +0.06R  3/4  bura hafta 4/73  sabse bura -5.7R
+3 din me sabse zyada gira                         397   47%  +0.01R  2/4  bura hafta 2/73  sabse bura -3.2R
+3 din me sabse kam gira                           397   51%  +0.09R  4/4  bura hafta 1/73  sabse bura -3.2R
+RSI sabse kam                                     397   49%  +0.04R  2/4  bura hafta 1/73  sabse bura -3.2R
+Random 2 (tulna)                               avg +0.05R (50 baar: +0.01 se +0.09)
