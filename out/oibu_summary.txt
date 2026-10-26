@@ -1,0 +1,141 @@
+F&O OI: 100 naye din aaye...
+F&O OI: 200 naye din aaye...
+F&O OI: 300 naye din aaye...
+F&O OI: 400 naye din aaye...
+F&O OI: 500 naye din aaye...
+F&O OI: 600 naye din aaye...
+F&O OI: 700 naye din aaye...
+F&O OI: 800 naye din aaye...
+F&O OI: 900 naye din aaye...
+F&O OI: 1000 naye din aaye...
+LONG BUILD-UP (futures OI) STUDY (2026-10-26): 2022-09-19 se 2026-10-23, 3247 stocks, F&O OI 1011 din
+avg% = kharcha (0.25%) kaat ke, SL 2 ATR, kal open par entry. "saal+" = kitne saal (20+ trade) avg plus.
+
+===== 2 din rakho =====
+setup                                market       n  jeet     avg%  saal+
+BASE: random F&O din                 ALL       3814   43%   -0.31%  0/5
+BASE: random F&O din                 STRONG    1595   44%   -0.20%  1/4
+BASE: random F&O din                 MIXED      959   40%   -0.59%  0/5
+BASE: random F&O din                 WEAK       705   43%   -0.35%  0/4
+BASE: random F&O din                 VWEAK      412   49%   -0.11%  2/4
+UP2_ANY (sirf bhav +2%)              ALL      21074   43%   -0.32%  0/5
+UP2_ANY (sirf bhav +2%)              STRONG    8905   42%   -0.31%  0/4
+UP2_ANY (sirf bhav +2%)              MIXED     5316   41%   -0.55%  0/5
+UP2_ANY (sirf bhav +2%)              WEAK      3356   47%   -0.10%  2/5
+UP2_ANY (sirf bhav +2%)              VWEAK     2812   48%   -0.19%  2/4
+LONG_BU (bhav+2%, OI+5%)             ALL       3939   44%   -0.31%  0/5
+LONG_BU (bhav+2%, OI+5%)             STRONG    2006   41%   -0.36%  0/4
+LONG_BU (bhav+2%, OI+5%)             MIXED      818   43%   -0.46%  0/4
+LONG_BU (bhav+2%, OI+5%)             WEAK       549   46%   -0.18%  1/4
+LONG_BU (bhav+2%, OI+5%)             VWEAK      362   56%   +0.06%  2/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    ALL        958   46%   -0.21%  2/5
+LONG_BU_STRONG (+3%, OI+10%, vol)    STRONG     526   44%   -0.21%  1/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    MIXED      188   48%   -0.33%  0/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    WEAK       103   46%   -0.12%  2/3
+LONG_BU_STRONG (+3%, OI+10%, vol)    VWEAK       68   50%   -0.17%  0/1
+LONG_BU_TOP5 (din ke top 5)          ALL       2664   41%   -0.45%  0/5
+LONG_BU_TOP5 (din ke top 5)          STRONG    1348   39%   -0.49%  0/4
+LONG_BU_TOP5 (din ke top 5)          MIXED      629   41%   -0.57%  0/4
+LONG_BU_TOP5 (din ke top 5)          WEAK       356   45%   -0.16%  1/4
+LONG_BU_TOP5 (din ke top 5)          VWEAK      210   51%   -0.18%  1/3
+SHORT_COVER (bhav+, OI-)             ALL       1713   44%   -0.35%  1/5
+SHORT_COVER (bhav+, OI-)             STRONG     756   46%   -0.09%  2/4
+SHORT_COVER (bhav+, OI-)             MIXED      373   34%   -1.08%  0/4
+SHORT_COVER (bhav+, OI-)             WEAK       280   46%   -0.24%  2/5
+SHORT_COVER (bhav+, OI-)             VWEAK      226   50%   -0.25%  2/3
+SHORT_BU (bhav-, OI+)                ALL       3851   42%   -0.49%  0/5
+SHORT_BU (bhav-, OI+)                STRONG    1339   42%   -0.41%  0/4
+SHORT_BU (bhav-, OI+)                MIXED      942   39%   -0.58%  0/4
+SHORT_BU (bhav-, OI+)                WEAK       829   40%   -0.76%  0/4
+SHORT_BU (bhav-, OI+)                VWEAK      622   48%   -0.18%  0/4
+LONG_UNWIND (bhav-, OI-)             ALL        878   51%   +0.07%  2/5
+LONG_UNWIND (bhav-, OI-)             STRONG     336   54%   +0.17%  2/4
+LONG_UNWIND (bhav-, OI-)             MIXED      152   49%   -0.18%  1/3
+LONG_UNWIND (bhav-, OI-)             WEAK       170   43%   -0.58%  0/4
+LONG_UNWIND (bhav-, OI-)             VWEAK      197   56%   +0.72%  1/3
+
+===== 5 din rakho =====
+setup                                market       n  jeet     avg%  saal+
+BASE: random F&O din                 ALL       3814   45%   -0.31%  1/5
+BASE: random F&O din                 STRONG    1595   47%   -0.06%  1/4
+BASE: random F&O din                 MIXED      959   44%   -0.67%  0/5
+BASE: random F&O din                 WEAK       705   43%   -0.67%  0/4
+BASE: random F&O din                 VWEAK      412   49%   +0.09%  3/4
+UP2_ANY (sirf bhav +2%)              ALL      21074   47%   -0.19%  1/5
+UP2_ANY (sirf bhav +2%)              STRONG    8905   46%   -0.16%  1/4
+UP2_ANY (sirf bhav +2%)              MIXED     5316   45%   -0.39%  1/5
+UP2_ANY (sirf bhav +2%)              WEAK      3356   48%   -0.17%  2/5
+UP2_ANY (sirf bhav +2%)              VWEAK     2812   49%   +0.07%  3/4
+LONG_BU (bhav+2%, OI+5%)             ALL       3939   47%   -0.11%  2/5
+LONG_BU (bhav+2%, OI+5%)             STRONG    2006   47%   -0.07%  1/4
+LONG_BU (bhav+2%, OI+5%)             MIXED      818   44%   -0.44%  1/4
+LONG_BU (bhav+2%, OI+5%)             WEAK       549   47%   -0.22%  1/4
+LONG_BU (bhav+2%, OI+5%)             VWEAK      362   49%   +0.32%  3/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    ALL        958   49%   +0.05%  3/5
+LONG_BU_STRONG (+3%, OI+10%, vol)    STRONG     526   48%   +0.14%  2/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    MIXED      188   49%   -0.28%  2/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    WEAK       103   47%   -0.34%  2/3
+LONG_BU_STRONG (+3%, OI+10%, vol)    VWEAK       68   47%   +0.38%  0/1
+LONG_BU_TOP5 (din ke top 5)          ALL       2664   44%   -0.40%  1/5
+LONG_BU_TOP5 (din ke top 5)          STRONG    1348   45%   -0.32%  1/4
+LONG_BU_TOP5 (din ke top 5)          MIXED      629   43%   -0.63%  1/4
+LONG_BU_TOP5 (din ke top 5)          WEAK       356   46%   -0.36%  1/4
+LONG_BU_TOP5 (din ke top 5)          VWEAK      210   47%   -0.07%  2/3
+SHORT_COVER (bhav+, OI-)             ALL       1713   46%   -0.17%  2/5
+SHORT_COVER (bhav+, OI-)             STRONG     756   48%   +0.13%  1/4
+SHORT_COVER (bhav+, OI-)             MIXED      373   40%   -1.17%  0/4
+SHORT_COVER (bhav+, OI-)             WEAK       280   49%   +0.04%  3/5
+SHORT_COVER (bhav+, OI-)             VWEAK      226   50%   +0.14%  2/3
+SHORT_BU (bhav-, OI+)                ALL       3851   43%   -0.49%  1/5
+SHORT_BU (bhav-, OI+)                STRONG    1339   44%   -0.17%  1/4
+SHORT_BU (bhav-, OI+)                MIXED      942   38%   -1.08%  0/4
+SHORT_BU (bhav-, OI+)                WEAK       829   42%   -1.05%  0/4
+SHORT_BU (bhav-, OI+)                VWEAK      622   53%   +0.46%  4/4
+LONG_UNWIND (bhav-, OI-)             ALL        878   54%   +0.45%  4/5
+LONG_UNWIND (bhav-, OI-)             STRONG     336   57%   +0.65%  2/4
+LONG_UNWIND (bhav-, OI-)             MIXED      152   51%   -0.57%  1/3
+LONG_UNWIND (bhav-, OI-)             WEAK       170   47%   -0.21%  2/4
+LONG_UNWIND (bhav-, OI-)             VWEAK      197   57%   +1.45%  2/3
+
+===== 10 din rakho =====
+setup                                market       n  jeet     avg%  saal+
+BASE: random F&O din                 ALL       3814   43%   -0.34%  1/5
+BASE: random F&O din                 STRONG    1595   45%   +0.03%  1/4
+BASE: random F&O din                 MIXED      959   41%   -0.71%  0/5
+BASE: random F&O din                 WEAK       705   38%   -1.31%  0/4
+BASE: random F&O din                 VWEAK      412   51%   +0.69%  3/4
+UP2_ANY (sirf bhav +2%)              ALL      21074   45%   -0.19%  1/5
+UP2_ANY (sirf bhav +2%)              STRONG    8905   46%   -0.13%  1/4
+UP2_ANY (sirf bhav +2%)              MIXED     5316   43%   -0.41%  1/5
+UP2_ANY (sirf bhav +2%)              WEAK      3356   42%   -0.71%  2/5
+UP2_ANY (sirf bhav +2%)              VWEAK     2812   51%   +0.73%  3/4
+LONG_BU (bhav+2%, OI+5%)             ALL       3939   45%   -0.29%  2/5
+LONG_BU (bhav+2%, OI+5%)             STRONG    2006   46%   -0.11%  1/4
+LONG_BU (bhav+2%, OI+5%)             MIXED      818   41%   -0.62%  1/4
+LONG_BU (bhav+2%, OI+5%)             WEAK       549   41%   -1.13%  1/4
+LONG_BU (bhav+2%, OI+5%)             VWEAK      362   50%   +0.53%  3/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    ALL        958   46%   -0.06%  3/5
+LONG_BU_STRONG (+3%, OI+10%, vol)    STRONG     526   46%   -0.04%  1/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    MIXED      188   43%   -0.41%  0/4
+LONG_BU_STRONG (+3%, OI+10%, vol)    WEAK       103   50%   -0.39%  1/3
+LONG_BU_STRONG (+3%, OI+10%, vol)    VWEAK       68   40%   +0.28%  0/1
+LONG_BU_TOP5 (din ke top 5)          ALL       2664   44%   -0.42%  1/5
+LONG_BU_TOP5 (din ke top 5)          STRONG    1348   45%   -0.14%  2/4
+LONG_BU_TOP5 (din ke top 5)          MIXED      629   41%   -0.71%  1/4
+LONG_BU_TOP5 (din ke top 5)          WEAK       356   42%   -1.05%  1/4
+LONG_BU_TOP5 (din ke top 5)          VWEAK      210   47%   +0.02%  2/3
+SHORT_COVER (bhav+, OI-)             ALL       1713   44%   -0.26%  1/5
+SHORT_COVER (bhav+, OI-)             STRONG     756   46%   +0.05%  1/4
+SHORT_COVER (bhav+, OI-)             MIXED      373   34%   -1.24%  1/4
+SHORT_COVER (bhav+, OI-)             WEAK       280   46%   -0.59%  2/5
+SHORT_COVER (bhav+, OI-)             VWEAK      226   47%   +0.76%  2/3
+SHORT_BU (bhav-, OI+)                ALL       3851   43%   -0.50%  1/5
+SHORT_BU (bhav-, OI+)                STRONG    1339   45%   -0.16%  1/4
+SHORT_BU (bhav-, OI+)                MIXED      942   39%   -1.25%  0/4
+SHORT_BU (bhav-, OI+)                WEAK       829   40%   -1.09%  1/4
+SHORT_BU (bhav-, OI+)                VWEAK      622   48%   +0.64%  3/4
+LONG_UNWIND (bhav-, OI-)             ALL        878   53%   +0.57%  3/5
+LONG_UNWIND (bhav-, OI-)             STRONG     336   53%   +0.92%  1/4
+LONG_UNWIND (bhav-, OI-)             MIXED      152   49%   -1.00%  1/3
+LONG_UNWIND (bhav-, OI-)             WEAK       170   48%   -0.87%  1/4
+LONG_UNWIND (bhav-, OI-)             VWEAK      197   59%   +2.35%  2/3
