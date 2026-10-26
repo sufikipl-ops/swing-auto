@@ -1,0 +1,52 @@
+VWEAK BOUNCE: KAB KAAM KARTA HAI (2026-10-26): 2022-09-19 se 2026-10-26, 3247 stocks, VWEAK din 108
+
+===== OVERSOLD_BOUNCE =====
+market haal                                               n  jeet   avg R  saal+
+VWEAK sab                                              2086   65%  +0.26R  4/5
+GIRTA (3 din se breadth kam)                           1996   65%  +0.26R  4/5
+PALAT (breadth kal se +2)                               162   54%  +0.07R  1/3
+PALAT2 (2 din se breadth badh rahi)                     116   56%  +0.07R  1/1
+level <15                                              1140   72%  +0.29R  3/3
+level 15-25                                             946   57%  +0.22R  4/5
+TOP-2 roz (sabse kam RSI) - VWEAK sab                   185   54%  +0.17R  4/4
+TOP-2 roz - sirf PALAT din                               45   49%  +0.12R  1/1
+  din-war: 95 signal-din, avg din R +0.13, 4 din (4%) me sab haare (avg <= -0.8R), ek din me signal avg 22.0
+  hafte-war: 34 hafte, 0 hafte (0%) bahut bure (avg <= -0.7R) - jaisa 19-23 Oct 2026
+
+===== DEEP_OVERSOLD =====
+market haal                                               n  jeet   avg R  saal+
+VWEAK sab                                               882   63%  +0.19R  5/5
+GIRTA (3 din se breadth kam)                            773   64%  +0.20R  4/5
+PALAT (breadth kal se +2)                                81   51%  +0.05R  2/3
+PALAT2 (2 din se breadth badh rahi)                      94   59%  +0.07R  1/1
+level <15                                               430   70%  +0.23R  3/3
+level 15-25                                             452   56%  +0.16R  4/5
+TOP-2 roz (sabse kam RSI) - VWEAK sab                   182   47%  +0.03R  2/3
+TOP-2 roz - sirf PALAT din                               42   48%  +0.06R  0/0
+  din-war: 98 signal-din, avg din R +0.09, 1 din (1%) me sab haare (avg <= -0.8R), ek din me signal avg 9.0
+  hafte-war: 35 hafte, 0 hafte (0%) bahut bure (avg <= -0.7R) - jaisa 19-23 Oct 2026
+
+===== DROP10 =====
+market haal                                               n  jeet   avg R  saal+
+VWEAK sab                                               355   74%  +0.33R  3/3
+GIRTA (3 din se breadth kam)                            313   77%  +0.36R  3/3
+PALAT (breadth kal se +2)                                26   50%  +0.04R  0/0
+PALAT2 (2 din se breadth badh rahi)                      20   40%  +0.01R  0/0
+level <15                                               141   75%  +0.32R  2/2
+level 15-25                                             214   74%  +0.33R  2/3
+TOP-2 roz (sabse kam RSI) - VWEAK sab                   119   52%  +0.08R  2/3
+  din-war: 74 signal-din, avg din R +0.06, 5 din (7%) me sab haare (avg <= -0.8R), ek din me signal avg 4.8
+  hafte-war: 33 hafte, 0 hafte (0%) bahut bure (avg <= -0.7R) - jaisa 19-23 Oct 2026
+
+===== SAB (teeno) =====
+market haal                                               n  jeet   avg R  saal+
+VWEAK sab                                              3323   65%  +0.25R  4/5
+GIRTA (3 din se breadth kam)                           3082   66%  +0.25R  4/5
+PALAT (breadth kal se +2)                               269   52%  +0.06R  2/3
+PALAT2 (2 din se breadth badh rahi)                     230   56%  +0.07R  2/2
+level <15                                              1711   71%  +0.28R  3/3
+level 15-25                                            1612   59%  +0.22R  4/5
+TOP-2 roz (sabse kam RSI) - VWEAK sab                   203   51%  +0.10R  4/4
+TOP-2 roz - sirf PALAT din                               50   52%  +0.15R  1/1
+  din-war: 104 signal-din, avg din R +0.10, 1 din (1%) me sab haare (avg <= -0.8R), ek din me signal avg 32.0
+  hafte-war: 36 hafte, 0 hafte (0%) bahut bure (avg <= -0.7R) - jaisa 19-23 Oct 2026
