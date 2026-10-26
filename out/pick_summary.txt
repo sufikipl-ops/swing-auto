@@ -75,3 +75,11 @@ Setup priority (STRUCT>DROP10>BOUNCE>A>DEEP)      397   50%  +0.06R  3/4  bura h
 3 din me sabse kam gira                           397   51%  +0.09R  4/4  bura hafta 1/73  sabse bura -3.2R
 RSI sabse kam                                     397   49%  +0.04R  2/4  bura hafta 1/73  sabse bura -3.2R
 Random 2 (tulna)                               avg +0.05R (50 baar: +0.01 se +0.09)
+
+===== 3) DIN ME KITNE SIGNAL (poora market oversold?) -> us din ke random 2 | stop: CLOSE 2ATR =====
+signal/din                  din      n  jeet   avg R  saal+ / bura hafta
+1-5                          98 1590 40% -0.07R 2/5 bura hafta 4/51 sabse bura -3.2R
+6-15                         59 1180 50% +0.02R 3/4 bura hafta 3/40 sabse bura -5.7R
+16-40                        39 780 61% +0.24R 5/5 bura hafta 0/29 sabse bura -3.1R
+41-100                       18 360 62% +0.17R 3/4 bura hafta 0/13 sabse bura -1.6R
+101-+                         3 60 98% +0.83R 3/3 bura hafta 0/3 sabse bura -0.0R
