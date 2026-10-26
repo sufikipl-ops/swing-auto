@@ -202,6 +202,21 @@ def main():
             avgs.append(sum(x['res'][lab] for x in rows) / len(rows))
         avgs.sort()
         log('%-46s avg %+.2fR (50 baar: %+.2f se %+.2f)' % ('Random 2 (tulna)', sum(avgs) / len(avgs), avgs[2], avgs[-3]))
+    # 3) us din kitne signal aaye (market-wide oversold) -> roz ke 2 ka nateeja
+    log(''); log('===== 3) DIN ME KITNE SIGNAL (poora market oversold?) -> us din ke random 2 | stop: CLOSE 2ATR =====')
+    log('%-24s %6s %6s %5s %7s  %s' % ('signal/din', 'din', 'n', 'jeet', 'avg R', 'saal+ / bura hafta'))
+    rnd = random.Random(2)
+    for lo_, hi_ in ((1, 5), (6, 15), (16, 40), (41, 100), (101, 10 ** 6)):
+        rows = []; nd = 0
+        for d, L in byday.items():
+            u = {}
+            for z in L: u.setdefault(z['sym'], z)
+            if not (lo_ <= len(u) <= hi_): continue
+            nd += 1
+            for _ in range(10): rows += rnd.sample(list(u.values()), min(2, len(u)))
+        if rows:
+            st_ = stats(rows, labs[1]).split()
+            log('%-24s %6d %s' % ('%d-%s' % (lo_, hi_ if hi_ < 10 ** 6 else '+'), nd, ' '.join(st_)))
     open(os.path.join(out_dir, 'pick_summary.txt'), 'w').write('\n'.join(LINES) + '\n')
 
 
