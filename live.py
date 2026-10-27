@@ -16,7 +16,7 @@ MASTER = os.environ.get('ANGEL_MASTER', 'https://margincalculator.angelbroking.c
 POLL = float(os.environ.get('LIVE_POLL', '25'))
 MAX_RUN_MIN = float(os.environ.get('LIVE_MAX_MIN', '345'))   # GitHub job limit 6h se pehle band
 END_IST = os.environ.get('LIVE_END_IST', '15:32')            # market band hone ke baad ruk jao
-MAX_SYMS = 100
+MAX_SYMS = 200      # Sheet cell ~44k akshar: 200 stock ~27k + alerts/breadth/prep; Angel 50-50 ke 4 batch
 PAGES_BASE = os.environ.get('PAGES_BASE', '')
 if not PAGES_BASE and os.environ.get('GITHUB_REPOSITORY'):
     _o, _r = os.environ['GITHUB_REPOSITORY'].split('/', 1)
@@ -524,6 +524,11 @@ def main():
                 'breadth': bh, 'prep': pr}
         while len(json.dumps(live)) > LIVE_MAX_CHARS and live['alerts']:
             live['alerts'] = live['alerts'][5:]
+        keep = set(str(x).strip().upper() for x in pins + tsyms)
+        while len(json.dumps(live)) > LIVE_MAX_CHARS:     # phir bhi bada: scan ke aakhri stock hatao (locked/trade kabhi nahi)
+            drop = [s_ for s_ in reversed(syms) if s_ in live['items'] and s_ not in keep][:10]
+            if not drop: break
+            live['items'] = {k: v for k, v in live['items'].items() if k not in drop}
         okp = push_live(url, pkey, live)
         imsg = ''
         if not intra_off and status == 'ok' and time.time() - intra_ts > INTRA_SEC:
