@@ -434,8 +434,9 @@ def main():
         syms = []
         if time.time() - tsyms_ts > 600:
             tsyms, tsyms_ts = sheet_trade_symbols(gviz), time.time()
-        for s in screen_symbols() + pins + tsyms:
-            if s not in syms:
+        # locked (pins) + khule trade pehle: scan bada ho (VWEAK me 100+ stock) to bhi inka live bhav kabhi na kate
+        for s in [str(x).strip().upper() for x in pins + tsyms] + screen_symbols():
+            if s and s not in syms:
                 syms.append(s)
         syms = syms[:MAX_SYMS]
         toks = {s: tokmap[s] for s in syms if s in tokmap}
