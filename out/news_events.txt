@@ -1,22 +1,21 @@
-NEWS/EVENTS CHECK 2026-10-27 10:59 IST
+NEWS/EVENTS CHECK 2026-10-27 11:43 IST
 screen data date: 2026-10-26 | candidates: 17
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 114 symbols
 locked stocks added for announcements: PASHUPATI,AURUM,AVADHSUGAR,SMCGLOBAL,ONEPOINT,EMUDHRA,UTTAMSUGAR,PNGSREVA,SHANTIGOLD,SWASTIKAIN,SWIGGY,DEEPA,SMLMAH,YATRA,ORIENTTECH,JINDALSAW,TINNARUBR,TURTLEMINT,HEROMOTORS,J&KBANK,AUGMONT,AGIIL,ONIXSOLAR,DHANBANK,FIVESTAR,MOTISONS,CREDITACC,XTRANET,COMSYN,WAAREERTL,KPEL,GODAVARIB,WANBURY,OSWALPUMPS,ZEEL,ATUL,AFCONS,SHANKESH,RUNWALENTR,RICOAUTO,MVELECTRO,RAYMONDLSL,PITTIENG,SKYGOLD,AMAL,PACEDIGITK,JSIPL,JSFB,AONESTEELS,OLAELEC,ADOR,WELENT,TRIVENIPT,THOMASCOOK,NAVA,SHAKTIPUMP,KSB,RENUKA,BAJAJCON,BECTORFOOD,AUBANK,SHRIRAMFIN,KANOHAR,PREMEXPLN,KIRLOSBROS,TITAGARH,SWSOLAR,SAMMAANCAP,JKTYRE,PTC,AEGISVOPAK,HITECH,JWL,VINCOFE,NAM-INDIA,MIDHANI,ACEVECTOR,GLASSWALL,TMCV,SUMICHEM,IZMO,ARMANFIN,NELCO,AYE,EMMVEE,FUSION,INOXGREEN,ANANTRAJ,LASERPOWER,RPOWER,ADVAIT,YESBANK,HDBFS,SPORTKING,MARKOLINES,BHARTIARTL,OAL
 NSE announcements fetched for 114 of 114 symbols
-BSE announcements: 114 symbols checked, 21 naye (NSE me nahi the)
+BSE announcements: 114 symbols checked, 22 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 119 of 119 symbols, 224 headlines
-PDF saar: 0 naye bane, 9 nahi bane, 35 pehle ke reuse (AI key: nahi)
-announcements.json: 44 symbols with announcements in last 3 days
+Google News: 119 of 119 symbols, 227 headlines
+PDF saar: 1 naye bane, 9 nahi bane, 34 pehle ke reuse (AI key: nahi)
+announcements.json: 45 symbols with announcements in last 3 days
 COFORGE      BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Top 3 stocks to buy tomorrow: Laurus Labs, MCX, Coforge by market expert; check stop-loss, | Coforge Q2FY27 Results: Net profit up 42%, misses estimates
-SSWL         BREAKOUT   IN_NEWS                            |  | 2026-10-26 Copy of Newspaper Publication | Steel Strips Wheels zooms 36% in two days; what's driving auto parts stock? | Steel Strips Wheels SSWL Q2 FY27 Results Newspaper Publication
-DRREDDY      BREAKOUT   IN_NEWS                            |  |  | Five Stocks To Buy Today, October 27: Dr Reddy's Laboratories, Asahi India Glass, Ajanta P | Dr Reddy's Labs share price: PAT falls 36% in Q2; should you buy, sell or hold? Check targ
-ANANDRATHI   PREBREAK   IN_NEWS                            |  |  | Buy DCB Bank; target of Rs 312: Anand Rathi
+SSWL         BREAKOUT   IN_NEWS                            |  | 2026-10-26 Copy of Newspaper Publication | Steel Strips Wheels zooms 36% in two days; what's driving auto parts stock? | Steel Strips Wheels Q2 FY27 Concall: Management says ₹404 EBITDA per wheel is sustainable,
+DRREDDY      BREAKOUT   IN_NEWS                            |  |  | Dr Reddy's stock could rise 10-15% if a major biosimilar gets approved in December: System | Five Stocks To Buy Today, October 27: Dr Reddy's Laboratories, Asahi India Glass, Ajanta P
 JINDALPOLY   PULLBACK   IN_NEWS                            |  |  | Jindal Poly Investment & Finance Company Ltd is Rated Sell
 WHEELS       PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-29 Financial Results |  | Steel Strips Wheels zooms 36% in two days; what's driving auto parts stock? | Romania ‘disciplines’ rail freight: no more “warehouses on wheels”
 THELEELA     PULLBACK   IN_NEWS                            |  |  | The Leela Palaces Appoints New Front Office Manager (Pre-Opening)
@@ -24,27 +23,27 @@ NITINSPIN    PULLBACK   EVENT_7D                           | 2026-10-31 Financia
 CEIGALL      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-10-27 Trading Window | 
 PANORAMA     PULLBACK   IN_NEWS                            |  |  | Panorama Studios International Ltd is Rated Hold
 SMCGLOBAL    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Reg. 54 - Asset Cover details | SMC Global Securities Q2FY27 Results: Standalone PAT up 49.5% YoY to ₹948 lakhs | SMC Global Securities Q2 Consolidated Profit Rises to Rs 64.96 Crore
-ONEPOINT     DIP        IN_NEWS                            |  |  | One Point One Solutions Ltd is Rated Hold | Hong Kong Stock Market Movement | Ziyuanyuan (08223) Surges Over 55% at One Point, Signs F
-EMUDHRA      DIP        IN_NEWS                            |  |  | eMudhra extends fall; stock down 43% in five days, tanks 53% from Sep high | Check if eMudhra CA Is Still Trusted in Your Trust Stores
+ONEPOINT     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | One Point One Solutions wins WORLDCOB Silver award as revenue jumps 129% | One Point One Solutions Ltd is Rated Hold
+EMUDHRA      DIP        IN_NEWS                            |  |  | eMudhra extends fall; stock down 43% in five days, tanks 53% from Sep high | eMudhra incident puts India’s digital trust oversight under scrutiny
 UTTAMSUGAR   DIP        EVENT_7D IN_NEWS                   | 2026-10-31 Financial Results |  | Uttam Sugar Mills Share Price Declines on NSE
 PNGSREVA     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Monitoring Agency Report | PNGS Reva Diamond Jewellery Q2 Profit Jumps 78% To Rs 23.2 Cr | PNGS Reva Q2 results: Profit jumps 78%, but stock falls over 13%
 SHANTIGOLD   DIP        IN_NEWS                            |  |  | Shanti Gold International Share Price Falls
 SWASTIKAIN   DIP        IN_NEWS                            |  |  | Swastika Infra Ltd. Share Price Today - Swastika Infra Ltd. Stock Price Live NSE/BSE
 SWIGGY       DIP        IN_NEWS                            |  |  | Swiggy shares jump 5% a day after Q2 results sparked a 17% crash. Why brokerages remain bu | Swiggy shares rise 6% after 4-session down episode; is this a relief rally or worst is ove
-DEEPA        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Outcome of Board Meeting | Deepa Jewellers Q2FY27 Results: EBITDA up 17% YoY to ₹453 million | DEEPA JEWELLERS Q2 Results FY27: PAT Rs 37.25 Cr, Up 38.84% QoQ
-TINNARUBR    DIP        IN_NEWS                            |  | 2026-10-25 Investor Presentation | Tinna Rubber Releases Updated Q2–H1 FY27 Investor Presentation
-TURTLEMINT   DIP        IN_NEWS                            |  |  | Turtlemint Fintech Solutions Ltd Falls to 52-Week Low of Rs 53.75 as Sell-Off Deepens
+DEEPA        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Outcome of Board Meeting | Deepa Jewellers Q2FY27 Results: EBITDA up 17% YoY to ₹453 million | Deepa Jewellers Q2 FY27: New Factory, Wider Client Base
+JINDALSAW    DIP        IN_NEWS                            |  |  | Jindal Saw Advances Pipe Manufacturing Projects in Abu Dhabi and Saudi Arabia
+TINNARUBR    DIP        IN_NEWS                            |  | 2026-10-25 Investor Presentation | Tinna Rubber Q2FY27 Results: Net profit up 45% YoY to ₹17 crore | Tinna Rubber Releases Updated Q2–H1 FY27 Investor Presentation
 HEROMOTORS   DIP        IN_NEWS                            |  |  | Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
-J&KBANK      DIP        IN_NEWS                            |  |  | Jammu Kashmir Cabinet Reshuffle: All Ministers Submit Resignations | Crime Branch Jammu Kashmir Holds Pledge Ceremony for Vigilance Awareness Week
-AUGMONT      DIP        IN_NEWS                            |  |  | Augmont Enterprises Ltd (AUGMONT) Share Price
+J&KBANK      DIP        IN_NEWS                            |  |  | Jammu Kashmir Cabinet Reshuffle: All Ministers Submit Resignations
+AUGMONT      DIP        IN_NEWS                            |  |  | AUGMONT ENTERPRISES LTD Share Price | Augmont Enterprises Ltd (AUGMONT) Share Price
 DHANBANK     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Outcome of Board Meeting | Dhanlaxmi Bank shares tank 13% post Q2 results despite stable asset quality, lower provisi | Dhanlaxmi Bank Q2 Net Profit More Than Doubles to Rs 48.55 Cr
-FIVESTAR     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Appointment | Five Star Bancorp (FSBC) Surpasses Q3 Earnings and Revenue Estimates | Five Star Business Finance Q2FY27 Results: Net profit up 5% YoY to ₹299 crore
+FIVESTAR     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Appointment | Five Star Business Finance Q2FY27 Results: Net profit up 5% YoY to ₹299 crore | Five Star Bancorp (FSBC) Surpasses Q3 Earnings and Revenue Estimates
 CREDITACC    DIP        IN_NEWS                            |  | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | CreditAccess Grameen: Q2 profit beats estimates, but Nomura flags asset quality risks | CreditAccess Grameen’s Earnings Call Signals Profitable Expansion
 XTRANET      DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-02 Financial Results | 2026-10-26 Trading Window | 
 WAAREERTL    DIP        IN_NEWS                            |  |  | Waaree Renewable Technologies Revises Solar EPC Contracts To 1,109 MWp
 KPEL         DIP        IN_NEWS                            |  |  | KP Energy locked at 5% upper circuit on 9-MW wind power project contract
 GODAVARIB    DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-26 Board Meeting | 
-OSWALPUMPS   DIP        IN_NEWS                            |  |  | Oswal Pumps Ltd Falls to 52-Week Low of Rs 207.4 as Sell-Off Deepens | Oswal Pumps Limited (OSWALPUMPS) share price — eduinvesting
+OSWALPUMPS   DIP        IN_NEWS                            |  |  | Oswal Pumps Limited (OSWALPUMPS) share price — eduinvesting
 ZEEL         DIP        IN_NEWS                            |  |  | Stocks to Watch Today, Aug 3: ZEEL, Maruti Suzuki, ITC, VI, Coal India, BEL Among Top Stoc | Zee Entertainment appoints Komal Nahta as creative director for movies business
 SHANKESH     DIP        IN_NEWS                            |  |  | Shankesh Jewellers Ltd. Share Price Today - Shankesh Jewellers Ltd. Stock Price Live NSE/B | Tiger Strategies Fund sells 0.55% stake in Shankesh Jewellers
 RUNWALENTR   DIP        IN_NEWS                            |  | 2026-10-26 Newspaper Publication | RUNWAL ENTERPRISES LTD Share Price - Live NSE: RUNWALENTR Stock Price & Chart | Runwal Enterprises Ltd Share Price Today,, RUNWALENTR Share Price NSE, BSE
@@ -53,28 +52,28 @@ RAYMONDLSL   DIP        RESULTS_SOON                       | 2026-10-28 Financia
 PITTIENG     DIP        IN_NEWS                            |  | 2026-10-26 Copy of Newspaper Publication | Pitti Engineering PITTIENG Interim Dividend Record Date 2026
 SKYGOLD      DIP        RESULTS_SOON IN_NEWS               | 2026-10-27 Financial Results/Fund Raising/Other business matters |  | Sky Gold & Diamonds to acquire Purvi Gems to expand portfolio and strengthen jewellery bus
 AMAL         DIP        IN_NEWS                            |  |  | Amalgamated Financial Corp. 2026 Q3 - Results - Earnings Call Presentation (NASDAQ:AMAL) 2
-PACEDIGITK   DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-31 Financial Results | 2026-10-26 Board Meeting | Pace Digitek Ltd Falls to 52-Week Low of Rs 134.45 as Sell-Off Deepens | Pace Digitek Emerges L1 At INR 1,073.74 Crore For Coal India’s 750 MWh BESS Project In Tel
+PACEDIGITK   DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-10-31 Financial Results | 2026-10-26 Board Meeting | Pace Digitek Emerges L1 At INR 1,073.74 Crore For Coal India’s 750 MWh BESS Project In Tel
 JSFB         DIP        IN_NEWS                            |  |  | Jana Small Finance Bank Ltd Financial Disclosures & Filings
 AONESTEELS   DIP        IN_NEWS                            |  |  | Consumer Sentiment Falls Again After a One-Month Rebound... "Pessimistic Outlook Grows as 
-OLAELEC      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Disclosures under Reg. 29(2) of SEBI (SAST) Regulations, 2011 | SoftBank vehicle sells 3.58 crore Ola Electric rights entitlements amid ₹1,000-crore issue | Ola Electric stock falls over 6 per cent after analysts downgrade to sell
+OLAELEC      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Disclosures under Reg. 29(2) of SEBI (SAST) Regulations, 2011 | SVF II OSTRICH sells 5.5 crore Ola Electric shares over 10 months | SoftBank vehicle sells 3.58 crore Ola Electric rights entitlements amid ₹1,000-crore issue
 ADOR         DIP        IN_NEWS                            |  |  | Ador Welding Q2FY27 results: Revenue up 23% YoY, declares ₹7.50 dividend
-TRIVENIPT    DIP        IN_NEWS                            |  | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | Triveni Power Transmission Ltd. Share Price Live Today
+TRIVENIPT    DIP        IN_NEWS                            |  | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | Triveni Power Transmission Ltd. Share Price Live Today | Cyril Amarchand Mangaldas advises Triveni Power Transmission on listing of shares post-dem
 THOMASCOOK   DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-02 Financial Results/Other business matters | 2026-10-26 Press Release | Thomas Cook subsidiary Sterling opens Bandhavgarh resort in Madhya Pradesh | Thomas Cook India Opens Forex Counters at Vizag Airport
 SHAKTIPUMP   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Disclosures under Reg. 29(2) of SEBI (SAST) Regulations, 2011 | Vintex Tools acquires 13,000 shares of Shakti Pumps | Shakti Pumps (India) Ltd (BOM:531431) (Q2 2027) Earnings Call Highlights: Solar Pump ...
 KSB          DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-03 Financial Results | 2026-10-26 Board Meeting | Latitude 66 Completes KSB Scoping Study with US$485m Base Case NPV and Secures Finnish Exp
 RENUKA       DIP        EVENT_7D                           | 2026-10-30 Financial Results |  | 
 BAJAJCON     DIP        IN_NEWS                            |  |  | Jitendra Mahajan Appointed Independent Director at Bajaj Consumer Care Limited
-AUBANK       DIP        IN_NEWS                            |  | 2026-10-26 Copy of Newspaper Publication | AU Small Finance Bank shares fall 8% after flagging margin pressure post Q2 results | AU Small Finance Bank Q2FY27 Results: Net profit jumps 53% YoY
-SHRIRAMFIN   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Monitoring Agency Report | Shriram Finance slips 10% in 2 days, hits 11-month low; here's why | Muted asset quality outlook likely to weigh on Shriram Finance stock
+AUBANK       DIP        IN_NEWS                            |  | 2026-10-26 Copy of Newspaper Publication | AU Small Finance Bank Q2FY27 Results: Net profit jumps 53% YoY | AU Small Finance Bank shares fall over 7% amid margin concerns in Q2; here's what brokerag
+SHRIRAMFIN   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Monitoring Agency Report | Muted asset quality outlook likely to weigh on Shriram Finance stock | Buy, Sell Or Hold: Zydus Lifesciences, Cyient, BEL, Shriram Finance, IOB, Avanti Feeds — A
 KANOHAR      DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-02 Financial Results/Other business matters | 2026-10-26 Board Meeting | Kanohar Electricals Ltd. Share Price Today - Kanohar Electricals Ltd. Stock Price Live NSE | KANOHAR ELECTRICALS LTD Share Price
 PREMEXPLN    DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-27 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011 | 
 KIRLOSBROS   DIP        RESULTS_SOON                       | 2026-10-27 Financial Results |  | 
 TITAGARH     DIP        RESULTS_SOON NEW_ANNOUNCEMENT      | 2026-10-29 Board meeting Rescheduled | 2026-10-26 Board Meeting Cancelled | 
-SWSOLAR      DIP        IN_NEWS                            |  |  | Movsar Evloev’s Route Back To UFC Title Shot Runs Through Jean Silva, Aljamain Sterling An
+SWSOLAR      DIP        IN_NEWS                            |  |  | Movsar Evloev’s Route Back To UFC Title Shot Runs Through Jean Silva, Aljamain Sterling An | UK Budget 2026: How bond yields, sterling and bank stocks could react
 JKTYRE       DIP        IN_NEWS                            |  | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | Earnings call transcript: JK Tyre Q2 2026 revenue miss weighs on shares By Investing.com | JK Tyre Q2 FY27 slides: revenue up 20%, margins contract sharply By Investing.com
-PTC          DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-02 Financial Results | 2026-10-26 General Updates | PTC APPROVES WHOLLY OWNED SUBSIDIARY FOR MINERAL EXCHANGE | Schneider Electric Agrees to Buy PTC for $22.6 Billion to Expand Industrial Software Busin
+PTC          DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-02 Financial Results | 2026-10-26 General Updates | PTC APPROVES WHOLLY OWNED SUBSIDIARY FOR MINERAL EXCHANGE | PTC India Plans Mineral Exchange Subsidiary With Rs 65 Crore Investment
 AEGISVOPAK   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Outcome of Board Meeting | Aegis Vopak Q2 results: Profit dips 2%, revenue rises 17% | Aegis Vopak Terminals Limited Reports Earnings Results for the Second Quarter and Six Mont
-JWL          DIP        IN_NEWS                            |  |  | Jupiter Wagons and Pesa to co-operate to bring Polish rail technology to India | Jupiter Wagons moves up on entering into non-binding MoU with PESA
+JWL          DIP        IN_NEWS                            |  |  | Jupiter Wagons and Pesa to co-operate to bring Polish rail technology to India | Kolkata-based Jupiter Wagons signs MoU with Poland’s PESA to explore metro and high-speed 
 VINCOFE      DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-26 Board Meeting | 
 NAM-INDIA    DIP        IN_NEWS                            |  |  | Nippon Life AMC shares: Last chance to buy for  ₹9.50 interim dividend; record date, divid | Nippon Life AMC shares: Last chance to buy for ₹9.50 interim dividend; record date, divide
 MIDHANI      DIP        IN_NEWS                            |  |  | MIDHANI board approves FY26 results, recommends dividend | Mishra Dhatu Nigam Ltd is Rated Hold
@@ -89,21 +88,21 @@ ADVAIT       DIP        EVENT_7D                           | 2026-10-30 Financia
 YESBANK      DIP        IN_NEWS                            |  |  | Yes Bank among 6 stocks to hit 52-week lows and fall up to 32% in a month | YES Bank price targets: Shareholders take a 27% hit in seven days, what's next?
 HDBFS        DIP        IN_NEWS                            |  | 2026-10-26 Shareholders meeting | HDB Financial Services seeks shareholder nod for Jimmy Tata, director re-appointments | HDB Financial Services HDBFS Postal Ballot Director Changes
 SPORTKING    DIP        EVENT_7D                           | 2026-10-30 Financial Results/Other business matters | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | 
-BHARTIARTL   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Trade Spotlight: How should you trade BSE, Mankind Pharma, Bajaj Finserv, Bharti Airtel, Z | Bharti Airtel - Positive Breakout: These 8 stocks cross above their 200 DMAs
-Symbols with no flags: 37. Top market headlines:
+BHARTIARTL   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Bharti Airtel Share Price Live Updates: Bharti Airtel's Current Trading Status | Trade Spotlight: How should you trade BSE, Mankind Pharma, Bajaj Finserv, Bharti Airtel, Z
+Symbols with no flags: 38. Top market headlines:
+  [ET Markets] TCS, Infosys, other IT stocks drop up to 3% as Anthropic IPO sparks rally in global AI stocks
+  [ET Markets] Sona BLW Precision Forgings shares rally 6% after Q2 profit rises 29%, revenue jumps 35%
+  [ET Markets] Sigma Advanced Systems shares rally 5% after securing Rs 973 crore NATO order
   [ET Markets] Ather Energy shares jump 5%, extend rally to 20% in two days after Q2 results. Can the run continue?
   [ET Markets] Sensex, Nifty extend gains despite oil hovering near $115/barrel. What lies ahead?
+  [ET Markets] Coal India Share Price Live Updates: Coal India  Faces Slight Price Drop
+  [ET Markets] Tata Steel Share Price Live Updates: Tata Steel Sees Positive Movement
   [ET Markets] Aerospace stock Aequs plunges 19% after Q2 results. Why are investors worried?
   [ET Markets] India’s ₹1 lakh crore club stocks hit hard by FII exit. Have bluechips lost their growth engines?
   [ET Markets] Q2 earnings done for HDFC Bank, ICICI, other private lenders. What's next?
+  [ET Markets] Adani Ports SEZ Share Price Live Updates: Adani Ports SEZ Current Price Update
   [ET Markets] Paytm shares rise 2% after Q2 results. What are Jefferies, Goldman Sachs, and others saying?
   [ET Markets] Tata Consumer shares rally over 4% after Q2 results. Why brokerages remain bullish despite target price cuts
   [ET Markets] HAL, BEL, Paras Defence, other stocks rise up to 4% after DAC clears  proposals worth Rs 2.12 lakh crore
-  [ET Markets] HUL Share Price Live Updates: HUL's Current Market Position
-  [ET Markets] Mankind Pharma among 5 F&amp;O stocks with a sharp rise in futures open interest
-  [ET Markets] NTPC Share Price Live Updates: NTPC's Current Market Position
-  [ET Markets] LTIMindtree Share Price Live Updates: LTIMindtree Stock Details
-  [ET Markets] UPL Share Price Live Updates: UPL's Price Movement Today
-  [ET Markets] HCL Tech Share Price Live Updates: Market Performance of HCL Tech
-  [ET Markets] ONGC Share Price Live Updates: ONGC Stock Details
+  [ET Markets] Bharti Airtel Share Price Live Updates: Bharti Airtel's Current Trading Status
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
