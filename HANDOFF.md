@@ -224,3 +224,9 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Buy at that day's CLOSE: TOP3 5d +0.27% vs all 50 -0.01%, bottom-3 -0.15%; TOP3 with +2%: +0.32% (2/5 yrs).
   Buy next OPEN: TOP3 -0.26% vs all -0.19% -> the whole edge is the overnight gap; the reel's 3:20 entry matters.
 - By regime (close, 5d, TOP3 +2%): STRONG +0.67% (4/4 yrs), WEAK +1.40% (4/4), MIXED -0.77%, VWEAK -0.17%. Inconsistent -> watch only.
+
+## "ACE jaisa" support bounce (2026-10-27) - FAIL, not added
+- supp_study.py (run locally, out/supp_summary.txt): 15%+ below 60-day high, low within -2%/+3% of 2+ prior swing lows (6 months),
+  TOUCH (next open) or CONFIRM (close > previous high within 5 days), SL zone low - 0.5 ATR. Synthetic: ~0/slightly minus.
+- All variants negative overall (TOUCH -0.13R n 21.5k, CONFIRM -0.12R, +uptrend/+RSI<35/+3 touch similar). Only VWEAK slightly plus
+  (+0.07..+0.19R) = same as the VWEAK random base (+0.16R), weaker than OVERSOLD_BOUNCE. Support level adds nothing.
