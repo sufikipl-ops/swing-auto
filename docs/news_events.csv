@@ -1,8 +1,8 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,COFORGE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Top 3 stocks to buy tomorrow: Laurus Labs, MCX, Coforge by market expert; check stop-loss, | Coforge Share Price"
+BREAKOUT,COFORGE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Top 3 stocks to buy tomorrow: Laurus Labs, MCX, Coforge by market expert; check stop-loss, | Coforge Q2FY27 Results: Net profit up 42%, misses estimates"
 BREAKOUT,SSWL,IN_NEWS,,2026-10-26 Copy of Newspaper Publication,Steel Strips Wheels zooms 36% in two days; what's driving auto parts stock? | Steel Strips Wheels SSWL Q2 FY27 Results Newspaper Publication
-BREAKOUT,DRREDDY,IN_NEWS,,,"Dr Reddy's share price spurts 4% post Q2 earnings; analysts upgrade rating | Five Stocks To Buy Today, October 27: Dr Reddy's Laboratories, Asahi India Glass, Ajanta P"
-PREBREAK,ANANDRATHI,IN_NEWS,,,"Buy DCB Bank; target of Rs 312: Anand Rathi | Buy Shree Cement; target of Rs 28,021: Anand Rathi"
+BREAKOUT,DRREDDY,IN_NEWS,,,"Five Stocks To Buy Today, October 27: Dr Reddy's Laboratories, Asahi India Glass, Ajanta P | Dr Reddy's Labs share price: PAT falls 36% in Q2; should you buy, sell or hold? Check targ"
+PREBREAK,ANANDRATHI,IN_NEWS,,,Buy DCB Bank; target of Rs 312: Anand Rathi
 PULLBACK,SAGILITY,none,,,
 PULLBACK,KARURVYSYA,none,,,
 PULLBACK,HBLENGINE,none,,,
@@ -12,14 +12,14 @@ PULLBACK,THELEELA,IN_NEWS,,,The Leela Palaces Appoints New Front Office Manager 
 PULLBACK,KPL,none,,,
 PULLBACK,GODIGIT,none,,,
 PULLBACK,NITINSPIN,EVENT_7D,2026-10-31 Financial Results,2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates,
-PULLBACK,CEIGALL,NEW_ANNOUNCEMENT,,2026-10-27 Board Meeting,
+PULLBACK,CEIGALL,NEW_ANNOUNCEMENT,,2026-10-27 Trading Window,
 PULLBACK,BLUSPRING,none,,,
 PULLBACK,PANORAMA,IN_NEWS,,,Panorama Studios International Ltd is Rated Hold
 PULLBACK,DCI,none,,,
 DIP,AVADHSUGAR,none,,,
 DIP,SMCGLOBAL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Reg. 54 - Asset Cover details,SMC Global Securities Q2FY27 Results: Standalone PAT up 49.5% YoY to ₹948 lakhs | SMC Global Securities Q2 Consolidated Profit Rises to Rs 64.96 Crore
-DIP,ONEPOINT,IN_NEWS,,,Brazil Presidential Election: Lula Victory Sends Real Plunging to Year-to-Date Low; Stocks
-DIP,EMUDHRA,IN_NEWS,,,"eMudhra extends fall; stock down 43% in five days, tanks 53% from Sep high | eMudhra incident puts India’s digital trust oversight under scrutiny"
+DIP,ONEPOINT,IN_NEWS,,,"One Point One Solutions Ltd is Rated Hold | Hong Kong Stock Market Movement | Ziyuanyuan (08223) Surges Over 55% at One Point, Signs F"
+DIP,EMUDHRA,IN_NEWS,,,"eMudhra extends fall; stock down 43% in five days, tanks 53% from Sep high | Check if eMudhra CA Is Still Trusted in Your Trust Stores"
 DIP,UTTAMSUGAR,EVENT_7D IN_NEWS,2026-10-31 Financial Results,,Uttam Sugar Mills Share Price Declines on NSE
 DIP,PNGSREVA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Monitoring Agency Report,"PNGS Reva Diamond Jewellery Q2 Profit Jumps 78% To Rs 23.2 Cr | PNGS Reva Q2 results: Profit jumps 78%, but stock falls over 13%"
 DIP,SHANTIGOLD,IN_NEWS,,,Shanti Gold International Share Price Falls
@@ -27,18 +27,18 @@ DIP,SWASTIKAIN,IN_NEWS,,,Swastika Infra Ltd. Share Price Today - Swastika Infra 
 DIP,SWIGGY,IN_NEWS,,,Swiggy shares jump 5% a day after Q2 results sparked a 17% crash. Why brokerages remain bu | Swiggy shares rise 6% after 4-session down episode; is this a relief rally or worst is ove
 DIP,DEEPA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Outcome of Board Meeting,"Deepa Jewellers Q2FY27 Results: EBITDA up 17% YoY to ₹453 million | DEEPA JEWELLERS Q2 Results FY27: PAT Rs 37.25 Cr, Up 38.84% QoQ"
 DIP,SMLMAH,none,,,
-DIP,YATRA,IN_NEWS,,,Yatra Online Ltd is Rated Strong Sell
+DIP,YATRA,none,,,
 DIP,ORIENTTECH,none,,,
 DIP,JINDALSAW,none,,,
 DIP,TINNARUBR,IN_NEWS,,2026-10-25 Investor Presentation,Tinna Rubber Releases Updated Q2–H1 FY27 Investor Presentation
-DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd (TURTLEMINT) Share Price | Turtlemint Fintech Solutions Ltd Falls to 52-Week Low of Rs 53.75 as Sell-Off Deepens
+DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd Falls to 52-Week Low of Rs 53.75 as Sell-Off Deepens
 DIP,HEROMOTORS,IN_NEWS,,,Hero Motors Ltd. Share Price Today - Hero Motors Ltd. Stock Price Live NSE/BSE
-DIP,J&KBANK,IN_NEWS,,,Crime Branch Jammu Kashmir Holds Pledge Ceremony for Vigilance Awareness Week
+DIP,J&KBANK,IN_NEWS,,,Jammu Kashmir Cabinet Reshuffle: All Ministers Submit Resignations | Crime Branch Jammu Kashmir Holds Pledge Ceremony for Vigilance Awareness Week
 DIP,AUGMONT,IN_NEWS,,,Augmont Enterprises Ltd (AUGMONT) Share Price
 DIP,AGIIL,none,,,
 DIP,ONIXSOLAR,none,,,
 DIP,DHANBANK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Outcome of Board Meeting,"Dhanlaxmi Bank shares tank 13% post Q2 results despite stable asset quality, lower provisi | Dhanlaxmi Bank Q2 Net Profit More Than Doubles to Rs 48.55 Cr"
-DIP,FIVESTAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Appointment,Five Star Business Finance Q2FY27 Results: Net profit up 5% YoY to ₹299 crore | Five Star Bancorp (FSBC) Surpasses Q3 Earnings and Revenue Estimates
+DIP,FIVESTAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Appointment,Five Star Bancorp (FSBC) Surpasses Q3 Earnings and Revenue Estimates | Five Star Business Finance Q2FY27 Results: Net profit up 5% YoY to ₹299 crore
 DIP,MOTISONS,none,,,
 DIP,CREDITACC,IN_NEWS,,2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates,"CreditAccess Grameen: Q2 profit beats estimates, but Nomura flags asset quality risks | CreditAccess Grameen’s Earnings Call Signals Profitable Expansion"
 DIP,XTRANET,EVENT_7D NEW_ANNOUNCEMENT,2026-11-02 Financial Results,2026-10-26 Trading Window,
@@ -47,7 +47,7 @@ DIP,WAAREERTL,IN_NEWS,,,"Waaree Renewable Technologies Revises Solar EPC Contrac
 DIP,KPEL,IN_NEWS,,,KP Energy locked at 5% upper circuit on 9-MW wind power project contract
 DIP,GODAVARIB,NEW_ANNOUNCEMENT,,2026-10-26 Board Meeting,
 DIP,WANBURY,none,,,
-DIP,OSWALPUMPS,IN_NEWS,,,Oswal Pumps Ltd Falls to 52-Week Low of Rs 207.4 as Sell-Off Deepens
+DIP,OSWALPUMPS,IN_NEWS,,,Oswal Pumps Ltd Falls to 52-Week Low of Rs 207.4 as Sell-Off Deepens | Oswal Pumps Limited (OSWALPUMPS) share price — eduinvesting
 DIP,ZEEL,IN_NEWS,,,"Stocks to Watch Today, Aug 3: ZEEL, Maruti Suzuki, ITC, VI, Coal India, BEL Among Top Stoc | Zee Entertainment appoints Komal Nahta as creative director for movies business"
 DIP,ATUL,none,,,
 DIP,AFCONS,none,,,
@@ -59,11 +59,11 @@ DIP,RAYMONDLSL,RESULTS_SOON,2026-10-28 Financial Results,,
 DIP,PITTIENG,IN_NEWS,,2026-10-26 Copy of Newspaper Publication,Pitti Engineering PITTIENG Interim Dividend Record Date 2026
 DIP,SKYGOLD,RESULTS_SOON IN_NEWS,2026-10-27 Financial Results/Fund Raising/Other business matters,,Sky Gold & Diamonds to acquire Purvi Gems to expand portfolio and strengthen jewellery bus
 DIP,AMAL,IN_NEWS,,,Amalgamated Financial Corp. 2026 Q3 - Results - Earnings Call Presentation (NASDAQ:AMAL) 2
-DIP,PACEDIGITK,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-31 Financial Results,2026-10-26 Board Meeting,"Pace Digitek Ltd Falls to 52-Week Low of Rs 134.45 as Sell-Off Deepens | Coal India Awards Telangana BESS Project to Pace Digitek for ₹1,074 crore"
-DIP,JSIPL,IN_NEWS,,,Jindal Supreme (India) Ltd. Share Price Live Today
+DIP,PACEDIGITK,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-10-31 Financial Results,2026-10-26 Board Meeting,"Pace Digitek Ltd Falls to 52-Week Low of Rs 134.45 as Sell-Off Deepens | Pace Digitek Emerges L1 At INR 1,073.74 Crore For Coal India’s 750 MWh BESS Project In Tel"
+DIP,JSIPL,none,,,
 DIP,JSFB,IN_NEWS,,,Jana Small Finance Bank Ltd Financial Disclosures & Filings
 DIP,AONESTEELS,IN_NEWS,,,"Consumer Sentiment Falls Again After a One-Month Rebound... ""Pessimistic Outlook Grows as "
-DIP,OLAELEC,IN_NEWS,,,SoftBank sells a quarter of its Ola Electric rights entitlements even as Motilal Oswal ups | Ola Electric stock falls over 6 per cent after analysts downgrade to sell
+DIP,OLAELEC,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-27 Disclosures under Reg. 29(2) of SEBI (SAST) Regulations, 2011","SoftBank vehicle sells 3.58 crore Ola Electric rights entitlements amid ₹1,000-crore issue | Ola Electric stock falls over 6 per cent after analysts downgrade to sell"
 DIP,ADOR,IN_NEWS,,,"Ador Welding Q2FY27 results: Revenue up 23% YoY, declares ₹7.50 dividend"
 DIP,WELENT,none,,,
 DIP,TRIVENIPT,IN_NEWS,,2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates,Triveni Power Transmission Ltd. Share Price Live Today
@@ -92,13 +92,13 @@ DIP,NAM-INDIA,IN_NEWS,,,"Nippon Life AMC shares: Last chance to buy for  ₹9.50
 DIP,MIDHANI,IN_NEWS,,,"MIDHANI board approves FY26 results, recommends dividend | Mishra Dhatu Nigam Ltd is Rated Hold"
 DIP,ACEVECTOR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Press Release,ACEVECTOR LIMITED Share Price | Snapdeal parent AceVector posts Rs 151 Cr revenue and Rs 17.6 Cr loss in Q2 FY27
 DIP,GLASSWALL,IN_NEWS,,,Glass Wall Systems (India) Ltd. Share Price Live Today
-DIP,TMCV,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Tata Motors PV Share Price Live Updates: Tata Motors PV Stock Details | Robust volume growth powers Tata Motors in Q2, but input cost pressures loom"
+DIP,TMCV,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,Tata Motors PV Share Price Live Updates: Tata Motors PV Stock Details | Tata Motors' takeover bid for Iveco clears 80% acceptance threshold
 DIP,SUMICHEM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Integrated Filing- Financial,"Stocks to Watch Today, October 27, 2026: Sumitomo Chemical, Dalmia Bharat, Paramount Commu | Sumitomo Chemical Q2 Results: Net profit falls 12% as revenue and EBITDA decline"
 DIP,IZMO,none,,,
 DIP,ARMANFIN,NEW_ANNOUNCEMENT,,2026-10-26 Board Meeting,
 DIP,NELCO,none,,,
 DIP,AYE,none,,,
-DIP,EMMVEE,IN_NEWS,,,"Profit Surge Stocks 2026: Kalpataru Projects, Emmvee Photovoltaic"
+DIP,EMMVEE,none,,,
 DIP,FUSION,none,,,
 DIP,INOXGREEN,none,,,
 DIP,ANANTRAJ,RESULTS_SOON,2026-10-28 Financial Results,,
