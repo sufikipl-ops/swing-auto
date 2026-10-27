@@ -1,0 +1,176 @@
+SUPPORT BOUNCE ("ACE jaisa") STUDY (2026-10-27): 2022-09-19 se 2026-10-26, 3247 stocks
+R = Rs500 risk ka guna (kharcha kaat ke). "saal+" = (20+ trade) plus saal.
+
+===== SL close, 2R/10d =====
+setup                        market       n  jeet   avg R  saal+
+BASE: random din             ALL       6549   43%  -0.06R  1/4
+BASE: random din             STRONG    2933   42%  -0.05R  1/4
+BASE: random din             MIXED     1808   45%  -0.04R  1/4
+BASE: random din             WEAK      1055   36%  -0.25R  0/3
+BASE: random din             VWEAK      753   56%  +0.16R  2/3
+TOUCH                        ALL      21488   41%  -0.13R  1/4
+TOUCH                        STRONG    5624   38%  -0.18R  1/4
+TOUCH                        MIXED     6956   42%  -0.11R  2/4
+TOUCH                        WEAK      4981   39%  -0.23R  1/4
+TOUCH                        VWEAK     3927   50%  +0.07R  1/3
+TOUCH +uptrend               ALL      12900   42%  -0.13R  1/4
+TOUCH +uptrend               STRONG    3472   38%  -0.19R  1/4
+TOUCH +uptrend               MIXED     3782   42%  -0.13R  1/4
+TOUCH +uptrend               WEAK      2969   39%  -0.23R  1/4
+TOUCH +uptrend               VWEAK     2677   51%  +0.09R  1/3
+TOUCH +RSI<35                ALL       4986   45%  -0.07R  2/4
+TOUCH +RSI<35                STRONG     708   42%  -0.09R  1/4
+TOUCH +RSI<35                MIXED     1493   44%  -0.10R  1/4
+TOUCH +RSI<35                WEAK      1497   41%  -0.24R  1/4
+TOUCH +RSI<35                VWEAK     1288   52%  +0.15R  1/3
+TOUCH +3 touch               ALL      13476   41%  -0.15R  1/4
+TOUCH +3 touch               STRONG    3568   37%  -0.22R  1/4
+TOUCH +3 touch               MIXED     4447   41%  -0.14R  1/4
+TOUCH +3 touch               WEAK      3078   39%  -0.22R  1/4
+TOUCH +3 touch               VWEAK     2383   49%  +0.04R  2/3
+TOUCH +uptrend +RSI<35       ALL       3136   47%  -0.04R  2/4
+TOUCH +uptrend +RSI<35       STRONG     454   44%  -0.06R  3/4
+TOUCH +uptrend +RSI<35       MIXED      801   46%  -0.10R  2/4
+TOUCH +uptrend +RSI<35       WEAK       874   41%  -0.23R  1/4
+TOUCH +uptrend +RSI<35       VWEAK     1007   53%  +0.19R  1/3
+CONFIRM                      ALL      12392   41%  -0.12R  1/4
+CONFIRM                      STRONG    3843   39%  -0.11R  2/4
+CONFIRM                      MIXED     4441   41%  -0.15R  1/4
+CONFIRM                      WEAK      2320   38%  -0.19R  1/3
+CONFIRM                      VWEAK     1788   50%  +0.01R  2/3
+CONFIRM +uptrend             ALL       7496   41%  -0.13R  1/4
+CONFIRM +uptrend             STRONG    2309   37%  -0.16R  2/4
+CONFIRM +uptrend             MIXED     2558   41%  -0.18R  1/4
+CONFIRM +uptrend             WEAK      1426   42%  -0.13R  1/3
+CONFIRM +uptrend             VWEAK     1203   50%  +0.01R  2/3
+CONFIRM +RSI<35              ALL       2623   40%  -0.16R  1/4
+CONFIRM +RSI<35              STRONG     481   43%  -0.10R  2/4
+CONFIRM +RSI<35              MIXED      963   39%  -0.20R  1/4
+CONFIRM +RSI<35              WEAK       677   37%  -0.20R  1/3
+CONFIRM +RSI<35              VWEAK      502   46%  -0.09R  1/3
+CONFIRM +3 touch             ALL       6518   40%  -0.14R  1/4
+CONFIRM +3 touch             STRONG    2070   38%  -0.13R  2/4
+CONFIRM +3 touch             MIXED     2309   40%  -0.17R  1/4
+CONFIRM +3 touch             WEAK      1221   38%  -0.20R  1/3
+CONFIRM +3 touch             VWEAK      918   49%  -0.04R  2/3
+CONFIRM +uptrend +RSI<35     ALL       1685   42%  -0.16R  1/4
+CONFIRM +uptrend +RSI<35     STRONG     322   41%  -0.12R  2/4
+CONFIRM +uptrend +RSI<35     MIXED      545   40%  -0.20R  1/4
+CONFIRM +uptrend +RSI<35     WEAK       437   40%  -0.16R  1/3
+CONFIRM +uptrend +RSI<35     VWEAK      381   45%  -0.11R  1/3
+
+===== SL din-beech, 2R/10d =====
+setup                        market       n  jeet   avg R  saal+
+BASE: random din             ALL       6549   41%  -0.08R  1/4
+BASE: random din             STRONG    2933   40%  -0.08R  1/4
+BASE: random din             MIXED     1808   42%  -0.07R  1/4
+BASE: random din             WEAK      1055   34%  -0.26R  0/3
+BASE: random din             VWEAK      753   53%  +0.12R  2/3
+TOUCH                        ALL      21488   35%  -0.14R  1/4
+TOUCH                        STRONG    5624   33%  -0.20R  1/4
+TOUCH                        MIXED     6956   36%  -0.12R  1/4
+TOUCH                        WEAK      4981   33%  -0.22R  2/4
+TOUCH                        VWEAK     3927   42%  +0.00R  1/3
+TOUCH +uptrend               ALL      12900   36%  -0.13R  1/4
+TOUCH +uptrend               STRONG    3472   32%  -0.22R  1/4
+TOUCH +uptrend               MIXED     3782   36%  -0.12R  1/4
+TOUCH +uptrend               WEAK      2969   34%  -0.20R  2/4
+TOUCH +uptrend               VWEAK     2677   43%  +0.03R  1/3
+TOUCH +RSI<35                ALL       4986   38%  -0.09R  2/4
+TOUCH +RSI<35                STRONG     708   36%  -0.12R  1/4
+TOUCH +RSI<35                MIXED     1493   38%  -0.10R  2/4
+TOUCH +RSI<35                WEAK      1497   36%  -0.17R  1/4
+TOUCH +RSI<35                VWEAK     1288   42%  +0.02R  1/3
+TOUCH +3 touch               ALL      13476   35%  -0.16R  1/4
+TOUCH +3 touch               STRONG    3568   31%  -0.24R  1/4
+TOUCH +3 touch               MIXED     4447   36%  -0.13R  1/4
+TOUCH +3 touch               WEAK      3078   33%  -0.21R  2/4
+TOUCH +3 touch               VWEAK     2383   41%  -0.03R  1/3
+TOUCH +uptrend +RSI<35       ALL       3136   39%  -0.07R  2/4
+TOUCH +uptrend +RSI<35       STRONG     454   37%  -0.13R  1/4
+TOUCH +uptrend +RSI<35       MIXED      801   39%  -0.11R  2/4
+TOUCH +uptrend +RSI<35       WEAK       874   35%  -0.17R  1/4
+TOUCH +uptrend +RSI<35       VWEAK     1007   44%  +0.08R  1/3
+CONFIRM                      ALL      12392   38%  -0.13R  1/4
+CONFIRM                      STRONG    3843   37%  -0.12R  2/4
+CONFIRM                      MIXED     4441   38%  -0.17R  1/4
+CONFIRM                      WEAK      2320   37%  -0.17R  1/3
+CONFIRM                      VWEAK     1788   45%  -0.01R  2/3
+CONFIRM +uptrend             ALL       7496   38%  -0.14R  1/4
+CONFIRM +uptrend             STRONG    2309   35%  -0.17R  2/4
+CONFIRM +uptrend             MIXED     2558   38%  -0.19R  1/4
+CONFIRM +uptrend             WEAK      1426   40%  -0.12R  1/3
+CONFIRM +uptrend             VWEAK     1203   45%  -0.01R  2/3
+CONFIRM +RSI<35              ALL       2623   38%  -0.15R  1/4
+CONFIRM +RSI<35              STRONG     481   42%  -0.08R  2/4
+CONFIRM +RSI<35              MIXED      963   36%  -0.18R  1/4
+CONFIRM +RSI<35              WEAK       677   35%  -0.18R  1/3
+CONFIRM +RSI<35              VWEAK      502   41%  -0.14R  1/3
+CONFIRM +3 touch             ALL       6518   38%  -0.14R  1/4
+CONFIRM +3 touch             STRONG    2070   36%  -0.14R  2/4
+CONFIRM +3 touch             MIXED     2309   38%  -0.17R  1/4
+CONFIRM +3 touch             WEAK      1221   36%  -0.18R  1/3
+CONFIRM +3 touch             VWEAK      918   46%  -0.02R  2/3
+CONFIRM +uptrend +RSI<35     ALL       1685   39%  -0.14R  1/4
+CONFIRM +uptrend +RSI<35     STRONG     322   41%  -0.11R  2/4
+CONFIRM +uptrend +RSI<35     MIXED      545   38%  -0.17R  1/4
+CONFIRM +uptrend +RSI<35     WEAK       437   38%  -0.15R  1/3
+CONFIRM +uptrend +RSI<35     VWEAK      381   41%  -0.13R  1/3
+
+===== SL close, 5 din =====
+setup                        market       n  jeet   avg R  saal+
+BASE: random din             ALL       6549   44%  -0.06R  1/4
+BASE: random din             STRONG    2933   41%  -0.06R  0/4
+BASE: random din             MIXED     1808   44%  -0.06R  1/4
+BASE: random din             WEAK      1055   43%  -0.12R  1/3
+BASE: random din             VWEAK      753   53%  +0.04R  2/3
+TOUCH                        ALL      21488   42%  -0.13R  1/4
+TOUCH                        STRONG    5624   37%  -0.18R  1/4
+TOUCH                        MIXED     6956   42%  -0.12R  2/4
+TOUCH                        WEAK      4981   42%  -0.16R  2/4
+TOUCH                        VWEAK     3927   48%  -0.02R  1/3
+TOUCH +uptrend               ALL      12900   43%  -0.13R  1/4
+TOUCH +uptrend               STRONG    3472   38%  -0.18R  1/4
+TOUCH +uptrend               MIXED     3782   42%  -0.14R  2/4
+TOUCH +uptrend               WEAK      2969   42%  -0.16R  2/4
+TOUCH +uptrend               VWEAK     2677   49%  +0.00R  1/3
+TOUCH +RSI<35                ALL       4986   46%  -0.08R  1/4
+TOUCH +RSI<35                STRONG     708   41%  -0.13R  0/4
+TOUCH +RSI<35                MIXED     1493   45%  -0.10R  2/4
+TOUCH +RSI<35                WEAK      1497   43%  -0.22R  1/4
+TOUCH +RSI<35                VWEAK     1288   52%  +0.13R  2/3
+TOUCH +3 touch               ALL      13476   42%  -0.13R  1/4
+TOUCH +3 touch               STRONG    3568   37%  -0.19R  1/4
+TOUCH +3 touch               MIXED     4447   42%  -0.13R  2/4
+TOUCH +3 touch               WEAK      3078   42%  -0.16R  2/4
+TOUCH +3 touch               VWEAK     2383   48%  -0.03R  1/3
+TOUCH +uptrend +RSI<35       ALL       3136   48%  -0.03R  2/4
+TOUCH +uptrend +RSI<35       STRONG     454   43%  -0.06R  2/4
+TOUCH +uptrend +RSI<35       MIXED      801   48%  -0.07R  2/4
+TOUCH +uptrend +RSI<35       WEAK       874   43%  -0.19R  1/4
+TOUCH +uptrend +RSI<35       VWEAK     1007   53%  +0.16R  2/3
+CONFIRM                      ALL      12392   44%  -0.07R  1/4
+CONFIRM                      STRONG    3843   42%  -0.05R  2/4
+CONFIRM                      MIXED     4441   43%  -0.09R  1/4
+CONFIRM                      WEAK      2320   44%  -0.09R  1/3
+CONFIRM                      VWEAK     1788   48%  -0.04R  1/3
+CONFIRM +uptrend             ALL       7496   44%  -0.07R  1/4
+CONFIRM +uptrend             STRONG    2309   40%  -0.09R  2/4
+CONFIRM +uptrend             MIXED     2558   44%  -0.10R  1/4
+CONFIRM +uptrend             WEAK      1426   48%  -0.04R  1/3
+CONFIRM +uptrend             VWEAK     1203   49%  -0.04R  1/3
+CONFIRM +RSI<35              ALL       2623   42%  -0.11R  2/4
+CONFIRM +RSI<35              STRONG     481   42%  -0.07R  2/4
+CONFIRM +RSI<35              MIXED      963   38%  -0.14R  1/4
+CONFIRM +RSI<35              WEAK       677   45%  -0.11R  1/3
+CONFIRM +RSI<35              VWEAK      502   45%  -0.10R  1/3
+CONFIRM +3 touch             ALL       6518   43%  -0.09R  1/4
+CONFIRM +3 touch             STRONG    2070   40%  -0.07R  2/4
+CONFIRM +3 touch             MIXED     2309   42%  -0.11R  1/4
+CONFIRM +3 touch             WEAK      1221   45%  -0.08R  1/3
+CONFIRM +3 touch             VWEAK      918   46%  -0.11R  1/3
+CONFIRM +uptrend +RSI<35     ALL       1685   44%  -0.09R  2/4
+CONFIRM +uptrend +RSI<35     STRONG     322   41%  -0.05R  1/4
+CONFIRM +uptrend +RSI<35     MIXED      545   41%  -0.13R  1/4
+CONFIRM +uptrend +RSI<35     WEAK       437   48%  -0.06R  1/3
+CONFIRM +uptrend +RSI<35     VWEAK      381   47%  -0.09R  1/3
