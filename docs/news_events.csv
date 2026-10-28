@@ -1,16 +1,16 @@
 setup,symbol,flags,next_event,last_announcement,headlines
 BREAKOUT,BHARTIARTL,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-26 Certificate under SEBI (Depositories and Participants) Regulations, 2018","Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia | Stock Radar: Bharti Airtel stock takes support above 100-weeks WMA; will it cross 2,000 le"
 BREAKOUT,ATHERENERG,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Monitoring Agency Report,"Stock to buy today: Ather Energy (₹1,671) – BUY | Ather Energy Shares Rally 7% After Q2 Profit; HSBC, Nomura Raise Confidence"
-BREAKOUT,SONACOMS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Press Release,Sona BLW Precision Forgings among 4 stocks showing RSI trending up | Why Sona BLW Precision Forgings Share Price is Rising
+BREAKOUT,SONACOMS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Press Release,Sona BLW Precision Forgings among 4 stocks showing RSI trending up | Sona BLW Precision Forgings 52 Week High Streak: Second
 BREAKOUT,INDHOTEL,IN_NEWS,,,"Indian Hotels Q2FY27 net profit up 23% to ₹349 crore, misses estimates | Trade Spotlight: How should you trade Chennai Petroleum, Sansera Engineering, Zydus Lifesc"
-BREAKOUT,LAURUSLABS,RESULTS_SOON IN_NEWS,2026-10-29 Financial Results/Dividend,,"Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia | Laurus Labs Ltd is Rated Buy by MarketsMOJO"
+BREAKOUT,LAURUSLABS,RESULTS_SOON IN_NEWS,2026-10-29 Financial Results/Dividend,,"Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia | Soumya Chava on Laurus Labs’ push into finished-dose drugs"
 BREAKOUT,IGIL,IN_NEWS,,,"International Gemological Institute Limited Company Profile: Board of Directors, Capital S | International Gemological Institute Limited (IGIL) Total Returns | Historical Performance,"
-BREAKOUT,PASHUPATI,IN_NEWS,,,Pashupati Cotspin Limited (PASHUPATI) share price — eduinvesting
+BREAKOUT,PASHUPATI,none,,,
 BREAKOUT,GANDHAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Gandhar Oil Refinery Q2 Results: Net profit jumps over 4-fold, revenue surges 73% | Stocks to Watch Today: Jio Platforms, Paras Healthcare, Maruti Suzuki, Gandhar Oil, Home F"
 BREAKOUT,COHANCE,NEW_ANNOUNCEMENT,,2026-10-26 Board Meeting,
 PULLBACK,MEESHO,RESULTS_SOON IN_NEWS,2026-10-28 Financial Results,,"Meesho Q2: Brokerages expect sustained revenue growth; profitability in focus as festive s | India's E-Commerce Platforms See Festive Surge As Amazon, Flipkart, Meesho And Myntra Repo"
 PULLBACK,ANTELOPUS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Outcome of Board Meeting,Antelopus Selan Energy Q2: net profit up 385% YoY to ₹57.29 Cr as higher sales volumes dri
-PULLBACK,MARINE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-10-27 Bagging/Receiving of orders/contracts,Marine Electricals Bags Rs 362 Cr Power Orders
+PULLBACK,MARINE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-10-27 Bagging/Receiving of orders/contracts,Marine Electricals Bags Rs 362 Cr Power Orders | Marine Electricals wins ₹362.34 Cr orders for data center power expansion
 PULLBACK,CPPLUS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,Aditya Infotech appoints Ranveer Singh as CP PLUS brand ambassador | Aditya Infotech Ltd is Rated Buy
 PULLBACK,WELSPUNLIV,RESULTS_SOON,2026-10-30 Financial Results,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,IBULLSLTD,none,,,
@@ -26,14 +26,14 @@ PULLBACK,TEXINFRA,none,,,
 DIP,AGOL,EVENT_7D IN_NEWS,2026-11-04 Financial Results/Other business matters,,"Ashapuri Gold Ornament Ltd Forms Golden Cross Amid Mixed Technical Signals | Ashapuri Gold Ornament Ltd Locks at Lower Circuit With 4.9% Loss — Sellers Queue, No Buyer"
 DIP,DEEPA,NEW_ANNOUNCEMENT,,2026-10-26 Outcome of Board Meeting,
 DIP,PREMEXPLN,NEW_ANNOUNCEMENT,,"2026-10-27 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011",
-DIP,HUHTAMAKI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End | Huhtamaki India Q3FY27 Results: Net sales up 23.7% YoY to ₹7,481 million"
-DIP,HUHTAMAKI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End | Huhtamaki India Q3FY27 Results: Net sales up 23.7% YoY to ₹7,481 million"
+DIP,HUHTAMAKI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,Huhtamaki India Share Price Rises 8.15% Today: Analysis | Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End
+DIP,HUHTAMAKI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,Huhtamaki India Share Price Rises 8.15% Today: Analysis | Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End
 DIP,FIVESTAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Appointment,"Earnings call transcript: Five Star Bancorp beats Q3 2026 estimates as shares rise By Inve | DA Davidson maintains Buy rating on Five Star, $55 price target"
 DIP,AFCONS,none,,,
 DIP,AUBANK,IN_NEWS,,2026-10-26 Copy of Newspaper Publication,AU Small Finance Bank Q2FY27 Results: Net profit jumps 53% YoY
-DIP,SRIT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 General,"SRIT India Limited (SRIT.NS) Stock Price, News, Quote & History"
+DIP,SRIT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 General,SRIT India (NSE:SRIT) Board Outcome and IPO Details Explained
 DIP,ONIXSOLAR,none,,,
-DIP,SWIGGY,IN_NEWS,,,Shashank Kumar elevated to Director – Monetization at Swiggy | Buy Swiggy; target of Rs 310: Emkay Global Financial
+DIP,SWIGGY,IN_NEWS,,2026-10-28 Shareholders meeting,Shashank Kumar elevated to Director – Monetization at Swiggy
 DIP,NITYAS,RESULTS_SOON,2026-10-28 Financial Results,,
 DIP,JARO,none,,,
 DIP,ATUL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Public Announcement - Buyback of Shares,"Atul Limited (NSE:ATUL): Revenue Rises, Profit Falls in Q2 FY27"
@@ -42,18 +42,18 @@ DIP,AMAL,IN_NEWS,,,Amalgamated Financial (NASDAQ:AMAL) Sets New 1-Year High - St
 DIP,PITTIENG,IN_NEWS,,2026-10-26 Copy of Newspaper Publication,"Pitti Engineering Q2FY27 Results: Net profit falls 15%, EBITDA up 14% | Pitti Engineering (NSE:PITTIENG): Q2 FY27 Revenue-Profit Divergence"
 DIP,M&MFIN,none,,2026-10-27 Earnings Call Transcript,
 DIP,DYCL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Dynamic Cables board notes ₹2,360 BSE fine for filing delay | Dynamic Cables (NSE:DYCL) Board Comments on BSE Fine for One-Day Delay in Filing"
-DIP,TURTLEMINT,IN_NEWS,,,TURTLEMINT FINTECH SOLS L Share Price | Turtlemint Fintech Solutions Ltd. Share Price Live Today
-DIP,MAZDOCK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 General Updates,Why is Mazagon Dock stock collapsing today? By Investing.com | Mazagon Dock Q2 profit falls 54% to ₹344 crore as margins collapse
+DIP,TURTLEMINT,IN_NEWS,,,TURTLEMINT FINTECH SOLS L Share Price
+DIP,MAZDOCK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 General Updates,Why is Mazagon Dock stock collapsing today? By Investing.com | Mazagon Dock Shipbuilders share price cut 10% by HSBC after Q2 results on weak earnings fe
 DIP,SHAKTIPUMP,NEW_ANNOUNCEMENT,,"2026-10-27 Disclosures under Reg. 29(2) of SEBI (SAST) Regulations, 2011",
 DIP,SHRIRAMFIN,NEW_ANNOUNCEMENT,,2026-10-26 Monitoring Agency Report,
 DIP,AUGMONT,IN_NEWS,,,AUGMONT ENTERPRISES LTD Share Price | Augmont Enterprises Ltd (AUGMONT) Share Price
 DIP,ORIENTTECH,EVENT_7D NEW_ANNOUNCEMENT,2026-11-02 Financial Results/Dividend,2026-10-27 Board Meeting,
 DIP,OSWALPUMPS,none,,,
-DIP,SUMICHEM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Integrated Filing- Financial,Earnings call transcript: Sumitomo Chemical India misses Q2 2026 profit view | Sumitomo Chemical India Shares Investor Presentation for Stable FY2026 Performance
+DIP,SUMICHEM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Integrated Filing- Financial,Sumitomo Chemical India Q2 FY27 slides: stability tested amid monsoon woes | Sumitomo Chemical India Shares Investor Presentation for Stable FY2026 Performance
 DIP,VARMORA,IN_NEWS,,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,VARMORA GRANITO LIMITED Share Price | Varmora Granito Ltd. Share Price Today - Varmora Granito Ltd. Stock Price Live NSE/BSE
 DIP,YATRA,none,,,
-DIP,AEGISVOPAK,NEW_ANNOUNCEMENT,,2026-10-26 Outcome of Board Meeting,
-DIP,CREDITACC,IN_NEWS,,2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates,"Buy CreditAccess Grameen; target of Rs 1500: Emkay Global Financial | CreditAccess Grameen Ltd Forms Death Cross, Signalling Bearish Trend Ahead"
+DIP,AEGISVOPAK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Outcome of Board Meeting,Aegis Vopak Terminals Q2 FY27 Results Newspaper Publication
+DIP,CREDITACC,IN_NEWS,,2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates,"CreditAccess Grameen Ltd Forms Death Cross, Signalling Bearish Trend Ahead"
 DIP,MSTCLTD,none,,,
 DIP,ARMANFIN,EVENT_7D NEW_ANNOUNCEMENT,2026-11-04 Financial Results/Other business matters,2026-10-26 Board Meeting,
 DIP,NELCO,none,,,
@@ -67,10 +67,10 @@ DIP,EMUDHRA,EVENT_7D IN_NEWS,2026-11-04 Financial Results,,eMudhra Q1FY27: EBITD
 DIP,INDIANB,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 General,"Missed South Indian Bank's Run? Here Is What Holders Saw | South Indian Bank (NSE:SOUTHBANK) Allots 7,52,831 Equity Shares Under SIB ESOS Scheme - 20"
 DIP,ANANTRAJ,RESULTS_SOON,2026-10-28 Financial Results,,
 DIP,PNB,IN_NEWS,,,PNB set to close these accounts soon: Bank says complete KYC by November 10 to avoid accou
-DIP,YESBANK,IN_NEWS,,,"HDFC vs ICICI vs Yes Bank: Q4 Results Spark Stock-Specific Rally; Which Bank Stock Wins Th | Trending Stocks Today, October 27, 2026: Ola Electric, PC Jeweller, Vodafone Idea, YES Ban"
+DIP,YESBANK,none,,,
 DIP,BSOFT,RESULTS_SOON IN_NEWS,2026-10-28 Financial Results/Dividend,,What Birlasoft Investors Missed Before The Fall
-DIP,HAL,NEW_ANNOUNCEMENT,,2026-10-27 Board Meeting,
+DIP,HAL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Board Meeting,HAL Share Price
 DIP,TANLA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Updates,Tanla Platforms shares in focus as Q2 profit rises 17%; declares interim dividend | Tanla Platforms Q2FY27 Results: Net profit up 17% YoY to ₹146 crore
-DIP,UNIONBANK,IN_NEWS,,,"Five Stocks To Buy Today, October 28: Union Bank, Birla Cable, NSE, And More | City Union Bank Q2 Results: Asset Quality Improves, Profit Jumps Over 26%"
+DIP,UNIONBANK,IN_NEWS,,,"City Union Bank Shares Jump Up To 9% After Q2 Earnings | City Union Bank Q2 results: Stock jumps up to 10% on strong core income growth, better ass"
 DIP,ALGOQUANT,none,,,
 LOCKED,AURUM,none,,,
