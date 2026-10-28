@@ -1,14 +1,14 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,BHARTIARTL,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-26 Certificate under SEBI (Depositories and Participants) Regulations, 2018","Market wrap: Bharti Airtel, Tata Consumer, Asian Paints, Coal India top gainers and losers | Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia"
-BREAKOUT,ATHERENERG,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Monitoring Agency Report,"Ather Energy Shares Rally 7% After Q2 Profit; HSBC, Nomura Raise Confidence | Stock to buy today: Ather Energy (₹1,671) – BUY"
-BREAKOUT,SONACOMS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Press Release,Sona BLW Precision Forgings among 4 stocks showing RSI trending up | Sona BLW Precision zooms 9%; stock hits new high on record Q2 earnings
+BREAKOUT,BHARTIARTL,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-26 Certificate under SEBI (Depositories and Participants) Regulations, 2018","Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia | Bharti Airtel share price up 3%; rallies 12% in October, outperforms market"
+BREAKOUT,ATHERENERG,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Monitoring Agency Report,"Stock to buy today: Ather Energy (₹1,671) – BUY"
+BREAKOUT,SONACOMS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Press Release,Sona BLW Precision Forgings among 4 stocks showing RSI trending up | Sona BLW Precision Share Price Live: Shares surge 8% on stronger Q2 numbers
 BREAKOUT,INDHOTEL,IN_NEWS,,,"Trade Spotlight: How should you trade Chennai Petroleum, Sansera Engineering, Zydus Lifesc | Indian Hotels Q2FY27 net profit up 23% to ₹349 crore, misses estimates"
 BREAKOUT,LAURUSLABS,RESULTS_SOON IN_NEWS,2026-10-29 Financial Results/Dividend,,"Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia | Laurus Labs rallies 4% for 2nd straight day; stock hits new high"
 BREAKOUT,IGIL,IN_NEWS,,,"International Gemological Institute Limited Company Profile: Board of Directors, Capital S | International Gemological Institute Limited (IGIL) Total Returns | Historical Performance,"
 BREAKOUT,PASHUPATI,IN_NEWS,,,Pashupati Cotspin Limited (PASHUPATI) share price — eduinvesting
-BREAKOUT,GANDHAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Stocks to Watch Today: Jio Platforms, Paras Healthcare, Maruti Suzuki, Gandhar Oil, Home F | Gandhar Oil Refinery Q2FY27 Results: Net profit up 368% YoY to ₹186 crore"
+BREAKOUT,GANDHAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Gandhar Oil Refinery Q2 Results: Net profit jumps over 4-fold, revenue surges 73% | Stocks to Watch Today: Jio Platforms, Paras Healthcare, Maruti Suzuki, Gandhar Oil, Home F"
 BREAKOUT,COHANCE,NEW_ANNOUNCEMENT,,2026-10-26 Board Meeting,
-PULLBACK,MEESHO,RESULTS_SOON IN_NEWS,2026-10-28 Financial Results,,"Why Amazon And Flipkart Are Struggling To Beat Meesho In India's Smaller Cities | Q2 Results, Oct 28: HUL, Adani Ports, Adani Enterprises, TVS Motor, Hyundai Motor, Hero Mo"
+PULLBACK,MEESHO,RESULTS_SOON IN_NEWS,2026-10-28 Financial Results,,Why Amazon And Flipkart Are Struggling To Beat Meesho In India's Smaller Cities | Why Meesho leads Amazon and Flipkart in smaller cities
 PULLBACK,ANTELOPUS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Outcome of Board Meeting,Antelopus Selan Energy Q2: net profit up 385% YoY to ₹57.29 Cr as higher sales volumes dri
 PULLBACK,MARINE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-10-27 Bagging/Receiving of orders/contracts,Marine Electricals Bags Rs 362 Cr Power Orders | Marine Electricals MARINE Order Win Rs 362 Crore Data Centres
 PULLBACK,CPPLUS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,Aditya Infotech appoints Ranveer Singh as CP PLUS brand ambassador | Aditya Infotech partners with Ranveer Singh as brand ambassador for CP PLUS
@@ -16,7 +16,7 @@ PULLBACK,WELSPUNLIV,RESULTS_SOON,2026-10-30 Financial Results,2026-10-27 Analyst
 PULLBACK,IBULLSLTD,none,,,
 PULLBACK,OPTIEMUS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Agreements,Optiemus Infracom approves ₹50 crore unsecured loan to subsidiary GDN | Optiemus Infracom: Approves ₹50 Crore Loan to Subsidiary
 PULLBACK,ABDL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Allied Blenders Q2 Results: Profit rises 9.7% to Rs 69 crore, revenue up 6.8% | Allied Blenders and Distillers Limited Reports Earnings Results for the Second Quarter and"
-PULLBACK,ROSSTECH,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Disclosure of material issue,Rossell Techsys clarifies NSE queries on preferential issue
+PULLBACK,ROSSTECH,NEW_ANNOUNCEMENT,,2026-10-26 Disclosure of material issue,
 PULLBACK,UTTAMSUGAR,EVENT_7D,2026-10-31 Financial Results,,
 PULLBACK,RPEL,none,,,
 PULLBACK,JINDALPOLY,IN_NEWS,,,Jindal Poly Films Ltd Sees Technical Momentum Shift Amid Market Volatility | Jindal Poly Films Ltd is Rated Hold
@@ -31,7 +31,7 @@ DIP,HUHTAMAKI,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Huhtamaki Indi
 DIP,FIVESTAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Appointment,"Earnings call transcript: Five Star Bancorp beats Q3 2026 estimates as shares rise | DA Davidson maintains Buy rating on Five Star, $55 price target"
 DIP,AFCONS,IN_NEWS,,,Garware Offshore Services Limited Reaches ₹2.93 Crore Settlement with Afcons Infrastructur
 DIP,AUBANK,IN_NEWS,,2026-10-26 Copy of Newspaper Publication,AU Small Finance Bank Q2FY27 Results: Net profit jumps 53% YoY | AU Small Finance Bank target lowered to Rs 960 as higher expenses weigh on core profit
-DIP,SRIT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 General,SRIT India (NSE:SRIT) Board Outcome and IPO Details Explained | All You Need to Know About SRIT India IPO
+DIP,SRIT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 General,"SRIT India Limited (SRIT.NS) Stock Price, News, Quote & History"
 DIP,ONIXSOLAR,none,,,
 DIP,SWIGGY,IN_NEWS,,,Buy Swiggy; target of Rs 310: Emkay Global Financial
 DIP,NITYAS,RESULTS_SOON,2026-10-28 Financial Results,,
@@ -53,7 +53,7 @@ DIP,SUMICHEM,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 Integrated Filing- Financial,S
 DIP,VARMORA,IN_NEWS,,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,VARMORA GRANITO LIMITED Share Price | Varmora Granito Ltd. Share Price Today - Varmora Granito Ltd. Stock Price Live NSE/BSE
 DIP,YATRA,none,,,
 DIP,AEGISVOPAK,NEW_ANNOUNCEMENT,,2026-10-26 Outcome of Board Meeting,
-DIP,CREDITACC,IN_NEWS,,2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates,Buy CreditAccess Grameen; target of Rs 1500: Emkay Global Financial | CreditAccess Grameen Q2FY27 results: Net profit up 299% YoY to ₹502 crore
+DIP,CREDITACC,IN_NEWS,,2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates,Buy CreditAccess Grameen; target of Rs 1500: Emkay Global Financial
 DIP,MSTCLTD,none,,,
 DIP,ARMANFIN,EVENT_7D NEW_ANNOUNCEMENT,2026-11-04 Financial Results/Other business matters,2026-10-26 Board Meeting,
 DIP,NELCO,none,,,
@@ -64,13 +64,13 @@ DIP,SIMPLEXINF,none,,,
 DIP,KPEL,IN_NEWS,,,KP Energy locked at 5% upper circuit on 9-MW wind power project contract
 DIP,FUSION,EVENT_7D NEW_ANNOUNCEMENT,2026-11-02 Financial Results,2026-10-27 Board Meeting,
 DIP,EMUDHRA,EVENT_7D,2026-11-04 Financial Results,,
-DIP,INDIANB,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 General,"Missed South Indian Bank's Run? Here Is What Holders Saw | South Indian Bank (NSE:SOUTHBANK) Allots 7,52,831 Equity Shares Under SIB ESOS Scheme - 20"
+DIP,INDIANB,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-26 General,"Indian Bank Q1 Result: Profit Jumps 10%, Net Interest Income Up 17% YoY, PSU Lender Stock  | Missed South Indian Bank's Run? Here Is What Holders Saw"
 DIP,ANANTRAJ,RESULTS_SOON,2026-10-28 Financial Results,,
 DIP,PNB,none,,,
 DIP,YESBANK,IN_NEWS,,,HDFC vs ICICI vs Yes Bank: Q4 Results Spark Stock-Specific Rally; Which Bank Stock Wins Th | YES Bank shares slide to 52-week lows four times: Time to buy?
 DIP,BSOFT,RESULTS_SOON IN_NEWS,2026-10-28 Financial Results/Dividend,,What Birlasoft Investors Missed Before The Fall
-DIP,HAL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Board Meeting,"BEML, BDL, HAL, BEL, MTAR shares rise up to 5%; Macquarie, Goldman Sachs, others pick top  | HAL, BEL, Paras Defence, other stocks rise up to 4% after DAC clears proposals worth Rs 2."
-DIP,TANLA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Updates,Tanla Platforms shares in focus as Q2 profit rises 17%; declares interim dividend | 600% interim dividend: IT company Tanla Platforms announces payout with Q2; check record d
+DIP,HAL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Board Meeting,"BEML, BDL, HAL, BEL, MTAR shares rise up to 5%; Macquarie, Goldman Sachs, others pick top  | Apollo Micro, Paras Defence, BEL, HAL: Defence stocks today soar up to 9% as DAC clears ₹2"
+DIP,TANLA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Updates,Tanla Platforms shares in focus as Q2 profit rises 17%; declares interim dividend | Tanla Platforms Q2FY27 Results: Net profit up 17% YoY to ₹146 crore
 DIP,UNIONBANK,IN_NEWS,,,"Five Stocks To Buy Today, October 28: Union Bank, Birla Cable, NSE, And More"
 DIP,ALGOQUANT,none,,,
 LOCKED,AURUM,none,,,
