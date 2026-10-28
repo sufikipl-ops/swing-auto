@@ -230,3 +230,10 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   TOUCH (next open) or CONFIRM (close > previous high within 5 days), SL zone low - 0.5 ATR. Synthetic: ~0/slightly minus.
 - All variants negative overall (TOUCH -0.13R n 21.5k, CONFIRM -0.12R, +uptrend/+RSI<35/+3 touch similar). Only VWEAK slightly plus
   (+0.07..+0.19R) = same as the VWEAK random base (+0.16R), weaker than OVERSOLD_BOUNCE. Support level adds nothing.
+
+## User idea: uptrend stock that opens green stays green -> buy in the morning (2026-10-28) - FAIL
+- upopen_study.py (local; out/upopen_summary.txt). Daily 4 yrs (uptrend = close>EMA20>EMA50, EMA50 rising; entry at open):
+  uptrend + plus open open->close -0.43% (36% close>open), gap 1-3% -0.68%, gap 3%+ -1.21%; uptrend + flat/down open -0.10% (better).
+  2/5-day holds also negative in every regime except STRONG ~0. Only 53% of uptrend+green-open days even close above yesterday's close.
+- 15-min F&O (1 yr): uptrend + green open + green first candle + above VWAP, 9:30 entry: -0.11% intraday, -0.19%/-0.23% at 2/5 days;
+  TOP3 fastest -0.10%/-0.27%; bottom3 slightly better. The green you see all day is mostly the overnight gap, which you cannot buy.
