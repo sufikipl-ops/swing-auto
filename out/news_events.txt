@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-28 09:53 IST
+NEWS/EVENTS CHECK 2026-10-28 10:49 IST
 screen data date: 2026-10-27 | candidates: 24
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 75 symbols
@@ -10,22 +10,22 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 80 of 80 symbols, 201 headlines
+Google News: 80 of 80 symbols, 200 headlines
 PDF saar: 0 naye bane, 6 nahi bane, 40 pehle ke reuse (AI key: nahi)
 announcements.json: 38 symbols with announcements in last 3 days
-BHARTIARTL   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia | Bharti Airtel share price up 3%; rallies 12% in October, outperforms market
+BHARTIARTL   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Bharti Airtel Share Price Live Updates: Bharti Airtel Stock Details | Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia
 ATHERENERG   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Monitoring Agency Report | Stock to buy today: Ather Energy (₹1,671) – BUY
 SONACOMS     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Press Release | Sona BLW Precision Forgings among 4 stocks showing RSI trending up | Sona BLW Precision Share Price Live: Shares surge 8% on stronger Q2 numbers
-INDHOTEL     BREAKOUT   IN_NEWS                            |  |  | Trade Spotlight: How should you trade Chennai Petroleum, Sansera Engineering, Zydus Lifesc | Indian Hotels Q2FY27 net profit up 23% to ₹349 crore, misses estimates
+INDHOTEL     BREAKOUT   IN_NEWS                            |  |  | Indian Hotels Q2FY27 net profit up 23% to ₹349 crore, misses estimates | Trade Spotlight: How should you trade Chennai Petroleum, Sansera Engineering, Zydus Lifesc
 LAURUSLABS   BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-10-29 Financial Results/Dividend |  | Bharti Airtel, MCX, Laurus Labs look bullish on charts: Chandan Taparia | Laurus Labs rallies 4% for 2nd straight day; stock hits new high
 IGIL         BREAKOUT   IN_NEWS                            |  |  | International Gemological Institute Limited Company Profile: Board of Directors, Capital S | International Gemological Institute Limited (IGIL) Total Returns | Historical Performance,
 PASHUPATI    BREAKOUT   IN_NEWS                            |  |  | Pashupati Cotspin Limited (PASHUPATI) share price — eduinvesting
 GANDHAR      BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Gandhar Oil Refinery Q2 Results: Net profit jumps over 4-fold, revenue surges 73% | Stocks to Watch Today: Jio Platforms, Paras Healthcare, Maruti Suzuki, Gandhar Oil, Home F
 COHANCE      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-26 Board Meeting | 
-MEESHO       PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-28 Financial Results |  | Why Amazon And Flipkart Are Struggling To Beat Meesho In India's Smaller Cities | Why Meesho leads Amazon and Flipkart in smaller cities
+MEESHO       PULLBACK   RESULTS_SOON IN_NEWS               | 2026-10-28 Financial Results |  | Why Meesho leads Amazon and Flipkart in smaller cities
 ANTELOPUS    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Outcome of Board Meeting | Antelopus Selan Energy Q2: net profit up 385% YoY to ₹57.29 Cr as higher sales volumes dri
 MARINE       PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-04 Financial Results | 2026-10-27 Bagging/Receiving of orders/contracts | Marine Electricals Bags Rs 362 Cr Power Orders | Marine Electricals MARINE Order Win Rs 362 Crore Data Centres
-CPPLUS       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Aditya Infotech appoints Ranveer Singh as CP PLUS brand ambassador | Aditya Infotech partners with Ranveer Singh as brand ambassador for CP PLUS
+CPPLUS       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Aditya Infotech appoints Ranveer Singh as CP PLUS brand ambassador | Aditya Infotech Ltd is Rated Buy
 WELSPUNLIV   PULLBACK   RESULTS_SOON                       | 2026-10-30 Financial Results | 2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates | 
 OPTIEMUS     PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Agreements | Optiemus Infracom approves ₹50 crore unsecured loan to subsidiary GDN | Optiemus Infracom: Approves ₹50 Crore Loan to Subsidiary
 ABDL         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Allied Blenders Q2 Results: Profit rises 9.7% to Rs 69 crore, revenue up 6.8% | Allied Blenders and Distillers Limited Reports Earnings Results for the Second Quarter and
@@ -34,15 +34,15 @@ UTTAMSUGAR   PULLBACK   EVENT_7D                           | 2026-10-31 Financia
 JINDALPOLY   PULLBACK   IN_NEWS                            |  |  | Jindal Poly Films Ltd Sees Technical Momentum Shift Amid Market Volatility | Jindal Poly Films Ltd is Rated Hold
 CEIGALL      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Trading Window | Ceigall India CEIGALL Q2 FY27 Earnings Call November 2026
 NITINSPIN    PULLBACK   EVENT_7D                           | 2026-10-31 Financial Results | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | 
-AGOL         DIP        EVENT_7D IN_NEWS                   | 2026-11-04 Financial Results/Other business matters |  | Ashapuri Gold Ornament Lower Circuit Streak: Day 2 Price and Data | Ashapuri Gold Ornament Ltd Forms Golden Cross Amid Mixed Technical Signals
+AGOL         DIP        EVENT_7D IN_NEWS                   | 2026-11-04 Financial Results/Other business matters |  | Ashapuri Gold Ornament Ltd Forms Golden Cross Amid Mixed Technical Signals | Ashapuri Gold Ornament Ltd Locks at Lower Circuit With 4.9% Loss — Sellers Queue, No Buyer
 DEEPA        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Outcome of Board Meeting | Deepa Jewellers Ltd. Share Price Today - Deepa Jewellers Ltd. Stock Price Live NSE/BSE | Deepa Jewellers Q2 FY27: New Factory, Wider Client Base
 PREMEXPLN    DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-27 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011 | 
-HUHTAMAKI    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Huhtamaki India Q3FY27 Results: Net sales up 23.7% YoY to ₹7,481 million | Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End
-HUHTAMAKI    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Huhtamaki India Q3FY27 Results: Net sales up 23.7% YoY to ₹7,481 million | Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End
+HUHTAMAKI    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End | Huhtamaki India Q3FY27 Results: Net sales up 23.7% YoY to ₹7,481 million
+HUHTAMAKI    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Huhtamaki India Limited Reports Earnings Results for the Third Quarter and Nine Months End | Huhtamaki India Q3FY27 Results: Net sales up 23.7% YoY to ₹7,481 million
 FIVESTAR     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Appointment | Earnings call transcript: Five Star Bancorp beats Q3 2026 estimates as shares rise | DA Davidson maintains Buy rating on Five Star, $55 price target
 AFCONS       DIP        IN_NEWS                            |  |  | Garware Offshore Services Limited Reaches ₹2.93 Crore Settlement with Afcons Infrastructur
 AUBANK       DIP        IN_NEWS                            |  | 2026-10-26 Copy of Newspaper Publication | AU Small Finance Bank Q2FY27 Results: Net profit jumps 53% YoY | AU Small Finance Bank target lowered to Rs 960 as higher expenses weigh on core profit
-SRIT         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 General | SRIT India Limited (SRIT.NS) Stock Price, News, Quote & History
+SRIT         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 General | SRIT India Limited (SRIT.NS) Stock Price, News, Quote & History | SRIT India (NSE:SRIT) Board Outcome and IPO Details Explained
 SWIGGY       DIP        IN_NEWS                            |  |  | Buy Swiggy; target of Rs 310: Emkay Global Financial
 NITYAS       DIP        RESULTS_SOON                       | 2026-10-28 Financial Results |  | 
 ATUL         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Public Announcement - Buyback of Shares | Atul Limited (NSE:ATUL): Revenue Rises, Profit Falls in Q2 FY27
@@ -51,43 +51,42 @@ AMAL         DIP        IN_NEWS                            |  |  | Amalgamated F
 PITTIENG     DIP        IN_NEWS                            |  | 2026-10-26 Copy of Newspaper Publication | Pitti Engineering Q2FY27 Results: Net profit falls 15%, EBITDA up 14% | Pitti Engineering (NSE:PITTIENG): Q2 FY27 Revenue-Profit Divergence
 DYCL         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Dynamic Cables board notes ₹2,360 BSE fine for filing delay | Dynamic Cables (NSE:DYCL) Board Comments on BSE Fine for One-Day Delay in Filing
 TURTLEMINT   DIP        IN_NEWS                            |  |  | TURTLEMINT FINTECH SOLS L Share Price | Turtlemint Fintech Solutions Ltd. Share Price Live Today
-MAZDOCK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 General Updates | Why is Mazagon Dock stock collapsing today? By Investing.com | Mazagon Dock Q2 Results: Profit Falls 54%, Margins Contract Sharply To 8.1%
-SHAKTIPUMP   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Disclosures under Reg. 29(2) of SEBI (SAST) Regulations, 2011 | Vintex Tools acquires 14,000 shares of Shakti Pumps
+MAZDOCK      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 General Updates | Why is Mazagon Dock stock collapsing today? By Investing.com | Mazagon Dock Q2 profit falls 54% to ₹344 crore as margins collapse
+SHAKTIPUMP   DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-27 Disclosures under Reg. 29(2) of SEBI (SAST) Regulations, 2011 | 
 SHRIRAMFIN   DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-26 Monitoring Agency Report | 
 AUGMONT      DIP        IN_NEWS                            |  |  | AUGMONT ENTERPRISES LTD Share Price | Augmont Enterprises Ltd (AUGMONT) Share Price
 ORIENTTECH   DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-02 Financial Results/Dividend | 2026-10-27 Board Meeting | 
-OSWALPUMPS   DIP        IN_NEWS                            |  |  | Oswal Pumps Limited (OSWALPUMPS) share price — eduinvesting
-SUMICHEM     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Integrated Filing- Financial | Sumitomo Chemical India Q2 FY27 slides: stability tested amid monsoon woes | Sumitomo Chemical India Shares Investor Presentation for Stable FY2026 Performance
+SUMICHEM     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 Integrated Filing- Financial | Earnings call transcript: Sumitomo Chemical India misses Q2 2026 profit view | Sumitomo Chemical India Shares Investor Presentation for Stable FY2026 Performance
 VARMORA      DIP        IN_NEWS                            |  | 2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates | VARMORA GRANITO LIMITED Share Price | Varmora Granito Ltd. Share Price Today - Varmora Granito Ltd. Stock Price Live NSE/BSE
 AEGISVOPAK   DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-26 Outcome of Board Meeting | 
-CREDITACC    DIP        IN_NEWS                            |  | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | Buy CreditAccess Grameen; target of Rs 1500: Emkay Global Financial
+CREDITACC    DIP        IN_NEWS                            |  | 2026-10-26 Analysts/Institutional Investor Meet/Con. Call Updates | Buy CreditAccess Grameen; target of Rs 1500: Emkay Global Financial | CreditAccess Grameen Ltd Forms Death Cross, Signalling Bearish Trend Ahead
 ARMANFIN     DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-04 Financial Results/Other business matters | 2026-10-26 Board Meeting | 
 SHYAMMETL    DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-10-31 Financial Results/Other business matters | 2026-10-27 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | 
 JWL          DIP        IN_NEWS                            |  |  | Kolkata-based Jupiter Wagons signs MoU with Poland’s PESA to explore metro and high-speed 
 KPEL         DIP        IN_NEWS                            |  |  | KP Energy locked at 5% upper circuit on 9-MW wind power project contract
 FUSION       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-02 Financial Results | 2026-10-27 Board Meeting | 
 EMUDHRA      DIP        EVENT_7D                           | 2026-11-04 Financial Results |  | 
-INDIANB      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 General | Indian Bank Q1 Result: Profit Jumps 10%, Net Interest Income Up 17% YoY, PSU Lender Stock  | Missed South Indian Bank's Run? Here Is What Holders Saw
+INDIANB      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-26 General | Missed South Indian Bank's Run? Here Is What Holders Saw | South Indian Bank (NSE:SOUTHBANK) Allots 7,52,831 Equity Shares Under SIB ESOS Scheme - 20
 ANANTRAJ     DIP        RESULTS_SOON                       | 2026-10-28 Financial Results |  | 
 YESBANK      DIP        IN_NEWS                            |  |  | HDFC vs ICICI vs Yes Bank: Q4 Results Spark Stock-Specific Rally; Which Bank Stock Wins Th | YES Bank shares slide to 52-week lows four times: Time to buy?
 BSOFT        DIP        RESULTS_SOON IN_NEWS               | 2026-10-28 Financial Results/Dividend |  | What Birlasoft Investors Missed Before The Fall
 HAL          DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Board Meeting | BEML, BDL, HAL, BEL, MTAR shares rise up to 5%; Macquarie, Goldman Sachs, others pick top  | Apollo Micro, Paras Defence, BEL, HAL: Defence stocks today soar up to 9% as DAC clears ₹2
 TANLA        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Updates | Tanla Platforms shares in focus as Q2 profit rises 17%; declares interim dividend | Tanla Platforms Q2FY27 Results: Net profit up 17% YoY to ₹146 crore
 UNIONBANK    DIP        IN_NEWS                            |  |  | Five Stocks To Buy Today, October 28: Union Bank, Birla Cable, NSE, And More
-Symbols with no flags: 14. Top market headlines:
+Symbols with no flags: 15. Top market headlines:
+  [ET Markets] L&amp;T shares rally 6% after Q2 net profit jumps 33% YoY. Why Jefferies cut target price?
+  [ET Markets] Akash Ambani announces Jio’s next big mission after data: Bring AI, cloud and space connectivity to every Indi
+  [ET Markets] Jio Platforms listing at BSE: 'Will create value for decades to come', says Akash Ambani
+  [ET Markets] Jio makes its D-Street debut: What it means for Reliance Industries investors and the road ahead
+  [ET Markets] Jio after listing: 5 factors that could drive big returns for long-term investors
+  [ET Markets] UPL among 3 stocks closing above VWAP
+  [ET Markets] HUL Q2 Results: Net profit rises 4% YoY to Rs 2,790 crore; Rs 19/share dividend declared
+  [ET Markets] Jio Platforms shares list at 21% premium over IPO price. Should investors buy, sell or hold the stock?
   [ET Markets] Kotak adds 5 new midcap stocks which fell up to 16% in one month to its model portfolio. Take a look
-  [ET Markets] Why is market falling today? Sensex tumbles 700 pts, Nifty slips below 22,600. 4 key triggers behind bear atta
+  [ET Markets] Sensex takes a 900-point beating despite Jio’s solid debut; 4 triggers spooking D-Street
   [ET Markets] TD Power Systems among 3 stocks close crossing below VWAP
   [ET Markets] RIL shares in focus ahead of Oct 30 earnings, fundraising decision; all eyes on Jio’s mega listing
-  [ET Markets] Jio IPO Listing Live Updates: Jio shares settle at Rs 1,358 vs issue price of Rs 1,119 on NSE, BSE. Catch all 
-  [ET Markets] Data Patterns among 4 stocks showing the White Marubozu pattern
-  [ET Markets] Sona BLW Precision Forgings among 4 stocks showing RSI trending up
-  [ET Markets] Cipla Share Price Live Updates: Cipla's Trading Dynamics
-  [ET Markets] BPCL Share Price Live Updates: BPCL's Price Movement Below 20-Day SMA
-  [ET Markets] HDFC Bank Share Price Live Updates: HDFC Bank's Trading Volume Overview
-  [ET Markets] Power Grid Share Price Live Updates: Power Grid's Current Financial Snapshot
-  [ET Markets] UPL Share Price Live Updates: UPL's Positive Trend Alert
-  [ET Markets] JSW Steel Share Price Live Updates: JSW Steel Market Activity Update
-  [ET Markets] Paras Healthcare shares to list today: Check GMP ahead of debut
-  [ET Markets] HUL Share Price Live Updates: HUL's Stock Surges Past EMA
+  [ET Markets] HDFC Life Share Price Live Updates: HDFC Life's Market Update
+  [ET Markets] Hero MotoCorp Share Price Live Updates: Hero MotoCorp Stock Details
+  [ET Markets] Jio Platforms Share Price Live Updates: Jio Platforms shares trade flat after listing at 21% on NSE, BSE. Chec
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
