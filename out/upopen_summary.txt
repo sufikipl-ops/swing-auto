@@ -1,0 +1,127 @@
+UPTREND + PLUS OPEN STUDY (2026-10-28): daily 2022-09-19 se 2026-10-26, 3247 stocks
+
+===== A) DAILY: entry subah OPEN par (4 saal) =====
+
+-- din bhar (open->close) --
+group                          market       n  jeet     avg%
+SAB liquid stock               ALL     916161   40%   -0.28%
+SAB liquid stock               STRONG  403840   40%   -0.17%
+SAB liquid stock               MIXED   254864   41%   -0.21%
+SAB liquid stock               WEAK    158092   38%   -0.48%
+SAB liquid stock               VWEAK    99365   38%   -0.64%
+UPTREND (sab)                  ALL     362149   39%   -0.32%
+UPTREND (sab)                  STRONG  228080   40%   -0.22%
+UPTREND (sab)                  MIXED    87622   39%   -0.33%
+UPTREND (sab)                  WEAK     35103   35%   -0.70%
+UPTREND (sab)                  VWEAK    11344   34%   -1.04%
+UPTREND + plus open (gap>0)    ALL     238741   36%   -0.43%
+UPTREND + plus open (gap>0)    STRONG  161617   37%   -0.32%
+UPTREND + plus open (gap>0)    MIXED    51533   35%   -0.51%
+UPTREND + plus open (gap>0)    WEAK     19820   31%   -0.92%
+UPTREND + plus open (gap>0)    VWEAK     5771   31%   -1.06%
+UPTREND + gap 0-1%             ALL     190148   37%   -0.35%
+UPTREND + gap 0-1%             STRONG  130477   38%   -0.25%
+UPTREND + gap 0-1%             MIXED    40159   36%   -0.41%
+UPTREND + gap 0-1%             WEAK     15379   32%   -0.81%
+UPTREND + gap 0-1%             VWEAK     4133   29%   -1.06%
+UPTREND + gap 1-3%             ALL      42735   33%   -0.68%
+UPTREND + gap 1-3%             STRONG   27698   34%   -0.56%
+UPTREND + gap 1-3%             MIXED     9828   33%   -0.76%
+UPTREND + gap 1-3%             WEAK      3855   30%   -1.20%
+UPTREND + gap 1-3%             VWEAK     1354   35%   -1.08%
+UPTREND + gap 3%+              ALL       5858   31%   -1.21%
+UPTREND + gap 3%+              STRONG    3442   32%   -0.98%
+UPTREND + gap 3%+              MIXED     1546   29%   -1.47%
+UPTREND + gap 3%+              WEAK       586   29%   -1.98%
+UPTREND + gap 3%+              VWEAK      284   34%   -0.98%
+UPTREND + neeche/flat open     ALL     123408   45%   -0.10%
+UPTREND + neeche/flat open     STRONG   66463   46%   +0.04%
+UPTREND + neeche/flat open     MIXED    36089   45%   -0.07%
+UPTREND + neeche/flat open     WEAK     15283   40%   -0.42%
+UPTREND + neeche/flat open     VWEAK     5573   36%   -1.01%
+
+-- 2 din (SL 2ATR) --
+group                          market       n  jeet     avg%
+SAB liquid stock               ALL     916161   40%   -0.41%
+SAB liquid stock               STRONG  403840   42%   -0.22%
+SAB liquid stock               MIXED   254864   40%   -0.39%
+SAB liquid stock               WEAK    158092   39%   -0.68%
+SAB liquid stock               VWEAK    99365   40%   -0.77%
+UPTREND (sab)                  ALL     362149   40%   -0.43%
+UPTREND (sab)                  STRONG  228080   41%   -0.27%
+UPTREND (sab)                  MIXED    87622   39%   -0.50%
+UPTREND (sab)                  WEAK     35103   36%   -1.03%
+UPTREND (sab)                  VWEAK    11344   36%   -1.06%
+UPTREND + plus open (gap>0)    ALL     238741   38%   -0.51%
+UPTREND + plus open (gap>0)    STRONG  161617   40%   -0.35%
+UPTREND + plus open (gap>0)    MIXED    51533   37%   -0.68%
+UPTREND + plus open (gap>0)    WEAK     19820   33%   -1.21%
+UPTREND + plus open (gap>0)    VWEAK     5771   32%   -1.26%
+UPTREND + gap 0-1%             ALL     190148   39%   -0.44%
+UPTREND + gap 0-1%             STRONG  130477   40%   -0.28%
+UPTREND + gap 0-1%             MIXED    40159   37%   -0.58%
+UPTREND + gap 0-1%             WEAK     15379   33%   -1.17%
+UPTREND + gap 0-1%             VWEAK     4133   30%   -1.26%
+UPTREND + gap 1-3%             ALL      42735   36%   -0.74%
+UPTREND + gap 1-3%             STRONG   27698   37%   -0.59%
+UPTREND + gap 1-3%             MIXED     9828   36%   -0.87%
+UPTREND + gap 1-3%             WEAK      3855   34%   -1.24%
+UPTREND + gap 1-3%             VWEAK     1354   34%   -1.43%
+UPTREND + gap 3%+              ALL       5858   36%   -1.28%
+UPTREND + gap 3%+              STRONG    3442   38%   -0.85%
+UPTREND + gap 3%+              MIXED     1546   32%   -2.05%
+UPTREND + gap 3%+              WEAK       586   32%   -2.12%
+UPTREND + gap 3%+              VWEAK      284   38%   -0.50%
+UPTREND + neeche/flat open     ALL     123408   44%   -0.25%
+UPTREND + neeche/flat open     STRONG   66463   45%   -0.09%
+UPTREND + neeche/flat open     MIXED    36089   44%   -0.24%
+UPTREND + neeche/flat open     WEAK     15283   39%   -0.79%
+UPTREND + neeche/flat open     VWEAK     5573   40%   -0.86%
+
+-- 5 din (SL 2ATR) --
+group                          market       n  jeet     avg%
+SAB liquid stock               ALL     916161   43%   -0.37%
+SAB liquid stock               STRONG  403840   44%   -0.04%
+SAB liquid stock               MIXED   254864   41%   -0.60%
+SAB liquid stock               WEAK    158092   41%   -0.84%
+SAB liquid stock               VWEAK    99365   46%   -0.36%
+UPTREND (sab)                  ALL     362149   43%   -0.34%
+UPTREND (sab)                  STRONG  228080   45%   -0.05%
+UPTREND (sab)                  MIXED    87622   41%   -0.70%
+UPTREND (sab)                  WEAK     35103   39%   -1.17%
+UPTREND (sab)                  VWEAK    11344   41%   -0.88%
+UPTREND + plus open (gap>0)    ALL     238741   42%   -0.42%
+UPTREND + plus open (gap>0)    STRONG  161617   44%   -0.14%
+UPTREND + plus open (gap>0)    MIXED    51533   39%   -0.84%
+UPTREND + plus open (gap>0)    WEAK     19820   37%   -1.36%
+UPTREND + plus open (gap>0)    VWEAK     5771   37%   -1.34%
+UPTREND + gap 0-1%             ALL     190148   42%   -0.35%
+UPTREND + gap 0-1%             STRONG  130477   44%   -0.07%
+UPTREND + gap 0-1%             MIXED    40159   39%   -0.77%
+UPTREND + gap 0-1%             WEAK     15379   36%   -1.42%
+UPTREND + gap 0-1%             VWEAK     4133   37%   -1.16%
+UPTREND + gap 1-3%             ALL      42735   40%   -0.65%
+UPTREND + gap 1-3%             STRONG   27698   40%   -0.43%
+UPTREND + gap 1-3%             MIXED     9828   40%   -0.92%
+UPTREND + gap 1-3%             WEAK      3855   41%   -1.11%
+UPTREND + gap 1-3%             VWEAK     1354   37%   -1.90%
+UPTREND + gap 3%+              ALL       5858   36%   -1.21%
+UPTREND + gap 3%+              STRONG    3442   38%   -0.74%
+UPTREND + gap 3%+              MIXED     1546   33%   -2.09%
+UPTREND + gap 3%+              WEAK       586   37%   -1.50%
+UPTREND + gap 3%+              VWEAK      284   33%   -1.40%
+UPTREND + neeche/flat open     ALL     123408   45%   -0.18%
+UPTREND + neeche/flat open     STRONG   66463   47%   +0.19%
+UPTREND + neeche/flat open     MIXED    36089   43%   -0.49%
+UPTREND + neeche/flat open     WEAK     15283   42%   -0.93%
+UPTREND + neeche/flat open     VWEAK     5573   45%   -0.40%
+
+===== B) 15-MIN (F&O, 214 stock): entry 9:30 (pehli candle close) =====
+group                                          | aaj 15:15 (SL 1st low) | 2 din (close)          | 5 din (close)         
+SAB stock (9:30 entry)                         |  51541   25%   -0.12% |  51541   43%   -0.27% |  51541   44%   -0.28%
+UPTREND (sab)                                  |  16358   24%   -0.13% |  16358   42%   -0.32% |  16358   45%   -0.30%
+UPTREND + plus open + green 15m + VWAP upar    |   3528   37%   -0.11% |   3528   43%   -0.19% |   3528   45%   -0.23%
+    (pehla aadha)                              |   1846   38%   -0.10% |   1846   44%   -0.21% |   1846   46%   -0.23%
+    (doosra aadha)                             |   1682   35%   -0.11% |   1682   43%   -0.18% |   1682   44%   -0.22%
+  ... TOP3 (pehle 15 min sabse tez)            |    640   42%   -0.10% |    640   45%   -0.27% |    640   45%   -0.27%
+  ... BOTTOM3 (sabse dheema)                   |    640   34%   -0.08% |    640   46%   -0.06% |    640   48%   +0.01%
