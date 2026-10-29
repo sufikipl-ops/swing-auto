@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-29 09:11 IST
+NEWS/EVENTS CHECK 2026-10-29 10:11 IST
 screen data date: 2026-10-28 | candidates: 21
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 57 symbols
@@ -6,11 +6,11 @@ locked stocks added for announcements: AURUM,SKYGOLD,SHANTIGOLD,FAIRCHEMOR,PREME
 NSE announcements fetched for 56 of 56 symbols
 BSE announcements: 56 symbols checked, 21 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
-RSS Business Standard FAIL: not well-formed (invalid token): line 159, column 58
+RSS Business Standard FAIL: not well-formed (invalid token): line 217, column 58
 RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
 RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
 RSS Mint: OK, 35 items
-Google News: 61 of 61 symbols, 137 headlines
+Google News: 61 of 61 symbols, 136 headlines
 PDF saar: 0 naye bane, 9 nahi bane, 29 pehle ke reuse (AI key: nahi)
 announcements.json: 34 symbols with announcements in last 3 days
 SONACOMS     BREAKOUT   IN_NEWS                            |  | 2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates | Sona BLW shares surge 85% in 2026, hit record high for second straight session: What’s dri | Sona BLW Q2FY27 Results: PAT up 29% to ₹223 crore, beats estimates
@@ -44,24 +44,24 @@ MSTCLTD      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Gener
 DYCL         DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-27 Press Release | 
 FUSION       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-02 Financial Results | 2026-10-27 Board Meeting | 
 ARMANFIN     DIP        EVENT_7D                           | 2026-11-04 Financial Results/Other business matters |  | 
-YASHO        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release (Revised) | Yasho Industries Reports Q2 Standalone Net Profit Of ₹30.6 Crore Versus ₹2.87 Crore YoY | Yasho Industries Q2FY27 Results: EBITDA margin expands to 20.32% on revenue surge
+YASHO        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release (Revised) | Yasho Industries Q2FY27 Results: EBITDA margin expands to 20.32% on revenue surge | Yasho Industries Share Price and Results
 ANANTRAJ     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Monitoring Agency Report | Anant Raj Q2 Results: Profit rises 13% to Rs 156 crore | Anant Raj Q2 Profit Rises 13% as Gurugram Launch Nears
-MIDWESTLTD   DIP        IN_NEWS                            |  |  | MIDWEST ACCESS: October 28, 2026 | Midwest Ltd Faces Bearish Momentum Amid Technical Downgrade
+MIDWESTLTD   DIP        IN_NEWS                            |  |  | MIDWEST ACCESS: October 28, 2026 | "We believe this program will strengthen our presence in the Midwest"
 SWIGGY       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011 | Nippon India MF raises stake in Swiggy to 5.17% via open market buys
 Symbols with no flags: 22. Top market headlines:
+  [ET Markets] Potential LTCG tax cut could revive FIIs’ India bet, says Jefferies: Which stocks may benefit most?
+  [ET Markets] Nifty’s early comeback signal: Why largecaps are holding up as broader market slides
+  [ET Markets] Adani Ports shares rise 3% after Q2 results. Why did Jefferies and Nomura raise target prices?
+  [ET Markets] Meesho shares fall 3% even as Q2 loss narrows to Rs 132 cr. Why Jefferies raised target price but Nomura remai
+  [ET Markets] Zee Entertainment among 4 stocks closing above VWAP
+  [ET Markets] Jio Platforms shares jump 5% on Day 2 after ending 27% higher on debut day. Buy, sell or hold?
+  [ET Markets] Ambani magic captivates India once more with blockbuster deal
+  [ET Markets] Securities Appellate Tribunal quashes Rs 1.49 crore penalty on Ventura Securities by MCX
   [ET Markets] PVR Inox Q2 profit rises 111% to Rs 273 crore, targets 500 new screens in 3 years
   [ET Markets] Pidilite Industries reports 7% YoY growth in net profit to Rs 626 crore
   [ET Markets] JSW Energy Q2 profit jumps 50%; 3 gigawatt target on track
+  [ET Markets] Power Grid Share Price Live Updates: Power Grid's Trading Update
+  [ET Markets] LTIMindtree Share Price Live Updates: LTIMindtree  Price Movement Overview
   [ET Markets] Adani Ports reports 18% net profit rise to Rs 3,682 crore in Q2 FY27
   [ET Markets] Coal India Share Price Live Updates: Coal India  Sees 1-Week Returns Drop
-  [ET Markets] Reliance Industries Share Price Live Updates: Disclosure Under Regulation 30 Of The Securities And Exchange Bo
-  [ET Markets] Kotak Bank Share Price Live Updates: Kotak Bank's six-month beta reflects stability
-  [ET Markets] Biocon among 4 stocks showing bullish White Marubozu pattern
-  [ET Markets] Piramal Pharma among 4 stocks showing RSI Trending Up
-  [ET Markets] M&amp;M Share Price Live Updates: M&amp;M's beta indicates significant market responsiveness
-  [ET Markets] HDFC Life Share Price Live Updates: HDFC Life's six-month beta shows resilience
-  [ET Markets] Grasim Inds Share Price Live Updates: Grasim Industries  Market Sensitivity
-  [ET Markets] UB expects Q3 profit growth to moderate on rising costs
-  [ET Markets] Positive Breakout: These 7 stocks cross above their 200 DMAs
-  [ET Markets] Adani Enterprises Q2 net profit falls 55% despite 75% increase in revenue
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
