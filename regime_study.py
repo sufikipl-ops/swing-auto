@@ -347,3 +347,16 @@ for (st_, rg), v in EX.items():
 json.dump({'updated': datetime.date.today().isoformat(), 'exit': '2ATR/5d', 'data': RTX},
           open('docs/regime_trades.json', 'w'), separators=(',', ':'))
 print('regime_trades.json', sum(len(x) for x in RTX.values()))
+# app ka "Time Machine": har stock par har setup ka apna 4 saal ka record (2ATR/5d) -> docs/stock_hist.json
+# {sym: {setup: {regime|'ALL': [n, jeet, avgR, sabse bura R, aakhri din]}}}
+SH = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(list)))
+for (st_, rg), v in EX.items():
+    if st_ in ('STRUCT', 'STRUCT_DEEP', 'RS_LEADER', 'HIGH52', 'DEMAND_CHOCH'): continue
+    for d, sy, r_ in v:
+        SH[sy][st_][rg].append((d, r_)); SH[sy][st_]['ALL'].append((d, r_))
+def _pk(v):
+    return [len(v), sum(1 for _, r_ in v if r_ > 0), round(sum(r_ for _, r_ in v) / len(v), 2), round(min(r_ for _, r_ in v), 2), max(d for d, _ in v).isoformat()]
+json.dump({'updated': datetime.date.today().isoformat(), 'exit': '2ATR/5d',
+           'data': {sy: {st_: {rg: _pk(v) for rg, v in g.items()} for st_, g in m.items()} for sy, m in SH.items()}},
+          open('docs/stock_hist.json', 'w'), separators=(',', ':'))
+print('stock_hist.json', len(SH))
