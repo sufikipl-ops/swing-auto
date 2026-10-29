@@ -300,7 +300,7 @@ function tradePlSum(){var tot=0,n=0;TR.forEach(function(t){if(t.status!='OPEN'&&
 return n?'<div class="tpl"><b>Khule trades ka live P&amp;L ('+n+'): <span class="'+(tot>=0?'g':'r')+'">'+(tot>=0?'+':'-')+'₹'+f(Math.abs(tot),0)+'</span></b><small> (kharcha alag)</small></div>':''}
 function skipSig(){var a=[];SR.forEach(function(r){if(liveSkip(r.SYMBOL))a.push(r.SYMBOL)});DP.forEach(function(r){var l=dipLive(r);a.push('d'+r.SYMBOL+(l?l[0]:''))});return a.join(',')+'|'+ignSig()}
 function onLive(){paintLive();if(!cur&&tab=='picks'){var ae=document.activeElement;if(ae&&ae.tagName=='INPUT')return;rankAll();var sg=skipSig();if(sg!==LVSIG){lastY=window.pageYOffset||0;render(true)}}}
-function tick(){if(!document.hidden){syncAll();maybeRefresh()}setTimeout(tick,marketHours()?30000:300000)}
+function tick(){if(!document.hidden){syncAll();maybeRefresh()}setTimeout(tick,marketHours()?15000:300000)}
 
 /* ---------- SYNC + LOCK: Lock, Risk, Capital, "Sab dikhao" Google Sheet me save hote hain => phone/laptop/web par same ---------- */
 function pinsOn(){return PIN_URL.indexOf('https://')==0||PIN_URL.indexOf('http://127.0.0.1')==0}

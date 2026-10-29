@@ -35,9 +35,34 @@ function kickWorkflows() {
     console.log(hm + ' ' + k[0] + ' -> ' + code + ' ' + res.getContentText().slice(0, 200));
     if (code == 204) props.setProperty(flag, '1');
   });
+  watchdog(props, token, hm, day);
   // purane flag saaf (7 din se purane)
   var keys = props.getKeys(), cut = Utilities.formatDate(new Date(now.getTime() - 7 * 864e5), 'Asia/Kolkata', 'yyyy-MM-dd');
   keys.forEach(function (key) { if (key.indexOf('kick_') == 0 && key.slice(5, 15) < cut) props.deleteProperty(key); });
+}
+
+// Market ke time (9:16-15:25) live feed ruka (aakhri bhav 4 min se purana) to live.yml dobara chalu (15 min me ek baar).
+// App ka apna web-app URL (index.html ka PIN_URL/PIN_KEY) padh ke 'live.ts' dekhta hai.
+var APP_URL = 'https://script.google.com/macros/s/AKfycbwTutE4YKjhrqUNwYuZwgRqPSLvelaSeBwkibi2M6Kmexkfh27jVgYcceTr8yh73mQ7yQ/exec';   // app ka web app URL (index.html PIN_URL)
+var APP_KEY = 'sd-24e5af0f609d8c48f5c5';   // index.html PIN_KEY
+function watchdog(props, token, hm, day) {
+  if (!APP_URL || hm < '09:16' || hm > '15:25') return;
+  var last = Number(props.getProperty('wd_last') || 0);
+  if (Date.now() - last < 15 * 60 * 1000) return;
+  var age = 1e9;
+  try {
+    var d = JSON.parse(UrlFetchApp.fetch(APP_URL + '?key=' + encodeURIComponent(APP_KEY) + '&action=get&t=' + Date.now(), { muteHttpExceptions: true }).getContentText());
+    var L = typeof d.live == 'string' ? JSON.parse(d.live) : d.live;
+    if (L && L.ts && L.date == day) age = (Date.now() - new Date(L.ts + '+05:30').getTime()) / 1000;
+  } catch (e) { console.log('watchdog read err ' + e); return; }
+  if (age < 240) return;
+  var res = UrlFetchApp.fetch('https://api.github.com/repos/' + GH_REPO + '/actions/workflows/live.yml/dispatches', {
+    method: 'post', contentType: 'application/json', muteHttpExceptions: true,
+    headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+    payload: JSON.stringify({ ref: 'main' })
+  });
+  props.setProperty('wd_last', String(Date.now()));
+  console.log(hm + ' watchdog: live ' + Math.round(age) + ' sec purana -> live.yml dispatch ' + res.getResponseCode());
 }
 
 // Ek baar Run karo: har 5 min wala timer lagata hai (pehle wala ho to hata ke naya)
