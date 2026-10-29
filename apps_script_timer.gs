@@ -53,9 +53,10 @@ function watchdog(props, token, hm, day) {
   try {
     var d = JSON.parse(UrlFetchApp.fetch(APP_URL + '?key=' + encodeURIComponent(APP_KEY) + '&action=get&t=' + Date.now(), { muteHttpExceptions: true }).getContentText());
     var L = typeof d.live == 'string' ? JSON.parse(d.live) : d.live;
-    if (L && L.ts && L.date == day) age = (Date.now() - new Date(L.ts + '+05:30').getTime()) / 1000;
+    // Utilities.parseDate: purane (Rhino) aur naye (V8) dono Apps Script me chalta hai; new Date('..+05:30') Rhino me NaN deta hai
+    if (L && L.ts && L.date == day) age = (Date.now() - Utilities.parseDate(String(L.ts).slice(0, 19), 'Asia/Kolkata', "yyyy-MM-dd'T'HH:mm:ss").getTime()) / 1000;
   } catch (e) { console.log('watchdog read err ' + e); return; }
-  if (age < 240) return;
+  if (isNaN(age) || age < 240) return;
   var res = UrlFetchApp.fetch('https://api.github.com/repos/' + GH_REPO + '/actions/workflows/live.yml/dispatches', {
     method: 'post', contentType: 'application/json', muteHttpExceptions: true,
     headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
