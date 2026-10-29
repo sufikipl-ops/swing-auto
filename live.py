@@ -13,7 +13,7 @@ except Exception:
 
 BASE = os.environ.get('ANGEL_BASE', 'https://apiconnect.angelone.in')
 MASTER = os.environ.get('ANGEL_MASTER', 'https://margincalculator.angelbroking.com/OpenAPI_File/files/OpenAPIScripMaster.json')
-POLL = float(os.environ.get('LIVE_POLL', '25'))
+POLL = float(os.environ.get('LIVE_POLL', '15'))   # 200 stock = 4 Angel batch (~5 sec) + Sheet push; 15 sec rukna
 MAX_RUN_MIN = float(os.environ.get('LIVE_MAX_MIN', '345'))   # GitHub job limit 6h se pehle band
 END_IST = os.environ.get('LIVE_END_IST', '15:32')            # market band hone ke baad ruk jao
 MAX_SYMS = 200      # Sheet cell ~44k akshar: 200 stock ~27k + alerts/breadth/prep; Angel 50-50 ke 4 batch
@@ -22,7 +22,7 @@ if not PAGES_BASE and os.environ.get('GITHUB_REPOSITORY'):
     _o, _r = os.environ['GITHUB_REPOSITORY'].split('/', 1)
     PAGES_BASE = 'https://%s.github.io/%s/' % (_o.lower(), _r)
 ALERTS_ON = os.environ.get('WATCH_ALERTS', '1') != '0'
-BREADTH_SEC = float(os.environ.get('LIVE_BREADTH_SEC', '300'))   # live market breadth har 5 min (~1100 stock, ~25 sec lagte hain)
+BREADTH_SEC = float(os.environ.get('LIVE_BREADTH_SEC', '180'))   # live market breadth har 3 min (~1100 stock, ~25 sec lagte hain)
 PREP_FROM, PREP_SEND = '09:20', '15:12'                          # live taiyari list: app me poore din (har breadth round), Telegram 3:12 ke baad ek baar
 LIVE_MAX_CHARS = 44000
 INTRA_SEC = float(os.environ.get('LIVE_INTRA_SEC', '120'))      # chart ke live 1-min candles har 2 min (GitHub 'live-data' branch)
