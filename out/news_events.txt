@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-10-29 11:09 IST
+NEWS/EVENTS CHECK 2026-10-29 11:51 IST
 screen data date: 2026-10-28 | candidates: 21
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 57 symbols
@@ -6,13 +6,13 @@ locked stocks added for announcements: AURUM,SKYGOLD,SHANTIGOLD,FAIRCHEMOR,PREME
 NSE announcements fetched for 56 of 56 symbols
 BSE announcements: 56 symbols checked, 22 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
-RSS Business Standard FAIL: not well-formed (invalid token): line 312, column 58
+RSS Business Standard FAIL: not well-formed (invalid token): line 331, column 58
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 61 of 61 symbols, 134 headlines
-PDF saar: 1 naye bane, 9 nahi bane, 29 pehle ke reuse (AI key: nahi)
-announcements.json: 34 symbols with announcements in last 3 days
+Google News: 61 of 61 symbols, 131 headlines
+PDF saar: 0 naye bane, 9 nahi bane, 30 pehle ke reuse (AI key: nahi)
+announcements.json: 35 symbols with announcements in last 3 days
 SONACOMS     BREAKOUT   IN_NEWS                            |  | 2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates | Sona BLW shares surge 85% in 2026, hit record high for second straight session: What’s dri | Sona BLW Q2FY27 Results: PAT up 29% to ₹223 crore, beats estimates
 TANLA        BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Updates | Tanla Platforms, HBL Engineering, Bharti Hexacom stock ideas by Jatin Gedia
 ALIVUS       BREAKOUT   RESULTS_SOON                       | 2026-10-29 Financial Results |  | 
@@ -27,8 +27,8 @@ TCPLPACK     PULLBACK   EVENT_7D                           | 2026-11-05 Financia
 SKYGOLD      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates | Diwali Stock Picks: SBI Securities bets on these 11 names from Tata Steel to Sky Gold | Sky Gold & Diamonds to acquire Purvi Gems to expand portfolio and strengthen jewellery bus
 PREMEXPLN    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011 | Rajasthan Global Securities raises stake in Premier Explosives to 5.02%
 VNL          DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Outcome of Board Meeting | Vishal Nirmiti Ltd. Share Price Today - Vishal Nirmiti Ltd. Stock Price Live NSE/BSE | VISHAL NIRMITI LIMITED Share Price
-CARTRADE     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release | CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | CarTrade Tech Q2 Results: Stock tanks 17%, most on record, after revenue growth slows to 1
-CARTRADE     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release | CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | CarTrade Tech Q2 Results: Stock tanks 17%, most on record, after revenue growth slows to 1
+CARTRADE     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release | CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | CarTrade Tech Share Price Slips 10.63%: Fundamental Analysis
+CARTRADE     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release | CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | CarTrade Tech Share Price Slips 10.63%: Fundamental Analysis
 GANDHAR      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Gandhar Oil Refinery Share Price and Results
 AEQUS        DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-28 Monitoring Agency Report | 
 ORIENTTECH   DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-02 Financial Results/Dividend | 2026-10-27 Board Meeting | 
@@ -41,14 +41,15 @@ TURTLEMINT   DIP        IN_NEWS                            |  |  | TURTLEMINT FI
 AEGISVOPAK   DIP        IN_NEWS                            |  | 2026-10-28 Copy of Newspaper Publication | Aegis Vopak Q2FY27 net profit dips 3.8% YoY to ₹96.4 crore
 KSB          DIP        EVENT_7D                           | 2026-11-03 Financial Results |  | 
 MSTCLTD      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 General Updates | MSTC MSTCLTD Director Commercial Additional Charge Nov 2026
-DYCL         DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-27 Press Release | 
+DYCL         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-27 Press Release | Dynamic Cables board notes ₹2,360 BSE fine for filing delay
 FUSION       DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-02 Financial Results | 2026-10-29 General | 
 ARMANFIN     DIP        EVENT_7D                           | 2026-11-04 Financial Results/Other business matters |  | 
-YASHO        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release (Revised) | Yasho Industries Q2FY27 Results: EBITDA margin expands to 20.32% on revenue surge | Yasho Industries Share Price and Results
+YASHO        DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Press Release (Revised) | Yasho Industries Reports Q2 Standalone Net Profit Of ₹30.6 Crore Versus ₹2.87 Crore YoY | Yasho Industries Share Price and Results
 ANANTRAJ     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Monitoring Agency Report | Anant Raj Q2 Results: Profit rises 13% to Rs 156 crore | Anant Raj Q2 Profit Rises 13% as Gurugram Launch Nears
-MIDWESTLTD   DIP        IN_NEWS                            |  |  | "We believe this program will strengthen our presence in the Midwest" | Lendmark Financial Services Expands Midwest and Southeast Presence with New Branches in Mi
+MIDWESTLTD   DIP        IN_NEWS                            |  |  | MIDWEST ACCESS: October 28, 2026 | "We believe this program will strengthen our presence in the Midwest"
 SWIGGY       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-28 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011 | Is Instamart eating Swiggy alive? | Nippon India MF raises stake in Swiggy to 5.17% via open market buys
 Symbols with no flags: 22. Top market headlines:
+  [ET Markets] City Union Bank shares rally 7% after Q2 net profit grows 27% YoY to Rs 416 Crore
   [ET Markets] Why is market rising today? Sensex jumps 600 points, Nifty nears 22,900. 6 key factors behind Rs 3 lakh crore 
   [ET Markets] Sensex jumps over 500 points, Nifty above 22,850 after Fed keeps rates unchanged. What lies ahead?
   [ET Markets] Jupiter Wagons shares rally 8% on Rs 1,140 crore Railway Board order
@@ -63,5 +64,4 @@ Symbols with no flags: 22. Top market headlines:
   [ET Markets] Ambani magic captivates India once more with blockbuster deal
   [ET Markets] Maruti Suzuki Share Price Live Updates: Maruti Suzuki Stock Details
   [ET Markets] Securities Appellate Tribunal quashes Rs 1.49 crore penalty on Ventura Securities by MCX
-  [ET Markets] Britannia Share Price Live Updates: Britannia's Current Valuation Insights
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
