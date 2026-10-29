@@ -570,6 +570,18 @@ var L=[['Listing ke baad high',x.hi],['Pivot R1',x.pv.r1],['Pivot P',x.pv.p],['E
 L.push(['ABHI (close)',c]);L.sort(function(a,b){return b[1]-a[1]});
 h+='</div><div class="card"><h3 style="margin-top:0">Price levels (upar se neeche)</h3>'+L.map(function(y){var nw=y[0].charAt(0)=='A';return '<div class="lr '+(nw?'now':y[1]>c?'up':'dn')+'"><span>'+y[0]+'</span><span>'+f(y[1])+(nw?'':' <small>('+(y[1]>=c?'+':'')+f((y[1]/c-1)*100,1)+'%)</small>')+'</span></div>'}).join('')+'</div>';
 h+='<div class="card">'+newsBlock(sym).replace('<h3>','<h3 style="margin-top:0">')+annBlock(sym,true)+links(sym)+'</div>';return h}
+/* "Time Machine": is stock par har setup ka apna 4 saal ka record (docs/stock_hist.json, regime_study.py, 2ATR/5d exit) */
+var SHX=null,TMN={DIP_A:'Dip A',DIP_B:'Dip B',BREAKOUT:'Breakout',PULLBACK:'Pullback',OVERSOLD_BOUNCE:'Oversold bounce',DEEP_OVERSOLD:'Gehra oversold',STRUCT_ALL:'Structure'};
+function tmNow(sym){var o={},d=DPM[sym],pk=PK[sym];if(d)o[d.TIER=='A'?'DIP_A':'DIP_B']=1;BN.forEach(function(r){if(r.SYMBOL==sym)o[r.TIER=='BOUNCE'?'OVERSOLD_BOUNCE':'DEEP_OVERSOLD']=1});
+STR.forEach(function(r){if(r.SYMBOL==sym)o.STRUCT_ALL=1});if(pk&&(pk.SETUP=='BREAKOUT'||pk.SETUP=='PULLBACK'))o[pk.SETUP]=1;return o}
+function tmCard(sym){setTimeout(function(){if(SHX)tmFill(sym);else get('stock_hist.json',1).then(function(d){SHX=d||{data:{}};tmFill(sym)})},0);return '<div class="card" id="tmc"><h3 style="margin-top:0">Time Machine: is stock ka itihaas</h3><small class="mu">Load ho raha hai...</small></div>'}
+function tmFill(sym){var e=document.getElementById('tmc');if(!e||cur!==sym)return;var m=(SHX.data||{})[sym]||{},now=tmNow(sym),rg=(regNow()||{}).regime,ks=Object.keys(m).filter(function(k){return TMN[k]});
+ks.sort(function(a,b){return (now[b]?1:0)-(now[a]?1:0)||(m[b].ALL[0]-m[a].ALL[0])});
+function row(k){var A=m[k].ALL,R=rg&&m[k][rg],few=A[0]<5;return '<div class="ir"><div class="l"><b>'+TMN[k]+'</b>'+(now[k]?' '+chip('aaj ka signal','pb'):'')+'<small>'+A[0]+' baar, jeet '+Math.round(100*A[1]/A[0])+'%, sabse bura '+f(A[3],1)+'R, aakhri '+esc(A[4])+(R?' | '+esc(REGN[rg])+' market me: '+R[0]+' baar, '+(R[2]>=0?'+':'')+f(R[2],2)+'R':'')+(few?' | <span class="y">data kam, bharosa mat karo</span>':'')+'</small></div><div class="v '+(A[2]>0?'g':'r')+'">'+(A[2]>=0?'+':'')+f(A[2],2)+'R<small>avg</small></div></div>'}
+var miss=Object.keys(now).filter(function(k){return !m[k]});
+e.innerHTML='<h3 style="margin-top:0">Time Machine: is stock ka itihaas</h3><small class="mu">Pichhle ~4 saal me ISI stock par ye setup kitni baar bana aur kya hua (agle din open par entry, SL 2 ATR, max 5 din, kharcha kaat ke). 1R = tumhara ek trade ka risk. Sirf jaankari: 5 se kam baar = sanyog ho sakta hai, poore market ka backtest zyada bharosemand.</small>'+
+(ks.length?ks.map(row).join(''):emptyNote('Is stock par hamare tested setups pichhle 4 saal me nahi bane (ya stock naya hai).'))+
+(miss.length?'<small class="mu">Aaj ka signal '+miss.map(function(k){return TMN[k]}).join(', ')+' is stock par pehle kabhi nahi bana.</small>':'')+(SHX.updated?'<small class="mu"> Update: '+esc(SHX.updated)+' (har Shanivar).</small>':'')}
 function detail(sym){if(cur==null)lastY=window.pageYOffset||0;else if(cur.charAt(0)=='@')LY=window.pageYOffset||0;cur=sym;document.body.classList.add('stk');rankAll();
 try{if(!(history.state&&history.state.d))history.pushState({d:sym},'')}catch(e){}
 var s=ST[sym],pk=PK[sym],rk=RK[sym],v=document.getElementById('v');
@@ -586,7 +598,7 @@ if(p){h+='<div class="card"><h3 style="margin-top:0">Trade plan</h3>'+stratLine(
 '<small>Entry '+(pk?(pk.SETUP=='PREBREAK'?'= 20-din high ke thoda upar (breakout trigger, abhi hua nahi)':'= aaj ke high ke thoda upar (trigger)'):'= abhi ka close (reference)')+'. Stop-loss = pichle 5 din ke low ke paas, max 2 ATR door. Target = realistic: max 1.5 ATR (ya risk ka 2 guna, jo chhota ho) aur rukawat se pehle = '+f(p.ta,1)+' ATR, R:R 1:'+f(p.rr,1)+'. Backtest: 1.5 ATR target 5 din me lagbhag 3 me se 1 trade me lagta hai; 2 ATR sirf 5 me se 1 me. Risk/capital Picks tab se badal sakte ho.</small>';
 if(s.h60<p.t1&&s.h60>p.entry)h+='<div class="y" style="margin-top:6px">Dhyan: target se pehle 60-din high ('+f(s.h60)+') rukawat hai, wahan ruk sakta hai.</div>';
 if(p.q<1)h+='<div class="r" style="margin-top:6px">Is stop ke saath risk limit me 1 share bhi nahi aata.</div>';h+='</div>'}
-h+=mpCard(sym,p,s.c);h+=dipDetailCard(sym);h+=checkCard(sym,p);
+h+=mpCard(sym,p,s.c);h+=dipDetailCard(sym);h+=tmCard(sym);h+=checkCard(sym,p);
 var lg=TR.filter(function(t){return t.symbol==sym&&t.status!='CLOSED'})[0];
 var lgl=lg?tradeLive(lg):null;
 if(lg)h+='<div class="card"><h3 style="margin-top:0">Tumhara logged trade ('+esc(lg.date)+') '+(lgl?chip(lgl[0],lgl[1]):'')+'</h3>'+(lgl?'<div class="'+(lgl[1]=='pr'?'r':'g')+'"><small>'+esc(lgl[2])+'</small></div>':'')+'<div class="tiles t5"><div><small>Entry</small><b class="b">'+esc(lg.entry)+'</b></div><div><small>Stop-loss</small><b class="r">'+esc(lg.sl)+'</b></div><div><small>Target</small><b class="g">'+esc(lg.target)+'</b></div><div><small>Qty</small><b>'+esc(lg.qty)+'</b></div>'+atrTile(s&&s.atr,s&&s.c)+'</div>'+slVsAtr(+lg.entry,+lg.sl,s&&s.atr)+entryWarn(lg)+'<small>Ye Picks sheet wala plan hai (jo tumne GTT me lagaya). Upar wala "Trade plan" app ka auto-hisaab hai, dono alag ho sakte hain. Order me ye logged wala numbers hi maano.</small></div>';
