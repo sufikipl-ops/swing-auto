@@ -1,15 +1,15 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,SONACOMS,IN_NEWS,,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW shares surge 85% in 2026, hit record high for second straight session: What’s dri | Sona BLW Q2FY27 Results: PAT up 29% to ₹223 crore, beats estimates"
+BREAKOUT,SONACOMS,IN_NEWS,,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,"Sona BLW shares surge 85% in 2026, hit record high for second straight session: What’s dri"
 BREAKOUT,TANLA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Updates,"Tanla Platforms, HBL Engineering, Bharti Hexacom stock ideas by Jatin Gedia"
 BREAKOUT,TIPSMUSIC,none,,,
 BREAKOUT,ALIVUS,RESULTS_SOON,2026-10-29 Financial Results,,
 BREAKOUT,PASHUPATI,none,,,
-PULLBACK,HAL,NEW_ANNOUNCEMENT,,2026-10-28 Change in Director(s),
+PULLBACK,HAL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Change in Director(s),PB Rangarao takes charge as Director (Operations) of HAL
 PULLBACK,INDOMIM,IN_NEWS,,,INDO-MIM LIMITED Share Price - Live NSE: INDOMIM Stock Price & Chart
 PULLBACK,IPCALAB,EVENT_7D,2026-11-05 Financial Results,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,AXISCADES,none,,2026-10-27 ESOP/ESOS/ESPS,
 PULLBACK,WELSPUNLIV,RESULTS_SOON,2026-10-30 Financial Results,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,
-PULLBACK,OPTIEMUS,NEW_ANNOUNCEMENT,,2026-10-27 Agreements,
+PULLBACK,OPTIEMUS,EVENT_7D NEW_ANNOUNCEMENT,2026-11-05 Financial Results/Fund Raising,2026-10-29 Board Meeting,
 PULLBACK,WHIRLPOOL,none,,,
 PULLBACK,GRMOVER,none,,,
 PULLBACK,AEROPLANE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-02 Financial Results,2026-10-27 Board Meeting,AMIR CHAND JAG KUM (E) L Share Price
@@ -20,39 +20,39 @@ PULLBACK,ADVANCE,none,,,
 PULLBACK,TCPLPACK,EVENT_7D,2026-11-05 Financial Results/Other business matters,,
 PULLBACK,AVTNPL,none,,,
 PULLBACK,PANORAMA,none,,,
-DIP,SKYGOLD,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,Diwali Stock Picks: SBI Securities bets on these 11 names from Tata Steel to Sky Gold | Sky Gold & Diamonds to acquire Purvi Gems to expand portfolio and strengthen jewellery bus
+DIP,SKYGOLD,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,Sky Gold & Diamonds to acquire Purvi Gems to expand portfolio and strengthen jewellery bus | Sky Gold Q2FY27 Results: Net profit up 93% YoY to ₹129.4 crore
 DIP,SHANTIGOLD,none,,,
 DIP,FAIRCHEMOR,none,,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,PREMEXPLN,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-27 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011",Rajasthan Global Securities raises stake in Premier Explosives to 5.02%
 DIP,VNL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Outcome of Board Meeting,Vishal Nirmiti Ltd. Share Price Today - Vishal Nirmiti Ltd. Stock Price Live NSE/BSE | VISHAL NIRMITI LIMITED Share Price
-DIP,CARTRADE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,"CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | CarTrade Tech Share Price Slips 10.63%: Fundamental Analysis"
-DIP,CARTRADE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,"CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | CarTrade Tech Share Price Slips 10.63%: Fundamental Analysis"
+DIP,CARTRADE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,"CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | Earnings call transcript: CarTrade Tech posts record Q2 2026 results, shares fall 11.6%"
+DIP,CARTRADE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,"CarTrade Tech shares tank over 6% after Q2 results, but Nomura raises target price to Rs 3 | Earnings call transcript: CarTrade Tech posts record Q2 2026 results, shares fall 11.6%"
 DIP,GANDHAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,Gandhar Oil Refinery Share Price and Results
 DIP,AEQUS,NEW_ANNOUNCEMENT,,2026-10-28 Monitoring Agency Report,
 DIP,ORIENTTECH,EVENT_7D NEW_ANNOUNCEMENT,2026-11-02 Financial Results/Dividend,2026-10-27 Board Meeting,
 DIP,FIVESTAR,IN_NEWS,,2026-10-27 Copy of Newspaper Publication,Five Star Bancorp (FSBC) Stock Q3 Results Meet Rising Credit Scrutiny
 DIP,JARO,IN_NEWS,,,A 43.7% Year-to-Date Decline Pushes Jaro Institute of Technol. Mgt. and Research Ltd to It | Five Consecutive Losses Push Jaro Institute of Technol. Mgt. and Research Ltd to a New 52-
-DIP,STYLAMIND,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Outcome of Board Meeting,"Stylam Industries shares tank 11% post Q2 earnings, stock split | Stylam Industries approves 5:1 share split, posts ₹4,233 lakh Q2 net profit"
+DIP,STYLAMIND,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Outcome of Board Meeting,"Stylam Industries shares tank 11% post Q2 earnings, stock split | Stylam Industries Share Price and Technical Analysis"
 DIP,SUMICHEM,IN_NEWS,,2026-10-27 Analysts/Institutional Investor Meet/Con. Call Updates,Sumitomo Chemical India Limited (NSE:SUMICHEM) Consensus Forecasts Have Become A Little Da
 DIP,MAZDOCK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 General Updates,Mazagon Dock Q2 Profit Falls 54% To Rs 344 Crore As Margins Collapse
 DIP,TURTLEMINT,IN_NEWS,,,TURTLEMINT FINTECH SOLS L Share Price | Turtlemint Fintech Solutions Ltd (TURTLEMINT) Share Price
 DIP,M&MFIN,none,,2026-10-27 Earnings Call Transcript,
-DIP,OSWALPUMPS,none,,,
+DIP,OSWALPUMPS,IN_NEWS,,,Solar pump stocks: Why Shakti Pumps and Oswal Pumps are stuck
 DIP,AEGISVOPAK,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Aegis Vopak Q2FY27 net profit dips 3.8% YoY to ₹96.4 crore
 DIP,KSB,EVENT_7D,2026-11-03 Financial Results,,
 DIP,MSTCLTD,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 General Updates,MSTC MSTCLTD Director Commercial Additional Charge Nov 2026
 DIP,DYCL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-27 Press Release,"Dynamic Cables board notes ₹2,360 BSE fine for filing delay"
-DIP,FUSION,EVENT_7D NEW_ANNOUNCEMENT,2026-11-02 Financial Results,2026-10-29 General,
+DIP,FUSION,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-02 Financial Results,2026-10-29 General,Fusion Finance (NSE:FUSION): What Are the Investor Meetings Scheduled for November 2026?
 DIP,YATRA,none,,,
 DIP,ARMANFIN,EVENT_7D,2026-11-04 Financial Results/Other business matters,,
-DIP,YESBANK,none,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,
-DIP,YASHO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release (Revised),Yasho Industries Reports Q2 Standalone Net Profit Of ₹30.6 Crore Versus ₹2.87 Crore YoY | Yasho Industries Share Price and Results
+DIP,YESBANK,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"YES Bank shares sink 26% in a month as SC ruling on Rs 8,415-crore AT1 bonds raises concer"
+DIP,YASHO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release (Revised),Yasho Industries Share Price and Results | Yasho Industries Q2FY27 Results: EBITDA margin expands to 20.32% on revenue surge
 DIP,CREDITACC,none,,,
 DIP,HDBFS,none,,,
 DIP,COMSYN,none,,,
-DIP,ANANTRAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Monitoring Agency Report,Anant Raj Q2 Results: Profit rises 13% to Rs 156 crore | Anant Raj Q2 Profit Rises 13% as Gurugram Launch Nears
+DIP,ANANTRAJ,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Monitoring Agency Report,"Anant Raj Q2 results: Net profit rises 14% to ₹157 crore, revenue up 5% | Anant Raj Q2 Results: Profit rises 13% to Rs 156 crore"
 DIP,NELCO,none,,2026-10-28 Copy of Newspaper Publication,
 DIP,EMMVEE,none,,,
-DIP,MIDWESTLTD,IN_NEWS,,,"MIDWEST ACCESS: October 28, 2026 | ""We believe this program will strengthen our presence in the Midwest"""
+DIP,MIDWESTLTD,IN_NEWS,,,"""We believe this program will strengthen our presence in the Midwest"" | Holidays in United States bend the boundaries of midwest emo"
 DIP,SWIGGY,NEW_ANNOUNCEMENT IN_NEWS,,"2026-10-28 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011",Is Instamart eating Swiggy alive? | Nippon India MF raises stake in Swiggy to 5.17% via open market buys
 LOCKED,AURUM,none,,,
