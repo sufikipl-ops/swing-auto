@@ -1,4 +1,4 @@
-PICKS REVIEW (forward test) 2026-10-29
+PICKS REVIEW (forward test) 2026-10-30
 picks read: 7
 date       symbol          entry       sl   target  qty status          exit_date      exit why            R      pnl
 2026-10-13 COFORGE        1945.0   1850.0   2135.0    5 CLOSED          2026-10-21   1951.0 TIME        0.01      6.0
@@ -7,11 +7,11 @@ date       symbol          entry       sl   target  qty status          exit_dat
 2026-10-15 RAIN            253.0    236.0    287.0   29 NO_TRIGGER                                                   
 2026-10-16 HCLTECH        1381.0   1335.0   1473.0   10 CLOSED          2026-10-23   1422.2 TIME        0.82    377.0
 2026-10-21 BHEL            436.8    424.5    461.0   40 NO_TRIGGER                                                   
-2026-10-29 SONACOMS        886.0    848.0    962.0   13 PENDING_TRIGGER                                              
+2026-10-29 SONACOMS        886.0    848.0    962.0   13 OPEN                                                         
 
 Entry rule se alag: 2026-10-15 RAIN CHASED (entry 253.0, trigger 239.34)
 
-Status counts: CLOSED=3, NO_TRIGGER=3, PENDING_TRIGGER=1
+Status counts: CLOSED=3, NO_TRIGGER=3, OPEN=1
 CLOSED trades: 3 | win rate 67% | avg R -0.08 | profit factor 0.78 | total pnl Rs -66
 Sample size: 3 closed. Below ~30 trades the numbers mean very little; aim for 30-50 before judging.
 Assumptions: daily bars only; if stop and target both fall in one day, stop counts first; entry at max(open, trigger); skip if open >1.5% above trigger; GTT alive 4 trading days; time-stop after 5 days; cost 0.25%. Not financial advice.
