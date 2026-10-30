@@ -508,6 +508,13 @@ def main():
                     bh = dict(b, at=hm(now), hist=bh_hist[-80:], base_date=base.get('date'), base_regime=base.get('regime'),
                               base_pct=base.get('breadth'))
                     bmsg = 'breadth %s%% %s (%d)' % (b['pct'], b['regime'], b['n'])
+                    mv = []                               # din ke top gainers / losers (liquid ~1100 stock me se)
+                    for s_, v_ in bitems.items():
+                        if v_.get('pc') and v_['pc'] > 0 and v_.get('ltp'):
+                            mv.append((round((v_['ltp'] / v_['pc'] - 1) * 100, 2), s_, v_['ltp']))
+                    mv.sort()
+                    bh['top'] = [[s_, l_, c_] for c_, s_, l_ in mv[::-1][:15]]
+                    bh['bot'] = [[s_, l_, c_] for c_, s_, l_ in mv[:15]]
                     if hm(now) >= PREP_FROM:
                         pr = dict(live_scan.prep(bitems, base), at=hm(now), sent=prep_sent)
                         if not prep_sent and hm(now) >= PREP_SEND:
