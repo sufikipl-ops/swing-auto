@@ -11,15 +11,15 @@ BREAKOUT,SAREGAMA,EVENT_7D IN_NEWS,2026-11-04 Financial Results,,"Breakout stock
 BREAKOUT,ADANIPORTS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Credit Rating,"Breakout stocks: Adani Ports, Nykaa, Saregama on radar; analyst tells why | Adani group stocks rally led by Adani Enterprises, Adani Ports post Q2 show"
 BREAKOUT,PASHUPATI,none,,,
 PREBREAK,ANANDRATHI,none,,,
-PULLBACK,MEESHO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 General Updates,"Meesho Share Price Target: Stock falls despite Q2 growth, Brokerages raise targets"
+PULLBACK,MEESHO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 General Updates,"Meesho Share Price Target: Stock falls despite Q2 growth, Brokerages raise targets | Meesho approves ₹400 crore investment in payments subsidiary"
 PULLBACK,CUPID,IN_NEWS,,,Cupid shares reclassified from BSE Group B to Group A
 PULLBACK,MRPL,IN_NEWS,,,Mangalore Refinery & Petrochemicals Ltd. Technical Momentum Shifts Amid Mixed Signals
-PULLBACK,CPPLUS,none,,,
+PULLBACK,CPPLUS,none,,2026-10-30 ESOP/ESOS/ESPS,
 PULLBACK,SAMBHV,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Capacity addition,Sambhv Steel Tubes Reports 44.1% Q2 Revenue Growth; PAT Rises 104.5% Year on Year | Sambhv Steel Tubes Reports Q2 Revenue of 8.4B Rupees vs 5.8B YoY
 PULLBACK,TECHNOCRAF,none,,,
-PULLBACK,SAGILITY,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Sagility share price drops 6% after promoter likely to have sold equity worth ₹2,543 crore | Stocks to Watch Today: Sagility, Coal India, Trent, InterGlobe, Blue Star, Capital SFB, Br"
+PULLBACK,SAGILITY,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Sagility share price drops 6% after promoter likely to have sold equity worth ₹2,543 crore | Most Active Stocks Today: Sagility, Vodafone Idea"
 PULLBACK,PETRONET,EVENT_7D,2026-11-02 Financial Results,,
-PULLBACK,CYIENT,NEW_ANNOUNCEMENT,,2026-10-28 Press Release,
+PULLBACK,CYIENT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,Cyient Is Betting On Semiconductors And AI. When Will Earnings Follow?
 PULLBACK,UNIMECH,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 General Updates,Unimech Aerospace to acquire 76% stake in Hobel Bellows for ₹6.08 crore | Unimech Aerospace and Manufacturing - 10 defence stocks rally up to 500% in FY27 so far; 5
 PULLBACK,EBGNG,EVENT_7D NEW_ANNOUNCEMENT,2026-11-03 Financial Results/Other business matters,2026-10-29 Board Meeting,
 PULLBACK,IPCALAB,EVENT_7D,2026-11-05 Financial Results,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,
@@ -32,14 +32,14 @@ PULLBACK,MACPOWER,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Disclosure under SEBI Tak
 PULLBACK,STOVEKRAFT,EVENT_7D,2026-11-04 Financial Results,,
 PULLBACK,AXISCADES,none,,,
 PULLBACK,GNA,none,,,
-PULLBACK,INDGN,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Resignation of Director/KMP/SMP,"Indegene Ltd (NSE:INDGN) Q2 2027 Earnings Report Preview: What to Look For | Indegene Q2FY27 Results: Revenue up 39.5% YoY, USD growth hits 4-year high"
+PULLBACK,INDGN,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Resignation of Director/KMP/SMP,"Indegene Q2FY27 Results: Revenue up 39.5% YoY, USD growth hits 4-year high | Indegene Ltd (NSE:INDGN) Q2 2027 Earnings Report Preview: What to Look For"
 PULLBACK,VINDHYATEL,EVENT_7D,2026-11-04 Financial Results,,
-PULLBACK,CRISIL,none,,,
+PULLBACK,CRISIL,IN_NEWS,,,"Epigral Limited Receives CRISIL AA Stable and A1+ Credit Ratings | Crisil upgrades Navi Finserv’s rating to A+, assigns rating to ₹500 crore NCD issue"
 PULLBACK,KRISHNADEF,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Outcome of Board Meeting,"Krishna Defence and Allied Industries Q2 Results FY27: PAT Jumps 33.92% to Rs 15.32 Cr, Re"
 DIP,CARTRADE,NEW_ANNOUNCEMENT,,2026-10-28 Press Release / Media Release,
 DIP,VAIBHAVGBL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,Earnings call transcript: Vaibhav Global cuts FY 2027 outlook in Q2 2026 By Investing.com | Vaibhav Global VAIBHAVGBL Q2 H1 FY2027 Results Publication
 DIP,VAIBHAVGBL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,Earnings call transcript: Vaibhav Global cuts FY 2027 outlook in Q2 2026 By Investing.com | Vaibhav Global VAIBHAVGBL Q2 H1 FY2027 Results Publication
-DIP,DALBHARAT,IN_NEWS,,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,"Five Stocks To Buy Today, October 30: Dalmia Bharat Sugar, Waaree Energies, Kotak Bank, An"
+DIP,DALBHARAT,IN_NEWS,,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,"Dalmia Bharat Q2FY27 results: Net loss of ₹205 crore; Q3 costs up ₹75/tonne | Five Stocks To Buy Today, October 30: Dalmia Bharat Sugar, Waaree Energies, Kotak Bank, An"
 DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,"eClerx Services Share Price Extends Losses, Slips Over 8%, As Brokerages Cut Target After  | eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today"
 DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,"eClerx Services Share Price Extends Losses, Slips Over 8%, As Brokerages Cut Target After  | eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today"
 DIP,EQUITASBNK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,Crash! Why Equitas Small Finance Bank stock is so much down today? Share price plunges 12% | Equitas Small Finance Bank shares tumble 27% in two days; analysts say good Q2 numbers mar
@@ -51,21 +51,21 @@ DIP,DYCL,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Dynamic Cables Ltd is
 DIP,SUMICHEM,none,,,
 DIP,MAZDOCK,none,,2026-10-28 Copy of Newspaper Publication,
 DIP,M&MFIN,none,,,
-DIP,YESBANK,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Yes Bank Ltd. Share Price, Stock Price - NSE/BSE Live | Yes Bank shares extend decline to 26% in October, hit a multi-year low. Why are investors "
+DIP,YESBANK,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Yes Bank meets investors at Trinity India 2026 conference | Yes Bank Ltd. Share Price, Stock Price - NSE/BSE Live"
 DIP,YATRA,none,,,
 DIP,TCS,IN_NEWS,,,"TCS Share Price Live Updates: TCS Stock Update: Current Price and Change | Tata Consultancy Services Limited (TCS.NS) stock price, news, quote and history"
 DIP,FUSION,EVENT_7D NEW_ANNOUNCEMENT,2026-11-02 Financial Results,2026-10-29 General,
-DIP,WIPRO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,"Wipro Limited (WIPRO.NS) Stock Price, News, Quote & History | Stocks To Watch Today: Dixon Tech, Syrma SGS, Sun Pharma, Wipro, Trent Among Others"
+DIP,WIPRO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,"Buzzing Stocks: Wipro, Reliance, PSP Projects, Bajaj Electricals, Hero MotoCorp, TCP, Mahi | Wipro Limited (WIPRO.NS) Stock Price, News, Quote & History"
 DIP,ORIENTTECH,EVENT_7D,2026-11-02 Financial Results/Dividend,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,NELCO,none,,2026-10-28 Copy of Newspaper Publication,
 DIP,FIVESTAR,IN_NEWS,,2026-10-30 Analysts/Institutional Investor Meet/Con. Call Updates,Five Star Business Finance Q2FY27 Results: Net profit up 5% to ₹299 crore | Five Star Bancorp (FSBC) On Strong Q3 Results And Fresh Capital Still Looks Undervalued
-DIP,OSWALPUMPS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-30 Press Release,"Oswal Pumps shares fall despite ₹236 crore MSEDCL order win; stock hits fresh 52-week low | Oswal Pumps secures ₹235.92 crore order for 10,000 solar pumps under PM Kusum B Scheme"
+DIP,OSWALPUMPS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-30 Press Release,"Oswal Pumps shares fall despite ₹236 crore MSEDCL order win; stock hits fresh 52-week low | Oswal Pumps Secures INR 235.92 Crore MSEDCL Order For 10,000 Solar Water Pumps In Maharash"
 DIP,SAMHI,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-03 Financial Results,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,Samhi Hotels: Announces Earnings Call for Q2 & H1 FY27 Results
 DIP,ANANTRAJ,NEW_ANNOUNCEMENT,,2026-10-28 Monitoring Agency Report,
 DIP,COMSYN,none,,,
 DIP,EMMVEE,none,,,
 DIP,BHARTIARTL,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-05 Financial Results,2026-10-29 Action(s) taken or orders passed,Reliance Jio Platforms shares vs Bharti Airtel vs Vodafone Idea: Top telecom stock to buy?
-DIP,ITCHOTELS,IN_NEWS,,,ITC Hotels Q2 profit rises 52% to INR 202.65 crore; signs 20 hotels in H1 FY27 | ITC Hotels Chairman Outlines Growth Vision
-DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd. Share Price Live Today | Turtlemint Fintech Solutions Ltd is Rated Strong Sell
+DIP,ITCHOTELS,IN_NEWS,,,ITC Hotels Q2 profit rises 52% to INR 202.65 crore; signs 20 hotels in H1 FY27 | ITC Hotels Ltd is Rated Sell
+DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd. Share Price Live Today
 DIP,AVADHSUGAR,none,,,
 LOCKED,AURUM,none,,,
