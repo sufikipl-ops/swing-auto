@@ -3,22 +3,22 @@ BREAKOUT,BSOFT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Dividend,Birlasoft shares su
 BREAKOUT,KOTAKBANK,IN_NEWS,,,"Top 3 stocks to buy tomorrow: Kotak Mahindra Bank, Nykaa, Eternal by market expert; check  | Kotak Mahindra Bank shares gain over 4%, hit highest level since April 2025; here’s what y"
 BREAKOUT,ACUTAAS,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Why Acutaas Chemicals Share Price is Rising
 BREAKOUT,SGMART,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,SG Mart Q2FY27 results: Net profit jumps 104% to ₹54 crore | SG Mart Share Price at 52-Week High of Rs 909.75 Today
-BREAKOUT,LAURUSLABS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,"Shukra Medtech, Laurus Labs among 4 healthcare stocks to hit 52-week highs and rally up to | Laurus Labs Declares Interim Dividend Of Rs 1 Per Share; Check Record Date"
+BREAKOUT,LAURUSLABS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,"Shukra Medtech, Laurus Labs among 4 healthcare stocks to hit 52-week highs and rally up to | Laurus Labs Declares Dividend Of 1 Rupee Per Share"
 BREAKOUT,ZENSARTECH,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,"Zensar Technologies Climbs to Rs 507.70 on Q2 Revenue Growth | Zensar Technologies shares on a roll! IT stock jumps 8%, up 25% in month - What's fuelling"
 BREAKOUT,GESHIP,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Daily Buy Back of equity shares,Great Eastern Shipping records nil buyback on Oct 29; total stays 38.48 lakh
 BREAKOUT,TANLA,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Should You Buy Tanla Platforms Limited (NSE:TANLA) For Its Upcoming Dividend? | Tanla Platforms Q2FY27 results: Net profit up 17% YoY to ₹146 crore
-BREAKOUT,SAREGAMA,EVENT_7D,2026-11-04 Financial Results,,
+BREAKOUT,SAREGAMA,EVENT_7D IN_NEWS,2026-11-04 Financial Results,,"Trade Spotlight: How should you trade Lodha Developers, Saregama India, Bajaj Finance, Zen"
 BREAKOUT,ADANIPORTS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Credit Rating,"Market wrap:  Adani Ports SEZ, Adani Ent, Trent, Maruti Suzuki top gainers and losers on N | Adani Ports Stock Jumps Over 5%"
 BREAKOUT,PASHUPATI,none,,,
-PREBREAK,ANANDRATHI,IN_NEWS,,,Buy KPIT; target of Rs 701: Anand Rathi | Anand Rathi taps private debt again with $1.21M NCD issue
-PULLBACK,MEESHO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 General Updates,"MSCI Rejig: LIC, Meesho likely to enter India Standard Index; OFSS, Siemens Energy may be  | Meesho Share Price Target: Stock falls despite Q2 growth, Brokerages raise targets"
+PREBREAK,ANANDRATHI,IN_NEWS,,,Buy KPIT; target of Rs 701: Anand Rathi | Bombay Coated & Special Steels IPO opens: Anand Rathi bullish; here's why
+PULLBACK,MEESHO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 General Updates,"Meesho Share Price Target: Stock falls despite Q2 growth, Brokerages raise targets | Meesho shares trade flat even as Q2 loss narrows to Rs 132 crore; brokerages remain mixed"
 PULLBACK,CUPID,none,,,
 PULLBACK,MRPL,IN_NEWS,,,Mangalore Refinery & Petrochemicals Ltd. Technical Momentum Shifts Amid Mixed Signals
 PULLBACK,CPPLUS,none,,,
 PULLBACK,SAMBHV,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Capacity addition,Sambhv Steel Tubes Reports 44.1% Q2 Revenue Growth; PAT Rises 104.5% Year on Year | Sambhv Steel Tubes Reports Q2 Revenue of 8.4B Rupees vs 5.8B YoY
 PULLBACK,TECHNOCRAF,none,,,
 PULLBACK,SAGILITY,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Sagility block deal: Promoter Sagility BV likely to sell 12% stake for Rs 2,377 crore | Sagility block deal: Promoter to offload 12% stake at  ₹42.45 apiece; deal size  ₹2,377 cr"
-PULLBACK,PETRONET,EVENT_7D IN_NEWS,2026-11-02 Financial Results,,Petronet LNG launches a propane tender for its Dahej petrochemical site
+PULLBACK,PETRONET,EVENT_7D,2026-11-02 Financial Results,,
 PULLBACK,CYIENT,NEW_ANNOUNCEMENT,,2026-10-28 Press Release,
 PULLBACK,UNIMECH,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 General Updates,Unimech Aerospace to acquire 76% stake in Hobel Bellows for ₹6.08 crore | Buy Unimech Aerospace; target of Rs 2138: Motilal Oswal
 PULLBACK,EBGNG,EVENT_7D NEW_ANNOUNCEMENT,2026-11-03 Financial Results/Other business matters,2026-10-29 Board Meeting,
@@ -40,15 +40,15 @@ DIP,CARTRADE,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Outcome of Board Meeting,"CarT
 DIP,VAIBHAVGBL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,Earnings call transcript: Vaibhav Global cuts FY 2027 outlook in Q2 2026 By Investing.com | Vaibhav Global Stock Breakdown and RSI Analysis
 DIP,VAIBHAVGBL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,Earnings call transcript: Vaibhav Global cuts FY 2027 outlook in Q2 2026 By Investing.com | Vaibhav Global Stock Breakdown and RSI Analysis
 DIP,DALBHARAT,IN_NEWS,,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,"Five Stocks To Buy Today, October 30: Dalmia Bharat Sugar, Waaree Energies, Kotak Bank, An | Dalmia Bharat Q2FY27 results: Net loss of ₹205 crore; Q3 costs up ₹75/tonne"
-DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today | Earnings call transcript: eClerx Services posts mixed Q2 2026 results as stock falls By In
-DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today | Earnings call transcript: eClerx Services posts mixed Q2 2026 results as stock falls By In
+DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,Earnings call transcript: eClerx Services posts mixed Q2 2026 results as stock falls By In | eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today
+DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,Earnings call transcript: eClerx Services posts mixed Q2 2026 results as stock falls By In | eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today
 DIP,EQUITASBNK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,Equitas Small Finance Bank chief PN Vasudevan plans exit over perceived conflict involving | Equitas Small Finance Bank CEO P N Vasudevan Resigns Amid Conflict Of Interest Concerns
 DIP,EQUITASBNK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,Equitas Small Finance Bank chief PN Vasudevan plans exit over perceived conflict involving | Equitas Small Finance Bank CEO P N Vasudevan Resigns Amid Conflict Of Interest Concerns
 DIP,PREMEXPLN,none,,,
 DIP,RIR,none,,,
 DIP,JARO,none,,,
 DIP,DYCL,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,"Dynamic Cables Ltd is Rated Hold by MarketsMOJO | Dynamic Cables board notes ₹2,360 BSE fine for filing delay"
-DIP,SUMICHEM,IN_NEWS,,,Sumitomo Chemical India share price: Fresh 52-Week Low Today | Sumitomo Chemical India Limited (NSE:SUMICHEM) Consensus Forecasts Have Become A Little Da
+DIP,SUMICHEM,IN_NEWS,,,Sumitomo Chemical India share price: Fresh 52-Week Low Today
 DIP,MAZDOCK,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Mazagon Dock Shipbuilders Limited Just Missed EPS By 40%: Here's What Analysts Think Will 
 DIP,M&MFIN,none,,,
 DIP,YESBANK,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Yes Bank shares extend decline to 26% in October, hit a multi-year low. Why are investors  | YES Bank shares sink 26% in a month as SC ruling on Rs 8,415-crore AT1 bonds raises concer"
