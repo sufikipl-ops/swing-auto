@@ -1,56 +1,56 @@
-stocks loaded: 213
-Din har market haal me (F&O universe breadth): {'MIXED': 64, 'WEAK': 26, 'VWEAK': 33, 'STRONG': 53}
+stocks loaded: 220
+Din har market haal me (F&O universe breadth): {'MIXED': 62, 'WEAK': 27, 'VWEAK': 40, 'STRONG': 56}
 split/bade gap wale windows skip: 0
-Test period: 2026-01-09 se 2026-10-16 (aadha: 2026-05-22)
+Test period: 2026-01-09 se 2026-10-30 (aadha: 2026-06-01)
 
 Base = har liquid stock har din (koi setup nahi), wahi exit: market ka apna asar.
-  base 3:15     MIXED   n= 13632 avgR -0.100
-  base 3:15     STRONG  n= 11289 avgR -0.110
-  base 3:15     VWEAK   n=  7029 avgR +0.060
-  base 3:15     WEAK    n=  5325 avgR -0.153
-  base Kal open MIXED   n= 12875 avgR -0.095
-  base Kal open STRONG  n= 11007 avgR -0.139
-  base Kal open VWEAK   n=  6145 avgR +0.031
-  base Kal open WEAK    n=  4949 avgR -0.214
+  base 3:15     MIXED   n= 13599 avgR -0.068
+  base 3:15     STRONG  n= 12320 avgR -0.140
+  base 3:15     VWEAK   n=  8781 avgR -0.015
+  base 3:15     WEAK    n=  5713 avgR -0.142
+  base Kal open MIXED   n= 12934 avgR -0.073
+  base Kal open STRONG  n= 11897 avgR -0.158
+  base Kal open VWEAK   n=  7821 avgR -0.057
+  base Kal open WEAK    n=  5334 avgR -0.187
 
 setup                entry    market      n jeet%    avgR   pehla  doosra    base  pass?
-BOUNCE               3:15     MIXED      65    32  -0.225  -0.237  -0.214  -0.100  
-BOUNCE               Kal open MIXED      62    27  -0.231  -0.299  -0.178  -0.095  
-BOUNCE               3:15     STRONG     21    52  -0.051  -0.113  -0.032  -0.110  
-BOUNCE               Kal open STRONG     17    35  -0.196  +0.075  -0.232  -0.139  
-BOUNCE               3:15     VWEAK      50    52  +0.132  +0.232  -0.184  +0.060  
-BOUNCE               Kal open VWEAK      28    39  -0.085  -0.046  -0.136  +0.031  
-BOUNCE               3:15     WEAK       52    44  -0.087  -0.046  -0.400  -0.153  
-BOUNCE               Kal open WEAK       45    29  -0.274  -0.270  -0.299  -0.214  
-BREAKOUT             3:15     MIXED     147    44  -0.096  -0.116  -0.065  -0.100  
-BREAKOUT             Kal open MIXED     131    45  -0.051  -0.042  -0.065  -0.095  
-BREAKOUT             3:15     STRONG    189    44  -0.096  -0.053  -0.126  -0.110  
-BREAKOUT             Kal open STRONG    188    43  -0.166  -0.183  -0.153  -0.139  
-BREAKOUT             3:15     VWEAK      24    42  -0.036  +0.349  -0.574  +0.060  
-BREAKOUT             Kal open VWEAK      24    33  -0.238  -0.081  -0.499  +0.031  
-BREAKOUT             3:15     WEAK       34    21  -0.546  -0.678  -0.231  -0.153  
-BREAKOUT             Kal open WEAK       22    27  -0.408  -0.646  +0.104  -0.214  
-DIP_A                3:15     MIXED       3    67  +0.372       -  +0.372  -0.100  
-DIP_A                Kal open MIXED       2   100  +0.709       -  +0.709  -0.095  
-DIP_A                3:15     STRONG      3    33  -0.468  +0.034  -0.718  -0.110  
-DIP_A                Kal open STRONG      2     0  -0.830       -  -0.830  -0.139  
-DIP_A                3:15     WEAK        7    29  -0.450  -0.604  +0.472  -0.153  
-DIP_A                Kal open WEAK        6    17  -0.653  -0.828  +0.224  -0.214  
-REVERSAL_DOWNTREND   3:15     MIXED      29    41  -0.086  -0.068  -0.110  -0.100  
-REVERSAL_DOWNTREND   Kal open MIXED      33    36  -0.283  -0.263  -0.318  -0.095  
-REVERSAL_DOWNTREND   3:15     STRONG     12    33  -0.217  +0.129  -0.248  -0.110  
-REVERSAL_DOWNTREND   Kal open STRONG     13    15  -0.450  -0.311  -0.461  -0.139  
-REVERSAL_DOWNTREND   3:15     VWEAK      13    38  -0.254  +0.275  -0.708  +0.060  
-REVERSAL_DOWNTREND   Kal open VWEAK      12    42  -0.249  +0.377  -0.875  +0.031  
-REVERSAL_DOWNTREND   3:15     WEAK       26    27  -0.475  -0.451  -0.761  -0.153  
-REVERSAL_DOWNTREND   Kal open WEAK       26    35  -0.401  -0.385  -0.524  -0.214  
-REVERSAL_UP          3:15     MIXED      24    25  -0.548  -0.978  +0.055  -0.100  
-REVERSAL_UP          Kal open MIXED      25    36  -0.296  -0.332  -0.243  -0.095  
-REVERSAL_UP          3:15     STRONG     18    33  -0.177  +0.186  -0.409  -0.110  
-REVERSAL_UP          Kal open STRONG     18    28  -0.304  -0.234  -0.349  -0.139  
-REVERSAL_UP          3:15     VWEAK       7    57  +0.081  +0.128  -0.202  +0.060  
-REVERSAL_UP          Kal open VWEAK       6    50  +0.175  +0.256  -0.229  +0.031  
-REVERSAL_UP          3:15     WEAK        8    50  -0.017  -0.017       -  -0.153  
-REVERSAL_UP          Kal open WEAK        7    57  -0.026  -0.026       -  -0.214  
+BOUNCE               3:15     MIXED      73    33  -0.218  -0.271  -0.141  -0.068  
+BOUNCE               Kal open MIXED      67    27  -0.237  -0.361  -0.092  -0.073  
+BOUNCE               3:15     STRONG     24    46  -0.155  -0.153  -0.156  -0.140  
+BOUNCE               Kal open STRONG     20    30  -0.318  -0.311  -0.320  -0.158  
+BOUNCE               3:15     VWEAK      85    45  -0.008  +0.216  -0.207  -0.015  
+BOUNCE               Kal open VWEAK      58    36  -0.155  -0.046  -0.197  -0.057  
+BOUNCE               3:15     WEAK       43    49  -0.027  +0.063  -0.489  -0.142  
+BOUNCE               Kal open WEAK       39    33  -0.215  -0.177  -0.421  -0.187  
+BREAKOUT             3:15     MIXED     148    44  -0.090  -0.095  -0.082  -0.068  
+BREAKOUT             Kal open MIXED     132    45  -0.053  -0.030  -0.086  -0.073  
+BREAKOUT             3:15     STRONG    203    43  -0.119  -0.132  -0.107  -0.140  
+BREAKOUT             Kal open STRONG    201    41  -0.183  -0.244  -0.120  -0.158  
+BREAKOUT             3:15     VWEAK      37    51  +0.085  +0.190  +0.040  -0.015  
+BREAKOUT             Kal open VWEAK      36    39  -0.164  -0.348  -0.060  -0.057  
+BREAKOUT             3:15     WEAK       43    28  -0.390  -0.508  -0.170  -0.142  
+BREAKOUT             Kal open WEAK       29    41  -0.160  -0.333  +0.123  -0.187  
+DIP_A                3:15     MIXED       7    43  -0.023  -0.319  +0.372  -0.068  
+DIP_A                Kal open MIXED       6    50  -0.121  -0.535  +0.709  -0.073  
+DIP_A                3:15     STRONG      3    33  -0.468  -0.356  -0.691  -0.140  
+DIP_A                Kal open STRONG      2     0  -0.830  -1.077  -0.583  -0.158  
+DIP_A                3:15     WEAK        4    50  -0.203  -0.428  +0.472  -0.142  
+DIP_A                Kal open WEAK        3    33  -0.199  -0.410  +0.224  -0.187  
+REVERSAL_DOWNTREND   3:15     MIXED      34    38  -0.183  -0.265  -0.013  -0.068  
+REVERSAL_DOWNTREND   Kal open MIXED      37    35  -0.336  -0.378  -0.236  -0.073  
+REVERSAL_DOWNTREND   3:15     STRONG     13    31  -0.291  +0.129  -0.326  -0.140  
+REVERSAL_DOWNTREND   Kal open STRONG     14    14  -0.505  -0.311  -0.519  -0.158  
+REVERSAL_DOWNTREND   3:15     VWEAK      21    57  -0.073  +0.310  -0.264  -0.015  
+REVERSAL_DOWNTREND   Kal open VWEAK      19    47  -0.077  +0.377  -0.286  -0.057  
+REVERSAL_DOWNTREND   3:15     WEAK       22    27  -0.412  -0.342  -0.854  -0.142  
+REVERSAL_DOWNTREND   Kal open WEAK       21    38  -0.290  -0.252  -0.524  -0.187  
+REVERSAL_UP          3:15     MIXED      24    29  -0.467  -0.853  +0.178  -0.068  
+REVERSAL_UP          Kal open MIXED      26    38  -0.244  -0.293  -0.153  -0.073  
+REVERSAL_UP          3:15     STRONG     20    30  -0.268  +0.101  -0.569  -0.140  
+REVERSAL_UP          Kal open STRONG     20    25  -0.379  -0.242  -0.492  -0.158  
+REVERSAL_UP          3:15     VWEAK       9    67  +0.249  +0.199  +0.311  -0.015  
+REVERSAL_UP          Kal open VWEAK       7    57  +0.342  +0.346  +0.337  -0.057  
+REVERSAL_UP          3:15     WEAK        9    56  +0.037  +0.009  +0.266  -0.142  
+REVERSAL_UP          Kal open WEAK        7    71  +0.216  +0.216  +0.214  -0.187  
 
 PASS rule: n>=40, avgR>=+0.05, dono aadhe plus, aur base se 0.05R+ behtar. Data ~1 saal (F&O stocks), isliye nateeja kachha hai.
