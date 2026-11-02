@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-11-02 12:43 IST
+NEWS/EVENTS CHECK 2026-11-02 14:05 IST
 screen data date: 2026-10-30 | candidates: 39
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 107 symbols
@@ -10,72 +10,79 @@ RSS Business Standard: OK, 35 items
 RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
 RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
 RSS Mint: OK, 35 items
-Google News: 110 of 110 symbols, 287 headlines
+Google News: 110 of 110 symbols, 257 headlines
 PDF saar: 0 naye bane, 3 nahi bane, 37 pehle ke reuse (AI key: nahi)
-announcements.json: 47 symbols with announcements in last 3 days
-ATHERENERG   BREAKOUT   IN_NEWS                            |  |  | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener
+announcements.json: 48 symbols with announcements in last 3 days
+ATHERENERG   BREAKOUT   IN_NEWS                            |  |  | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener | Ather Energy Ltd is Rated Sell
+TRENT        BREAKOUT   IN_NEWS                            |  | 2026-11-02 Copy of Newspaper Publication | Trent Q2FY27 results: EBITDA up 30% to ₹1,060 crore, margin hits 18%
 COFORGE      BREAKOUT   IN_NEWS                            |  |  | Coforge, ICICI Bank, KPR Mill: 3 technical ideas by Choice Equity
 SMSPHARMA    BREAKOUT   RESULTS_SOON NEW_ANNOUNCEMENT      | 2026-11-04 Financial Results | 2026-10-31 General | 
 SAREGAMA     BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-11-04 Financial Results |  | Tech picks: HCL Tech, Saregama among 5 stocks to buy for up to 11% returns in short term
 MBAPL        BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-10-31 Postponement of commercial production/operations | 
 LAURUSLABS   BREAKOUT   IN_NEWS                            |  |  | Laurus Labs expands oligonucleotide, peptide arms with new buyouts
-ZYDUSLIFE    BREAKOUT   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-04 Financial Results | 2026-11-02 General Updates | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener | Zydus Lifesciences among 6 stocks showing White Marubozu pattern
-INFY         PREBREAK   IN_NEWS                            |  |  | Infosys dividend 2026: Record date tomorrow | Know dividend payout, yield, history, return | BSE, Infosys, CG Power and 6 others to watch: Motilal Oswal reveals 9 stock ratings and ta
+ZYDUSLIFE    BREAKOUT   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-04 Financial Results | 2026-11-02 General Updates | Zydus Lifesciences completes acquisition of Sterling Biotech API business | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener
+INFY         PREBREAK   IN_NEWS                            |  |  | Infosys dividend 2026: Record date tomorrow | Know dividend payout, yield, history, return | Infosys shares slide over 2%; Hyderabad campus expansion fails to lift sentiment
 UNIONBANK    PREBREAK   IN_NEWS                            |  |  | Cochin Shipyard, Wipro, Union Bank of India: Top stocks to buy; check targets & more | Union Bank stock in focus after 3,500-crore Tier-1 bond call
 TFCILTD      PREBREAK   RESULTS_SOON                       | 2026-11-03 Financial Results |  | 
 THELEELA     PREBREAK   IN_NEWS                            |  |  | Leela Palaces Hotels & Resorts Limited (THELEELA) share price — eduinvesting
-MCX          PULLBACK   IN_NEWS                            |  |  | Gold Silver Price Today Live Updates: Silver gains 2% on MCX, gold trades flat. Check esti | MCX gold prices rise Rs 600/10 grams; silver jumps Rs 3,000/kg ahead of Diwali, but rate h
+MCX          PULLBACK   IN_NEWS                            |  |  | Gold Silver Rates Today Live Updates: Silver gains 2% on MCX, gold trades flat. Check esti | MCX gold prices rise Rs 600/10 grams; silver jumps Rs 3,000/kg ahead of Diwali, but rate h
 MEESHO       PULLBACK   IN_NEWS                            |  | 2026-11-01 ESOP/ESOS/ESPS | Meesho Ltd Share Price, Stock Price - NSE/BSE Live | Meesho ESOP 2024 Grant: 2,901 Options Approved for Employees
 SANSERA      PULLBACK   EVENT_7D                           | 2026-11-05 Financial Results | 2026-11-02 Analysts/Institutional Investor Meet/Con. Call Updates | 
 LALPATHLAB   PULLBACK   RESULTS_SOON                       | 2026-11-04 Dividend |  | 
 LEMONTREE    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-05 Financial Results | 2026-11-01 Press Release | Lemon Tree Hotels rebrands three properties in Bengaluru and Hyderabad | Lemon Tree Hotels Signs Hotel in Kumbakonam, Tamil Nadu
-PETRONET     PULLBACK   EVENT_7D RESULTS_SOON IN_NEWS      | 2026-11-02 Financial Results |  | Q2 Results 02nd Nov Oct Live: ITC, Marico, UPL, Petronet LNG, NLC, DOMS, Escorts Kubota, N | Q2 Results Live: ITC, Marico, Petronet LNG, UPL, CONCOR, NALCO, KRBL, Devyani Internationa
+PETRONET     PULLBACK   EVENT_7D RESULTS_SOON IN_NEWS      | 2026-11-02 Financial Results |  | PETRONET Share Price Today - Petronet LNG on NSE/BSE | Q2 Results 02nd Nov Oct Live: ITC, Marico, UPL, Petronet LNG, NLC, DOMS, Escorts Kubota, N
 IPCALAB      PULLBACK   EVENT_7D                           | 2026-11-05 Financial Results |  | 
+INDGN        PULLBACK   IN_NEWS                            |  | 2026-10-31 Copy of Newspaper Publication | Buy Indegene Ltd for Target Rs.705 by Axis Direct
 VINDHYATEL   PULLBACK   RESULTS_SOON                       | 2026-11-04 Financial Results |  | 
 UTTAMSUGAR   PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-31 Updates | Uttam Sugar Q2 net profit jumps nearly fivefold on lower finance costs, improved sugar seg
 ARIS         PULLBACK   RESULTS_SOON                       | 2026-11-03 Financial Results |  | 
 KOLTEPATIL   PULLBACK   RESULTS_SOON                       | 2026-11-03 Financial Results/Other business matters |  | 
 HLEGLAS      PULLBACK   RESULTS_SOON                       | 2026-11-02 Financial Results |  | 
+CARTRADE     DIP        IN_NEWS                            |  |  | Sanjay Manjrekar sells nearly 2-acre Alibaug property to CarTrade Tech for Rs 22.40 crore;
 STYLAMIND    DIP        IN_NEWS                            |  |  | The Call Stylam Industries Bulls Got Right
 DMCC         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-10-31 Press Release | DMCC Speciality Chemicals Q2FY27 Results: Net profit down 44% YoY | DMCC Speciality Chemicals Reports 116.51% Revenue Growth in Q2 FY27; Net Profit Stands at 
 SHANTIGOLD   DIP        RESULTS_SOON                       | 2026-11-03 Financial Results |  | 
 DALBHARAT    DIP        IN_NEWS                            |  |  | Dalmia Bharat Ltd. Share Price, Stock Price - NSE/BSE Live
+ACEVECTOR    DIP        IN_NEWS                            |  |  | Price Band Hitters Today, 2 November 2026 at 12:00 PM IST: ITI Ltd, AceVector Ltd, Durlax 
 UNIVCABLES   DIP        RESULTS_SOON                       | 2026-11-04 Financial Results |  | 
 SPORTKING    DIP        IN_NEWS                            |  | 2026-10-31 Copy of Newspaper Publication | Sportking India Q2FY27 Results: Net profit jumps 241% YoY to ₹96 crore
-ESDS         DIP        RESULTS_SOON IN_NEWS               | 2026-11-02 Financial Results |  | Nasdaq crashes 3%: E2E Networks, ESDS Software, other AI-related shares fall up to 5%
-RPGLIFE      DIP        IN_NEWS                            |  | 2026-10-31 Copy of Newspaper Publication | RPG Life Sciences eyes another acquisition with ₹500 crore capital pool | RPG Life Sciences Q2FY27 Results: Consolidated PAT falls 23% to ₹28.2 crore
-POWERICA     DIP        EVENT_7D IN_NEWS                   | 2026-11-05 Financial Results |  | Powerica (NSEI:POWERICA) - Stock Analysis
+ESDS         DIP        RESULTS_SOON IN_NEWS               | 2026-11-02 Financial Results |  | ESDS Software Solution Ltd. Share Price Live Today | Nasdaq crashes 3%: E2E Networks, ESDS Software, other AI-related shares fall up to 5%
+RPGLIFE      DIP        IN_NEWS                            |  | 2026-10-31 Copy of Newspaper Publication | RPG Life Sciences Q2FY27 Results: Consolidated PAT falls 23% to ₹28.2 crore
+POWERICA     DIP        EVENT_7D                           | 2026-11-05 Financial Results |  | 
 APCOTEXIND   DIP        NEW_ANNOUNCEMENT                   |  | 2026-10-31 Acquisition | 
 ABSLAMC      DIP        IN_NEWS                            |  |  | Aditya Birla Capital stock ticks up as brokerages back Q2FY27 beat with Buy calls | Aditya Birla Lifestyle Brands Q2 Profit More Than Doubles to Rs 53 Cr, Revenue Up 11.2%
-THYROCARE    DIP        IN_NEWS                            |  |  | Thyrocare Technologies Limited Just Missed EPS By 73%: Here's What Analysts Think Will Hap
-SUMICHEM     DIP        IN_NEWS                            |  |  | Sumitomo Chemical Company: FY2026 core income guidance raised to ¥270B as first-half earni | Sumitomo Chemical : Summary of Consolidated Financial Results for Second Quarter (Interim 
+SUZLON       DIP        IN_NEWS                            |  |  | Suzlon Energy Limited Earnings Missed Analyst Estimates: Here's What Analysts Are Forecast
+THYROCARE    DIP        IN_NEWS                            |  | 2026-11-02 Analysts/Institutional Investor Meet/Con. Call Updates | Thyrocare Technologies Limited Just Missed EPS By 73%: Here's What Analysts Think Will Hap
+SUMICHEM     DIP        IN_NEWS                            |  |  | Sumitomo Chemical Q2FY27 Results: Net profit falls 11% YoY to ₹157 crore | Sumitomo Chemical Company, Limited 2026 Q2 - Results - Earnings Call Presentation
 GATEWAY      DIP        IN_NEWS                            |  |  | Gateway Distriparks’ container revenue rebounds 12% sequentially in September quarter | Gateway Distriparks Q2 profit falls 12% to INR 58.5 crore, revenue rises 2.66%
 SWIGGY       DIP        IN_NEWS                            |  |  | Diwali Muhurat Picks 2026: Swiggy among 6 stocks with up to 116% upside potential. See ful | Nifty’s comeback or a largecap trap? Anand James decodes breadth, IT and Swiggy
 AEGISVOPAK   DIP        IN_NEWS                            |  |  | Aegis Vopak Q2FY27 net profit dips 3.8% YoY to ₹96.4 crore
+INOXWIND     DIP        IN_NEWS                            |  |  | Top power stocks: Jaiprakash Power vs Suzlon vs Vedanta Power vs Reliance Power vs Inox Wi
 PREMEXPLN    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-01 Change in Director(s) | Apollo Micro Systems deposits ₹986.35 crore for Premier Explosives stake | Premier Explosives PREMEXPLN Director Cessation November 2026
 FUSION       DIP        RESULTS_SOON                       | 2026-11-02 Financial Results |  | 
-YESBANK      DIP        IN_NEWS                            |  |  | YES Bank, SAIL, Mphasis: Top stocks to trade — Check key levels, targets & stop loss | Yes Bank rejects wilful disobedience charge as AT-1 bond trustee warns contempt action
+YESBANK      DIP        IN_NEWS                            |  |  | Yes Bank’s bondholders won in court. Why are they still fighting? | YES Bank, SAIL, Mphasis: Top stocks to trade — Check key levels, targets & stop loss
 ORIENTTECH   DIP        RESULTS_SOON                       | 2026-11-02 Financial Results/Dividend |  | 
 RAYMONDLSL   DIP        IN_NEWS                            |  |  | Raymond Lifestyle Limited (NSE:RAYMONDLSL) Just Reported Earnings, And Analysts Cut Their 
+OSWALPUMPS   DIP        IN_NEWS                            |  |  | Oswal Pumps Wins Rs. 2.36 bn Order for 10,000 Solar Pumps
 PRAJIND      DIP        IN_NEWS                            |  |  | Buy Praj Industries; target of Rs 353: Prabhudas Lilladher
 MAZDOCK      DIP        IN_NEWS                            |  |  | From a Small Dry Dock to India's Warship Builder: The 250-Year Story of Mazagon Dock Shipb
 TURTLEMINT   DIP        IN_NEWS                            |  |  | Turtlemint Fintech Solutions Ltd. Share Price Live Today
 AFCONS       DIP        RESULTS_SOON                       | 2026-11-04 Financial Results |  | 
 LT           DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-02 Bagging/Receiving of orders/contracts | LT Share Price Today - Larsen & Toubro on NSE/BSE
-Symbols with no flags: 58. Top market headlines:
+Symbols with no flags: 51. Top market headlines:
+  [ET Markets] Missed Reliance Industries’ historic 8% one-day rally? Here’s what technical analysts are saying
+  [ET Markets] Coal India shares jump 4% after firm records highest-ever monthly coal supplies in October
+  [ET Markets] Pizza Hut, KFC India operator's Q2 loss naarrows sharply on strong same-store sales growth
+  [ET Markets] Dixon Technologies shares gain 11% after Q2 revenue jumps 47% YoY
   [ET Markets] Sebi backs removal of LTCG tax for foreign investors: Report
   [ET Markets] Vedanta Oil and Gas shares jump 14% in 2 days, m-cap swells by Rs 1,600 crore after Q2 results
   [ET Markets] GAIL shares jump 4% as Q2 net profit rises over 8% to Rs 4,650 crore, revenue grows 17%
   [ET Markets] PC Jeweller shares drop 4% after Sebi sends warning letters to MD, company secretary. Here's why
-  [ET Markets] Gold Silver Price Today Live Updates: Silver gains 2% on MCX, gold trades flat. Check estimates, key levels
+  [ET Markets] Gold Silver Rates Today Live Updates: Silver gains 2% on MCX, gold trades flat. Check estimates, key levels
   [ET Markets] Reliance Industries shares set for biggest-single day jump since April 2020 as Q2 earnings spark Rs 1 lakh cro
   [ET Markets] US midterm elections begin tomorrow: Can Trump’s likely defeat sparkle Sensex, Nifty? Here’s what analysts say
   [ET Markets] Cheap stocks aren’t enough: The one trigger FIIs need to return to India
   [ET Markets] Wall Street rushes in with bullish calls on India’s top bourse
   [ET Markets] Diwali stocks to buy! 8 stocks with upside potential of up to 52%
   [ET Markets] This auto ancillary stock soars 13% after Q2 PAT jumps 35% YoY. Do you own it?
-  [ET Markets] Zen Technologies shares rally 9% after Q2 profit rises 51% YoY, revenue nearly doubles
-  [ET Markets] Tech picks: HCL Tech, Saregama among 5 stocks to buy for up to 11% returns in short term
-  [ET Markets] Diwali 2026: 77 stocks knock down D-St bears to deliver multibagger returns of up to 4,700% in a year
-  [ET Markets] FII retreat deepens: Almost every second Nifty stock sees stake cuts in all 3 quarters of 2026
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
