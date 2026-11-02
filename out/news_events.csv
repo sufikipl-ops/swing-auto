@@ -1,12 +1,12 @@
 setup,symbol,flags,next_event,last_announcement,headlines
 BREAKOUT,ATHERENERG,IN_NEWS,,,"Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener | Ather Energy Ltd is Rated Sell"
 BREAKOUT,TRENT,IN_NEWS,,2026-11-02 Copy of Newspaper Publication,"Trent Q2FY27 results: EBITDA up 30% to ₹1,060 crore, margin hits 18%"
-BREAKOUT,COFORGE,IN_NEWS,,,"Coforge, ICICI Bank, KPR Mill: 3 technical ideas by Choice Equity"
+BREAKOUT,COFORGE,IN_NEWS,,,"Coforge, ICICI Bank, KPR Mill: 3 technical ideas by Choice Equity | Stocks to buy today: Analysts recommend Zensar Technologies, DLF, Infosys, Coforge, IndiGo"
 BREAKOUT,SMSPHARMA,RESULTS_SOON NEW_ANNOUNCEMENT,2026-11-04 Financial Results,2026-10-31 General,
 BREAKOUT,SAREGAMA,RESULTS_SOON IN_NEWS,2026-11-04 Financial Results,,"Tech picks: HCL Tech, Saregama among 5 stocks to buy for up to 11% returns in short term"
 BREAKOUT,MBAPL,NEW_ANNOUNCEMENT,,2026-10-31 Postponement of commercial production/operations,
 BREAKOUT,LAURUSLABS,IN_NEWS,,,"Laurus Labs expands oligonucleotide, peptide arms with new buyouts"
-BREAKOUT,ZYDUSLIFE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-11-02 General Updates,"Zydus Lifesciences completes acquisition of Sterling Biotech API business | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener"
+BREAKOUT,ZYDUSLIFE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-11-02 General Updates,Zydus Lifesciences Completes Acquisition of Sterling Biotech API Business | Zydus Lifesciences completes acquisition of Sterling Biotech API business
 BREAKOUT,MARSONS,none,,,
 BREAKOUT,PASHUPATI,none,,,
 PREBREAK,INFY,IN_NEWS,,,"Infosys dividend 2026: Record date tomorrow | Know dividend payout, yield, history, return | Infosys shares slide over 2%; Hyderabad campus expansion fails to lift sentiment"
@@ -16,21 +16,21 @@ PREBREAK,THELEELA,IN_NEWS,,,Leela Palaces Hotels & Resorts Limited (THELEELA) sh
 PULLBACK,MCX,IN_NEWS,,,"Gold Silver Rates Today Live Updates: Silver gains 2% on MCX, gold trades flat. Check esti | MCX gold prices rise Rs 600/10 grams; silver jumps Rs 3,000/kg ahead of Diwali, but rate h"
 PULLBACK,HAL,none,,,
 PULLBACK,PATANJALI,none,,,
-PULLBACK,MEESHO,IN_NEWS,,2026-11-01 ESOP/ESOS/ESPS,"Meesho Ltd Share Price, Stock Price - NSE/BSE Live | Meesho ESOP 2024 Grant: 2,901 Options Approved for Employees"
+PULLBACK,MEESHO,IN_NEWS,,2026-11-01 ESOP/ESOS/ESPS,"Meesho ESOP 2024 Grant: 2,901 Options Approved for Employees | Meesho (NSE:MEESHO) ESOP 2024 Grant: What It Means for Employees and Investors"
 PULLBACK,INDSWFTLAB,none,,,
 PULLBACK,MRPL,none,,,
 PULLBACK,SANSERA,EVENT_7D,2026-11-05 Financial Results,2026-11-02 Analysts/Institutional Investor Meet/Con. Call Updates,
 PULLBACK,AARTIPHARM,none,,,
 PULLBACK,LALPATHLAB,RESULTS_SOON,2026-11-04 Dividend,,
-PULLBACK,LEMONTREE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-05 Financial Results,2026-11-01 Press Release,"Lemon Tree Hotels rebrands three properties in Bengaluru and Hyderabad | Lemon Tree Hotels Signs Hotel in Kumbakonam, Tamil Nadu"
-PULLBACK,PETRONET,EVENT_7D RESULTS_SOON IN_NEWS,2026-11-02 Financial Results,,"PETRONET Share Price Today - Petronet LNG on NSE/BSE | Q2 Results 02nd Nov Oct Live: ITC, Marico, UPL, Petronet LNG, NLC, DOMS, Escorts Kubota, N"
+PULLBACK,LEMONTREE,EVENT_7D NEW_ANNOUNCEMENT,2026-11-05 Financial Results,2026-11-01 Press Release,
+PULLBACK,PETRONET,EVENT_7D RESULTS_SOON IN_NEWS,2026-11-02 Financial Results,,"PETRONET Share Price Today - Petronet LNG on NSE/BSE | Q2 Results Live: ITC, Marico, Petronet LNG, UPL, CONCOR, NALCO, KRBL, Devyani Internationa"
 PULLBACK,IPCALAB,EVENT_7D,2026-11-05 Financial Results,,
-PULLBACK,INDGN,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,Buy Indegene Ltd for Target Rs.705 by Axis Direct
+PULLBACK,INDGN,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,Buy Indegene; target of Rs 718: Motilal Oswal
 PULLBACK,AHCL,none,,2026-10-31 Copy of Newspaper Publication,
 PULLBACK,ABDL,none,,,
 PULLBACK,VINDHYATEL,RESULTS_SOON,2026-11-04 Financial Results,,
 PULLBACK,UTTAMSUGAR,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-31 Updates,"Uttam Sugar Q2 net profit jumps nearly fivefold on lower finance costs, improved sugar seg"
-PULLBACK,DELTACORP,none,,,
+PULLBACK,DELTACORP,IN_NEWS,,,Spartan Delta Corp Advances 1.75% as Positive Share-Price Momentum Draws Attention | Spartan Delta Corp. (SDE.TO) - What Are Investment Firms Thinking About This Stock?
 PULLBACK,ARIS,RESULTS_SOON,2026-11-03 Financial Results,,
 PULLBACK,MACPOWER,none,,,
 PULLBACK,BBL,none,,,
@@ -38,14 +38,14 @@ PULLBACK,PANORAMA,none,,,
 PULLBACK,KOLTEPATIL,RESULTS_SOON,2026-11-03 Financial Results/Other business matters,,
 PULLBACK,ORIENTELEC,none,,,
 PULLBACK,HLEGLAS,RESULTS_SOON,2026-11-02 Financial Results,,
-DIP,CARTRADE,IN_NEWS,,,Sanjay Manjrekar sells nearly 2-acre Alibaug property to CarTrade Tech for Rs 22.40 crore;
+DIP,CARTRADE,none,,,
 DIP,ECLERX,none,,,
 DIP,EQUITASBNK,none,,2026-10-31 General Updates,
 DIP,INTELLECT,none,,,
 DIP,INTELLECT,none,,,
 DIP,VAIBHAVGBL,none,,,
 DIP,ASTEC,none,,,
-DIP,RAYMONDREL,none,,,
+DIP,RAYMONDREL,none,,2026-11-02 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,STYLAMIND,IN_NEWS,,,The Call Stylam Industries Bulls Got Right
 DIP,CONFIPET,none,,,
 DIP,CONFIPET,none,,,
@@ -78,13 +78,13 @@ DIP,ATUL,none,,,
 DIP,TRUALT,none,,,
 DIP,INOXGREEN,none,,,
 DIP,GATEWAY,IN_NEWS,,,"Gateway Distriparks’ container revenue rebounds 12% sequentially in September quarter | Gateway Distriparks Q2 profit falls 12% to INR 58.5 crore, revenue rises 2.66%"
-DIP,KPEL,none,,,
-DIP,SWIGGY,IN_NEWS,,,"Diwali Muhurat Picks 2026: Swiggy among 6 stocks with up to 116% upside potential. See ful | Nifty’s comeback or a largecap trap? Anand James decodes breadth, IT and Swiggy"
+DIP,KPEL,IN_NEWS,,,KP Energy locked at 5% upper circuit on 9-MW wind power project contract
+DIP,SWIGGY,IN_NEWS,,,Diwali Muhurat Picks 2026: Swiggy among 6 stocks with up to 116% upside potential. See ful
 DIP,IZMO,none,,,
 DIP,RENUKA,none,,2026-11-01 Copy of Newspaper Publication,
 DIP,AEGISVOPAK,IN_NEWS,,,Aegis Vopak Q2FY27 net profit dips 3.8% YoY to ₹96.4 crore
 DIP,DYCL,none,,,
-DIP,INOXWIND,IN_NEWS,,,Top power stocks: Jaiprakash Power vs Suzlon vs Vedanta Power vs Reliance Power vs Inox Wi
+DIP,INOXWIND,IN_NEWS,,,Inox Wind share price up 6% as board to consider bonus share proposal | Top power stocks: Jaiprakash Power vs Suzlon vs Vedanta Power vs Reliance Power vs Inox Wi
 DIP,COMSYN,none,,,
 DIP,SANDHAR,none,,,
 DIP,PREMEXPLN,NEW_ANNOUNCEMENT IN_NEWS,,2026-11-01 Change in Director(s),Apollo Micro Systems deposits ₹986.35 crore for Premier Explosives stake | Premier Explosives PREMEXPLN Director Cessation November 2026
