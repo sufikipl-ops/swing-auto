@@ -1,71 +1,108 @@
 setup,symbol,flags,next_event,last_announcement,headlines
-BREAKOUT,BSOFT,NEW_ANNOUNCEMENT,,2026-10-28 Dividend,
-BREAKOUT,KOTAKBANK,IN_NEWS,,,"Kotak Mahindra Mutual Fund has declared change in the fund managers of its few schemes | Top 3 stocks to buy tomorrow: Kotak Mahindra Bank, Nykaa, Eternal by market expert; check "
-BREAKOUT,ACUTAAS,none,,2026-10-28 Copy of Newspaper Publication,
-BREAKOUT,SGMART,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,SG Mart Q2FY27 results: Net profit jumps 104% to ₹54 crore
-BREAKOUT,LAURUSLABS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,"Laurus Labs shares climb 4% after Q2 profit zooms 126% YoY | Laurus Labs share price at record high after Q2 results 20⁠⁩26, dividend announcement - Sh"
-BREAKOUT,ZENSARTECH,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,Zensar Technologies Shares Slid Even Though Profit Rose
-BREAKOUT,GESHIP,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Daily Buy Back of equity shares,Great Eastern Shipping records nil buyback on Oct 29; total stays 38.48 lakh
-BREAKOUT,TANLA,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Should You Buy Tanla Platforms Limited (NSE:TANLA) For Its Upcoming Dividend? | Tanla Platforms Q2FY27 results: Net profit up 17% YoY to ₹146 crore
-BREAKOUT,SAREGAMA,EVENT_7D IN_NEWS,2026-11-04 Financial Results,,"Breakout stocks: Adani Ports, Nykaa, Saregama on radar; analyst tells why | Trade Spotlight: How should you trade Lodha Developers, Saregama India, Bajaj Finance, Zen"
-BREAKOUT,ADANIPORTS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Credit Rating,"Breakout stocks: Adani Ports, Nykaa, Saregama on radar; analyst tells why | Adani Ports Stock Jumps Over 5%"
+BREAKOUT,ATHERENERG,IN_NEWS,,,"Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener"
+BREAKOUT,TRENT,none,,,
+BREAKOUT,COFORGE,none,,,
+BREAKOUT,SMSPHARMA,RESULTS_SOON NEW_ANNOUNCEMENT,2026-11-04 Financial Results,2026-10-31 General,
+BREAKOUT,SAREGAMA,RESULTS_SOON,2026-11-04 Financial Results,,
+BREAKOUT,MBAPL,NEW_ANNOUNCEMENT,,2026-10-31 Postponement of commercial production/operations,
+BREAKOUT,LAURUSLABS,none,,,
+BREAKOUT,ZYDUSLIFE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-10-31 Change in Management,"Zydus Lifesciences Q1FY27 revenue up 22% to ₹80.2 billion; margins hold at 24.1% | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener"
+BREAKOUT,MARSONS,none,,,
 BREAKOUT,PASHUPATI,none,,,
-PREBREAK,ANANDRATHI,IN_NEWS,,,"Stock to buy after Q2 Results 2026: Anand Rathi sees 25% upside in this IT stock in 12 mon | In conversation with Roop Bhootra, CEO, Anand Rathi Share and Stock Brokers"
-PULLBACK,MEESHO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 General Updates,Meesho approves ₹400 crore investment in payments subsidiary
-PULLBACK,CUPID,IN_NEWS,,,Cupid shares reclassified from BSE Group B to Group A | Exceptional Returns from Cupid and Bhagyanagar Ind Highlight Market Outperformance
-PULLBACK,MRPL,IN_NEWS,,,Mangalore Refinery & Petrochemicals Ltd. Technical Momentum Shifts Amid Mixed Signals
-PULLBACK,CPPLUS,IN_NEWS,,2026-10-30 ESOP/ESOS/ESPS,"Aditya Infotech CPPLUS ESOP Allotment 48,100 Shares Oct 2026"
-PULLBACK,SAMBHV,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Capacity addition,Sambhv Steel Tubes Reports Q2 Revenue of 8.4B Rupees vs 5.8B YoY | Sambhv Steel Tubes (NSE:SAMBHV) Q2FY27 Investor Presentation
-PULLBACK,TECHNOCRAF,none,,,
-PULLBACK,SAGILITY,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Sagility share price drops 6% after promoter likely to have sold equity worth ₹2,543 crore | Why Sagility Share Price is Falling"
-PULLBACK,PETRONET,EVENT_7D,2026-11-02 Financial Results,,
-PULLBACK,CYIENT,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Press Release,Cyient Is Betting On Semiconductors And AI. When Will Earnings Follow?
-PULLBACK,UNIMECH,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 General Updates,Unimech Aerospace to acquire 76% stake in Hobel Bellows for ₹6.08 crore | Unimech Aerospace and Manufacturing - 10 defence stocks rally up to 500% in FY27 so far; 5
-PULLBACK,EBGNG,EVENT_7D NEW_ANNOUNCEMENT,2026-11-03 Financial Results/Other business matters,2026-10-29 Board Meeting,
-PULLBACK,IPCALAB,EVENT_7D,2026-11-05 Financial Results,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,
-PULLBACK,RBA,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Monitoring Agency Report,Restaurant Brand Asia Share Price - Live NSE: RBA Stock Price & Chart | Restaurant Brands Earnings: Burger King's US Turnaround and International Results Shine
-PULLBACK,MARINE,EVENT_7D,2026-11-04 Financial Results,,
-PULLBACK,MOBIKWIK,EVENT_7D IN_NEWS,2026-11-02 Financial Results,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,One Mobikwik Systems Ltd is Rated Hold by MarketsMOJO
-PULLBACK,WHIRLPOOL,none,,,
-PULLBACK,GMMPFAUDLR,EVENT_7D,2026-11-04 Financial Results,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,
-PULLBACK,MACPOWER,NEW_ANNOUNCEMENT,,2026-10-29 Disclosure under SEBI Takeover Regulations,
-PULLBACK,STOVEKRAFT,EVENT_7D,2026-11-04 Financial Results,,
-PULLBACK,AXISCADES,none,,,
-PULLBACK,GNA,none,,,
-PULLBACK,INDGN,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Resignation of Director/KMP/SMP,"Indegene Q2FY27 Results: Revenue up 39.5% YoY, USD growth hits 4-year high | Indegene Ltd (NSE:INDGN) Q2 2027 Earnings Report Preview: What to Look For"
-PULLBACK,VINDHYATEL,EVENT_7D,2026-11-04 Financial Results,,
-PULLBACK,CRISIL,IN_NEWS,,,Epigral Limited Receives CRISIL AA Stable and A1+ Credit Ratings
-PULLBACK,KRISHNADEF,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Outcome of Board Meeting,"Krishna Defence and Allied Industries Q2 Results FY27: PAT Jumps 33.92% to Rs 15.32 Cr, Re | Krishna Defence Q2 : Net Profit Jumps 71.9% to ₹15.32 Cr, Revenue Up 30.7%; Interim Divide"
-DIP,CARTRADE,NEW_ANNOUNCEMENT,,2026-10-28 Press Release / Media Release,
-DIP,VAIBHAVGBL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,Earnings call transcript: Vaibhav Global cuts FY 2027 outlook in Q2 2026 By Investing.com | Vaibhav Global Stock Breakdown and RSI Analysis
-DIP,VAIBHAVGBL,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Press Release,Earnings call transcript: Vaibhav Global cuts FY 2027 outlook in Q2 2026 By Investing.com | Vaibhav Global Stock Breakdown and RSI Analysis
-DIP,DALBHARAT,IN_NEWS,,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,"Dalmia Bharat Q2FY27 results: Net loss of ₹205 crore; Q3 costs up ₹75/tonne | Five Stocks To Buy Today, October 30: Dalmia Bharat Sugar, Waaree Energies, Kotak Bank, An"
-DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,"eClerx Services Share Price Extends Losses, Slips Over 8%, As Brokerages Cut Target After  | eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today"
-DIP,ECLERX,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-28 Scheme of Arrangement,"eClerx Services Share Price Extends Losses, Slips Over 8%, As Brokerages Cut Target After  | eClerx Services Q2 FY27 Results | Birlasoft Q2 FY27 Results | Top Buzzing Stocks Today"
-DIP,EQUITASBNK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,Crash! Why Equitas Small Finance Bank stock is so much down today? Share price plunges 12% | Equitas Small Finance Bank shares tumble 27% in two days; analysts say good Q2 numbers mar
-DIP,EQUITASBNK,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,Crash! Why Equitas Small Finance Bank stock is so much down today? Share price plunges 12% | Equitas Small Finance Bank shares tumble 27% in two days; analysts say good Q2 numbers mar
-DIP,PREMEXPLN,none,,,
-DIP,RIR,none,,,
-DIP,JARO,none,,,
-DIP,DYCL,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Dynamic Cables Ltd is Rated Hold by MarketsMOJO
-DIP,SUMICHEM,none,,,
-DIP,MAZDOCK,IN_NEWS,,2026-10-28 Copy of Newspaper Publication,Mazagon Dock Shipbuilders Limited Just Missed EPS By 40%: Here's What Analysts Think Will 
-DIP,M&MFIN,none,,,
-DIP,YESBANK,IN_NEWS,,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,"Axis Trusteeship Sends Notice To Yes Bank After Supreme Court Judgment | Yes Bank stock falls 26% in Oct, hits lowest level since Apr 2023 | Yes Bank shares down o"
+PREBREAK,INFY,IN_NEWS,,,"Bonus issues, stock splits, dividends: Infosys, Asian Paints among over 40 stocks turning  | Dividend stocks, bonus shares, split, buyback issues in Nov 2026: Coal India, HUL, Infosys"
+PREBREAK,UNIONBANK,IN_NEWS,,,"Union Bank stock in focus after 3,500-crore Tier-1 bond call"
+PREBREAK,TFCILTD,RESULTS_SOON,2026-11-03 Financial Results,,
+PREBREAK,THELEELA,IN_NEWS,,,Leela Palaces Hotels & Resorts Limited (THELEELA) share price — eduinvesting
+PULLBACK,MCX,none,,,
+PULLBACK,HAL,none,,,
+PULLBACK,PATANJALI,none,,,
+PULLBACK,MEESHO,IN_NEWS,,2026-11-01 ESOP/ESOS/ESPS,Meesho (NSE:MEESHO) ESOP 2024 Grant: What It Means for Employees and Investors
+PULLBACK,INDSWFTLAB,none,,,
+PULLBACK,MRPL,none,,,
+PULLBACK,SANSERA,EVENT_7D,2026-11-05 Financial Results,,
+PULLBACK,AARTIPHARM,none,,,
+PULLBACK,LALPATHLAB,RESULTS_SOON,2026-11-04 Dividend,,
+PULLBACK,LEMONTREE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-05 Financial Results,2026-11-01 Press Release,"Lemon Tree Hotels rebrands three properties in Bengaluru and Hyderabad | Lemon Tree Hotels Signs Hotel in Kumbakonam, Tamil Nadu"
+PULLBACK,PETRONET,EVENT_7D RESULTS_SOON,2026-11-02 Financial Results,,
+PULLBACK,IPCALAB,EVENT_7D,2026-11-05 Financial Results,,
+PULLBACK,INDGN,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,Earnings Update: Here's Why Analysts Just Lifted Their Indegene Limited (NSE:INDGN) Price  | Buy Indegene Ltd For Target Rs.718 by Motilal Oswal Financial Services Ltd
+PULLBACK,AHCL,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,"Anlon Healthcare targets 30% revenue CAGR, expands capacity to 1,600 MTPA | Anlon Healthcare Q2FY27 Results: Consolidated revenue doubles, margin contracts"
+PULLBACK,ABDL,none,,,
+PULLBACK,VINDHYATEL,RESULTS_SOON,2026-11-04 Financial Results,,
+PULLBACK,UTTAMSUGAR,NEW_ANNOUNCEMENT,,2026-10-31 Updates,
+PULLBACK,DELTACORP,none,,,
+PULLBACK,ARIS,RESULTS_SOON,2026-11-03 Financial Results,,
+PULLBACK,MACPOWER,none,,,
+PULLBACK,BBL,none,,,
+PULLBACK,PANORAMA,IN_NEWS,,,Panorama Studios acquires 10% stake in Rhea & Dia Enterprises
+PULLBACK,KOLTEPATIL,RESULTS_SOON,2026-11-03 Financial Results/Other business matters,,
+PULLBACK,ORIENTELEC,none,,,
+PULLBACK,HLEGLAS,RESULTS_SOON,2026-11-02 Financial Results,,
+DIP,CARTRADE,none,,,
+DIP,ECLERX,none,,,
+DIP,EQUITASBNK,none,,2026-10-31 General Updates,
+DIP,INTELLECT,none,,,
+DIP,INTELLECT,none,,,
+DIP,VAIBHAVGBL,none,,,
+DIP,ASTEC,none,,,
+DIP,RAYMONDREL,none,,,
+DIP,STYLAMIND,IN_NEWS,,,"Stylam Industries Q1FY27 profit rises 70%, led by margin expansion"
+DIP,CONFIPET,none,,,
+DIP,CONFIPET,none,,,
+DIP,DMCC,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-31 Press Release,DMCC Speciality Chemicals Q2FY27 Results: Net profit down 44% YoY | DMCC Speciality Chemicals Reports 116.51% Revenue Growth in Q2 FY27; Net Profit Stands at 
+DIP,GENESYS,none,,,
+DIP,SHANTIGOLD,RESULTS_SOON,2026-11-03 Financial Results,,
+DIP,DALBHARAT,none,,,
+DIP,MOSCHIP,IN_NEWS,,,MosChip Technologies Announces Extra-Ordinary General Meeting and E-Voting Schedule for Ma
+DIP,ACEVECTOR,none,,,
+DIP,PERMAGN,none,,,
+DIP,UNIVCABLES,RESULTS_SOON,2026-11-04 Financial Results,,
+DIP,STYRENIX,none,,,
+DIP,AGI,none,,,
+DIP,SPORTKING,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,Sportking India Q2FY27 Results: Net profit jumps 241% YoY to ₹96 crore
 DIP,YATRA,none,,,
-DIP,TCS,IN_NEWS,,,TCS Share Price Live Updates: TCS Stock Update
-DIP,FUSION,EVENT_7D NEW_ANNOUNCEMENT,2026-11-02 Financial Results,2026-10-29 General,
-DIP,WIPRO,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-29 Updates,"Buzzing Stocks: Wipro, Reliance, PSP Projects, Bajaj Electricals, Hero MotoCorp, TCP, Mahi | Wipro Limited (WIPRO.NS) Stock Price, News, Quote & History"
-DIP,ORIENTTECH,EVENT_7D,2026-11-02 Financial Results/Dividend,2026-10-28 Analysts/Institutional Investor Meet/Con. Call Updates,
-DIP,NELCO,none,,2026-10-28 Copy of Newspaper Publication,
-DIP,FIVESTAR,IN_NEWS,,2026-10-30 Analysts/Institutional Investor Meet/Con. Call Updates,Five Star Business Finance Q2FY27 Results: Net profit up 5% to ₹299 crore | Five Star Bancorp (FSBC) On Strong Q3 Results And Fresh Capital Still Looks Undervalued
-DIP,OSWALPUMPS,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-30 Press Release,Oswal Pumps shares fall despite ₹236 crore MSEDCL order win; stock hits fresh 52-week low | Oswal Pumps (NSE:OSWALPUMPS): What Is the Rs 235.92 Cr MSEDCL Solar Order?
-DIP,SAMHI,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-03 Financial Results,2026-10-29 Analysts/Institutional Investor Meet/Con. Call Updates,Samhi Hotels: Announces Earnings Call for Q2 & H1 FY27 Results
-DIP,ANANTRAJ,NEW_ANNOUNCEMENT,,2026-10-28 Monitoring Agency Report,
+DIP,ESDS,RESULTS_SOON,2026-11-02 Financial Results,,
+DIP,RPGLIFE,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,RPG Life Sciences eyes another acquisition with ₹500 crore capital pool | RPG Life Sciences Q2FY27 Results: Consolidated PAT falls 23% to ₹28.2 crore
+DIP,POWERICA,EVENT_7D IN_NEWS,2026-11-05 Financial Results,,Powerica (NSEI:POWERICA) - Stock Analysis | Powerica wins 100MW wind project bid from SECI at tariff ₹3.85 per unit
+DIP,REFEX,IN_NEWS,,,"Refex Industries targets 90k ton ash run rate, 5-6% wind net margin"
+DIP,RIR,none,,,
+DIP,APCOTEXIND,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-31 Acquisition,Apcotex Industries posts record Q1FY27 profit of ₹789M on margin surge
+DIP,ABSLAMC,IN_NEWS,,,Earnings call transcript: Aditya Birla Capital posts strong Q2 2026 profit growth By Inves
+DIP,JARO,none,,,
+DIP,SUZLON,none,,,
+DIP,THYROCARE,none,,,
+DIP,IFCI,none,,,
+DIP,SUMICHEM,none,,,
+DIP,EPACK,none,,,
+DIP,ATUL,none,,,
+DIP,TRUALT,IN_NEWS,,,"Trualt Bioenergy seeks nod for Rs 2,500 cr related party deals"
+DIP,INOXGREEN,IN_NEWS,,,Inox Green Energy Services fixes record date for demerger on Aug 1
+DIP,GATEWAY,IN_NEWS,,,"Gateway Distriparks Limited Just Beat EPS By 5.5%: Here's What Analysts Think Will Happen  | Gateway Distriparks Q2 profit falls 12% to INR 58.5 crore, revenue rises 2.66%"
+DIP,KPEL,IN_NEWS,,,KP Energy locked at 5% upper circuit on 9-MW wind power project contract
+DIP,SWIGGY,IN_NEWS,,,"Mid-, small-caps under pressure; Suzlon, Swiggy, STL, HFCL plunge up to 10%"
+DIP,IZMO,none,,,
+DIP,RENUKA,IN_NEWS,,2026-11-01 Copy of Newspaper Publication,Shree Renuka Sugars accepts Vijendra Singh's resignation as Dy. CEO | Shree Renuka Sugars RENUKA Q2 FY27 Results Published
+DIP,AEGISVOPAK,IN_NEWS,,,Aegis Vopak Q2FY27 net profit dips 3.8% YoY to ₹96.4 crore
+DIP,DYCL,none,,,
+DIP,INOXWIND,IN_NEWS,,,Inox Wind share price up 6% as board to consider bonus share proposal | Inox Wind promoters confirm no new encumbrance on shares in FY26
 DIP,COMSYN,none,,,
+DIP,SANDHAR,none,,,
+DIP,PREMEXPLN,NEW_ANNOUNCEMENT IN_NEWS,,2026-11-01 Change in Director(s),Premier Explosives PREMEXPLN Director Cessation November 2026 | Premier Explosives announces cessation of Lt. Gen. Peruvemba Ramachandran Kumar as Indepen
 DIP,EMMVEE,none,,,
-DIP,BHARTIARTL,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-05 Financial Results,2026-10-29 Action(s) taken or orders passed,Bharti Airtel Share Price - Live NSE: BHARTIARTL Stock Price & Chart
-DIP,ITCHOTELS,IN_NEWS,,,ITC Hotels Q2 profit rises 52% to INR 202.65 crore; signs 20 hotels in H1 FY27 | ITC Hotels Ltd is Rated Sell
-DIP,TURTLEMINT,IN_NEWS,,,Turtlemint Fintech Solutions Ltd. Share Price Live Today
-DIP,AVADHSUGAR,EVENT_7D,2026-11-05 Financial Results/Other business matters,2026-10-30 Copy of Newspaper Publication,
+DIP,FUSION,RESULTS_SOON,2026-11-02 Financial Results,,
+DIP,YESBANK,IN_NEWS,,,Yes Bank rejects wilful disobedience charge as AT-1 bond trustee warns contempt action
+DIP,FIVESTAR,none,,,
+DIP,ORIENTTECH,RESULTS_SOON,2026-11-02 Financial Results/Dividend,,
+DIP,RAYMONDLSL,IN_NEWS,,,"J.K. Investors pledges shares in Raymond Lifestyle | Raymond Lifestyle Limited (NSE:RAYMONDLSL) Just Reported Earnings, And Analysts Cut Their "
+DIP,NELCO,none,,,
+DIP,OSWALPUMPS,none,,,
+DIP,SHAKTIPUMP,none,,2026-10-31 Analysts/Institutional Investor Meet/Con. Call Updates,
+DIP,PRAJIND,IN_NEWS,,,Praj Industries Limited Just Recorded A 80% EPS Beat: Here's What Analysts Are Forecasting
+DIP,MAZDOCK,IN_NEWS,,,"Dividend Watchlist: Key Ex-Dates For Infosys, Mazagon Dock, Coal India And More Next Week | Mazagon Dock Seeks Partners for Rs 20,000-Crore Shipyards"
+DIP,TURTLEMINT,none,,,
+DIP,AFCONS,RESULTS_SOON,2026-11-04 Financial Results,,
+DIP,PITTIENG,IN_NEWS,,,Pitti Engineering releases Q1 FY27 earnings call transcript
+DIP,M&MFIN,none,,,
+DIP,LT,NEW_ANNOUNCEMENT,,2026-10-31 General Updates,
+DIP,HUHTAMAKI,none,,,
 LOCKED,AURUM,none,,,
