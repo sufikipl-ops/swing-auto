@@ -1,15 +1,15 @@
 setup,symbol,flags,next_event,last_announcement,headlines
 BREAKOUT,ATHERENERG,IN_NEWS,,,"Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener"
 BREAKOUT,TRENT,none,,,
-BREAKOUT,COFORGE,none,,,
+BREAKOUT,COFORGE,IN_NEWS,,,"Coforge, ICICI Bank, KPR Mill: 3 technical ideas by Choice Equity"
 BREAKOUT,SMSPHARMA,RESULTS_SOON NEW_ANNOUNCEMENT,2026-11-04 Financial Results,2026-10-31 General,
 BREAKOUT,SAREGAMA,RESULTS_SOON,2026-11-04 Financial Results,,
 BREAKOUT,MBAPL,NEW_ANNOUNCEMENT,,2026-10-31 Postponement of commercial production/operations,
 BREAKOUT,LAURUSLABS,none,,,
-BREAKOUT,ZYDUSLIFE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-10-31 Change in Management,"Zydus Lifesciences Q1FY27 revenue up 22% to ₹80.2 billion; margins hold at 24.1% | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener"
+BREAKOUT,ZYDUSLIFE,RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS,2026-11-04 Financial Results,2026-10-31 Change in Management,"Zydus Lifesciences among 6 stocks showing White Marubozu pattern | Five Stocks To Buy Today, November 02: Kotak Mahindra Bank, Zydus Lifesciences, Ather Ener"
 BREAKOUT,MARSONS,none,,,
 BREAKOUT,PASHUPATI,none,,,
-PREBREAK,INFY,IN_NEWS,,,"Bonus issues, stock splits, dividends: Infosys, Asian Paints among over 40 stocks turning  | Dividend stocks, bonus shares, split, buyback issues in Nov 2026: Coal India, HUL, Infosys"
+PREBREAK,INFY,IN_NEWS,,,"Bonus issues, stock splits, dividends: Infosys, Asian Paints among over 40 stocks turning  | Infosys dividend 2026: Record date tomorrow | Know dividend payout, yield, history, return"
 PREBREAK,UNIONBANK,IN_NEWS,,,"Union Bank stock in focus after 3,500-crore Tier-1 bond call"
 PREBREAK,TFCILTD,RESULTS_SOON,2026-11-03 Financial Results,,
 PREBREAK,THELEELA,IN_NEWS,,,Leela Palaces Hotels & Resorts Limited (THELEELA) share price — eduinvesting
@@ -22,11 +22,11 @@ PULLBACK,MRPL,none,,,
 PULLBACK,SANSERA,EVENT_7D,2026-11-05 Financial Results,,
 PULLBACK,AARTIPHARM,none,,,
 PULLBACK,LALPATHLAB,RESULTS_SOON,2026-11-04 Dividend,,
-PULLBACK,LEMONTREE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-05 Financial Results,2026-11-01 Press Release,"Lemon Tree Hotels rebrands three properties in Bengaluru and Hyderabad | Lemon Tree Hotels Signs Hotel in Kumbakonam, Tamil Nadu"
+PULLBACK,LEMONTREE,EVENT_7D NEW_ANNOUNCEMENT IN_NEWS,2026-11-05 Financial Results,2026-11-01 Press Release,Lemon Tree Hotels rebrands three properties in Bengaluru and Hyderabad
 PULLBACK,PETRONET,EVENT_7D RESULTS_SOON,2026-11-02 Financial Results,,
 PULLBACK,IPCALAB,EVENT_7D,2026-11-05 Financial Results,,
-PULLBACK,INDGN,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,Earnings Update: Here's Why Analysts Just Lifted Their Indegene Limited (NSE:INDGN) Price  | Buy Indegene Ltd For Target Rs.718 by Motilal Oswal Financial Services Ltd
-PULLBACK,AHCL,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,"Anlon Healthcare targets 30% revenue CAGR, expands capacity to 1,600 MTPA | Anlon Healthcare Q2FY27 Results: Consolidated revenue doubles, margin contracts"
+PULLBACK,INDGN,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,Earnings Update: Here's Why Analysts Just Lifted Their Indegene Limited (NSE:INDGN) Price 
+PULLBACK,AHCL,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,"Anlon Healthcare targets 30% revenue CAGR, expands capacity to 1,600 MTPA"
 PULLBACK,ABDL,none,,,
 PULLBACK,VINDHYATEL,RESULTS_SOON,2026-11-04 Financial Results,,
 PULLBACK,UTTAMSUGAR,NEW_ANNOUNCEMENT,,2026-10-31 Updates,
@@ -34,7 +34,7 @@ PULLBACK,DELTACORP,none,,,
 PULLBACK,ARIS,RESULTS_SOON,2026-11-03 Financial Results,,
 PULLBACK,MACPOWER,none,,,
 PULLBACK,BBL,none,,,
-PULLBACK,PANORAMA,IN_NEWS,,,Panorama Studios acquires 10% stake in Rhea & Dia Enterprises
+PULLBACK,PANORAMA,none,,,
 PULLBACK,KOLTEPATIL,RESULTS_SOON,2026-11-03 Financial Results/Other business matters,,
 PULLBACK,ORIENTELEC,none,,,
 PULLBACK,HLEGLAS,RESULTS_SOON,2026-11-02 Financial Results,,
@@ -63,23 +63,23 @@ DIP,SPORTKING,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,Sportking India 
 DIP,YATRA,none,,,
 DIP,ESDS,RESULTS_SOON,2026-11-02 Financial Results,,
 DIP,RPGLIFE,IN_NEWS,,2026-10-31 Copy of Newspaper Publication,RPG Life Sciences eyes another acquisition with ₹500 crore capital pool | RPG Life Sciences Q2FY27 Results: Consolidated PAT falls 23% to ₹28.2 crore
-DIP,POWERICA,EVENT_7D IN_NEWS,2026-11-05 Financial Results,,Powerica (NSEI:POWERICA) - Stock Analysis | Powerica wins 100MW wind project bid from SECI at tariff ₹3.85 per unit
-DIP,REFEX,IN_NEWS,,,"Refex Industries targets 90k ton ash run rate, 5-6% wind net margin"
+DIP,POWERICA,EVENT_7D IN_NEWS,2026-11-05 Financial Results,,Powerica wins 100MW wind project bid from SECI at tariff ₹3.85 per unit
+DIP,REFEX,none,,,
 DIP,RIR,none,,,
-DIP,APCOTEXIND,NEW_ANNOUNCEMENT IN_NEWS,,2026-10-31 Acquisition,Apcotex Industries posts record Q1FY27 profit of ₹789M on margin surge
+DIP,APCOTEXIND,NEW_ANNOUNCEMENT,,2026-10-31 Acquisition,
 DIP,ABSLAMC,IN_NEWS,,,Earnings call transcript: Aditya Birla Capital posts strong Q2 2026 profit growth By Inves
 DIP,JARO,none,,,
 DIP,SUZLON,none,,,
-DIP,THYROCARE,none,,,
+DIP,THYROCARE,IN_NEWS,,,Thyrocare Technologies Limited Just Missed EPS By 73%: Here's What Analysts Think Will Hap
 DIP,IFCI,none,,,
 DIP,SUMICHEM,none,,,
 DIP,EPACK,none,,,
 DIP,ATUL,none,,,
-DIP,TRUALT,IN_NEWS,,,"Trualt Bioenergy seeks nod for Rs 2,500 cr related party deals"
+DIP,TRUALT,none,,,
 DIP,INOXGREEN,IN_NEWS,,,Inox Green Energy Services fixes record date for demerger on Aug 1
 DIP,GATEWAY,IN_NEWS,,,"Gateway Distriparks Limited Just Beat EPS By 5.5%: Here's What Analysts Think Will Happen  | Gateway Distriparks Q2 profit falls 12% to INR 58.5 crore, revenue rises 2.66%"
 DIP,KPEL,IN_NEWS,,,KP Energy locked at 5% upper circuit on 9-MW wind power project contract
-DIP,SWIGGY,IN_NEWS,,,"Mid-, small-caps under pressure; Suzlon, Swiggy, STL, HFCL plunge up to 10%"
+DIP,SWIGGY,IN_NEWS,,,"Nifty’s comeback or a largecap trap? Anand James decodes breadth, IT and Swiggy"
 DIP,IZMO,none,,,
 DIP,RENUKA,IN_NEWS,,2026-11-01 Copy of Newspaper Publication,Shree Renuka Sugars accepts Vijendra Singh's resignation as Dy. CEO | Shree Renuka Sugars RENUKA Q2 FY27 Results Published
 DIP,AEGISVOPAK,IN_NEWS,,,Aegis Vopak Q2FY27 net profit dips 3.8% YoY to ₹96.4 crore
@@ -87,18 +87,18 @@ DIP,DYCL,none,,,
 DIP,INOXWIND,IN_NEWS,,,Inox Wind share price up 6% as board to consider bonus share proposal | Inox Wind promoters confirm no new encumbrance on shares in FY26
 DIP,COMSYN,none,,,
 DIP,SANDHAR,none,,,
-DIP,PREMEXPLN,NEW_ANNOUNCEMENT IN_NEWS,,2026-11-01 Change in Director(s),Premier Explosives PREMEXPLN Director Cessation November 2026 | Premier Explosives announces cessation of Lt. Gen. Peruvemba Ramachandran Kumar as Indepen
+DIP,PREMEXPLN,NEW_ANNOUNCEMENT IN_NEWS,,2026-11-01 Change in Director(s),Apollo Micro Systems deposits ₹986.35 crore for Premier Explosives stake | Premier Explosives PREMEXPLN Director Cessation November 2026
 DIP,EMMVEE,none,,,
 DIP,FUSION,RESULTS_SOON,2026-11-02 Financial Results,,
 DIP,YESBANK,IN_NEWS,,,Yes Bank rejects wilful disobedience charge as AT-1 bond trustee warns contempt action
 DIP,FIVESTAR,none,,,
 DIP,ORIENTTECH,RESULTS_SOON,2026-11-02 Financial Results/Dividend,,
-DIP,RAYMONDLSL,IN_NEWS,,,"J.K. Investors pledges shares in Raymond Lifestyle | Raymond Lifestyle Limited (NSE:RAYMONDLSL) Just Reported Earnings, And Analysts Cut Their "
+DIP,RAYMONDLSL,IN_NEWS,,,"Raymond Lifestyle Limited (NSE:RAYMONDLSL) Just Reported Earnings, And Analysts Cut Their "
 DIP,NELCO,none,,,
 DIP,OSWALPUMPS,none,,,
 DIP,SHAKTIPUMP,none,,2026-10-31 Analysts/Institutional Investor Meet/Con. Call Updates,
 DIP,PRAJIND,IN_NEWS,,,Praj Industries Limited Just Recorded A 80% EPS Beat: Here's What Analysts Are Forecasting
-DIP,MAZDOCK,IN_NEWS,,,"Dividend Watchlist: Key Ex-Dates For Infosys, Mazagon Dock, Coal India And More Next Week | Mazagon Dock Seeks Partners for Rs 20,000-Crore Shipyards"
+DIP,MAZDOCK,IN_NEWS,,,"Dividend Watchlist: Key Ex-Dates For Infosys, Mazagon Dock, Coal India And More Next Week"
 DIP,TURTLEMINT,none,,,
 DIP,AFCONS,RESULTS_SOON,2026-11-04 Financial Results,,
 DIP,PITTIENG,IN_NEWS,,,Pitti Engineering releases Q1 FY27 earnings call transcript
