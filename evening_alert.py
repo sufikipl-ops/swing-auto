@@ -12,6 +12,9 @@ NAMES = {'A': 'Dip A', 'B': 'Dip B', 'BOUNCE': 'Oversold bounce', 'DEEP': 'Gehra
 # sirf 4 saal ke test me pass setup (breakout/pullback experimental, result wale sirf dekhne ke liye)
 TESTED = ('A', 'BOUNCE', 'DEEP', 'STRUCT', 'STRUCT_DEEP', 'DROP10', 'NEWDROP')
 HOLD = {'STRUCT': 10, 'STRUCT_DEEP': 10, 'DROP10': 3}
+# 4 saal (pick_study, VWEAK, close-par SL) me jeet %: is kram me pehle -> roz sirf 1 "sabse solid" trade
+WIN = {'DROP10': 79, 'BOUNCE': 67, 'DEEP': 64, 'STRUCT_DEEP': 64, 'NEWDROP': 54, 'A': 54, 'STRUCT': 52}
+MAXPICK = int(os.environ.get('ALERT_MAX', '1'))
 
 
 def main():
@@ -33,7 +36,20 @@ def main():
     for s in go:
         if s['sym'] not in best or turn.get((s['sym'], s['setup']), 0) > turn.get((best[s['sym']]['sym'], best[s['sym']]['setup']), 0):
             best[s['sym']] = s
-    pick = sorted(best.values(), key=lambda s: -turn.get((s['sym'], s['setup']), 0))[:2]
+    try:
+        SH = json.load(open('docs/stock_hist.json')).get('data', {})
+    except Exception:
+        SH = {}
+    HK = {'A': 'DIP_A', 'BOUNCE': 'OVERSOLD_BOUNCE', 'DEEP': 'DEEP_OVERSOLD', 'STRUCT': 'STRUCT_ALL', 'STRUCT_DEEP': 'STRUCT_ALL'}
+
+    def own(s):                                  # is stock par is setup ka apna record (Time Machine): 5+ baar aur minus = peeche
+        h = ((SH.get(s['sym']) or {}).get(HK.get(s['setup'], '')) or {}).get('ALL')
+        return h if h and h[0] >= 5 else None
+
+    def rank(s):
+        h = own(s)
+        return (-(WIN.get(s['setup'], 0) - (15 if h and h[2] < 0 else 0)), -turn.get((s['sym'], s['setup']), 0))
+    pick = sorted(best.values(), key=rank)[:MAXPICK]
     dayn = max([s.get('dayn', 0) for s in go] + [0])
     L = ['KAL KE TRADE (%s ka scan)' % day,
          'Market: %s%% stock EMA50 ke upar -> %s' % (reg.get('breadth'), reg.get('regime'))]
@@ -49,11 +65,14 @@ def main():
             stop = s.get('stop_ref') or round(c - 2 * atr, 2)
             risk = max(c - stop, 0.01); qty = int(min(RISK // risk, 50000 // c))
             tgt = s.get('mean') if s['setup'] == 'DROP10' else (round(c + 2 * risk, 2) if s['setup'].startswith('STRUCT') else None)
+            h = own(s)
             L.append('%d) %s - %s' % (k, s['sym'], NAMES.get(s['setup'], s['setup'])))
+            L.append('   Kyun ye: is setup ki 4 saal me jeet ~%d%% (sabse zyada aaj ke signals me)%s' % (WIN.get(s['setup'], 0),
+                     ('; is stock par pehle %d baar, %d jeete' % (h[0], h[1])) if h else ''))
             L.append('   Kal 9:20 par kharido (aaj ka close %.2f; kal open isse +1.5%% upar ya -3%% neeche ho to SKIP)' % c)
             L.append('   SL %.2f (3:15 par close iske neeche ho tabhi becho) | Qty %d (risk ~Rs%d)' % (stop, qty, round(qty * risk)))
             L.append('   ' + ('Target %.2f, ' % tgt if tgt else '') + 'max %d din, phir close par bahar' % HOLD.get(s['setup'], 5))
-        L += ['', 'Baaki %d signal app ke Setups tab me. Din me max 2 trade.' % max(0, len(best) - len(pick))]
+        L += ['', 'Aaj ka 1 sabse solid trade. Baaki %d signal app ke Setups tab me (lena zaroori nahi).' % max(0, len(best) - len(pick))]
     text = '\n'.join(L)
     print(text)
     url, pkey = live.page_config()
