@@ -25,6 +25,8 @@ jobs:
         run: python dip_scan.py data out
       - name: Paper trading (app ke signals nakli paise se)
         run: python paper.py data
+      - name: Telegram - kal ke 2 trade (ya 'kal trade nahi')
+        run: python evening_alert.py || true
       - name: Commit result
         run: |
           git config user.name "swing-bot"
