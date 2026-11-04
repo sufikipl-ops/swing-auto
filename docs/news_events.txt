@@ -1,4 +1,4 @@
-NEWS/EVENTS CHECK 2026-11-04 13:57 IST
+NEWS/EVENTS CHECK 2026-11-04 15:04 IST
 screen data date: 2026-11-03 | candidates: 41
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 81 symbols
@@ -7,33 +7,33 @@ NSE announcements fetched for 81 of 81 symbols
 BSE announcements: 70 symbols checked, 19 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
-RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
-RSS Moneycontrol FAIL: mismatched tag: line 18, column 5
+RSS Moneycontrol: OK, 15 items
+RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
 Google News: 87 of 87 symbols, 228 headlines
-PDF saar: 3 naye bane, 6 nahi bane, 53 pehle ke reuse (AI key: nahi)
+PDF saar: 0 naye bane, 6 nahi bane, 56 pehle ke reuse (AI key: nahi)
 announcements.json: 45 symbols with announcements in last 3 days
 MCX          BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Press Release / Media Release | MCX shares tumble 7% even as Q2 net profit surges 130% YoY, revenue more than doubles | Gold prices show mixed trend, falls on MCX, rises in global market
 WELSPUNLIV   BREAKOUT   IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | Adani Ports, Bosch, Divi's Labs, Marico, Welspun Living hit record highs
 PETRONET     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-02 Record Date | Petronet LNG’s inventory boost is not enough to sustain earnings growth | Petronet LNG Q2FY27 Results: Net profit up 9% QoQ to ₹1,235 crore
 TANLA        BREAKOUT   IN_NEWS                            |  |  | Trade Spotlight: How should you trade Tanla Platforms, Ather Energy, Eicher Motors, Coforg | Tanla Platforms Limited (TANLA.BO) Seasonal Returns Chart - Yahoo Finance
-SAREGAMA     BREAKOUT   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-04 Financial Results | 2026-11-04 Other Restructuring | Saregama shares surge 9% as Q2 profit jumps 48% to ₹65 crore, margin expands to 32.3% | Saregama Q2FY27 Results: Net profit rises 46% YoY to ₹64.2 crore
-CORONA       BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | Corona Remedies receives ₹4.88 crore demand notice from NPPA | Corona Remedies Ltd Hits All-Time High of Rs 2,302 as Momentum Builds Across Timeframes
+SAREGAMA     BREAKOUT   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-04 Financial Results | 2026-11-04 Other Restructuring | Volume shockers: HEG Advanced Materials, Saregama India zoom up to 20% | Saregama Q2 Results: Revenue Rises 37% to ₹314 Crore; Shares Gain 7.31%
+CORONA       BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | Corona Remedies receives ₹4.88 crore demand notice from NPPA | Corona Remedies Ltd Sees Technical Momentum Shift Amid Strong Price Gains
 BHARTIARTL   BREAKOUT   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-05 Financial Results | 2026-11-03 General Updates | Bharti Airtel Share Price Live Updates: Bharti Airtel News | Breakout stocks: Chandan Taparia bets on Bharti Airtel, Paytm, Divi's Lab
-BSE          BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-11-04 Financial Results |  | Two SME IPOs list today: Carver Roboweld, Ajwa Projects shares make BSE SME debut | MCX vs NSE vs BSE: Which is best exchange stock to buy after Q2 Results 2026? Experts' vie
+BSE          BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-11-04 Financial Results |  | 12 BSE 500 stocks defy market trend, rally up to 65% in 3 months | Two SME IPOs list today: Carver Roboweld, Ajwa Projects shares make BSE SME debut
 NELCAST      BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-11-02 Financial Results | 
 PASHUPATI    BREAKOUT   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Dividend | 2026-11-03 Updates | Pashupati Cotspin shares hit 10% lower circuit ahead of Q2 results after a stunning 70% mo | Pashupati Cotspin Share Price Hits Lower Circuit: Why?
-TFCILTD      PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Related Party Transactions | Tourism Finance Corporation of India Ltd Hits All-Time High of Rs 161.90 as Momentum Build | Tourism Finance Corporation of India posts Q2 results, appoints new director
-AUROPHARMA   PREBREAK   RESULTS_SOON IN_NEWS               | 2026-11-04 Financial Results/Dividend |  | What To Expect From Aurobindo Pharma Ltd (NSE:AUROPHARMA) Q2 2027 Earnings
+TFCILTD      PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Related Party Transactions | Tourism Finance Corporation of India Ltd Hits All-Time High of Rs 161.90 as Momentum Build
+AUROPHARMA   PREBREAK   RESULTS_SOON IN_NEWS               | 2026-11-04 Financial Results/Dividend |  | What To Expect From Aurobindo Pharma Ltd (NSE:AUROPHARMA) Q2 2027 Earnings | What To Expect From Aurobindo Pharma Ltd (NSE:AUROPHARMA) Q2 202
 IPCALAB      PREBREAK   RESULTS_SOON                       | 2026-11-05 Financial Results |  | 
 BEML         PREBREAK   RESULTS_SOON                       | 2026-11-05 Financial Results |  | 
-ITCHOTELS    PREBREAK   IN_NEWS                            |  |  | ITC Hotels Posts Q1 Gains, Advances Expansion Strategy | ITC Hotels Signs Welcomhotel Mysuru in Karnataka
+ITCHOTELS    PREBREAK   IN_NEWS                            |  |  | ITC Hotels Signs Welcomhotel Mysuru in Karnataka
 AEROFLEX     PULLBACK   IN_NEWS                            |  | 2026-11-02 Analysts/Institutional Investor Meet/Con. Call Updates | Aeroflex Industries Ltd Surges 7.04% to Day's High of Rs 549 — Outperforms Sector by 5.92 
 APOLLO       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Updates | Apollo Micro Systems publishes Q1FY27 results, reports ₹251.3 crore revenue | Apollo Micro Systems Secures Approval for 69.17 Million Securities
 SHADOWFAX    PULLBACK   IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | Shadowfax Technologies reports 57% revenue growth and 5% EBITDA margin in Q2 FY27
 MEESHO       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | Diwali stock picks, Samvat 2083: Park Medi, HDFC, Paytm, Meesho, Ather among Ventura picks | Meesho Q2FY27 Results: Net loss narrows 68% YoY to ₹1,324 crore
 GESHIP       PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Financial Results/Dividend | 2026-11-03 Daily Buy Back of equity shares | Great Eastern Shipping buys 200 shares on Nov 3; total hits 38.48 lakh
-MOBIKWIK     PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Monitoring Agency Report | One MobiKwik Q2FY27: Highest-ever PAT at ₹11.8 crore, EBITDA margin hits 7.5%
+MOBIKWIK     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-03 Monitoring Agency Report | 
 LGEINDIA     PULLBACK   RESULTS_SOON IN_NEWS               | 2026-11-05 Financial Results |  | LG Electronics Inc. (066570.KS) Stock Price, News, Quote & History | SoundHound AI, Inc. And LG Electronics Enter Strategic Partnership To Expand Commerce Oppo
 CPPLUS       PULLBACK   RESULTS_SOON                       | 2026-11-05 Financial Results |  | 
 CYIENT       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | Gowra Leasing, V-Mart, Cyient DLM notify KFin RTA office shift | Cyient informs shareholders about Registrar’s new corporate office address
@@ -42,7 +42,7 @@ SHILPAMED    PULLBACK   RESULTS_SOON                       | 2026-11-05 Financia
 BLUESTARCO   PULLBACK   IN_NEWS                            |  | 2026-11-03 Updates | Blue Star ESOP 2024: NRC Grants 6,520 Stock Options
 PROTEAN      PULLBACK   RESULTS_SOON IN_NEWS               | 2026-11-05 Financial Results |  | Protean eGov Technologies Ltd Surges 7.85% to Day's High ...
 TARIL        PULLBACK   IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | TARIL Investor Meet: Citi 2026 India Industrials Tour Details
-GABRIEL      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Outcome of Board Meeting | Gabriel India Limited Earnings Missed Analyst Estimates: Here's What Analysts Are Forecast | Trimble director Gabriel Kaigham sells $160,940 in common stock By Investing.com
+GABRIEL      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Outcome of Board Meeting | Gabriel India Limited Earnings Missed Analyst Estimates: Here's What Analysts Are Forecast | Buy Gabriel India; target of Rs 1664: Motilal Oswal
 MARINE       PULLBACK   RESULTS_SOON                       | 2026-11-04 Financial Results |  | 
 KROSS        PULLBACK   IN_NEWS                            |  |  | Kern Park Kross brings out the cyclocross nuts on Nov. 7 | Kenoh Says Watching Tetsuya Naito vs. Killer Kross at World Series Wrestling Left Him Unha
 ABDL         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | Allied Blenders Reports Record Festive Sales With 3.6 Million Cases Sold In October 2026 | Bombay HC appoints Justice Gupte as Sole Arbitrator for Allied Blenders dispute
@@ -50,34 +50,36 @@ ACMESOLAR    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Updat
 ONEPOINT     PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Outcome of Board Meeting | One Point One Solutions Q2FY27 Results: Net profit rises 87% YoY to ₹18.4 crore
 KOLTEPATIL   PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Updates | Kolte Patil cancels Q2FY27 post-results call amid restructuring
 CHEMPLASTS   PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-04 Financial Results | 2026-11-03 Updates | Chemplast Sanmar RTA KFin Technologies New Office Address
-MAHLOG       PULLBACK   IN_NEWS                            |  |  | Mahindra Logistics surges 64% after InvestingPro Fair Value alert By Investing.com | Mahindra Logistics Ltd is Rated Buy
+MAHLOG       PULLBACK   IN_NEWS                            |  |  | Mahindra Logistics falls 1.4% on Rs 11.9 crore net loss in Q4 | Buzzing Stocks: Wipro, Reliance, PSP Projects, Bajaj Electricals, Hero MotoCorp, TCP, Mahi
 DMCC         DIP        IN_NEWS                            |  | 2026-11-02 Copy of Newspaper Publication | DMCC Speciality Chemicals Q2 profit slumps 44% as soaring sulphur prices hit margins
+TIL          DIP        IN_NEWS                            |  |  | STRACK & VAN TIL / INDIANA GROCERY GROUP LLC
 ATLANTAELE   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Monitoring Agency Report | Buy Atlanta Electricals; target of Rs 1980: Motilal Oswal | Atlanta Electricals Ltd Surges 7.48% to Day's High of Rs 1505.1 — Outperforms Sector by 3.
 INDIGOPNTS   DIP        IN_NEWS                            |  | 2026-11-02 Analysts/Institutional Investor Meet/Con. Call Updates | Buy Indigo Paints; target of Rs 1150: Motilal Oswal | Indigo Paints Limited Earnings Missed Analyst Estimates: Here's What Analysts Are Forecast
 STEAMHOUSE   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Monitoring Agency Report | STEAMHOUSE INDIA LIMITED Share Price | Steamhouse India Ltd. Share Price Today - Steamhouse India Ltd. Stock Price Live NSE/BSE
-DEEPINDS     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Press Release | Deep Industries Q1FY26 Results: Unaudited financials published | Deep Industries seeks ₹670 crore RPT and dividend approval at Sep 1 AGM
-LATENTVIEW   DIP        IN_NEWS                            |  | 2026-11-02 Copy of Newspaper Publication | Latent View Analytics Q2FY27 Results: EBITDA margin falls to 20.33% on cost pressures | Buy Latent View Analytics; target of Rs 270: Prabhudas Lilladher
-CLEAN        DIP        IN_NEWS                            |  | 2026-11-02 Copy of Newspaper Publication | Clean Science and Technology (CLEAN.NS) Eases 0.39% to ₹660, Holding Above ₹627 Support - 
+DEEPINDS     DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Press Release | Deep Industries Q1FY26 Results: Unaudited financials published | Deep Industries FY26 Revenue Jumps 55% to ₹890.71 Cr
+LATENTVIEW   DIP        IN_NEWS                            |  | 2026-11-02 Copy of Newspaper Publication | Latent View Analytics Q2FY27 Results: EBITDA margin falls to 20.33% on cost pressures | Hold Latent View Analytics: target of Rs 210: ICICI Securities
+CLEAN        DIP        IN_NEWS                            |  | 2026-11-02 Copy of Newspaper Publication | Clean Science & Technology Ltd is Rated Sell
 HORIZONIND   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-02 Monitoring Agency Report | HORIZON INDUSTRIAL PRKS L Share Price | Horizon Industrial Parks Ltd. Share Price Today - Horizon Industrial Parks Ltd. Stock Pric
 GLOBUSSPR    DIP        IN_NEWS                            |  |  | Certain Equity Shares of Globus Spirits Limited are subject to a Lock-Up Agreement Ending  | Globus Spirits Introduces Mountain Oak Whisky in a Special 180 ML ‘COMFY Pack’ – A Himalay
 VISHNU       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-02 Credit Rating | Vishnu Chemicals Downgraded to Sell Amid Technical Weakness and Financial Concerns
-GNFC         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | Earnings call transcript: GNFC Q2 2026 profit falls as margins tighten By Investing.com | Gujarat Narmada Valley Fertilizers and Chemicals Q2 2027 Earnings Call Is Live
-PERMAGN      DIP        IN_NEWS                            |  |  | Rare Earths Norway invests in pilot for Europe’s future supply of rare earths for permanen | Colorado rare earth bid targets China’s estimated 94% hold on permanent magnets
+GNFC         DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | GNFC Q2FY27 Results: Net profit up 4.5% to ₹185 crore, margin dips | Earnings call transcript: GNFC Q2 2026 profit falls as margins tighten By Investing.com
+PERMAGN      DIP        IN_NEWS                            |  |  | Colorado rare earth bid targets China’s estimated 94% hold on permanent magnets
 KIRLOSENG    DIP        RESULTS_SOON                       | 2026-11-04 Financial Results/Other business matters |  | 
 SFL          DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-02 Press Release | Earnings call transcript: Sheela Foam posts strong Q2 FY27 sales, shares fall 7.6% By Inve
 GENESYS      DIP        IN_NEWS                            |  |  | Genesys International Corporation Ltd is Rated Sell
 EQUITASBNK   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | Equitas Small Finance Bank shares jump 9% after Balaji Nuthalapadi’s appointment as interi | EQUITAS SMALL FINANCE BANK Share Price Today Up 6%
 SUMICHEM     DIP        IN_NEWS                            |  |  | Sumitomo Chemical India Q2 net profit falls 11% YoY to ₹157 crore
-FIVESTAR     DIP        IN_NEWS                            |  |  | Five Star Business Finance Q2FY27 Results: Net profit up 5% to ₹299 crore | Denver-Area Financial Advisor David Sprague Selected for Prestigious Five Star Wealth Mana
-SWIGGY       DIP        IN_NEWS                            |  |  | Swiggy’s cannibalistic approach: Why the company is betting big on Toing
+FIVESTAR     DIP        IN_NEWS                            |  |  | Five Star Bancorp declares $0.25 per share dividend | Denver-Area Financial Advisor David Sprague Selected for Prestigious Five Star Wealth Mana
+SWIGGY       DIP        IN_NEWS                            |  |  | Swiggy Limited IPO, GMP, Details, Price, And Review IPO GMP Today, Expected Listing Gain & | Swiggy’s cannibalistic approach: Why the company is betting big on Toing
 JARO         DIP        RESULTS_SOON NEW_ANNOUNCEMENT      | 2026-11-05 Financial Results | 2026-11-02 Board Meeting | 
 ABSLAMC      DIP        IN_NEWS                            |  | 2026-11-03 ESOP/ESOS/ESPS | Down 38% in 2026, Aditya Birla Real Estate gets Buy rating from Anand Rathi; 30% upside se | Aditya Birla Real Estate Share Price Target: Anand Rathi
 TURTLEMINT   DIP        IN_NEWS                            |  |  | Turtlemint Fintech Solutions Ltd Locks at Upper Circuit With 4.58% Gain — Buyers Queue, Se
 ATUL         DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-03 Daily Buy Back of equity shares | 
 VAIBHAVGBL   DIP        IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | Vaibhav Global Limited's UK Revenue Fell 7% in Q2 FY27 | Vaibhav Global FY30 target excludes India, allows acquisition
-SBC          DIP        IN_NEWS                            |  |  | SBC Exports Ltd Hits All-Time High of Rs 67.49 as Momentum Builds Across Timeframes | Broad-Based Technical Strength Lifts SBC Exports Ltd to 52-Week High of Rs 67.54
+SBC          DIP        IN_NEWS                            |  |  | Broad-Based Technical Strength Lifts SBC Exports Ltd to 52-Week High of Rs 67.54
 AURUM        LOCKED     NEW_ANNOUNCEMENT                   |  | 2026-11-03 Monitoring Agency Report | 
-Symbols with no flags: 17. Top market headlines:
+Symbols with no flags: 16. Top market headlines:
+  [ET Markets] 12 BSE 500 stocks defy market trend, rally up to 65% in 3 months
   [ET Markets] Kopsi, Taiwan, other Asian stocks tumble after US midterm elections signal Democratic victory. What’s the conn
   [ET Markets] Equitas Small Finance Bank shares jump 9% after Balaji Nuthalapadi’s appointment as interim CEO
   [ET Markets] Democrats’ win rattles Trump trades from AI stocks to crypto
@@ -92,5 +94,4 @@ Symbols with no flags: 17. Top market headlines:
   [ET Markets] Sensex jumps 400 points, Nifty above 23,900  as investors eye US midterm poll outcome. What lies ahead?
   [ET Markets] Diwali dhamaka stocks: Eternal, ICICI Bank, among 10 with upside of up to 34%
   [ET Markets] Samvat 2083 stock picks! Adani Power, Coal India, 8 others to add in your portfolio this festive season
-  [ET Markets] Arisinfra Solutions reports 110% rise in H1 net profit to Rs 42.9 cr
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
