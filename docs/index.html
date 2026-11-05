@@ -836,7 +836,7 @@ h+=box('s_str','stairs','Market structure',STR.length,structSection()||emptyNote
 h+=box('s_d10','alert','Ek din me 10% gira',D10.length,drop10Section()||emptyNote('Aaj koi liquid stock ek din me 10%+ nahi gira.'),0,'','Sirf bahut kamzor market, 3 din');
 h+=box('s_nd','star','Naye listing ka dip',ND.length,newDropSection()||emptyNote('Aaj koi naya listing stock 3 din me 8%+ nahi gira.'),0,'','Listing ke 5-59 din, aadhi qty')}
 else if(k=='care'){h+=(ab||'')+(ignoreCard()||emptyNote('Aaj ignore karne layak koi stock nahi.'))}
-else if(k=='mkt'){h+=mktCard()+moversCard()+regCard();
+else if(k=='mkt'){h+=mktCard()+moversCard()+volCard()+regCard();
 h+=box('set','gear','Risk / Capital','₹'+ls('risk',700)+' / ₹'+ls('cap',50000),'<div class="row"><span>Risk/trade ₹</span><input id="rk" type="number" value="'+ls('risk',700)+'" style="width:110px"></div><div class="row" style="margin-top:8px"><span>Capital ₹</span><input id="cp" type="number" value="'+ls('cap',50000)+'" style="width:110px"></div><small class="mu">Har trade me SL par itna hi nuksan ho, isi hisaab se qty banti hai.</small>',0)}
 else{h+=PN.length?'<div class="hint">Tumne lock kiye. Jab tak tum hatao nahi, yahin rahenge.</div>'+wlist(PN.map(function(sym){return PK[sym]?pickRow(PK[sym],0,true):pinRow(sym)})):emptyNote('Abhi koi stock locked nahi hai. Kisi card par "Lock" dabao to wo yahan aayega.')}
 return h}
@@ -1428,6 +1428,15 @@ var rows=(arr||[]).map(function(x,i){var sym=x[0],ch=+x[2],tag=DPM[sym]?'Dip':BN
 return '<div class="ir" onclick="detail(\''+esc(sym)+'\')"><div class="l"><b>'+(i+1)+'. '+esc(sym)+'</b>'+(tag?' '+chip(tag,'pb'):'')+'<small>'+(NM[sym]?esc(NM[sym]):'')+'</small></div><div class="v '+(ch>=0?'g':'r')+'">'+(ch>=0?'+':'')+f(ch,2)+'%<small>'+f(x[1])+'</small></div></div>'}).join('');
 return box('mvrs','chart','Aaj ke top movers',(arr||[]).length,'<div class="seg" style="margin-bottom:6px"><button class="'+(MVT=='top'?'on':'')+'" onclick="mvSet(\'top\')">&#9650; Sabse zyada chadhe</button><button class="'+(MVT=='bot'?'on':'')+'" onclick="mvSet(\'bot\')">&#9660; Sabse zyada gire</button></div>'+
 (rows||emptyNote('Abhi data nahi.'))+'<small class="mu">'+lab+'. Dhyan: test me "aaj sabse zyada chadhe" kharidna agle din plus nahi nikla (top gainers study), aur gire hue sirf "bada din" + bounce/10%-gira niyam se. Ye list sirf market samajhne ke liye hai.</small>',1)}
+/* Sabse zyada hilne wale liquid stock (20-din ATR% top 10, roz 25 cr+, ASM nahi). 5 Nov 2026 ka study: in par koi scalping
+   niyam test me pass nahi hua (gap-down 2%+ ka fayda sirf 9:15 auction bhav par, 9:30 tak 0; US raat +1% wala pattern 4 saal me minus). */
+function volCard(){var asm={};((RS&&RS.asm_all)||[]).forEach(function(x){asm[x]=1});
+var L=Object.keys(ST).filter(function(k){var x=ST[k];return x&&(+x.t20||0)>=25&&x.c>=30&&x.atr>0&&!asm[k]}).map(function(k){return [k,ST[k].atr/ST[k].c*100]});
+L.sort(function(a,b){return b[1]-a[1]});L=L.slice(0,10);
+var rows=L.map(function(x,i){var sym=x[0],s=ST[sym],it=liveItem(sym),p=it?it.ltp:s.c,ch=it?(p/livePc(sym,it)-1)*100:+s.chg;
+return '<div class="ir" onclick="detail(\''+esc(sym)+'\')"><div class="l"><b>'+(i+1)+'. '+esc(sym)+'</b><small>Roz ~'+f(x[1],1)+'% hilta | '+(NM[sym]?esc(NM[sym]):'')+'</small></div><div class="v '+(ch>=0?'g':'r')+'">'+(ch>=0?'+':'')+f(ch,2)+'%<small>'+f(p)+'</small></div></div>'}).join('');
+return box('volw','bolt','Volatile watchlist (sabse zyada hilne wale)',L.length,rows+
+'<div class="hint" style="margin-top:6px"><b>Study (1 saal daily + 60 din 5-min + 4 saal sab stock):</b><br>&bull; Ye stock Nifty ke saath tez chalte hain: Nifty +1% din par avg +1.5%, Nifty -1% din par avg -2.0%.<br>&bull; Din ka high aur low zyada tar <b>9:15-9:45</b> me banta hai; doosra mauka 1:30 ke baad.<br>&bull; Result/news wale din chaal ~3.1% (aam din 2.6%).<br>&bull; <b>Koi scalping niyam pass nahi hua:</b> 15-min breakout, VWAP, subah ka gap, US market, sab kharche ke baad ~0 ya minus. Gap-down 2%+ ka fayda sirf 9:15 ke auction bhav par tha, 9:30 tak khatam.<br>Isliye ye list dekhne/samajhne ke liye hai; trade sirf app ke tested setup se.</div>',0)}
 function mktCard(){var m=mktNow();if(!m)return '';var b=lvToday()&&LV.breadth,c=m.reg=='STRONG'?'pg':m.reg=='MIXED'?'py':'pr';
 return '<div class="card mkc"><div class="row"><div><div class="big">Market ka haal</div><small class="mu">'+esc(m.lab)+'</small></div>'+chip(REGN[m.reg]||m.reg,c)+'</div><div class="mkg">'+gauge(m.pct,150)+'<div><small>Liquid stocks me se <b>'+f(m.pct,1)+'%</b> apne EMA50 ke upar.</small><div class="zl"><span class="zr">&lt;25 bahut kamzor</span><span class="zo">25-40 kamzor</span><span class="zy">40-60 mixed</span><span class="zg">60+ tezi</span></div></div></div>'+
 (b&&b.hist&&b.hist.length>1?'<div class="mu" style="margin-top:6px"><small>Aaj din bhar (har ~5 min):</small></div>'+spark(b.hist):'')+'<div id="lvbr">'+lvBreadth()+'</div></div>'}
