@@ -1,41 +1,41 @@
-GAP CHECK 2026-11-05 09:26 IST (screen data date from screen_latest.csv)
+GAP CHECK 2026-11-05 10:12 IST (screen data date from screen_latest.csv)
 screen data date: 2026-11-04 | candidates: 37
 setup      symbol         status          trigger      open     gap%     ltp      vwap  note
-BREAKOUT   ALIVUS         TRIGGERED       1530.53    1539.0      1.2  1494.5   1509.43  below VWAP
-BREAKOUT   BEML           TRIGGERED       2136.73    2139.8     0.79  2152.3   2150.13  
-BREAKOUT   GANESHCP       TRIGGERED        195.03     195.0     1.37  195.26    196.08  below VWAP
-PREBREAK   GLAND          TRIGGERED       3177.17    3170.0     0.35  3156.4   3145.58  
-BREAKOUT   HAL            TRIGGERED       5096.69    5100.0     0.41  5090.0   5091.67  below VWAP
-PULLBACK   HLEGLAS        TRIGGERED        422.42     428.0     3.62  422.25    423.32  below VWAP
-PULLBACK   KARURVYSYA     TRIGGERED        347.65     350.0     1.77  351.95    351.71  
-BREAKOUT   KRISHANA       TRIGGERED        242.57     243.7     1.42  242.79    242.31  
-BREAKOUT   LALPATHLAB     TRIGGERED       2051.05    2049.0     0.97  2000.6   2012.53  below VWAP
-PREBREAK   MANKIND        TRIGGERED       2551.55    2560.0     0.87  2534.0   2534.87  below VWAP
-PULLBACK   MEESHO         TRIGGERED        227.79    226.95     1.07  230.49    229.57  
-BREAKOUT   SAREGAMA       TRIGGERED        653.55     650.0     2.07   649.7    652.93  below VWAP
-PULLBACK   SHILPAMED      TRIGGERED        936.99    950.55     2.09   945.4    945.72  below VWAP
-PULLBACK   VINDHYATEL     TRIGGERED       2770.57    2750.0      0.5  2672.4   2733.69  below VWAP
-BREAKOUT   VRLLOG         TRIGGERED        340.34     341.0     2.96   326.0    330.35  below VWAP
-PULLBACK   WHIRLPOOL      TRIGGERED        829.83     838.5     1.49  836.65    838.16  below VWAP
-BREAKOUT   CORONA         WAIT            2460.46    2406.2     0.02  2397.3   2406.77  2.63% below trigger; below VWAP
-BREAKOUT   ICIL           WAIT             536.54     530.3     0.94  510.05    513.08  5.19% below trigger; below VWAP
-PULLBACK   LGEINDIA       WAIT            1728.63    1711.0     1.12  1716.8   1713.19  0.69% below trigger
-PULLBACK   MPHASIS        WAIT            2550.65    2507.0     1.56  2469.0   2482.15  3.31% below trigger; below VWAP
-PULLBACK   ONEPOINT       WAIT              74.77      74.0      1.4   73.27     73.41  2.05% below trigger; below VWAP
-BREAKOUT   SMSPHARMA      WAIT             535.53     527.0     0.29   517.5     520.1  3.48% below trigger; below VWAP
-BREAKOUT   TECHNOCRAF     WAIT             568.87    535.05    -0.95   519.0    520.25  9.61% below trigger; below VWAP
-PREBREAK   TIPSMUSIC      WAIT             809.61     804.0     2.22  789.05    792.68  2.61% below trigger; below VWAP
-PREBREAK   UNIONBANK      WAIT             188.96     186.0     1.15  185.52    185.39  1.85% below trigger
-BREAKOUT   WELSPUNLIV     WAIT             267.69    265.62      0.4   261.5    260.83  2.37% below trigger
-PULLBACK   SHADOWFAX      RUNAWAY          283.28     282.0     0.89  288.55    287.07  LTP >1.5% above trigger
-PULLBACK   ABDL           API_BUSY         704.45                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   ADVANCE        SKIP_GAPDOWN     132.36     126.4    -3.72  124.41    125.32  gap down; below VWAP
-PULLBACK   ARFIN          API_BUSY          96.09                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PREBREAK   HBLENGINE      API_BUSY         842.84                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   INDSWFTLAB     API_BUSY         373.37                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PREBREAK   ITCHOTELS      API_BUSY         174.57                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   OAL            SKIP_GAPUP       570.47     600.0     6.04   573.0    578.85  opened >1.5% above trigger; below VWAP
-BREAKOUT   PETRONET       SKIP_GAPUP       312.31    319.95     2.88  312.15     314.5  opened >1.5% above trigger; below VWAP
-PREBREAK   SONACOMS       API_BUSY         913.51                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PULLBACK   XTRANET        API_BUSY         285.28                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   ABDL           TRIGGERED        704.45     709.0     1.65   708.1    711.62  below VWAP
+BREAKOUT   ALIVUS         TRIGGERED       1530.53    1539.0      1.2  1491.1    1501.9  below VWAP
+PULLBACK   ARFIN          TRIGGERED         96.09      95.2      1.1   95.42     95.77  below VWAP
+BREAKOUT   BEML           TRIGGERED       2136.73    2139.8     0.79  2127.5   2145.31  below VWAP
+PREBREAK   GLAND          TRIGGERED       3177.17    3170.0     0.35  3172.0   3154.48  
+BREAKOUT   HAL            TRIGGERED       5096.69    5100.0     0.41  5081.0   5089.94  below VWAP
+PREBREAK   HBLENGINE      TRIGGERED        842.84     846.5     1.21  853.65    853.11  
+PULLBACK   HLEGLAS        TRIGGERED        422.42     428.0     3.62   420.0    422.42  below VWAP
+BREAKOUT   KRISHANA       TRIGGERED        242.57     243.7     1.42   242.0    242.47  below VWAP
+PREBREAK   MANKIND        TRIGGERED       2551.55    2560.0     0.87  2527.6   2532.27  below VWAP
+BREAKOUT   SAREGAMA       TRIGGERED        653.55     650.0     2.07  633.65    649.89  below VWAP
+PULLBACK   SHILPAMED      TRIGGERED        936.99    950.55     2.09   946.2     945.6  
+PULLBACK   VINDHYATEL     TRIGGERED       2770.57    2750.0      0.5  2732.1   2740.79  below VWAP
+BREAKOUT   VRLLOG         TRIGGERED        340.34     341.0     2.96   341.0    339.08  
+PULLBACK   WHIRLPOOL      TRIGGERED        829.83     838.5     1.49  835.75    837.47  below VWAP
+PULLBACK   XTRANET        TRIGGERED        285.28     285.0     1.55   285.8    286.42  below VWAP
+BREAKOUT   CORONA         WAIT            2460.46    2406.2     0.02  2399.0   2403.34  2.56% below trigger; below VWAP
+BREAKOUT   ICIL           WAIT             536.54     530.3     0.94   498.8    508.81  7.57% below trigger; below VWAP
+PULLBACK   MPHASIS        WAIT            2550.65    2507.0     1.56  2509.1    2488.0  1.66% below trigger
+PULLBACK   ONEPOINT       WAIT              74.77      74.0      1.4    74.1      73.5  0.90% below trigger
+BREAKOUT   SMSPHARMA      WAIT             535.53     527.0     0.29   526.2    522.69  1.77% below trigger
+PREBREAK   SONACOMS       WAIT             913.51     900.0      0.7  896.45    888.92  1.90% below trigger
+BREAKOUT   TECHNOCRAF     WAIT             568.87    535.05    -0.95  516.15    519.62  10.21% below trigger; below VWAP
+PREBREAK   TIPSMUSIC      WAIT             809.61     804.0     2.22  786.85    791.64  2.89% below trigger; below VWAP
+PREBREAK   UNIONBANK      WAIT             188.96     186.0     1.15  185.09    185.33  2.09% below trigger; below VWAP
+BREAKOUT   WELSPUNLIV     WAIT             267.69    265.62      0.4   257.3     259.6  4.04% below trigger; below VWAP
+PREBREAK   ITCHOTELS      RUNAWAY          174.57     176.0     1.56   177.4    176.99  LTP >1.5% above trigger
+PULLBACK   KARURVYSYA     RUNAWAY          347.65     350.0     1.77   354.2    353.13  LTP >1.5% above trigger
+PULLBACK   MEESHO         RUNAWAY          227.79    226.95     1.07  233.33     230.7  LTP >1.5% above trigger
+PULLBACK   SHADOWFAX      RUNAWAY          283.28     282.0     0.89   292.0    288.85  LTP >1.5% above trigger
+PULLBACK   ADVANCE        SKIP_GAPDOWN     132.36     126.4    -3.72  125.36     125.3  gap down
+BREAKOUT   GANESHCP       API_BUSY         195.03                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   INDSWFTLAB     SKIP_GAPUP       373.37     381.0     2.82   364.0    367.77  opened >1.5% above trigger; below VWAP
+BREAKOUT   LALPATHLAB     API_BUSY        2051.05                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   LGEINDIA       API_BUSY        1728.63                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   OAL            SKIP_GAPUP       570.47     600.0     6.04   566.5    576.21  opened >1.5% above trigger; below VWAP
+BREAKOUT   PETRONET       SKIP_GAPUP       312.31    319.95     2.88   314.8    314.29  opened >1.5% above trigger
 Status guide: TRIGGERED = price crossed trigger and is within 1.5%; WAIT = not yet; SKIP_* / RUNAWAY = do not enter. Not financial advice.
