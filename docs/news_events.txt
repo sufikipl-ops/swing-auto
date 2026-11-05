@@ -1,43 +1,44 @@
-NEWS/EVENTS CHECK 2026-11-05 10:23 IST
+NEWS/EVENTS CHECK 2026-11-05 11:25 IST
 screen data date: 2026-11-04 | candidates: 37
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 53 symbols
-locked stocks added for announcements: PASHUPATI,AURUM,INDIGOPNTS,CAMLINFINE,AIAENG,CLEAN,LATENTVIEW,PREMEXPLN,FIVESTAR,SOUTHBANK,FOSECOIND,SASKEN,VAIBHAVGBL,PCJEWELLER,JARO,AJMERA
-NSE announcements fetched for 53 of 53 symbols
-BSE announcements: 52 symbols checked, 25 naye (NSE me nahi the)
+locked stocks added for announcements: INDIGOPNTS,CAMLINFINE,AIAENG,CLEAN,LATENTVIEW,PREMEXPLN,FIVESTAR,SOUTHBANK,FOSECOIND,SASKEN,VAIBHAVGBL,PCJEWELLER,JARO,AJMERA
+NSE announcements fetched for 51 of 51 symbols
+BSE announcements: 50 symbols checked, 22 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 59 of 59 symbols, 199 headlines
-PDF saar: 0 naye bane, 5 nahi bane, 55 pehle ke reuse (AI key: nahi)
-announcements.json: 42 symbols with announcements in last 3 days
+Google News: 59 of 59 symbols, 198 headlines
+PDF saar: 3 naye bane, 6 nahi bane, 49 pehle ke reuse (AI key: nahi)
+announcements.json: 40 symbols with announcements in last 3 days
 WELSPUNLIV   BREAKOUT   IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | Welspun Living - Ather Energy among 15 stocks that hit 52-week highs and rallied up to 30%
 HAL          BREAKOUT   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-12 Financial Results | 2026-11-03 Updates | Religare's Ajit Mishra says 24,700 in sight for Nifty; bets on GAIL, HAL | Beyond HAL, BEL: Apollo Micro Systems, MTAR, Data Patterns, Zen Tech, among 5 defence stoc
-TECHNOCRAF   BREAKOUT   IN_NEWS                            |  |  | Technocraft Ventures Ltd. Share Price Today - Technocraft Ventures Ltd. Stock Price Live N
-LALPATHLAB   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | Dr Lal PathLabs Q2 Review: Growth Guidance Raised, But Goldman Sachs Still Sees Valuation  | Dr Lal PathLabs posts higher quarterly profit on strong diagnostic test demand
-PETRONET     BREAKOUT   IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | Petronet LNG’s inventory boost is not enough to sustain earnings growth | Petronet LNG's inventory boost is not enough to sustain earnings growth
+LALPATHLAB   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | BHEL, Clean Max, V-Mart Retail, Metropolis, EPL, Dr Lal PathLabs shares: Target prices | Dr Lal PathLabs Q2 Review: Growth Guidance Raised, But Goldman Sachs Still Sees Valuation 
+PETRONET     BREAKOUT   IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | Nomura raises Petronet LNG target to Rs 355, maintains Buy as volumes hold up despite high | Petronet LNG’s inventory boost is not enough to sustain earnings growth
 VRLLOG       BREAKOUT   IN_NEWS                            |  |  | Earnings To Watch: VRL Logistics Ltd (NSE:VRLLOG) Q2 2027 -- GF Value Sees 16% Upside
 SMSPHARMA    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | SMS Pharmaceuticals Q2FY27 Results: Net profit up 56% to ₹391 million | Broad-Based Technical Strength Lifts SMS Pharmaceuticals Ltd to 52-Week High of Rs 524.95
 BEML         BREAKOUT   RESULTS_SOON IN_NEWS               | 2026-11-05 Financial Results |  | Stocks to buy in November: Axis Direct names Nuvama, BEML and Petronet, sees up to 27% ups
-KRISHANA     BREAKOUT   IN_NEWS                            |  |  | Krishana Phoschem Ltd Surges 4.03% to Touch All-Time High Amid Strong Momentum | Krishana Phoschem Ltd is Rated Hold
+ALIVUS       BREAKOUT   IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | Broad-Based Technical Strength Lifts Alivus Life Sciences Ltd to 52-Week High of Rs 1532.9
+KRISHANA     BREAKOUT   IN_NEWS                            |  |  | Krishana Phoschem Ltd Surges 4.03% to Touch All-Time High Amid Strong Momentum
 SAREGAMA     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Other Restructuring | How Saregama India shares turned music to the ears for investors after 13% price jump - Ho | Volume shockers: HEG Advanced Materials, Saregama India zoom up to 20%
 ICIL         BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | Indo Count Industries shares surge nearly 15% to fresh all-time high post strong Q2 result | Indo Count Industries Schedules Q2 FY27 Call for November 5
 CORONA       BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | CORONA Remedies Limited (CORONA.BO) stock price, news, quote and history - Yahoo Finance | Corona Remedies Ltd Shares Gain Momentum as Technical Indicators Turn Bullish
 GANESHCP     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Monitoring Agency Report | Mukul Agrawal exits Ajmera Realty; PGIM India raises stake in Ganesh Consumer Products | Should You Buy Ganesh Consumer Products Limited (NSE:GANESHCP) For Its Upcoming Dividend?
-UNIONBANK    PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Appointment | City Union Bank among 5 F&amp;O stocks with a sharp rise in futures open interest | Union Bank of India seeks LTCG tax exemption on equity held beyond three years
+UNIONBANK    PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Appointment | City Union Bank among 5 F&amp;O stocks with a sharp rise in futures open interest | Union Bank Of India Share Price, Stock Price - NSE/BSE Live
 GLAND        PREBREAK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Financial Results | 2026-11-03 Press Release | Gland Pharma - Ather Energy among 15 stocks that hit 52-week highs and rallied up to 30% i | Broad-Based Technical Strength Lifts Gland Pharma Ltd to 52-Week High of Rs 3171
 HBLENGINE    PREBREAK   RESULTS_SOON                       | 2026-11-07 Financial Results |  | 
+ITCHOTELS    PREBREAK   IN_NEWS                            |  |  | ITC Hotels Signs Welcomhotel Jaipur
 MEESHO       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 General Updates | Meesho Ltd Share Price, Stock Price - NSE/BSE Live | Diwali stock picks, Samvat 2083: Park Medi, HDFC, Paytm, Meesho, Ather among Ventura picks
 MPHASIS      PULLBACK   RESULTS_SOON                       | 2026-11-05 Financial Results |  | 
 KARURVYSYA   PULLBACK   IN_NEWS                            |  |  | Karur Vysya Bank Ltd. Option Chain - Live NSE Option Chain Data, and OI
-LGEINDIA     PULLBACK   RESULTS_SOON IN_NEWS               | 2026-11-05 Financial Results | 2026-11-04 Analysts/Institutional Investor Meet/Con. Call Updates | LG Electronics India to host investor meets in HK, Singapore, Mumbai | LG Electronics lifts profit as vehicle systems surge
+LGEINDIA     PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-05 Financial Results | 2026-11-05 Press Release | LG Electronics India Q2 Results: Net profit jumps 27% YoY to Rs 489 crore; stock climbs 5% | LG Electronics India Limited Plans Smart Car Solutions Push
 SHILPAMED    PULLBACK   RESULTS_SOON                       | 2026-11-05 Financial Results |  | 
 ONEPOINT     PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-03 Outcome of Board Meeting | 
 INDSWFTLAB   PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-03 Monitoring Agency Report | 
 VINDHYATEL   PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | Vindhya Telelinks Q2FY27 Results: Net profit up 34% YoY to ₹79.3 crore | Vindhya Telelinks Q2 FY27 Profit Rises 34% as Sales Fall 12%
-WHIRLPOOL    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-09 Financial Results | 2026-11-04 Resignation of Director/KMP/SMP | Whirlpool of India (NSE:WHIRLPOOL): Why Did Two Senior Finance Heads Resign? | Whirlpool of India announces resignations of Senior Management Personnel
+WHIRLPOOL    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-09 Financial Results | 2026-11-04 Resignation of Director/KMP/SMP | Whirlpool of India posts record Q1 FY27 revenue despite margin squeeze | Whirlpool of India (NSE:WHIRLPOOL): Why Did Two Senior Finance Heads Resign?
 ABDL         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | Allied Blenders posts record 3.6 million cases in Oct 2026
 ARFIN        PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-03 Outcome of Board Meeting | 
 XTRANET      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Monitoring Agency Report | Xtranet Technologies Files September-Quarter Investor Presentation | Xtranet Technologies Q2FY27 Results: Net profit jumps 135% to ₹137.5M
@@ -46,22 +47,25 @@ ADVANCE      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press
 OAL          PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Appointment | Oriental Aromatics Posts Increase In Second Quarter Operating Revenue | Oriental Aromatics Q2 EBITDA margin expands to 7.94% on revenue growth
 CAMLINFINE   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Outcome of Board Meeting | Camlin Fine Sciences tanks 18% post Q2 results; stock hits 52-week low | Top Losers Today 04-Nov-2026: Camlin Fine Sciences Falls 18.65%
 AIAENG       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Outcome of Board Meeting | AIA Engineering Share Price Today Down 5% | AIA Engineering Ltd. first-half EBITDA margin falls to 34.5%
-CLEAN        DIP        IN_NEWS                            |  |  | Clean Science & Technology Ltd is Rated Sell
+CLEAN        DIP        IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | Clean Science Q2FY27 Results: PAT turns positive, revenue rises 10% YoY | Clean Science & Technology Ltd is Rated Sell
 LATENTVIEW   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Appointment | Latent View Analytics Limited Just Missed EPS By 6.0%: Here's What Analysts Think Will Hap
 PREMEXPLN    DIP        EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-12 Financial Results | 2026-11-04 Board Meeting | 
 FIVESTAR     DIP        IN_NEWS                            |  |  | Five Star Bancorp evp Lydia Ramirez-Medina sells $193,470 in stock By Investing.com | A former bank CEO joins Five Star Bancorp’s board after nearly 15 years leading CVB Financ
 FOSECOIND    DIP        RESULTS_SOON                       | 2026-11-06 Financial Results |  | 
+SASKEN       DIP        IN_NEWS                            |  | 2026-11-03 Analysts/Institutional Investor Meet/Con. Call Updates | ‘The real test is taking Indian silicon to global markets’: Sasken Technologies’ Rajiv C M
 PCJEWELLER   DIP        IN_NEWS                            |  |  | Top Traded by Volume Today 04-Nov-2026: PC Jeweller Leads
 JARO         DIP        RESULTS_SOON                       | 2026-11-05 Financial Results |  | 
 AJMERA       DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Press Release | Mukul Agrawal exits Ajmera Realty; PGIM India raises stake in Ganesh Consumer Products | Ajmera Realty & Infra India Ltd Reports Very Positive Quarterly Financial Performance Amid
-PASHUPATI    LOCKED     RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Dividend | 2026-11-03 Updates | Pashupati Cotspin shares hit 10% lower circuit ahead of Q2 results after a stunning 70% mo | Pashupati Cotspin Share Price Hits Lower Circuit: Why?
-AURUM        LOCKED     NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-03 Monitoring Agency Report | Aurum PropTech Limited (AURUM.NS) Seasonal returns chart - Yahoo Finance
-Symbols with no flags: 10. Top market headlines:
-  [ET Markets] Cracker stocks this Diwali! Axis Direct selects 10 technical stock with 48% upside potential for Samvat 2083
+PASHUPATI    LOCKED     RESULTS_SOON IN_NEWS               | 2026-11-06 Dividend |  | Pashupati Cotspin shares hit 10% lower circuit ahead of Q2 results after a stunning 70% mo | Pashupati Cotspin Share Price Hits Lower Circuit: Why?
+Symbols with no flags: 9. Top market headlines:
+  [ET Markets] Bharat Electronics among 5 stocks showing White Marubozu pattern
+  [ET Markets] Diwali Dhamaka stocks for portfolio: 10 shares with up to 34% upside potential ICICI Direct is bullish on
+  [ET Markets] Adani Enterprises among 4 Nifty 50 stocks showing bullish RSI upswing
+  [ET Markets] Cracker stocks this Diwali! Axis Direct selects 12 technical stock with 48% upside potential for Samvat 2083
   [ET Markets] HEG Advanced Materials among 3 stocks closing above VWAP
   [ET Markets] City Union Bank among 5 F&amp;O stocks with a sharp rise in futures open interest
-  [ET Markets] Gold Rates Today (November 5) Live: Gold, silver jump up to 2% on MCX. What should investors expect next?
-  [ET Markets] BPCL Share Price Live Updates: Understanding BPCL's Market Volatility
+  [ET Markets] Gold Rates Today (November 5) Live: Gold, silver jump up to 2% on MCX. Check 24K, 22K rates in Delhi, Mumbai, 
+  [ET Markets] BPCL Share Price Live Updates: BPCL's Current Market Position
   [ET Markets] Divis Labs Share Price Live Updates: Divis Labs Stock Details
   [ET Markets] Britannia Share Price Live Updates: Britannia Stock Details
   [ET Markets] HDFC Bank Share Price Live Updates: HDFC Bank's Daily Price Movement
@@ -69,7 +73,4 @@ Symbols with no flags: 10. Top market headlines:
   [ET Markets] IndusInd Bank Share Price Live Updates: IndusInd Bank Stock Details
   [ET Markets] UltraTech Cem Share Price Live Updates: UltraTech Cement Experiences Positive Price Breakout
   [ET Markets] LTIMindtree Share Price Live Updates: LTIMindtree Stock Details
-  [ET Markets] Bharti Airtel Share Price Live Updates: Bharti Airtel's Current Trading Price
-  [ET Markets] Eicher Motors Share Price Live Updates: Eicher Motors Shows Strong Market Performance
-  [ET Markets] Tata Steel Share Price Live Updates: Tata Steel Stock Details
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
