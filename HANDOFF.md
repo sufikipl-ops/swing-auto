@@ -237,3 +237,12 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   2/5-day holds also negative in every regime except STRONG ~0. Only 53% of uptrend+green-open days even close above yesterday's close.
 - 15-min F&O (1 yr): uptrend + green open + green first candle + above VWAP, 9:30 entry: -0.11% intraday, -0.19%/-0.23% at 2/5 days;
   TOP3 fastest -0.10%/-0.27%; bottom3 slightly better. The green you see all day is mostly the overnight gap, which you cannot buy.
+
+## Scalping search (2026-11-05) - nothing passed
+- scalp_search.py (local on data_orb 15-min, 214 F&O, 2025-10-13..2026-10-16; out/scalp_summary.txt). ~56 intraday rules in 6 families
+  (opening drive cont/rev, gap buckets + gap fill, afternoon momentum, cross-section top/bottom 5 at 10:15, VWAP stretch at 12:00,
+  prev-day close position), discovery = first half, test = second half, 0.10% cost. Synthetic random walk: 0 pass.
+- 0 rules positive in both halves with test >= +0.10%. Best discovery rules (gap-down 2-4% long +0.27%) flipped to -0.39% in test.
+  Only borderline: gap-up 2-4% long 9:30-15:15 (+0.12 / +0.10, 9/13 months) = what chance gives from ~56 tries. Not added.
+- Volatile-stock study (10 high-ATR names, 60d 5-min + 4y daily): highs/lows mostly 9:15-9:45; Nifty beta ~1.5x; US-night rule
+  false (4y all stocks -0.38%); gap-down 2%+ buy-at-open +0.9% only at the 9:15 auction price, ~0 from 9:30. App: Volatile watchlist card.
