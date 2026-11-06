@@ -1,38 +1,36 @@
-NEWS/EVENTS CHECK 2026-11-06 15:04 IST
+NEWS/EVENTS CHECK 2026-11-06 16:10 IST
 screen data date: 2026-11-05 | candidates: 50
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 73 symbols
 locked stocks added for announcements: PASHUPATI,AURUM,PIIND,AIAENG,CUMMINSIND,APTUS,GNFC,IONEXCHANG,KIRLFER,VIDYAWIRES,KIRLOSENG,PREMEXPLN,63MOONS,FINEORG,CANFINHOME,BSOFT,WIPRO,QUICKHEAL,BANKBARODA,SDBL,MINDACORP
 NSE announcements fetched for 71 of 71 symbols
-BSE announcement FAIL (GROWW): The read operation timed out
-BSE announcements: 59 symbols checked, 33 naye (NSE me nahi the)
+BSE announcement FAIL (INDIANB): The read operation timed out
+BSE announcements: 55 symbols checked, 39 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 77 of 77 symbols, 269 headlines
-PDF saar: 11 naye bane, 13 nahi bane, 57 pehle ke reuse (AI key: nahi)
-announcements.json: 61 symbols with announcements in last 3 days
+Google News: 77 of 77 symbols, 272 headlines
+PDF saar: 2 naye bane, 13 nahi bane, 65 pehle ke reuse (AI key: nahi)
+announcements.json: 60 symbols with announcements in last 3 days
 BSE          BREAKOUT   IN_NEWS                            |  | 2026-11-04 Investor Presentation | BSE Capital Goods index slips 4%; Thermax, Apar, Astral tank up to 20% | Stock market holidays for Diwali: When are NSE, BSE open? Check Muhurat trading timings
 LENSKART     BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Press Release | 
 PARAGMILK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Press Release | 
-JSWSTEEL     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Disclosure of material issue | JSW Steel Share Price Live Updates: JSW Steel  Stock Price Update | JSW Steel stock: Board approves 5-MTPA Odisha expansion
-SONACOMS     BREAKOUT   IN_NEWS                            |  |  | Coforge, Nykaa, Sona BLW, Gland Pharma: Check midcap and smallcap stocks at 52-week highs | Sona BLW Precision Forgings Ltd Sees Significant Open Interest Surge Amid Bullish Momentum
+JSWSTEEL     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Disclosure of material issue | JSW Steel Share Price Live Updates: JSW Steel's Price and Volatility Overview | JSW Steel stock: Board approves 5-MTPA Odisha expansion
 NHPC         BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | NHPC H1 PAT rises 21% as finance costs more than double
 INDIANB      BREAKOUT   IN_NEWS                            |  |  | Indian Bank - Positive Breakout: These 8 large-cap stocks cross above their 200 DMAs | South Indian Bank Ltd Hits All-Time High of Rs 57.39 as Momentum Builds Across Timeframes
-MOTILALOFS   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Resignation of Director/KMP/SMP | Motilal Oswal Wealth’s 10 Diwali stock picks for Samvat 2083: Kotak Bank, Titan, Eternal,  | M&M Q2 Results Impress; Motilal Oswal Raises Estimates On Improving Auto Margins
+MOTILALOFS   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Resignation of Director/KMP/SMP | Buy Apollo Hospitals; target of Rs 10400: Motilal Oswal | Motilal Oswal Wealth’s 10 Diwali stock picks for Samvat 2083: Kotak Bank, Titan, Eternal, 
 ENTERO       BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011 | Entero Healthcare Solutions uploads audio recording of Q2FY27 earnings call | Broad-Based Technical Strength Lifts Entero Healthcare Solutions Ltd to 52-Week High of Rs
 PETRONET     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Press Release | Trade Spotlight: How should you trade NSE, Bank of Maharashtra, Info Edge, JSW Energy, Pet | Petronet LNG faces ₹625 crore claim over idle Qatar vessels
 EMCURE       BREAKOUT   IN_NEWS                            |  | 2026-11-05 Copy of Newspaper Publication | Emcure Pharmaceuticals Q2FY27 Results: Standalone PAT up 111% YoY | Emcure Pharmaceuticals Limited Beat Revenue Forecasts By 6.4%: Here's What Analysts Are Fo
-AEROPLANE    BREAKOUT   IN_NEWS                            |  | 2026-11-04 Copy of Newspaper Publication | Strong Momentum Meets Stretched Valuations as Amir Chand Jagdish Kumar (Exports) Ltd Reach | Broad-Based Technical Strength Lifts Amir Chand Jagdish Kumar (Exports) Ltd to 52-Week Hig
 EIMCOELECO   BREAKOUT   IN_NEWS                            |  |  | Eimco Elecon Standalone September 2026 Net Sales at Rs 56.80 crore, up 70.89% Y-o-Y
 ISGEC        BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-11-04 General Updates | 
 ICICIBANK    BREAKOUT   IN_NEWS                            |  | 2026-11-05 ESOP/ESOS/ESPS | ICICI Bank extends rally, soars 10% in 4 days; market cap nears ₹11 trn | ICICI Bank Limited (IBN) stock price, news, quote and history
-MOTHERSON    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | Samvardhana Motherson shares are a buy or sell after 8% fall? Here's what analysts said | Samvardhana Motherson Q2 Net Profit Jumps 42% to Rs 1,175 Cr
+MOTHERSON    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | Samvardhana Motherson shares are a buy or sell after 8% fall? Here's what analysts said | Samvardhana Motherson International Sees Sharp Open Interest Surge Amid Volatile Trading
 PATANJALI    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 General Updates | Patanjali Foods: E-commerce drives 35% of channel revenue | Patanjali Foods Says Maharashtra FDA Action On Cow Ghee Was Directed At Distributor
 AUROPHARMA   BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Change in Director(s) | 
-DLF          BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Press Release | DLF to Invest ₹3,750 Crore in Everstone JV; Shares Fall 1.4% | DLF to invest ₹3,750 cr in JV with Everstone to buy stake in IREO India
+DLF          BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Press Release | DLF and Everstone Plan ₹3,750 Crore IREO JV | DLF, Everstone join hands to invest in IREO Group; realty major to pump in ₹3,750 crore
 ROLEXRINGS   BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-11-05 Updates | 
 ANANDRATHI   BREAKOUT   IN_NEWS                            |  |  | Anand Rathi Consolidated September 2026 Net Sales at Rs 343.99 crore, up 15.68% Y-o-Y
 LUMAXTECH    BREAKOUT   IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | Lumax Auto to host institutional investor meet on November 17 | Lumax Auto Raises FY27 Revenue Growth Outlook to 20-25% 
@@ -42,21 +40,21 @@ GLAND        PREBREAK   RESULTS_SOON IN_NEWS               | 2026-11-06 Financia
 HBLENGINE    PREBREAK   RESULTS_SOON IN_NEWS               | 2026-11-07 Financial Results |  | Golden Cross Confirmed: Do HBL Engineering Ltd's Other Technical Indicators Agree?
 MANKIND      PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | Mankind Pharma to host investor conference with Ashika Stock on Nov 5
 ITCHOTELS    PREBREAK   IN_NEWS                            |  |  | ITC Hotels signs management agreement for 95-key Storii Shantiniketan in West Bengal
-FEDDERSHOL   PREBREAK   NEW_ANNOUNCEMENT                   |  | 2026-11-06 Board Meeting | 
 MRPL         PULLBACK   IN_NEWS                            |  | 2026-11-04 Analysts/Institutional Investor Meet/Con. Call Updates | Mangalore Refinery & Petrochemicals Ltd. Share Price, Stock Price - NSE/BSE Live | MRPL Standalone September 2026 Net Sales at Rs 32,516.24 crore, up 43.57% Y-o-Y
 INDUSTOWER   PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 General Updates | Indus Towers gains 4% after CLSA upgrade to #39;buy#39; on Voda Idea FPO | Indus Towers gains 4% after CLSA upgrade to #39;buy#39; on Voda Idea FPO
 IBULLSLTD    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Monitoring Agency Report | Indiabulls Limited Hits Intraday Low Amid Price Pressure on 6 Nov 2026
-BEML         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | BEML Limited revenue climbs 42% while profit falls 40% | BEML shares fall over 4% after Q2 results largely miss estimates
-BLUESTARCO   PULLBACK   IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | Blue Star targets 25% FY27 room air-conditioner growth and 6.5% margin | Blue Star targets Rs 4,000 crore data-centre revenue in three years
+BEML         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | BEML, CESC, Ramco Cements, Kansai Nerolac shares: Here are target prices | BEML Limited revenue climbs 42% while profit falls 40%
+BLUESTARCO   PULLBACK   IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | Alfabs Australia (ASX:AAL), Zicom Group (ASX:ZGL) and Blue Star Helium (ASX:BNL): What Are | Blue Star targets 25% FY27 room air-conditioner growth and 6.5% margin
 CASTROLIND   PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 General | Castrol India Open Offer Valued at Over Rs 5,100 Crore | Castrol India Open Offer Seeks 26% Stake at ₹194.04
-KMEW         PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Financial Results | 2026-11-06 Outcome of Board Meeting | Knowledge Marine receives Rs 149.99 crore preferential proceeds | Knowledge Marine first-half profit rises to Rs 84.28 crore
+KMEW         PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Financial Results | 2026-11-06 Outcome of Board Meeting | Knowledge Marine receives Rs 149.99 crore preferential proceeds | Knowledge Marine revenue up 89% in H1FY27 to ₹18,621 lakh
 CENTUM       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Monitoring Agency Report | Buy Centum Electronics; target of Rs 5150: Choice Institutional Equities
-CYIENT       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Cyient DLM Consolidated September 2026 Net Sales at Rs 393.09 crore, up 26.54% Y-o-Y
-MOBIKWIK     PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Press Release | One MobiKwik Systems posts ₹11.8 crore Q2 FY27 profit
+CYIENT       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Certificate under SEBI (Depositories and Participants) Regulations, 2018 | Cyient Consolidated September 2026 Net Sales at Rs 2,235.00 crore, up 25.49% Y-o-Y
+MOBIKWIK     PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Press Release | One MobiKwik Systems subsidiary secures RBI NBFC registration | One MobiKwik Systems Ltd Wins RBI NBFC Approval for Lending
 ROSSTECH     PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Financial Results | 2026-11-06 Outcome of Board Meeting | Rossell Techsys Limited closes ₹299.99 crore SBI fund issue | Rossell Techsys: SBI Mutual Fund acquires 5.7503% stake
 ABDL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Press Release | 
-GABRIEL      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Outcome of Board Meeting | 
+GABRIEL      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Outcome of Board Meeting | Gabriel Bortoleto and Rafael Câmara Become Brazil's First F1 Pair Since 2016 at Interlagos
 WHIRLPOOL    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-09 Financial Results | 2026-11-04 Resignation of Director/KMP/SMP | 
+PNGSREVA     PULLBACK   IN_NEWS                            |  | 2026-11-04 Analysts/Institutional Investor Meet/Con. Call Updates | PNGS Reva H1 net profit jumps 151% YoY; management sees 35% SSG growth
 CMLL         PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-13 Financial Results | 2026-11-05 Board Meeting | 
 PIIND        DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-04 Outcome of Board Meeting | 
 PIIND        DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-04 Outcome of Board Meeting | 
@@ -65,19 +63,21 @@ CUMMINSIND   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press
 APTUS        DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-04 Press Release | 
 APTUS        DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-04 Press Release | 
 IONEXCHANG   DIP        IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | Ion Exchange posts second-quarter loss as expenses rise 14.1%
-KIRLFER      DIP        IN_NEWS                            |  |  | Kirloskar Ferrous Industries Q2 Revenue Rises 17% to Rs 2,047 Crore
-VIDYAWIRES   DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-04 General Updates | 
+KIRLFER      DIP        IN_NEWS                            |  |  | Kirloskar Ferrous Industries Limited Revenue Rises 17% in Q2 FY27 | Kirloskar Ferrous Industries Q2 Revenue Rises 17% to Rs 2,047 Crore
+VIDYAWIRES   DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 General Updates | Below All Moving Averages and Now at Lower Circuit: Vidya Wires Ltd Loses 9.15% in a Singl
 KIRLOSENG    DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-05 Trading Window | 
 PREMEXPLN    DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-12 Financial Results | 2026-11-06 General | HDFC Mutual Fund cuts Premier Explosives stake to 0.47% in Nov 2026 | Apollo Micro Systems completes 26% Premier Explosives offer
-63MOONS      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Outcome of Board Meeting | 63 Moons Technologies Ltd Hits Intraday Low Amid Price Pressure | 63 moons revenue jumps sevenfold but quarterly loss persists
+63MOONS      DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Outcome of Board Meeting | 63 Moons Technologies Ltd Hits Intraday Low Amid Price Pressure
+FINEORG      DIP        NEW_ANNOUNCEMENT                   |  | 2026-11-06 General Updates | 
 CANFINHOME   DIP        IN_NEWS                            |  |  | Can Fin Homes Standalone September 2026 Net Sales at Rs 1,130.78 crore, up 7.75% Y-o-Y
 WIPRO        DIP        IN_NEWS                            |  | 2026-11-04 Updates | Buzzing Stocks: Wipro, Reliance, PSP Projects, Bajaj Electricals, Hero MotoCorp, TCP, Mahi | Wipro Ltd. Share Price, Stock Price - NSE/BSE Live
 BANKBARODA   DIP        IN_NEWS                            |  | 2026-11-04 Analysts/Institutional Investor Meet/Con. Call Updates | Reserve Bank of India may hike rates by up to 75 bps more: Uday Kotak | Form 4 Bank of America Corp For: 5 November By Investing.com
-SDBL         DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-13 Financial Results/Other business matters | 2026-11-05 Board Meeting | Som Distilleries receives ₹4 lakh SEBI penalty for LODR violations
-MINDACORP    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Monitoring Agency Report | Revenue Beat: Minda Corporation Limited Exceeded Revenue Forecasts By 11% And Analysts Are
-PASHUPATI    LOCKED     RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Dividend | 2026-11-06 Record Date | Pashupati Cotspin Q2 profit rises 26% year-on-year as revenue falls
+SDBL         DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-13 Financial Results/Other business matters | 2026-11-04 Press Release | Som Distilleries & Breweries has launched a new campaign called #TwistAndSip for its Woodp
+MINDACORP    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Resignation of Director/KMP/SMP | Revenue Beat: Minda Corporation Limited Exceeded Revenue Forecasts By 11% And Analysts Are
+PASHUPATI    LOCKED     RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Dividend | 2026-11-06 Record Date | Pashupati Cotspin Q2 profit rises 26% year-on-year as revenue falls | Pashupati Cotspin Q2FY27 Results: Net profit rises 26% YoY to ₹510 lakh
 AURUM        LOCKED     IN_NEWS                            |  |  | Aurum Proptech Consolidated September 2026 Net Sales at Rs 130.19 crore, up 57.81% Y-o-Y | Aurum Proptech Standalone September 2026 Net Sales at Rs 0.06 crore, down 98.07% Y-o-Y
-Symbols with no flags: 10. Top market headlines:
+Symbols with no flags: 11. Top market headlines:
+  [ET Markets] 12 midcap stocks deliver returns of up to 136% in FY27 so far
   [ET Markets] BMW Industries Q2 Results: Net profit rise 43% YoY to Rs 21.62 crore
   [ET Markets] HCC Q2 profit slumps 53% to Rs 22 crore
   [ET Markets] India’s new wealth rituals: What are millennials and Gen Z buying on Dhanteras?
@@ -92,5 +92,4 @@ Symbols with no flags: 10. Top market headlines:
   [ET Markets] Nestle India Share Price Live Updates: Nestle India Stock Update
   [ET Markets] L&amp;T Share Price Live Updates: L&amp;T's Current Market Position
   [ET Markets] Power Grid Share Price Live Updates: Power Grid's Price Movement Today
-  [ET Markets] BPCL Share Price Live Updates: BPCL's Market Update
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
