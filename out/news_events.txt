@@ -1,19 +1,18 @@
-NEWS/EVENTS CHECK 2026-11-06 07:55 IST
+NEWS/EVENTS CHECK 2026-11-06 09:17 IST
 screen data date: 2026-11-05 | candidates: 50
 NSE event calendar FAIL: HTTP Error 403: Forbidden
 NSE event calendar (symbol-wise): OK for 73 symbols
 locked stocks added for announcements: PASHUPATI,AURUM,PIIND,AIAENG,CUMMINSIND,APTUS,GNFC,IONEXCHANG,KIRLFER,VIDYAWIRES,KIRLOSENG,PREMEXPLN,63MOONS,FINEORG,CANFINHOME,BSOFT,WIPRO,QUICKHEAL,BANKBARODA,SDBL,MINDACORP
 NSE announcements fetched for 71 of 71 symbols
-BSE scrip list: 5139 codes
 BSE announcements: 69 symbols checked, 29 naye (NSE me nahi the)
 RSS ET Markets: OK, 50 items
 RSS Business Standard: OK, 35 items
 RSS Moneycontrol: OK, 15 items
 RSS Moneycontrol: OK, 4 items
 RSS Mint: OK, 35 items
-Google News: 77 of 77 symbols, 269 headlines
-PDF saar: 35 naye bane, 10 nahi bane, 17 pehle ke reuse (AI key: nahi)
-announcements.json: 58 symbols with announcements in last 3 days
+Google News: 77 of 77 symbols, 267 headlines
+PDF saar: 14 naye bane, 11 nahi bane, 52 pehle ke reuse (AI key: nahi)
+announcements.json: 59 symbols with announcements in last 3 days
 BSE          BREAKOUT   IN_NEWS                            |  | 2026-11-04 Investor Presentation | Capital Markets index soars 4%; MOFSL, Groww, 360 ONE, BSE zoom up to 7% | BSE climbs 5% post Q2; MOFSL raises earnings estimates on volume recovery
 LENSKART     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Press Release | Lenskart Solutions Ltd is Rated Hold by MarketsMOJO
 PARAGMILK    BREAKOUT   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Press Release | 
@@ -25,37 +24,35 @@ MOTILALOFS   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Resig
 ENTERO       BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Disclosures under Reg. 29(1) of SEBI (SAST) Regulations, 2011 | Entero Healthcare Solutions uploads audio recording of Q2FY27 earnings call | 3P Investment crosses 5% stake in Entero Healthcare via open market buy
 PETRONET     BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Press Release | Petronet LNG faces ₹625 crore claim over idle Qatar vessels | Petronet LNG Limited Just Beat Revenue By 26%: Here's What Analysts Think Will Happen Next
 EMCURE       BREAKOUT   IN_NEWS                            |  | 2026-11-05 Copy of Newspaper Publication | Emcure Pharmaceuticals Limited Beat Revenue Forecasts By 6.4%: Here's What Analysts Are Fo | Emcure Pharmaceuticals Q2FY27 Results: Standalone PAT up 111% YoY
-ASAHIINDIA   BREAKOUT   IN_NEWS                            |  | 2026-11-04 Copy of Newspaper Publication | Asahi India Glass Ltd Downgraded to Hold Amid Mixed Financial and Quality Signals
 AEROPLANE    BREAKOUT   IN_NEWS                            |  | 2026-11-04 Copy of Newspaper Publication | Strong Momentum Meets Stretched Valuations as Amir Chand Jagdish Kumar (Exports) Ltd Reach | Broad-Based Technical Strength Lifts Amir Chand Jagdish Kumar (Exports) Ltd to 52-Week Hig
 MBAPL        BREAKOUT   IN_NEWS                            |  |  | Madhya Bharat Agro Products Ltd Hits New All-Time High Amid Strong Multi-Year Rally
 EIMCOELECO   BREAKOUT   IN_NEWS                            |  |  | Broad-Based Technical Strength Lifts Eimco Elecon (India) Ltd to 52-Week High of Rs 2483.9
 ISGEC        BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 General Updates | Isgec Heavy Engineering (NSE:ISGEC): What Did Its Q2 & H1 FY27 Investor Presentation Revea
 ICICIBANK    BREAKOUT   IN_NEWS                            |  | 2026-11-05 ESOP/ESOS/ESPS | ICICI Bank Limited (IBN) stock price, news, quote and history | Here’s How Much You Would Have Made Owning ICICI Bank Stock In The Last 10 Years
 MOTHERSON    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | Samvardhana Motherson International Limited Q2 Results Due Nov 5 | Samvardhana Motherson Q2: Record revenue, profit up 14% as booked business hits $106 bn
-PATANJALI    BREAKOUT   IN_NEWS                            |  |  | Patanjali Foods Says Maharashtra FDA Action On Cow Ghee Was Directed At Distributor | Patanjali Foods Ltd Surges 5.27% to Day's High of Rs 408.4 — Outperforms Sector by 4.75 Pe
+PATANJALI    BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 General Updates | Patanjali Foods Says Maharashtra FDA Action On Cow Ghee Was Directed At Distributor | Patanjali Foods Ltd Surges 5.27% to Day's High of Rs 408.4 — Outperforms Sector by 4.75 Pe
 AUROPHARMA   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Change in Director(s) | Aurobindo Pharma Q2 Profit Jumps 32% to ₹1,124 Cr | Aurobindo Pharma Q2 profit rises 32% to Rs 1,123.84 crore
-DLF          BREAKOUT   IN_NEWS                            |  |  | DLF Shares Slump on Fresh CCI Probe
-ROLEXRINGS   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Updates | Rolex Rings operating cash flow falls as working capital rises | Rolex Rings revenue rises 40%, profit rises 67% in Q2
+DLF          BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-06 Press Release | DLF to invest ₹3,750 crore for majority stake in new strategic JV with Everstone Group | DLF signs term sheet for ₹3,750 crore JV with Everstone to acquire IREO stake
+ROLEXRINGS   BREAKOUT   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Updates | Rolex Rings operating cash flow falls as working capital rises | Rolex Rings Q2 FY27 revenue rises 43% on auto components
 ANANDRATHI   BREAKOUT   IN_NEWS                            |  |  | Anand Rathi seeks approval to raise borrowing limit to ₹5,500 crore
 LUMAXTECH    BREAKOUT   IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | Lumax Auto to host institutional investor meet on November 17 | Lumax Auto Technologies Ltd Surges 7.54% to Day's High of...
 INFY         PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Updates | Infosys Share Price Highlights: Infosys Stock Price History | Infosys Share Price Prediction for Tomorrow: 6 Nov 2026
 UNIONBANK    PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Appointment | City Union Bank among 5 F&amp;O stocks with a sharp rise in futures open interest | Union Bank Of India Share Price, Stock Price - NSE/BSE Live
-GLAND        PREBREAK   RESULTS_SOON IN_NEWS               | 2026-11-06 Financial Results |  | Earnings To Watch: Gland Pharma Ltd (NSE:GLAND) Q2 2027 -- GF Value Sees 15% Downside | Coforge, Nykaa, Sona BLW, Gland Pharma: Check midcap and smallcap stocks at 52-week highs
+GLAND        PREBREAK   RESULTS_SOON IN_NEWS               | 2026-11-06 Financial Results |  | Stocks to watch: Airtel, Titan, Blue Dart, Gland Pharma, ONGC, Britannia | Earnings To Watch: Gland Pharma Ltd (NSE:GLAND) Q2 2027 -- GF Value Sees 15% Downside
 HBLENGINE    PREBREAK   RESULTS_SOON IN_NEWS               | 2026-11-07 Financial Results |  | Golden Cross Confirmed: Do HBL Engineering Ltd's Other Technical Indicators Agree?
-MANKIND      PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | Mankind Pharma Receives ESG Rating of 64.8 From SES | Mankind Pharma ESG Rating 64.8 by SES for FY26
-ITCHOTELS    PREBREAK   IN_NEWS                            |  |  | ITC Hotels signs management agreement for 95-key Storii Shantiniketan in West Bengal | ITC Hotels Chairman Outlines Growth Vision
+MANKIND      PREBREAK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | Mankind Pharma: Chronic Therapies Drive the Next Leg of Growth | Mankind Pharma ESG Rating 64.8 by SES for FY26
+ITCHOTELS    PREBREAK   IN_NEWS                            |  |  | ITC Hotels signs management agreement for 95-key Storii Shantiniketan in West Bengal
 INDUSTOWER   PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 General Updates | Indus Towers gains 4% after CLSA upgrade to #39;buy#39; on Voda Idea FPO | Indus Towers gains 4% after CLSA upgrade to #39;buy#39; on Voda Idea FPO
-IBULLSLTD    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Monitoring Agency Report | Small-cap stock under  ₹50 for Diwali Muhurat Trading Samvat 2083: Indiabulls shares rise  | Small-cap stock under ₹50 for Diwali Muhurat Trading Samvat 2083: Indiabulls shares rise 8
+IBULLSLTD    PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Monitoring Agency Report | Small-cap stock under ₹50 for Diwali Muhurat Trading Samvat 2083: Indiabulls shares rise 8 | Indiabulls Limited Reports Q1 FY27 PAT of ₹141 Crore
 BEML         PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 General Updates | BEML Limited revenue climbs 42% while profit falls 40% | BEML shares fall over 4% after Q2 results largely miss estimates
 BLUESTARCO   PULLBACK   IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | Blue Star targets 25% FY27 room air-conditioner growth and 6.5% margin | Blue Star targets Rs 4,000 crore data-centre revenue in three years
 CASTROLIND   PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Resignation of Director/KMP/SMP | Stonepeak Acquires 65% of Castrol in Historic Deal with bp
 KMEW         PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Financial Results | 2026-11-05 Press Release | Knowledge Marine & Engineering Works Ltd is Rated Buy | Knowledge Marine & Engineering Works Commissions Largest Dredger
 CENTUM       PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Monitoring Agency Report | Centum Electronics Ltd Reports Flat Quarterly Performance Amid Mixed Financial Indicators
-CYIENT       PULLBACK   IN_NEWS                            |  |  | Cyient Ltd. Technical Momentum Shifts Amid Mixed Market Returns
 MOBIKWIK     PULLBACK   IN_NEWS                            |  | 2026-11-05 Analysts/Institutional Investor Meet/Con. Call Updates | One MobiKwik Systems posts ₹11.8 crore Q2 FY27 profit
 ROSSTECH     PULLBACK   RESULTS_SOON NEW_ANNOUNCEMENT IN_NEWS | 2026-11-06 Financial Results | 2026-11-04 Allotment of Securities | Rossell Techsys completes Rs 299.9999068 crore allotment
 ABDL         PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Press Release | 
-GABRIEL      PULLBACK   NEW_ANNOUNCEMENT                   |  | 2026-11-04 Outcome of Board Meeting | 
+GABRIEL      PULLBACK   NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-04 Outcome of Board Meeting | JJ Gabriel and Real Madrid share desire to make transfer happen
 WHIRLPOOL    PULLBACK   EVENT_7D NEW_ANNOUNCEMENT          | 2026-11-09 Financial Results | 2026-11-04 Resignation of Director/KMP/SMP | 
 CMLL         PULLBACK   EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-13 Financial Results | 2026-11-05 Board Meeting | Caliber Mining and Logistics Ltd. Share Price Live Today | CALIBER MINING AND LOG L Share Price - Live NSE: CMLL Stock Price & Chart
 HLEGLAS      PULLBACK   IN_NEWS                            |  | 2026-11-04 Copy of Newspaper Publication | HLE Glascoat Q2FY27 Results: Net profit rises 15% YoY, order book hits record ₹1,087 crore
@@ -77,8 +74,11 @@ BANKBARODA   DIP        IN_NEWS                            |  | 2026-11-04 Analy
 SDBL         DIP        EVENT_7D NEW_ANNOUNCEMENT IN_NEWS  | 2026-11-13 Financial Results/Other business matters | 2026-11-05 Board Meeting | Som Distilleries receives ₹4 lakh SEBI penalty for LODR violations
 MINDACORP    DIP        NEW_ANNOUNCEMENT IN_NEWS           |  | 2026-11-05 Monitoring Agency Report | Revenue Beat: Minda Corporation Limited Exceeded Revenue Forecasts By 11% And Analysts Are
 PASHUPATI    LOCKED     RESULTS_SOON                       | 2026-11-06 Dividend |  | 
-Symbols with no flags: 10. Top market headlines:
-  [ET Markets] Sensex Today | Nifty 50 | Stock Market Live Updates: GIFT Nifty signals a gap-down start; Asian shares trade l
+Symbols with no flags: 12. Top market headlines:
+  [ET Markets] SBI Share Price Live Updates: SBI maintains strong momentum with monthly returns
+  [ET Markets] Indian stocks set for pullback after sharp rally on oil slide, foreign inflows
+  [ET Markets] Positive Breakout: These 8 large-cap stocks cross above their 200 DMAs
+  [ET Markets] Sensex Today | Nifty 50 | Stock Market Live Updates: Sensex trades over 200 pts higher in pre-open session, Ni
   [ET Markets] Paras Healthcare posts Rs 40 crore Q2 net profit in first results after listing
   [ET Markets] Godfrey Phillips Q2 profit down 37% to Rs 190 cr; revenue up twofold at Rs 4,198 cr
   [ET Markets] Glenmark Pharma Q2 Results: Net profit plunges 56% to Rs 264 crore, revenue down at Rs 4,247 cr
@@ -90,7 +90,4 @@ Symbols with no flags: 10. Top market headlines:
   [ET Markets] EPL Q2 Results: Profit rises 4% YoY to Rs 111 crore
   [ET Markets] Bharat Electronics among 5 stocks showing White Marubozu pattern
   [ET Markets] Diwali Dhamaka stocks for portfolio: 10 shares with up to 34% upside potential ICICI Direct is bullish on
-  [ET Markets] Adani Enterprises among 4 Nifty 50 stocks showing bullish RSI upswing
-  [ET Markets] Cracker stocks this Diwali! Axis Direct selects 12 technical stock with 48% upside potential for Samvat 2083
-  [ET Markets] HEG Advanced Materials among 3 stocks closing above VWAP
 Note: flags come from public feeds and can be incomplete. Verify before acting. Not financial advice.
