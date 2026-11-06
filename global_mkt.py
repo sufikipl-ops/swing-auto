@@ -15,6 +15,10 @@ GROUPS = [
     ('Commodity / FX / Bond', [('BZ=F', 'Brent crude'), ('CL=F', 'WTI crude'), ('GC=F', 'Gold'), ('INR=X', 'USD/INR'),
                                ('DX-Y.NYB', 'Dollar index'), ('^TNX', 'US 10Y yield')]),
 ]
+# India sector index (app ka Sector heatmap): aaj / 1 hafta / 1 mahina
+SECTORS = [('^CNXIT', 'IT'), ('^NSEBANK', 'Bank'), ('NIFTY_FIN_SERVICE.NS', 'Financials'), ('^CNXPSUBANK', 'PSU Bank'),
+           ('^CNXAUTO', 'Auto'), ('^CNXPHARMA', 'Pharma'), ('^CNXFMCG', 'FMCG'), ('^CNXMETAL', 'Metal'), ('^CNXREALTY', 'Realty'),
+           ('^CNXENERGY', 'Energy'), ('^CNXINFRA', 'Infra'), ('^CNXPSE', 'PSE (sarkari)'), ('^CNXCONSUM', 'Consumption')]
 PLAYERS = [('NVDA', 'Nvidia', 'AI/chips'), ('MSFT', 'Microsoft', 'Tech'), ('AAPL', 'Apple', 'Tech'), ('AMZN', 'Amazon', 'Tech/Retail'),
            ('GOOGL', 'Alphabet (Google)', 'Tech'), ('META', 'Meta', 'Tech'), ('TSLA', 'Tesla', 'Auto/EV'), ('TSM', 'TSMC', 'Chips'),
            ('JPM', 'JPMorgan', 'Banks'), ('XOM', 'Exxon', 'Oil'), ('INFY', 'Infosys ADR', 'India IT'), ('HDB', 'HDFC Bank ADR', 'India Bank'),
@@ -77,6 +81,22 @@ def quote(sym):
     # bar series ka last date, taaki pata chale data kitna taza hai
     return dict(price=round(price, 4), prev=round(prev, 4), chg=round(chg, 2), chg5=None if c5 is None else round(c5, 2),
                 asof=datetime.datetime.utcfromtimestamp(mt).strftime('%Y-%m-%d %H:%M UTC'), state=m.get('marketState', ''))
+
+
+def sector_quote(sym):
+    u = 'https://query1.finance.yahoo.com/v8/finance/chart/%s?range=2mo&interval=1d' % urllib.parse.quote(sym)
+    r = json.loads(http(u))['chart']['result'][0]
+    m = r.get('meta') or {}
+    cl = [c for c in ((r.get('indicators') or {}).get('quote', [{}])[0].get('close') or []) if c is not None]
+    if len(cl) < 23:
+        raise ValueError('data kam')
+    price = m.get('regularMarketPrice') or cl[-1]
+    off = m.get('gmtoffset') or 0; ts = r.get('timestamp') or []; mt = m.get('regularMarketTime') or ts[-1]
+    day = lambda t: datetime.datetime.utcfromtimestamp(t + off).date()
+    base = cl[-2] if ts and day(ts[-1]) == day(mt) else cl[-1]     # aaj ka bar aa gaya ho to kal ka close
+    k = -2 if base == cl[-2] else -1
+    return dict(price=round(price, 2), chg=round((price / base - 1) * 100, 2), chg5=round((price / cl[k - 5] - 1) * 100, 2),
+                chg21=round((price / cl[k - 21] - 1) * 100, 2), asof=datetime.datetime.utcfromtimestamp(mt).strftime('%Y-%m-%d %H:%M UTC'))
 
 
 def feed(sym, limit=6):
@@ -167,6 +187,14 @@ def main():
                 it['err'] = str(e)[:60]; ERR.append('%s: %s' % (sym, str(e)[:50]))
             arr.append(it); time.sleep(0.25)
         g['groups'].append(dict(name=gname, items=arr))
+    g['sectors'] = []
+    for sym, nm in SECTORS:
+        it = dict(sym=sym, name=nm)
+        try:
+            it.update(sector_quote(sym))
+        except Exception as e:
+            it['err'] = str(e)[:60]; ERR.append('%s: %s' % (sym, str(e)[:50]))
+        g['sectors'].append(it); time.sleep(0.2)
     for sym, nm, sec in PLAYERS:
         it = dict(sym=sym, name=nm, sector=sec)
         try:
