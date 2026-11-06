@@ -246,3 +246,9 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
   Only borderline: gap-up 2-4% long 9:30-15:15 (+0.12 / +0.10, 9/13 months) = what chance gives from ~56 tries. Not added.
 - Volatile-stock study (10 high-ATR names, 60d 5-min + 4y daily): highs/lows mostly 9:15-9:45; Nifty beta ~1.5x; US-night rule
   false (4y all stocks -0.38%); gap-down 2%+ buy-at-open +0.9% only at the 9:15 auction price, ~0 from 9:30. App: Volatile watchlist card.
+
+## US crash -> India (event study, 2026-11-06) - tentative, not an app rule
+- S&P -3%+ days, 10 yrs (33; 17 without 2020). India next day: gap avg -1.8% (27/32 down), open->close +0.21%.
+- Without 2020, buying at the India open: Nifty 20d +2.1% (10/16) vs normal +0.8%; Auto +5.7% (11/16), FMCG +3.7% (13/16),
+  Bank +3.0% (12/16); Metal -2.6%, IT +0.6% (5/16). With 2020 (COVID) the averages turn negative: crisis risk is real.
+- App: Sector heatmap (global_mkt.py 'sectors': 13 NSE sector indices, today / 5d / 21d) in the Market tab.
