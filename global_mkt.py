@@ -19,6 +19,57 @@ GROUPS = [
 SECTORS = [('^CNXIT', 'IT'), ('^NSEBANK', 'Bank'), ('NIFTY_FIN_SERVICE.NS', 'Financials'), ('^CNXPSUBANK', 'PSU Bank'),
            ('^CNXAUTO', 'Auto'), ('^CNXPHARMA', 'Pharma'), ('^CNXFMCG', 'FMCG'), ('^CNXMETAL', 'Metal'), ('^CNXREALTY', 'Realty'),
            ('^CNXENERGY', 'Energy'), ('^CNXINFRA', 'Infra'), ('^CNXPSE', 'PSE (sarkari)'), ('^CNXCONSUM', 'Consumption')]
+# sector par tap -> us sector ke stock (NSE index list + Nifty500 me usi industry wale)
+SECT_CSV = {'IT': 'niftyit', 'Bank': 'niftybank', 'Financials': 'niftyfinance', 'PSU Bank': 'niftypsubank', 'Auto': 'niftyauto',
+            'Pharma': 'niftypharma', 'FMCG': 'niftyfmcg', 'Metal': 'niftymetal', 'Realty': 'niftyrealty', 'Energy': 'niftyenergy',
+            'Infra': 'niftyinfra', 'PSE (sarkari)': 'niftypse', 'Consumption': 'niftyconsumption'}
+SECT_IND = {'IT': ['Information Technology'], 'Financials': ['Financial Services'], 'Pharma': ['Healthcare'],
+            'Auto': ['Automobile and Auto Components'], 'FMCG': ['Fast Moving Consumer Goods'], 'Metal': ['Metals & Mining'],
+            'Realty': ['Realty'], 'Energy': ['Oil Gas & Consumable Fuels', 'Power'],
+            'Infra': ['Capital Goods', 'Construction', 'Construction Materials'], 'Consumption': ['Consumer Services', 'Consumer Durables']}
+
+
+def nse_csv(name):
+    import csv, io
+    req = urllib.request.Request('https://nsearchives.nseindia.com/content/indices/ind_%slist.csv' % name, headers={'User-Agent': 'Mozilla/5.0'})
+    return list(csv.DictReader(io.StringIO(urllib.request.urlopen(req, timeout=20).read().decode('utf-8', 'ignore'))))
+
+
+def sector_members(old):
+    try:
+        n500 = nse_csv('nifty500')
+    except Exception:
+        n500 = []
+    out = {}
+    for nm, f in SECT_CSV.items():
+        try:
+            L = [r['Symbol'].strip() for r in nse_csv(f)]
+        except Exception:
+            L = list(old.get(nm) or [])
+        for r in n500:
+            if r.get('Industry') in SECT_IND.get(nm, []) and r['Symbol'].strip() not in L: L.append(r['Symbol'].strip())
+        if L: out[nm] = L
+        time.sleep(0.2)
+    return out
+
+
+def spark_chg(syms):
+    out = {}
+    for i in range(0, len(syms), 20):
+        q = ','.join(x + '.NS' for x in syms[i:i + 20])
+        try:
+            req = urllib.request.Request('https://query2.finance.yahoo.com/v8/finance/spark?range=1d&interval=1d&symbols=' + urllib.parse.quote(q, safe=',.'),
+                                         headers={'User-Agent': 'Mozilla/5.0'})
+            d = json.loads(urllib.request.urlopen(req, timeout=20).read().decode())
+            for k, v in d.items():
+                if v.get('fulldayPrice') and v.get('fulldayChangePercent') is not None:
+                    out[k[:-3]] = [round(v['fulldayPrice'], 2), round(v['fulldayChangePercent'], 2)]
+        except Exception:
+            pass
+        time.sleep(0.3)
+    return out
+
+
 PLAYERS = [('NVDA', 'Nvidia', 'AI/chips'), ('MSFT', 'Microsoft', 'Tech'), ('AAPL', 'Apple', 'Tech'), ('AMZN', 'Amazon', 'Tech/Retail'),
            ('GOOGL', 'Alphabet (Google)', 'Tech'), ('META', 'Meta', 'Tech'), ('TSLA', 'Tesla', 'Auto/EV'), ('TSM', 'TSMC', 'Chips'),
            ('JPM', 'JPMorgan', 'Banks'), ('XOM', 'Exxon', 'Oil'), ('INFY', 'Infosys ADR', 'India IT'), ('HDB', 'HDFC Bank ADR', 'India Bank'),
@@ -187,9 +238,18 @@ def main():
                 it['err'] = str(e)[:60]; ERR.append('%s: %s' % (sym, str(e)[:50]))
             arr.append(it); time.sleep(0.25)
         g['groups'].append(dict(name=gname, items=arr))
+    old = {}
+    try:
+        old = {x['name']: x.get('stocks') for x in json.load(open('docs/global.json')).get('sectors', [])}
+    except Exception:
+        pass
+    mem = sector_members(old)
+    px = spark_chg(sorted({x for v in mem.values() for x in v}))
+    g['sect_px'] = px
+    g['sect_px_at'] = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M')
     g['sectors'] = []
     for sym, nm in SECTORS:
-        it = dict(sym=sym, name=nm)
+        it = dict(sym=sym, name=nm, stocks=mem.get(nm) or old.get(nm) or [])
         try:
             it.update(sector_quote(sym))
         except Exception as e:
