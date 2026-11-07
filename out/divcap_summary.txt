@@ -1,0 +1,38 @@
+DIVIDEND CAPTURE STUDY: 2022-09-19 se 2026-11-04, 5984 dividend events
+Kharido: ex-date se pehle din CLOSE. Kharcha 0.25%%. Aakhri line: ex-date open par share dividend ka kitna %% gira (100 = poora).
+
+== SAB ==
+  ex OPEN par becho (tax se pehle)           n= 5984  jeet  66%  avg  +0.25%  median  +0.26%
+  ex OPEN par becho (20% tax baad)           n= 5984  jeet  57%  avg  +0.09%  median  +0.11%
+  ex CLOSE par becho (20% tax baad)          n= 5984  jeet  42%  avg  -0.25%  median  -0.31%
+  sirf bhav girawat ex OPEN (% dividend ka)  n= 5984  median     4%
+
+== liquid (5cr+) sab ==
+  ex OPEN par becho (tax se pehle)           n= 3972  jeet  64%  avg  +0.19%  median  +0.20%
+  ex OPEN par becho (20% tax baad)           n= 3972  jeet  54%  avg  +0.03%  median  +0.06%
+  ex CLOSE par becho (20% tax baad)          n= 3972  jeet  43%  avg  -0.18%  median  -0.29%
+  sirf bhav girawat ex OPEN (% dividend ka)  n= 3972  median    13%
+
+== yield <1% ==
+  ex OPEN par becho (tax se pehle)           n= 4547  jeet  64%  avg  +0.19%  median  +0.21%
+  ex OPEN par becho (20% tax baad)           n= 4547  jeet  59%  avg  +0.11%  median  +0.13%
+  ex CLOSE par becho (20% tax baad)          n= 4547  jeet  43%  avg  -0.19%  median  -0.27%
+  sirf bhav girawat ex OPEN (% dividend ka)  n= 4547  median    -2%
+
+== yield 1-2% ==
+  ex OPEN par becho (tax se pehle)           n=  967  jeet  77%  avg  +0.52%  median  +0.46%
+  ex OPEN par becho (20% tax baad)           n=  967  jeet  62%  avg  +0.24%  median  +0.19%
+  ex CLOSE par becho (20% tax baad)          n=  967  jeet  40%  avg  -0.18%  median  -0.30%
+  sirf bhav girawat ex OPEN (% dividend ka)  n=  967  median    49%
+
+== yield 2-5% ==
+  ex OPEN par becho (tax se pehle)           n=  439  jeet  63%  avg  +0.32%  median  +0.24%
+  ex OPEN par becho (20% tax baad)           n=  439  jeet  34%  avg  -0.25%  median  -0.32%
+  ex CLOSE par becho (20% tax baad)          n=  439  jeet  33%  avg  -0.80%  median  -0.78%
+  sirf bhav girawat ex OPEN (% dividend ka)  n=  439  median    82%
+
+== yield 5%+ ==
+  ex OPEN par becho (tax se pehle)           n=   31  jeet  32%  avg  -0.41%  median  -0.38%
+  ex OPEN par becho (20% tax baad)           n=   31  jeet   6%  avg  -2.19%  median  -2.19%
+  ex CLOSE par becho (20% tax baad)          n=   31  jeet   6%  avg  -3.84%  median  -3.51%
+  sirf bhav girawat ex OPEN (% dividend ka)  n=   31  median   101%

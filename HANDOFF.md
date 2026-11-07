@@ -252,3 +252,5 @@ do the coding yourself (edit, test, commit, merge to main). Do not make him uplo
 - Without 2020, buying at the India open: Nifty 20d +2.1% (10/16) vs normal +0.8%; Auto +5.7% (11/16), FMCG +3.7% (13/16),
   Bank +3.0% (12/16); Metal -2.6%, IT +0.6% (5/16). With 2020 (COVID) the averages turn negative: crisis risk is real.
 - App: Sector heatmap (global_mkt.py 'sectors': 13 NSE sector indices, today / 5d / 21d) in the Market tab.
+
+- Dividend capture (divcap_study.py, 7 Nov 2026, 5984 events 2022-26): ex-se-pehle close buy. Tax(20%)+0.25% baad: ex OPEN sell avg +0.09%, ex CLOSE sell -0.25%; yield 2-5% -0.25/-0.80%, 5%+ -2.2/-3.8%. Bada dividend = bhav poora girta (median 82-101%). FAIL.
