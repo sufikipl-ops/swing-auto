@@ -1,49 +1,49 @@
-GAP CHECK 2026-11-12 09:26 IST (screen data date from screen_latest.csv)
+GAP CHECK 2026-11-13 09:26 IST (screen data date from screen_latest.csv)
 screen data date: 2026-11-06 | candidates: 45
 setup      symbol         status          trigger      open     gap%     ltp      vwap  note
-BREAKOUT   ICICIBANK      TRIGGERED       1572.77    1577.1     0.38  1589.8   1584.87  
-PULLBACK   MONQ50         TRIGGERED        230.23    232.15     2.01  232.61    234.15  below VWAP
-PREBREAK   SONACOMS       TRIGGERED        919.62     925.0     2.78   930.4    927.45  
-PULLBACK   63MOONS        WAIT             959.46     905.0      1.0  916.45    913.54  4.69% below trigger
-PREBREAK   APLAPOLLO      WAIT            2241.24    2200.0     0.67  2212.7   2207.13  1.29% below trigger
-PULLBACK   ARFIN          WAIT               97.0     94.27     0.13   94.24     94.16  2.93% below trigger
-BREAKOUT   BHARTIARTL     WAIT            2122.12    2094.0    -0.63  2094.5   2086.57  1.32% below trigger
-PULLBACK   BLUESTARCO     WAIT            1581.58    1563.8    -0.71  1578.2   1572.96  0.21% below trigger
-BREAKOUT   GLENMARK       WAIT            2685.18    2665.0      2.9  2660.5   2663.93  0.93% below trigger; below VWAP
-PULLBACK   IPCALAB        WAIT            1996.99    1947.5     0.29  1941.5   1942.13  2.86% below trigger; below VWAP
-PREBREAK   ITCHOTELS      WAIT             178.18    173.85    -0.32   175.5    174.83  1.53% below trigger
-PULLBACK   JAIBALAJI      WAIT              69.37      68.7      2.1   67.78      67.9  2.35% below trigger; below VWAP
-BREAKOUT   LUMAXTECH      WAIT            2344.84    2293.0    -1.48  2311.5    2301.6  1.44% below trigger
-PULLBACK   MOLBIO         WAIT            1379.38    1323.0    -1.22  1358.0   1345.77  1.57% below trigger
-PULLBACK   PWL            WAIT             132.33    128.55    -1.12  130.37    129.74  1.50% below trigger
-PREBREAK   SALSTEEL       WAIT              92.59     90.52      0.1   90.33     90.71  2.50% below trigger; below VWAP
-PULLBACK   SHILPAMED      WAIT             970.77     939.5     -0.3   958.0    950.85  1.33% below trigger
-PREBREAK   WIPRO          WAIT              201.9     196.4    -0.81  196.13    195.76  2.94% below trigger
-BREAKOUT   SHYAMMETL      RUNAWAY          1306.3    1325.7     1.93  1344.8   1335.37  LTP >1.5% above trigger
-BREAKOUT   SYMBIOTEC      RUNAWAY         1527.33    1532.0     1.22  1582.0   1573.67  LTP >1.5% above trigger
-PULLBACK   WHIRLPOOL      RUNAWAY          832.98     840.0     1.61  863.55    857.42  LTP >1.5% above trigger
-BREAKOUT   APLLTD         SKIP_GAPUP       985.98    1037.0     7.44 1041.15   1040.35  opened >1.5% above trigger
-PULLBACK   APOLLO         SKIP_GAPUP       428.63    461.15    11.48  451.35    452.34  opened >1.5% above trigger; below VWAP
-BREAKOUT   ASAHIINDIA     SKIP_GAPUP      1040.74    1095.0     5.85 1099.25   1095.68  opened >1.5% above trigger
-PULLBACK   CEIGALL        API_BUSY         388.84                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-PREBREAK   COFORGE        SKIP_GAPDOWN    2130.03    2017.5    -2.82  2021.8   2013.83  gap down
-PULLBACK   DHANBANK       API_BUSY          33.41                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-BREAKOUT   ENTERO         SKIP_GAPUP      1938.54    2009.9     5.76  2011.1    2006.0  opened >1.5% above trigger
-BREAKOUT   HDFCBANK       SKIP_GAPUP       789.04     803.0     1.87  810.65    806.72  opened >1.5% above trigger
-PULLBACK   HLEGLAS        SKIP_GAPUP       433.98     461.2    11.21   461.0    458.64  opened >1.5% above trigger
-PULLBACK   INDUSTOWER     SKIP_GAPUP       384.03     398.0     3.89   396.1    395.78  opened >1.5% above trigger
-PREBREAK   INFY           SKIP_GAPDOWN     1200.0    1145.0    -3.08  1146.5    1143.7  gap down
-BREAKOUT   LT             SKIP_GAPUP      4121.82    4210.0     2.24  4189.3   4192.37  opened >1.5% above trigger; below VWAP
-BREAKOUT   MAHABANK       SKIP_GAPUP         87.0      90.2     3.79   90.92     90.75  opened >1.5% above trigger
-PREBREAK   MANKIND        SKIP_GAPUP      2563.76    2660.0     4.72  2648.7   2653.03  opened >1.5% above trigger; below VWAP
-PREBREAK   MANOMAY        SKIP_GAPUP       253.25    261.72     5.68  261.77    260.99  opened >1.5% above trigger
-BREAKOUT   MOTILALOFS     SKIP_GAPUP       1106.1    1157.8     5.06  1202.0   1185.35  opened >1.5% above trigger
+PREBREAK   APLAPOLLO      TRIGGERED       2241.24    2235.3     2.29  2233.2   2230.69  
+PULLBACK   ARFIN          TRIGGERED          97.0     94.45     0.32   94.66     95.84  below VWAP
+BREAKOUT   ICICIBANK      TRIGGERED       1572.77    1576.1     0.31  1579.7   1578.37  
+PULLBACK   INDUSTOWER     TRIGGERED        384.03     386.1     0.78   388.8    387.87  
+BREAKOUT   LT             TRIGGERED       4121.82    4145.1     0.67  4142.6    4141.4  
+PULLBACK   MONQ50         TRIGGERED        230.23    233.62     2.65  229.93    230.03  below VWAP
+BREAKOUT   NIFTY1         TRIGGERED        279.99    280.36     1.29  278.85    278.74  
+PULLBACK   PWL            TRIGGERED        132.33     128.5    -1.15  134.07    132.36  
+BREAKOUT   SHYAMMETL      TRIGGERED        1306.3    1314.7     1.08  1304.3   1305.03  below VWAP
+PREBREAK   SONACOMS       TRIGGERED        919.62     925.0     2.78   926.4    923.66  
+PREBREAK   TRENT          TRIGGERED       3133.13    3180.0     3.28  3157.5   3162.67  below VWAP
+PULLBACK   WHIRLPOOL      TRIGGERED        832.98     835.0      1.0   829.0    830.77  below VWAP
+PULLBACK   63MOONS        WAIT             959.46     927.4      3.5  917.45    916.65  4.58% below trigger
+BREAKOUT   BHARTIARTL     WAIT            2122.12    2082.0     -1.2  2090.3   2088.43  1.52% below trigger
+BREAKOUT   GLENMARK       WAIT            2685.18    2657.8     2.62  2663.8   2664.07  0.80% below trigger; below VWAP
+PULLBACK   JAIBALAJI      WAIT              69.37     67.59     0.45   67.19     66.81  3.24% below trigger
+BREAKOUT   LUMAXTECH      WAIT            2344.84    2330.0     0.11  2308.7   2307.23  1.57% below trigger
+PREBREAK   WIPRO          WAIT              201.9    195.56    -1.23  195.78    195.08  3.13% below trigger
+PULLBACK   TARIL          RUNAWAY          312.91     315.0     2.76   318.8     316.6  LTP >1.5% above trigger
+BREAKOUT   APLLTD         API_BUSY         985.98                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   APOLLO         SKIP_GAPUP       428.63     440.0     6.37   451.5    445.86  opened >1.5% above trigger
+BREAKOUT   ASAHIINDIA     SKIP_GAPUP      1040.74    1108.1     7.12 1102.95   1104.13  opened >1.5% above trigger; below VWAP
+PULLBACK   BLUESTARCO     API_BUSY        1581.58                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PULLBACK   CEIGALL        SKIP_GAPUP       388.84     395.0     2.85   397.1    397.59  opened >1.5% above trigger; below VWAP
+PREBREAK   COFORGE        SKIP_GAPDOWN    2130.03    2030.0    -2.22  2051.0   2044.08  gap down
+PULLBACK   DHANBANK       SKIP_GAPUP        33.41     35.27      7.6   35.11     35.18  opened >1.5% above trigger; below VWAP
+BREAKOUT   ENTERO         SKIP_GAPUP      1938.54    1971.0     3.72  1995.0   1983.83  opened >1.5% above trigger
+BREAKOUT   HDFCBANK       SKIP_GAPUP       789.04     808.0     2.51   798.3    801.95  opened >1.5% above trigger; below VWAP
+PULLBACK   HLEGLAS        SKIP_GAPUP       433.98     450.6     8.66   457.0    456.03  opened >1.5% above trigger
+PREBREAK   INFY           SKIP_GAPDOWN     1200.0    1147.5    -2.87  1147.0   1144.51  gap down
+PULLBACK   IPCALAB        SKIP_GAPDOWN    1996.99    1900.1    -2.15  1921.6   1920.98  gap down
+PREBREAK   ITCHOTELS      API_BUSY         178.18                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+BREAKOUT   MAHABANK       SKIP_GAPUP         87.0      91.3     5.05   90.51     90.71  opened >1.5% above trigger; below VWAP
+PREBREAK   MANKIND        SKIP_GAPUP      2563.76    2638.6     3.88  2655.0   2649.98  opened >1.5% above trigger
+PREBREAK   MANOMAY        SKIP_GAPUP       253.25    259.89     4.94  259.98    260.12  opened >1.5% above trigger; below VWAP
+PULLBACK   MOLBIO         SKIP_GAPUP      1379.38    1412.6     5.47  1452.9   1427.68  opened >1.5% above trigger
+BREAKOUT   MOTILALOFS     SKIP_GAPUP       1106.1    1206.0     9.44  1222.3   1210.28  opened >1.5% above trigger
 PULLBACK   MRPL           API_BUSY         177.08                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
-BREAKOUT   NIFTY1         SKIP_GAPDOWN     279.99    272.08     -1.7  282.34     279.0  gap down
-BREAKOUT   SAILIFE        SKIP_GAPUP      1816.71    1910.2     7.01  1890.2   1899.73  opened >1.5% above trigger; below VWAP
-PULLBACK   SUNTV          SKIP_GAPUP       607.31     652.0      9.5   653.7    652.11  opened >1.5% above trigger
-PREBREAK   SYNGENE        SKIP_GAPUP       427.13     447.0     7.12  445.15    444.44  opened >1.5% above trigger
-PULLBACK   TARIL          SKIP_GAPUP       312.91     320.0     4.39  318.15     318.4  opened >1.5% above trigger; below VWAP
-PREBREAK   TRENT          SKIP_GAPUP      3133.13    3210.0     4.25  3212.6    3204.6  opened >1.5% above trigger
-PREBREAK   UNIONBANK      SKIP_GAPUP       189.09     202.2     8.13  200.23    200.68  opened >1.5% above trigger; below VWAP
+BREAKOUT   SAILIFE        API_BUSY        1816.71                                       no candles yet API: HTTP 403 Access denied because of exceeding access rate
+PREBREAK   SALSTEEL       SKIP_GAPDOWN      92.59     87.64    -3.09   86.27     86.37  gap down; below VWAP
+PULLBACK   SHILPAMED      SKIP_GAPUP       970.77    1000.0     6.12  1017.7   1012.43  opened >1.5% above trigger
+PULLBACK   SUNTV          SKIP_GAPUP       607.31    667.35    12.07  667.05    664.89  opened >1.5% above trigger
+BREAKOUT   SYMBIOTEC      SKIP_GAPUP      1527.33    1635.0     8.02  1614.0   1613.87  opened >1.5% above trigger
+PREBREAK   SYNGENE        SKIP_GAPUP       427.13     449.0      7.6  451.95    449.59  opened >1.5% above trigger
+PREBREAK   UNIONBANK      SKIP_GAPUP       189.09    202.89      8.5   202.9    202.63  opened >1.5% above trigger
 Status guide: TRIGGERED = price crossed trigger and is within 1.5%; WAIT = not yet; SKIP_* / RUNAWAY = do not enter. Not financial advice.
